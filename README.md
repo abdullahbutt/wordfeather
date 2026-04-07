@@ -156,10 +156,11 @@ deutsch_a1_a2_b1_b2_c1_c2/
 
 **Viel Erfolg beim Lernen! / Good luck with your studies!** 🍀
 
-## ❤️ Unterstütze dieses Projekt / Support This Project
+## ❤️ Support This Project / Unterstütze dieses Projekt
 
 
 *If these materials helped you, consider buying me a coffee to keep this project free for everyone!*
+
 *Wenn dir diese Materialien geholfen haben, kannst du mich gerne mit einem Kaffee unterstützen!*  
 
 [![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?logo=paypal&style=for-the-badge)](https://www.paypal.com/paypalme/abdullahbuttde)
