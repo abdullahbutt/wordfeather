@@ -1,3 +1,5 @@
+> ⭐ If you find these materials useful, please star this repo — it helps other learners discover it!
+
 # 🇩🇪 Deutsch Lernen — Goethe-Zertifikat Vorbereitung
 # 🇩🇪 Learn German — Goethe Certificate Preparation
 
