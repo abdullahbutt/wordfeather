@@ -1,5 +1,5 @@
 > ⭐ If you find these materials useful, please star this repo — it helps other learners discover it!
-
+> 🌐 **[View as a Website](https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/)** — Browse all materials in a beautiful HTML format with dark mode, navigation, and quick-jump!
 # 🇩🇪 Deutsch Lernen — Goethe-Zertifikat Vorbereitung
 # 🇩🇪 Learn German — Goethe Certificate Preparation
 
