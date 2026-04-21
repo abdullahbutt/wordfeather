@@ -229,6 +229,27 @@
             justify-content: center;
             padding: 0 0.65rem;
         }
+    
+        .site-footer {
+            background: var(--page-bg, #f1f3f5);
+            color: var(--page-text, #1f2937);
+        }
+        [data-bs-theme="dark"] .site-footer {
+            background: #1e293b !important;
+            color: #e2e8f0;
+            border-color: #374151 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .text-secondary {
+            color: #94a3b8 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary {
+            color: #94a3b8;
+            border-color: #475569;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary:hover {
+            background: #334155;
+            color: #e2e8f0;
+        }
     </style>
 </head>
 <body id="top">
@@ -459,12 +480,12 @@
             var toggleDisplay = function () {
                 isExpanded = !isExpanded;
                 if (isExpanded) {
-                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
                     lastBatch.forEach(function (l) { l.style.display = ''; });
-                    moreBtn.title = 'Show first buttons';
+                    moreBtn.textContent = '\u25B2';
+                    moreBtn.title = 'Show fewer';
                 } else {
-                    firstBatch.forEach(function (l) { l.style.display = ''; });
                     lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.textContent = '\u2026';
                     moreBtn.title = 'Show more buttons';
                 }
             };
@@ -486,6 +507,13 @@
                         var id = link.getAttribute('href').substring(1);
                         if (!document.getElementById(id)) { link.remove(); }
                     });
+                    document.querySelectorAll('.jump-links a[data-section]').forEach(function (link) {
+                        var sectionNum = link.getAttribute('data-section');
+                        var headings = document.querySelectorAll('h2[id]');
+                        var found = false;
+                        headings.forEach(function(h, i) { if (String(i + 1) === sectionNum) found = true; });
+                        if (!found) link.remove();
+                    });
                     setupJumpCollapse();
                 })
                 .catch(function () {
@@ -503,7 +531,7 @@
         (function() {
             var parts = window.location.pathname.split('/').filter(Boolean);
             var prefix = parts.length <= 1 ? '' : '../';
-            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
             fetch(prefix + 'footer.html')
                 .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
                 .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
