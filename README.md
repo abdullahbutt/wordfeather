@@ -1,5 +1,10 @@
-> ⭐ If you find these materials useful, please star this repo — it helps other learners discover it!
-> 🌐 **[View as a Website](https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/)** — Browse all materials in a beautiful HTML format with dark mode, navigation, and quick-jump!
+<div align="center">
+
+[![GitHub Stars](https://img.shields.io/github/stars/abdullahbutt/deutsch-lernen-goethe-a1-c2?style=for-the-badge&logo=github&label=Star%20this%20Repo)](https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2)
+&nbsp;&nbsp;
+[![View Website](https://img.shields.io/badge/🌐_View_as_Website-Click_Here-blue?style=for-the-badge)](https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/)
+
+</div>
 # 🇩🇪 Deutsch Lernen — Goethe-Zertifikat Vorbereitung
 # 🇩🇪 Learn German — Goethe Certificate Preparation
 
