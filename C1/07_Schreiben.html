@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 Schreiben - C1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">C1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">07 Schreiben</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">07 Schreiben</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">C1</span>
+                </div>
+
+                
+
+                <div class="markdown-content">
+                    <h1 id="c1-schreiben-writing">C1 Schreiben / Writing</h1>
+<h2 id="prufungsformat">Prüfungsformat</h2>
+<table>
+<thead>
+<tr>
+<th>Teil</th>
+<th>Aufgabe</th>
+<th>Punkte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Textgebundene Erörterung: Grafik + Text (ca. 200-250 Wörter)</td>
+<td>50</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Formeller Brief/Stellungnahme (ca. 150 Wörter)</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dauer: 80 Minuten</strong></p>
+<hr />
+<h2 id="teil-1-textgebundene-erorterung">Teil 1: Textgebundene Erörterung</h2>
+<h3 id="aufgabe-grafik-beschreiben-text-kommentieren-eigene-meinung">Aufgabe: Grafik beschreiben + Text kommentieren + eigene Meinung</h3>
+<h3 id="struktur">Struktur</h3>
+<ol>
+<li><strong>Einleitung</strong> — Thema und Quelle der Grafik nennen</li>
+<li><strong>Grafikbeschreibung</strong> — Hauptaussagen, Trends, auffällige Daten</li>
+<li><strong>Kommentar zum Begleittext</strong> — Zentrale These aufgreifen</li>
+<li><strong>Eigene Argumentation</strong> — Pro/Contra, eigene Erfahrung</li>
+<li><strong>Fazit</strong> — Zusammenfassung, Ausblick</li>
+</ol>
+<h3 id="redemittel-fur-grafikbeschreibung">Redemittel für Grafikbeschreibung</h3>
+<p><strong>Einleitung:</strong><br />
+- Die vorliegende Grafik gibt Auskunft über ...<br />
+- Aus der Statistik geht hervor, dass ...<br />
+- Die Daten stammen aus einer Erhebung des/der ...</p>
+<p><strong>Trends beschreiben:</strong><br />
+- Die Zahl der ... ist von ... auf ... gestiegen/gefallen/konstant geblieben.<br />
+- Es ist ein deutlicher/leichter Anstieg/Rückgang zu verzeichnen.<br />
+- Im Zeitraum von ... bis ... hat sich der Anteil verdoppelt/halbiert.<br />
+- Auffällig ist, dass ...<br />
+- Besonders bemerkenswert ist der Unterschied zwischen ...</p>
+<p><strong>Vergleiche:</strong><br />
+- Im Vergleich zu ... liegt ... deutlich höher/niedriger.<br />
+- Während ... zugenommen hat, ist ... zurückgegangen.<br />
+- Der Unterschied zwischen ... und ... beträgt ... Prozentpunkte.</p>
+<h3 id="ubung-1-erorterung-nutzung-sozialer-medien">Übung 1: Erörterung "Nutzung sozialer Medien"</h3>
+<p><strong>Grafik (fiktiv):</strong> Tägliche Nutzungsdauer sozialer Medien nach Altersgruppen<br />
+- 14-29 Jahre: 3,5 Stunden<br />
+- 30-49 Jahre: 2,0 Stunden<br />
+- 50-69 Jahre: 1,2 Stunden<br />
+- 70+: 0,5 Stunden</p>
+<p><strong>Musterantwort:</strong></p>
+<blockquote>
+<p>Die vorliegende Grafik gibt Auskunft über die durchschnittliche tägliche Nutzungsdauer sozialer Medien in Deutschland, aufgeschlüsselt nach Altersgruppen. Aus den Daten geht hervor, dass junge Menschen zwischen 14 und 29 Jahren mit durchschnittlich 3,5 Stunden täglich die intensivsten Nutzer sind. Mit zunehmendem Alter nimmt die Nutzungsdauer deutlich ab: Die Altersgruppe der 50- bis 69-Jährigen verbringt nur noch 1,2 Stunden, die über 70-Jährigen lediglich 0,5 Stunden pro Tag in sozialen Medien.</p>
+<p>Diese Zahlen legen den Schluss nahe, dass soziale Medien insbesondere für die jüngere Generation zu einem zentralen Bestandteil des Alltags geworden sind. Dies ist jedoch nicht unproblematisch, wie zahlreiche Studien belegen, die einen Zusammenhang zwischen exzessiver Social-Media-Nutzung und psychischen Belastungen wie Angstzuständen und depressiven Verstimmungen aufzeigen.</p>
+<p>Andererseits darf man die positiven Aspekte nicht außer Acht lassen: Soziale Medien ermöglichen es, Kontakte über große Entfernungen aufrechtzuerhalten, und bieten Zugang zu einer Fülle von Informationen. Auch politisches Engagement und gesellschaftliche Teilhabe werden durch sie erleichtert.</p>
+<p>Meines Erachtens liegt die Lösung nicht in einer Verteufelung sozialer Medien, sondern in einem bewussten und reflektierten Umgang mit ihnen. Es bedarf gezielter Medienerziehung, die bereits im Schulalter ansetzen sollte, um jungen Menschen die nötige Kompetenz für einen verantwortungsvollen Umgang zu vermitteln.</p>
+</blockquote>
+<hr />
+<h2 id="teil-2-formeller-brief-stellungnahme">Teil 2: Formeller Brief / Stellungnahme</h2>
+<h3 id="ubung-2-stellungnahme-an-die-stadtverwaltung">Übung 2: Stellungnahme an die Stadtverwaltung</h3>
+<p><strong>Aufgabe:</strong> Die Stadt plant, den Stadtpark zu verkleinern, um Wohnungen zu bauen. Schreiben Sie eine Stellungnahme.</p>
+<blockquote>
+<p>Sehr geehrte Damen und Herren,</p>
+<p>mit großer Besorgnis habe ich von den Plänen erfahren, den Stadtpark teilweise zu bebauen. Ich möchte im Folgenden darlegen, warum ich dieses Vorhaben für äußerst bedenklich halte.</p>
+<p>Es steht außer Frage, dass bezahlbarer Wohnraum dringend benötigt wird. Dennoch halte ich es für verfehlt, dies auf Kosten einer der wenigen verbliebenen Grünflächen zu tun. Der Park erfüllt wichtige Funktionen: Er dient den Bewohnern als Erholungsraum, verbessert die Luftqualität und trägt zum Schutz der Artenvielfalt bei. Gerade angesichts der zunehmenden Hitzeperioden sind innerstädtische Grünflächen von immenser Bedeutung.</p>
+<p>Ich möchte daher anregen, alternative Standorte für den Wohnungsbau in Betracht zu ziehen, etwa durch die Nachverdichtung bestehender Bebauung oder die Umwidmung brachliegender Industrieflächen.</p>
+<p>Ich wäre Ihnen sehr verbunden, wenn Sie meine Einwände bei Ihren Planungen berücksichtigen würden.</p>
+<p>Mit freundlichen Grüßen<br />
+[Name]</p>
+</blockquote>
+<hr />
+<h2 id="bewertungskriterien">Bewertungskriterien</h2>
+<ol>
+<li><strong>Inhalt:</strong> Alle Aufgabenpunkte behandelt, Grafik korrekt interpretiert</li>
+<li><strong>Kohärenz:</strong> Klarer Aufbau, logische Gliederung, angemessene Konnektoren</li>
+<li><strong>Wortschatz:</strong> Differenziert, präzise, C1-Niveau (Nominalisierungen, Kollokationen)</li>
+<li><strong>Grammatik:</strong> Komplexe Strukturen korrekt (Passiv, Konjunktiv, Partizipialattribute)</li>
+<li><strong>Register:</strong> Angemessener Stil (formal, sachlich, akademisch)</li>
+</ol>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer bg-primary text-light mt-5 py-4 shadow-sm"><div class="container text-center small"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-2 text-light-emphasis">Official certification materials for German language proficiency</p><div class="d-flex justify-content-center gap-3 flex-wrap mb-2"><a href="https://www.goethe.de" class="link-light text-decoration-none" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="link-light text-decoration-none" target="_blank" rel="noopener">GitHub ↗</a></div><p class="mb-0 text-light-emphasis">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>

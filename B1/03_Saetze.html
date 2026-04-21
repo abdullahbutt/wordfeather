@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Saetze - B1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+                .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-more-btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+                font-size: 0.85rem;
+                margin-top: 0.1rem;
+                letter-spacing: 0.05em;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">B1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">03 Saetze</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">03 Saetze</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">B1</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="b1-satze-von-a-bis-z-sentences-from-a-to-z">B1 Sätze von A bis Z / Sentences from A to Z</h1>
+<p>Komplexere Sätze auf B1-Niveau mit Nebensätzen, Konnektoren und Konjunktiv II.<br />
+<em>More complex sentences at B1 level with subordinate clauses, connectors, and Subjunctive II.</em></p>
+<hr />
+<h2 id="a">A</h2>
+<ol>
+<li><strong>Obwohl er Angst vor dem Fliegen hat, reist er oft ins Ausland.</strong> — Although he's afraid of flying, he often travels abroad.</li>
+<li><strong>Aufgrund des schlechten Wetters wurde die Veranstaltung abgesagt.</strong> — Due to bad weather, the event was cancelled.</li>
+<li><strong>An deiner Stelle würde ich den Arzt anrufen.</strong> — If I were you, I would call the doctor.</li>
+</ol>
+<h2 id="b">B</h2>
+<ol>
+<li><strong>Bevor ich nach Deutschland gezogen bin, habe ich sechs Monate Deutsch gelernt.</strong> — Before I moved to Germany, I learned German for six months.</li>
+<li><strong>Die Bewerbung muss bis Freitag eingereicht werden.</strong> — The application must be submitted by Friday.</li>
+<li><strong>Ich bin der Meinung, dass Bildung der Schlüssel zum Erfolg ist.</strong> — I am of the opinion that education is the key to success.</li>
+</ol>
+<h2 id="d">D</h2>
+<ol>
+<li><strong>Nachdem ich das Studium abgeschlossen hatte, fand ich schnell eine Stelle.</strong> — After I had completed my studies, I quickly found a job.</li>
+<li><strong>Trotz der Schwierigkeiten hat sie die Prüfung bestanden.</strong> — Despite the difficulties, she passed the exam.</li>
+</ol>
+<h2 id="e">E</h2>
+<ol>
+<li><strong>Es wäre schön, wenn wir uns öfter treffen könnten.</strong> — It would be nice if we could meet more often.</li>
+<li><strong>Entweder wir fahren mit dem Zug oder wir fliegen.</strong> — Either we take the train or we fly.</li>
+<li><strong>Er arbeitet ehrenamtlich, um Flüchtlingen zu helfen.</strong> — He volunteers to help refugees.</li>
+</ol>
+<h2 id="f">F</h2>
+<ol>
+<li><strong>Falls Sie Fragen haben, können Sie mich jederzeit anrufen.</strong> — If you have questions, you can call me anytime.</li>
+<li><strong>Ich finde es wichtig, dass man tolerant gegenüber anderen Kulturen ist.</strong> — I think it's important to be tolerant towards other cultures.</li>
+</ol>
+<h2 id="g">G</h2>
+<ol>
+<li><strong>Die Gleichberechtigung von Männern und Frauen ist ein wichtiges Thema.</strong> — Gender equality is an important topic.</li>
+<li><strong>Gesundheit ist wertvoller als Geld.</strong> — Health is more valuable than money.</li>
+</ol>
+<h2 id="h">H</h2>
+<ol>
+<li><strong>Hätte ich früher angefangen zu lernen, hätte ich die Prüfung besser bestanden.</strong> — If I had started learning earlier, I would have passed the exam better.</li>
+</ol>
+<h2 id="j">J</h2>
+<ol>
+<li><strong>Je nachdem, wie das Wetter wird, machen wir einen Ausflug oder bleiben zu Hause.</strong> — Depending on the weather, we'll go on a trip or stay home.</li>
+</ol>
+<h2 id="k">K</h2>
+<ol>
+<li><strong>Der Klimawandel ist eine der größten Herausforderungen unserer Zeit.</strong> — Climate change is one of the greatest challenges of our time.</li>
+</ol>
+<h2 id="l">L</h2>
+<ol>
+<li><strong>Laut einer Studie lernen Kinder Sprachen schneller als Erwachsene.</strong> — According to a study, children learn languages faster than adults.</li>
+</ol>
+<h2 id="m">M</h2>
+<ol>
+<li><strong>Meiner Meinung nach sollte jeder mindestens eine Fremdsprache sprechen.</strong> — In my opinion, everyone should speak at least one foreign language.</li>
+</ol>
+<h2 id="n">N</h2>
+<ol>
+<li><strong>Nicht nur die Sprache, sondern auch die Kultur zu kennen, ist wichtig.</strong> — Knowing not only the language but also the culture is important.</li>
+</ol>
+<h2 id="o">O</h2>
+<ol>
+<li><strong>Obwohl er seit zehn Jahren in Deutschland lebt, vermisst er seine Heimat.</strong> — Although he has lived in Germany for ten years, he misses his homeland.</li>
+</ol>
+<h2 id="r">R</h2>
+<ol>
+<li><strong>Recycling ist eine einfache Möglichkeit, die Umwelt zu schützen.</strong> — Recycling is a simple way to protect the environment.</li>
+</ol>
+<h2 id="s">S</h2>
+<ol>
+<li><strong>Seitdem ich regelmäßig Sport treibe, fühle ich mich viel besser.</strong> — Since I've been exercising regularly, I feel much better.</li>
+<li><strong>Sowohl in der Schule als auch an der Uni wird Teamarbeit betont.</strong> — Both at school and university, teamwork is emphasized.</li>
+<li><strong>Statt sich zu beschweren, sollte man nach einer Lösung suchen.</strong> — Instead of complaining, one should look for a solution.</li>
+</ol>
+<h2 id="t">T</h2>
+<ol>
+<li><strong>Trotz aller Schwierigkeiten bin ich optimistisch.</strong> — Despite all difficulties, I'm optimistic.</li>
+</ol>
+<h2 id="u">U</h2>
+<ol>
+<li><strong>Um die Umwelt zu schützen, sollte man weniger Auto fahren.</strong> — To protect the environment, one should drive less.</li>
+</ol>
+<h2 id="v">V</h2>
+<ol>
+<li><strong>Verglichen mit anderen Ländern ist das Bildungssystem in Deutschland sehr gut.</strong> — Compared to other countries, the education system in Germany is very good.</li>
+</ol>
+<h2 id="w">W</h2>
+<ol>
+<li><strong>Wenn ich die Möglichkeit hätte, würde ich ein Jahr im Ausland leben.</strong> — If I had the opportunity, I would live abroad for a year.</li>
+<li><strong>Weder die Regierung noch die Industrie allein kann das Problem lösen.</strong> — Neither the government nor industry alone can solve the problem.</li>
+</ol>
+<h2 id="z">Z</h2>
+<ol>
+<li><strong>Zusammenfassend kann man sagen, dass Sprachenlernen viele Vorteile hat.</strong> — In summary, learning languages has many advantages.</li>
+<li><strong>Zwar ist das Leben in der Großstadt teurer, aber es bietet auch mehr Möglichkeiten.</strong> — Although life in the big city is more expensive, it also offers more opportunities.</li>
+</ol>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_saetze.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[href^="#"]').forEach(function (link) {
+                        var id = link.getAttribute('href').substring(1);
+                        if (!document.getElementById(id)) { link.remove(); }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        if (/^[a-z]$/.test(h.id)) { buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-primary">' + h.id.toUpperCase() + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

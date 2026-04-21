@@ -1,0 +1,821 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 Grammatik - A2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">02 Grammatik</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">02 Grammatik</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A2</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="a2-grammatik-grammar">A2 Grammatik / Grammar</h1>
+<p>Alle wichtigen Grammatikregeln für das Goethe-Zertifikat A2 (aufbauend auf A1).<br />
+<em>All important grammar rules for the Goethe-Zertifikat A2 (building on A1).</em></p>
+<hr />
+<h2 id="1-perfekt-vertiefung-perfect-tense-deepening">1. Perfekt — Vertiefung / Perfect Tense — Deepening</h2>
+<h3 id="perfekt-mit-sein-vollstandige-liste-complete-list">Perfekt mit "sein" — Vollständige Liste / Complete List</h3>
+<p>Verwenden Sie "sein" für Bewegungsverben und Zustandsänderungen.<br />
+<em>Use "sein" for movement verbs and changes of state.</em></p>
+<table>
+<thead>
+<tr>
+<th>Infinitiv</th>
+<th>Partizip II</th>
+<th>Englisch / English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gehen</td>
+<td>gegangen</td>
+<td>to go</td>
+</tr>
+<tr>
+<td>kommen</td>
+<td>gekommen</td>
+<td>to come</td>
+</tr>
+<tr>
+<td>fahren</td>
+<td>gefahren</td>
+<td>to drive</td>
+</tr>
+<tr>
+<td>fliegen</td>
+<td>geflogen</td>
+<td>to fly</td>
+</tr>
+<tr>
+<td>laufen</td>
+<td>gelaufen</td>
+<td>to run</td>
+</tr>
+<tr>
+<td>reisen</td>
+<td>gereist</td>
+<td>to travel</td>
+</tr>
+<tr>
+<td>aufstehen</td>
+<td>aufgestanden</td>
+<td>to get up</td>
+</tr>
+<tr>
+<td>werden</td>
+<td>geworden</td>
+<td>to become</td>
+</tr>
+<tr>
+<td>sein</td>
+<td>gewesen</td>
+<td>to be</td>
+</tr>
+<tr>
+<td>bleiben</td>
+<td>geblieben</td>
+<td>to stay</td>
+</tr>
+<tr>
+<td>passieren</td>
+<td>passiert</td>
+<td>to happen</td>
+</tr>
+<tr>
+<td>einschlafen</td>
+<td>eingeschlafen</td>
+<td>to fall asleep</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-prateritum-simple-past">2. Präteritum / Simple Past</h2>
+<p>Das Präteritum wird hauptsächlich für "sein", "haben" und Modalverben verwendet (im Gespräch). Für andere Verben benutzt man meistens das Perfekt.<br />
+<em>The Präteritum is mainly used for "sein", "haben", and modal verbs (in conversation). For other verbs, the Perfekt is mostly used.</em></p>
+<h3 id="sein-im-prateritum-sein-in-simple-past">"sein" im Präteritum / "sein" in simple past</h3>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Präteritum</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>war</td>
+<td>I was</td>
+</tr>
+<tr>
+<td>du</td>
+<td>warst</td>
+<td>you were</td>
+</tr>
+<tr>
+<td>er/sie/es</td>
+<td>war</td>
+<td>he/she/it was</td>
+</tr>
+<tr>
+<td>wir</td>
+<td>waren</td>
+<td>we were</td>
+</tr>
+<tr>
+<td>ihr</td>
+<td>wart</td>
+<td>you (pl.) were</td>
+</tr>
+<tr>
+<td>sie/Sie</td>
+<td>waren</td>
+<td>they/you were</td>
+</tr>
+</tbody>
+</table>
+<h3 id="haben-im-prateritum-haben-in-simple-past">"haben" im Präteritum / "haben" in simple past</h3>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Präteritum</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>hatte</td>
+<td>I had</td>
+</tr>
+<tr>
+<td>du</td>
+<td>hattest</td>
+<td>you had</td>
+</tr>
+<tr>
+<td>er/sie/es</td>
+<td>hatte</td>
+<td>he/she/it had</td>
+</tr>
+<tr>
+<td>wir</td>
+<td>hatten</td>
+<td>we had</td>
+</tr>
+</tbody>
+</table>
+<h3 id="modalverben-im-prateritum-modal-verbs-in-simple-past">Modalverben im Präteritum / Modal Verbs in Simple Past</h3>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>können <em>(could)</em></th>
+<th>müssen <em>(had to)</em></th>
+<th>wollen <em>(wanted)</em></th>
+<th>dürfen <em>(was allowed)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>konnte</td>
+<td>musste</td>
+<td>wollte</td>
+<td>durfte</td>
+</tr>
+<tr>
+<td>du</td>
+<td>konntest</td>
+<td>musstest</td>
+<td>wolltest</td>
+<td>durftest</td>
+</tr>
+<tr>
+<td>er/sie</td>
+<td>konnte</td>
+<td>musste</td>
+<td>wollte</td>
+<td>durfte</td>
+</tr>
+<tr>
+<td>wir</td>
+<td>konnten</td>
+<td>mussten</td>
+<td>wollten</td>
+<td>durften</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-nebensatze-subordinate-clauses">3. Nebensätze / Subordinate Clauses</h2>
+<p>In Nebensätzen steht das Verb am <strong>Ende</strong>. <em>In subordinate clauses, the verb goes to the </em><em>end</em><em>.</em></p>
+<p><strong>weil</strong> <em>(because)</em>: Ich lerne Deutsch, <strong>weil</strong> ich in Deutschland arbeiten <strong>will</strong>.<br />
+<em>I'm learning German because I want to work in Germany.</em></p>
+<p><strong>dass</strong> <em>(that)</em>: Ich glaube, <strong>dass</strong> er morgen <strong>kommt</strong>.<br />
+<em>I believe that he's coming tomorrow.</em></p>
+<p><strong>wenn</strong> <em>(when/if)</em>: <strong>Wenn</strong> es <strong>regnet</strong>, bleibe ich zu Hause.<br />
+<em>When/If it rains, I stay home.</em></p>
+<p><strong>obwohl</strong> <em>(although)</em>: Ich gehe spazieren, <strong>obwohl</strong> es kalt <strong>ist</strong>.<br />
+<em>I go for a walk although it's cold.</em></p>
+<p><strong>als</strong> <em>(when — one-time past)</em>: <strong>Als</strong> ich ein Kind <strong>war</strong>, spielte ich gern Fußball.<br />
+<em>When I was a child, I liked playing football.</em></p>
+<h3 id="indirekte-fragen-indirect-questions">Indirekte Fragen / Indirect Questions</h3>
+<p>Das Verb geht auch ans Ende. <em>The verb also goes to the end.</em></p>
+<p><strong>ob</strong> <em>(whether)</em>: Ich weiß nicht, <strong>ob</strong> er morgen <strong>kommt</strong>. <em>(I don't know whether he's coming tomorrow.)</em></p>
+<p><strong>W-Wort:</strong> Kannst du mir sagen, <strong>wann</strong> der Zug <strong>fährt</strong>? <em>(Can you tell me when the train leaves?)</em></p>
+<hr />
+<h2 id="4-komparativ-und-superlativ-comparison">4. Komparativ und Superlativ / Comparison</h2>
+<h3 id="regelmaig-regular">Regelmäßig / Regular</h3>
+<table>
+<thead>
+<tr>
+<th>Grundform / Base</th>
+<th>Komparativ / Comparative</th>
+<th>Superlativ / Superlative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>klein <em>(small)</em></td>
+<td>kleiner</td>
+<td>am kleinsten</td>
+</tr>
+<tr>
+<td>schnell <em>(fast)</em></td>
+<td>schneller</td>
+<td>am schnellsten</td>
+</tr>
+<tr>
+<td>schön <em>(beautiful)</em></td>
+<td>schöner</td>
+<td>am schönsten</td>
+</tr>
+</tbody>
+</table>
+<h3 id="unregelmaig-irregular">Unregelmäßig / Irregular</h3>
+<table>
+<thead>
+<tr>
+<th>Grundform</th>
+<th>Komparativ</th>
+<th>Superlativ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gut <em>(good)</em></td>
+<td>besser <em>(better)</em></td>
+<td>am besten <em>(best)</em></td>
+</tr>
+<tr>
+<td>viel <em>(much)</em></td>
+<td>mehr <em>(more)</em></td>
+<td>am meisten <em>(most)</em></td>
+</tr>
+<tr>
+<td>gern <em>(gladly)</em></td>
+<td>lieber <em>(rather)</em></td>
+<td>am liebsten <em>(most gladly)</em></td>
+</tr>
+<tr>
+<td>groß <em>(big)</em></td>
+<td>größer <em>(bigger)</em></td>
+<td>am größten <em>(biggest)</em></td>
+</tr>
+<tr>
+<td>alt <em>(old)</em></td>
+<td>älter <em>(older)</em></td>
+<td>am ältesten <em>(oldest)</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="vergleiche-comparisons">Vergleiche / Comparisons</h3>
+<ul>
+<li>Berlin ist <strong>größer als</strong> München. <em>(Berlin is bigger than Munich.)</em></li>
+<li>München ist <strong>nicht so groß wie</strong> Berlin. <em>(Munich is not as big as Berlin.)</em></li>
+<li>Berlin ist <strong>die größte</strong> Stadt in Deutschland. <em>(Berlin is the biggest city in Germany.)</em></li>
+</ul>
+<hr />
+<h2 id="5-reflexive-verben-reflexive-verbs">5. Reflexive Verben / Reflexive Verbs</h2>
+<p>Reflexive Verben brauchen ein Reflexivpronomen (mich, dich, sich, uns, euch, sich).<br />
+<em>Reflexive verbs need a reflexive pronoun.</em></p>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Reflexivpronomen / Reflexive pronoun</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>mich <em>(myself)</em></td>
+</tr>
+<tr>
+<td>du</td>
+<td>dich <em>(yourself)</em></td>
+</tr>
+<tr>
+<td>er/sie/es</td>
+<td>sich <em>(himself/herself/itself)</em></td>
+</tr>
+<tr>
+<td>wir</td>
+<td>uns <em>(ourselves)</em></td>
+</tr>
+<tr>
+<td>ihr</td>
+<td>euch <em>(yourselves)</em></td>
+</tr>
+<tr>
+<td>sie/Sie</td>
+<td>sich <em>(themselves/yourself formal)</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiele / Examples:</strong><br />
+- Ich <strong>freue mich</strong> auf den Urlaub. <em>(I'm looking forward to the vacation.)</em><br />
+- Er <strong>ärgert sich</strong> über den Stau. <em>(He's annoyed about the traffic jam.)</em><br />
+- Wir <strong>treffen uns</strong> um 15 Uhr. <em>(We're meeting at 3 PM.)</em><br />
+- Sie <strong>interessiert sich</strong> für Kunst. <em>(She's interested in art.)</em></p>
+<h3 id="wichtige-reflexive-verben-important-reflexive-verbs">Wichtige reflexive Verben / Important reflexive verbs</h3>
+<p>sich anmelden <em>(register)</em>, sich ärgern <em>(be annoyed)</em>, sich ausruhen <em>(rest)</em>, sich beeilen <em>(hurry)</em>, sich beschweren <em>(complain)</em>, sich entscheiden <em>(decide)</em>, sich entschuldigen <em>(apologize)</em>, sich erinnern <em>(remember)</em>, sich freuen <em>(be happy)</em>, sich fühlen <em>(feel)</em>, sich gewöhnen <em>(get used to)</em>, sich interessieren <em>(be interested)</em>, sich kümmern <em>(take care of)</em>, sich treffen <em>(meet)</em>, sich unterhalten <em>(converse)</em>, sich vorstellen <em>(imagine/introduce)</em></p>
+<hr />
+<h2 id="6-dativverben-dative-verbs">6. Dativverben / Dative Verbs</h2>
+<p>Einige Verben brauchen ein Dativobjekt. <em>Some verbs require a dative object.</em></p>
+<ul>
+<li><strong>helfen</strong>: Ich helfe <strong>dir</strong>. <em>(I help you.)</em></li>
+<li><strong>gefallen</strong>: Das Bild gefällt <strong>mir</strong>. <em>(I like the picture.)</em></li>
+<li><strong>gehören</strong>: Das Buch gehört <strong>meiner Schwester</strong>. <em>(The book belongs to my sister.)</em></li>
+<li><strong>schmecken</strong>: Die Suppe schmeckt <strong>mir</strong> gut. <em>(The soup tastes good to me.)</em></li>
+<li><strong>passen</strong>: Die Schuhe passen <strong>mir</strong> nicht. <em>(The shoes don't fit me.)</em></li>
+<li><strong>fehlen</strong>: Du fehlst <strong>mir</strong>. <em>(I miss you.)</em></li>
+</ul>
+<h3 id="verben-mit-dativ-und-akkusativ-verbs-with-dative-and-accusative">Verben mit Dativ UND Akkusativ / Verbs with Dative AND Accusative</h3>
+<ul>
+<li><strong>geben</strong>: Ich gebe <strong>dir</strong> (Dativ) <strong>das Buch</strong> (Akk.). <em>(I give you the book.)</em></li>
+<li><strong>schenken</strong>: Er schenkt <strong>seiner Mutter</strong> <strong>Blumen</strong>. <em>(He gives his mother flowers.)</em></li>
+<li><strong>zeigen</strong>: Zeigen Sie <strong>mir</strong> <strong>den Weg</strong>? <em>(Can you show me the way?)</em></li>
+</ul>
+<hr />
+<h2 id="7-konjunktiv-ii-subjunctive-ii-hoflichkeit-politeness">7. Konjunktiv II / Subjunctive II (Höflichkeit / Politeness)</h2>
+<p>Verwenden Sie den Konjunktiv II für höfliche Bitten und Wünsche.<br />
+<em>Use Subjunctive II for polite requests and wishes.</em></p>
+<h3 id="wurde-infinitiv">würde + Infinitiv</h3>
+<ul>
+<li>Ich <strong>würde</strong> gern einen Kaffee <strong>trinken</strong>. <em>(I would like to drink a coffee.)</em></li>
+<li><strong>Würden</strong> Sie mir bitte <strong>helfen</strong>? <em>(Would you please help me?)</em></li>
+</ul>
+<h3 id="wichtige-formen-important-forms">Wichtige Formen / Important Forms</h3>
+<ul>
+<li>ich <strong>hätte</strong> gern ... <em>(I would like ...)</em></li>
+<li><strong>könnten</strong> Sie bitte ...? <em>(could you please ...?)</em></li>
+<li>das <strong>wäre</strong> schön <em>(that would be nice)</em></li>
+<li>ich <strong>sollte</strong> ... <em>(I should ...)</em></li>
+</ul>
+<hr />
+<h2 id="8-konnektoren-connectors">8. Konnektoren / Connectors</h2>
+<h3 id="adverbiale-konnektoren-adverbial-connectors-position-1-verb-position-2">Adverbiale Konnektoren / Adverbial Connectors (Position 1, Verb Position 2)</h3>
+<p>Diese Konnektoren stehen am Anfang des zweiten Satzes. Das Verb folgt direkt danach.<br />
+<em>These connectors stand at the beginning of the second sentence. The verb follows directly after.</em></p>
+<ul>
+<li><strong>deshalb/deswegen</strong> <em>(therefore)</em>: Ich bin müde. <strong>Deshalb</strong> gehe ich ins Bett.</li>
+<li><strong>trotzdem</strong> <em>(nevertheless)</em>: Es regnet. <strong>Trotzdem</strong> gehe ich spazieren.</li>
+<li><strong>zuerst</strong> <em>(first)</em>: <strong>Zuerst</strong> dusche ich.</li>
+<li><strong>dann</strong> <em>(then)</em>: <strong>Dann</strong> frühstücke ich.</li>
+<li><strong>außerdem</strong> <em>(besides)</em>: <strong>Außerdem</strong> muss ich einkaufen.</li>
+<li><strong>schließlich</strong> <em>(finally)</em>: <strong>Schließlich</strong> gehe ich ins Bett.</li>
+</ul>
+<hr />
+<h2 id="ubungen-exercises">Übungen / Exercises</h2>
+<h3 id="ubung-1-prateritum-simple-past">Übung 1: Präteritum / Simple Past</h3>
+<p>Setzen Sie die richtige Form ein. <em>Fill in the correct form.</em></p>
+<ol>
+<li>Gestern ___ (sein) ich im Kino. → <strong>war</strong> <em>(I was at the cinema yesterday.)</em></li>
+<li>Wir ___ (haben) viel Spaß. → <strong>hatten</strong> <em>(We had a lot of fun.)</em></li>
+<li>Er ___ (müssen) früh aufstehen. → <strong>musste</strong> <em>(He had to get up early.)</em></li>
+<li>Ich ___ (können) nicht kommen. → <strong>konnte</strong> <em>(I couldn't come.)</em></li>
+</ol>
+<h3 id="ubung-2-nebensatze-subordinate-clauses">Übung 2: Nebensätze / Subordinate Clauses</h3>
+<p>Verbinden Sie die Sätze. <em>Connect the sentences.</em></p>
+<ol>
+<li>Ich bleibe zu Hause. Es regnet. (weil) → <strong>Ich bleibe zu Hause, weil es regnet.</strong> <em>(I'm staying home because it's raining.)</em></li>
+<li>Er sagt. Er kommt morgen. (dass) → <strong>Er sagt, dass er morgen kommt.</strong> <em>(He says that he's coming tomorrow.)</em></li>
+<li>Ich weiß nicht. Hat sie Zeit? (ob) → <strong>Ich weiß nicht, ob sie Zeit hat.</strong> <em>(I don't know whether she has time.)</em></li>
+</ol>
+                </div>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_grammatik.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[data-section]').forEach(function (link) {
+                        var number = link.getAttribute('data-section');
+                        var heading = document.querySelector('h2[id^="' + number + '-"]');
+                        if (heading) {
+                            link.setAttribute('href', '#' + heading.id);
+                        } else {
+                            link.classList.add('disabled');
+                            link.setAttribute('aria-disabled', 'true');
+                        }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        var m = h.id.match(/^(\d+)-/);
+                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

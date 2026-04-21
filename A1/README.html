@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README - A1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">README</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">README</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A1</span>
+                </div>
+
+                
+
+                <div class="markdown-content">
+                    <h1 id="a1-goethe-zertifikat-a1-start-deutsch-1">A1 — Goethe-Zertifikat A1: Start Deutsch 1</h1>
+<h2 id="ubersicht-overview">Übersicht / Overview</h2>
+<p>Das Goethe-Zertifikat A1 bestätigt, dass Sie sich auf einfachste Weise auf Deutsch verständigen können. Es bescheinigt, dass Sie einfache Fragen, Anweisungen und Mitteilungen verstehen und darauf reagieren können.</p>
+<p><em>The Goethe-Zertifikat A1 confirms that you can communicate in the simplest way in German. It certifies that you can understand and respond to simple questions, instructions, and messages.</em></p>
+<p><strong>Empfohlene Lernzeit / Recommended study time</strong>: 80–200 Unterrichtsstunden / teaching hours</p>
+<h2 id="prufungsstruktur-exam-structure">Prüfungsstruktur / Exam Structure</h2>
+<table>
+<thead>
+<tr>
+<th>Modul / Module</th>
+<th>Dauer / Duration</th>
+<th>Punkte / Points</th>
+<th>Bestehen / Pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lesen / Reading</td>
+<td>25 min</td>
+<td>25</td>
+<td>min. 15</td>
+</tr>
+<tr>
+<td>Hören / Listening</td>
+<td>20 min</td>
+<td>25</td>
+<td>min. 15</td>
+</tr>
+<tr>
+<td>Schreiben / Writing</td>
+<td>20 min</td>
+<td>25</td>
+<td>min. 15</td>
+</tr>
+<tr>
+<td>Sprechen / Speaking</td>
+<td>15 min</td>
+<td>25</td>
+<td>min. 15</td>
+</tr>
+<tr>
+<td><strong>Gesamt / Total</strong></td>
+<td><strong>80 min</strong></td>
+<td><strong>100</strong></td>
+<td><strong>min. 60</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lernplan-study-plan">Lernplan / Study Plan</h2>
+<h3 id="woche-14-grundlagen-weeks-14-basics">Woche 1–4: Grundlagen / Weeks 1–4: Basics</h3>
+<ul>
+<li>Alphabet und Aussprache / Alphabet and pronunciation</li>
+<li>Sich vorstellen (Name, Alter, Herkunft) / Introducing yourself (name, age, origin)</li>
+<li>Zahlen 0–100 / Numbers 0–100</li>
+<li>Begrüßung und Verabschiedung / Greetings and farewells</li>
+<li>Grundlegende Grammatik: Artikel, Personalpronomen / Basic grammar: articles, personal pronouns</li>
+</ul>
+<h3 id="woche-58-alltag-weeks-58-everyday-life">Woche 5–8: Alltag / Weeks 5–8: Everyday Life</h3>
+<ul>
+<li>Familie und Freunde / Family and friends</li>
+<li>Essen und Trinken / Food and drink</li>
+<li>Einkaufen / Shopping</li>
+<li>Wohnung und Möbel / Apartment and furniture</li>
+<li>Grammatik: Präsens, Ja/Nein-Fragen, W-Fragen / Grammar: present tense, yes/no questions, W-questions</li>
+</ul>
+<h3 id="woche-912-erweiterte-themen-weeks-912-expanded-topics">Woche 9–12: Erweiterte Themen / Weeks 9–12: Expanded Topics</h3>
+<ul>
+<li>Tagesablauf und Uhrzeit / Daily routine and time</li>
+<li>Freizeit und Hobbys / Leisure and hobbies</li>
+<li>Körper und Gesundheit / Body and health</li>
+<li>Verkehr und Orientierung / Traffic and directions</li>
+<li>Grammatik: Modalverben, Imperativ, Akkusativ / Grammar: modal verbs, imperative, accusative</li>
+</ul>
+<h3 id="woche-1316-prufungsvorbereitung-weeks-1316-exam-preparation">Woche 13–16: Prüfungsvorbereitung / Weeks 13–16: Exam Preparation</h3>
+<ul>
+<li>Musterprüfungen üben / Practice with sample exams</li>
+<li>Schreiben: Formulare ausfüllen, kurze Mitteilungen / Writing: fill in forms, short messages</li>
+<li>Sprechen: Sich vorstellen, Fragen stellen und beantworten / Speaking: introduce yourself, ask and answer questions</li>
+<li>Wiederholung aller Themen / Review of all topics</li>
+</ul>
+<h2 id="dateien-files">Dateien / Files</h2>
+<ol>
+<li><a href="./01_Wortschatz.html">Wortschatz</a> — Vocabulary (ca. 650 Wörter / words)</li>
+<li><a href="./02_Grammatik.html">Grammatik</a> — Grammar rules and exercises</li>
+<li><a href="./03_Saetze.html">Sätze</a> — Example sentences A–Z</li>
+<li><a href="./04_Lesen.html">Lesen</a> — Reading exercises</li>
+<li><a href="./05_Hoeren.html">Hören</a> — Listening exercises</li>
+<li><a href="./06_Sprechen.html">Sprechen</a> — Speaking practice</li>
+<li><a href="./07_Schreiben.html">Schreiben</a> — Writing practice</li>
+<li><a href="./08_Musterpruefung.html">Musterprüfung</a> — Sample exam</li>
+</ol>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>        root.setAttribute('data-bs-theme', preferredTheme);
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

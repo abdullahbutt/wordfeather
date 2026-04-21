@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Saetze - C2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+                .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-more-btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+                font-size: 0.85rem;
+                margin-top: 0.1rem;
+                letter-spacing: 0.05em;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">C2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">03 Saetze</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">03 Saetze</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">C2</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="c2-satze-von-a-bis-z-sentences-from-a-to-z">C2 Sätze von A bis Z / Sentences from A to Z</h1>
+<p>Anspruchsvolle Sätze auf C2-Niveau mit gehobener Stilistik, Redewendungen und komplexen Strukturen.</p>
+<hr />
+<h2 id="a">A</h2>
+<ol>
+<li><strong>Es wäre vermessen anzunehmen, die Automatisierung werde ausschließlich Arbeitsplätze vernichten, ohne gleichzeitig neue Beschäftigungsfelder zu erschließen.</strong> — It would be presumptuous to assume automation will only destroy jobs without simultaneously opening new fields of employment.</li>
+<li><strong>Angesichts der sich abzeichnenden Krise drängt sich die Frage auf, ob die bisherigen Ansätze der Komplexität der Problematik gerecht werden.</strong> — In view of the looming crisis, the question arises whether previous approaches do justice to the complexity of the issue.</li>
+</ol>
+<h2 id="b">B</h2>
+<ol>
+<li><strong>Sei es auch noch so verlockend, die Schuld allein der Politik zuzuweisen — die Verantwortung liegt gleichermaßen bei jedem Einzelnen.</strong> — However tempting it may be to blame politics alone — the responsibility lies equally with every individual.</li>
+<li><strong>Die Brisanz des Themas lässt sich schwerlich bestreiten, zumal die jüngsten Entwicklungen die schlimmsten Befürchtungen bestätigt haben.</strong> — The explosive nature of the topic can hardly be denied, especially since recent developments have confirmed the worst fears.</li>
+</ol>
+<h2 id="c">C</h2>
+<ol>
+<li><strong>Chronischer Fachkräftemangel, gepaart mit einer zunehmend alternden Gesellschaft, stellt eine der drängendsten Herausforderungen unserer Zeit dar.</strong> — Chronic skilled labor shortage, coupled with an increasingly aging society, represents one of the most pressing challenges of our time.</li>
+</ol>
+<h2 id="d">D</h2>
+<ol>
+<li><strong>Dem landläufig verbreiteten Vorurteil, Digitalisierung führe unweigerlich zu Vereinsamung, ist mit Nachdruck zu widersprechen — sie eröffnet vielmehr neue Formen der Gemeinschaft.</strong> — The commonly held prejudice that digitalization inevitably leads to isolation must be firmly contradicted — rather, it opens new forms of community.</li>
+<li><strong>Die Diskrepanz zwischen Anspruch und Wirklichkeit könnte kaum größer sein, was die Glaubwürdigkeit der handelnden Akteure nachhaltig untergräbt.</strong> — The discrepancy between aspiration and reality could hardly be greater, which sustainably undermines the credibility of the actors involved.</li>
+</ol>
+<h2 id="e">E</h2>
+<ol>
+<li><strong>Es erübrigt sich beinahe, darauf hinzuweisen, dass eine bloße Symptombekämpfung der Tragweite des Problems in keiner Weise gerecht wird.</strong> — It is almost superfluous to point out that mere symptom treatment in no way does justice to the scope of the problem.</li>
+<li><strong>Erst wenn man die historische Genese des Konflikts in den Blick nimmt, erschließen sich die tieferliegenden Ursachen der gegenwärtigen Krise.</strong> — Only when one considers the historical genesis of the conflict do the deeper causes of the current crisis reveal themselves.</li>
+</ol>
+<h2 id="f">F</h2>
+<ol>
+<li><strong>Freilich ließe sich einwenden, dass die vorgeschlagenen Maßnahmen einer empirischen Grundlage entbehren — gleichwohl erscheinen sie als plausible Ansätze.</strong> — Admittedly, one could object that the proposed measures lack an empirical basis — nevertheless, they appear to be plausible approaches.</li>
+</ol>
+<h2 id="g">G</h2>
+<ol>
+<li><strong>Gerade weil die Globalisierung sowohl Gewinner als auch Verlierer hervorbringt, bedarf es eines differenzierten Diskurses, der der Komplexität der Materie Rechnung trägt.</strong> — Precisely because globalization produces both winners and losers, a differentiated discourse is needed that takes the complexity of the matter into account.</li>
+</ol>
+<h2 id="h">H</h2>
+<ol>
+<li><strong>Hätte man die Warnsignale nicht so beharrlich ignoriert, wäre die Katastrophe womöglich abwendbar gewesen — ein Umstand, der im Nachhinein umso bitterer anmutet.</strong> — Had one not so persistently ignored the warning signs, the catastrophe might have been avoidable — a circumstance that in hindsight seems all the more bitter.</li>
+</ol>
+<h2 id="i">I</h2>
+<ol>
+<li><strong>Inwiefern sich die auf theoretischer Ebene gewonnenen Erkenntnisse auf die gesellschaftliche Praxis übertragen lassen, bleibt eine offene und keineswegs triviale Frage.</strong> — To what extent the insights gained on a theoretical level can be transferred to social practice remains an open and by no means trivial question.</li>
+</ol>
+<h2 id="k">K</h2>
+<ol>
+<li><strong>Koste es, was es wolle — die Bewahrung der demokratischen Grundwerte muss oberste Priorität genießen, zumal die Erosion demokratischer Institutionen weltweit besorgniserregende Ausmaße annimmt.</strong> — Whatever the cost — the preservation of fundamental democratic values must enjoy top priority, especially since the erosion of democratic institutions is taking on alarming proportions worldwide.</li>
+</ol>
+<h2 id="l">L</h2>
+<ol>
+<li><strong>Letzten Endes liegt es auf der Hand, dass eine nachhaltige Lösung nur durch einen interdisziplinären Ansatz zu erreichen ist, der sowohl ökonomische als auch ökologische und soziale Dimensionen berücksichtigt.</strong> — Ultimately, it is obvious that a sustainable solution can only be achieved through an interdisciplinary approach that takes economic, ecological, and social dimensions into account.</li>
+</ol>
+<h2 id="m">M</h2>
+<ol>
+<li><strong>Man tut gut daran, sich nicht von der vermeintlichen Simplizität der Fragestellung täuschen zu lassen, denn hinter der Oberfläche verbirgt sich ein Geflecht hochkomplexer Zusammenhänge.</strong> — One does well not to be deceived by the apparent simplicity of the question, for behind the surface lies a web of highly complex interrelationships.</li>
+</ol>
+<h2 id="n">N</h2>
+<ol>
+<li><strong>Nichtsdestoweniger wäre es verfehlt, die erzielten Fortschritte geringzuschätzen, mögen sie im Lichte der verbleibenden Herausforderungen auch bescheiden anmuten.</strong> — Nevertheless, it would be wrong to underestimate the progress achieved, even if it may seem modest in light of the remaining challenges.</li>
+</ol>
+<h2 id="o">O</h2>
+<ol>
+<li><strong>Obschon die empirische Evidenz zu diesem Zeitpunkt noch lückenhaft ist, legen die vorläufigen Befunde den Schluss nahe, dass ein kausaler Zusammenhang besteht.</strong> — Although the empirical evidence at this point is still incomplete, the preliminary findings suggest a causal relationship.</li>
+</ol>
+<h2 id="p">P</h2>
+<ol>
+<li><strong>Die Polemik, mit der die Debatte bisweilen geführt wird, droht den Blick auf die eigentlichen Sachfragen zu verstellen.</strong> — The polemics with which the debate is sometimes conducted threaten to obscure the actual issues at hand.</li>
+</ol>
+<h2 id="r">R</h2>
+<ol>
+<li><strong>Retrospektiv betrachtet war es ein Fehler, die langfristigen Konsequenzen zugunsten kurzfristiger Profite außer Acht zu lassen.</strong> — In retrospect, it was a mistake to disregard the long-term consequences in favor of short-term profits.</li>
+</ol>
+<h2 id="s">S</h2>
+<ol>
+<li><strong>Sofern die gesellschaftlichen Rahmenbedingungen es zulassen und die notwendigen Ressourcen mobilisiert werden können, dürfte einer Umsetzung des ambitionierten Vorhabens nichts im Wege stehen.</strong> — Provided social conditions permit and the necessary resources can be mobilized, nothing should stand in the way of implementing the ambitious project.</li>
+</ol>
+<h2 id="t">T</h2>
+<ol>
+<li><strong>Die Tragweite dieser Entscheidung ist kaum zu überschätzen, da sie die Weichen für die kommenden Jahrzehnte stellen wird.</strong> — The significance of this decision can hardly be overestimated, as it will set the course for the coming decades.</li>
+</ol>
+<h2 id="u">U</h2>
+<ol>
+<li><strong>Ungeachtet der berechtigten Einwände, die gegen den Vorschlag vorgebracht worden sind, sollte man das Kind nicht mit dem Bade ausschütten.</strong> — Regardless of the legitimate objections raised against the proposal, one should not throw the baby out with the bathwater.</li>
+</ol>
+<h2 id="v">V</h2>
+<ol>
+<li><strong>Vor dem Hintergrund der sich verschärfenden geopolitischen Spannungen erscheint eine grundlegende Neuausrichtung der Außenpolitik nicht nur wünschenswert, sondern geradezu unumgänglich.</strong> — Against the background of escalating geopolitical tensions, a fundamental reorientation of foreign policy appears not only desirable but virtually unavoidable.</li>
+</ol>
+<h2 id="w">W</h2>
+<ol>
+<li><strong>Wie dem auch sei — die Fakten sprechen eine deutliche Sprache, und es wäre unverantwortlich, die Augen vor der Realität zu verschließen.</strong> — Be that as it may — the facts speak for themselves, and it would be irresponsible to close one's eyes to reality.</li>
+</ol>
+<h2 id="z">Z</h2>
+<ol>
+<li><strong>Zusammenfassend lässt sich konstatieren, dass die Thematik einer weitaus differenzierteren Betrachtung bedarf, als sie ihr in der öffentlichen Debatte gemeinhin zuteilwird.</strong> — In summary, it can be stated that the topic requires a far more differentiated examination than it generally receives in public debate.</li>
+</ol>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_saetze.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[href^="#"]').forEach(function (link) {
+                        var id = link.getAttribute('href').substring(1);
+                        if (!document.getElementById(id)) { link.remove(); }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        if (/^[a-z]$/.test(h.id)) { buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-primary">' + h.id.toUpperCase() + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

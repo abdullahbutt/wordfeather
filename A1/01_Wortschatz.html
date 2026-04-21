@@ -1,0 +1,5203 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 Wortschatz - A1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+                .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-more-btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+                font-size: 0.85rem;
+                margin-top: 0.1rem;
+                letter-spacing: 0.05em;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">01 Wortschatz</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">01 Wortschatz</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A1</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="a1-wortschatz-vocabulary">A1 Wortschatz / Vocabulary</h1>
+<p>Wortliste für das Goethe-Zertifikat A1: Start Deutsch 1 (~650 Wörter)</p>
+<hr />
+<h2 id="a">A</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ab</td>
+<td>—</td>
+<td>from, starting from</td>
+<td>Ab morgen lerne ich Deutsch.</td>
+</tr>
+<tr>
+<td>der Abend, -e</td>
+<td>m.</td>
+<td>evening</td>
+<td>Guten Abend!</td>
+</tr>
+<tr>
+<td>abends</td>
+<td>—</td>
+<td>in the evening</td>
+<td>Abends sehe ich fern.</td>
+</tr>
+<tr>
+<td>aber</td>
+<td>—</td>
+<td>but</td>
+<td>Ich bin müde, aber glücklich.</td>
+</tr>
+<tr>
+<td>abfahren</td>
+<td>—</td>
+<td>to depart</td>
+<td>Der Zug fährt um 8 Uhr ab.</td>
+</tr>
+<tr>
+<td>die Abfahrt, -en</td>
+<td>f.</td>
+<td>departure</td>
+<td>Die Abfahrt ist um 10 Uhr.</td>
+</tr>
+<tr>
+<td>abholen</td>
+<td>—</td>
+<td>to pick up</td>
+<td>Ich hole dich ab.</td>
+</tr>
+<tr>
+<td>acht</td>
+<td>—</td>
+<td>eight</td>
+<td>Ich habe acht Bücher.</td>
+</tr>
+<tr>
+<td>die Adresse, -n</td>
+<td>f.</td>
+<td>address</td>
+<td>Wie ist Ihre Adresse?</td>
+</tr>
+<tr>
+<td>alle</td>
+<td>—</td>
+<td>all, everyone</td>
+<td>Alle Kinder spielen.</td>
+</tr>
+<tr>
+<td>allein</td>
+<td>—</td>
+<td>alone</td>
+<td>Ich wohne allein.</td>
+</tr>
+<tr>
+<td>also</td>
+<td>—</td>
+<td>so, therefore</td>
+<td>Also, was machen wir?</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>—</td>
+<td>old</td>
+<td>Wie alt bist du?</td>
+</tr>
+<tr>
+<td>das Alter</td>
+<td>n.</td>
+<td>age</td>
+<td>Alter: 25 Jahre</td>
+</tr>
+<tr>
+<td>an</td>
+<td>—</td>
+<td>at, on</td>
+<td>An der Haltestelle warten.</td>
+</tr>
+<tr>
+<td>andere</td>
+<td>—</td>
+<td>other</td>
+<td>Die andere Straße.</td>
+</tr>
+<tr>
+<td>der Anfang, -̈e</td>
+<td>m.</td>
+<td>beginning</td>
+<td>Am Anfang ist es schwer.</td>
+</tr>
+<tr>
+<td>anfangen</td>
+<td>—</td>
+<td>to begin</td>
+<td>Wann fangen wir an?</td>
+</tr>
+<tr>
+<td>die Anmeldung, -en</td>
+<td>f.</td>
+<td>registration</td>
+<td>Bitte die Anmeldung ausfüllen.</td>
+</tr>
+<tr>
+<td>anrufen</td>
+<td>—</td>
+<td>to call (phone)</td>
+<td>Ich rufe dich an.</td>
+</tr>
+<tr>
+<td>die Antwort, -en</td>
+<td>f.</td>
+<td>answer</td>
+<td>Die Antwort ist richtig.</td>
+</tr>
+<tr>
+<td>antworten</td>
+<td>—</td>
+<td>to answer</td>
+<td>Bitte antworten Sie.</td>
+</tr>
+<tr>
+<td>der Apfel, -̈</td>
+<td>m.</td>
+<td>apple</td>
+<td>Der Apfel ist rot.</td>
+</tr>
+<tr>
+<td>die Apotheke, -n</td>
+<td>f.</td>
+<td>pharmacy</td>
+<td>Die Apotheke ist dort.</td>
+</tr>
+<tr>
+<td>der April</td>
+<td>m.</td>
+<td>April</td>
+<td>Im April regnet es.</td>
+</tr>
+<tr>
+<td>die Arbeit, -en</td>
+<td>f.</td>
+<td>work</td>
+<td>Die Arbeit ist gut.</td>
+</tr>
+<tr>
+<td>arbeiten</td>
+<td>—</td>
+<td>to work</td>
+<td>Ich arbeite bei Siemens.</td>
+</tr>
+<tr>
+<td>der Arzt, -̈e</td>
+<td>m.</td>
+<td>doctor</td>
+<td>Der Arzt ist freundlich.</td>
+</tr>
+<tr>
+<td>die Ärztin, -nen</td>
+<td>f.</td>
+<td>female doctor</td>
+<td>Die Ärztin hilft mir.</td>
+</tr>
+<tr>
+<td>auch</td>
+<td>—</td>
+<td>also, too</td>
+<td>Ich komme auch.</td>
+</tr>
+<tr>
+<td>auf</td>
+<td>—</td>
+<td>on, upon</td>
+<td>Das Buch liegt auf dem Tisch.</td>
+</tr>
+<tr>
+<td>die Aufgabe, -n</td>
+<td>f.</td>
+<td>task, exercise</td>
+<td>Die Aufgabe ist leicht.</td>
+</tr>
+<tr>
+<td>der Aufzug, -̈e</td>
+<td>m.</td>
+<td>elevator</td>
+<td>Nehmen Sie den Aufzug.</td>
+</tr>
+<tr>
+<td>das Auge, -n</td>
+<td>n.</td>
+<td>eye</td>
+<td>Er hat blaue Augen.</td>
+</tr>
+<tr>
+<td>der August</td>
+<td>m.</td>
+<td>August</td>
+<td>Im August ist es heiß.</td>
+</tr>
+<tr>
+<td>aus</td>
+<td>—</td>
+<td>from, out of</td>
+<td>Ich komme aus Indien.</td>
+</tr>
+<tr>
+<td>der Ausflug, -̈e</td>
+<td>m.</td>
+<td>excursion</td>
+<td>Wir machen einen Ausflug.</td>
+</tr>
+<tr>
+<td>die Auskunft, -̈e</td>
+<td>f.</td>
+<td>information</td>
+<td>Die Auskunft ist dort.</td>
+</tr>
+<tr>
+<td>das Ausland</td>
+<td>n.</td>
+<td>abroad</td>
+<td>Er lebt im Ausland.</td>
+</tr>
+<tr>
+<td>aussehen</td>
+<td>—</td>
+<td>to look (appearance)</td>
+<td>Du siehst gut aus.</td>
+</tr>
+<tr>
+<td>die Aussicht, -en</td>
+<td>f.</td>
+<td>view</td>
+<td>Die Aussicht ist schön.</td>
+</tr>
+<tr>
+<td>aussteigen</td>
+<td>—</td>
+<td>to get off</td>
+<td>Hier müssen wir aussteigen.</td>
+</tr>
+<tr>
+<td>das Auto, -s</td>
+<td>n.</td>
+<td>car</td>
+<td>Das Auto ist neu.</td>
+</tr>
+<tr>
+<td>die Autobahn, -en</td>
+<td>f.</td>
+<td>highway</td>
+<td>Die Autobahn ist lang.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="b">B</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>das Baby, -s</td>
+<td>n.</td>
+<td>baby</td>
+<td>Das Baby schläft.</td>
+</tr>
+<tr>
+<td>die Bäckerei, -en</td>
+<td>f.</td>
+<td>bakery</td>
+<td>In der Bäckerei kaufe ich Brot.</td>
+</tr>
+<tr>
+<td>der Bahnhof, -̈e</td>
+<td>m.</td>
+<td>train station</td>
+<td>Der Bahnhof ist zentral.</td>
+</tr>
+<tr>
+<td>der Bahnsteig, -e</td>
+<td>m.</td>
+<td>platform</td>
+<td>Gleis 3, Bahnsteig links.</td>
+</tr>
+<tr>
+<td>bald</td>
+<td>—</td>
+<td>soon</td>
+<td>Bis bald!</td>
+</tr>
+<tr>
+<td>der Balkon, -e/-s</td>
+<td>m.</td>
+<td>balcony</td>
+<td>Der Balkon ist groß.</td>
+</tr>
+<tr>
+<td>die Banane, -n</td>
+<td>f.</td>
+<td>banana</td>
+<td>Ich esse eine Banane.</td>
+</tr>
+<tr>
+<td>die Bank, -en</td>
+<td>f.</td>
+<td>bank</td>
+<td>Die Bank ist geschlossen.</td>
+</tr>
+<tr>
+<td>der Bauch, -̈e</td>
+<td>m.</td>
+<td>belly, stomach</td>
+<td>Mein Bauch tut weh.</td>
+</tr>
+<tr>
+<td>der Baum, -̈e</td>
+<td>m.</td>
+<td>tree</td>
+<td>Der Baum ist groß.</td>
+</tr>
+<tr>
+<td>bedeuten</td>
+<td>—</td>
+<td>to mean</td>
+<td>Was bedeutet das?</td>
+</tr>
+<tr>
+<td>beginnen</td>
+<td>—</td>
+<td>to begin</td>
+<td>Der Kurs beginnt um 9 Uhr.</td>
+</tr>
+<tr>
+<td>bei</td>
+<td>—</td>
+<td>at, near, with</td>
+<td>Ich wohne bei meiner Mutter.</td>
+</tr>
+<tr>
+<td>das Beispiel, -e</td>
+<td>n.</td>
+<td>example</td>
+<td>Zum Beispiel...</td>
+</tr>
+<tr>
+<td>bekommen</td>
+<td>—</td>
+<td>to get, receive</td>
+<td>Ich bekomme einen Brief.</td>
+</tr>
+<tr>
+<td>benutzen</td>
+<td>—</td>
+<td>to use</td>
+<td>Bitte benutzen Sie die Treppe.</td>
+</tr>
+<tr>
+<td>das Benzin</td>
+<td>n.</td>
+<td>gasoline</td>
+<td>Das Benzin ist teuer.</td>
+</tr>
+<tr>
+<td>der Berg, -e</td>
+<td>m.</td>
+<td>mountain</td>
+<td>Der Berg ist hoch.</td>
+</tr>
+<tr>
+<td>der Beruf, -e</td>
+<td>m.</td>
+<td>profession</td>
+<td>Was ist Ihr Beruf?</td>
+</tr>
+<tr>
+<td>besonders</td>
+<td>—</td>
+<td>especially</td>
+<td>Besonders gern esse ich Pizza.</td>
+</tr>
+<tr>
+<td>besser</td>
+<td>—</td>
+<td>better</td>
+<td>Heute geht es mir besser.</td>
+</tr>
+<tr>
+<td>beste</td>
+<td>—</td>
+<td>best</td>
+<td>Das ist die beste Idee.</td>
+</tr>
+<tr>
+<td>das Bett, -en</td>
+<td>n.</td>
+<td>bed</td>
+<td>Das Bett ist bequem.</td>
+</tr>
+<tr>
+<td>bezahlen</td>
+<td>—</td>
+<td>to pay</td>
+<td>Ich möchte bezahlen.</td>
+</tr>
+<tr>
+<td>die Bibliothek, -en</td>
+<td>f.</td>
+<td>library</td>
+<td>Die Bibliothek ist ruhig.</td>
+</tr>
+<tr>
+<td>das Bier, -e</td>
+<td>n.</td>
+<td>beer</td>
+<td>Ein Bier, bitte.</td>
+</tr>
+<tr>
+<td>das Bild, -er</td>
+<td>n.</td>
+<td>picture</td>
+<td>Das Bild ist schön.</td>
+</tr>
+<tr>
+<td>billig</td>
+<td>—</td>
+<td>cheap</td>
+<td>Das ist billig.</td>
+</tr>
+<tr>
+<td>bis</td>
+<td>—</td>
+<td>until, till</td>
+<td>Bis morgen!</td>
+</tr>
+<tr>
+<td>bitte</td>
+<td>—</td>
+<td>please</td>
+<td>Bitte schön.</td>
+</tr>
+<tr>
+<td>blau</td>
+<td>—</td>
+<td>blue</td>
+<td>Der Himmel ist blau.</td>
+</tr>
+<tr>
+<td>bleiben</td>
+<td>—</td>
+<td>to stay</td>
+<td>Ich bleibe hier.</td>
+</tr>
+<tr>
+<td>die Blume, -n</td>
+<td>f.</td>
+<td>flower</td>
+<td>Die Blume ist rot.</td>
+</tr>
+<tr>
+<td>die Bluse, -n</td>
+<td>f.</td>
+<td>blouse</td>
+<td>Die Bluse kostet 30 Euro.</td>
+</tr>
+<tr>
+<td>der Boden, -̈</td>
+<td>m.</td>
+<td>floor, ground</td>
+<td>Der Boden ist sauber.</td>
+</tr>
+<tr>
+<td>brauchen</td>
+<td>—</td>
+<td>to need</td>
+<td>Ich brauche Hilfe.</td>
+</tr>
+<tr>
+<td>braun</td>
+<td>—</td>
+<td>brown</td>
+<td>Die Schuhe sind braun.</td>
+</tr>
+<tr>
+<td>der Brief, -e</td>
+<td>m.</td>
+<td>letter</td>
+<td>Ich schreibe einen Brief.</td>
+</tr>
+<tr>
+<td>die Brille, -n</td>
+<td>f.</td>
+<td>glasses</td>
+<td>Ich trage eine Brille.</td>
+</tr>
+<tr>
+<td>bringen</td>
+<td>—</td>
+<td>to bring</td>
+<td>Bringen Sie mir Wasser, bitte.</td>
+</tr>
+<tr>
+<td>das Brot, -e</td>
+<td>n.</td>
+<td>bread</td>
+<td>Ich kaufe Brot.</td>
+</tr>
+<tr>
+<td>das Brötchen, -</td>
+<td>n.</td>
+<td>bread roll</td>
+<td>Zwei Brötchen, bitte.</td>
+</tr>
+<tr>
+<td>der Bruder, -̈</td>
+<td>m.</td>
+<td>brother</td>
+<td>Mein Bruder heißt Thomas.</td>
+</tr>
+<tr>
+<td>das Buch, -̈er</td>
+<td>n.</td>
+<td>book</td>
+<td>Ich lese ein Buch.</td>
+</tr>
+<tr>
+<td>der Buchstabe, -n</td>
+<td>m.</td>
+<td>letter (alphabet)</td>
+<td>Wie viele Buchstaben hat das Wort?</td>
+</tr>
+<tr>
+<td>der Bus, -se</td>
+<td>m.</td>
+<td>bus</td>
+<td>Der Bus kommt in 5 Minuten.</td>
+</tr>
+<tr>
+<td>die Butter</td>
+<td>f.</td>
+<td>butter</td>
+<td>Ich brauche Butter.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="c">C</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>das Café, -s</td>
+<td>n.</td>
+<td>café</td>
+<td>Wir gehen ins Café.</td>
+</tr>
+<tr>
+<td>der Chef, -s</td>
+<td>m.</td>
+<td>boss</td>
+<td>Mein Chef ist nett.</td>
+</tr>
+<tr>
+<td>die Chefin, -nen</td>
+<td>f.</td>
+<td>female boss</td>
+<td>Die Chefin kommt um 9.</td>
+</tr>
+<tr>
+<td>der Computer, -</td>
+<td>m.</td>
+<td>computer</td>
+<td>Der Computer ist neu.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="d">D</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>da</td>
+<td>—</td>
+<td>there</td>
+<td>Da ist der Bahnhof.</td>
+</tr>
+<tr>
+<td>danke</td>
+<td>—</td>
+<td>thank you</td>
+<td>Danke schön!</td>
+</tr>
+<tr>
+<td>dann</td>
+<td>—</td>
+<td>then</td>
+<td>Und dann gehe ich nach Hause.</td>
+</tr>
+<tr>
+<td>das</td>
+<td>—</td>
+<td>the, that</td>
+<td>Das ist mein Haus.</td>
+</tr>
+<tr>
+<td>das Datum, Daten</td>
+<td>n.</td>
+<td>date</td>
+<td>Welches Datum haben wir heute?</td>
+</tr>
+<tr>
+<td>dauern</td>
+<td>—</td>
+<td>to last, take time</td>
+<td>Die Fahrt dauert 2 Stunden.</td>
+</tr>
+<tr>
+<td>dein</td>
+<td>—</td>
+<td>your (informal)</td>
+<td>Ist das dein Buch?</td>
+</tr>
+<tr>
+<td>denken</td>
+<td>—</td>
+<td>to think</td>
+<td>Ich denke, das ist richtig.</td>
+</tr>
+<tr>
+<td>denn</td>
+<td>—</td>
+<td>because, for</td>
+<td>Ich bleibe zu Hause, denn ich bin krank.</td>
+</tr>
+<tr>
+<td>deutsch</td>
+<td>—</td>
+<td>German</td>
+<td>Ich spreche Deutsch.</td>
+</tr>
+<tr>
+<td>Deutschland</td>
+<td>—</td>
+<td>Germany</td>
+<td>Ich wohne in Deutschland.</td>
+</tr>
+<tr>
+<td>der Dezember</td>
+<td>m.</td>
+<td>December</td>
+<td>Im Dezember schneit es.</td>
+</tr>
+<tr>
+<td>der Dienstag, -e</td>
+<td>m.</td>
+<td>Tuesday</td>
+<td>Am Dienstag habe ich Kurs.</td>
+</tr>
+<tr>
+<td>dies-</td>
+<td>—</td>
+<td>this</td>
+<td>Dieses Buch ist gut.</td>
+</tr>
+<tr>
+<td>direkt</td>
+<td>—</td>
+<td>direct(ly)</td>
+<td>Der Bus fährt direkt.</td>
+</tr>
+<tr>
+<td>der Doktor, -en</td>
+<td>m.</td>
+<td>doctor (title)</td>
+<td>Herr Doktor Müller.</td>
+</tr>
+<tr>
+<td>der Donnerstag, -e</td>
+<td>m.</td>
+<td>Thursday</td>
+<td>Am Donnerstag arbeite ich nicht.</td>
+</tr>
+<tr>
+<td>das Dorf, -̈er</td>
+<td>n.</td>
+<td>village</td>
+<td>Das Dorf ist klein.</td>
+</tr>
+<tr>
+<td>dort</td>
+<td>—</td>
+<td>there</td>
+<td>Dort ist die Schule.</td>
+</tr>
+<tr>
+<td>draußen</td>
+<td>—</td>
+<td>outside</td>
+<td>Die Kinder spielen draußen.</td>
+</tr>
+<tr>
+<td>drei</td>
+<td>—</td>
+<td>three</td>
+<td>Ich habe drei Kinder.</td>
+</tr>
+<tr>
+<td>dringend</td>
+<td>—</td>
+<td>urgent</td>
+<td>Es ist dringend.</td>
+</tr>
+<tr>
+<td>dunkel</td>
+<td>—</td>
+<td>dark</td>
+<td>Es ist dunkel draußen.</td>
+</tr>
+<tr>
+<td>dünn</td>
+<td>—</td>
+<td>thin</td>
+<td>Das Buch ist dünn.</td>
+</tr>
+<tr>
+<td>durch</td>
+<td>—</td>
+<td>through</td>
+<td>Wir gehen durch den Park.</td>
+</tr>
+<tr>
+<td>dürfen</td>
+<td>—</td>
+<td>to be allowed to</td>
+<td>Darf ich fragen?</td>
+</tr>
+<tr>
+<td>der Durst</td>
+<td>m.</td>
+<td>thirst</td>
+<td>Ich habe Durst.</td>
+</tr>
+<tr>
+<td>die Dusche, -n</td>
+<td>f.</td>
+<td>shower</td>
+<td>Die Dusche ist im Bad.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="e">E</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die E-Mail, -s</td>
+<td>f.</td>
+<td>email</td>
+<td>Ich schreibe eine E-Mail.</td>
+</tr>
+<tr>
+<td>egal</td>
+<td>—</td>
+<td>it doesn't matter</td>
+<td>Das ist mir egal.</td>
+</tr>
+<tr>
+<td>das Ei, -er</td>
+<td>n.</td>
+<td>egg</td>
+<td>Ich esse ein Ei zum Frühstück.</td>
+</tr>
+<tr>
+<td>eigen</td>
+<td>—</td>
+<td>own</td>
+<td>Ich habe mein eigenes Zimmer.</td>
+</tr>
+<tr>
+<td>ein/eine</td>
+<td>—</td>
+<td>a, an</td>
+<td>Ich habe ein Auto.</td>
+</tr>
+<tr>
+<td>einfach</td>
+<td>—</td>
+<td>simple, easy</td>
+<td>Die Aufgabe ist einfach.</td>
+</tr>
+<tr>
+<td>der Eingang, -̈e</td>
+<td>m.</td>
+<td>entrance</td>
+<td>Der Eingang ist rechts.</td>
+</tr>
+<tr>
+<td>einkaufen</td>
+<td>—</td>
+<td>to shop</td>
+<td>Ich gehe einkaufen.</td>
+</tr>
+<tr>
+<td>einladen</td>
+<td>—</td>
+<td>to invite</td>
+<td>Ich lade dich ein.</td>
+</tr>
+<tr>
+<td>einmal</td>
+<td>—</td>
+<td>once</td>
+<td>Einmal pro Woche.</td>
+</tr>
+<tr>
+<td>einsteigen</td>
+<td>—</td>
+<td>to get on/in</td>
+<td>Bitte einsteigen!</td>
+</tr>
+<tr>
+<td>die Eintrittskarte, -n</td>
+<td>f.</td>
+<td>ticket (admission)</td>
+<td>Die Eintrittskarte kostet 10 Euro.</td>
+</tr>
+<tr>
+<td>das Eis</td>
+<td>n.</td>
+<td>ice, ice cream</td>
+<td>Ich möchte ein Eis.</td>
+</tr>
+<tr>
+<td>die Eltern (Pl.)</td>
+<td>—</td>
+<td>parents</td>
+<td>Meine Eltern wohnen in Berlin.</td>
+</tr>
+<tr>
+<td>das Ende</td>
+<td>n.</td>
+<td>end</td>
+<td>Am Ende der Straße.</td>
+</tr>
+<tr>
+<td>er</td>
+<td>—</td>
+<td>he</td>
+<td>Er ist mein Freund.</td>
+</tr>
+<tr>
+<td>die Erdbeere, -n</td>
+<td>f.</td>
+<td>strawberry</td>
+<td>Die Erdbeeren sind süß.</td>
+</tr>
+<tr>
+<td>erst</td>
+<td>—</td>
+<td>first, only</td>
+<td>Erst essen, dann spielen.</td>
+</tr>
+<tr>
+<td>der/die Erwachsene, -n</td>
+<td>m./f.</td>
+<td>adult</td>
+<td>Zwei Erwachsene und ein Kind.</td>
+</tr>
+<tr>
+<td>erzählen</td>
+<td>—</td>
+<td>to tell, narrate</td>
+<td>Erzähl mir von dir.</td>
+</tr>
+<tr>
+<td>das Essen, -</td>
+<td>n.</td>
+<td>food, meal</td>
+<td>Das Essen ist lecker.</td>
+</tr>
+<tr>
+<td>essen</td>
+<td>—</td>
+<td>to eat</td>
+<td>Ich esse gern Pizza.</td>
+</tr>
+<tr>
+<td>etwas</td>
+<td>—</td>
+<td>something, some</td>
+<td>Möchten Sie etwas trinken?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="f">F</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fahren</td>
+<td>—</td>
+<td>to drive, to go</td>
+<td>Ich fahre nach Berlin.</td>
+</tr>
+<tr>
+<td>die Fahrkarte, -n</td>
+<td>f.</td>
+<td>ticket (transport)</td>
+<td>Eine Fahrkarte, bitte.</td>
+</tr>
+<tr>
+<td>das Fahrrad, -̈er</td>
+<td>n.</td>
+<td>bicycle</td>
+<td>Ich fahre mit dem Fahrrad.</td>
+</tr>
+<tr>
+<td>die Familie, -n</td>
+<td>f.</td>
+<td>family</td>
+<td>Meine Familie ist groß.</td>
+</tr>
+<tr>
+<td>die Farbe, -n</td>
+<td>f.</td>
+<td>color</td>
+<td>Welche Farbe ist das?</td>
+</tr>
+<tr>
+<td>fast</td>
+<td>—</td>
+<td>almost</td>
+<td>Es ist fast 10 Uhr.</td>
+</tr>
+<tr>
+<td>der Februar</td>
+<td>m.</td>
+<td>February</td>
+<td>Im Februar ist es kalt.</td>
+</tr>
+<tr>
+<td>fehlen</td>
+<td>—</td>
+<td>to be missing, to miss</td>
+<td>Was fehlt Ihnen?</td>
+</tr>
+<tr>
+<td>der Fehler, -</td>
+<td>m.</td>
+<td>mistake</td>
+<td>Das ist ein Fehler.</td>
+</tr>
+<tr>
+<td>die Feier, -n</td>
+<td>f.</td>
+<td>celebration</td>
+<td>Die Feier war schön.</td>
+</tr>
+<tr>
+<td>der Feiertag, -e</td>
+<td>m.</td>
+<td>holiday</td>
+<td>Morgen ist ein Feiertag.</td>
+</tr>
+<tr>
+<td>das Fenster, -</td>
+<td>n.</td>
+<td>window</td>
+<td>Das Fenster ist offen.</td>
+</tr>
+<tr>
+<td>die Ferien (Pl.)</td>
+<td>—</td>
+<td>holidays, vacation</td>
+<td>In den Ferien fahre ich weg.</td>
+</tr>
+<tr>
+<td>fernsehen</td>
+<td>—</td>
+<td>to watch TV</td>
+<td>Abends sehe ich fern.</td>
+</tr>
+<tr>
+<td>der Fernseher, -</td>
+<td>m.</td>
+<td>TV set</td>
+<td>Der Fernseher ist groß.</td>
+</tr>
+<tr>
+<td>fertig</td>
+<td>—</td>
+<td>ready, finished</td>
+<td>Ich bin fertig.</td>
+</tr>
+<tr>
+<td>das Fest, -e</td>
+<td>n.</td>
+<td>festival, party</td>
+<td>Frohe Feste!</td>
+</tr>
+<tr>
+<td>das Feuer, -</td>
+<td>n.</td>
+<td>fire</td>
+<td>Haben Sie Feuer?</td>
+</tr>
+<tr>
+<td>finden</td>
+<td>—</td>
+<td>to find</td>
+<td>Ich finde das gut.</td>
+</tr>
+<tr>
+<td>der Fisch, -e</td>
+<td>m.</td>
+<td>fish</td>
+<td>Ich esse gern Fisch.</td>
+</tr>
+<tr>
+<td>die Flasche, -n</td>
+<td>f.</td>
+<td>bottle</td>
+<td>Eine Flasche Wasser, bitte.</td>
+</tr>
+<tr>
+<td>das Fleisch</td>
+<td>n.</td>
+<td>meat</td>
+<td>Ich esse kein Fleisch.</td>
+</tr>
+<tr>
+<td>fliegen</td>
+<td>—</td>
+<td>to fly</td>
+<td>Wir fliegen nach Spanien.</td>
+</tr>
+<tr>
+<td>der Flughafen, -̈</td>
+<td>m.</td>
+<td>airport</td>
+<td>Der Flughafen ist weit.</td>
+</tr>
+<tr>
+<td>das Flugzeug, -e</td>
+<td>n.</td>
+<td>airplane</td>
+<td>Das Flugzeug fliegt nach London.</td>
+</tr>
+<tr>
+<td>der Fluss, -̈e</td>
+<td>m.</td>
+<td>river</td>
+<td>Der Fluss ist lang.</td>
+</tr>
+<tr>
+<td>die Frage, -n</td>
+<td>f.</td>
+<td>question</td>
+<td>Ich habe eine Frage.</td>
+</tr>
+<tr>
+<td>fragen</td>
+<td>—</td>
+<td>to ask</td>
+<td>Darf ich fragen?</td>
+</tr>
+<tr>
+<td>die Frau, -en</td>
+<td>f.</td>
+<td>woman, Mrs.</td>
+<td>Frau Müller ist nett.</td>
+</tr>
+<tr>
+<td>frei</td>
+<td>—</td>
+<td>free</td>
+<td>Ist dieser Platz frei?</td>
+</tr>
+<tr>
+<td>der Freitag, -e</td>
+<td>m.</td>
+<td>Friday</td>
+<td>Am Freitag gehe ich aus.</td>
+</tr>
+<tr>
+<td>die Freizeit</td>
+<td>f.</td>
+<td>free time</td>
+<td>In meiner Freizeit lese ich.</td>
+</tr>
+<tr>
+<td>fremd</td>
+<td>—</td>
+<td>foreign, strange</td>
+<td>Ich bin fremd hier.</td>
+</tr>
+<tr>
+<td>sich freuen</td>
+<td>—</td>
+<td>to be happy</td>
+<td>Ich freue mich!</td>
+</tr>
+<tr>
+<td>der Freund, -e</td>
+<td>m.</td>
+<td>friend (male)</td>
+<td>Mein Freund heißt Max.</td>
+</tr>
+<tr>
+<td>die Freundin, -nen</td>
+<td>f.</td>
+<td>friend (female)</td>
+<td>Meine Freundin kommt auch.</td>
+</tr>
+<tr>
+<td>freundlich</td>
+<td>—</td>
+<td>friendly</td>
+<td>Er ist sehr freundlich.</td>
+</tr>
+<tr>
+<td>frisch</td>
+<td>—</td>
+<td>fresh</td>
+<td>Das Brot ist frisch.</td>
+</tr>
+<tr>
+<td>froh</td>
+<td>—</td>
+<td>glad, happy</td>
+<td>Ich bin froh.</td>
+</tr>
+<tr>
+<td>früh</td>
+<td>—</td>
+<td>early</td>
+<td>Ich stehe früh auf.</td>
+</tr>
+<tr>
+<td>der Frühling</td>
+<td>m.</td>
+<td>spring</td>
+<td>Im Frühling blühen die Blumen.</td>
+</tr>
+<tr>
+<td>das Frühstück, -e</td>
+<td>n.</td>
+<td>breakfast</td>
+<td>Das Frühstück ist um 8 Uhr.</td>
+</tr>
+<tr>
+<td>frühstücken</td>
+<td>—</td>
+<td>to have breakfast</td>
+<td>Wir frühstücken zusammen.</td>
+</tr>
+<tr>
+<td>fühlen</td>
+<td>—</td>
+<td>to feel</td>
+<td>Ich fühle mich gut.</td>
+</tr>
+<tr>
+<td>fünf</td>
+<td>—</td>
+<td>five</td>
+<td>Fünf Minuten, bitte.</td>
+</tr>
+<tr>
+<td>für</td>
+<td>—</td>
+<td>for</td>
+<td>Das ist für dich.</td>
+</tr>
+<tr>
+<td>der Fuß, -̈e</td>
+<td>m.</td>
+<td>foot</td>
+<td>Ich gehe zu Fuß.</td>
+</tr>
+<tr>
+<td>der Fußball</td>
+<td>m.</td>
+<td>football/soccer</td>
+<td>Ich spiele Fußball.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="g">G</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Gabel, -n</td>
+<td>f.</td>
+<td>fork</td>
+<td>Ich brauche eine Gabel.</td>
+</tr>
+<tr>
+<td>ganz</td>
+<td>—</td>
+<td>quite, whole</td>
+<td>Das ist ganz gut.</td>
+</tr>
+<tr>
+<td>der Garten, -̈</td>
+<td>m.</td>
+<td>garden</td>
+<td>Der Garten ist schön.</td>
+</tr>
+<tr>
+<td>der Gast, -̈e</td>
+<td>m.</td>
+<td>guest</td>
+<td>Wir haben Gäste.</td>
+</tr>
+<tr>
+<td>das Gebäude, -</td>
+<td>n.</td>
+<td>building</td>
+<td>Das Gebäude ist alt.</td>
+</tr>
+<tr>
+<td>geben</td>
+<td>—</td>
+<td>to give</td>
+<td>Geben Sie mir das Buch.</td>
+</tr>
+<tr>
+<td>der Geburtstag, -e</td>
+<td>m.</td>
+<td>birthday</td>
+<td>Herzlichen Glückwunsch zum Geburtstag!</td>
+</tr>
+<tr>
+<td>gefährlich</td>
+<td>—</td>
+<td>dangerous</td>
+<td>Das ist gefährlich.</td>
+</tr>
+<tr>
+<td>gefallen</td>
+<td>—</td>
+<td>to please, to like</td>
+<td>Das gefällt mir.</td>
+</tr>
+<tr>
+<td>gegen</td>
+<td>—</td>
+<td>against, around</td>
+<td>Gegen 8 Uhr bin ich da.</td>
+</tr>
+<tr>
+<td>gehen</td>
+<td>—</td>
+<td>to go, to walk</td>
+<td>Ich gehe nach Hause.</td>
+</tr>
+<tr>
+<td>das Geld</td>
+<td>n.</td>
+<td>money</td>
+<td>Ich habe kein Geld.</td>
+</tr>
+<tr>
+<td>das Gemüse</td>
+<td>n.</td>
+<td>vegetables</td>
+<td>Ich esse gern Gemüse.</td>
+</tr>
+<tr>
+<td>genau</td>
+<td>—</td>
+<td>exactly</td>
+<td>Genau!</td>
+</tr>
+<tr>
+<td>genug</td>
+<td>—</td>
+<td>enough</td>
+<td>Das ist genug.</td>
+</tr>
+<tr>
+<td>geöffnet</td>
+<td>—</td>
+<td>open</td>
+<td>Das Geschäft ist geöffnet.</td>
+</tr>
+<tr>
+<td>das Gepäck</td>
+<td>n.</td>
+<td>luggage</td>
+<td>Wo ist mein Gepäck?</td>
+</tr>
+<tr>
+<td>gerade</td>
+<td>—</td>
+<td>just now, straight</td>
+<td>Ich esse gerade.</td>
+</tr>
+<tr>
+<td>geradeaus</td>
+<td>—</td>
+<td>straight ahead</td>
+<td>Gehen Sie geradeaus.</td>
+</tr>
+<tr>
+<td>gern(e)</td>
+<td>—</td>
+<td>gladly, with pleasure</td>
+<td>Ich lese gern.</td>
+</tr>
+<tr>
+<td>das Geschäft, -e</td>
+<td>n.</td>
+<td>shop, store</td>
+<td>Das Geschäft ist geöffnet.</td>
+</tr>
+<tr>
+<td>das Geschenk, -e</td>
+<td>n.</td>
+<td>gift, present</td>
+<td>Das ist ein Geschenk für dich.</td>
+</tr>
+<tr>
+<td>die Geschichte, -n</td>
+<td>f.</td>
+<td>story, history</td>
+<td>Die Geschichte ist interessant.</td>
+</tr>
+<tr>
+<td>geschlossen</td>
+<td>—</td>
+<td>closed</td>
+<td>Das Museum ist geschlossen.</td>
+</tr>
+<tr>
+<td>die Geschwister (Pl.)</td>
+<td>—</td>
+<td>siblings</td>
+<td>Ich habe zwei Geschwister.</td>
+</tr>
+<tr>
+<td>das Gesicht, -er</td>
+<td>n.</td>
+<td>face</td>
+<td>Er hat ein freundliches Gesicht.</td>
+</tr>
+<tr>
+<td>gestern</td>
+<td>—</td>
+<td>yesterday</td>
+<td>Gestern war ich im Kino.</td>
+</tr>
+<tr>
+<td>gesund</td>
+<td>—</td>
+<td>healthy</td>
+<td>Obst ist gesund.</td>
+</tr>
+<tr>
+<td>das Getränk, -e</td>
+<td>n.</td>
+<td>drink, beverage</td>
+<td>Was möchten Sie als Getränk?</td>
+</tr>
+<tr>
+<td>das Glas, -̈er</td>
+<td>n.</td>
+<td>glass</td>
+<td>Ein Glas Wasser, bitte.</td>
+</tr>
+<tr>
+<td>der Gleis, -e</td>
+<td>m.</td>
+<td>track, platform</td>
+<td>Der Zug fährt von Gleis 5.</td>
+</tr>
+<tr>
+<td>das Glück</td>
+<td>n.</td>
+<td>luck, happiness</td>
+<td>Viel Glück!</td>
+</tr>
+<tr>
+<td>glücklich</td>
+<td>—</td>
+<td>happy</td>
+<td>Ich bin glücklich.</td>
+</tr>
+<tr>
+<td>grau</td>
+<td>—</td>
+<td>gray</td>
+<td>Der Himmel ist grau.</td>
+</tr>
+<tr>
+<td>groß</td>
+<td>—</td>
+<td>big, tall</td>
+<td>Das Haus ist groß.</td>
+</tr>
+<tr>
+<td>die Großeltern (Pl.)</td>
+<td>—</td>
+<td>grandparents</td>
+<td>Meine Großeltern wohnen auf dem Land.</td>
+</tr>
+<tr>
+<td>die Großmutter, -̈</td>
+<td>f.</td>
+<td>grandmother</td>
+<td>Meine Großmutter ist 80.</td>
+</tr>
+<tr>
+<td>der Großvater, -̈</td>
+<td>m.</td>
+<td>grandfather</td>
+<td>Mein Großvater ist 82.</td>
+</tr>
+<tr>
+<td>grün</td>
+<td>—</td>
+<td>green</td>
+<td>Die Ampel ist grün.</td>
+</tr>
+<tr>
+<td>der Gruß, -̈e</td>
+<td>m.</td>
+<td>greeting</td>
+<td>Viele Grüße!</td>
+</tr>
+<tr>
+<td>gut</td>
+<td>—</td>
+<td>good</td>
+<td>Das ist gut.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h">H</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>das Haar, -e</td>
+<td>n.</td>
+<td>hair</td>
+<td>Sie hat lange Haare.</td>
+</tr>
+<tr>
+<td>haben</td>
+<td>—</td>
+<td>to have</td>
+<td>Ich habe ein Auto.</td>
+</tr>
+<tr>
+<td>halb</td>
+<td>—</td>
+<td>half</td>
+<td>Es ist halb drei.</td>
+</tr>
+<tr>
+<td>die Halle, -n</td>
+<td>f.</td>
+<td>hall</td>
+<td>Die Halle ist groß.</td>
+</tr>
+<tr>
+<td>hallo</td>
+<td>—</td>
+<td>hello</td>
+<td>Hallo, wie geht's?</td>
+</tr>
+<tr>
+<td>die Haltestelle, -n</td>
+<td>f.</td>
+<td>stop (bus/tram)</td>
+<td>Die Haltestelle ist dort.</td>
+</tr>
+<tr>
+<td>die Hand, -̈e</td>
+<td>f.</td>
+<td>hand</td>
+<td>Geben Sie mir die Hand.</td>
+</tr>
+<tr>
+<td>das Handy, -s</td>
+<td>n.</td>
+<td>mobile phone</td>
+<td>Mein Handy ist kaputt.</td>
+</tr>
+<tr>
+<td>der Hauptbahnhof, -̈e</td>
+<td>m.</td>
+<td>main train station</td>
+<td>Am Hauptbahnhof umsteigen.</td>
+</tr>
+<tr>
+<td>das Haus, -̈er</td>
+<td>n.</td>
+<td>house</td>
+<td>Das Haus ist weiß.</td>
+</tr>
+<tr>
+<td>die Hausaufgabe, -n</td>
+<td>f.</td>
+<td>homework</td>
+<td>Mach deine Hausaufgaben!</td>
+</tr>
+<tr>
+<td>die Hausfrau, -en</td>
+<td>f.</td>
+<td>housewife</td>
+<td>Sie ist Hausfrau.</td>
+</tr>
+<tr>
+<td>der Haushalt, -e</td>
+<td>m.</td>
+<td>household</td>
+<td>Ich mache den Haushalt.</td>
+</tr>
+<tr>
+<td>die Heimat</td>
+<td>f.</td>
+<td>homeland</td>
+<td>Meine Heimat ist Türkei.</td>
+</tr>
+<tr>
+<td>heiß</td>
+<td>—</td>
+<td>hot</td>
+<td>Der Kaffee ist heiß.</td>
+</tr>
+<tr>
+<td>heißen</td>
+<td>—</td>
+<td>to be called</td>
+<td>Ich heiße Maria.</td>
+</tr>
+<tr>
+<td>helfen</td>
+<td>—</td>
+<td>to help</td>
+<td>Kann ich Ihnen helfen?</td>
+</tr>
+<tr>
+<td>hell</td>
+<td>—</td>
+<td>bright, light</td>
+<td>Das Zimmer ist hell.</td>
+</tr>
+<tr>
+<td>der Herbst</td>
+<td>m.</td>
+<td>autumn</td>
+<td>Im Herbst fallen die Blätter.</td>
+</tr>
+<tr>
+<td>der Herr, -en</td>
+<td>m.</td>
+<td>Mr., gentleman</td>
+<td>Herr Schmidt ist da.</td>
+</tr>
+<tr>
+<td>heute</td>
+<td>—</td>
+<td>today</td>
+<td>Heute ist Montag.</td>
+</tr>
+<tr>
+<td>hier</td>
+<td>—</td>
+<td>here</td>
+<td>Ich bin hier.</td>
+</tr>
+<tr>
+<td>die Hilfe</td>
+<td>f.</td>
+<td>help</td>
+<td>Ich brauche Hilfe.</td>
+</tr>
+<tr>
+<td>der Himmel</td>
+<td>m.</td>
+<td>sky, heaven</td>
+<td>Der Himmel ist blau.</td>
+</tr>
+<tr>
+<td>hin</td>
+<td>—</td>
+<td>there (direction)</td>
+<td>Wo gehst du hin?</td>
+</tr>
+<tr>
+<td>hinter</td>
+<td>—</td>
+<td>behind</td>
+<td>Hinter dem Haus ist ein Garten.</td>
+</tr>
+<tr>
+<td>das Hobby, -s</td>
+<td>n.</td>
+<td>hobby</td>
+<td>Mein Hobby ist Musik.</td>
+</tr>
+<tr>
+<td>hoch</td>
+<td>—</td>
+<td>high, tall</td>
+<td>Der Berg ist hoch.</td>
+</tr>
+<tr>
+<td>die Hochzeit, -en</td>
+<td>f.</td>
+<td>wedding</td>
+<td>Die Hochzeit ist im Mai.</td>
+</tr>
+<tr>
+<td>das Hotel, -s</td>
+<td>n.</td>
+<td>hotel</td>
+<td>Das Hotel ist teuer.</td>
+</tr>
+<tr>
+<td>der Hund, -e</td>
+<td>m.</td>
+<td>dog</td>
+<td>Der Hund ist groß.</td>
+</tr>
+<tr>
+<td>der Hunger</td>
+<td>m.</td>
+<td>hunger</td>
+<td>Ich habe Hunger.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i">I</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>—</td>
+<td>I</td>
+<td>Ich bin Student.</td>
+</tr>
+<tr>
+<td>die Idee, -n</td>
+<td>f.</td>
+<td>idea</td>
+<td>Das ist eine gute Idee.</td>
+</tr>
+<tr>
+<td>ihr</td>
+<td>—</td>
+<td>her, their, you (pl.)</td>
+<td>Ihr Haus ist schön.</td>
+</tr>
+<tr>
+<td>immer</td>
+<td>—</td>
+<td>always</td>
+<td>Ich bin immer pünktlich.</td>
+</tr>
+<tr>
+<td>in</td>
+<td>—</td>
+<td>in, into</td>
+<td>Ich bin in der Schule.</td>
+</tr>
+<tr>
+<td>die Information, -en</td>
+<td>f.</td>
+<td>information</td>
+<td>Ich brauche Informationen.</td>
+</tr>
+<tr>
+<td>der Ingenieur, -e</td>
+<td>m.</td>
+<td>engineer</td>
+<td>Er ist Ingenieur.</td>
+</tr>
+<tr>
+<td>interessant</td>
+<td>—</td>
+<td>interesting</td>
+<td>Das Buch ist interessant.</td>
+</tr>
+<tr>
+<td>das Internet</td>
+<td>n.</td>
+<td>internet</td>
+<td>Ich suche im Internet.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="j">J</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ja</td>
+<td>—</td>
+<td>yes</td>
+<td>Ja, natürlich!</td>
+</tr>
+<tr>
+<td>die Jacke, -n</td>
+<td>f.</td>
+<td>jacket</td>
+<td>Die Jacke ist warm.</td>
+</tr>
+<tr>
+<td>das Jahr, -e</td>
+<td>n.</td>
+<td>year</td>
+<td>Ich bin 25 Jahre alt.</td>
+</tr>
+<tr>
+<td>die Jahreszeit, -en</td>
+<td>f.</td>
+<td>season</td>
+<td>Welche Jahreszeit magst du?</td>
+</tr>
+<tr>
+<td>der Januar</td>
+<td>m.</td>
+<td>January</td>
+<td>Im Januar ist es kalt.</td>
+</tr>
+<tr>
+<td>jeder/jede/jedes</td>
+<td>—</td>
+<td>every, each</td>
+<td>Jeden Tag lerne ich.</td>
+</tr>
+<tr>
+<td>jemand</td>
+<td>—</td>
+<td>someone</td>
+<td>Ist da jemand?</td>
+</tr>
+<tr>
+<td>jetzt</td>
+<td>—</td>
+<td>now</td>
+<td>Ich mache das jetzt.</td>
+</tr>
+<tr>
+<td>der Job, -s</td>
+<td>m.</td>
+<td>job</td>
+<td>Ich suche einen Job.</td>
+</tr>
+<tr>
+<td>der Jugendliche, -n</td>
+<td>m.</td>
+<td>young person</td>
+<td>Die Jugendlichen spielen Fußball.</td>
+</tr>
+<tr>
+<td>der Juli</td>
+<td>m.</td>
+<td>July</td>
+<td>Im Juli ist Sommer.</td>
+</tr>
+<tr>
+<td>jung</td>
+<td>—</td>
+<td>young</td>
+<td>Sie ist sehr jung.</td>
+</tr>
+<tr>
+<td>der Junge, -n</td>
+<td>m.</td>
+<td>boy</td>
+<td>Der Junge spielt draußen.</td>
+</tr>
+<tr>
+<td>der Juni</td>
+<td>m.</td>
+<td>June</td>
+<td>Im Juni habe ich Geburtstag.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="k">K</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>der Kaffee</td>
+<td>m.</td>
+<td>coffee</td>
+<td>Einen Kaffee, bitte.</td>
+</tr>
+<tr>
+<td>der Kalender, -</td>
+<td>m.</td>
+<td>calendar</td>
+<td>Schau in den Kalender.</td>
+</tr>
+<tr>
+<td>kalt</td>
+<td>—</td>
+<td>cold</td>
+<td>Es ist kalt draußen.</td>
+</tr>
+<tr>
+<td>kaputt</td>
+<td>—</td>
+<td>broken</td>
+<td>Mein Handy ist kaputt.</td>
+</tr>
+<tr>
+<td>die Karte, -n</td>
+<td>f.</td>
+<td>card, map, ticket</td>
+<td>Haben Sie eine Karte?</td>
+</tr>
+<tr>
+<td>die Kartoffel, -n</td>
+<td>f.</td>
+<td>potato</td>
+<td>Ich esse Kartoffeln.</td>
+</tr>
+<tr>
+<td>der Käse</td>
+<td>m.</td>
+<td>cheese</td>
+<td>Käse aufs Brot.</td>
+</tr>
+<tr>
+<td>die Kasse, -n</td>
+<td>f.</td>
+<td>cash register, checkout</td>
+<td>Bitte an der Kasse zahlen.</td>
+</tr>
+<tr>
+<td>die Katze, -n</td>
+<td>f.</td>
+<td>cat</td>
+<td>Die Katze schläft.</td>
+</tr>
+<tr>
+<td>kaufen</td>
+<td>—</td>
+<td>to buy</td>
+<td>Ich kaufe ein Buch.</td>
+</tr>
+<tr>
+<td>das Kaufhaus, -̈er</td>
+<td>n.</td>
+<td>department store</td>
+<td>Das Kaufhaus ist groß.</td>
+</tr>
+<tr>
+<td>kein/keine</td>
+<td>—</td>
+<td>no, not any</td>
+<td>Ich habe kein Geld.</td>
+</tr>
+<tr>
+<td>der Keller, -</td>
+<td>m.</td>
+<td>basement</td>
+<td>Der Keller ist dunkel.</td>
+</tr>
+<tr>
+<td>der Kellner, -</td>
+<td>m.</td>
+<td>waiter</td>
+<td>Der Kellner kommt.</td>
+</tr>
+<tr>
+<td>kennen</td>
+<td>—</td>
+<td>to know (person/place)</td>
+<td>Ich kenne Berlin gut.</td>
+</tr>
+<tr>
+<td>das Kind, -er</td>
+<td>n.</td>
+<td>child</td>
+<td>Das Kind spielt.</td>
+</tr>
+<tr>
+<td>der Kindergarten, -̈</td>
+<td>m.</td>
+<td>kindergarten</td>
+<td>Das Kind geht in den Kindergarten.</td>
+</tr>
+<tr>
+<td>das Kino, -s</td>
+<td>n.</td>
+<td>cinema</td>
+<td>Wir gehen ins Kino.</td>
+</tr>
+<tr>
+<td>die Kirche, -n</td>
+<td>f.</td>
+<td>church</td>
+<td>Die Kirche ist alt.</td>
+</tr>
+<tr>
+<td>klar</td>
+<td>—</td>
+<td>clear</td>
+<td>Alles klar!</td>
+</tr>
+<tr>
+<td>die Klasse, -n</td>
+<td>f.</td>
+<td>class</td>
+<td>Die Klasse ist groß.</td>
+</tr>
+<tr>
+<td>das Kleid, -er</td>
+<td>n.</td>
+<td>dress</td>
+<td>Das Kleid ist schön.</td>
+</tr>
+<tr>
+<td>die Kleidung</td>
+<td>f.</td>
+<td>clothing</td>
+<td>Ich brauche neue Kleidung.</td>
+</tr>
+<tr>
+<td>klein</td>
+<td>—</td>
+<td>small, little</td>
+<td>Das Zimmer ist klein.</td>
+</tr>
+<tr>
+<td>kochen</td>
+<td>—</td>
+<td>to cook</td>
+<td>Ich koche gern.</td>
+</tr>
+<tr>
+<td>der Koffer, -</td>
+<td>m.</td>
+<td>suitcase</td>
+<td>Der Koffer ist schwer.</td>
+</tr>
+<tr>
+<td>der Kollege, -n</td>
+<td>m.</td>
+<td>colleague (male)</td>
+<td>Mein Kollege ist nett.</td>
+</tr>
+<tr>
+<td>die Kollegin, -nen</td>
+<td>f.</td>
+<td>colleague (female)</td>
+<td>Meine Kollegin hilft mir.</td>
+</tr>
+<tr>
+<td>kommen</td>
+<td>—</td>
+<td>to come</td>
+<td>Ich komme aus Indien.</td>
+</tr>
+<tr>
+<td>können</td>
+<td>—</td>
+<td>can, to be able to</td>
+<td>Ich kann Deutsch sprechen.</td>
+</tr>
+<tr>
+<td>der Kopf, -̈e</td>
+<td>m.</td>
+<td>head</td>
+<td>Mein Kopf tut weh.</td>
+</tr>
+<tr>
+<td>kosten</td>
+<td>—</td>
+<td>to cost</td>
+<td>Was kostet das?</td>
+</tr>
+<tr>
+<td>kostenlos</td>
+<td>—</td>
+<td>free (no cost)</td>
+<td>Der Eintritt ist kostenlos.</td>
+</tr>
+<tr>
+<td>krank</td>
+<td>—</td>
+<td>sick, ill</td>
+<td>Ich bin krank.</td>
+</tr>
+<tr>
+<td>das Krankenhaus, -̈er</td>
+<td>n.</td>
+<td>hospital</td>
+<td>Er ist im Krankenhaus.</td>
+</tr>
+<tr>
+<td>die Küche, -n</td>
+<td>f.</td>
+<td>kitchen</td>
+<td>Die Küche ist groß.</td>
+</tr>
+<tr>
+<td>der Kuchen, -</td>
+<td>m.</td>
+<td>cake</td>
+<td>Der Kuchen schmeckt gut.</td>
+</tr>
+<tr>
+<td>der Kugelschreiber, -</td>
+<td>m.</td>
+<td>pen</td>
+<td>Haben Sie einen Kugelschreiber?</td>
+</tr>
+<tr>
+<td>der Kunde, -n</td>
+<td>m.</td>
+<td>customer</td>
+<td>Der Kunde wartet.</td>
+</tr>
+<tr>
+<td>der Kurs, -e</td>
+<td>m.</td>
+<td>course</td>
+<td>Ich besuche einen Deutschkurs.</td>
+</tr>
+<tr>
+<td>kurz</td>
+<td>—</td>
+<td>short</td>
+<td>Die Pause ist kurz.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="l">L</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lachen</td>
+<td>—</td>
+<td>to laugh</td>
+<td>Die Kinder lachen.</td>
+</tr>
+<tr>
+<td>der Laden, -̈</td>
+<td>m.</td>
+<td>shop</td>
+<td>Der Laden ist offen.</td>
+</tr>
+<tr>
+<td>das Land, -̈er</td>
+<td>n.</td>
+<td>country, land</td>
+<td>Welches Land?</td>
+</tr>
+<tr>
+<td>lang(e)</td>
+<td>—</td>
+<td>long</td>
+<td>Die Straße ist lang.</td>
+</tr>
+<tr>
+<td>langsam</td>
+<td>—</td>
+<td>slow(ly)</td>
+<td>Sprechen Sie bitte langsam.</td>
+</tr>
+<tr>
+<td>langweilig</td>
+<td>—</td>
+<td>boring</td>
+<td>Der Film ist langweilig.</td>
+</tr>
+<tr>
+<td>laufen</td>
+<td>—</td>
+<td>to run, to walk</td>
+<td>Ich laufe gern.</td>
+</tr>
+<tr>
+<td>laut</td>
+<td>—</td>
+<td>loud</td>
+<td>Die Musik ist zu laut.</td>
+</tr>
+<tr>
+<td>leben</td>
+<td>—</td>
+<td>to live</td>
+<td>Ich lebe in Berlin.</td>
+</tr>
+<tr>
+<td>das Lebensmittel, -</td>
+<td>n.</td>
+<td>groceries</td>
+<td>Ich kaufe Lebensmittel.</td>
+</tr>
+<tr>
+<td>lecker</td>
+<td>—</td>
+<td>delicious</td>
+<td>Das Essen ist lecker!</td>
+</tr>
+<tr>
+<td>leer</td>
+<td>—</td>
+<td>empty</td>
+<td>Die Flasche ist leer.</td>
+</tr>
+<tr>
+<td>der Lehrer, -</td>
+<td>m.</td>
+<td>teacher (male)</td>
+<td>Der Lehrer ist streng.</td>
+</tr>
+<tr>
+<td>die Lehrerin, -nen</td>
+<td>f.</td>
+<td>teacher (female)</td>
+<td>Die Lehrerin erklärt gut.</td>
+</tr>
+<tr>
+<td>leicht</td>
+<td>—</td>
+<td>light, easy</td>
+<td>Die Aufgabe ist leicht.</td>
+</tr>
+<tr>
+<td>leid (es tut mir leid)</td>
+<td>—</td>
+<td>sorry</td>
+<td>Es tut mir leid.</td>
+</tr>
+<tr>
+<td>leider</td>
+<td>—</td>
+<td>unfortunately</td>
+<td>Leider habe ich keine Zeit.</td>
+</tr>
+<tr>
+<td>leihen</td>
+<td>—</td>
+<td>to lend/borrow</td>
+<td>Kann ich mir das leihen?</td>
+</tr>
+<tr>
+<td>leise</td>
+<td>—</td>
+<td>quiet</td>
+<td>Bitte leise sprechen.</td>
+</tr>
+<tr>
+<td>die Leitung, -en</td>
+<td>f.</td>
+<td>line, management</td>
+<td>Die Leitung ist besetzt.</td>
+</tr>
+<tr>
+<td>lernen</td>
+<td>—</td>
+<td>to learn</td>
+<td>Ich lerne Deutsch.</td>
+</tr>
+<tr>
+<td>lesen</td>
+<td>—</td>
+<td>to read</td>
+<td>Ich lese ein Buch.</td>
+</tr>
+<tr>
+<td>die Leute (Pl.)</td>
+<td>—</td>
+<td>people</td>
+<td>Viele Leute sind hier.</td>
+</tr>
+<tr>
+<td>das Licht, -er</td>
+<td>n.</td>
+<td>light</td>
+<td>Mach das Licht an.</td>
+</tr>
+<tr>
+<td>lieb</td>
+<td>—</td>
+<td>dear, nice</td>
+<td>Liebe Maria, ...</td>
+</tr>
+<tr>
+<td>lieber</td>
+<td>—</td>
+<td>rather, preferably</td>
+<td>Ich trinke lieber Tee.</td>
+</tr>
+<tr>
+<td>das Lied, -er</td>
+<td>n.</td>
+<td>song</td>
+<td>Das Lied ist schön.</td>
+</tr>
+<tr>
+<td>liegen</td>
+<td>—</td>
+<td>to lie, be located</td>
+<td>Berlin liegt in Deutschland.</td>
+</tr>
+<tr>
+<td>die Linie, -n</td>
+<td>f.</td>
+<td>line (bus/tram)</td>
+<td>Nehmen Sie die Linie 5.</td>
+</tr>
+<tr>
+<td>links</td>
+<td>—</td>
+<td>left</td>
+<td>Gehen Sie links.</td>
+</tr>
+<tr>
+<td>die Liste, -n</td>
+<td>f.</td>
+<td>list</td>
+<td>Ich schreibe eine Liste.</td>
+</tr>
+<tr>
+<td>der Löffel, -</td>
+<td>m.</td>
+<td>spoon</td>
+<td>Ich brauche einen Löffel.</td>
+</tr>
+<tr>
+<td>die Luft</td>
+<td>f.</td>
+<td>air</td>
+<td>Die Luft ist frisch.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="m">M</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>machen</td>
+<td>—</td>
+<td>to make, to do</td>
+<td>Was machst du?</td>
+</tr>
+<tr>
+<td>das Mädchen, -</td>
+<td>n.</td>
+<td>girl</td>
+<td>Das Mädchen lacht.</td>
+</tr>
+<tr>
+<td>der Magen, -̈</td>
+<td>m.</td>
+<td>stomach</td>
+<td>Mein Magen tut weh.</td>
+</tr>
+<tr>
+<td>die Mahlzeit, -en</td>
+<td>f.</td>
+<td>meal</td>
+<td>Mahlzeit!</td>
+</tr>
+<tr>
+<td>der Mai</td>
+<td>m.</td>
+<td>May</td>
+<td>Im Mai ist es warm.</td>
+</tr>
+<tr>
+<td>mal</td>
+<td>—</td>
+<td>times (once)</td>
+<td>Komm mal her!</td>
+</tr>
+<tr>
+<td>man</td>
+<td>—</td>
+<td>one, you (general)</td>
+<td>Man muss aufpassen.</td>
+</tr>
+<tr>
+<td>manchmal</td>
+<td>—</td>
+<td>sometimes</td>
+<td>Manchmal regnet es.</td>
+</tr>
+<tr>
+<td>der Mann, -̈er</td>
+<td>m.</td>
+<td>man, husband</td>
+<td>Der Mann ist groß.</td>
+</tr>
+<tr>
+<td>der Mantel, -̈</td>
+<td>m.</td>
+<td>coat</td>
+<td>Der Mantel ist warm.</td>
+</tr>
+<tr>
+<td>der Markt, -̈e</td>
+<td>m.</td>
+<td>market</td>
+<td>Auf dem Markt kaufe ich Obst.</td>
+</tr>
+<tr>
+<td>der März</td>
+<td>m.</td>
+<td>March</td>
+<td>Im März beginnt der Frühling.</td>
+</tr>
+<tr>
+<td>die Medizin</td>
+<td>f.</td>
+<td>medicine</td>
+<td>Nehmen Sie Medizin.</td>
+</tr>
+<tr>
+<td>das Meer, -e</td>
+<td>n.</td>
+<td>sea</td>
+<td>Das Meer ist blau.</td>
+</tr>
+<tr>
+<td>mehr</td>
+<td>—</td>
+<td>more</td>
+<td>Ich brauche mehr Zeit.</td>
+</tr>
+<tr>
+<td>mein</td>
+<td>—</td>
+<td>my</td>
+<td>Mein Name ist Anna.</td>
+</tr>
+<tr>
+<td>meinen</td>
+<td>—</td>
+<td>to mean, to think</td>
+<td>Was meinen Sie?</td>
+</tr>
+<tr>
+<td>der Mensch, -en</td>
+<td>m.</td>
+<td>person, human</td>
+<td>Viele Menschen warten.</td>
+</tr>
+<tr>
+<td>das Messer, -</td>
+<td>n.</td>
+<td>knife</td>
+<td>Das Messer ist scharf.</td>
+</tr>
+<tr>
+<td>die Miete, -n</td>
+<td>f.</td>
+<td>rent</td>
+<td>Die Miete ist hoch.</td>
+</tr>
+<tr>
+<td>die Milch</td>
+<td>f.</td>
+<td>milk</td>
+<td>Ich trinke Milch.</td>
+</tr>
+<tr>
+<td>die Minute, -n</td>
+<td>f.</td>
+<td>minute</td>
+<td>Fünf Minuten, bitte.</td>
+</tr>
+<tr>
+<td>mit</td>
+<td>—</td>
+<td>with</td>
+<td>Ich fahre mit dem Bus.</td>
+</tr>
+<tr>
+<td>der Mittag, -e</td>
+<td>m.</td>
+<td>noon</td>
+<td>Zu Mittag esse ich.</td>
+</tr>
+<tr>
+<td>das Mittagessen, -</td>
+<td>n.</td>
+<td>lunch</td>
+<td>Das Mittagessen ist fertig.</td>
+</tr>
+<tr>
+<td>die Mitte</td>
+<td>f.</td>
+<td>middle, center</td>
+<td>In der Mitte der Stadt.</td>
+</tr>
+<tr>
+<td>die Mitternacht</td>
+<td>f.</td>
+<td>midnight</td>
+<td>Um Mitternacht schlafe ich.</td>
+</tr>
+<tr>
+<td>der Mittwoch, -e</td>
+<td>m.</td>
+<td>Wednesday</td>
+<td>Am Mittwoch habe ich frei.</td>
+</tr>
+<tr>
+<td>die Möbel (Pl.)</td>
+<td>—</td>
+<td>furniture</td>
+<td>Die Möbel sind neu.</td>
+</tr>
+<tr>
+<td>möchten</td>
+<td>—</td>
+<td>would like</td>
+<td>Ich möchte ein Bier.</td>
+</tr>
+<tr>
+<td>mögen</td>
+<td>—</td>
+<td>to like</td>
+<td>Ich mag Schokolade.</td>
+</tr>
+<tr>
+<td>möglich</td>
+<td>—</td>
+<td>possible</td>
+<td>Ist das möglich?</td>
+</tr>
+<tr>
+<td>der Moment, -e</td>
+<td>m.</td>
+<td>moment</td>
+<td>Einen Moment, bitte.</td>
+</tr>
+<tr>
+<td>der Monat, -e</td>
+<td>m.</td>
+<td>month</td>
+<td>Welcher Monat ist es?</td>
+</tr>
+<tr>
+<td>der Montag, -e</td>
+<td>m.</td>
+<td>Monday</td>
+<td>Am Montag beginnt die Woche.</td>
+</tr>
+<tr>
+<td>morgen</td>
+<td>—</td>
+<td>tomorrow</td>
+<td>Bis morgen!</td>
+</tr>
+<tr>
+<td>der Morgen, -</td>
+<td>m.</td>
+<td>morning</td>
+<td>Guten Morgen!</td>
+</tr>
+<tr>
+<td>morgens</td>
+<td>—</td>
+<td>in the morning</td>
+<td>Morgens trinke ich Kaffee.</td>
+</tr>
+<tr>
+<td>müde</td>
+<td>—</td>
+<td>tired</td>
+<td>Ich bin müde.</td>
+</tr>
+<tr>
+<td>der Mund, -̈er</td>
+<td>m.</td>
+<td>mouth</td>
+<td>Öffnen Sie den Mund.</td>
+</tr>
+<tr>
+<td>das Museum, Museen</td>
+<td>n.</td>
+<td>museum</td>
+<td>Das Museum ist interessant.</td>
+</tr>
+<tr>
+<td>die Musik</td>
+<td>f.</td>
+<td>music</td>
+<td>Ich höre gern Musik.</td>
+</tr>
+<tr>
+<td>müssen</td>
+<td>—</td>
+<td>must, to have to</td>
+<td>Ich muss arbeiten.</td>
+</tr>
+<tr>
+<td>die Mutter, -̈</td>
+<td>f.</td>
+<td>mother</td>
+<td>Meine Mutter kocht gut.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="n">N</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nach</td>
+<td>—</td>
+<td>to, after</td>
+<td>Ich fahre nach Berlin.</td>
+</tr>
+<tr>
+<td>der Nachbar, -n</td>
+<td>m.</td>
+<td>neighbor</td>
+<td>Mein Nachbar ist nett.</td>
+</tr>
+<tr>
+<td>nachher</td>
+<td>—</td>
+<td>afterwards</td>
+<td>Bis nachher!</td>
+</tr>
+<tr>
+<td>die Nachmittag, -e</td>
+<td>m.</td>
+<td>afternoon</td>
+<td>Am Nachmittag lerne ich.</td>
+</tr>
+<tr>
+<td>die Nachricht, -en</td>
+<td>f.</td>
+<td>message, news</td>
+<td>Ich habe eine Nachricht.</td>
+</tr>
+<tr>
+<td>die Nacht, -̈e</td>
+<td>f.</td>
+<td>night</td>
+<td>Gute Nacht!</td>
+</tr>
+<tr>
+<td>nah(e)</td>
+<td>—</td>
+<td>near, close</td>
+<td>Der Bahnhof ist nah.</td>
+</tr>
+<tr>
+<td>der Name, -n</td>
+<td>m.</td>
+<td>name</td>
+<td>Wie ist Ihr Name?</td>
+</tr>
+<tr>
+<td>die Nase, -n</td>
+<td>f.</td>
+<td>nose</td>
+<td>Die Nase ist klein.</td>
+</tr>
+<tr>
+<td>die Natur</td>
+<td>f.</td>
+<td>nature</td>
+<td>Die Natur ist schön.</td>
+</tr>
+<tr>
+<td>natürlich</td>
+<td>—</td>
+<td>of course</td>
+<td>Natürlich!</td>
+</tr>
+<tr>
+<td>neben</td>
+<td>—</td>
+<td>next to</td>
+<td>Neben der Bank ist ein Café.</td>
+</tr>
+<tr>
+<td>nehmen</td>
+<td>—</td>
+<td>to take</td>
+<td>Ich nehme den Bus.</td>
+</tr>
+<tr>
+<td>nein</td>
+<td>—</td>
+<td>no</td>
+<td>Nein, danke.</td>
+</tr>
+<tr>
+<td>nennen</td>
+<td>—</td>
+<td>to name, to call</td>
+<td>Wie nennt man das?</td>
+</tr>
+<tr>
+<td>nett</td>
+<td>—</td>
+<td>nice</td>
+<td>Sie ist nett.</td>
+</tr>
+<tr>
+<td>neu</td>
+<td>—</td>
+<td>new</td>
+<td>Das Auto ist neu.</td>
+</tr>
+<tr>
+<td>neun</td>
+<td>—</td>
+<td>nine</td>
+<td>Neun Uhr.</td>
+</tr>
+<tr>
+<td>nicht</td>
+<td>—</td>
+<td>not</td>
+<td>Ich bin nicht müde.</td>
+</tr>
+<tr>
+<td>nichts</td>
+<td>—</td>
+<td>nothing</td>
+<td>Ich habe nichts.</td>
+</tr>
+<tr>
+<td>nie</td>
+<td>—</td>
+<td>never</td>
+<td>Ich gehe nie spät ins Bett.</td>
+</tr>
+<tr>
+<td>niemand</td>
+<td>—</td>
+<td>nobody</td>
+<td>Niemand ist hier.</td>
+</tr>
+<tr>
+<td>noch</td>
+<td>—</td>
+<td>still, yet</td>
+<td>Bist du noch da?</td>
+</tr>
+<tr>
+<td>der Norden</td>
+<td>m.</td>
+<td>north</td>
+<td>Hamburg liegt im Norden.</td>
+</tr>
+<tr>
+<td>normal</td>
+<td>—</td>
+<td>normal</td>
+<td>Das ist normal.</td>
+</tr>
+<tr>
+<td>die Notiz, -en</td>
+<td>f.</td>
+<td>note</td>
+<td>Ich mache eine Notiz.</td>
+</tr>
+<tr>
+<td>der November</td>
+<td>m.</td>
+<td>November</td>
+<td>Im November ist es kalt.</td>
+</tr>
+<tr>
+<td>die Nummer, -n</td>
+<td>f.</td>
+<td>number</td>
+<td>Wie ist Ihre Nummer?</td>
+</tr>
+<tr>
+<td>nur</td>
+<td>—</td>
+<td>only</td>
+<td>Nur ein Stück, bitte.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="o">O</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ob</td>
+<td>—</td>
+<td>whether, if</td>
+<td>Ich weiß nicht, ob er kommt.</td>
+</tr>
+<tr>
+<td>oben</td>
+<td>—</td>
+<td>above, upstairs</td>
+<td>Das Zimmer ist oben.</td>
+</tr>
+<tr>
+<td>das Obst</td>
+<td>n.</td>
+<td>fruit</td>
+<td>Obst ist gesund.</td>
+</tr>
+<tr>
+<td>oder</td>
+<td>—</td>
+<td>or</td>
+<td>Kaffee oder Tee?</td>
+</tr>
+<tr>
+<td>offen</td>
+<td>—</td>
+<td>open</td>
+<td>Die Tür ist offen.</td>
+</tr>
+<tr>
+<td>öffnen</td>
+<td>—</td>
+<td>to open</td>
+<td>Bitte öffnen Sie die Tür.</td>
+</tr>
+<tr>
+<td>die Öffnungszeit, -en</td>
+<td>f.</td>
+<td>opening hours</td>
+<td>Die Öffnungszeiten sind von 9 bis 18 Uhr.</td>
+</tr>
+<tr>
+<td>oft</td>
+<td>—</td>
+<td>often</td>
+<td>Ich gehe oft spazieren.</td>
+</tr>
+<tr>
+<td>ohne</td>
+<td>—</td>
+<td>without</td>
+<td>Ohne Zucker, bitte.</td>
+</tr>
+<tr>
+<td>das Ohr, -en</td>
+<td>n.</td>
+<td>ear</td>
+<td>Mein Ohr tut weh.</td>
+</tr>
+<tr>
+<td>der Oktober</td>
+<td>m.</td>
+<td>October</td>
+<td>Im Oktober ist Herbst.</td>
+</tr>
+<tr>
+<td>die Oma, -s</td>
+<td>f.</td>
+<td>grandma</td>
+<td>Meine Oma backt Kuchen.</td>
+</tr>
+<tr>
+<td>der Onkel, -</td>
+<td>m.</td>
+<td>uncle</td>
+<td>Mein Onkel wohnt in München.</td>
+</tr>
+<tr>
+<td>der Opa, -s</td>
+<td>m.</td>
+<td>grandpa</td>
+<td>Mein Opa ist 80.</td>
+</tr>
+<tr>
+<td>die Orange, -n</td>
+<td>f.</td>
+<td>orange</td>
+<td>Die Orange ist süß.</td>
+</tr>
+<tr>
+<td>der Ort, -e</td>
+<td>m.</td>
+<td>place, town</td>
+<td>Der Ort ist klein.</td>
+</tr>
+<tr>
+<td>der Osten</td>
+<td>m.</td>
+<td>east</td>
+<td>Dresden liegt im Osten.</td>
+</tr>
+<tr>
+<td>Österreich</td>
+<td>—</td>
+<td>Austria</td>
+<td>Ich fahre nach Österreich.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="p">P</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>das Paar, -e</td>
+<td>n.</td>
+<td>pair, couple</td>
+<td>Ein Paar Schuhe.</td>
+</tr>
+<tr>
+<td>packen</td>
+<td>—</td>
+<td>to pack</td>
+<td>Ich packe den Koffer.</td>
+</tr>
+<tr>
+<td>das Paket, -e</td>
+<td>n.</td>
+<td>package</td>
+<td>Das Paket ist da.</td>
+</tr>
+<tr>
+<td>der Papier, -e</td>
+<td>n.</td>
+<td>paper</td>
+<td>Ich brauche Papier.</td>
+</tr>
+<tr>
+<td>der Park, -s</td>
+<td>m.</td>
+<td>park</td>
+<td>Der Park ist grün.</td>
+</tr>
+<tr>
+<td>der Parkplatz, -̈e</td>
+<td>m.</td>
+<td>parking lot</td>
+<td>Gibt es einen Parkplatz?</td>
+</tr>
+<tr>
+<td>der Partner, -</td>
+<td>m.</td>
+<td>partner</td>
+<td>Mein Partner arbeitet viel.</td>
+</tr>
+<tr>
+<td>die Party, -s</td>
+<td>f.</td>
+<td>party</td>
+<td>Die Party ist am Samstag.</td>
+</tr>
+<tr>
+<td>der Pass, -̈e</td>
+<td>m.</td>
+<td>passport</td>
+<td>Zeigen Sie Ihren Pass.</td>
+</tr>
+<tr>
+<td>passen</td>
+<td>—</td>
+<td>to fit</td>
+<td>Die Hose passt gut.</td>
+</tr>
+<tr>
+<td>passieren</td>
+<td>—</td>
+<td>to happen</td>
+<td>Was ist passiert?</td>
+</tr>
+<tr>
+<td>die Pause, -n</td>
+<td>f.</td>
+<td>break, pause</td>
+<td>Wir machen Pause.</td>
+</tr>
+<tr>
+<td>das Perfekt</td>
+<td>n.</td>
+<td>perfect tense</td>
+<td>Das Perfekt ist wichtig.</td>
+</tr>
+<tr>
+<td>die Person, -en</td>
+<td>f.</td>
+<td>person</td>
+<td>Drei Personen.</td>
+</tr>
+<tr>
+<td>der Platz, -̈e</td>
+<td>m.</td>
+<td>place, seat, square</td>
+<td>Ist der Platz frei?</td>
+</tr>
+<tr>
+<td>plötzlich</td>
+<td>—</td>
+<td>suddenly</td>
+<td>Plötzlich regnet es.</td>
+</tr>
+<tr>
+<td>die Polizei</td>
+<td>f.</td>
+<td>police</td>
+<td>Rufen Sie die Polizei!</td>
+</tr>
+<tr>
+<td>die Pommes (frites)</td>
+<td>Pl.</td>
+<td>french fries</td>
+<td>Pommes mit Ketchup.</td>
+</tr>
+<tr>
+<td>die Post</td>
+<td>f.</td>
+<td>mail, post office</td>
+<td>Ich gehe zur Post.</td>
+</tr>
+<tr>
+<td>die Postkarte, -n</td>
+<td>f.</td>
+<td>postcard</td>
+<td>Ich schreibe eine Postkarte.</td>
+</tr>
+<tr>
+<td>der Preis, -e</td>
+<td>m.</td>
+<td>price</td>
+<td>Der Preis ist gut.</td>
+</tr>
+<tr>
+<td>prima</td>
+<td>—</td>
+<td>great</td>
+<td>Prima!</td>
+</tr>
+<tr>
+<td>privat</td>
+<td>—</td>
+<td>private</td>
+<td>Das ist privat.</td>
+</tr>
+<tr>
+<td>pro</td>
+<td>—</td>
+<td>per</td>
+<td>10 Euro pro Stunde.</td>
+</tr>
+<tr>
+<td>das Problem, -e</td>
+<td>n.</td>
+<td>problem</td>
+<td>Kein Problem!</td>
+</tr>
+<tr>
+<td>das Programm, -e</td>
+<td>n.</td>
+<td>program</td>
+<td>Was ist im Programm?</td>
+</tr>
+<tr>
+<td>pünktlich</td>
+<td>—</td>
+<td>on time</td>
+<td>Der Zug ist pünktlich.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="q">Q</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Qualität, -en</td>
+<td>f.</td>
+<td>quality</td>
+<td>Die Qualität ist gut.</td>
+</tr>
+<tr>
+<td>die Quittung, -en</td>
+<td>f.</td>
+<td>receipt</td>
+<td>Kann ich eine Quittung haben?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="r">R</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>das Rad, -̈er</td>
+<td>n.</td>
+<td>wheel, bicycle</td>
+<td>Ich fahre Rad.</td>
+</tr>
+<tr>
+<td>der Rathaus, -̈er</td>
+<td>n.</td>
+<td>town hall</td>
+<td>Das Rathaus ist am Marktplatz.</td>
+</tr>
+<tr>
+<td>rauchen</td>
+<td>—</td>
+<td>to smoke</td>
+<td>Hier darf man nicht rauchen.</td>
+</tr>
+<tr>
+<td>der Raum, -̈e</td>
+<td>m.</td>
+<td>room, space</td>
+<td>Der Raum ist hell.</td>
+</tr>
+<tr>
+<td>rechnen</td>
+<td>—</td>
+<td>to calculate</td>
+<td>Ich rechne die Kosten.</td>
+</tr>
+<tr>
+<td>die Rechnung, -en</td>
+<td>f.</td>
+<td>bill, check</td>
+<td>Die Rechnung, bitte.</td>
+</tr>
+<tr>
+<td>recht</td>
+<td>—</td>
+<td>right</td>
+<td>Rechts ist die Apotheke.</td>
+</tr>
+<tr>
+<td>rechts</td>
+<td>—</td>
+<td>to the right</td>
+<td>Gehen Sie rechts.</td>
+</tr>
+<tr>
+<td>reden</td>
+<td>—</td>
+<td>to talk</td>
+<td>Wir müssen reden.</td>
+</tr>
+<tr>
+<td>der Regen</td>
+<td>m.</td>
+<td>rain</td>
+<td>Es gibt Regen.</td>
+</tr>
+<tr>
+<td>regnen</td>
+<td>—</td>
+<td>to rain</td>
+<td>Es regnet.</td>
+</tr>
+<tr>
+<td>die Reise, -n</td>
+<td>f.</td>
+<td>trip, journey</td>
+<td>Gute Reise!</td>
+</tr>
+<tr>
+<td>reisen</td>
+<td>—</td>
+<td>to travel</td>
+<td>Ich reise gern.</td>
+</tr>
+<tr>
+<td>das Restaurant, -s</td>
+<td>n.</td>
+<td>restaurant</td>
+<td>Das Restaurant ist gut.</td>
+</tr>
+<tr>
+<td>richtig</td>
+<td>—</td>
+<td>correct, right</td>
+<td>Die Antwort ist richtig.</td>
+</tr>
+<tr>
+<td>die Richtung, -en</td>
+<td>f.</td>
+<td>direction</td>
+<td>In welche Richtung?</td>
+</tr>
+<tr>
+<td>der Rock, -̈e</td>
+<td>m.</td>
+<td>skirt</td>
+<td>Der Rock ist rot.</td>
+</tr>
+<tr>
+<td>rot</td>
+<td>—</td>
+<td>red</td>
+<td>Die Rose ist rot.</td>
+</tr>
+<tr>
+<td>der Rücken, -</td>
+<td>m.</td>
+<td>back (body)</td>
+<td>Mein Rücken tut weh.</td>
+</tr>
+<tr>
+<td>die Ruhe</td>
+<td>f.</td>
+<td>quiet, peace</td>
+<td>Ich brauche Ruhe.</td>
+</tr>
+<tr>
+<td>ruhig</td>
+<td>—</td>
+<td>quiet, calm</td>
+<td>Die Straße ist ruhig.</td>
+</tr>
+<tr>
+<td>rund</td>
+<td>—</td>
+<td>round, about</td>
+<td>Rund 100 Leute.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s">S</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Sache, -n</td>
+<td>f.</td>
+<td>thing, matter</td>
+<td>Die Sache ist klar.</td>
+</tr>
+<tr>
+<td>der Saft, -̈e</td>
+<td>m.</td>
+<td>juice</td>
+<td>Ein Glas Orangensaft, bitte.</td>
+</tr>
+<tr>
+<td>sagen</td>
+<td>—</td>
+<td>to say</td>
+<td>Was sagst du?</td>
+</tr>
+<tr>
+<td>der Salat, -e</td>
+<td>m.</td>
+<td>salad</td>
+<td>Ich esse einen Salat.</td>
+</tr>
+<tr>
+<td>das Salz</td>
+<td>n.</td>
+<td>salt</td>
+<td>Mehr Salz, bitte.</td>
+</tr>
+<tr>
+<td>der Samstag, -e</td>
+<td>m.</td>
+<td>Saturday</td>
+<td>Am Samstag gehe ich einkaufen.</td>
+</tr>
+<tr>
+<td>der Satz, -̈e</td>
+<td>m.</td>
+<td>sentence</td>
+<td>Schreiben Sie einen Satz.</td>
+</tr>
+<tr>
+<td>sauber</td>
+<td>—</td>
+<td>clean</td>
+<td>Das Zimmer ist sauber.</td>
+</tr>
+<tr>
+<td>die S-Bahn, -en</td>
+<td>f.</td>
+<td>suburban train</td>
+<td>Die S-Bahn kommt.</td>
+</tr>
+<tr>
+<td>schade</td>
+<td>—</td>
+<td>too bad</td>
+<td>Schade!</td>
+</tr>
+<tr>
+<td>schaffen</td>
+<td>—</td>
+<td>to manage, to do</td>
+<td>Das schaffe ich!</td>
+</tr>
+<tr>
+<td>schauen</td>
+<td>—</td>
+<td>to look</td>
+<td>Schau mal!</td>
+</tr>
+<tr>
+<td>schenken</td>
+<td>—</td>
+<td>to give (a gift)</td>
+<td>Ich schenke dir ein Buch.</td>
+</tr>
+<tr>
+<td>schicken</td>
+<td>—</td>
+<td>to send</td>
+<td>Ich schicke eine E-Mail.</td>
+</tr>
+<tr>
+<td>schlafen</td>
+<td>—</td>
+<td>to sleep</td>
+<td>Ich schlafe 8 Stunden.</td>
+</tr>
+<tr>
+<td>das Schlafzimmer, -</td>
+<td>n.</td>
+<td>bedroom</td>
+<td>Das Schlafzimmer ist ruhig.</td>
+</tr>
+<tr>
+<td>schlecht</td>
+<td>—</td>
+<td>bad</td>
+<td>Das Wetter ist schlecht.</td>
+</tr>
+<tr>
+<td>schließen</td>
+<td>—</td>
+<td>to close</td>
+<td>Bitte schließen Sie die Tür.</td>
+</tr>
+<tr>
+<td>der Schlüssel, -</td>
+<td>m.</td>
+<td>key</td>
+<td>Wo ist der Schlüssel?</td>
+</tr>
+<tr>
+<td>schmecken</td>
+<td>—</td>
+<td>to taste</td>
+<td>Das schmeckt gut!</td>
+</tr>
+<tr>
+<td>der Schmerz, -en</td>
+<td>m.</td>
+<td>pain</td>
+<td>Ich habe Schmerzen.</td>
+</tr>
+<tr>
+<td>schmutzig</td>
+<td>—</td>
+<td>dirty</td>
+<td>Die Schuhe sind schmutzig.</td>
+</tr>
+<tr>
+<td>der Schnee</td>
+<td>m.</td>
+<td>snow</td>
+<td>Es gibt Schnee.</td>
+</tr>
+<tr>
+<td>schneiden</td>
+<td>—</td>
+<td>to cut</td>
+<td>Ich schneide das Brot.</td>
+</tr>
+<tr>
+<td>schnell</td>
+<td>—</td>
+<td>fast, quick</td>
+<td>Der Zug ist schnell.</td>
+</tr>
+<tr>
+<td>die Schokolade, -n</td>
+<td>f.</td>
+<td>chocolate</td>
+<td>Ich mag Schokolade.</td>
+</tr>
+<tr>
+<td>schon</td>
+<td>—</td>
+<td>already</td>
+<td>Ich bin schon da.</td>
+</tr>
+<tr>
+<td>schön</td>
+<td>—</td>
+<td>beautiful, nice</td>
+<td>Das Wetter ist schön.</td>
+</tr>
+<tr>
+<td>der Schrank, -̈e</td>
+<td>m.</td>
+<td>closet, cabinet</td>
+<td>Der Schrank ist groß.</td>
+</tr>
+<tr>
+<td>schreiben</td>
+<td>—</td>
+<td>to write</td>
+<td>Ich schreibe einen Brief.</td>
+</tr>
+<tr>
+<td>der Schuh, -e</td>
+<td>m.</td>
+<td>shoe</td>
+<td>Die Schuhe sind neu.</td>
+</tr>
+<tr>
+<td>die Schule, -n</td>
+<td>f.</td>
+<td>school</td>
+<td>Die Kinder gehen zur Schule.</td>
+</tr>
+<tr>
+<td>der Schüler, -</td>
+<td>m.</td>
+<td>student (school)</td>
+<td>Der Schüler lernt gut.</td>
+</tr>
+<tr>
+<td>schwarz</td>
+<td>—</td>
+<td>black</td>
+<td>Die Katze ist schwarz.</td>
+</tr>
+<tr>
+<td>die Schwester, -n</td>
+<td>f.</td>
+<td>sister</td>
+<td>Meine Schwester ist 20.</td>
+</tr>
+<tr>
+<td>schwer</td>
+<td>—</td>
+<td>heavy, difficult</td>
+<td>Der Koffer ist schwer.</td>
+</tr>
+<tr>
+<td>schwimmen</td>
+<td>—</td>
+<td>to swim</td>
+<td>Ich schwimme gern.</td>
+</tr>
+<tr>
+<td>der See, -n</td>
+<td>m.</td>
+<td>lake</td>
+<td>Der See ist kalt.</td>
+</tr>
+<tr>
+<td>die See</td>
+<td>f.</td>
+<td>sea</td>
+<td>An der See ist es schön.</td>
+</tr>
+<tr>
+<td>sehen</td>
+<td>—</td>
+<td>to see</td>
+<td>Ich sehe dich.</td>
+</tr>
+<tr>
+<td>sehr</td>
+<td>—</td>
+<td>very</td>
+<td>Sehr gut!</td>
+</tr>
+<tr>
+<td>sein</td>
+<td>—</td>
+<td>to be</td>
+<td>Ich bin Student.</td>
+</tr>
+<tr>
+<td>seit</td>
+<td>—</td>
+<td>since</td>
+<td>Seit einem Jahr.</td>
+</tr>
+<tr>
+<td>die Seite, -n</td>
+<td>f.</td>
+<td>page, side</td>
+<td>Seite 10, bitte.</td>
+</tr>
+<tr>
+<td>die Sekretärin, -nen</td>
+<td>f.</td>
+<td>secretary (female)</td>
+<td>Die Sekretärin hilft Ihnen.</td>
+</tr>
+<tr>
+<td>selbst</td>
+<td>—</td>
+<td>self</td>
+<td>Ich mache das selbst.</td>
+</tr>
+<tr>
+<td>der September</td>
+<td>m.</td>
+<td>September</td>
+<td>Im September beginnt die Schule.</td>
+</tr>
+<tr>
+<td>sich setzen</td>
+<td>—</td>
+<td>to sit down</td>
+<td>Setzen Sie sich, bitte.</td>
+</tr>
+<tr>
+<td>sicher</td>
+<td>—</td>
+<td>sure, safe</td>
+<td>Bist du sicher?</td>
+</tr>
+<tr>
+<td>sie</td>
+<td>—</td>
+<td>she, they</td>
+<td>Sie ist nett.</td>
+</tr>
+<tr>
+<td>Sie</td>
+<td>—</td>
+<td>you (formal)</td>
+<td>Wie heißen Sie?</td>
+</tr>
+<tr>
+<td>der Sohn, -̈e</td>
+<td>m.</td>
+<td>son</td>
+<td>Mein Sohn ist 10.</td>
+</tr>
+<tr>
+<td>sollen</td>
+<td>—</td>
+<td>should, shall</td>
+<td>Was soll ich machen?</td>
+</tr>
+<tr>
+<td>der Sommer, -</td>
+<td>m.</td>
+<td>summer</td>
+<td>Im Sommer ist es heiß.</td>
+</tr>
+<tr>
+<td>der Sonntag, -e</td>
+<td>m.</td>
+<td>Sunday</td>
+<td>Am Sonntag ruhe ich mich aus.</td>
+</tr>
+<tr>
+<td>die Sorge, -n</td>
+<td>f.</td>
+<td>worry</td>
+<td>Keine Sorge!</td>
+</tr>
+<tr>
+<td>die Soße, -n</td>
+<td>f.</td>
+<td>sauce</td>
+<td>Die Soße ist lecker.</td>
+</tr>
+<tr>
+<td>der Spaß</td>
+<td>m.</td>
+<td>fun</td>
+<td>Es macht Spaß.</td>
+</tr>
+<tr>
+<td>spät</td>
+<td>—</td>
+<td>late</td>
+<td>Es ist schon spät.</td>
+</tr>
+<tr>
+<td>spazieren gehen</td>
+<td>—</td>
+<td>to go for a walk</td>
+<td>Ich gehe spazieren.</td>
+</tr>
+<tr>
+<td>die Speisekarte, -n</td>
+<td>f.</td>
+<td>menu</td>
+<td>Die Speisekarte, bitte.</td>
+</tr>
+<tr>
+<td>spielen</td>
+<td>—</td>
+<td>to play</td>
+<td>Die Kinder spielen.</td>
+</tr>
+<tr>
+<td>der Sport</td>
+<td>m.</td>
+<td>sport</td>
+<td>Ich mache Sport.</td>
+</tr>
+<tr>
+<td>die Sprache, -n</td>
+<td>f.</td>
+<td>language</td>
+<td>Welche Sprachen sprechen Sie?</td>
+</tr>
+<tr>
+<td>sprechen</td>
+<td>—</td>
+<td>to speak</td>
+<td>Ich spreche Deutsch.</td>
+</tr>
+<tr>
+<td>die Stadt, -̈e</td>
+<td>f.</td>
+<td>city</td>
+<td>Die Stadt ist groß.</td>
+</tr>
+<tr>
+<td>stark</td>
+<td>—</td>
+<td>strong</td>
+<td>Der Kaffee ist stark.</td>
+</tr>
+<tr>
+<td>stehen</td>
+<td>—</td>
+<td>to stand</td>
+<td>Ich stehe an der Haltestelle.</td>
+</tr>
+<tr>
+<td>die Stelle, -n</td>
+<td>f.</td>
+<td>place, position</td>
+<td>An Ihrer Stelle würde ich...</td>
+</tr>
+<tr>
+<td>stimmen</td>
+<td>—</td>
+<td>to be correct</td>
+<td>Das stimmt.</td>
+</tr>
+<tr>
+<td>der Stock, Stockwerke</td>
+<td>m.</td>
+<td>floor (building)</td>
+<td>Im 2. Stock.</td>
+</tr>
+<tr>
+<td>die Straße, -n</td>
+<td>f.</td>
+<td>street</td>
+<td>Die Straße ist lang.</td>
+</tr>
+<tr>
+<td>die Straßenbahn, -en</td>
+<td>f.</td>
+<td>tram</td>
+<td>Die Straßenbahn fährt.</td>
+</tr>
+<tr>
+<td>das Stück, -e</td>
+<td>n.</td>
+<td>piece</td>
+<td>Ein Stück Kuchen.</td>
+</tr>
+<tr>
+<td>der Student, -en</td>
+<td>m.</td>
+<td>student (university)</td>
+<td>Ich bin Student.</td>
+</tr>
+<tr>
+<td>die Studentin, -nen</td>
+<td>f.</td>
+<td>student (female)</td>
+<td>Die Studentin lernt.</td>
+</tr>
+<tr>
+<td>studieren</td>
+<td>—</td>
+<td>to study (university)</td>
+<td>Ich studiere Medizin.</td>
+</tr>
+<tr>
+<td>der Stuhl, -̈e</td>
+<td>m.</td>
+<td>chair</td>
+<td>Der Stuhl ist frei.</td>
+</tr>
+<tr>
+<td>die Stunde, -n</td>
+<td>f.</td>
+<td>hour</td>
+<td>Eine Stunde dauert 60 Minuten.</td>
+</tr>
+<tr>
+<td>suchen</td>
+<td>—</td>
+<td>to look for, search</td>
+<td>Ich suche mein Handy.</td>
+</tr>
+<tr>
+<td>der Süden</td>
+<td>m.</td>
+<td>south</td>
+<td>München liegt im Süden.</td>
+</tr>
+<tr>
+<td>der Supermarkt, -̈e</td>
+<td>m.</td>
+<td>supermarket</td>
+<td>Ich gehe zum Supermarkt.</td>
+</tr>
+<tr>
+<td>die Suppe, -n</td>
+<td>f.</td>
+<td>soup</td>
+<td>Die Suppe ist heiß.</td>
+</tr>
+<tr>
+<td>süß</td>
+<td>—</td>
+<td>sweet</td>
+<td>Die Erdbeere ist süß.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t">T</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Tafel, -n</td>
+<td>f.</td>
+<td>board, bar (chocolate)</td>
+<td>Schreiben Sie an die Tafel.</td>
+</tr>
+<tr>
+<td>der Tag, -e</td>
+<td>m.</td>
+<td>day</td>
+<td>Guten Tag!</td>
+</tr>
+<tr>
+<td>die Tankstelle, -n</td>
+<td>f.</td>
+<td>gas station</td>
+<td>Die Tankstelle ist dort.</td>
+</tr>
+<tr>
+<td>die Tante, -n</td>
+<td>f.</td>
+<td>aunt</td>
+<td>Meine Tante wohnt in Wien.</td>
+</tr>
+<tr>
+<td>tanzen</td>
+<td>—</td>
+<td>to dance</td>
+<td>Ich tanze gern.</td>
+</tr>
+<tr>
+<td>die Tasche, -n</td>
+<td>f.</td>
+<td>bag, pocket</td>
+<td>Meine Tasche ist groß.</td>
+</tr>
+<tr>
+<td>die Tasse, -n</td>
+<td>f.</td>
+<td>cup</td>
+<td>Eine Tasse Tee, bitte.</td>
+</tr>
+<tr>
+<td>das Taxi, -s</td>
+<td>n.</td>
+<td>taxi</td>
+<td>Nehmen wir ein Taxi.</td>
+</tr>
+<tr>
+<td>der Tee</td>
+<td>m.</td>
+<td>tea</td>
+<td>Ich trinke Tee.</td>
+</tr>
+<tr>
+<td>der Teil, -e</td>
+<td>m.</td>
+<td>part</td>
+<td>Teil 1 der Prüfung.</td>
+</tr>
+<tr>
+<td>das Telefon, -e</td>
+<td>n.</td>
+<td>telephone</td>
+<td>Das Telefon klingelt.</td>
+</tr>
+<tr>
+<td>telefonieren</td>
+<td>—</td>
+<td>to telephone</td>
+<td>Ich telefoniere mit meiner Mutter.</td>
+</tr>
+<tr>
+<td>die Telefonnummer, -n</td>
+<td>f.</td>
+<td>phone number</td>
+<td>Wie ist Ihre Telefonnummer?</td>
+</tr>
+<tr>
+<td>der Teller, -</td>
+<td>m.</td>
+<td>plate</td>
+<td>Der Teller ist sauber.</td>
+</tr>
+<tr>
+<td>der Termin, -e</td>
+<td>m.</td>
+<td>appointment</td>
+<td>Ich habe einen Termin.</td>
+</tr>
+<tr>
+<td>teuer</td>
+<td>—</td>
+<td>expensive</td>
+<td>Das Hotel ist teuer.</td>
+</tr>
+<tr>
+<td>der Text, -e</td>
+<td>m.</td>
+<td>text</td>
+<td>Lesen Sie den Text.</td>
+</tr>
+<tr>
+<td>das Theater, -</td>
+<td>n.</td>
+<td>theater</td>
+<td>Wir gehen ins Theater.</td>
+</tr>
+<tr>
+<td>das Ticket, -s</td>
+<td>n.</td>
+<td>ticket</td>
+<td>Das Ticket kostet 5 Euro.</td>
+</tr>
+<tr>
+<td>das Tier, -e</td>
+<td>n.</td>
+<td>animal</td>
+<td>Ich mag Tiere.</td>
+</tr>
+<tr>
+<td>der Tipp, -s</td>
+<td>m.</td>
+<td>tip, advice</td>
+<td>Danke für den Tipp!</td>
+</tr>
+<tr>
+<td>der Tisch, -e</td>
+<td>m.</td>
+<td>table</td>
+<td>Der Tisch ist rund.</td>
+</tr>
+<tr>
+<td>die Tochter, -̈</td>
+<td>f.</td>
+<td>daughter</td>
+<td>Meine Tochter ist 5.</td>
+</tr>
+<tr>
+<td>die Toilette, -n</td>
+<td>f.</td>
+<td>toilet</td>
+<td>Wo ist die Toilette?</td>
+</tr>
+<tr>
+<td>die Tomate, -n</td>
+<td>f.</td>
+<td>tomato</td>
+<td>Die Tomaten sind rot.</td>
+</tr>
+<tr>
+<td>der Topf, -̈e</td>
+<td>m.</td>
+<td>pot</td>
+<td>Der Topf ist heiß.</td>
+</tr>
+<tr>
+<td>tragen</td>
+<td>—</td>
+<td>to carry, to wear</td>
+<td>Ich trage eine Jacke.</td>
+</tr>
+<tr>
+<td>der Traum, -̈e</td>
+<td>m.</td>
+<td>dream</td>
+<td>Ein schöner Traum.</td>
+</tr>
+<tr>
+<td>treffen</td>
+<td>—</td>
+<td>to meet</td>
+<td>Wir treffen uns um 3.</td>
+</tr>
+<tr>
+<td>treiben</td>
+<td>—</td>
+<td>to do (sports)</td>
+<td>Ich treibe Sport.</td>
+</tr>
+<tr>
+<td>die Treppe, -n</td>
+<td>f.</td>
+<td>stairs</td>
+<td>Die Treppe ist steil.</td>
+</tr>
+<tr>
+<td>trinken</td>
+<td>—</td>
+<td>to drink</td>
+<td>Ich trinke Wasser.</td>
+</tr>
+<tr>
+<td>trocken</td>
+<td>—</td>
+<td>dry</td>
+<td>Das Handtuch ist trocken.</td>
+</tr>
+<tr>
+<td>tschüs</td>
+<td>—</td>
+<td>bye</td>
+<td>Tschüs!</td>
+</tr>
+<tr>
+<td>tun</td>
+<td>—</td>
+<td>to do</td>
+<td>Was kann ich tun?</td>
+</tr>
+<tr>
+<td>die Tür, -en</td>
+<td>f.</td>
+<td>door</td>
+<td>Die Tür ist offen.</td>
+</tr>
+<tr>
+<td>die Tüte, -n</td>
+<td>f.</td>
+<td>bag (plastic/paper)</td>
+<td>Eine Tüte, bitte.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="u">U</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die U-Bahn, -en</td>
+<td>f.</td>
+<td>subway</td>
+<td>Ich fahre mit der U-Bahn.</td>
+</tr>
+<tr>
+<td>üben</td>
+<td>—</td>
+<td>to practice</td>
+<td>Ich übe jeden Tag.</td>
+</tr>
+<tr>
+<td>über</td>
+<td>—</td>
+<td>over, about</td>
+<td>Wir sprechen über das Wetter.</td>
+</tr>
+<tr>
+<td>überall</td>
+<td>—</td>
+<td>everywhere</td>
+<td>Überall sind Menschen.</td>
+</tr>
+<tr>
+<td>übermorgen</td>
+<td>—</td>
+<td>the day after tomorrow</td>
+<td>Übermorgen komme ich.</td>
+</tr>
+<tr>
+<td>die Übung, -en</td>
+<td>f.</td>
+<td>exercise</td>
+<td>Die Übung ist schwer.</td>
+</tr>
+<tr>
+<td>die Uhr, -en</td>
+<td>f.</td>
+<td>clock, watch</td>
+<td>Die Uhr zeigt 10.</td>
+</tr>
+<tr>
+<td>die Uhrzeit, -en</td>
+<td>f.</td>
+<td>time</td>
+<td>Wie ist die Uhrzeit?</td>
+</tr>
+<tr>
+<td>um</td>
+<td>—</td>
+<td>at, around</td>
+<td>Um 8 Uhr.</td>
+</tr>
+<tr>
+<td>umsteigen</td>
+<td>—</td>
+<td>to transfer</td>
+<td>Sie müssen in Köln umsteigen.</td>
+</tr>
+<tr>
+<td>die Umwelt</td>
+<td>f.</td>
+<td>environment</td>
+<td>Die Umwelt schützen.</td>
+</tr>
+<tr>
+<td>und</td>
+<td>—</td>
+<td>and</td>
+<td>Ich und du.</td>
+</tr>
+<tr>
+<td>der Unfall, -̈e</td>
+<td>m.</td>
+<td>accident</td>
+<td>Es gab einen Unfall.</td>
+</tr>
+<tr>
+<td>unser</td>
+<td>—</td>
+<td>our</td>
+<td>Unser Haus ist groß.</td>
+</tr>
+<tr>
+<td>unten</td>
+<td>—</td>
+<td>below, downstairs</td>
+<td>Das Café ist unten.</td>
+</tr>
+<tr>
+<td>unter</td>
+<td>—</td>
+<td>under, among</td>
+<td>Unter dem Tisch.</td>
+</tr>
+<tr>
+<td>die Unterschrift, -en</td>
+<td>f.</td>
+<td>signature</td>
+<td>Ihre Unterschrift, bitte.</td>
+</tr>
+<tr>
+<td>der Urlaub, -e</td>
+<td>m.</td>
+<td>vacation</td>
+<td>Im Urlaub fahre ich nach Italien.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v">V</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>der Vater, -̈</td>
+<td>m.</td>
+<td>father</td>
+<td>Mein Vater arbeitet viel.</td>
+</tr>
+<tr>
+<td>die Veranstaltung, -en</td>
+<td>f.</td>
+<td>event</td>
+<td>Die Veranstaltung ist um 19 Uhr.</td>
+</tr>
+<tr>
+<td>die Verbindung, -en</td>
+<td>f.</td>
+<td>connection</td>
+<td>Die Verbindung ist schlecht.</td>
+</tr>
+<tr>
+<td>verdienen</td>
+<td>—</td>
+<td>to earn</td>
+<td>Er verdient gut.</td>
+</tr>
+<tr>
+<td>vergessen</td>
+<td>—</td>
+<td>to forget</td>
+<td>Ich habe das vergessen.</td>
+</tr>
+<tr>
+<td>verheiratet</td>
+<td>—</td>
+<td>married</td>
+<td>Sind Sie verheiratet?</td>
+</tr>
+<tr>
+<td>verkaufen</td>
+<td>—</td>
+<td>to sell</td>
+<td>Ich verkaufe mein Auto.</td>
+</tr>
+<tr>
+<td>der Verkäufer, -</td>
+<td>m.</td>
+<td>salesperson</td>
+<td>Der Verkäufer ist freundlich.</td>
+</tr>
+<tr>
+<td>der Verkehr</td>
+<td>m.</td>
+<td>traffic</td>
+<td>Der Verkehr ist stark.</td>
+</tr>
+<tr>
+<td>das Verkehrsmittel, -</td>
+<td>n.</td>
+<td>means of transport</td>
+<td>Welches Verkehrsmittel nehmen Sie?</td>
+</tr>
+<tr>
+<td>verlieren</td>
+<td>—</td>
+<td>to lose</td>
+<td>Ich habe meinen Schlüssel verloren.</td>
+</tr>
+<tr>
+<td>verschieden</td>
+<td>—</td>
+<td>different, various</td>
+<td>Verschiedene Farben.</td>
+</tr>
+<tr>
+<td>verstehen</td>
+<td>—</td>
+<td>to understand</td>
+<td>Ich verstehe das nicht.</td>
+</tr>
+<tr>
+<td>viel</td>
+<td>—</td>
+<td>much, a lot</td>
+<td>Vielen Dank!</td>
+</tr>
+<tr>
+<td>vielleicht</td>
+<td>—</td>
+<td>maybe</td>
+<td>Vielleicht morgen.</td>
+</tr>
+<tr>
+<td>vier</td>
+<td>—</td>
+<td>four</td>
+<td>Vier Personen.</td>
+</tr>
+<tr>
+<td>das Viertel, -</td>
+<td>n.</td>
+<td>quarter</td>
+<td>Viertel vor zehn.</td>
+</tr>
+<tr>
+<td>voll</td>
+<td>—</td>
+<td>full</td>
+<td>Der Bus ist voll.</td>
+</tr>
+<tr>
+<td>von</td>
+<td>—</td>
+<td>from, of</td>
+<td>Ich komme von der Arbeit.</td>
+</tr>
+<tr>
+<td>vor</td>
+<td>—</td>
+<td>before, in front of</td>
+<td>Vor dem Haus.</td>
+</tr>
+<tr>
+<td>vorgestern</td>
+<td>—</td>
+<td>the day before yesterday</td>
+<td>Vorgestern war ich krank.</td>
+</tr>
+<tr>
+<td>der Vormittag, -e</td>
+<td>m.</td>
+<td>morning (before noon)</td>
+<td>Am Vormittag arbeite ich.</td>
+</tr>
+<tr>
+<td>der Vorname, -n</td>
+<td>m.</td>
+<td>first name</td>
+<td>Wie ist Ihr Vorname?</td>
+</tr>
+<tr>
+<td>vorne</td>
+<td>—</td>
+<td>in front</td>
+<td>Gehen Sie nach vorne.</td>
+</tr>
+<tr>
+<td>die Vorsicht</td>
+<td>f.</td>
+<td>caution</td>
+<td>Vorsicht!</td>
+</tr>
+</tbody>
+</table>
+<h2 id="w">W</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wählen</td>
+<td>—</td>
+<td>to choose, to dial</td>
+<td>Wählen Sie eine Nummer.</td>
+</tr>
+<tr>
+<td>wahr</td>
+<td>—</td>
+<td>true</td>
+<td>Das ist wahr.</td>
+</tr>
+<tr>
+<td>wahrscheinlich</td>
+<td>—</td>
+<td>probably</td>
+<td>Wahrscheinlich regnet es.</td>
+</tr>
+<tr>
+<td>der Wald, -̈er</td>
+<td>m.</td>
+<td>forest</td>
+<td>Der Wald ist grün.</td>
+</tr>
+<tr>
+<td>die Wand, -̈e</td>
+<td>f.</td>
+<td>wall</td>
+<td>An der Wand hängt ein Bild.</td>
+</tr>
+<tr>
+<td>wann</td>
+<td>—</td>
+<td>when</td>
+<td>Wann kommst du?</td>
+</tr>
+<tr>
+<td>warm</td>
+<td>—</td>
+<td>warm</td>
+<td>Es ist warm draußen.</td>
+</tr>
+<tr>
+<td>warten</td>
+<td>—</td>
+<td>to wait</td>
+<td>Bitte warten Sie.</td>
+</tr>
+<tr>
+<td>warum</td>
+<td>—</td>
+<td>why</td>
+<td>Warum bist du hier?</td>
+</tr>
+<tr>
+<td>was</td>
+<td>—</td>
+<td>what</td>
+<td>Was machst du?</td>
+</tr>
+<tr>
+<td>waschen</td>
+<td>—</td>
+<td>to wash</td>
+<td>Ich wasche meine Kleidung.</td>
+</tr>
+<tr>
+<td>das Wasser</td>
+<td>n.</td>
+<td>water</td>
+<td>Ich trinke Wasser.</td>
+</tr>
+<tr>
+<td>wechseln</td>
+<td>—</td>
+<td>to change, to exchange</td>
+<td>Ich möchte Geld wechseln.</td>
+</tr>
+<tr>
+<td>der Weg, -e</td>
+<td>m.</td>
+<td>way, path</td>
+<td>Welcher Weg?</td>
+</tr>
+<tr>
+<td>wegen</td>
+<td>—</td>
+<td>because of</td>
+<td>Wegen des Regens.</td>
+</tr>
+<tr>
+<td>weh tun</td>
+<td>—</td>
+<td>to hurt</td>
+<td>Mein Kopf tut weh.</td>
+</tr>
+<tr>
+<td>die Weihnachten</td>
+<td>—</td>
+<td>Christmas</td>
+<td>Frohe Weihnachten!</td>
+</tr>
+<tr>
+<td>weil</td>
+<td>—</td>
+<td>because</td>
+<td>Ich bleibe, weil ich krank bin.</td>
+</tr>
+<tr>
+<td>der Wein, -e</td>
+<td>m.</td>
+<td>wine</td>
+<td>Ein Glas Wein, bitte.</td>
+</tr>
+<tr>
+<td>weiß</td>
+<td>—</td>
+<td>white</td>
+<td>Das T-Shirt ist weiß.</td>
+</tr>
+<tr>
+<td>weit</td>
+<td>—</td>
+<td>far</td>
+<td>Ist es weit?</td>
+</tr>
+<tr>
+<td>weiter</td>
+<td>—</td>
+<td>further</td>
+<td>Gehen Sie weiter.</td>
+</tr>
+<tr>
+<td>welch-</td>
+<td>—</td>
+<td>which</td>
+<td>Welcher Tag ist heute?</td>
+</tr>
+<tr>
+<td>die Welt</td>
+<td>f.</td>
+<td>world</td>
+<td>Die Welt ist groß.</td>
+</tr>
+<tr>
+<td>wenig</td>
+<td>—</td>
+<td>little, few</td>
+<td>Ich habe wenig Zeit.</td>
+</tr>
+<tr>
+<td>wenn</td>
+<td>—</td>
+<td>when, if</td>
+<td>Wenn es regnet, bleibe ich zu Hause.</td>
+</tr>
+<tr>
+<td>wer</td>
+<td>—</td>
+<td>who</td>
+<td>Wer ist das?</td>
+</tr>
+<tr>
+<td>werden</td>
+<td>—</td>
+<td>to become</td>
+<td>Ich werde Lehrer.</td>
+</tr>
+<tr>
+<td>der Westen</td>
+<td>m.</td>
+<td>west</td>
+<td>Köln liegt im Westen.</td>
+</tr>
+<tr>
+<td>das Wetter</td>
+<td>n.</td>
+<td>weather</td>
+<td>Das Wetter ist gut.</td>
+</tr>
+<tr>
+<td>wichtig</td>
+<td>—</td>
+<td>important</td>
+<td>Das ist wichtig.</td>
+</tr>
+<tr>
+<td>wie</td>
+<td>—</td>
+<td>how, like</td>
+<td>Wie heißen Sie?</td>
+</tr>
+<tr>
+<td>wieder</td>
+<td>—</td>
+<td>again</td>
+<td>Komm bitte wieder.</td>
+</tr>
+<tr>
+<td>wiederholen</td>
+<td>—</td>
+<td>to repeat</td>
+<td>Können Sie das wiederholen?</td>
+</tr>
+<tr>
+<td>wiegen</td>
+<td>—</td>
+<td>to weigh</td>
+<td>Wie viel wiegt das?</td>
+</tr>
+<tr>
+<td>willkommen</td>
+<td>—</td>
+<td>welcome</td>
+<td>Herzlich willkommen!</td>
+</tr>
+<tr>
+<td>der Wind, -e</td>
+<td>m.</td>
+<td>wind</td>
+<td>Der Wind ist stark.</td>
+</tr>
+<tr>
+<td>der Winter, -</td>
+<td>m.</td>
+<td>winter</td>
+<td>Im Winter ist es kalt.</td>
+</tr>
+<tr>
+<td>wir</td>
+<td>—</td>
+<td>we</td>
+<td>Wir sind Freunde.</td>
+</tr>
+<tr>
+<td>wirklich</td>
+<td>—</td>
+<td>really</td>
+<td>Wirklich?</td>
+</tr>
+<tr>
+<td>wissen</td>
+<td>—</td>
+<td>to know (fact)</td>
+<td>Ich weiß das nicht.</td>
+</tr>
+<tr>
+<td>wo</td>
+<td>—</td>
+<td>where</td>
+<td>Wo ist die Schule?</td>
+</tr>
+<tr>
+<td>die Woche, -n</td>
+<td>f.</td>
+<td>week</td>
+<td>In einer Woche.</td>
+</tr>
+<tr>
+<td>das Wochenende, -n</td>
+<td>n.</td>
+<td>weekend</td>
+<td>Am Wochenende ruhe ich mich aus.</td>
+</tr>
+<tr>
+<td>woher</td>
+<td>—</td>
+<td>from where</td>
+<td>Woher kommen Sie?</td>
+</tr>
+<tr>
+<td>wohin</td>
+<td>—</td>
+<td>where to</td>
+<td>Wohin gehst du?</td>
+</tr>
+<tr>
+<td>wohnen</td>
+<td>—</td>
+<td>to live (reside)</td>
+<td>Ich wohne in Berlin.</td>
+</tr>
+<tr>
+<td>die Wohnung, -en</td>
+<td>f.</td>
+<td>apartment</td>
+<td>Die Wohnung ist groß.</td>
+</tr>
+<tr>
+<td>das Wohnzimmer, -</td>
+<td>n.</td>
+<td>living room</td>
+<td>Das Wohnzimmer ist gemütlich.</td>
+</tr>
+<tr>
+<td>die Wolke, -n</td>
+<td>f.</td>
+<td>cloud</td>
+<td>Die Wolken sind grau.</td>
+</tr>
+<tr>
+<td>wollen</td>
+<td>—</td>
+<td>to want</td>
+<td>Ich will nach Hause.</td>
+</tr>
+<tr>
+<td>das Wort, -̈er</td>
+<td>n.</td>
+<td>word</td>
+<td>Wie heißt das Wort?</td>
+</tr>
+<tr>
+<td>wunderbar</td>
+<td>—</td>
+<td>wonderful</td>
+<td>Das ist wunderbar!</td>
+</tr>
+<tr>
+<td>wünschen</td>
+<td>—</td>
+<td>to wish</td>
+<td>Ich wünsche dir alles Gute.</td>
+</tr>
+<tr>
+<td>die Wurst, -̈e</td>
+<td>f.</td>
+<td>sausage</td>
+<td>Eine Wurst, bitte.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="z">Z</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Artikel</th>
+<th>Englisch</th>
+<th>Beispielsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Zahl, -en</td>
+<td>f.</td>
+<td>number</td>
+<td>Die Zahl ist groß.</td>
+</tr>
+<tr>
+<td>zahlen</td>
+<td>—</td>
+<td>to pay</td>
+<td>Ich möchte zahlen.</td>
+</tr>
+<tr>
+<td>der Zahn, -̈e</td>
+<td>m.</td>
+<td>tooth</td>
+<td>Mein Zahn tut weh.</td>
+</tr>
+<tr>
+<td>der Zahnarzt, -̈e</td>
+<td>m.</td>
+<td>dentist</td>
+<td>Ich gehe zum Zahnarzt.</td>
+</tr>
+<tr>
+<td>zehn</td>
+<td>—</td>
+<td>ten</td>
+<td>Zehn Euro.</td>
+</tr>
+<tr>
+<td>zeigen</td>
+<td>—</td>
+<td>to show</td>
+<td>Zeigen Sie mir das.</td>
+</tr>
+<tr>
+<td>die Zeit, -en</td>
+<td>f.</td>
+<td>time</td>
+<td>Ich habe keine Zeit.</td>
+</tr>
+<tr>
+<td>die Zeitung, -en</td>
+<td>f.</td>
+<td>newspaper</td>
+<td>Ich lese die Zeitung.</td>
+</tr>
+<tr>
+<td>das Zentrum, Zentren</td>
+<td>n.</td>
+<td>center</td>
+<td>Das Zentrum der Stadt.</td>
+</tr>
+<tr>
+<td>das Zimmer, -</td>
+<td>n.</td>
+<td>room</td>
+<td>Das Zimmer ist groß.</td>
+</tr>
+<tr>
+<td>zu</td>
+<td>—</td>
+<td>to, too</td>
+<td>Ich gehe zu Fuß.</td>
+</tr>
+<tr>
+<td>der Zucker</td>
+<td>m.</td>
+<td>sugar</td>
+<td>Zucker im Kaffee?</td>
+</tr>
+<tr>
+<td>der Zug, -̈e</td>
+<td>m.</td>
+<td>train</td>
+<td>Der Zug kommt.</td>
+</tr>
+<tr>
+<td>zurück</td>
+<td>—</td>
+<td>back</td>
+<td>Ich komme bald zurück.</td>
+</tr>
+<tr>
+<td>zusammen</td>
+<td>—</td>
+<td>together</td>
+<td>Wir gehen zusammen.</td>
+</tr>
+<tr>
+<td>zwei</td>
+<td>—</td>
+<td>two</td>
+<td>Zwei Kaffee, bitte.</td>
+</tr>
+<tr>
+<td>zwischen</td>
+<td>—</td>
+<td>between</td>
+<td>Zwischen Montag und Freitag.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="thematischer-wortschatz-vocabulary-by-theme">Thematischer Wortschatz / Vocabulary by Theme</h2>
+<h3 id="zahlen-numbers">Zahlen / Numbers</h3>
+<p>0 null, 1 eins, 2 zwei, 3 drei, 4 vier, 5 fünf, 6 sechs, 7 sieben, 8 acht, 9 neun, 10 zehn, 11 elf, 12 zwölf, 13 dreizehn, 14 vierzehn, 15 fünfzehn, 16 sechzehn, 17 siebzehn, 18 achtzehn, 19 neunzehn, 20 zwanzig, 30 dreißig, 40 vierzig, 50 fünfzig, 60 sechzig, 70 siebzig, 80 achtzig, 90 neunzig, 100 hundert, 1000 tausend</p>
+<h3 id="farben-colors">Farben / Colors</h3>
+<p>rot (red), blau (blue), grün (green), gelb (yellow), schwarz (black), weiß (white), braun (brown), grau (gray), orange (orange), rosa (pink), lila (purple)</p>
+<h3 id="wochentage-days-of-the-week">Wochentage / Days of the Week</h3>
+<p>Montag (Monday), Dienstag (Tuesday), Mittwoch (Wednesday), Donnerstag (Thursday), Freitag (Friday), Samstag (Saturday), Sonntag (Sunday)</p>
+<h3 id="monate-months">Monate / Months</h3>
+<p>Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember</p>
+<h3 id="korperteile-body-parts">Körperteile / Body Parts</h3>
+<p>der Kopf (head), das Auge (eye), die Nase (nose), der Mund (mouth), das Ohr (ear), das Haar (hair), der Arm (arm), die Hand (hand), der Finger (finger), das Bein (leg), der Fuß (foot), der Bauch (belly), der Rücken (back), der Zahn (tooth)</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_saetze.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[href^="#"]').forEach(function (link) {
+                        var id = link.getAttribute('href').substring(1);
+                        if (!document.getElementById(id)) { link.remove(); }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        if (/^[a-z]$/.test(h.id)) { buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-primary">' + h.id.toUpperCase() + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

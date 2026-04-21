@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 Lesen - C2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">C2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">04 Lesen</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">04 Lesen</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">C2</span>
+                </div>
+
+                
+
+                <div class="markdown-content">
+                    <h1 id="c2-lesen-reading">C2 Lesen / Reading</h1>
+<h2 id="prufungsformat">Prüfungsformat</h2>
+<table>
+<thead>
+<tr>
+<th>Teil</th>
+<th>Aufgabe</th>
+<th>Aufgaben</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Langer, komplexer Sachtext: Multiple Choice</td>
+<td>8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Populärwissenschaftlicher Text: Lückentext</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wissenschaftlicher oder literarischer Text + Interpretationsfragen</td>
+<td>6</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Textvergleich: Zwei Meinungstexte vergleichen</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dauer: 80 Minuten</strong></p>
+<hr />
+<h2 id="strategien-fur-c2">Strategien für C2</h2>
+<ol>
+<li><strong>Implizites erkennen:</strong> Ironie, Andeutungen, Untertöne, Sprecherabsicht</li>
+<li><strong>Nuancen:</strong> feine Bedeutungsunterschiede zwischen ähnlichen Aussagen</li>
+<li><strong>Stilmittel:</strong> Metaphern, rhetorische Fragen, Euphemismen, Litotes</li>
+<li><strong>Nominalstil entschlüsseln:</strong> Komplexe Nominalphrasen in Kernaussagen zerlegen</li>
+<li><strong>Textlogik rekonstruieren:</strong> Argumentationslinien, Perspektivenwechsel</li>
+</ol>
+<hr />
+<h2 id="teil-1-komplexer-sachtext">Teil 1: Komplexer Sachtext</h2>
+<h3 id="ubung-11">Übung 1.1</h3>
+<blockquote>
+<p><strong>Die Paradoxie des Fortschritts</strong></p>
+<p>Es gehört zu den bemerkenswerten Paradoxien unserer Zeit, dass technologischer Fortschritt, der einst als Garant für ein besseres Leben galt, zunehmend zum Gegenstand fundamentaler Skepsis geworden ist. Die Verheißungen der Digitalisierung — Demokratisierung des Wissens, grenzenlose Kommunikation, Effizienzsteigerung in allen Lebensbereichen — haben sich zwar in mancherlei Hinsicht erfüllt, doch gleichzeitig haben sie neue Probleme hervorgebracht, die in ihrer Komplexität die alten mitunter noch übersteigen.</p>
+<p>Man denke nur an das Phänomen der Informationsüberflutung: Während der Zugang zu Wissen nie einfacher war, fällt es den Menschen paradoxerweise immer schwerer, zwischen gesicherten Erkenntnissen und Desinformation zu unterscheiden. Die Algorithmen der sozialen Medien, die eigentlich der Informationsfilterung dienen sollten, haben sich als mächtige Instrumente der Manipulation erwiesen, die zur Entstehung sogenannter Filterblasen beitragen und die gesellschaftliche Polarisierung vorantreiben.</p>
+<p>Hinzu kommt die Frage der ökologischen Kosten des technologischen Fortschritts. Die Herstellung von Smartphones, Computern und Servern verschlingt gewaltige Mengen an seltenen Erden und Energie. Die vermeintlich "saubere" digitale Welt hat einen ökologischen Fußabdruck, der sich hinter dem der traditionellen Industrie keineswegs verstecken muss. Es wäre indes verfehlt, daraus den Schluss zu ziehen, man müsse den technologischen Fortschritt per se ablehnen. Vielmehr bedarf es eines differenzierten Umgangs mit Technologie, der sowohl ihre Potenziale als auch ihre Risiken in den Blick nimmt.</p>
+<p>Die eigentliche Herausforderung besteht demnach nicht darin, den Fortschritt aufzuhalten — was ohnehin illusorisch wäre —, sondern ihn so zu gestalten, dass er dem Gemeinwohl dient, ohne die Lebensgrundlagen künftiger Generationen zu gefährden. Dies erfordert einen gesellschaftlichen Diskurs, der über technokratische Kosten-Nutzen-Analysen hinausgeht und auch ethische, soziale und ökologische Dimensionen einbezieht.</p>
+</blockquote>
+<p><strong>Fragen:</strong><br />
+1. Worin besteht die "Paradoxie des Fortschritts" laut Autor?<br />
+   - a) Fortschritt war schon immer problematisch<br />
+   - b) <strong>Fortschritt löst Probleme, schafft aber gleichzeitig neue</strong> ✓<br />
+   - c) Fortschritt hat nie Verheißungen erfüllt<br />
+   - d) Menschen lehnen Fortschritt ab</p>
+<ol>
+<li>Was kritisiert der Autor an den Algorithmen sozialer Medien?</li>
+<li>a) Sie funktionieren nicht</li>
+<li>b) Sie sind zu langsam</li>
+<li>c) <strong>Sie tragen zur Polarisierung bei und schaffen Filterblasen</strong> ✓</li>
+<li>
+<p>d) Sie verhindern den Zugang zu Information</p>
+</li>
+<li>
+<p>Wie bewertet der Autor die ökologischen Kosten der Digitalisierung?</p>
+</li>
+<li>a) Sie sind vernachlässigbar</li>
+<li>b) <strong>Sie sind erheblich, aber kein Grund für grundsätzliche Ablehnung</strong> ✓</li>
+<li>c) Sie übersteigen die der traditionellen Industrie</li>
+<li>
+<p>d) Sie werden übertrieben dargestellt</p>
+</li>
+<li>
+<p>Was fordert der Autor als Konsequenz?</p>
+</li>
+<li>a) Den Fortschritt aufzuhalten</li>
+<li>b) Rückkehr zur vorindustriellen Gesellschaft</li>
+<li>c) <strong>Einen differenzierten gesellschaftlichen Diskurs</strong> ✓</li>
+<li>d) Mehr technokratische Kosten-Nutzen-Analysen</li>
+</ol>
+<hr />
+<h2 id="teil-2-luckentext-grammatik-wortschatz">Teil 2: Lückentext (Grammatik + Wortschatz)</h2>
+<h3 id="ubung-21">Übung 2.1</h3>
+<blockquote>
+<p>Die zunehmende Urbanisierung stellt die Stadtplanung (1)<strong><em> grundlegend neue Herausforderungen. Während die Städte (2)</em></strong>, geraten die bestehenden Infrastrukturen an ihre (3)<strong><em>. Es (4)</em></strong> innovativer Konzepte, die sowohl den Bedürfnissen der wachsenden Bevölkerung (5)<strong><em> werden als auch ökologische Aspekte (6)</em></strong>. (7)<strong><em> die Smart-City-Bewegung vielversprechende Ansätze bietet, (8)</em></strong> die Frage, ob Technologie allein die Lösung sein kann.</p>
+</blockquote>
+<ol>
+<li><strong>vor</strong> 2. <strong>wachsen</strong> 3. <strong>Grenzen</strong> 4. <strong>bedarf</strong> 5. <strong>gerecht</strong> 6. <strong>berücksichtigen</strong> 7. <strong>Obwohl/Wenngleich</strong> 8. <strong>bleibt</strong></li>
+</ol>
+<hr />
+<h2 id="teil-3-literarischer-text-interpretation">Teil 3: Literarischer Text + Interpretation</h2>
+<h3 id="ubung-31">Übung 3.1</h3>
+<blockquote>
+<p><em>Er stand am Fenster und sah in den Regen. Die Tropfen liefen in scheinbar willkürlichen Bahnen über die Scheibe — und doch, so schien es ihm, folgten sie einer verborgenen Ordnung, einem Muster, das sich dem flüchtigen Blick entzog. Wie das Leben selbst, dachte er. Man meint, dem Zufall ausgeliefert zu sein, und erkennt erst im Nachhinein die Fäden, die alles zusammenhalten. Oder man bildet sich ein, sie zu erkennen, und das ist womöglich das Gefährlichste von allem.</em></p>
+</blockquote>
+<p><strong>Interpretationsfragen:</strong><br />
+1. Welche Metapher verwendet der Autor und wofür steht sie?<br />
+   → <strong>Die Regentropfen auf der Scheibe als Metapher für das Leben — scheinbar zufällig, aber möglicherweise einer verborgenen Ordnung folgend</strong></p>
+<ol>
+<li>Wie ist der letzte Satz zu verstehen?<br />
+   → <strong>Die Erkenntnis, dass das Erkennen von Mustern im Leben auch eine Selbsttäuschung sein kann — die Warnung vor falscher Gewissheit ist "das Gefährlichste"</strong></li>
+</ol>
+<hr />
+<h2 id="teil-4-textvergleich">Teil 4: Textvergleich</h2>
+<h3 id="ubung-41">Übung 4.1</h3>
+<p>Zwei Autoren äußern sich zum Thema "Wert der Hochkultur":</p>
+<p><strong>Autor A</strong> argumentiert, Hochkultur sei ein essenzieller Pfeiler der Gesellschaft, dessen Förderung staatliche Aufgabe bleiben müsse.</p>
+<p><strong>Autor B</strong> hält die Unterscheidung zwischen "Hoch-" und "Populärkultur" für einen elitären Anachronismus.</p>
+<p><strong>Fragen:</strong><br />
+1. Worin stimmen die Autoren überein? → <strong>Beide halten Kultur für gesellschaftlich relevant</strong><br />
+2. Worin unterscheiden sie sich grundlegend? → <strong>A verteidigt die Hierarchie der Kulturformen, B lehnt sie ab</strong></p>
+<hr />
+<h2 id="tipps">Tipps</h2>
+<ol>
+<li><strong>Lesen Sie den ganzen Text</strong> vor den Fragen — bei C2 ist Gesamtverständnis entscheidend</li>
+<li><strong>Zwischen den Zeilen lesen</strong> — die Antwort ist oft nicht explizit, sondern impliziert</li>
+<li><strong>Stilistische Mittel erkennen</strong> — Ironie, Litotes, Euphemismus verändern die Bedeutung</li>
+<li><strong>Bei Multiple Choice:</strong> Eliminieren Sie falsche Antworten systematisch</li>
+<li><strong>Lückentext:</strong> Prüfen Sie sowohl grammatische als auch inhaltliche Korrektheit</li>
+</ol>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer bg-primary text-light mt-5 py-4 shadow-sm"><div class="container text-center small"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-2 text-light-emphasis">Official certification materials for German language proficiency</p><div class="d-flex justify-content-center gap-3 flex-wrap mb-2"><a href="https://www.goethe.de" class="link-light text-decoration-none" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="link-light text-decoration-none" target="_blank" rel="noopener">GitHub ↗</a></div><p class="mb-0 text-light-emphasis">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>

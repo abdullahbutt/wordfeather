@@ -1,0 +1,2038 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 Wortschatz - A2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">01 Wortschatz</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">01 Wortschatz</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A2</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="a2-wortschatz-vocabulary">A2 Wortschatz / Vocabulary</h1>
+<p>Thematische Wortliste für das Goethe-Zertifikat A2 (~650 neue Wörter, aufbauend auf A1)</p>
+<hr />
+<h2 id="1-personliches-und-beziehungen-personal-and-relationships">1. Persönliches und Beziehungen / Personal and Relationships</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Angst, -̈e</td>
+<td>fear</td>
+<td>die Jugend</td>
+<td>youth</td>
+</tr>
+<tr>
+<td>aufwachsen</td>
+<td>to grow up</td>
+<td>der Kontakt, -e</td>
+<td>contact</td>
+</tr>
+<tr>
+<td>die Ausbildung, -en</td>
+<td>training</td>
+<td>die Laune, -n</td>
+<td>mood</td>
+</tr>
+<tr>
+<td>sich bedanken</td>
+<td>to thank</td>
+<td>ledig</td>
+<td>single</td>
+</tr>
+<tr>
+<td>die Beziehung, -en</td>
+<td>relationship</td>
+<td>das Missverständnis, -se</td>
+<td>misunderstanding</td>
+</tr>
+<tr>
+<td>sich entschuldigen</td>
+<td>to apologize</td>
+<td>das Pech</td>
+<td>bad luck</td>
+</tr>
+<tr>
+<td>die Erfahrung, -en</td>
+<td>experience</td>
+<td>der Rentner, -</td>
+<td>retiree</td>
+</tr>
+<tr>
+<td>die Erinnerung, -en</td>
+<td>memory</td>
+<td>sich streiten</td>
+<td>to argue</td>
+</tr>
+<tr>
+<td>sich erinnern</td>
+<td>to remember</td>
+<td>die Überraschung, -en</td>
+<td>surprise</td>
+</tr>
+<tr>
+<td>sich freuen auf</td>
+<td>to look forward to</td>
+<td>sich unterhalten</td>
+<td>to converse</td>
+</tr>
+<tr>
+<td>die Freundschaft, -en</td>
+<td>friendship</td>
+<td>sich verabschieden</td>
+<td>to say goodbye</td>
+</tr>
+<tr>
+<td>das Gefühl, -e</td>
+<td>feeling</td>
+<td>sich verlieben</td>
+<td>to fall in love</td>
+</tr>
+<tr>
+<td>geschieden</td>
+<td>divorced</td>
+<td>sich vorstellen</td>
+<td>to introduce oneself</td>
+</tr>
+<tr>
+<td>die Gewohnheit, -en</td>
+<td>habit</td>
+<td>verwitwet</td>
+<td>widowed</td>
+</tr>
+<tr>
+<td>die Hoffnung, -en</td>
+<td>hope</td>
+<td>der Wunsch, -̈e</td>
+<td>wish</td>
+</tr>
+<tr>
+<td>heiraten</td>
+<td>to marry</td>
+<td>zufrieden</td>
+<td>satisfied</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-wohnen-und-haushalt-living-and-household">2. Wohnen und Haushalt / Living and Household</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>der Abfall, -̈e</td>
+<td>waste</td>
+<td>die Klimaanlage, -n</td>
+<td>air conditioning</td>
+</tr>
+<tr>
+<td>aufräumen</td>
+<td>to tidy up</td>
+<td>das Kissen, -</td>
+<td>pillow</td>
+</tr>
+<tr>
+<td>die Badewanne, -n</td>
+<td>bathtub</td>
+<td>die Lampe, -n</td>
+<td>lamp</td>
+</tr>
+<tr>
+<td>der Besen, -</td>
+<td>broom</td>
+<td>der Mieter, -</td>
+<td>tenant</td>
+</tr>
+<tr>
+<td>bügeln</td>
+<td>to iron</td>
+<td>die Mieterin, -nen</td>
+<td>female tenant</td>
+</tr>
+<tr>
+<td>die Decke, -n</td>
+<td>blanket, ceiling</td>
+<td>die Nebenkosten (Pl.)</td>
+<td>utility costs</td>
+</tr>
+<tr>
+<td>die Einbauküche, -n</td>
+<td>fitted kitchen</td>
+<td>putzen</td>
+<td>to clean</td>
+</tr>
+<tr>
+<td>einrichten</td>
+<td>to furnish</td>
+<td>renovieren</td>
+<td>to renovate</td>
+</tr>
+<tr>
+<td>das Erdgeschoss</td>
+<td>ground floor</td>
+<td>der Schmutz</td>
+<td>dirt</td>
+</tr>
+<tr>
+<td>die Etage, -n</td>
+<td>floor, story</td>
+<td>der Spiegel, -</td>
+<td>mirror</td>
+</tr>
+<tr>
+<td>die Garage, -n</td>
+<td>garage</td>
+<td>der Staubsauger, -</td>
+<td>vacuum cleaner</td>
+</tr>
+<tr>
+<td>die Garderobe, -n</td>
+<td>wardrobe</td>
+<td>der Stecker, -</td>
+<td>plug</td>
+</tr>
+<tr>
+<td>die Gardine, -n</td>
+<td>curtain</td>
+<td>der Strom</td>
+<td>electricity</td>
+</tr>
+<tr>
+<td>die Gemeinschaft</td>
+<td>community</td>
+<td>der Teppich, -e</td>
+<td>carpet</td>
+</tr>
+<tr>
+<td>die Heizung, -en</td>
+<td>heating</td>
+<td>trocknen</td>
+<td>to dry</td>
+</tr>
+<tr>
+<td>der Herd, -e</td>
+<td>stove</td>
+<td>der Umzug, -̈e</td>
+<td>move</td>
+</tr>
+<tr>
+<td>die Kaffeemaschine, -n</td>
+<td>coffee maker</td>
+<td>der Vermieter, -</td>
+<td>landlord</td>
+</tr>
+<tr>
+<td>der Keller, -</td>
+<td>basement</td>
+<td>die Waschmaschine, -n</td>
+<td>washing machine</td>
+</tr>
+<tr>
+<td>der Kleiderschrank, -̈e</td>
+<td>wardrobe</td>
+<td>der Wasserhahn, -̈e</td>
+<td>faucet</td>
+</tr>
+<tr>
+<td>die Klimaanlage, -n</td>
+<td>air conditioning</td>
+<td>die Wohngemeinschaft (WG)</td>
+<td>shared flat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-essen-und-trinken-food-and-drink">3. Essen und Trinken / Food and Drink</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Beilage, -n</td>
+<td>side dish</td>
+<td>die Mahlzeit, -en</td>
+<td>meal</td>
+</tr>
+<tr>
+<td>bestellen</td>
+<td>to order</td>
+<td>die Marmelade, -n</td>
+<td>jam</td>
+</tr>
+<tr>
+<td>die Bohne, -n</td>
+<td>bean</td>
+<td>die Nachspeise, -n</td>
+<td>dessert</td>
+</tr>
+<tr>
+<td>braten</td>
+<td>to fry</td>
+<td>die Nudel, -n</td>
+<td>noodle, pasta</td>
+</tr>
+<tr>
+<td>das Brathähnchen, -</td>
+<td>roast chicken</td>
+<td>die Nuss, -̈e</td>
+<td>nut</td>
+</tr>
+<tr>
+<td>die Dose, -n</td>
+<td>can, tin</td>
+<td>das Öl, -e</td>
+<td>oil</td>
+</tr>
+<tr>
+<td>die Ernährung</td>
+<td>nutrition</td>
+<td>der Pfeffer</td>
+<td>pepper</td>
+</tr>
+<tr>
+<td>das Fett</td>
+<td>fat</td>
+<td>die Pflaume, -n</td>
+<td>plum</td>
+</tr>
+<tr>
+<td>der Geschmack</td>
+<td>taste</td>
+<td>die Portion, -en</td>
+<td>portion</td>
+</tr>
+<tr>
+<td>das Gericht, -e</td>
+<td>dish</td>
+<td>das Rezept, -e</td>
+<td>recipe</td>
+</tr>
+<tr>
+<td>die Gurke, -n</td>
+<td>cucumber</td>
+<td>der Reis</td>
+<td>rice</td>
+</tr>
+<tr>
+<td>das Hähnchen, -</td>
+<td>chicken</td>
+<td>roh</td>
+<td>raw</td>
+</tr>
+<tr>
+<td>die Kantine, -n</td>
+<td>canteen</td>
+<td>die Sahne</td>
+<td>cream</td>
+</tr>
+<tr>
+<td>die Kirsche, -n</td>
+<td>cherry</td>
+<td>der Schinken, -</td>
+<td>ham</td>
+</tr>
+<tr>
+<td>der Knoblauch</td>
+<td>garlic</td>
+<td>das Schnitzel, -</td>
+<td>schnitzel</td>
+</tr>
+<tr>
+<td>kosten</td>
+<td>to taste</td>
+<td>die Soße, -n</td>
+<td>sauce</td>
+</tr>
+<tr>
+<td>die Lebensmittel (Pl.)</td>
+<td>groceries</td>
+<td>die Süßigkeit, -en</td>
+<td>candy</td>
+</tr>
+<tr>
+<td>der Löffel, -</td>
+<td>spoon</td>
+<td>die Tomate, -n</td>
+<td>tomato</td>
+</tr>
+<tr>
+<td>der Mais</td>
+<td>corn</td>
+<td>vegetarisch</td>
+<td>vegetarian</td>
+</tr>
+<tr>
+<td>die Vorspeise, -n</td>
+<td>appetizer</td>
+<td>die Zwiebel, -n</td>
+<td>onion</td>
+</tr>
+<tr>
+<td>die Zutat, -en</td>
+<td>ingredient</td>
+<td>zubereiten</td>
+<td>to prepare</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-gesundheit-und-korper-health-and-body">4. Gesundheit und Körper / Health and Body</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Allergie, -n</td>
+<td>allergy</td>
+<td>die Krankenkasse, -n</td>
+<td>health insurance</td>
+</tr>
+<tr>
+<td>der Arm, -e</td>
+<td>arm</td>
+<td>die Krankheit, -en</td>
+<td>illness</td>
+</tr>
+<tr>
+<td>die Behandlung, -en</td>
+<td>treatment</td>
+<td>das Medikament, -e</td>
+<td>medication</td>
+</tr>
+<tr>
+<td>das Bein, -e</td>
+<td>leg</td>
+<td>die Notaufnahme, -n</td>
+<td>emergency room</td>
+</tr>
+<tr>
+<td>das Blut</td>
+<td>blood</td>
+<td>operieren</td>
+<td>to operate</td>
+</tr>
+<tr>
+<td>der Blutdruck</td>
+<td>blood pressure</td>
+<td>die Praxis, Praxen</td>
+<td>doctor's office</td>
+</tr>
+<tr>
+<td>die Erkältung, -en</td>
+<td>cold (illness)</td>
+<td>das Rezept, -e</td>
+<td>prescription</td>
+</tr>
+<tr>
+<td>das Fieber</td>
+<td>fever</td>
+<td>der Schnupfen</td>
+<td>runny nose</td>
+</tr>
+<tr>
+<td>der Finger, -</td>
+<td>finger</td>
+<td>die Schulter, -n</td>
+<td>shoulder</td>
+</tr>
+<tr>
+<td>gesund</td>
+<td>healthy</td>
+<td>die Sprechstunde, -n</td>
+<td>office hours</td>
+</tr>
+<tr>
+<td>die Grippe</td>
+<td>flu</td>
+<td>die Tablette, -n</td>
+<td>pill</td>
+</tr>
+<tr>
+<td>der Hals, -̈e</td>
+<td>throat, neck</td>
+<td>die Untersuchung, -en</td>
+<td>examination</td>
+</tr>
+<tr>
+<td>der Husten</td>
+<td>cough</td>
+<td>die Verletzung, -en</td>
+<td>injury</td>
+</tr>
+<tr>
+<td>die Krankenschwester, -n</td>
+<td>nurse</td>
+<td>die Versicherung, -en</td>
+<td>insurance</td>
+</tr>
+<tr>
+<td>das Knie, -</td>
+<td>knee</td>
+<td>das Vitamin, -e</td>
+<td>vitamin</td>
+</tr>
+<tr>
+<td>die Kopfschmerzen (Pl.)</td>
+<td>headache</td>
+<td>weh tun</td>
+<td>to hurt</td>
+</tr>
+<tr>
+<td>das Krankenhaus, -̈er</td>
+<td>hospital</td>
+<td>der Zahnarzt, -̈e</td>
+<td>dentist</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-arbeit-und-beruf-work-and-career">5. Arbeit und Beruf / Work and Career</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Abteilung, -en</td>
+<td>department</td>
+<td>der Lebenslauf, -̈e</td>
+<td>CV</td>
+</tr>
+<tr>
+<td>anstellen</td>
+<td>to employ</td>
+<td>der Lohn, -̈e</td>
+<td>wage</td>
+</tr>
+<tr>
+<td>der Arbeitgeber, -</td>
+<td>employer</td>
+<td>der Meister, -</td>
+<td>master, foreman</td>
+</tr>
+<tr>
+<td>der Arbeitnehmer, -</td>
+<td>employee</td>
+<td>die Mittagspause, -n</td>
+<td>lunch break</td>
+</tr>
+<tr>
+<td>arbeitslos</td>
+<td>unemployed</td>
+<td>der Nebenjob, -s</td>
+<td>side job</td>
+</tr>
+<tr>
+<td>die Besprechung, -en</td>
+<td>meeting</td>
+<td>die Pause, -n</td>
+<td>break</td>
+</tr>
+<tr>
+<td>die Bewerbung, -en</td>
+<td>application</td>
+<td>das Praktikum, Praktika</td>
+<td>internship</td>
+</tr>
+<tr>
+<td>der Betrieb, -e</td>
+<td>company</td>
+<td>der Praktikant, -en</td>
+<td>intern</td>
+</tr>
+<tr>
+<td>der Chef, -s</td>
+<td>boss</td>
+<td>selbstständig</td>
+<td>self-employed</td>
+</tr>
+<tr>
+<td>die Erfahrung, -en</td>
+<td>experience</td>
+<td>die Stelle, -n</td>
+<td>position</td>
+</tr>
+<tr>
+<td>die Firma, Firmen</td>
+<td>company</td>
+<td>die Teilzeitarbeit</td>
+<td>part-time work</td>
+</tr>
+<tr>
+<td>das Gehalt, -̈er</td>
+<td>salary</td>
+<td>die Überstunde, -n</td>
+<td>overtime</td>
+</tr>
+<tr>
+<td>die Gewerkschaft, -en</td>
+<td>trade union</td>
+<td>der Urlaub, -e</td>
+<td>vacation</td>
+</tr>
+<tr>
+<td>das Homeoffice</td>
+<td>home office</td>
+<td>verdienen</td>
+<td>to earn</td>
+</tr>
+<tr>
+<td>kündigen</td>
+<td>to resign/fire</td>
+<td>das Vorstellungsgespräch, -e</td>
+<td>job interview</td>
+</tr>
+<tr>
+<td>der Kollege, -n</td>
+<td>colleague</td>
+<td>die Werkstatt, -̈en</td>
+<td>workshop</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-reisen-und-verkehr-travel-and-transport">6. Reisen und Verkehr / Travel and Transport</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abbiegen</td>
+<td>to turn</td>
+<td>die Landkarte, -n</td>
+<td>map</td>
+</tr>
+<tr>
+<td>die Ampel, -n</td>
+<td>traffic light</td>
+<td>landen</td>
+<td>to land</td>
+</tr>
+<tr>
+<td>die Ankunft</td>
+<td>arrival</td>
+<td>die Mautgebühr, -en</td>
+<td>toll</td>
+</tr>
+<tr>
+<td>aussteigen</td>
+<td>to get off</td>
+<td>der Motorrad, -̈er</td>
+<td>motorcycle</td>
+</tr>
+<tr>
+<td>die Autobahn, -en</td>
+<td>highway</td>
+<td>der Parkschein, -e</td>
+<td>parking ticket</td>
+</tr>
+<tr>
+<td>die Bremse, -n</td>
+<td>brake</td>
+<td>der Passagier, -e</td>
+<td>passenger</td>
+</tr>
+<tr>
+<td>der Bürgersteig, -e</td>
+<td>sidewalk</td>
+<td>die Panne, -n</td>
+<td>breakdown</td>
+</tr>
+<tr>
+<td>die Einbahnstraße, -n</td>
+<td>one-way street</td>
+<td>der Reiseführer, -</td>
+<td>travel guide</td>
+</tr>
+<tr>
+<td>einsteigen</td>
+<td>to get on</td>
+<td>die Richtung, -en</td>
+<td>direction</td>
+</tr>
+<tr>
+<td>die Entfernung, -en</td>
+<td>distance</td>
+<td>der Rückflug, -̈e</td>
+<td>return flight</td>
+</tr>
+<tr>
+<td>die Fähre, -n</td>
+<td>ferry</td>
+<td>der Stau, -s</td>
+<td>traffic jam</td>
+</tr>
+<tr>
+<td>die Fußgängerzone, -n</td>
+<td>pedestrian zone</td>
+<td>stornieren</td>
+<td>to cancel</td>
+</tr>
+<tr>
+<td>das Gepäck</td>
+<td>luggage</td>
+<td>tanken</td>
+<td>to refuel</td>
+</tr>
+<tr>
+<td>der Hafen, -̈</td>
+<td>harbor</td>
+<td>umsteigen</td>
+<td>to transfer</td>
+</tr>
+<tr>
+<td>die Haltestelle, -n</td>
+<td>stop</td>
+<td>die Unterkunft, -̈e</td>
+<td>accommodation</td>
+</tr>
+<tr>
+<td>die Jugendherberge, -n</td>
+<td>youth hostel</td>
+<td>die Verspätung, -en</td>
+<td>delay</td>
+</tr>
+<tr>
+<td>die Kreuzung, -en</td>
+<td>intersection</td>
+<td>der Zebrastreifen, -</td>
+<td>crosswalk</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-bildung-und-schule-education">7. Bildung und Schule / Education</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Aufgabe, -n</td>
+<td>task, exercise</td>
+<td>die Klausur, -en</td>
+<td>written exam</td>
+</tr>
+<tr>
+<td>der Austausch</td>
+<td>exchange</td>
+<td>das Klassenzimmer, -</td>
+<td>classroom</td>
+</tr>
+<tr>
+<td>bestehen</td>
+<td>to pass (exam)</td>
+<td>die Kreide</td>
+<td>chalk</td>
+</tr>
+<tr>
+<td>die Bibliothek, -en</td>
+<td>library</td>
+<td>der Kugelschreiber, -</td>
+<td>pen</td>
+</tr>
+<tr>
+<td>der Bleistift, -e</td>
+<td>pencil</td>
+<td>der Kurs, -e</td>
+<td>course</td>
+</tr>
+<tr>
+<td>das Blatt, -̈er</td>
+<td>sheet</td>
+<td>lernen</td>
+<td>to learn</td>
+</tr>
+<tr>
+<td>durchfallen</td>
+<td>to fail (exam)</td>
+<td>das Lineal, -e</td>
+<td>ruler</td>
+</tr>
+<tr>
+<td>das Ergebnis, -se</td>
+<td>result</td>
+<td>die Note, -n</td>
+<td>grade</td>
+</tr>
+<tr>
+<td>das Fach, -̈er</td>
+<td>subject</td>
+<td>die Prüfung, -en</td>
+<td>exam</td>
+</tr>
+<tr>
+<td>die Grundschule, -n</td>
+<td>primary school</td>
+<td>das Schuljahr, -e</td>
+<td>school year</td>
+</tr>
+<tr>
+<td>das Gymnasium</td>
+<td>grammar school</td>
+<td>der Stundenplan, -̈e</td>
+<td>timetable</td>
+</tr>
+<tr>
+<td>die Hausaufgabe, -n</td>
+<td>homework</td>
+<td>das Studium</td>
+<td>studies</td>
+</tr>
+<tr>
+<td>das Heft, -e</td>
+<td>notebook</td>
+<td>die Tafel, -n</td>
+<td>blackboard</td>
+</tr>
+<tr>
+<td>die Hochschule, -n</td>
+<td>university</td>
+<td>der Unterricht</td>
+<td>instruction</td>
+</tr>
+<tr>
+<td>die Klasse, -n</td>
+<td>class</td>
+<td>das Zeugnis, -se</td>
+<td>report card</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-freizeit-und-kultur-leisure-and-culture">8. Freizeit und Kultur / Leisure and Culture</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Aufführung, -en</td>
+<td>performance</td>
+<td>der Krimi, -s</td>
+<td>crime novel/film</td>
+</tr>
+<tr>
+<td>die Ausstellung, -en</td>
+<td>exhibition</td>
+<td>die Mannschaft, -en</td>
+<td>team</td>
+</tr>
+<tr>
+<td>die Eintrittskarte, -n</td>
+<td>admission ticket</td>
+<td>die Meisterschaft, -en</td>
+<td>championship</td>
+</tr>
+<tr>
+<td>die Ermäßigung, -en</td>
+<td>discount</td>
+<td>die Oper, -n</td>
+<td>opera</td>
+</tr>
+<tr>
+<td>das Ergebnis, -se</td>
+<td>score, result</td>
+<td>der Roman, -e</td>
+<td>novel</td>
+</tr>
+<tr>
+<td>die Galerie, -n</td>
+<td>gallery</td>
+<td>die Sehenswürdigkeit, -en</td>
+<td>attraction</td>
+</tr>
+<tr>
+<td>der Jahrmarkt, -̈e</td>
+<td>fair</td>
+<td>die Sendung, -en</td>
+<td>broadcast</td>
+</tr>
+<tr>
+<td>joggen</td>
+<td>to jog</td>
+<td>spannend</td>
+<td>exciting</td>
+</tr>
+<tr>
+<td>klettern</td>
+<td>to climb</td>
+<td>das Stadion, Stadien</td>
+<td>stadium</td>
+</tr>
+<tr>
+<td>das Konzert, -e</td>
+<td>concert</td>
+<td>das Tor, -e</td>
+<td>goal (sports)</td>
+</tr>
+<tr>
+<td>die Krimiserie, -n</td>
+<td>crime series</td>
+<td>die Veranstaltung, -en</td>
+<td>event</td>
+</tr>
+<tr>
+<td>die Leinwand, -̈e</td>
+<td>screen (cinema)</td>
+<td>der Verein, -e</td>
+<td>club</td>
+</tr>
+<tr>
+<td>die Mannschaft, -en</td>
+<td>team</td>
+<td>die Vorstellung, -en</td>
+<td>show</td>
+</tr>
+<tr>
+<td>die Mitgliedschaft, -en</td>
+<td>membership</td>
+<td>der Zuschauer, -</td>
+<td>spectator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-natur-und-umwelt-nature-and-environment">9. Natur und Umwelt / Nature and Environment</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>das Blatt, -̈er</td>
+<td>leaf</td>
+<td>der Müll</td>
+<td>garbage</td>
+</tr>
+<tr>
+<td>der Donner</td>
+<td>thunder</td>
+<td>die Pflanze, -n</td>
+<td>plant</td>
+</tr>
+<tr>
+<td>die Erde</td>
+<td>earth</td>
+<td>recyceln</td>
+<td>to recycle</td>
+</tr>
+<tr>
+<td>der Fluss, -̈e</td>
+<td>river</td>
+<td>der Regenbogen, -̈</td>
+<td>rainbow</td>
+</tr>
+<tr>
+<td>der Frost</td>
+<td>frost</td>
+<td>der Schatten</td>
+<td>shadow</td>
+</tr>
+<tr>
+<td>das Gewitter, -</td>
+<td>thunderstorm</td>
+<td>der See, -n</td>
+<td>lake</td>
+</tr>
+<tr>
+<td>der Hagel</td>
+<td>hail</td>
+<td>die See</td>
+<td>sea</td>
+</tr>
+<tr>
+<td>die Hitze</td>
+<td>heat</td>
+<td>der Stein, -e</td>
+<td>stone</td>
+</tr>
+<tr>
+<td>die Insel, -n</td>
+<td>island</td>
+<td>der Strand, -̈e</td>
+<td>beach</td>
+</tr>
+<tr>
+<td>das Klima</td>
+<td>climate</td>
+<td>der Sturm, -̈e</td>
+<td>storm</td>
+</tr>
+<tr>
+<td>die Küste, -n</td>
+<td>coast</td>
+<td>das Tal, -̈er</td>
+<td>valley</td>
+</tr>
+<tr>
+<td>die Landschaft, -en</td>
+<td>landscape</td>
+<td>der Umweltschutz</td>
+<td>environmental protection</td>
+</tr>
+<tr>
+<td>die Luft</td>
+<td>air</td>
+<td>der Wald, -̈er</td>
+<td>forest</td>
+</tr>
+<tr>
+<td>die Mülltonne, -n</td>
+<td>garbage bin</td>
+<td>die Wiese, -n</td>
+<td>meadow</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-medien-und-technik-media-and-technology">10. Medien und Technik / Media and Technology</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>der Akku, -s</td>
+<td>battery</td>
+<td>hochladen</td>
+<td>to upload</td>
+</tr>
+<tr>
+<td>anmelden</td>
+<td>to register</td>
+<td>klicken</td>
+<td>to click</td>
+</tr>
+<tr>
+<td>die App, -s</td>
+<td>app</td>
+<td>das Konto, Konten</td>
+<td>account</td>
+</tr>
+<tr>
+<td>der Bildschirm, -e</td>
+<td>screen</td>
+<td>das Ladegerät, -e</td>
+<td>charger</td>
+</tr>
+<tr>
+<td>die Daten (Pl.)</td>
+<td>data</td>
+<td>das Netzwerk, -e</td>
+<td>network</td>
+</tr>
+<tr>
+<td>der Drucker, -</td>
+<td>printer</td>
+<td>das Passwort, -̈er</td>
+<td>password</td>
+</tr>
+<tr>
+<td>drücken</td>
+<td>to press</td>
+<td>die Suchmaschine, -n</td>
+<td>search engine</td>
+</tr>
+<tr>
+<td>herunterladen</td>
+<td>to download</td>
+<td>die Taste, -n</td>
+<td>key, button</td>
+</tr>
+<tr>
+<td>das Internet</td>
+<td>internet</td>
+<td>die Verbindung, -en</td>
+<td>connection</td>
+</tr>
+<tr>
+<td>die Festplatte, -n</td>
+<td>hard drive</td>
+<td>die Webseite, -n</td>
+<td>website</td>
+</tr>
+<tr>
+<td>die Datei, -en</td>
+<td>file</td>
+<td>die Zeitschrift, -en</td>
+<td>magazine</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-einkaufen-und-konsum-shopping-and-consumer">11. Einkaufen und Konsum / Shopping and Consumer</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Aktion, -en</td>
+<td>promotion</td>
+<td>der Kassenzettel, -</td>
+<td>receipt</td>
+</tr>
+<tr>
+<td>anprobieren</td>
+<td>to try on</td>
+<td>die Kleidung</td>
+<td>clothing</td>
+</tr>
+<tr>
+<td>die Auswahl</td>
+<td>selection</td>
+<td>der Kunde, -n</td>
+<td>customer</td>
+</tr>
+<tr>
+<td>die Baumwolle</td>
+<td>cotton</td>
+<td>das Leder</td>
+<td>leather</td>
+</tr>
+<tr>
+<td>der Betrag, -̈e</td>
+<td>amount</td>
+<td>die Größe, -n</td>
+<td>size</td>
+</tr>
+<tr>
+<td>der Einkaufswagen, -</td>
+<td>shopping cart</td>
+<td>der Markt, -̈e</td>
+<td>market</td>
+</tr>
+<tr>
+<td>das Einkaufszentrum</td>
+<td>shopping center</td>
+<td>das Portemonnaie, -s</td>
+<td>wallet</td>
+</tr>
+<tr>
+<td>die Garantie, -n</td>
+<td>guarantee</td>
+<td>der Preis, -e</td>
+<td>price</td>
+</tr>
+<tr>
+<td>gebraucht</td>
+<td>used</td>
+<td>die Quittung, -en</td>
+<td>receipt</td>
+</tr>
+<tr>
+<td>die Handtasche, -n</td>
+<td>handbag</td>
+<td>der Rabatt, -e</td>
+<td>discount</td>
+</tr>
+<tr>
+<td>die Kasse, -n</td>
+<td>checkout</td>
+<td>das Sonderangebot, -e</td>
+<td>special offer</td>
+</tr>
+<tr>
+<td>das Kleingeld</td>
+<td>change (coins)</td>
+<td>umtauschen</td>
+<td>to exchange</td>
+</tr>
+<tr>
+<td>die Kreditkarte, -n</td>
+<td>credit card</td>
+<td>die Verpackung, -en</td>
+<td>packaging</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-behorden-und-dokumente-authorities-and-documents">12. Behörden und Dokumente / Authorities and Documents</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>der Antrag, -̈e</td>
+<td>application</td>
+<td>die Genehmigung, -en</td>
+<td>permit</td>
+</tr>
+<tr>
+<td>das Amt, -̈er</td>
+<td>office (government)</td>
+<td>der Personalausweis, -e</td>
+<td>ID card</td>
+</tr>
+<tr>
+<td>die Anmeldung</td>
+<td>registration</td>
+<td>das Rathaus, -̈er</td>
+<td>town hall</td>
+</tr>
+<tr>
+<td>die Aufenthaltserlaubnis</td>
+<td>residence permit</td>
+<td>der Stempel, -</td>
+<td>stamp</td>
+</tr>
+<tr>
+<td>die Behörde, -n</td>
+<td>authority</td>
+<td>das Visum, Visa</td>
+<td>visa</td>
+</tr>
+<tr>
+<td>der Beamte, -n</td>
+<td>civil servant</td>
+<td>das Formular, -e</td>
+<td>form</td>
+</tr>
+<tr>
+<td>die Bescheinigung, -en</td>
+<td>certificate</td>
+<td>die Gebühr, -en</td>
+<td>fee</td>
+</tr>
+<tr>
+<td>die Botschaft, -en</td>
+<td>embassy</td>
+<td>die Unterschrift, -en</td>
+<td>signature</td>
+</tr>
+<tr>
+<td>die Bürger, -</td>
+<td>citizen</td>
+<td>der Vertrag, -̈e</td>
+<td>contract</td>
+</tr>
+<tr>
+<td>das Dokument, -e</td>
+<td>document</td>
+<td>das Zeugnis, -se</td>
+<td>certificate</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="adjektive-adjectives-a2-niveau">Adjektive / Adjectives (A2-Niveau)</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ängstlich</td>
+<td>anxious</td>
+<td>nötig</td>
+<td>necessary</td>
+</tr>
+<tr>
+<td>angenehm</td>
+<td>pleasant</td>
+<td>ordentlich</td>
+<td>tidy</td>
+</tr>
+<tr>
+<td>ärgerlich</td>
+<td>annoying</td>
+<td>peinlich</td>
+<td>embarrassing</td>
+</tr>
+<tr>
+<td>aufmerksam</td>
+<td>attentive</td>
+<td>praktisch</td>
+<td>practical</td>
+</tr>
+<tr>
+<td>bequem</td>
+<td>comfortable</td>
+<td>regelmäßig</td>
+<td>regular</td>
+</tr>
+<tr>
+<td>berühmt</td>
+<td>famous</td>
+<td>sauber</td>
+<td>clean</td>
+</tr>
+<tr>
+<td>besorgt</td>
+<td>worried</td>
+<td>schlimm</td>
+<td>bad, severe</td>
+</tr>
+<tr>
+<td>deutlich</td>
+<td>clear</td>
+<td>seltsam</td>
+<td>strange</td>
+</tr>
+<tr>
+<td>dringend</td>
+<td>urgent</td>
+<td>spannend</td>
+<td>exciting</td>
+</tr>
+<tr>
+<td>ehrlich</td>
+<td>honest</td>
+<td>stolz</td>
+<td>proud</td>
+</tr>
+<tr>
+<td>eifersüchtig</td>
+<td>jealous</td>
+<td>streng</td>
+<td>strict</td>
+</tr>
+<tr>
+<td>einverstanden</td>
+<td>agreed</td>
+<td>traurig</td>
+<td>sad</td>
+</tr>
+<tr>
+<td>fleißig</td>
+<td>diligent</td>
+<td>treu</td>
+<td>faithful</td>
+</tr>
+<tr>
+<td>freiwillig</td>
+<td>voluntary</td>
+<td>typisch</td>
+<td>typical</td>
+</tr>
+<tr>
+<td>gemütlich</td>
+<td>cozy</td>
+<td>ungefähr</td>
+<td>approximately</td>
+</tr>
+<tr>
+<td>geduldig</td>
+<td>patient</td>
+<td>verantwortlich</td>
+<td>responsible</td>
+</tr>
+<tr>
+<td>häufig</td>
+<td>frequent</td>
+<td>vorsichtig</td>
+<td>careful</td>
+</tr>
+<tr>
+<td>hilfreich</td>
+<td>helpful</td>
+<td>wahrscheinlich</td>
+<td>probably</td>
+</tr>
+<tr>
+<td>höflich</td>
+<td>polite</td>
+<td>wütend</td>
+<td>angry</td>
+</tr>
+<tr>
+<td>kompliziert</td>
+<td>complicated</td>
+<td>zufrieden</td>
+<td>satisfied</td>
+</tr>
+<tr>
+<td>lustig</td>
+<td>funny</td>
+<td>zuverlässig</td>
+<td>reliable</td>
+</tr>
+<tr>
+<td>merkwürdig</td>
+<td>strange</td>
+<td>zusätzlich</td>
+<td>additional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="verben-verbs-a2-niveau">Verben / Verbs (A2-Niveau)</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abnehmen</td>
+<td>to lose weight</td>
+<td>leihen</td>
+<td>to lend/borrow</td>
+</tr>
+<tr>
+<td>annehmen</td>
+<td>to accept</td>
+<td>lösen</td>
+<td>to solve</td>
+</tr>
+<tr>
+<td>aufhören</td>
+<td>to stop</td>
+<td>mitteilen</td>
+<td>to inform</td>
+</tr>
+<tr>
+<td>aufpassen</td>
+<td>to pay attention</td>
+<td>nachdenken</td>
+<td>to think about</td>
+</tr>
+<tr>
+<td>sich aufregen</td>
+<td>to get upset</td>
+<td>schaffen</td>
+<td>to manage</td>
+</tr>
+<tr>
+<td>sich ausruhen</td>
+<td>to rest</td>
+<td>stören</td>
+<td>to disturb</td>
+</tr>
+<tr>
+<td>ausmachen</td>
+<td>to turn off</td>
+<td>übersetzen</td>
+<td>to translate</td>
+</tr>
+<tr>
+<td>aussehen</td>
+<td>to look like</td>
+<td>überzeugen</td>
+<td>to convince</td>
+</tr>
+<tr>
+<td>beantragen</td>
+<td>to apply for</td>
+<td>umtauschen</td>
+<td>to exchange</td>
+</tr>
+<tr>
+<td>bedeuten</td>
+<td>to mean</td>
+<td>unterrichten</td>
+<td>to teach</td>
+</tr>
+<tr>
+<td>sich beeilen</td>
+<td>to hurry</td>
+<td>verbieten</td>
+<td>to forbid</td>
+</tr>
+<tr>
+<td>bemerken</td>
+<td>to notice</td>
+<td>verbringen</td>
+<td>to spend (time)</td>
+</tr>
+<tr>
+<td>beraten</td>
+<td>to advise</td>
+<td>vergleichen</td>
+<td>to compare</td>
+</tr>
+<tr>
+<td>berichten</td>
+<td>to report</td>
+<td>vermissen</td>
+<td>to miss (person)</td>
+</tr>
+<tr>
+<td>beschreiben</td>
+<td>to describe</td>
+<td>versprechen</td>
+<td>to promise</td>
+</tr>
+<tr>
+<td>besichtigen</td>
+<td>to visit (sight)</td>
+<td>versuchen</td>
+<td>to try</td>
+</tr>
+<tr>
+<td>bestätigen</td>
+<td>to confirm</td>
+<td>wechseln</td>
+<td>to change</td>
+</tr>
+<tr>
+<td>empfehlen</td>
+<td>to recommend</td>
+<td>zunehmen</td>
+<td>to gain weight</td>
+</tr>
+<tr>
+<td>entdecken</td>
+<td>to discover</td>
+<td>sich ärgern</td>
+<td>to be annoyed</td>
+</tr>
+<tr>
+<td>erlauben</td>
+<td>to allow</td>
+<td>sich benehmen</td>
+<td>to behave</td>
+</tr>
+<tr>
+<td>erleben</td>
+<td>to experience</td>
+<td>sich beschweren</td>
+<td>to complain</td>
+</tr>
+<tr>
+<td>erreichen</td>
+<td>to reach</td>
+<td>sich entscheiden</td>
+<td>to decide</td>
+</tr>
+<tr>
+<td>ersetzen</td>
+<td>to replace</td>
+<td>sich gewöhnen</td>
+<td>to get used to</td>
+</tr>
+<tr>
+<td>erwarten</td>
+<td>to expect</td>
+<td>sich informieren</td>
+<td>to inform oneself</td>
+</tr>
+<tr>
+<td>feiern</td>
+<td>to celebrate</td>
+<td>sich kümmern</td>
+<td>to take care of</td>
+</tr>
+<tr>
+<td>hassen</td>
+<td>to hate</td>
+<td>sich setzen</td>
+<td>to sit down</td>
+</tr>
+<tr>
+<td>hoffen</td>
+<td>to hope</td>
+<td>sich trennen</td>
+<td>to separate</td>
+</tr>
+<tr>
+<td>klappen</td>
+<td>to work out</td>
+<td>sich verhalten</td>
+<td>to behave</td>
+</tr>
+<tr>
+<td>klettern</td>
+<td>to climb</td>
+<td>sich wundern</td>
+<td>to be surprised</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="wichtige-wendungen-useful-phrases">Wichtige Wendungen / Useful Phrases</h2>
+<h3 id="im-alltag">Im Alltag</h3>
+<ul>
+<li>Was ist los? — What's wrong?</li>
+<li>Das macht nichts. — That doesn't matter.</li>
+<li>Keine Ahnung. — No idea.</li>
+<li>Es kommt darauf an. — It depends.</li>
+<li>Ich habe es eilig. — I'm in a hurry.</li>
+<li>Das freut mich. — I'm glad.</li>
+<li>Das tut mir leid. — I'm sorry.</li>
+<li>Zum Glück! — Fortunately!</li>
+<li>So ein Pech! — Bad luck!</li>
+<li>Gute Besserung! — Get well soon!</li>
+</ul>
+                </div>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_wortschatz.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[data-section]').forEach(function (link) {
+                        var number = link.getAttribute('data-section');
+                        var heading = document.querySelector('h2[id^="' + number + '-"]');
+                        if (heading) {
+                            link.setAttribute('href', '#' + heading.id);
+                        } else {
+                            link.classList.add('disabled');
+                            link.setAttribute('aria-disabled', 'true');
+                        }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        var m = h.id.match(/^(\d+)-/);
+                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

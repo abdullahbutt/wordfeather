@@ -1,0 +1,716 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Saetze - A1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+                .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-more-btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+                font-size: 0.85rem;
+                margin-top: 0.1rem;
+                letter-spacing: 0.05em;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">03 Saetze</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">03 Saetze</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A1</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="a1-satze-von-a-bis-z-sentences-from-a-to-z">A1 Sätze von A bis Z / Sentences from A to Z</h1>
+<p>Beispielsätze für jeden Buchstaben mit deutscher und englischer Übersetzung.</p>
+<hr />
+<h2 id="a">A</h2>
+<ol>
+<li><strong>Ich arbeite bei einer Bank.</strong> — I work at a bank.</li>
+<li><strong>Am Abend esse ich mit meiner Familie.</strong> — In the evening I eat with my family.</li>
+<li><strong>Anna kommt aus Österreich.</strong> — Anna comes from Austria.</li>
+<li><strong>Alle Kinder gehen in die Schule.</strong> — All children go to school.</li>
+<li><strong>Das Auto ist rot.</strong> — The car is red.</li>
+<li><strong>Mein Arzt ist sehr freundlich.</strong> — My doctor is very friendly.</li>
+<li><strong>Ich stehe jeden Morgen früh auf.</strong> — I get up early every morning.</li>
+<li><strong>Die Äpfel sind süß.</strong> — The apples are sweet.</li>
+<li><strong>Ich habe eine Frage an Sie.</strong> — I have a question for you.</li>
+<li><strong>Die Antwort ist richtig.</strong> — The answer is correct.</li>
+</ol>
+<h2 id="b">B</h2>
+<ol>
+<li><strong>Ich brauche ein neues Buch.</strong> — I need a new book.</li>
+<li><strong>Mein Bruder wohnt in Berlin.</strong> — My brother lives in Berlin.</li>
+<li><strong>Die Bäckerei ist um die Ecke.</strong> — The bakery is around the corner.</li>
+<li><strong>Ich fahre mit dem Bus zur Arbeit.</strong> — I take the bus to work.</li>
+<li><strong>Das Baby schläft schon.</strong> — The baby is already sleeping.</li>
+<li><strong>Ich möchte bitte bezahlen.</strong> — I would like to pay, please.</li>
+<li><strong>Die Blumen sind wunderschön.</strong> — The flowers are beautiful.</li>
+<li><strong>Bitte sprechen Sie langsam.</strong> — Please speak slowly.</li>
+<li><strong>Das Brot ist frisch.</strong> — The bread is fresh.</li>
+<li><strong>Ich bleibe heute zu Hause.</strong> — I'm staying home today.</li>
+</ol>
+<h2 id="c">C</h2>
+<ol>
+<li><strong>Wir gehen ins Café.</strong> — We're going to the café.</li>
+<li><strong>Mein Computer ist kaputt.</strong> — My computer is broken.</li>
+<li><strong>Der Chef kommt um 9 Uhr.</strong> — The boss comes at 9 o'clock.</li>
+<li><strong>Die Chefin ist in einer Besprechung.</strong> — The boss is in a meeting.</li>
+</ol>
+<h2 id="d">D</h2>
+<ol>
+<li><strong>Danke für Ihre Hilfe!</strong> — Thank you for your help!</li>
+<li><strong>Ich spreche Deutsch und Englisch.</strong> — I speak German and English.</li>
+<li><strong>Die Kinder spielen draußen.</strong> — The children are playing outside.</li>
+<li><strong>Darf ich hier sitzen?</strong> — May I sit here?</li>
+<li><strong>Am Donnerstag habe ich einen Termin.</strong> — I have an appointment on Thursday.</li>
+<li><strong>Das Dorf ist sehr klein.</strong> — The village is very small.</li>
+<li><strong>Das dauert nur fünf Minuten.</strong> — That only takes five minutes.</li>
+<li><strong>Denken Sie bitte daran!</strong> — Please think of it!</li>
+<li><strong>Dort ist der Bahnhof.</strong> — The train station is over there.</li>
+<li><strong>Ich habe Durst.</strong> — I am thirsty.</li>
+</ol>
+<h2 id="e">E</h2>
+<ol>
+<li><strong>Ich esse gern Eis.</strong> — I like to eat ice cream.</li>
+<li><strong>Meine Eltern kommen morgen.</strong> — My parents are coming tomorrow.</li>
+<li><strong>Entschuldigung, wo ist die Toilette?</strong> — Excuse me, where is the toilet?</li>
+<li><strong>Er ist mein bester Freund.</strong> — He is my best friend.</li>
+<li><strong>Ich schreibe eine E-Mail.</strong> — I'm writing an email.</li>
+<li><strong>Das Essen ist fertig.</strong> — The food is ready.</li>
+<li><strong>Ich lade dich ein.</strong> — I'm inviting you.</li>
+<li><strong>Das ist einfach.</strong> — That is easy.</li>
+<li><strong>Endlich ist Freitag!</strong> — Finally it's Friday!</li>
+<li><strong>Er erzählt eine Geschichte.</strong> — He is telling a story.</li>
+</ol>
+<h2 id="f">F</h2>
+<ol>
+<li><strong>Meine Familie ist groß.</strong> — My family is big.</li>
+<li><strong>Ich fahre mit dem Fahrrad.</strong> — I ride by bicycle.</li>
+<li><strong>Der Film ist interessant.</strong> — The film is interesting.</li>
+<li><strong>Ich finde das gut.</strong> — I think that's good.</li>
+<li><strong>Welche Farbe magst du?</strong> — Which color do you like?</li>
+<li><strong>Ich habe eine Frage.</strong> — I have a question.</li>
+<li><strong>Mein Freund kommt aus Spanien.</strong> — My friend comes from Spain.</li>
+<li><strong>In meiner Freizeit lese ich.</strong> — In my free time I read.</li>
+<li><strong>Das Frühstück ist um 8 Uhr.</strong> — Breakfast is at 8 o'clock.</li>
+<li><strong>Der Frühling ist meine Lieblingsjahreszeit.</strong> — Spring is my favorite season.</li>
+</ol>
+<h2 id="g">G</h2>
+<ol>
+<li><strong>Guten Morgen! Wie geht es Ihnen?</strong> — Good morning! How are you?</li>
+<li><strong>Ich gehe gern spazieren.</strong> — I like to go for walks.</li>
+<li><strong>Der Garten ist sehr schön.</strong> — The garden is very beautiful.</li>
+<li><strong>Herzlichen Glückwunsch zum Geburtstag!</strong> — Happy birthday!</li>
+<li><strong>Das Geld ist auf dem Tisch.</strong> — The money is on the table.</li>
+<li><strong>Ich esse gern Gemüse.</strong> — I like to eat vegetables.</li>
+<li><strong>Genau, das stimmt!</strong> — Exactly, that's right!</li>
+<li><strong>Das Geschäft ist geschlossen.</strong> — The store is closed.</li>
+<li><strong>Er hat ein freundliches Gesicht.</strong> — He has a friendly face.</li>
+<li><strong>Viel Glück bei der Prüfung!</strong> — Good luck on the exam!</li>
+</ol>
+<h2 id="h">H</h2>
+<ol>
+<li><strong>Hallo! Wie heißt du?</strong> — Hello! What's your name?</li>
+<li><strong>Ich habe Hunger.</strong> — I am hungry.</li>
+<li><strong>Wo ist die Haltestelle?</strong> — Where is the bus stop?</li>
+<li><strong>Mein Handy ist neu.</strong> — My phone is new.</li>
+<li><strong>Das Haus ist weiß.</strong> — The house is white.</li>
+<li><strong>Können Sie mir helfen?</strong> — Can you help me?</li>
+<li><strong>Heute ist ein schöner Tag.</strong> — Today is a beautiful day.</li>
+<li><strong>Hier ist meine Adresse.</strong> — Here is my address.</li>
+<li><strong>Mein Hobby ist Fußball.</strong> — My hobby is football.</li>
+<li><strong>Das Hotel ist direkt am Bahnhof.</strong> — The hotel is right at the train station.</li>
+</ol>
+<h2 id="i">I</h2>
+<ol>
+<li><strong>Ich komme aus Indien.</strong> — I come from India.</li>
+<li><strong>Hast du eine Idee?</strong> — Do you have an idea?</li>
+<li><strong>Er ist immer pünktlich.</strong> — He is always on time.</li>
+<li><strong>Ich suche im Internet.</strong> — I'm searching on the internet.</li>
+<li><strong>Das Buch ist sehr interessant.</strong> — The book is very interesting.</li>
+<li><strong>Ich brauche mehr Informationen.</strong> — I need more information.</li>
+<li><strong>Er ist Ingenieur von Beruf.</strong> — He is an engineer by profession.</li>
+</ol>
+<h2 id="j">J</h2>
+<ol>
+<li><strong>Ja, ich verstehe.</strong> — Yes, I understand.</li>
+<li><strong>Ich bin 25 Jahre alt.</strong> — I am 25 years old.</li>
+<li><strong>Jetzt muss ich gehen.</strong> — Now I have to go.</li>
+<li><strong>Jeden Tag lerne ich Deutsch.</strong> — I learn German every day.</li>
+<li><strong>Im Juli fahren wir in den Urlaub.</strong> — In July we go on vacation.</li>
+<li><strong>Der Junge spielt Fußball.</strong> — The boy is playing football.</li>
+<li><strong>Ich suche einen Job.</strong> — I'm looking for a job.</li>
+</ol>
+<h2 id="k">K</h2>
+<ol>
+<li><strong>Ich trinke gern Kaffee.</strong> — I like to drink coffee.</li>
+<li><strong>Es ist kalt draußen.</strong> — It is cold outside.</li>
+<li><strong>Die Kinder gehen zur Schule.</strong> — The children go to school.</li>
+<li><strong>Wir gehen heute ins Kino.</strong> — We're going to the cinema today.</li>
+<li><strong>Was kostet das?</strong> — How much does that cost?</li>
+<li><strong>Ich bin leider krank.</strong> — Unfortunately I am sick.</li>
+<li><strong>Ich besuche einen Deutschkurs.</strong> — I attend a German course.</li>
+<li><strong>Die Küche ist groß und hell.</strong> — The kitchen is big and bright.</li>
+<li><strong>Der Kuchen schmeckt lecker.</strong> — The cake tastes delicious.</li>
+<li><strong>Ich kann gut kochen.</strong> — I can cook well.</li>
+</ol>
+<h2 id="l">L</h2>
+<ol>
+<li><strong>Ich lerne seit einem Jahr Deutsch.</strong> — I've been learning German for a year.</li>
+<li><strong>Das Land ist wunderschön.</strong> — The country is beautiful.</li>
+<li><strong>Sprechen Sie bitte langsam.</strong> — Please speak slowly.</li>
+<li><strong>Ich lese gern Bücher.</strong> — I like to read books.</li>
+<li><strong>Die Leute sind freundlich.</strong> — The people are friendly.</li>
+<li><strong>Mach bitte das Licht an!</strong> — Please turn on the light!</li>
+<li><strong>Gehen Sie links.</strong> — Go left.</li>
+<li><strong>Das Leben ist schön.</strong> — Life is beautiful.</li>
+<li><strong>Leider habe ich keine Zeit.</strong> — Unfortunately I don't have time.</li>
+<li><strong>Das Essen ist lecker!</strong> — The food is delicious!</li>
+</ol>
+<h2 id="m">M</h2>
+<ol>
+<li><strong>Was machst du am Wochenende?</strong> — What are you doing on the weekend?</li>
+<li><strong>Meine Mutter kocht sehr gut.</strong> — My mother cooks very well.</li>
+<li><strong>Der Mann liest eine Zeitung.</strong> — The man is reading a newspaper.</li>
+<li><strong>Morgen gehe ich einkaufen.</strong> — Tomorrow I'm going shopping.</li>
+<li><strong>Ich höre gern Musik.</strong> — I like to listen to music.</li>
+<li><strong>Ich muss jetzt arbeiten.</strong> — I have to work now.</li>
+<li><strong>Manchmal regnet es im Sommer.</strong> — Sometimes it rains in summer.</li>
+<li><strong>Das Museum ist sehr interessant.</strong> — The museum is very interesting.</li>
+<li><strong>Einen Moment, bitte!</strong> — One moment, please!</li>
+<li><strong>Am Montag beginnt die Woche.</strong> — The week starts on Monday.</li>
+</ol>
+<h2 id="n">N</h2>
+<ol>
+<li><strong>Wie ist Ihr Name?</strong> — What is your name?</li>
+<li><strong>Ich fahre nach Berlin.</strong> — I'm going to Berlin.</li>
+<li><strong>Gute Nacht! Schlaf gut!</strong> — Good night! Sleep well!</li>
+<li><strong>Mein Nachbar ist sehr nett.</strong> — My neighbor is very nice.</li>
+<li><strong>Nein, danke.</strong> — No, thank you.</li>
+<li><strong>Ich habe nichts verstanden.</strong> — I didn't understand anything.</li>
+<li><strong>Die Natur hier ist wunderschön.</strong> — The nature here is beautiful.</li>
+<li><strong>Natürlich helfe ich dir!</strong> — Of course I'll help you!</li>
+<li><strong>Ich nehme den Zug.</strong> — I'll take the train.</li>
+<li><strong>Bist du noch da?</strong> — Are you still there?</li>
+</ol>
+<h2 id="o">O</h2>
+<ol>
+<li><strong>Obst ist sehr gesund.</strong> — Fruit is very healthy.</li>
+<li><strong>Kaffee oder Tee?</strong> — Coffee or tea?</li>
+<li><strong>Bitte öffnen Sie die Tür.</strong> — Please open the door.</li>
+<li><strong>Ich gehe oft spazieren.</strong> — I often go for walks.</li>
+<li><strong>Ohne dich ist es langweilig.</strong> — Without you it's boring.</li>
+<li><strong>Mein Onkel wohnt in München.</strong> — My uncle lives in Munich.</li>
+<li><strong>Die Orangen sind süß.</strong> — The oranges are sweet.</li>
+<li><strong>Ich fahre nach Österreich.</strong> — I'm going to Austria.</li>
+</ol>
+<h2 id="p">P</h2>
+<ol>
+<li><strong>Die Party war super!</strong> — The party was great!</li>
+<li><strong>Ich muss meinen Koffer packen.</strong> — I have to pack my suitcase.</li>
+<li><strong>Der Preis ist gut.</strong> — The price is good.</li>
+<li><strong>Kein Problem!</strong> — No problem!</li>
+<li><strong>Wir machen eine Pause.</strong> — We're taking a break.</li>
+<li><strong>Der Parkplatz ist voll.</strong> — The parking lot is full.</li>
+<li><strong>Zeigen Sie bitte Ihren Pass.</strong> — Please show your passport.</li>
+<li><strong>Der Zug ist pünktlich.</strong> — The train is on time.</li>
+</ol>
+<h2 id="q">Q</h2>
+<ol>
+<li><strong>Die Qualität ist ausgezeichnet.</strong> — The quality is excellent.</li>
+<li><strong>Kann ich eine Quittung bekommen?</strong> — Can I get a receipt?</li>
+</ol>
+<h2 id="r">R</h2>
+<ol>
+<li><strong>Die Rechnung, bitte!</strong> — The bill, please!</li>
+<li><strong>Es regnet heute.</strong> — It's raining today.</li>
+<li><strong>Gute Reise!</strong> — Have a good trip!</li>
+<li><strong>Die Antwort ist richtig.</strong> — The answer is correct.</li>
+<li><strong>Gehen Sie nach rechts.</strong> — Go to the right.</li>
+<li><strong>Das Restaurant ist sehr gut.</strong> — The restaurant is very good.</li>
+<li><strong>Hier ist es sehr ruhig.</strong> — It's very quiet here.</li>
+<li><strong>Mein Rücken tut weh.</strong> — My back hurts.</li>
+</ol>
+<h2 id="s">S</h2>
+<ol>
+<li><strong>Ich spreche ein bisschen Deutsch.</strong> — I speak a little German.</li>
+<li><strong>Die Schule beginnt um 8 Uhr.</strong> — School starts at 8 o'clock.</li>
+<li><strong>Der Schnee ist weiß.</strong> — The snow is white.</li>
+<li><strong>Ich schreibe einen Brief.</strong> — I'm writing a letter.</li>
+<li><strong>Meine Schwester studiert Medizin.</strong> — My sister studies medicine.</li>
+<li><strong>Die Suppe ist heiß.</strong> — The soup is hot.</li>
+<li><strong>Ich gehe am Samstag einkaufen.</strong> — I go shopping on Saturday.</li>
+<li><strong>Die Stadt ist sehr schön.</strong> — The city is very beautiful.</li>
+<li><strong>Ich schwimme gern im See.</strong> — I like to swim in the lake.</li>
+<li><strong>Der Sommer ist meine Lieblingsjahreszeit.</strong> — Summer is my favorite season.</li>
+</ol>
+<h2 id="t">T</h2>
+<ol>
+<li><strong>Guten Tag!</strong> — Good day!</li>
+<li><strong>Ich trinke gern Tee.</strong> — I like to drink tea.</li>
+<li><strong>Der Tisch ist rund.</strong> — The table is round.</li>
+<li><strong>Meine Tochter ist fünf Jahre alt.</strong> — My daughter is five years old.</li>
+<li><strong>Wo ist die Toilette?</strong> — Where is the toilet?</li>
+<li><strong>Ich habe morgen einen Termin.</strong> — I have an appointment tomorrow.</li>
+<li><strong>Das Ticket kostet 5 Euro.</strong> — The ticket costs 5 euros.</li>
+<li><strong>Ich mag Tiere sehr.</strong> — I like animals a lot.</li>
+<li><strong>Bitte schließen Sie die Tür.</strong> — Please close the door.</li>
+<li><strong>Tschüs! Bis bald!</strong> — Bye! See you soon!</li>
+</ol>
+<h2 id="u">U</h2>
+<ol>
+<li><strong>Ich fahre mit der U-Bahn.</strong> — I take the subway.</li>
+<li><strong>Ich übe jeden Tag Deutsch.</strong> — I practice German every day.</li>
+<li><strong>Die Uhr zeigt 10.</strong> — The clock shows 10.</li>
+<li><strong>Um 8 Uhr beginnt die Arbeit.</strong> — Work starts at 8 o'clock.</li>
+<li><strong>Wir müssen in Köln umsteigen.</strong> — We have to transfer in Cologne.</li>
+<li><strong>Unser Haus hat einen Garten.</strong> — Our house has a garden.</li>
+<li><strong>Ich mache Urlaub in Italien.</strong> — I'm vacationing in Italy.</li>
+</ol>
+<h2 id="v">V</h2>
+<ol>
+<li><strong>Mein Vater arbeitet viel.</strong> — My father works a lot.</li>
+<li><strong>Ich habe das vergessen.</strong> — I forgot that.</li>
+<li><strong>Sind Sie verheiratet?</strong> — Are you married?</li>
+<li><strong>Ich verstehe das nicht.</strong> — I don't understand that.</li>
+<li><strong>Vielen Dank für alles!</strong> — Thank you very much for everything!</li>
+<li><strong>Vielleicht komme ich morgen.</strong> — Maybe I'll come tomorrow.</li>
+<li><strong>Wie ist Ihr Vorname?</strong> — What is your first name?</li>
+<li><strong>Vorsicht! Die Straße ist nass.</strong> — Careful! The street is wet.</li>
+</ol>
+<h2 id="w">W</h2>
+<ol>
+<li><strong>Wie ist das Wetter heute?</strong> — How is the weather today?</li>
+<li><strong>Ich wohne in Berlin.</strong> — I live in Berlin.</li>
+<li><strong>Woher kommen Sie?</strong> — Where do you come from?</li>
+<li><strong>Wo ist der Bahnhof?</strong> — Where is the train station?</li>
+<li><strong>Ich trinke gern Wasser.</strong> — I like to drink water.</li>
+<li><strong>Das Wochenende war schön.</strong> — The weekend was nice.</li>
+<li><strong>Herzlich willkommen!</strong> — Welcome!</li>
+<li><strong>Im Winter ist es kalt.</strong> — In winter it is cold.</li>
+<li><strong>Das ist wirklich gut.</strong> — That's really good.</li>
+<li><strong>Wann kommst du zurück?</strong> — When are you coming back?</li>
+</ol>
+<h2 id="x">X</h2>
+<ol>
+<li><strong>Das Xylophon ist ein Musikinstrument.</strong> — The xylophone is a musical instrument.</li>
+</ol>
+<h2 id="y">Y</h2>
+<ol>
+<li><strong>Das Yoga hilft mir beim Entspannen.</strong> — Yoga helps me relax.</li>
+</ol>
+<h2 id="z">Z</h2>
+<ol>
+<li><strong>Ich habe keine Zeit.</strong> — I don't have time.</li>
+<li><strong>Ich lese die Zeitung.</strong> — I'm reading the newspaper.</li>
+<li><strong>Der Zug kommt in 5 Minuten.</strong> — The train comes in 5 minutes.</li>
+<li><strong>Ich möchte bitte zahlen.</strong> — I would like to pay, please.</li>
+<li><strong>Mein Zimmer ist groß und hell.</strong> — My room is big and bright.</li>
+<li><strong>Zucker im Kaffee?</strong> — Sugar in the coffee?</li>
+<li><strong>Wir gehen zusammen ins Kino.</strong> — We're going to the cinema together.</li>
+<li><strong>Ich komme bald zurück.</strong> — I'll be back soon.</li>
+<li><strong>Zwischen Montag und Freitag arbeite ich.</strong> — I work between Monday and Friday.</li>
+<li><strong>Zwei Kaffee, bitte!</strong> — Two coffees, please!</li>
+</ol>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_saetze.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[href^="#"]').forEach(function (link) {
+                        var id = link.getAttribute('href').substring(1);
+                        if (!document.getElementById(id)) { link.remove(); }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        if (/^[a-z]$/.test(h.id)) { buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-primary">' + h.id.toUpperCase() + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

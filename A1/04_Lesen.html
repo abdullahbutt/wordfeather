@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 Lesen - A1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">04 Lesen</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">04 Lesen</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A1</span>
+                </div>
+
+                
+
+                <div class="markdown-content">
+                    <h1 id="a1-lesen-reading">A1 Lesen / Reading</h1>
+<p>Leseübungen zur Vorbereitung auf das Goethe-Zertifikat A1: Start Deutsch 1.<br />
+<em>Reading exercises to prepare for the Goethe-Zertifikat A1: Start Deutsch 1.</em></p>
+<hr />
+<h2 id="prufungsformat-exam-format">Prüfungsformat / Exam Format</h2>
+<table>
+<thead>
+<tr>
+<th>Teil / Part</th>
+<th>Aufgabe / Task</th>
+<th>Aufgaben / Items</th>
+<th>Punkte / Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Kurze Texte und Schilder verstehen / Understand short texts and signs</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Kurze Mitteilungen verstehen / Understand short messages</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kleinanzeigen verstehen / Understand classifieds</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td><strong>Gesamt / Total</strong></td>
+<td></td>
+<td><strong>15</strong></td>
+<td><strong>25</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dauer / Duration: 25 Minuten / minutes</strong></p>
+<hr />
+<h2 id="strategien-strategies">Strategien / Strategies</h2>
+<ol>
+<li><strong>Schlüsselwörter finden</strong> — Suchen Sie zuerst die wichtigen Wörter in den Fragen. <em>Find keywords — look for important words in the questions first.</em></li>
+<li><strong>Schilder und Symbole</strong> — Achten Sie auf Schilder, Symbole und Formatierung. <em>Signs and symbols — pay attention to signs, symbols, and formatting.</em></li>
+<li><strong>Nicht jedes Wort verstehen</strong> — Sie müssen nicht jedes Wort verstehen! <em>You don't need to understand every word!</em></li>
+<li><strong>Zahlen und Namen</strong> — Achten Sie besonders auf Uhrzeiten, Preise und Namen. <em>Numbers and names — focus on times, prices, and names.</em></li>
+<li><strong>Kontext nutzen</strong> — Nutzen Sie den Kontext, um die Bedeutung zu erraten. <em>Use context — use context clues to guess meaning.</em></li>
+</ol>
+<hr />
+<h2 id="teil-1-schilder-und-kurze-texte-signs-and-short-texts">Teil 1: Schilder und kurze Texte / Signs and Short Texts</h2>
+<h3 id="ubung-11-exercise-11">Übung 1.1 / Exercise 1.1</h3>
+<p>Lesen Sie die Schilder. Richtig oder Falsch? <em>Read the signs. True or False?</em></p>
+<p><strong>Schild 1 / Sign 1:</strong></p>
+<blockquote>
+<p>Bibliothek / Library<br />
+Mo–Fr: 9:00–18:00<br />
+Sa: 10:00–14:00<br />
+So: geschlossen / closed</p>
+</blockquote>
+<ol>
+<li>Die Bibliothek ist am Sonntag geöffnet. <em>(The library is open on Sunday.)</em> → <strong>Falsch / False</strong></li>
+<li>Am Samstag ist die Bibliothek von 10 bis 14 Uhr offen. <em>(On Saturday it's open from 10 to 2.)</em> → <strong>Richtig / True</strong></li>
+<li>Von Montag bis Freitag kann man um 8 Uhr kommen. <em>(You can come at 8 on weekdays.)</em> → <strong>Falsch / False</strong></li>
+</ol>
+<p><strong>Schild 2 / Sign 2:</strong></p>
+<blockquote>
+<p>Achtung! / Attention!<br />
+Eingang nur mit Ticket / Entry only with ticket<br />
+Kinder unter 6 Jahren: frei / Children under 6: free<br />
+Erwachsene: 8 Euro / Adults: 8 Euro</p>
+</blockquote>
+<ol>
+<li>Kinder bezahlen 8 Euro. <em>(Children pay 8 Euro.)</em> → <strong>Falsch / False</strong></li>
+<li>Man braucht ein Ticket. <em>(You need a ticket.)</em> → <strong>Richtig / True</strong></li>
+</ol>
+<hr />
+<h2 id="teil-2-kurze-mitteilungen-short-messages">Teil 2: Kurze Mitteilungen / Short Messages</h2>
+<h3 id="ubung-21-exercise-21">Übung 2.1 / Exercise 2.1</h3>
+<p>Lesen Sie die Nachrichten und beantworten Sie die Fragen. <em>Read the messages and answer the questions.</em></p>
+<p><strong>Nachricht 1 / Message 1:</strong></p>
+<blockquote>
+<p>Liebe Susanne,<br />
+ich komme morgen um 15:30 Uhr am Hauptbahnhof an. Kannst du mich abholen? Mein Zug kommt auf Gleis 7.<br />
+Viele Grüße, Peter</p>
+</blockquote>
+<ol>
+<li>Wann kommt Peter an? <em>(When does Peter arrive?)</em> — <strong>Um 15:30 Uhr</strong></li>
+<li>Wo kommt er an? <em>(Where does he arrive?)</em> — <strong>Am Hauptbahnhof, Gleis 7</strong></li>
+<li>Was soll Susanne machen? <em>(What should Susanne do?)</em> — <strong>Peter abholen <em>(Pick up Peter)</em></strong></li>
+</ol>
+<p><strong>Nachricht 2 / Message 2:</strong></p>
+<blockquote>
+<p>Hallo Thomas,<br />
+heute Abend mache ich eine kleine Party. Kannst du kommen? Wir fangen um 19 Uhr an. Bring bitte Getränke mit!<br />
+Bis dann, Maria</p>
+</blockquote>
+<ol>
+<li>Was macht Maria heute Abend? <em>(What is Maria doing tonight?)</em> — <strong>Eine Party</strong></li>
+<li>Wann fängt die Party an? <em>(When does the party start?)</em> — <strong>Um 19 Uhr</strong></li>
+<li>Was soll Thomas mitbringen? <em>(What should Thomas bring?)</em> — <strong>Getränke <em>(Drinks)</em></strong></li>
+</ol>
+<hr />
+<h2 id="teil-3-kleinanzeigen-classifieds">Teil 3: Kleinanzeigen / Classifieds</h2>
+<h3 id="ubung-31-exercise-31">Übung 3.1 / Exercise 3.1</h3>
+<p>Lesen Sie die Anzeigen. Welche Anzeige passt? <em>Read the ads. Which ad fits?</em></p>
+<p><strong>A:</strong> Verkaufe Fahrrad, 2 Jahre alt, blau, guter Zustand. 80 Euro. <em>(Selling bicycle, 2 years old, blue, good condition. 80 Euro.)</em></p>
+<p><strong>B:</strong> Suche 2-Zimmer-Wohnung in Stadtmitte. Bis 500 Euro warm. <em>(Looking for 2-room apartment in city center. Up to 500 Euro incl. utilities.)</em></p>
+<p><strong>C:</strong> Deutschkurs A1, Mo und Mi, 18–20 Uhr. Start: 5. September. VHS Berlin. <em>(German course A1, Mon and Wed, 6–8 PM.)</em></p>
+<p><strong>D:</strong> Babysitter gesucht! 2x pro Woche, nachmittags. Für 2 Kinder (3 und 5 Jahre). <em>(Babysitter wanted! 2x per week, afternoons. For 2 children.)</em></p>
+<p><strong>E:</strong> Restaurant „Zur Sonne" — Koch/Köchin gesucht. Di–Sa, 10–18 Uhr. <em>(Restaurant "Zur Sonne" — Cook wanted. Tue–Sat, 10 AM–6 PM.)</em></p>
+<p><strong>Fragen / Questions:</strong><br />
+1. Maria sucht eine Wohnung. <em>(Maria is looking for an apartment.)</em> → <strong>B</strong><br />
+2. Tom will Deutsch lernen. <em>(Tom wants to learn German.)</em> → <strong>C</strong><br />
+3. Lisa sucht Arbeit in der Küche. <em>(Lisa is looking for kitchen work.)</em> → <strong>E</strong><br />
+4. Jan möchte ein Fahrrad kaufen. <em>(Jan wants to buy a bicycle.)</em> → <strong>A</strong><br />
+5. Sara möchte auf Kinder aufpassen. <em>(Sara wants to look after children.)</em> → <strong>D</strong></p>
+<hr />
+<h2 id="leseverstehen-uben-practice-reading-comprehension">Leseverstehen üben / Practice Reading Comprehension</h2>
+<h3 id="text-1-mein-tag-my-day">Text 1: Mein Tag / My Day</h3>
+<blockquote>
+<p>Ich heiße Yuki und komme aus Japan. Ich wohne seit drei Monaten in München. Jeden Morgen stehe ich um 7 Uhr auf. Ich frühstücke um 7:30 Uhr. Dann fahre ich mit der U-Bahn zur Sprachschule. Der Deutschkurs beginnt um 9 Uhr und dauert bis 13 Uhr. Nach dem Kurs esse ich in der Mensa zu Mittag. Am Nachmittag mache ich Hausaufgaben oder gehe spazieren. Abends koche ich und sehe ein bisschen fern. Um 23 Uhr gehe ich ins Bett.</p>
+</blockquote>
+<p><strong>Fragen / Questions:</strong><br />
+1. Woher kommt Yuki? <em>(Where does Yuki come from?)</em> — <strong>Aus Japan</strong><br />
+2. Wo wohnt sie jetzt? <em>(Where does she live now?)</em> — <strong>In München</strong><br />
+3. Wie fährt sie zur Schule? <em>(How does she get to school?)</em> — <strong>Mit der U-Bahn <em>(By subway)</em></strong><br />
+4. Wann beginnt ihr Deutschkurs? <em>(When does her German course start?)</em> — <strong>Um 9 Uhr</strong><br />
+5. Was macht sie am Nachmittag? <em>(What does she do in the afternoon?)</em> — <strong>Hausaufgaben machen oder spazieren gehen <em>(Homework or go for a walk)</em></strong></p>
+<hr />
+<h2 id="tipps-fur-die-prufung-exam-tips">Tipps für die Prüfung / Exam Tips</h2>
+<ol>
+<li><strong>Lesen Sie die Aufgaben zuerst</strong> — Lesen Sie die Fragen, bevor Sie den Text lesen. <em>Read the questions before reading the text.</em></li>
+<li><strong>Unterstreichen Sie Schlüsselwörter</strong> — Markieren Sie wichtige Wörter. <em>Underline keywords.</em></li>
+<li><strong>Achten Sie auf Zahlen</strong> — Uhrzeiten, Daten, Preise sind oft die Antwort. <em>Pay attention to numbers — times, dates, prices are often the answer.</em></li>
+<li><strong>Nicht zu viel Zeit</strong> — Bleiben Sie nicht zu lange bei einer Frage. <em>Don't spend too much time on one question.</em></li>
+<li><strong>Raten ist erlaubt</strong> — Lassen Sie niemals eine Antwort leer! <em>Guessing is allowed — never leave an answer blank!</em></li>
+</ol>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer bg-primary text-light mt-5 py-4 shadow-sm"><div class="container text-center small"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-2 text-light-emphasis">Official certification materials for German language proficiency</p><div class="d-flex justify-content-center gap-3 flex-wrap mb-2"><a href="https://www.goethe.de" class="link-light text-decoration-none" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="link-light text-decoration-none" target="_blank" rel="noopener">GitHub ↗</a></div><p class="mb-0 text-light-emphasis">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>

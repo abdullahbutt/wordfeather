@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 Grammatik - C2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">C2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">02 Grammatik</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">02 Grammatik</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">C2</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="c2-grammatik-grammar">C2 Grammatik / Grammar</h1>
+<p>Grammatik auf muttersprachlichem Niveau für das Goethe-Zertifikat C2: GDS.</p>
+<hr />
+<h2 id="1-komplexe-satzgefuge-complex-sentence-structures">1. Komplexe Satzgefüge / Complex Sentence Structures</h2>
+<h3 id="mehrfach-verschachtelte-nebensatze">Mehrfach verschachtelte Nebensätze</h3>
+<ul>
+<li>Es ist <strong>zu erwarten</strong>, <strong>dass</strong> die Maßnahmen, <strong>die</strong> die Regierung <strong>beschlossen hat</strong>, <strong>obwohl</strong> sie <strong>von</strong> vielen Seiten <strong>kritisiert worden sind</strong>, <strong>dazu beitragen werden</strong>, <strong>dass</strong> sich die wirtschaftliche Lage <strong>verbessert</strong>.</li>
+</ul>
+<h3 id="satzstruktur-vorfeld-besetzungen">Satzstruktur: Vorfeld-Besetzungen</h3>
+<p>Das Vorfeld (vor dem finiten Verb) kann vielfältig besetzt werden:</p>
+<ul>
+<li><strong>Normal:</strong> Der Politiker hielt eine Rede.</li>
+<li><strong>Adverbial:</strong> <strong>Unter großem Applaus</strong> hielt der Politiker eine Rede.</li>
+<li><strong>Nebensatz:</strong> <strong>Obwohl das Thema kontrovers war</strong>, hielt der Politiker eine Rede.</li>
+<li><strong>Infinitivkonstruktion:</strong> <strong>Die Lage korrekt einzuschätzen</strong>, ist von entscheidender Bedeutung.</li>
+<li><strong>Partizipialkonstruktion:</strong> <strong>Von Zweifeln geplagt</strong>, trat er dennoch vor das Publikum.</li>
+<li><strong>Korrelat-es:</strong> <strong>Es</strong> war ihm klar, dass er scheitern würde.</li>
+</ul>
+<h3 id="verknappte-nebensatzstrukturen-ohne-konjunktion">Verknappte Nebensatzstrukturen (ohne Konjunktion)</h3>
+<ul>
+<li><strong>Hätte</strong> ich das gewusst, <strong>wäre</strong> ich nicht gekommen. (= Wenn ich das gewusst hätte ...)</li>
+<li><strong>Sei</strong> es aus Überzeugung, <strong>sei</strong> es aus Kalkül — er handelte. (= Ob es aus ... oder aus ... war)</li>
+<li><strong>Wie</strong> dem auch <strong>sei</strong> — das Problem muss gelöst werden. (= Egal, wie es sich verhält)</li>
+</ul>
+<hr />
+<h2 id="2-verbalperiphrasen-verbal-periphrases">2. Verbalperiphrasen / Verbal Periphrases</h2>
+<h3 id="sein-zu-infinitiv-notwendigkeit-moglichkeit-passivisch">sein + zu + Infinitiv (Notwendigkeit / Möglichkeit, passivisch)</h3>
+<ul>
+<li>Das Problem <strong>ist</strong> nicht <strong>zu unterschätzen</strong>. (= kann nicht unterschätzt werden / darf nicht)</li>
+<li>Die Frist <strong>ist</strong> unbedingt <strong>einzuhalten</strong>. (= muss eingehalten werden)</li>
+<li>Die Folgen <strong>sind</strong> noch nicht <strong>abzusehen</strong>. (= können noch nicht abgesehen werden)</li>
+</ul>
+<h3 id="haben-zu-infinitiv-pflicht-aktivisch">haben + zu + Infinitiv (Pflicht, aktivisch)</h3>
+<ul>
+<li>Sie <strong>haben</strong> die Rechnung bis Freitag <strong>zu bezahlen</strong>. (= müssen)</li>
+<li>Der Angeklagte <strong>hat</strong> vor Gericht <strong>zu erscheinen</strong>. (= muss)</li>
+</ul>
+<h3 id="sich-lassen-infinitiv-moglichkeit-passivisch">sich lassen + Infinitiv (Möglichkeit, passivisch)</h3>
+<ul>
+<li>Das <strong>lässt sich</strong> leicht <strong>erklären</strong>. (= kann erklärt werden)</li>
+<li>Es <strong>ließ sich</strong> nicht <strong>vermeiden</strong>. (= konnte nicht vermieden werden)</li>
+</ul>
+<h3 id="bekommenerhaltenkriegen-partizip-ii-rezipientenpassiv">bekommen/erhalten/kriegen + Partizip II (Rezipientenpassiv)</h3>
+<ul>
+<li>Er <strong>bekam</strong> das Buch <strong>geschenkt</strong>. (= Das Buch wurde ihm geschenkt.)</li>
+<li>Sie <strong>erhielt</strong> den Auftrag <strong>erteilt</strong>. (= Der Auftrag wurde ihr erteilt.)</li>
+<li>Ich <strong>kriege</strong> die Tür nicht <strong>aufgemacht</strong>. (umg.)</li>
+</ul>
+<hr />
+<h2 id="3-gehobenere-konjunktiv-i-formen-elevated-subjunctive-i">3. Gehobenere Konjunktiv-I-Formen / Elevated Subjunctive I</h2>
+<h3 id="in-wunschen-und-festen-wendungen">In Wünschen und festen Wendungen</h3>
+<ul>
+<li><strong>Es lebe</strong> die Freiheit! (Long live freedom!)</li>
+<li><strong>Man bedenke</strong>, dass ... (Consider that ...)</li>
+<li><strong>Gott sei Dank!</strong> (Thank God!)</li>
+<li><strong>Wie dem auch sei</strong> ... (Be that as it may ...)</li>
+<li><strong>Es sei darauf hingewiesen</strong>, dass ... (It should be pointed out that ...)</li>
+<li><strong>Seien</strong> Sie versichert, dass ... (Rest assured that ...)</li>
+</ul>
+<h3 id="in-konzessivsatzen">In Konzessivsätzen</h3>
+<ul>
+<li><strong>Sei</strong> es auch noch so schwierig, wir werden es schaffen.</li>
+<li><strong>Koste</strong> es, <strong>was</strong> es <strong>wolle</strong> — wir machen weiter.</li>
+<li><strong>Möge</strong> er auch recht haben, das ändert nichts an der Tatsache, dass ...</li>
+</ul>
+<hr />
+<h2 id="4-stilistische-varianten-der-wortstellung-stylistic-word-order">4. Stilistische Varianten der Wortstellung / Stylistic Word Order</h2>
+<h3 id="ausklammerung-nachfeld-besetzung">Ausklammerung (Nachfeld-Besetzung)</h3>
+<p>Standard: Ich habe <strong>gestern mit meiner Mutter in Berlin über die Zukunft</strong> gesprochen.<br />
+Ausklammerung: Ich habe gestern gesprochen <strong>mit meiner Mutter, in Berlin, über die Zukunft</strong>.</p>
+<h3 id="linksversetzung-hervorhebung">Linksversetzung (Hervorhebung)</h3>
+<ul>
+<li><strong>Dieses Problem</strong>, das müssen wir sofort lösen.</li>
+<li><strong>Deutsch lernen</strong>, das kann man überall.</li>
+<li><strong>Ehrlichkeit</strong>, die ist ihm besonders wichtig.</li>
+</ul>
+<h3 id="freies-es-als-platzhalter">Freies "es" (als Platzhalter)</h3>
+<ul>
+<li><strong>Es</strong> kamen viele Gäste zur Feier. (Viele Gäste kamen zur Feier.)</li>
+<li><strong>Es</strong> wird getanzt und gelacht.</li>
+<li><strong>Es</strong> bedarf großer Anstrengungen.</li>
+</ul>
+<hr />
+<h2 id="5-textgrammatik-text-grammar">5. Textgrammatik / Text Grammar</h2>
+<h3 id="thema-rhema-gliederung-bekannt-neu">Thema-Rhema-Gliederung (Bekannt → Neu)</h3>
+<ul>
+<li><strong>Die Regierung</strong> (Thema/bekannt) hat <strong>ein neues Gesetz verabschiedet</strong> (Rhema/neu).</li>
+<li><strong>Dieses Gesetz</strong> (Thema → jetzt bekannt) sieht <strong>strengere Strafen für Umweltverschmutzung vor</strong> (Rhema).</li>
+</ul>
+<h3 id="kohasionsmittel-cohesion-devices">Kohäsionsmittel / Cohesion Devices</h3>
+<table>
+<thead>
+<tr>
+<th>Mittel</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pronominale Verweisung</td>
+<td><em>Die Studie ... </em><em>Sie</em><em> zeigt, dass ...</em></td>
+</tr>
+<tr>
+<td>Demonstrativpronomen</td>
+<td><em>Das Problem ist komplex. </em><em>Dies</em><em> erfordert ...</em></td>
+</tr>
+<tr>
+<td>Synonyme</td>
+<td><em>die Regierung → das Kabinett → die Exekutive</em></td>
+</tr>
+<tr>
+<td>Oberbegriffe</td>
+<td><em>Äpfel, Birnen → </em><em>Obst</em><em> → </em><em>Lebensmittel</em>**</td>
+</tr>
+<tr>
+<td>Konnektoren</td>
+<td><em>deshalb, dennoch, infolgedessen</em></td>
+</tr>
+<tr>
+<td>Ellipsen</td>
+<td><em>Er liest gern, sie [liest] nicht [gern].</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="textaufbau-argumentative-texte">Textaufbau: Argumentative Texte</h3>
+<ol>
+<li><strong>Hinführung</strong> — Kontextualisierung, Relevanz des Themas</li>
+<li><strong>Problemstellung</strong> — Präzise Formulierung der Fragestellung</li>
+<li><strong>Argumentation</strong> — These, Antithese, Synthese</li>
+<li><strong>Evidenz</strong> — Belege, Beispiele, Daten</li>
+<li><strong>Differenzierung</strong> — Einschränkungen, Nuancen</li>
+<li><strong>Schlussfolgerung</strong> — Fazit, Ausblick, offene Fragen</li>
+</ol>
+<hr />
+<h2 id="6-modalpartikeln-meisterhafter-einsatz-master-level-modal-particles">6. Modalpartikeln (Meisterhafter Einsatz) / Master-Level Modal Particles</h2>
+<h3 id="kombination-von-modalpartikeln">Kombination von Modalpartikeln</h3>
+<ul>
+<li>Das ist <strong>ja wohl</strong> nicht dein Ernst! (Empörung + Unglaubigkeit)</li>
+<li>Komm <strong>doch mal</strong> her! (Aufforderung, abgeschwächt)</li>
+<li>Was hat er <strong>denn eigentlich</strong> gesagt? (Interesse + Themenübergang)</li>
+<li>Das hätte er <strong>ja auch</strong> wissen können. (Bekanntes + Zusätzliches)</li>
+<li>Wie soll das <strong>denn bloß</strong> funktionieren? (Ratlosigkeit + Nachdrücklichkeit)</li>
+</ul>
+<h3 id="nuancen-einzelner-partikeln">Nuancen einzelner Partikeln</h3>
+<p><strong>wohl:</strong><br />
+- Er ist <strong>wohl</strong> krank. (Vermutung: ~70%)<br />
+- Das mag <strong>wohl</strong> sein. (Einräumung: zugegeben)<br />
+- <strong>Wohl</strong> kaum. (Skeptische Zurückweisung)</p>
+<p><strong>schon:</strong><br />
+- Das wird <strong>schon</strong> klappen. (Zuversicht)<br />
+- Das stimmt <strong>schon</strong>, aber ... (Einschränkende Zustimmung)<br />
+- Was soll das <strong>schon</strong> bringen? (Skeptische Frage)<br />
+- Wer macht das <strong>schon</strong>? (Rhetorisch: niemand)</p>
+<hr />
+<h2 id="7-besondere-konstruktionen-special-constructions">7. Besondere Konstruktionen / Special Constructions</h2>
+<h3 id="appositionen-einschube">Appositionen (Einschübe)</h3>
+<ul>
+<li>Angela Merkel, <strong>ehemalige Bundeskanzlerin und promovierte Physikerin</strong>, prägte eine Ära der deutschen Politik.</li>
+<li>Berlin, <strong>die Hauptstadt Deutschlands und kulturelles Zentrum Europas</strong>, zieht jedes Jahr Millionen Besucher an.</li>
+</ul>
+<h3 id="absolute-partizipialkonstruktionen">Absolute Partizipialkonstruktionen</h3>
+<ul>
+<li><strong>Die Arme verschränkt</strong>, stand er vor der Tür. (= Er hatte die Arme verschränkt und stand ...)</li>
+<li><strong>Den Blick gesenkt</strong>, ging sie an ihm vorbei.</li>
+<li><strong>Streng genommen</strong> ist das nicht korrekt.</li>
+<li><strong>Grob geschätzt</strong> dürften es 500 Teilnehmer gewesen sein.</li>
+</ul>
+<h3 id="spaltsatze-cleft-sentences">Spaltsätze / Cleft Sentences</h3>
+<ul>
+<li><strong>Es war</strong> Einstein, <strong>der</strong> die Relativitätstheorie formuliert hat.</li>
+<li><strong>Was</strong> mich stört, <strong>ist</strong> die mangelnde Transparenz.</li>
+<li><strong>Was</strong> wir brauchen, <strong>ist</strong> ein grundlegender Wandel.</li>
+</ul>
+<h3 id="pseudospaltsatze">Pseudospaltsätze</h3>
+<ul>
+<li><strong>Worum</strong> es geht, <strong>ist</strong> Folgendes: ...</li>
+<li><strong>Worauf</strong> es ankommt, <strong>ist</strong>, dass wir zusammenarbeiten.</li>
+</ul>
+<hr />
+<h2 id="8-stilregister-style-registers">8. Stilregister / Style Registers</h2>
+<h3 id="formell-akademisch">Formell-akademisch</h3>
+<ul>
+<li>Es ist <strong>davon auszugehen</strong>, dass die Resultate <strong>einer Überprüfung standhalten</strong> werden.</li>
+<li>Die <strong>aufgezeigten Befunde</strong> legen <strong>den Schluss nahe</strong>, dass ...</li>
+</ul>
+<h3 id="journalistisch">Journalistisch</h3>
+<ul>
+<li>Die Regierung <strong>gerät zunehmend unter Druck</strong>. Kritiker <strong>werfen</strong> ihr vor, ...</li>
+<li><strong>Wie aus Regierungskreisen verlautete</strong>, ...</li>
+</ul>
+<h3 id="literarisch">Literarisch</h3>
+<ul>
+<li>Ein <strong>fahler Schimmer</strong> legte sich über die Landschaft, <strong>als ob</strong> die Natur selbst <strong>innehalten</strong> wollte.</li>
+<li>Er <strong>vermochte</strong> es nicht, die <strong>beklemmende Stille</strong> zu durchbrechen.</li>
+</ul>
+<h3 id="umgangssprachlich-erkennung">Umgangssprachlich (Erkennung)</h3>
+<ul>
+<li>Das <strong>haut</strong> mich echt <strong>um</strong>! (Das überrascht mich sehr.)</li>
+<li><strong>Da bist du aber schief gewickelt.</strong> (Da irrst du dich.)</li>
+<li>Das ist mir <strong>schnuppe/egal/wurscht</strong>. (Das interessiert mich nicht.)</li>
+</ul>
+<hr />
+<h2 id="ubungen-exercises">Übungen / Exercises</h2>
+<h3 id="ubung-1-stilregister-erkennen-und-transformieren">Übung 1: Stilregister erkennen und transformieren</h3>
+<p>Formulieren Sie den Satz in allen drei Registern:</p>
+<p>Neutral: "Die Preise sind gestiegen."<br />
+- Formell: → Die Preisentwicklung weist eine deutliche Aufwärtstendenz auf.<br />
+- Journalistisch: → Die Preise sind in die Höhe geschnellt.<br />
+- Umgangssprachlich: → Die Preise sind echt durch die Decke gegangen.</p>
+<h3 id="ubung-2-redewendungen-im-kontext">Übung 2: Redewendungen im Kontext</h3>
+<p>Ergänzen Sie die passende Redewendung:<br />
+1. Er sagt nie direkt, was er meint. Er redet immer <strong><em>. (um den heißen Brei herum)<br />
+2. Du hast genau das gesagt, was ich dachte. Du hast den </em></strong>. (Nagel auf den Kopf getroffen)<br />
+3. Das neue Gesetz wird kaum etwas ändern — ein ___. (Tropfen auf den heißen Stein)</p>
+<h3 id="ubung-3-komplexe-satze-vereinfachen-und-verkomplizieren">Übung 3: Komplexe Sätze vereinfachen und verkomplizieren</h3>
+<p>Vereinfachen Sie: "Die im Rahmen der von der EU-Kommission in Auftrag gegebenen Langzeitstudie erhobenen Daten bestätigen die bereits seit Jahrzehnten von zahlreichen Wissenschaftlern vertretene These."<br />
+→ Die Daten einer EU-Langzeitstudie bestätigen eine These, die viele Wissenschaftler seit Jahrzehnten vertreten.</p>
+                </div>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_grammatik.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[data-section]').forEach(function (link) {
+                        var number = link.getAttribute('data-section');
+                        var heading = document.querySelector('h2[id^="' + number + '-"]');
+                        if (heading) {
+                            link.setAttribute('href', '#' + heading.id);
+                        } else {
+                            link.classList.add('disabled');
+                            link.setAttribute('aria-disabled', 'true');
+                        }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        var m = h.id.match(/^(\d+)-/);
+                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

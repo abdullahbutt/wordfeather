@@ -1,0 +1,1565 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 Wortschatz - B2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">B2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">01 Wortschatz</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">01 Wortschatz</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">B2</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="b2-wortschatz-vocabulary">B2 Wortschatz / Vocabulary</h1>
+<p>Fortgeschrittener Wortschatz für das Goethe-Zertifikat B2 (~750 neue Wörter, aufbauend auf A1–B1)</p>
+<hr />
+<h2 id="1-politik-und-gesellschaft-politics-and-society">1. Politik und Gesellschaft / Politics and Society</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>der Abgeordnete, -n</td>
+<td>representative</td>
+<td>die Koalition, -en</td>
+<td>coalition</td>
+</tr>
+<tr>
+<td>die Amtszeit, -en</td>
+<td>term of office</td>
+<td>die Legislative</td>
+<td>legislature</td>
+</tr>
+<tr>
+<td>der Antrag, -̈e</td>
+<td>motion</td>
+<td>die Lobby, -s</td>
+<td>lobby</td>
+</tr>
+<tr>
+<td>die Außenpolitik</td>
+<td>foreign policy</td>
+<td>die Mehrheit, -en</td>
+<td>majority</td>
+</tr>
+<tr>
+<td>die Bürokratie</td>
+<td>bureaucracy</td>
+<td>die Minderheit, -en</td>
+<td>minority</td>
+</tr>
+<tr>
+<td>der Bundestag</td>
+<td>parliament</td>
+<td>die Opposition</td>
+<td>opposition</td>
+</tr>
+<tr>
+<td>die Debatte, -n</td>
+<td>debate</td>
+<td>die Petition, -en</td>
+<td>petition</td>
+</tr>
+<tr>
+<td>das Einbürgerung</td>
+<td>naturalization</td>
+<td>die Propaganda</td>
+<td>propaganda</td>
+</tr>
+<tr>
+<td>der Einfluss, -̈e</td>
+<td>influence</td>
+<td>das Referendum, -en</td>
+<td>referendum</td>
+</tr>
+<tr>
+<td>die Einwanderungspolitik</td>
+<td>immigration policy</td>
+<td>die Reform, -en</td>
+<td>reform</td>
+</tr>
+<tr>
+<td>die Exekutive</td>
+<td>executive</td>
+<td>die Regierung, -en</td>
+<td>government</td>
+</tr>
+<tr>
+<td>die Fraktion, -en</td>
+<td>parliamentary group</td>
+<td>das Regime, -s</td>
+<td>regime</td>
+</tr>
+<tr>
+<td>die Gesetzgebung</td>
+<td>legislation</td>
+<td>die Sanktion, -en</td>
+<td>sanction</td>
+</tr>
+<tr>
+<td>die Globalisierung</td>
+<td>globalization</td>
+<td>die Souveränität</td>
+<td>sovereignty</td>
+</tr>
+<tr>
+<td>die Grundrechte (Pl.)</td>
+<td>fundamental rights</td>
+<td>die Transparenz</td>
+<td>transparency</td>
+</tr>
+<tr>
+<td>die Innenpolitik</td>
+<td>domestic policy</td>
+<td>die Verfassung</td>
+<td>constitution</td>
+</tr>
+<tr>
+<td>der Kapitalismus</td>
+<td>capitalism</td>
+<td>die Verwaltung</td>
+<td>administration</td>
+</tr>
+<tr>
+<td>die Korruption</td>
+<td>corruption</td>
+<td>die Wahlbeteiligung</td>
+<td>voter turnout</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-wissenschaft-und-forschung-science-and-research">2. Wissenschaft und Forschung / Science and Research</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Analyse, -n</td>
+<td>analysis</td>
+<td>die Forschung</td>
+<td>research</td>
+</tr>
+<tr>
+<td>der Ansatz, -̈e</td>
+<td>approach</td>
+<td>der Fortschritt, -e</td>
+<td>progress</td>
+</tr>
+<tr>
+<td>anwenden</td>
+<td>to apply</td>
+<td>die Hypothese, -n</td>
+<td>hypothesis</td>
+</tr>
+<tr>
+<td>die Auswertung, -en</td>
+<td>evaluation</td>
+<td>das Labor, -e</td>
+<td>laboratory</td>
+</tr>
+<tr>
+<td>der Befund, -e</td>
+<td>finding</td>
+<td>die Methode, -n</td>
+<td>method</td>
+</tr>
+<tr>
+<td>die Beobachtung, -en</td>
+<td>observation</td>
+<td>der Nachweis, -e</td>
+<td>proof</td>
+</tr>
+<tr>
+<td>der Beweis, -e</td>
+<td>evidence</td>
+<td>die Probe, -n</td>
+<td>sample</td>
+</tr>
+<tr>
+<td>die Datenerhebung</td>
+<td>data collection</td>
+<td>die Statistik, -en</td>
+<td>statistics</td>
+</tr>
+<tr>
+<td>die Entdeckung, -en</td>
+<td>discovery</td>
+<td>die Studie, -n</td>
+<td>study</td>
+</tr>
+<tr>
+<td>die Erkenntnis, -se</td>
+<td>insight</td>
+<td>die Theorie, -n</td>
+<td>theory</td>
+</tr>
+<tr>
+<td>das Ergebnis, -se</td>
+<td>result</td>
+<td>untersuchen</td>
+<td>to examine</td>
+</tr>
+<tr>
+<td>das Experiment, -e</td>
+<td>experiment</td>
+<td>die Ursache, -n</td>
+<td>cause</td>
+</tr>
+<tr>
+<td>der Experte, -n</td>
+<td>expert</td>
+<td>das Verfahren, -</td>
+<td>process</td>
+</tr>
+<tr>
+<td>der Faktor, -en</td>
+<td>factor</td>
+<td>die Wissenschaft, -en</td>
+<td>science</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-wirtschaft-und-finanzen-economy-and-finance">3. Wirtschaft und Finanzen / Economy and Finance</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Aktie, -n</td>
+<td>stock</td>
+<td>die Konjunktur</td>
+<td>business cycle</td>
+</tr>
+<tr>
+<td>der Absatz</td>
+<td>sales</td>
+<td>der Konkurs</td>
+<td>bankruptcy</td>
+</tr>
+<tr>
+<td>die Bilanz, -en</td>
+<td>balance</td>
+<td>die Nachfrage</td>
+<td>demand</td>
+</tr>
+<tr>
+<td>die Börse</td>
+<td>stock exchange</td>
+<td>das Nettogehalt</td>
+<td>net salary</td>
+</tr>
+<tr>
+<td>das Bruttoinlandsprodukt</td>
+<td>GDP</td>
+<td>die Rendite, -n</td>
+<td>return</td>
+</tr>
+<tr>
+<td>die Dividende, -n</td>
+<td>dividend</td>
+<td>der Rohstoff, -e</td>
+<td>raw material</td>
+</tr>
+<tr>
+<td>der Export</td>
+<td>export</td>
+<td>die Rezession</td>
+<td>recession</td>
+</tr>
+<tr>
+<td>die Finanzierung</td>
+<td>financing</td>
+<td>die Subvention, -en</td>
+<td>subsidy</td>
+</tr>
+<tr>
+<td>das Grundstück, -e</td>
+<td>property</td>
+<td>der Umsatz</td>
+<td>revenue</td>
+</tr>
+<tr>
+<td>die Handelsbeziehung, -en</td>
+<td>trade relation</td>
+<td>die Wettbewerbsfähigkeit</td>
+<td>competitiveness</td>
+</tr>
+<tr>
+<td>der Haushalt, -e</td>
+<td>budget</td>
+<td>die Wirtschaftskrise</td>
+<td>economic crisis</td>
+</tr>
+<tr>
+<td>der Import</td>
+<td>import</td>
+<td>die Zinsen (Pl.)</td>
+<td>interest</td>
+</tr>
+<tr>
+<td>die Inflation</td>
+<td>inflation</td>
+<td>der Zulieferer, -</td>
+<td>supplier</td>
+</tr>
+<tr>
+<td>investieren</td>
+<td>to invest</td>
+<td>die Zusammenarbeit</td>
+<td>cooperation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-kultur-und-kunst-culture-and-art">4. Kultur und Kunst / Culture and Art</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Aufführung, -en</td>
+<td>performance</td>
+<td>die Kritik, -en</td>
+<td>critique</td>
+</tr>
+<tr>
+<td>die Ausdrucksform, -en</td>
+<td>form of expression</td>
+<td>der Künstler, -</td>
+<td>artist</td>
+</tr>
+<tr>
+<td>die Auszeichnung, -en</td>
+<td>award</td>
+<td>die Literatur</td>
+<td>literature</td>
+</tr>
+<tr>
+<td>das Drehbuch, -̈er</td>
+<td>screenplay</td>
+<td>das Meisterwerk, -e</td>
+<td>masterpiece</td>
+</tr>
+<tr>
+<td>die Epoche, -n</td>
+<td>era</td>
+<td>die Premiere, -n</td>
+<td>premiere</td>
+</tr>
+<tr>
+<td>das Erbe</td>
+<td>heritage</td>
+<td>die Regie</td>
+<td>directing</td>
+</tr>
+<tr>
+<td>die Galerie, -n</td>
+<td>gallery</td>
+<td>die Satire, -n</td>
+<td>satire</td>
+</tr>
+<tr>
+<td>das Genre, -s</td>
+<td>genre</td>
+<td>die Skulptur, -en</td>
+<td>sculpture</td>
+</tr>
+<tr>
+<td>die Inszenierung, -en</td>
+<td>staging</td>
+<td>das Urheberrecht</td>
+<td>copyright</td>
+</tr>
+<tr>
+<td>die Interpretation, -en</td>
+<td>interpretation</td>
+<td>die Verfilmung, -en</td>
+<td>film adaptation</td>
+</tr>
+<tr>
+<td>der Klassiker, -</td>
+<td>classic</td>
+<td>das Werk, -e</td>
+<td>work (of art)</td>
+</tr>
+<tr>
+<td>der Kritiker, -</td>
+<td>critic</td>
+<td>zeitgenössisch</td>
+<td>contemporary</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-umwelt-und-nachhaltigkeit-environment">5. Umwelt und Nachhaltigkeit / Environment</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Artenvielfalt</td>
+<td>biodiversity</td>
+<td>die Nachhaltigkeit</td>
+<td>sustainability</td>
+</tr>
+<tr>
+<td>die Aufforstung</td>
+<td>reforestation</td>
+<td>der ökologische Fußabdruck</td>
+<td>ecological footprint</td>
+</tr>
+<tr>
+<td>der Ausstoß</td>
+<td>emission</td>
+<td>die Solaranlage, -n</td>
+<td>solar panel</td>
+</tr>
+<tr>
+<td>die Dürre, -n</td>
+<td>drought</td>
+<td>der Treibhauseffekt</td>
+<td>greenhouse effect</td>
+</tr>
+<tr>
+<td>die Energiewende</td>
+<td>energy transition</td>
+<td>die Überschwemmung, -en</td>
+<td>flood</td>
+</tr>
+<tr>
+<td>erneuerbar</td>
+<td>renewable</td>
+<td>das Umweltbewusstsein</td>
+<td>environmental awareness</td>
+</tr>
+<tr>
+<td>die fossilen Brennstoffe</td>
+<td>fossil fuels</td>
+<td>der Verbrauch</td>
+<td>consumption</td>
+</tr>
+<tr>
+<td>das Ökosystem, -e</td>
+<td>ecosystem</td>
+<td>die Verschwendung</td>
+<td>waste</td>
+</tr>
+<tr>
+<td>die Luftverschmutzung</td>
+<td>air pollution</td>
+<td>die Windkraftanlage, -n</td>
+<td>wind turbine</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-medizin-und-gesundheit-medicine">6. Medizin und Gesundheit / Medicine</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Blutprobe, -n</td>
+<td>blood test</td>
+<td>die Intensivstation</td>
+<td>intensive care</td>
+</tr>
+<tr>
+<td>chronisch</td>
+<td>chronic</td>
+<td>die Krankenkasse, -n</td>
+<td>health insurance</td>
+</tr>
+<tr>
+<td>die Diagnose, -n</td>
+<td>diagnosis</td>
+<td>die Nebenwirkung, -en</td>
+<td>side effect</td>
+</tr>
+<tr>
+<td>die Epidemie, -n</td>
+<td>epidemic</td>
+<td>das Organ, -e</td>
+<td>organ</td>
+</tr>
+<tr>
+<td>die Genesung</td>
+<td>recovery</td>
+<td>die Prävention</td>
+<td>prevention</td>
+</tr>
+<tr>
+<td>das Immunsystem</td>
+<td>immune system</td>
+<td>das Symptom, -e</td>
+<td>symptom</td>
+</tr>
+<tr>
+<td>der Impfstoff, -e</td>
+<td>vaccine</td>
+<td>die Therapie, -n</td>
+<td>therapy</td>
+</tr>
+<tr>
+<td>die Infektion, -en</td>
+<td>infection</td>
+<td>die Transplantation, -en</td>
+<td>transplant</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-technik-und-digitalisierung-technology">7. Technik und Digitalisierung / Technology</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>der Algorithmus, -en</td>
+<td>algorithm</td>
+<td>die Innovation, -en</td>
+<td>innovation</td>
+</tr>
+<tr>
+<td>die Automatisierung</td>
+<td>automation</td>
+<td>die Künstliche Intelligenz (KI)</td>
+<td>artificial intelligence</td>
+</tr>
+<tr>
+<td>der Datenschutz</td>
+<td>data protection</td>
+<td>die Programmierung</td>
+<td>programming</td>
+</tr>
+<tr>
+<td>die Datenbank, -en</td>
+<td>database</td>
+<td>der Roboter, -</td>
+<td>robot</td>
+</tr>
+<tr>
+<td>die Digitalisierung</td>
+<td>digitalization</td>
+<td>der Server, -</td>
+<td>server</td>
+</tr>
+<tr>
+<td>die Entwicklung, -en</td>
+<td>development</td>
+<td>die Software</td>
+<td>software</td>
+</tr>
+<tr>
+<td>das Gerät, -e</td>
+<td>device</td>
+<td>der Speicher, -</td>
+<td>storage</td>
+</tr>
+<tr>
+<td>die Hardware</td>
+<td>hardware</td>
+<td>die Verschlüsselung</td>
+<td>encryption</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-recht-und-justiz-law">8. Recht und Justiz / Law</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Anklage, -n</td>
+<td>charge</td>
+<td>das Opfer, -</td>
+<td>victim</td>
+</tr>
+<tr>
+<td>der Angeklagte, -n</td>
+<td>defendant</td>
+<td>der Prozess, -e</td>
+<td>trial</td>
+</tr>
+<tr>
+<td>der Anwalt, -̈e</td>
+<td>lawyer</td>
+<td>der Richter, -</td>
+<td>judge</td>
+</tr>
+<tr>
+<td>das Gericht, -e</td>
+<td>court</td>
+<td>die Strafe, -n</td>
+<td>punishment</td>
+</tr>
+<tr>
+<td>das Gesetz, -e</td>
+<td>law</td>
+<td>das Strafrecht</td>
+<td>criminal law</td>
+</tr>
+<tr>
+<td>die Klage, -n</td>
+<td>lawsuit</td>
+<td>der Täter, -</td>
+<td>perpetrator</td>
+</tr>
+<tr>
+<td>die Menschenrechte</td>
+<td>human rights</td>
+<td>das Urteil, -e</td>
+<td>verdict</td>
+</tr>
+<tr>
+<td>der Mord</td>
+<td>murder</td>
+<td>der Zeuge, -n</td>
+<td>witness</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-psychologie-und-verhalten-psychology">9. Psychologie und Verhalten / Psychology</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>das Bewusstsein</td>
+<td>consciousness</td>
+<td>die Motivation</td>
+<td>motivation</td>
+</tr>
+<tr>
+<td>die Depression, -en</td>
+<td>depression</td>
+<td>die Persönlichkeit</td>
+<td>personality</td>
+</tr>
+<tr>
+<td>die Emotion, -en</td>
+<td>emotion</td>
+<td>die Psychologie</td>
+<td>psychology</td>
+</tr>
+<tr>
+<td>die Empathie</td>
+<td>empathy</td>
+<td>das Selbstbewusstsein</td>
+<td>self-confidence</td>
+</tr>
+<tr>
+<td>das Gedächtnis</td>
+<td>memory</td>
+<td>der Stress</td>
+<td>stress</td>
+</tr>
+<tr>
+<td>die Intelligenz</td>
+<td>intelligence</td>
+<td>das Trauma, -ta</td>
+<td>trauma</td>
+</tr>
+<tr>
+<td>die Kommunikation</td>
+<td>communication</td>
+<td>das Verhalten</td>
+<td>behavior</td>
+</tr>
+<tr>
+<td>der Konflikt, -e</td>
+<td>conflict</td>
+<td>die Wahrnehmung</td>
+<td>perception</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-familie-und-lebensphasen-family-and-life-stages">10. Familie und Lebensphasen / Family and Life Stages</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die Alleinerziehende, -n</td>
+<td>single parent</td>
+<td>die Jugend</td>
+<td>youth</td>
+</tr>
+<tr>
+<td>der Alltag</td>
+<td>daily life</td>
+<td>die Kindererziehung</td>
+<td>child-rearing</td>
+</tr>
+<tr>
+<td>die Babysitterin, -nen</td>
+<td>babysitter</td>
+<td>die Krippe, -n</td>
+<td>nursery</td>
+</tr>
+<tr>
+<td>das Elterngeld</td>
+<td>parental allowance</td>
+<td>die Lebensphase, -n</td>
+<td>life phase</td>
+</tr>
+<tr>
+<td>die Elternzeit</td>
+<td>parental leave</td>
+<td>der Mutterschutz</td>
+<td>maternity protection</td>
+</tr>
+<tr>
+<td>die Erziehung</td>
+<td>upbringing</td>
+<td>die Patchworkfamilie</td>
+<td>blended family</td>
+</tr>
+<tr>
+<td>die Generation, -en</td>
+<td>generation</td>
+<td>der Ruhestand</td>
+<td>retirement</td>
+</tr>
+<tr>
+<td>die Gleichstellung</td>
+<td>equal status</td>
+<td>die Scheidung, -en</td>
+<td>divorce</td>
+</tr>
+<tr>
+<td>die Großfamilie, -n</td>
+<td>extended family</td>
+<td>die Schwangerschaft</td>
+<td>pregnancy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="wichtige-kollokationen-key-collocations">Wichtige Kollokationen / Key Collocations</h2>
+<table>
+<thead>
+<tr>
+<th>Kollokation</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>einen Antrag stellen</td>
+<td>to file an application</td>
+</tr>
+<tr>
+<td>eine Entscheidung treffen</td>
+<td>to make a decision</td>
+</tr>
+<tr>
+<td>Einfluss ausüben</td>
+<td>to exert influence</td>
+</tr>
+<tr>
+<td>einen Beitrag leisten</td>
+<td>to make a contribution</td>
+</tr>
+<tr>
+<td>Maßnahmen ergreifen</td>
+<td>to take measures</td>
+</tr>
+<tr>
+<td>Kritik üben</td>
+<td>to criticize</td>
+</tr>
+<tr>
+<td>zur Verfügung stehen</td>
+<td>to be available</td>
+</tr>
+<tr>
+<td>in Betracht ziehen</td>
+<td>to consider</td>
+</tr>
+<tr>
+<td>eine Rolle spielen</td>
+<td>to play a role</td>
+</tr>
+<tr>
+<td>Verantwortung übernehmen</td>
+<td>to assume responsibility</td>
+</tr>
+<tr>
+<td>eine Herausforderung darstellen</td>
+<td>to represent a challenge</td>
+</tr>
+<tr>
+<td>Schlussfolgerungen ziehen</td>
+<td>to draw conclusions</td>
+</tr>
+<tr>
+<td>den Vorzug geben</td>
+<td>to give preference</td>
+</tr>
+<tr>
+<td>Wert legen auf</td>
+<td>to attach importance to</td>
+</tr>
+<tr>
+<td>zum Ausdruck bringen</td>
+<td>to express</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nomen-verb-verbindungen-fixed-noun-verb-combinations">Nomen-Verb-Verbindungen / Fixed Noun-Verb Combinations</h2>
+<table>
+<thead>
+<tr>
+<th>Wendung</th>
+<th>Einfaches Verb</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abschied nehmen</td>
+<td>sich verabschieden</td>
+<td>to say goodbye</td>
+</tr>
+<tr>
+<td>Bescheid geben</td>
+<td>informieren</td>
+<td>to inform</td>
+</tr>
+<tr>
+<td>eine Frage stellen</td>
+<td>fragen</td>
+<td>to ask</td>
+</tr>
+<tr>
+<td>in Anspruch nehmen</td>
+<td>nutzen</td>
+<td>to make use of</td>
+</tr>
+<tr>
+<td>in Betrieb nehmen</td>
+<td>starten</td>
+<td>to start up</td>
+</tr>
+<tr>
+<td>in Erwägung ziehen</td>
+<td>erwägen</td>
+<td>to consider</td>
+</tr>
+<tr>
+<td>in Frage stellen</td>
+<td>bezweifeln</td>
+<td>to question</td>
+</tr>
+<tr>
+<td>in Kauf nehmen</td>
+<td>akzeptieren</td>
+<td>to accept</td>
+</tr>
+<tr>
+<td>Rücksicht nehmen</td>
+<td>berücksichtigen</td>
+<td>to consider</td>
+</tr>
+<tr>
+<td>Stellung nehmen</td>
+<td>sich äußern</td>
+<td>to take a position</td>
+</tr>
+<tr>
+<td>unter Beweis stellen</td>
+<td>beweisen</td>
+<td>to prove</td>
+</tr>
+<tr>
+<td>zur Verfügung stellen</td>
+<td>bereitstellen</td>
+<td>to provide</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="verben-b2-niveau-verbs">Verben (B2-Niveau) / Verbs</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abschaffen</td>
+<td>to abolish</td>
+<td>hervorrufen</td>
+<td>to cause</td>
+</tr>
+<tr>
+<td>anerkennen</td>
+<td>to recognize</td>
+<td>hinweisen auf</td>
+<td>to point out</td>
+</tr>
+<tr>
+<td>anregen</td>
+<td>to stimulate</td>
+<td>nachweisen</td>
+<td>to prove</td>
+</tr>
+<tr>
+<td>auffordern</td>
+<td>to call upon</td>
+<td>scheitern</td>
+<td>to fail</td>
+</tr>
+<tr>
+<td>auslösen</td>
+<td>to trigger</td>
+<td>sich auseinandersetzen</td>
+<td>to deal with</td>
+</tr>
+<tr>
+<td>beanstanden</td>
+<td>to object</td>
+<td>sich bewähren</td>
+<td>to prove oneself</td>
+</tr>
+<tr>
+<td>beeinflussen</td>
+<td>to influence</td>
+<td>sich einsetzen für</td>
+<td>to advocate for</td>
+</tr>
+<tr>
+<td>befürworten</td>
+<td>to advocate</td>
+<td>überwinden</td>
+<td>to overcome</td>
+</tr>
+<tr>
+<td>beitragen zu</td>
+<td>to contribute to</td>
+<td>umsetzen</td>
+<td>to implement</td>
+</tr>
+<tr>
+<td>bestreiten</td>
+<td>to deny</td>
+<td>unterstützen</td>
+<td>to support</td>
+</tr>
+<tr>
+<td>durchsetzen</td>
+<td>to enforce</td>
+<td>vereinbaren</td>
+<td>to agree</td>
+</tr>
+<tr>
+<td>einschätzen</td>
+<td>to assess</td>
+<td>verhandeln</td>
+<td>to negotiate</td>
+</tr>
+<tr>
+<td>entstehen</td>
+<td>to emerge</td>
+<td>vermeiden</td>
+<td>to avoid</td>
+</tr>
+<tr>
+<td>erzielen</td>
+<td>to achieve</td>
+<td>voraussetzen</td>
+<td>to require</td>
+</tr>
+<tr>
+<td>feststellen</td>
+<td>to determine</td>
+<td>widersprechen</td>
+<td>to contradict</td>
+</tr>
+<tr>
+<td>fördern</td>
+<td>to promote</td>
+<td>zustimmen</td>
+<td>to agree</td>
+</tr>
+<tr>
+<td>gewährleisten</td>
+<td>to ensure</td>
+<td>zusammenhängen</td>
+<td>to be connected</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="adjektive-b2-niveau-adjectives">Adjektive (B2-Niveau) / Adjectives</h2>
+<table>
+<thead>
+<tr>
+<th>Deutsch</th>
+<th>Englisch</th>
+<th>Deutsch</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>angemessen</td>
+<td>appropriate</td>
+<td>nachhaltig</td>
+<td>sustainable</td>
+</tr>
+<tr>
+<td>ausschlaggebend</td>
+<td>decisive</td>
+<td>offensichtlich</td>
+<td>obvious</td>
+</tr>
+<tr>
+<td>bedeutend</td>
+<td>significant</td>
+<td>sachlich</td>
+<td>objective</td>
+</tr>
+<tr>
+<td>bedenklich</td>
+<td>concerning</td>
+<td>sämtlich</td>
+<td>all, entire</td>
+</tr>
+<tr>
+<td>beträchtlich</td>
+<td>considerable</td>
+<td>umfangreich</td>
+<td>extensive</td>
+</tr>
+<tr>
+<td>entscheidend</td>
+<td>crucial</td>
+<td>umstritten</td>
+<td>controversial</td>
+</tr>
+<tr>
+<td>erheblich</td>
+<td>considerable</td>
+<td>unentbehrlich</td>
+<td>indispensable</td>
+</tr>
+<tr>
+<td>grundlegend</td>
+<td>fundamental</td>
+<td>unzureichend</td>
+<td>insufficient</td>
+</tr>
+<tr>
+<td>gültig</td>
+<td>valid</td>
+<td>verbindlich</td>
+<td>binding</td>
+</tr>
+<tr>
+<td>haltbar</td>
+<td>tenable</td>
+<td>vorläufig</td>
+<td>provisional</td>
+</tr>
+<tr>
+<td>herausragend</td>
+<td>outstanding</td>
+<td>wesentlich</td>
+<td>essential</td>
+</tr>
+<tr>
+<td>maßgeblich</td>
+<td>authoritative</td>
+<td>widersprüchlich</td>
+<td>contradictory</td>
+</tr>
+<tr>
+<td>mittelfristig</td>
+<td>medium-term</td>
+<td>wirksam</td>
+<td>effective</td>
+</tr>
+<tr>
+<td>mühsam</td>
+<td>arduous</td>
+<td>zeitgemäß</td>
+<td>contemporary</td>
+</tr>
+</tbody>
+</table>
+                </div>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_wortschatz.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[data-section]').forEach(function (link) {
+                        var number = link.getAttribute('data-section');
+                        var heading = document.querySelector('h2[id^="' + number + '-"]');
+                        if (heading) {
+                            link.setAttribute('href', '#' + heading.id);
+                        } else {
+                            link.classList.add('disabled');
+                            link.setAttribute('aria-disabled', 'true');
+                        }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        var m = h.id.match(/^(\d+)-/);
+                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

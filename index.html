@@ -1,0 +1,601 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsch Learning Materials - A1 to C2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f0f4ff;
+            --page-text: #1e293b;
+            --muted-text: #475569;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.07);
+            --hero-gradient: linear-gradient(135deg, #1d4ed8 0%, #6366f1 100%);
+            --tab-active-bg: #1d4ed8;
+            --tab-active-color: #ffffff;
+            --tab-inactive-bg: #e8eeff;
+            --tab-inactive-color: #1d4ed8;
+            --tab-hover-bg: #c7d2fe;
+            --panel-bg: #f8faff;
+            --panel-border: #dbeafe;
+            --badge-a: #22c55e;
+            --badge-b: #f59e0b;
+            --badge-c: #8b5cf6;
+            --info-border: #1d4ed8;
+            --info-bg: #eff6ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0b1121;
+            --page-text: #e2e8f0;
+            --muted-text: #94a3b8;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.45);
+            --hero-gradient: linear-gradient(135deg, #1e3a8a 0%, #4338ca 100%);
+            --tab-active-bg: #3b82f6;
+            --tab-active-color: #ffffff;
+            --tab-inactive-bg: #1f2937;
+            --tab-inactive-color: #93c5fd;
+            --tab-hover-bg: #273449;
+            --panel-bg: #1a2740;
+            --panel-border: #1e3a6e;
+            --info-border: #3b82f6;
+            --info-bg: #172039;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--page-bg);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--page-text);
+            min-height: 100vh;
+        }
+
+        /* ── Navbar ── */
+        .site-navbar {
+            background: var(--hero-gradient) !important;
+            border-bottom: none;
+            padding: 0.6rem 0;
+        }
+
+        .site-navbar .navbar-brand {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            color: #fff !important;
+        }
+
+        .site-navbar .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            font-weight: 500;
+            padding: 0.45rem 0.85rem;
+            border-radius: 0.4rem;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .site-navbar .nav-link:hover,
+        .site-navbar .nav-link.active {
+            background: rgba(255,255,255,0.18);
+            color: #fff !important;
+        }
+
+        .site-navbar .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.15);
+            border-radius: 0.65rem;
+            padding: 0.4rem;
+            min-width: 8rem;
+        }
+
+        .site-navbar .dropdown-item {
+            border-radius: 0.45rem;
+            font-weight: 600;
+            padding: 0.45rem 1rem;
+            color: var(--page-text);
+        }
+
+        .site-navbar .dropdown-item:hover {
+            background: #e8eeff;
+            color: #1d4ed8;
+        }
+
+        /* ── Hero Banner ── */
+        .hero-banner {
+            background: var(--hero-gradient);
+            color: #fff;
+            padding: 3.5rem 1rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-banner h1 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-banner p {
+            font-size: 1.1rem;
+            opacity: 0.88;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ── Main card ── */
+        .content-card {
+            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            border: none;
+            border-radius: 0.85rem;
+        }
+        .level-panels {
+            padding: 1.6rem;
+        }
+
+        .level-panel {
+            display: none;
+            animation: fadeSlide 0.22s ease;
+        }
+
+        .level-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding: 1.1rem 1.3rem;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 0.85rem;
+        }
+
+        .panel-badge {
+            font-size: 1.6rem;
+            font-weight: 800;
+            min-width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.65rem;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+
+        .badge-a { background: var(--badge-a); }
+        .badge-b { background: var(--badge-b); }
+        .badge-c { background: var(--badge-c); }
+
+        .panel-header-text h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 0.1rem;
+        }
+
+        .panel-header-text p {
+            font-size: 0.88rem;
+            color: var(--muted-text);
+            margin: 0;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 0.65rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .topic-link {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.65rem 0.85rem;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 0.6rem;
+            text-decoration: none;
+            color: var(--page-text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: border-color 0.15s, background 0.15s, transform 0.12s, box-shadow 0.15s;
+        }
+
+        .topic-link:hover {
+            border-color: var(--tab-active-bg);
+            background: var(--tab-inactive-bg);
+            color: var(--tab-active-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 0.3rem 0.8rem rgba(29,78,216,0.12);
+        }
+
+        .topic-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .open-level-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1.1rem;
+            border-radius: 0.55rem;
+        }
+
+        /* ── Info sections ── */
+        .info-section {
+            border-left: 4px solid var(--info-border);
+            background: var(--info-bg) !important;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+
+        /* ── Back to top ── */
+        .back-to-top {
+            position: fixed;
+            right: 1.2rem;
+            bottom: 1.2rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.4rem 1rem rgba(29,78,216,0.35);
+            font-size: 1.1rem;
+        }
+
+        /* ── Theme toggle ── */
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <!-- ── Navbar ── -->
+
+    <!-- ── Hero Banner ── -->
+    <div class="hero-banner">
+        <h1>📚 Deutsch Learning Hub</h1>
+        <p>Complete A1–C2 materials for the Goethe-Zertifikat. Pick your level and start learning.</p>
+    </div>
+
+    <!-- ── Main Content ── -->
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card mb-4">
+
+            <!-- Tab bar -->
+            <div class="level-tabs-wrapper">
+                <div class="level-tabs" role="tablist" aria-label="CEFR Levels">
+                    <button class="level-tab-btn active" role="tab" aria-selected="true"  aria-controls="panel-A1" id="tab-A1" data-panel="A1">A1</button>
+                    <button class="level-tab-btn"        role="tab" aria-selected="false" aria-controls="panel-A2" id="tab-A2" data-panel="A2">A2</button>
+                    <button class="level-tab-btn"        role="tab" aria-selected="false" aria-controls="panel-B1" id="tab-B1" data-panel="B1">B1</button>
+                    <button class="level-tab-btn"        role="tab" aria-selected="false" aria-controls="panel-B2" id="tab-B2" data-panel="B2">B2</button>
+                    <button class="level-tab-btn"        role="tab" aria-selected="false" aria-controls="panel-C1" id="tab-C1" data-panel="C1">C1</button>
+                    <button class="level-tab-btn"        role="tab" aria-selected="false" aria-controls="panel-C2" id="tab-C2" data-panel="C2">C2</button>
+                </div>
+            </div>
+
+            <!-- Panels -->
+            <div class="level-panels">
+
+                <!-- A1 -->
+                <div class="level-panel active" id="panel-A1" role="tabpanel" aria-labelledby="tab-A1">
+                    <div class="panel-header">
+                        <div class="panel-badge badge-a">A1</div>
+                        <div class="panel-header-text">
+                            <h3>Beginner</h3>
+                            <p>Basic phrases, numbers, greetings and simple sentences</p>
+                        </div>
+                    </div>
+                    <div class="topic-grid">
+                        <a href="A1/01_Wortschatz.html"    class="topic-link"><span class="topic-icon">📖</span> Wortschatz</a>
+                        <a href="A1/02_Grammatik.html"     class="topic-link"><span class="topic-icon">📐</span> Grammatik</a>
+                        <a href="A1/03_Saetze.html"        class="topic-link"><span class="topic-icon">💬</span> Sätze</a>
+                        <a href="A1/04_Lesen.html"         class="topic-link"><span class="topic-icon">📄</span> Lesen</a>
+                        <a href="A1/05_Hoeren.html"        class="topic-link"><span class="topic-icon">🎧</span> Hören</a>
+                        <a href="A1/06_Sprechen.html"      class="topic-link"><span class="topic-icon">🗣️</span> Sprechen</a>
+                        <a href="A1/07_Schreiben.html"     class="topic-link"><span class="topic-icon">✍️</span> Schreiben</a>
+                        <a href="A1/08_Musterpruefung.html" class="topic-link"><span class="topic-icon">📝</span> Musterprüfung</a>
+                    </div>
+                    <a href="A1/index.html" class="btn btn-primary open-level-btn">Open A1 Overview →</a>
+                </div>
+
+                <!-- A2 -->
+                <div class="level-panel" id="panel-A2" role="tabpanel" aria-labelledby="tab-A2">
+                    <div class="panel-header">
+                        <div class="panel-badge badge-a">A2</div>
+                        <div class="panel-header-text">
+                            <h3>Elementary</h3>
+                            <p>Everyday expressions, routines and simple communication</p>
+                        </div>
+                    </div>
+                    <div class="topic-grid">
+                        <a href="A2/01_Wortschatz.html"    class="topic-link"><span class="topic-icon">📖</span> Wortschatz</a>
+                        <a href="A2/02_Grammatik.html"     class="topic-link"><span class="topic-icon">📐</span> Grammatik</a>
+                        <a href="A2/03_Saetze.html"        class="topic-link"><span class="topic-icon">💬</span> Sätze</a>
+                        <a href="A2/04_Lesen.html"         class="topic-link"><span class="topic-icon">📄</span> Lesen</a>
+                        <a href="A2/05_Hoeren.html"        class="topic-link"><span class="topic-icon">🎧</span> Hören</a>
+                        <a href="A2/06_Sprechen.html"      class="topic-link"><span class="topic-icon">🗣️</span> Sprechen</a>
+                        <a href="A2/07_Schreiben.html"     class="topic-link"><span class="topic-icon">✍️</span> Schreiben</a>
+                        <a href="A2/08_Musterpruefung.html" class="topic-link"><span class="topic-icon">📝</span> Musterprüfung</a>
+                    </div>
+                    <a href="A2/index.html" class="btn btn-primary open-level-btn">Open A2 Overview →</a>
+                </div>
+
+                <!-- B1 -->
+                <div class="level-panel" id="panel-B1" role="tabpanel" aria-labelledby="tab-B1">
+                    <div class="panel-header">
+                        <div class="panel-badge badge-b">B1</div>
+                        <div class="panel-header-text">
+                            <h3>Intermediate</h3>
+                            <p>Familiar topics, travel, opinions and connected text</p>
+                        </div>
+                    </div>
+                    <div class="topic-grid">
+                        <a href="B1/01_Wortschatz.html"    class="topic-link"><span class="topic-icon">📖</span> Wortschatz</a>
+                        <a href="B1/02_Grammatik.html"     class="topic-link"><span class="topic-icon">📐</span> Grammatik</a>
+                        <a href="B1/03_Saetze.html"        class="topic-link"><span class="topic-icon">💬</span> Sätze</a>
+                        <a href="B1/04_Lesen.html"         class="topic-link"><span class="topic-icon">📄</span> Lesen</a>
+                        <a href="B1/05_Hoeren.html"        class="topic-link"><span class="topic-icon">🎧</span> Hören</a>
+                        <a href="B1/06_Sprechen.html"      class="topic-link"><span class="topic-icon">🗣️</span> Sprechen</a>
+                        <a href="B1/07_Schreiben.html"     class="topic-link"><span class="topic-icon">✍️</span> Schreiben</a>
+                        <a href="B1/08_Musterpruefung.html" class="topic-link"><span class="topic-icon">📝</span> Musterprüfung</a>
+                    </div>
+                    <a href="B1/index.html" class="btn btn-warning open-level-btn text-dark">Open B1 Overview →</a>
+                </div>
+
+                <!-- B2 -->
+                <div class="level-panel" id="panel-B2" role="tabpanel" aria-labelledby="tab-B2">
+                    <div class="panel-header">
+                        <div class="panel-badge badge-b">B2</div>
+                        <div class="panel-header-text">
+                            <h3>Upper-Intermediate</h3>
+                            <p>Complex text, abstract topics and fluent interaction</p>
+                        </div>
+                    </div>
+                    <div class="topic-grid">
+                        <a href="B2/01_Wortschatz.html"    class="topic-link"><span class="topic-icon">📖</span> Wortschatz</a>
+                        <a href="B2/02_Grammatik.html"     class="topic-link"><span class="topic-icon">📐</span> Grammatik</a>
+                        <a href="B2/03_Saetze.html"        class="topic-link"><span class="topic-icon">💬</span> Sätze</a>
+                        <a href="B2/04_Lesen.html"         class="topic-link"><span class="topic-icon">📄</span> Lesen</a>
+                        <a href="B2/05_Hoeren.html"        class="topic-link"><span class="topic-icon">🎧</span> Hören</a>
+                        <a href="B2/06_Sprechen.html"      class="topic-link"><span class="topic-icon">🗣️</span> Sprechen</a>
+                        <a href="B2/07_Schreiben.html"     class="topic-link"><span class="topic-icon">✍️</span> Schreiben</a>
+                        <a href="B2/08_Musterpruefung.html" class="topic-link"><span class="topic-icon">📝</span> Musterprüfung</a>
+                    </div>
+                    <a href="B2/index.html" class="btn btn-warning open-level-btn text-dark">Open B2 Overview →</a>
+                </div>
+
+                <!-- C1 -->
+                <div class="level-panel" id="panel-C1" role="tabpanel" aria-labelledby="tab-C1">
+                    <div class="panel-header">
+                        <div class="panel-badge badge-c">C1</div>
+                        <div class="panel-header-text">
+                            <h3>Advanced</h3>
+                            <p>Demanding texts, spontaneous expression and professional use</p>
+                        </div>
+                    </div>
+                    <div class="topic-grid">
+                        <a href="C1/01_Wortschatz.html"    class="topic-link"><span class="topic-icon">📖</span> Wortschatz</a>
+                        <a href="C1/02_Grammatik.html"     class="topic-link"><span class="topic-icon">📐</span> Grammatik</a>
+                        <a href="C1/03_Saetze.html"        class="topic-link"><span class="topic-icon">💬</span> Sätze</a>
+                        <a href="C1/04_Lesen.html"         class="topic-link"><span class="topic-icon">📄</span> Lesen</a>
+                        <a href="C1/05_Hoeren.html"        class="topic-link"><span class="topic-icon">🎧</span> Hören</a>
+                        <a href="C1/06_Sprechen.html"      class="topic-link"><span class="topic-icon">🗣️</span> Sprechen</a>
+                        <a href="C1/07_Schreiben.html"     class="topic-link"><span class="topic-icon">✍️</span> Schreiben</a>
+                        <a href="C1/08_Musterpruefung.html" class="topic-link"><span class="topic-icon">📝</span> Musterprüfung</a>
+                    </div>
+                    <a href="C1/index.html" class="btn open-level-btn text-white" style="background:#8b5cf6;">Open C1 Overview →</a>
+                </div>
+
+                <!-- C2 -->
+                <div class="level-panel" id="panel-C2" role="tabpanel" aria-labelledby="tab-C2">
+                    <div class="panel-header">
+                        <div class="panel-badge badge-c">C2</div>
+                        <div class="panel-header-text">
+                            <h3>Mastery</h3>
+                            <p>Full proficiency — nuanced language and near-native fluency</p>
+                        </div>
+                    </div>
+                    <div class="topic-grid">
+                        <a href="C2/01_Wortschatz.html"    class="topic-link"><span class="topic-icon">📖</span> Wortschatz</a>
+                        <a href="C2/02_Grammatik.html"     class="topic-link"><span class="topic-icon">📐</span> Grammatik</a>
+                        <a href="C2/03_Saetze.html"        class="topic-link"><span class="topic-icon">💬</span> Sätze</a>
+                        <a href="C2/04_Lesen.html"         class="topic-link"><span class="topic-icon">📄</span> Lesen</a>
+                        <a href="C2/05_Hoeren.html"        class="topic-link"><span class="topic-icon">🎧</span> Hören</a>
+                        <a href="C2/06_Sprechen.html"      class="topic-link"><span class="topic-icon">🗣️</span> Sprechen</a>
+                        <a href="C2/07_Schreiben.html"     class="topic-link"><span class="topic-icon">✍️</span> Schreiben</a>
+                        <a href="C2/08_Musterpruefung.html" class="topic-link"><span class="topic-icon">📝</span> Musterprüfung</a>
+                    </div>
+                    <a href="C2/index.html" class="btn open-level-btn text-white" style="background:#8b5cf6;">Open C2 Overview →</a>
+                </div>
+
+            </div><!-- /level-panels -->
+        </div><!-- /content-card -->
+
+        <!-- Info rows -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <div class="info-section rounded-3 p-4 h-100">
+                    <h3 class="h6 fw-bold mb-2">📖 About These Materials</h3>
+                    <p class="mb-1 small"><strong>A1–A2:</strong> Elementary — Basic vocabulary &amp; grammar</p>
+                    <p class="mb-1 small"><strong>B1–B2:</strong> Intermediate — Complex structures &amp; conversation</p>
+                    <p class="mb-0 small"><strong>C1–C2:</strong> Advanced — Fluency &amp; professional German</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info-section rounded-3 p-4 h-100">
+                    <h3 class="h6 fw-bold mb-2">📝 What's Included</h3>
+                    <p class="mb-1 small">✓ Vocabulary lists &amp; Grammar rules</p>
+                    <p class="mb-1 small">✓ Sentence patterns &amp; Reading exercises</p>
+                    <p class="mb-1 small">✓ Listening, Speaking &amp; Writing practice</p>
+                    <p class="mb-0 small">✓ Official Goethe sample exam questions</p>
+                </div>
+            </div>
+        </div>
+
+            <div id="footer-placeholder"></div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ── Theme toggle ──        root.setAttribute('data-bs-theme', preferredTheme);
+        // ── Tab switching ──
+        const tabButtons = document.querySelectorAll('.level-tab-btn');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                document.querySelectorAll('.level-panel').forEach(p => p.classList.remove('active'));
+
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+            });
+        });
+
+        // ── Back to top ──
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,1211 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 Grammatik - A1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-more-btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+                font-size: 0.85rem;
+                margin-top: 0.1rem;
+                letter-spacing: 0.05em;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">02 Grammatik</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">02 Grammatik</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A1</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="a1-grammatik-grammar">A1 Grammatik / Grammar</h1>
+<p>Alle wichtigen Grammatikregeln für das Goethe-Zertifikat A1.<br />
+<em>All important grammar rules for the Goethe-Zertifikat A1.</em></p>
+<hr />
+<h2 id="1-artikel-articles">1. Artikel / Articles</h2>
+<h3 id="bestimmter-artikel-definite-article-the">Bestimmter Artikel / Definite Article (the)</h3>
+<table>
+<thead>
+<tr>
+<th>Kasus / Case</th>
+<th>Maskulin / Masc.</th>
+<th>Feminin / Fem.</th>
+<th>Neutrum / Neut.</th>
+<th>Plural</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nominativ (subject)</td>
+<td>der</td>
+<td>die</td>
+<td>das</td>
+<td>die</td>
+</tr>
+<tr>
+<td>Akkusativ (direct object)</td>
+<td>den</td>
+<td>die</td>
+<td>das</td>
+<td>die</td>
+</tr>
+<tr>
+<td>Dativ (indirect object)</td>
+<td>dem</td>
+<td>der</td>
+<td>dem</td>
+<td>den (+n)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiele / Examples:</strong><br />
+- <strong>Der</strong> Mann liest. <em>(The man is reading.)</em> — Nominativ<br />
+- Ich sehe <strong>den</strong> Mann. <em>(I see the man.)</em> — Akkusativ<br />
+- Ich gebe <strong>dem</strong> Mann ein Buch. <em>(I give the man a book.)</em> — Dativ</p>
+<h3 id="unbestimmter-artikel-indefinite-article-aan">Unbestimmter Artikel / Indefinite Article (a/an)</h3>
+<table>
+<thead>
+<tr>
+<th>Kasus / Case</th>
+<th>Maskulin</th>
+<th>Feminin</th>
+<th>Neutrum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nominativ</td>
+<td>ein</td>
+<td>eine</td>
+<td>ein</td>
+</tr>
+<tr>
+<td>Akkusativ</td>
+<td>einen</td>
+<td>eine</td>
+<td>ein</td>
+</tr>
+<tr>
+<td>Dativ</td>
+<td>einem</td>
+<td>einer</td>
+<td>einem</td>
+</tr>
+</tbody>
+</table>
+<h3 id="negativartikel-negative-article-no-not-any">Negativartikel / Negative Article (no, not any)</h3>
+<p>Verwenden Sie "kein" statt "ein", um etwas zu verneinen.<br />
+<em>Use "kein" instead of "ein" to negate something.</em></p>
+<table>
+<thead>
+<tr>
+<th>Kasus</th>
+<th>Maskulin</th>
+<th>Feminin</th>
+<th>Neutrum</th>
+<th>Plural</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nominativ</td>
+<td>kein</td>
+<td>keine</td>
+<td>kein</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>Akkusativ</td>
+<td>keinen</td>
+<td>keine</td>
+<td>kein</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>Dativ</td>
+<td>keinem</td>
+<td>keiner</td>
+<td>keinem</td>
+<td>keinen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiele / Examples:</strong><br />
+- Ich habe <strong>kein</strong> Auto. <em>(I don't have a car.)</em><br />
+- Ich habe <strong>keine</strong> Zeit. <em>(I don't have any time.)</em></p>
+<hr />
+<h2 id="2-personalpronomen-personal-pronouns">2. Personalpronomen / Personal Pronouns</h2>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Nominativ</th>
+<th>Akkusativ</th>
+<th>Dativ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich <em>(I)</em></td>
+<td>ich</td>
+<td>mich <em>(me)</em></td>
+<td>mir <em>(to me)</em></td>
+</tr>
+<tr>
+<td>du <em>(you, informal)</em></td>
+<td>du</td>
+<td>dich</td>
+<td>dir</td>
+</tr>
+<tr>
+<td>er <em>(he)</em></td>
+<td>er</td>
+<td>ihn <em>(him)</em></td>
+<td>ihm <em>(to him)</em></td>
+</tr>
+<tr>
+<td>sie <em>(she)</em></td>
+<td>sie</td>
+<td>sie <em>(her)</em></td>
+<td>ihr <em>(to her)</em></td>
+</tr>
+<tr>
+<td>es <em>(it)</em></td>
+<td>es</td>
+<td>es</td>
+<td>ihm</td>
+</tr>
+<tr>
+<td>wir <em>(we)</em></td>
+<td>wir</td>
+<td>uns <em>(us)</em></td>
+<td>uns</td>
+</tr>
+<tr>
+<td>ihr <em>(you all)</em></td>
+<td>ihr</td>
+<td>euch</td>
+<td>euch</td>
+</tr>
+<tr>
+<td>sie <em>(they)</em></td>
+<td>sie</td>
+<td>sie</td>
+<td>ihnen</td>
+</tr>
+<tr>
+<td>Sie <em>(you, formal)</em></td>
+<td>Sie</td>
+<td>Sie</td>
+<td>Ihnen</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-possessivpronomen-possessive-pronouns">3. Possessivpronomen / Possessive Pronouns</h2>
+<p>Die Endungen sind wie bei "ein/eine". <em>The endings are the same as "ein/eine".</em></p>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Maskulin/Neutrum</th>
+<th>Feminin/Plural</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich <em>(I)</em></td>
+<td>mein <em>(my)</em></td>
+<td>meine</td>
+</tr>
+<tr>
+<td>du <em>(you)</em></td>
+<td>dein <em>(your)</em></td>
+<td>deine</td>
+</tr>
+<tr>
+<td>er/es <em>(he/it)</em></td>
+<td>sein <em>(his/its)</em></td>
+<td>seine</td>
+</tr>
+<tr>
+<td>sie <em>(she)</em></td>
+<td>ihr <em>(her)</em></td>
+<td>ihre</td>
+</tr>
+<tr>
+<td>wir <em>(we)</em></td>
+<td>unser <em>(our)</em></td>
+<td>unsere</td>
+</tr>
+<tr>
+<td>ihr <em>(you all)</em></td>
+<td>euer <em>(your)</em></td>
+<td>eure</td>
+</tr>
+<tr>
+<td>sie/Sie <em>(they/you formal)</em></td>
+<td>ihr/Ihr <em>(their/your)</em></td>
+<td>ihre/Ihre</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiele / Examples:</strong><br />
+- Das ist <strong>mein</strong> Buch. <em>(That's my book.)</em><br />
+- Wo ist <strong>deine</strong> Tasche? <em>(Where is your bag?)</em><br />
+- <strong>Seine</strong> Mutter kocht. <em>(His mother is cooking.)</em></p>
+<hr />
+<h2 id="4-verben-im-prasens-verbs-in-present-tense">4. Verben im Präsens / Verbs in Present Tense</h2>
+<h3 id="regelmaige-verben-regular-verbs">Regelmäßige Verben / Regular Verbs</h3>
+<p>Nehmen Sie den Stamm des Verbs und fügen Sie die richtige Endung hinzu.<br />
+<em>Take the stem of the verb and add the correct ending.</em></p>
+<p><strong>machen</strong> <em>(to do/make)</em> — Stamm / stem: <strong>mach-</strong></p>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Endung / Ending</th>
+<th>Konjugation / Conjugation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>-e</td>
+<td>mache</td>
+</tr>
+<tr>
+<td>du</td>
+<td>-st</td>
+<td>machst</td>
+</tr>
+<tr>
+<td>er/sie/es</td>
+<td>-t</td>
+<td>macht</td>
+</tr>
+<tr>
+<td>wir</td>
+<td>-en</td>
+<td>machen</td>
+</tr>
+<tr>
+<td>ihr</td>
+<td>-t</td>
+<td>macht</td>
+</tr>
+<tr>
+<td>sie/Sie</td>
+<td>-en</td>
+<td>machen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Achtung! / Watch out!</strong> Bei Verben auf -t, -d, -n wird ein "e" eingefügt. <em>Verbs ending in -t, -d, -n add an extra "e".</em><br />
+arbeiten → du arbeit<strong>e</strong>st, er arbeit<strong>e</strong>t</p>
+<h3 id="unregelmaige-verben-irregular-verbs">Unregelmäßige Verben / Irregular Verbs</h3>
+<p><strong>sein</strong> <em>(to be):</em></p>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Konjugation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>bin <em>(I am)</em></td>
+</tr>
+<tr>
+<td>du</td>
+<td>bist <em>(you are)</em></td>
+</tr>
+<tr>
+<td>er/sie/es</td>
+<td>ist <em>(he/she/it is)</em></td>
+</tr>
+<tr>
+<td>wir</td>
+<td>sind <em>(we are)</em></td>
+</tr>
+<tr>
+<td>ihr</td>
+<td>seid <em>(you all are)</em></td>
+</tr>
+<tr>
+<td>sie/Sie</td>
+<td>sind <em>(they/you are)</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>haben</strong> <em>(to have):</em></p>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Konjugation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>habe <em>(I have)</em></td>
+</tr>
+<tr>
+<td>du</td>
+<td>hast <em>(you have)</em></td>
+</tr>
+<tr>
+<td>er/sie/es</td>
+<td>hat <em>(he/she/it has)</em></td>
+</tr>
+<tr>
+<td>wir</td>
+<td>haben <em>(we have)</em></td>
+</tr>
+<tr>
+<td>ihr</td>
+<td>habt <em>(you all have)</em></td>
+</tr>
+<tr>
+<td>sie/Sie</td>
+<td>haben <em>(they/you have)</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="verben-mit-vokalwechsel-verbs-with-vowel-change">Verben mit Vokalwechsel / Verbs with Vowel Change</h3>
+<p>Einige Verben ändern den Vokal bei "du" und "er/sie/es".<br />
+<em>Some verbs change the vowel for "du" and "er/sie/es".</em></p>
+<table>
+<thead>
+<tr>
+<th>Infinitiv</th>
+<th>du</th>
+<th>er/sie/es</th>
+<th>Englisch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fahren</td>
+<td>f<strong>ä</strong>hrst</td>
+<td>f<strong>ä</strong>hrt</td>
+<td>to drive</td>
+</tr>
+<tr>
+<td>schlafen</td>
+<td>schl<strong>ä</strong>fst</td>
+<td>schl<strong>ä</strong>ft</td>
+<td>to sleep</td>
+</tr>
+<tr>
+<td>essen</td>
+<td><strong>i</strong>sst</td>
+<td><strong>i</strong>sst</td>
+<td>to eat</td>
+</tr>
+<tr>
+<td>geben</td>
+<td>g<strong>i</strong>bst</td>
+<td>g<strong>i</strong>bt</td>
+<td>to give</td>
+</tr>
+<tr>
+<td>helfen</td>
+<td>h<strong>i</strong>lfst</td>
+<td>h<strong>i</strong>lft</td>
+<td>to help</td>
+</tr>
+<tr>
+<td>lesen</td>
+<td>l<strong>ie</strong>st</td>
+<td>l<strong>ie</strong>st</td>
+<td>to read</td>
+</tr>
+<tr>
+<td>nehmen</td>
+<td>n<strong>i</strong>mmst</td>
+<td>n<strong>i</strong>mmt</td>
+<td>to take</td>
+</tr>
+<tr>
+<td>sehen</td>
+<td>s<strong>ie</strong>hst</td>
+<td>s<strong>ie</strong>ht</td>
+<td>to see</td>
+</tr>
+<tr>
+<td>sprechen</td>
+<td>spr<strong>i</strong>chst</td>
+<td>spr<strong>i</strong>cht</td>
+<td>to speak</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-modalverben-modal-verbs">5. Modalverben / Modal Verbs</h2>
+<p>Modalverben verändern die Bedeutung des Hauptverbs. Das Hauptverb steht am Ende im Infinitiv.<br />
+<em>Modal verbs change the meaning of the main verb. The main verb goes to the end in its infinitive form.</em></p>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>können <em>(can)</em></th>
+<th>müssen <em>(must)</em></th>
+<th>dürfen <em>(may)</em></th>
+<th>wollen <em>(want)</em></th>
+<th>sollen <em>(should)</em></th>
+<th>möchten <em>(would like)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>kann</td>
+<td>muss</td>
+<td>darf</td>
+<td>will</td>
+<td>soll</td>
+<td>möchte</td>
+</tr>
+<tr>
+<td>du</td>
+<td>kannst</td>
+<td>musst</td>
+<td>darfst</td>
+<td>willst</td>
+<td>sollst</td>
+<td>möchtest</td>
+</tr>
+<tr>
+<td>er/sie/es</td>
+<td>kann</td>
+<td>muss</td>
+<td>darf</td>
+<td>will</td>
+<td>soll</td>
+<td>möchte</td>
+</tr>
+<tr>
+<td>wir</td>
+<td>können</td>
+<td>müssen</td>
+<td>dürfen</td>
+<td>wollen</td>
+<td>sollen</td>
+<td>möchten</td>
+</tr>
+<tr>
+<td>ihr</td>
+<td>könnt</td>
+<td>müsst</td>
+<td>dürft</td>
+<td>wollt</td>
+<td>sollt</td>
+<td>möchtet</td>
+</tr>
+<tr>
+<td>sie/Sie</td>
+<td>können</td>
+<td>müssen</td>
+<td>dürfen</td>
+<td>wollen</td>
+<td>sollen</td>
+<td>möchten</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Satzstruktur / Sentence structure:</strong> Modalverb (Position 2) + Infinitiv (Ende / end)</p>
+<ul>
+<li>Ich <strong>kann</strong> Deutsch <strong>sprechen</strong>. <em>(I can speak German.)</em></li>
+<li>Du <strong>musst</strong> jetzt <strong>gehen</strong>. <em>(You have to go now.)</em></li>
+<li><strong>Darf</strong> ich hier <strong>rauchen</strong>? <em>(May I smoke here?)</em></li>
+<li>Ich <strong>möchte</strong> einen Kaffee <strong>trinken</strong>. <em>(I'd like to drink a coffee.)</em></li>
+</ul>
+<hr />
+<h2 id="6-trennbare-verben-separable-verbs">6. Trennbare Verben / Separable Verbs</h2>
+<p>Viele deutsche Verben haben ein trennbares Präfix. Im Hauptsatz steht das Präfix am Ende.<br />
+<em>Many German verbs have a separable prefix. In main clauses, the prefix goes to the end.</em></p>
+<table>
+<thead>
+<tr>
+<th>Verb</th>
+<th>Bedeutung / Meaning</th>
+<th>Beispielsatz / Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>anfangen</td>
+<td>to begin</td>
+<td>Wir <strong>fangen</strong> um 9 Uhr <strong>an</strong>. <em>(We start at 9.)</em></td>
+</tr>
+<tr>
+<td>anrufen</td>
+<td>to call</td>
+<td>Ich <strong>rufe</strong> dich morgen <strong>an</strong>. <em>(I'll call you tomorrow.)</em></td>
+</tr>
+<tr>
+<td>aufstehen</td>
+<td>to get up</td>
+<td>Ich <strong>stehe</strong> um 7 Uhr <strong>auf</strong>. <em>(I get up at 7.)</em></td>
+</tr>
+<tr>
+<td>einkaufen</td>
+<td>to shop</td>
+<td>Wir <strong>kaufen</strong> im Supermarkt <strong>ein</strong>. <em>(We shop at the supermarket.)</em></td>
+</tr>
+<tr>
+<td>fernsehen</td>
+<td>to watch TV</td>
+<td>Abends <strong>sehe</strong> ich <strong>fern</strong>. <em>(In the evening I watch TV.)</em></td>
+</tr>
+<tr>
+<td>mitnehmen</td>
+<td>to take along</td>
+<td><strong>Nimmst</strong> du den Schirm <strong>mit</strong>? <em>(Are you taking the umbrella?)</em></td>
+</tr>
+<tr>
+<td>zurückkommen</td>
+<td>to come back</td>
+<td>Wann <strong>kommst</strong> du <strong>zurück</strong>? <em>(When are you coming back?)</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-satzstruktur-sentence-structure">7. Satzstruktur / Sentence Structure</h2>
+<h3 id="aussagesatz-declarative-sentence">Aussagesatz / Declarative Sentence</h3>
+<p>Das Verb steht immer an <strong>Position 2</strong>. <em>The verb is always in </em><em>position 2</em><em>.</em></p>
+<ul>
+<li><strong>Ich</strong> lerne Deutsch. <em>(I learn German.)</em></li>
+<li><strong>Morgen</strong> gehe <strong>ich</strong> zur Schule. <em>(Tomorrow I go to school.)</em> — Achtung: Subjekt rückt nach hinten! <em>Subject moves back!</em></li>
+</ul>
+<h3 id="w-frage-wh-question">W-Frage / Wh-Question</h3>
+<p><strong>W-Wort + Verb + Subjekt + Rest</strong> <em>(Question word + verb + subject + rest)</em></p>
+<table>
+<thead>
+<tr>
+<th>W-Wort</th>
+<th>Englisch</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wer?</td>
+<td>Who?</td>
+<td><strong>Wer</strong> ist das? <em>(Who is that?)</em></td>
+</tr>
+<tr>
+<td>Was?</td>
+<td>What?</td>
+<td><strong>Was</strong> machst du? <em>(What are you doing?)</em></td>
+</tr>
+<tr>
+<td>Wo?</td>
+<td>Where?</td>
+<td><strong>Wo</strong> wohnen Sie? <em>(Where do you live?)</em></td>
+</tr>
+<tr>
+<td>Woher?</td>
+<td>From where?</td>
+<td><strong>Woher</strong> kommen Sie? <em>(Where do you come from?)</em></td>
+</tr>
+<tr>
+<td>Wohin?</td>
+<td>Where to?</td>
+<td><strong>Wohin</strong> gehst du? <em>(Where are you going?)</em></td>
+</tr>
+<tr>
+<td>Wann?</td>
+<td>When?</td>
+<td><strong>Wann</strong> kommst du? <em>(When are you coming?)</em></td>
+</tr>
+<tr>
+<td>Wie?</td>
+<td>How?</td>
+<td><strong>Wie</strong> heißen Sie? <em>(What's your name?)</em></td>
+</tr>
+<tr>
+<td>Warum?</td>
+<td>Why?</td>
+<td><strong>Warum</strong> bist du hier? <em>(Why are you here?)</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="janein-frage-yesno-question">Ja/Nein-Frage / Yes/No Question</h3>
+<p><strong>Verb + Subjekt + Rest?</strong> <em>(Verb comes first)</em></p>
+<ul>
+<li><strong>Kommst</strong> du morgen? <em>(Are you coming tomorrow?)</em></li>
+<li><strong>Sprechen</strong> Sie Deutsch? <em>(Do you speak German?)</em></li>
+<li><strong>Hast</strong> du Zeit? <em>(Do you have time?)</em></li>
+</ul>
+<hr />
+<h2 id="8-imperativ-imperative-commands">8. Imperativ / Imperative (Commands)</h2>
+<p>Verwenden Sie den Imperativ für Bitten, Aufforderungen und Anweisungen.<br />
+<em>Use the imperative for requests, demands, and instructions.</em></p>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>kommen <em>(to come)</em></th>
+<th>lesen <em>(to read)</em></th>
+<th>sprechen <em>(to speak)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>du</td>
+<td>Komm!</td>
+<td>Lies!</td>
+<td>Sprich!</td>
+</tr>
+<tr>
+<td>ihr</td>
+<td>Kommt!</td>
+<td>Lest!</td>
+<td>Sprecht!</td>
+</tr>
+<tr>
+<td>Sie (formal)</td>
+<td>Kommen Sie!</td>
+<td>Lesen Sie!</td>
+<td>Sprechen Sie!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiele / Examples:</strong><br />
+- <strong>Geh</strong> nach Hause! <em>(Go home!)</em><br />
+- <strong>Sprechen Sie</strong> bitte langsam! <em>(Please speak slowly!)</em><br />
+- <strong>Schreib</strong> deinen Namen! <em>(Write your name!)</em></p>
+<hr />
+<h2 id="9-perfekt-present-perfect">9. Perfekt / Present Perfect</h2>
+<p>Das Perfekt wird für die Vergangenheit benutzt (im Gespräch).<br />
+<em>The Perfekt is used for the past (in conversation).</em></p>
+<h3 id="bildung-formation-habensein-partizip-ii">Bildung / Formation: haben/sein + Partizip II</h3>
+<p><strong>Regelmäßige Verben / Regular verbs:</strong> ge- + Stamm + -t<br />
+- machen → <strong>gemacht</strong> <em>(made/done)</em><br />
+- lernen → <strong>gelernt</strong> <em>(learned)</em><br />
+- kaufen → <strong>gekauft</strong> <em>(bought)</em></p>
+<p><strong>Unregelmäßige Verben / Irregular verbs:</strong> ge- + Stamm(geändert) + -en<br />
+- essen → <strong>gegessen</strong> <em>(eaten)</em><br />
+- trinken → <strong>getrunken</strong> <em>(drunk)</em><br />
+- schreiben → <strong>geschrieben</strong> <em>(written)</em><br />
+- gehen → <strong>gegangen</strong> <em>(gone)</em><br />
+- kommen → <strong>gekommen</strong> <em>(come)</em><br />
+- fahren → <strong>gefahren</strong> <em>(driven)</em></p>
+<p><strong>Verben mit untrennbarem Präfix (kein ge-) / Inseparable prefix verbs (no ge-):</strong><br />
+- verstehen → <strong>verstanden</strong> <em>(understood)</em><br />
+- bezahlen → <strong>bezahlt</strong> <em>(paid)</em></p>
+<p><strong>Trennbare Verben / Separable verbs:</strong> Präfix + ge + Stamm + t/en<br />
+- einkaufen → <strong>eingekauft</strong> <em>(shopped)</em><br />
+- anrufen → <strong>angerufen</strong> <em>(called)</em></p>
+<h3 id="perfekt-mit-haben-perfect-with-haben-die-meisten-verben-most-verbs">Perfekt mit "haben" / Perfect with "haben" (die meisten Verben / most verbs):</h3>
+<ul>
+<li>Ich <strong>habe</strong> Deutsch <strong>gelernt</strong>. <em>(I have learned German.)</em></li>
+<li>Er <strong>hat</strong> einen Kuchen <strong>gegessen</strong>. <em>(He has eaten a cake.)</em></li>
+</ul>
+<h3 id="perfekt-mit-sein-perfect-with-sein-bewegung-zustandsanderung-movement-change-of-state">Perfekt mit "sein" / Perfect with "sein" (Bewegung + Zustandsänderung / movement + change of state):</h3>
+<ul>
+<li>Ich <strong>bin</strong> nach Berlin <strong>gefahren</strong>. <em>(I went/drove to Berlin.)</em></li>
+<li>Sie <strong>ist</strong> nach Hause <strong>gegangen</strong>. <em>(She went home.)</em></li>
+<li>Er <strong>ist</strong> um 7 Uhr <strong>aufgestanden</strong>. <em>(He got up at 7.)</em></li>
+</ul>
+<hr />
+<h2 id="10-prapositionen-prepositions">10. Präpositionen / Prepositions</h2>
+<h3 id="prapositionen-mit-akkusativ-prepositions-with-accusative">Präpositionen mit Akkusativ / Prepositions with Accusative</h3>
+<p><strong>durch</strong> <em>(through)</em>, <strong>für</strong> <em>(for)</em>, <strong>gegen</strong> <em>(against/around)</em>, <strong>ohne</strong> <em>(without)</em>, <strong>um</strong> <em>(at/around)</em></p>
+<ul>
+<li>Ich gehe <strong>durch den</strong> Park. <em>(I walk through the park.)</em></li>
+<li>Das ist <strong>für dich</strong>. <em>(That's for you.)</em></li>
+<li><strong>Um</strong> 10 Uhr beginnt der Kurs. <em>(The course starts at 10.)</em></li>
+</ul>
+<h3 id="prapositionen-mit-dativ-prepositions-with-dative">Präpositionen mit Dativ / Prepositions with Dative</h3>
+<p><strong>aus</strong> <em>(from)</em>, <strong>bei</strong> <em>(at/near)</em>, <strong>mit</strong> <em>(with)</em>, <strong>nach</strong> <em>(to/after)</em>, <strong>seit</strong> <em>(since)</em>, <strong>von</strong> <em>(from/of)</em>, <strong>zu</strong> <em>(to)</em></p>
+<ul>
+<li>Ich komme <strong>aus der</strong> Türkei. <em>(I come from Turkey.)</em></li>
+<li>Ich fahre <strong>mit dem</strong> Bus. <em>(I go by bus.)</em></li>
+<li><strong>Seit</strong> einem Jahr lerne ich Deutsch. <em>(I've been learning German for a year.)</em></li>
+<li>Ich gehe <strong>zum</strong> (= zu + dem) Arzt. <em>(I go to the doctor.)</em></li>
+</ul>
+<h3 id="wechselprapositionen-two-way-prepositions-akkusativ-oder-dativ">Wechselpräpositionen / Two-Way Prepositions (Akkusativ ODER Dativ)</h3>
+<p><strong>an, auf, hinter, in, neben, über, unter, vor, zwischen</strong></p>
+<p><strong>Wohin? → Akkusativ</strong> (Bewegung / movement): Ich gehe <strong>in die</strong> Schule. <em>(I go to school.)</em><br />
+<strong>Wo? → Dativ</strong> (Position / location): Ich bin <strong>in der</strong> Schule. <em>(I am at school.)</em></p>
+<hr />
+<h2 id="11-negation-negation">11. Negation / Negation</h2>
+<h3 id="nicht-not-fur-verben-adjektive-adverbien-for-verbs-adjectives-adverbs">nicht <em>(not)</em> — für Verben, Adjektive, Adverbien / for verbs, adjectives, adverbs</h3>
+<ul>
+<li>Ich komme <strong>nicht</strong> aus Deutschland. <em>(I don't come from Germany.)</em></li>
+<li>Er arbeitet <strong>nicht</strong>. <em>(He doesn't work.)</em></li>
+</ul>
+<h3 id="kein-no-not-any-fur-nomen-for-nouns">kein <em>(no, not any)</em> — für Nomen / for nouns</h3>
+<ul>
+<li>Ich habe <strong>kein</strong> Auto. <em>(I don't have a car.)</em></li>
+<li>Hier gibt es <strong>keine</strong> Parkplätze. <em>(There are no parking spaces here.)</em></li>
+</ul>
+<p><strong>Regel / Rule:</strong> "kein" für Nomen mit unbestimmtem Artikel oder ohne Artikel. "nicht" für alles andere.<br />
+<em>"kein" for nouns with indefinite article or no article. "nicht" for everything else.</em></p>
+<hr />
+<h2 id="12-konjunktionen-conjunctions">12. Konjunktionen / Conjunctions</h2>
+<h3 id="koordinierende-konjunktionen-coordinating-word-order-stays-the-same">Koordinierende Konjunktionen / Coordinating (word order stays the same)</h3>
+<ul>
+<li><strong>und</strong> <em>(and)</em>: Ich lerne Deutsch <strong>und</strong> Englisch.</li>
+<li><strong>aber</strong> <em>(but)</em>: Ich bin müde, <strong>aber</strong> glücklich.</li>
+<li><strong>oder</strong> <em>(or)</em>: Kaffee <strong>oder</strong> Tee?</li>
+<li><strong>denn</strong> <em>(because)</em>: Ich bleibe zu Hause, <strong>denn</strong> ich bin krank.</li>
+</ul>
+<h3 id="subordinierende-konjunktionen-subordinating-verb-goes-to-the-end">Subordinierende Konjunktionen / Subordinating (verb goes to the END)</h3>
+<ul>
+<li><strong>weil</strong> <em>(because)</em>: Ich bleibe, <strong>weil</strong> ich krank <strong>bin</strong>.</li>
+<li><strong>wenn</strong> <em>(when/if)</em>: <strong>Wenn</strong> es regnet, bleibe ich zu Hause.</li>
+<li><strong>dass</strong> <em>(that)</em>: Ich weiß, <strong>dass</strong> er morgen <strong>kommt</strong>.</li>
+</ul>
+<hr />
+<h2 id="13-zeitangaben-time-expressions">13. Zeitangaben / Time Expressions</h2>
+<h3 id="uhrzeiten-telling-time">Uhrzeiten / Telling Time</h3>
+<ul>
+<li>8:00 — Es ist acht Uhr. <em>(It's eight o'clock.)</em></li>
+<li>8:15 — Es ist Viertel nach acht. <em>(It's quarter past eight.)</em></li>
+<li>8:30 — Es ist <strong>halb neun</strong>. <em>(It's half past eight.)</em> — <strong>Achtung! / Watch out!</strong> "halb" bezieht sich auf die NÄCHSTE Stunde! <em>"halb" refers to the NEXT hour!</em></li>
+<li>8:45 — Es ist Viertel vor neun. <em>(It's quarter to nine.)</em></li>
+</ul>
+<h3 id="temporale-prapositionen-temporal-prepositions">Temporale Präpositionen / Temporal Prepositions</h3>
+<ul>
+<li><strong>am</strong> + Tag/Tageszeit: <strong>am</strong> Montag <em>(on Monday)</em>, <strong>am</strong> Vormittag <em>(in the morning)</em></li>
+<li><strong>um</strong> + Uhrzeit: <strong>um</strong> 8 Uhr <em>(at 8 o'clock)</em></li>
+<li><strong>im</strong> + Monat/Jahreszeit: <strong>im</strong> Mai <em>(in May)</em>, <strong>im</strong> Sommer <em>(in summer)</em></li>
+<li><strong>von ... bis</strong>: <strong>von</strong> 9 <strong>bis</strong> 17 Uhr <em>(from 9 to 5)</em></li>
+</ul>
+<hr />
+<h2 id="ubungen-exercises">Übungen / Exercises</h2>
+<h3 id="ubung-1-artikel-einsetzen-fill-in-the-article">Übung 1: Artikel einsetzen / Fill in the article</h3>
+<p>Setzen Sie den richtigen Artikel ein (der, die, das): <em>Fill in the correct article:</em></p>
+<ol>
+<li><strong><em> Haus ist groß. 2. </em></strong> Frau kommt aus Berlin. 3. <strong><em> Buch ist interessant. 4. </em></strong> Kinder spielen. 5. ___ Auto ist neu.</li>
+</ol>
+<p><strong>Lösungen / Answers:</strong> 1. Das, 2. Die, 3. Das, 4. Die, 5. Das</p>
+<h3 id="ubung-2-verben-konjugieren-conjugate-the-verbs">Übung 2: Verben konjugieren / Conjugate the verbs</h3>
+<ol>
+<li>Ich <strong><em> (lernen) Deutsch. 2. Er </em></strong> (sprechen) gut Englisch. 3. Wir <strong><em> (fahren) nach München. 4. </em></strong> du morgen (kommen)? 5. Sie (formal) ___ (haben) ein schönes Haus.</li>
+</ol>
+<p><strong>Lösungen / Answers:</strong> 1. lerne, 2. spricht, 3. fahren, 4. Kommst, 5. haben</p>
+<h3 id="ubung-3-perfekt-bilden-form-the-present-perfect">Übung 3: Perfekt bilden / Form the present perfect</h3>
+<ol>
+<li>Ich <strong><em> gestern ins Kino </em></strong>. (gehen) 2. Er <strong><em> ein Buch </em></strong>. (lesen) 3. Wir <strong><em> Fußball </em></strong>. (spielen) 4. Sie <strong><em> nach Hause </em></strong>. (fahren)</li>
+</ol>
+<p><strong>Lösungen / Answers:</strong> 1. bin...gegangen, 2. hat...gelesen, 3. haben...gespielt, 4. ist...gefahren</p>
+                </div>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_grammatik.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[data-section]').forEach(function (link) {
+                        var number = link.getAttribute('data-section');
+                        var heading = document.querySelector('h2[id^="' + number + '-"]');
+                        if (heading) {
+                            link.setAttribute('href', '#' + heading.id);
+                        } else {
+                            link.classList.add('disabled');
+                            link.setAttribute('aria-disabled', 'true');
+                        }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        var m = h.id.match(/^(\d+)-/);
+                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

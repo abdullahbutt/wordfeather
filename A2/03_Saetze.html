@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Saetze - A2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+                .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-more-btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+                font-size: 0.85rem;
+                margin-top: 0.1rem;
+                letter-spacing: 0.05em;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">03 Saetze</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">03 Saetze</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A2</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="a2-satze-von-a-bis-z-sentences-from-a-to-z">A2 Sätze von A bis Z / Sentences from A to Z</h1>
+<p>Beispielsätze auf A2-Niveau mit komplexeren Strukturen.<br />
+<em>Example sentences at A2 level with more complex structures.</em></p>
+<hr />
+<h2 id="a">A</h2>
+<ol>
+<li><strong>Ich habe mich für den Deutschkurs angemeldet.</strong> — I registered for the German course.</li>
+<li><strong>Er hat sich über das Geschenk gefreut.</strong> — He was happy about the gift.</li>
+<li><strong>Die Ausstellung im Museum war sehr interessant.</strong> — The exhibition in the museum was very interesting.</li>
+<li><strong>Kannst du mir bei der Aufgabe helfen?</strong> — Can you help me with the task?</li>
+<li><strong>Ich ärgere mich, weil der Bus Verspätung hat.</strong> — I'm annoyed because the bus is delayed.</li>
+</ol>
+<h2 id="b">B</h2>
+<ol>
+<li><strong>Ich möchte mich für die Stelle bewerben.</strong> — I would like to apply for the position.</li>
+<li><strong>Die Besprechung dauerte zwei Stunden.</strong> — The meeting lasted two hours.</li>
+<li><strong>Obwohl es kalt war, gingen wir spazieren.</strong> — Although it was cold, we went for a walk.</li>
+<li><strong>Bevor ich zur Arbeit gehe, frühstücke ich.</strong> — Before I go to work, I have breakfast.</li>
+</ol>
+<h2 id="c">C</h2>
+<ol>
+<li><strong>Der Computer, den ich gekauft habe, ist sehr schnell.</strong> — The computer I bought is very fast.</li>
+</ol>
+<h2 id="d">D</h2>
+<ol>
+<li><strong>Ich denke, dass wir mehr Zeit brauchen.</strong> — I think that we need more time.</li>
+<li><strong>Deutschland ist größer als Österreich.</strong> — Germany is bigger than Austria.</li>
+<li><strong>Draußen regnet es, deshalb bleibe ich zu Hause.</strong> — It's raining outside, therefore I'm staying home.</li>
+<li><strong>Ich möchte mich bei Ihnen bedanken.</strong> — I would like to thank you.</li>
+</ol>
+<h2 id="e">E</h2>
+<ol>
+<li><strong>Ich habe mich entschieden, in München zu bleiben.</strong> — I decided to stay in Munich.</li>
+<li><strong>Können Sie mir das bitte erklären?</strong> — Can you explain that to me, please?</li>
+<li><strong>Er empfiehlt mir dieses Restaurant.</strong> — He recommends this restaurant to me.</li>
+<li><strong>Erinnerst du dich an unseren Urlaub?</strong> — Do you remember our vacation?</li>
+</ol>
+<h2 id="f">F</h2>
+<ol>
+<li><strong>Ich freue mich auf das Wochenende.</strong> — I'm looking forward to the weekend.</li>
+<li><strong>Der Film, den wir gesehen haben, war spannend.</strong> — The film we saw was exciting.</li>
+<li><strong>Ich finde, dass Deutsch eine schöne Sprache ist.</strong> — I think German is a beautiful language.</li>
+</ol>
+<h2 id="g">G</h2>
+<ol>
+<li><strong>Es gefällt mir, in einer großen Stadt zu wohnen.</strong> — I like living in a big city.</li>
+<li><strong>Ich habe mich an das Wetter gewöhnt.</strong> — I've gotten used to the weather.</li>
+<li><strong>Das Gehalt ist höher als in meinem alten Job.</strong> — The salary is higher than in my old job.</li>
+</ol>
+<h2 id="h">H</h2>
+<ol>
+<li><strong>Ich hätte gern eine Tasse Kaffee.</strong> — I would like a cup of coffee.</li>
+<li><strong>Hast du schon gehört, dass Maria geheiratet hat?</strong> — Have you heard that Maria got married?</li>
+<li><strong>Die Heizung funktioniert nicht richtig.</strong> — The heating isn't working properly.</li>
+<li><strong>Ich hoffe, dass alles gut wird.</strong> — I hope everything will be fine.</li>
+</ol>
+<h2 id="i">I</h2>
+<ol>
+<li><strong>Ich interessiere mich für Geschichte.</strong> — I'm interested in history.</li>
+<li><strong>Im Vergleich zu letztem Jahr ist es wärmer.</strong> — Compared to last year, it's warmer.</li>
+</ol>
+<h2 id="j">J</h2>
+<ol>
+<li><strong>Je mehr ich übe, desto besser spreche ich.</strong> — The more I practice, the better I speak.</li>
+</ol>
+<h2 id="k">K</h2>
+<ol>
+<li><strong>Könnten Sie mir bitte den Weg zeigen?</strong> — Could you please show me the way?</li>
+<li><strong>Ich kümmere mich um meine kranke Mutter.</strong> — I'm taking care of my sick mother.</li>
+</ol>
+<h2 id="l">L</h2>
+<ol>
+<li><strong>Letztes Jahr bin ich nach Deutschland gezogen.</strong> — Last year I moved to Germany.</li>
+<li><strong>Es lohnt sich, die Stadt zu besichtigen.</strong> — It's worth visiting the city.</li>
+</ol>
+<h2 id="m">M</h2>
+<ol>
+<li><strong>Man sollte mehr Obst und Gemüse essen.</strong> — One should eat more fruit and vegetables.</li>
+<li><strong>Ich muss mich beeilen, damit ich den Zug nicht verpasse.</strong> — I have to hurry so I don't miss the train.</li>
+</ol>
+<h2 id="n">N</h2>
+<ol>
+<li><strong>Nachdem ich eingekauft hatte, bin ich nach Hause gegangen.</strong> — After I went shopping, I went home.</li>
+</ol>
+<h2 id="o">O</h2>
+<ol>
+<li><strong>Obwohl er müde war, ging er zur Arbeit.</strong> — Although he was tired, he went to work.</li>
+</ol>
+<h2 id="p">P</h2>
+<ol>
+<li><strong>Die Prüfung war schwieriger als erwartet.</strong> — The exam was more difficult than expected.</li>
+</ol>
+<h2 id="r">R</h2>
+<ol>
+<li><strong>Das Restaurant, in dem wir gegessen haben, war gemütlich.</strong> — The restaurant where we ate was cozy.</li>
+</ol>
+<h2 id="s">S</h2>
+<ol>
+<li><strong>Seitdem ich in Deutschland lebe, spreche ich besser Deutsch.</strong> — Since I've been living in Germany, I speak better German.</li>
+<li><strong>Sie hat sich entschuldigt, weil sie zu spät kam.</strong> — She apologized because she came late.</li>
+<li><strong>Ich bin stolz darauf, dass ich die Prüfung bestanden habe.</strong> — I'm proud that I passed the exam.</li>
+</ol>
+<h2 id="t">T</h2>
+<ol>
+<li><strong>Trotzdem bin ich zufrieden mit meinem Leben.</strong> — Nevertheless, I'm satisfied with my life.</li>
+</ol>
+<h2 id="u">U</h2>
+<ol>
+<li><strong>Ich muss mich an die neue Umgebung gewöhnen.</strong> — I have to get used to the new environment.</li>
+<li><strong>Der Umzug war anstrengender als gedacht.</strong> — The move was more exhausting than expected.</li>
+</ol>
+<h2 id="v">V</h2>
+<ol>
+<li><strong>Ich habe vergessen, meine Hausaufgaben zu machen.</strong> — I forgot to do my homework.</li>
+<li><strong>Ich versuche, jeden Tag Deutsch zu lernen.</strong> — I try to learn German every day.</li>
+</ol>
+<h2 id="w">W</h2>
+<ol>
+<li><strong>Während ich arbeitete, rief mein Freund an.</strong> — While I was working, my friend called.</li>
+<li><strong>Wenn ich mehr Geld hätte, würde ich reisen.</strong> — If I had more money, I would travel.</li>
+<li><strong>Die Wohnung, die wir besichtigt haben, war zu klein.</strong> — The apartment we visited was too small.</li>
+</ol>
+<h2 id="z">Z</h2>
+<ol>
+<li><strong>Zuerst mache ich Frühstück, dann gehe ich zur Arbeit.</strong> — First I make breakfast, then I go to work.</li>
+<li><strong>Zum Glück habe ich den Bus noch bekommen.</strong> — Fortunately I still caught the bus.</li>
+</ol>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_saetze.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[href^="#"]').forEach(function (link) {
+                        var id = link.getAttribute('href').substring(1);
+                        if (!document.getElementById(id)) { link.remove(); }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        if (/^[a-z]$/.test(h.id)) { buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-primary">' + h.id.toUpperCase() + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 Musterpruefung - C2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">C2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">08 Musterpruefung</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">08 Musterpruefung</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">C2</span>
+                </div>
+
+                
+
+                <div class="markdown-content">
+                    <h1 id="c2-musterprufung-sample-exam">C2 Musterprüfung / Sample Exam</h1>
+<p>Goethe-Zertifikat C2: Großes Deutsches Sprachdiplom (GDS) — Modelltest</p>
+<hr />
+<h2 id="lesen-80-minuten-100-punkte">LESEN (80 Minuten, 100 Punkte)</h2>
+<h3 id="teil-1-komplexer-sachtext-8-aufgaben-32-punkte">Teil 1: Komplexer Sachtext (8 Aufgaben, 32 Punkte)</h3>
+<blockquote>
+<p><strong>Der Mythos der Meritokratie</strong></p>
+<p>Der Glaube an die Meritokratie — die Überzeugung, dass in modernen Gesellschaften Erfolg primär auf individueller Leistung beruht — gehört zu den wirkmächtigsten Narrativen unserer Zeit. Er legitimiert bestehende Ungleichheiten, indem er sie als das natürliche Resultat unterschiedlicher Begabungen und Anstrengungen darstellt. Wer scheitert, hat sich demnach schlicht nicht genug bemüht; wer Erfolg hat, hat ihn sich durch eigene Kraft verdient.</p>
+<p>Bei näherer Betrachtung erweist sich dieses Narrativ jedoch als problematisch. Zahlreiche soziologische Studien belegen, dass der sozioökonomische Hintergrund nach wie vor der stärkste Prädiktor für den Bildungserfolg und damit für die gesellschaftliche Position eines Menschen ist. Die Durchlässigkeit zwischen den sozialen Schichten ist, allen anderslautenden Behauptungen zum Trotz, in den meisten westlichen Gesellschaften in den letzten Jahrzehnten nicht gestiegen, sondern eher gesunken.</p>
+<p>Besonders perfide ist die psychologische Dimension des meritokratischen Mythos: Wer in einem System scheitert, das vorgibt, Leistung zu belohnen, wird nicht nur materiell benachteiligt, sondern auch in seinem Selbstwertgefühl beschädigt. Die Botschaft lautet: Du bist selbst schuld. Dies führt zu einer Individualisierung systemischer Probleme, die eine kollektive Problemlösung erschwert.</p>
+<p>Nun wäre es freilich ebenso verfehlt, individuelle Anstrengung als irrelevant abzutun. Selbstverständlich spielt Eigeninitiative eine Rolle. Doch sie entfaltet ihre Wirkung stets vor dem Hintergrund struktureller Bedingungen, die nicht von allen gleichermaßen beeinflusst werden können.</p>
+</blockquote>
+<p><strong>Multiple-Choice-Fragen:</strong></p>
+<ol>
+<li>Was versteht der Autor unter "Meritokratie"?</li>
+<li>a) Ein politisches System</li>
+<li>b) <strong>Die Überzeugung, dass Erfolg auf Leistung beruht</strong> ✓</li>
+<li>c) Eine wissenschaftliche Theorie</li>
+<li>
+<p>d) Ein historisches Konzept</p>
+</li>
+<li>
+<p>Welche Funktion hat das meritokratische Narrativ laut Autor?</p>
+</li>
+<li>a) Es fördert Gerechtigkeit</li>
+<li>b) Es motiviert Leistungsträger</li>
+<li>c) <strong>Es legitimiert bestehende Ungleichheiten</strong> ✓</li>
+<li>
+<p>d) Es schwächt den Sozialstaat</p>
+</li>
+<li>
+<p>Was zeigen soziologische Studien laut Text?</p>
+</li>
+<li>a) Meritokratie funktioniert besser als erwartet</li>
+<li>b) <strong>Soziale Herkunft bestimmt nach wie vor die Chancen</strong> ✓</li>
+<li>c) Die soziale Durchlässigkeit hat zugenommen</li>
+<li>
+<p>d) Bildung ist der wichtigste Aufstiegsfaktor</p>
+</li>
+<li>
+<p>Was meint der Autor mit "Individualisierung systemischer Probleme"?</p>
+</li>
+<li>a) Jeder muss seine Probleme selbst lösen</li>
+<li>b) <strong>Strukturelle Probleme werden als persönliches Versagen umgedeutet</strong> ✓</li>
+<li>c) Individuen sind für Systeme verantwortlich</li>
+<li>
+<p>d) Systeme müssen individueller werden</p>
+</li>
+<li>
+<p>Wie bewertet der Autor individuelle Anstrengung?</p>
+</li>
+<li>a) Sie ist irrelevant</li>
+<li>b) Sie ist der wichtigste Faktor</li>
+<li>c) <strong>Sie ist relevant, aber abhängig von strukturellen Bedingungen</strong> ✓</li>
+<li>d) Sie wurde noch nicht ausreichend erforscht</li>
+</ol>
+<hr />
+<h3 id="teil-2-luckentext-8-aufgaben-24-punkte">Teil 2: Lückentext (8 Aufgaben, 24 Punkte)</h3>
+<blockquote>
+<p>Die Debatte um die Zukunft der (1)<strong><em> wird häufig auf die technologische Dimension verengt. Dies (2)</em></strong> der Komplexität des Themas indes nicht gerecht. Denn die Frage, wie wir in Zukunft arbeiten werden, (3)<strong><em> sich nicht auf die Frage reduzieren, welche Tätigkeiten automatisiert werden können. (4)</em></strong> muss es um die grundlegendere Frage gehen, welchen Stellenwert Arbeit in einer Gesellschaft (5)<strong><em> soll, in der sie nicht mehr die zentrale Quelle des Lebensunterhalts (6)</em></strong> muss.</p>
+</blockquote>
+<ol>
+<li><strong>Arbeit</strong> 2. <strong>wird</strong> 3. <strong>lässt</strong> 4. <strong>Vielmehr</strong> 5. <strong>einnehmen</strong> 6. <strong>darstellen/sein</strong></li>
+</ol>
+<hr />
+<h3 id="teil-3-literarischerwissenschaftlicher-text-6-aufgaben-24-punkte">Teil 3: Literarischer/wissenschaftlicher Text (6 Aufgaben, 24 Punkte)</h3>
+<p>Auszug aus einem Essay + Interpretationsfragen</p>
+<h3 id="teil-4-textvergleich-4-aufgaben-20-punkte">Teil 4: Textvergleich (4 Aufgaben, 20 Punkte)</h3>
+<p>Zwei konträre Positionen zum Thema "Gentechnik in der Landwirtschaft" vergleichen</p>
+<hr />
+<h2 id="horen-35-minuten-100-punkte">HÖREN (35 Minuten, 100 Punkte)</h2>
+<h3 id="teil-1-wissenschaftlicher-vortrag-10-aufgaben-50-punkte-2x-horen">Teil 1: Wissenschaftlicher Vortrag (10 Aufgaben, 50 Punkte, 2x hören)</h3>
+<p><strong>Thema:</strong> "Die Neuroplastizität des Gehirns und ihre Implikationen für das lebenslange Lernen"</p>
+<p><em>(Transkript zum Üben)</em></p>
+<blockquote>
+<p>Meine Damen und Herren, ich möchte mit einer provokanten These beginnen: Das Gehirn, wie wir es vor dreißig Jahren zu kennen glaubten, existiert nicht. Die Vorstellung eines statischen Organs, das nach der Adoleszenz im Wesentlichen "fertig" ist, wurde durch die Neuroplastizitätsforschung grundlegend revidiert.</p>
+<p>Heute wissen wir, dass das Gehirn ein hochdynamisches System ist, das sich lebenslang an neue Anforderungen anpasst. Neuronale Verknüpfungen werden ständig umgebaut — neue entstehen, bestehende werden gestärkt oder abgebaut. Dies hat weitreichende Implikationen: Es bedeutet, dass lernen in jedem Alter möglich ist.</p>
+<p>Allerdings — und hier liegt der Haken — verändert sich die Art, wie das Gehirn lernt, mit zunehmendem Alter. Während junge Gehirne quasi alles wie ein Schwamm aufsaugen, müssen ältere Gehirne stärker auf bewusste Strategien zurückgreifen. Das Lernen wird nicht unmöglich, aber es wird anders.</p>
+</blockquote>
+<p><strong>Fragen (R/F):</strong><br />
+1. Das Gehirn war vor 30 Jahren anders aufgebaut als heute. → <strong>Falsch</strong> (Das VERSTÄNDNIS hat sich geändert)<br />
+2. Neuronale Verknüpfungen sind statisch. → <strong>Falsch</strong> (hochdynamisch)<br />
+3. Ältere Menschen können prinzipiell immer noch lernen. → <strong>Richtig</strong><br />
+4. Ältere Gehirne lernen genauso wie junge. → <strong>Falsch</strong> (anders, bewusstere Strategien)</p>
+<hr />
+<h3 id="teil-2-podiumsdiskussion-10-aufgaben-50-punkte-1x-horen">Teil 2: Podiumsdiskussion (10 Aufgaben, 50 Punkte, 1x hören)</h3>
+<p><strong>Thema:</strong> "Grenzen der Meinungsfreiheit im digitalen Zeitalter"</p>
+<p>Drei Diskutanten:<br />
+- <strong>Prof. Stein</strong> (Verfassungsrechtler) — Meinungsfreiheit hat absolute Priorität<br />
+- <strong>Frau Dr. Yıldız</strong> (Soziologin) — Schutz vulnerabler Gruppen ist wichtiger<br />
+- <strong>Herr Berger</strong> (Journalist) — Selbstregulierung statt staatlicher Eingriffe</p>
+<hr />
+<h2 id="schreiben-80-minuten-100-punkte">SCHREIBEN (80 Minuten, 100 Punkte)</h2>
+<h3 id="teil-1-textgebundene-erorterung-50-punkte">Teil 1: Textgebundene Erörterung (50 Punkte)</h3>
+<p><strong>Grafik:</strong> "Vertrauen in demokratische Institutionen" (Deutschland, 2015–2025, nach Institution: Bundestag, Medien, Justiz, Wissenschaft)</p>
+<p><strong>Begleittext (Auszug):</strong></p>
+<blockquote>
+<p>"Das schwindende Vertrauen in demokratische Institutionen ist kein Zeichen einer gesunden Skepsis, sondern eines gefährlichen Erosionsprozesses, der die Grundfesten unseres Zusammenlebens bedroht."</p>
+</blockquote>
+<p><strong>Aufgabe:</strong> Beschreiben Sie die Grafik, nehmen Sie Stellung zum Text, formulieren Sie eine eigene differenzierte Position. (ca. 250+ Wörter)</p>
+<h3 id="teil-2-textumformung-50-punkte">Teil 2: Textumformung (50 Punkte)</h3>
+<p>Formen Sie folgenden informellen Blog-Text in einen formellen Zeitungskommentar um. Achten Sie auf angemessenes Register, korrekte Grammatik und stilistische Eleganz.</p>
+<p><strong>Blog-Text:</strong></p>
+<blockquote>
+<p>"Also ehrlich, ich find's total daneben, dass die immer noch so tun, als wäre beim Klima alles easy. Die Fakten sind doch klar: Wird immer wärmer, die Gletscher schmelzen, und was passiert? Nix! Die da oben reden und reden, aber machen tun sie nix. Wir Normalbürger sollen dann unsren Müll trennen, während die Industrie weiterpustet wie gehabt. Sorry, aber das kotzt mich an."</p>
+</blockquote>
+<p><strong>Erwartete Umformung (Beispiel):</strong></p>
+<blockquote>
+<p>Die Diskrepanz zwischen dem Ernst der klimatischen Lage und dem Handeln — oder vielmehr der Untätigkeit — der politischen und wirtschaftlichen Entscheidungsträger gibt zunehmend Anlass zur Besorgnis. Die wissenschaftlichen Befunde sind eindeutig: Die globale Erwärmung schreitet voran, Gletscher schwinden in alarmierendem Tempo. Dem gegenüber steht ein politischer Diskurs, der sich allzu häufig in Absichtserklärungen erschöpft, ohne konkrete Maßnahmen folgen zu lassen. Es mutet geradezu zynisch an, die Verantwortung für den Klimaschutz auf den einzelnen Bürger abzuwälzen, während die industriellen Hauptverursacher weitgehend unbehelligt bleiben.</p>
+</blockquote>
+<hr />
+<h2 id="sprechen-15-minuten-100-punkte">SPRECHEN (15 Minuten, 100 Punkte)</h2>
+<h3 id="teil-1-vortrag-diskussion-ca-8-min">Teil 1: Vortrag + Diskussion (ca. 8 Min)</h3>
+<p><strong>Material:</strong> Zwei Zitate zum Thema "Fortschritt und Verantwortung"</p>
+<p><em>Zitat 1:</em> "Nicht alles, was technisch möglich ist, darf auch gemacht werden." — Richard von Weizsäcker</p>
+<p><em>Zitat 2:</em> "Der einzige Weg, das Unmögliche zu finden, ist, das Mögliche zu versuchen." — anonym</p>
+<p><strong>Aufgabe:</strong><br />
+- Kommentieren Sie beide Zitate<br />
+- Setzen Sie sie in Bezug zu aktuellen Entwicklungen (KI, Gentechnik, etc.)<br />
+- Formulieren Sie eine eigene Position</p>
+<h3 id="teil-2-debatte-ca-7-min">Teil 2: Debatte (ca. 7 Min)</h3>
+<p><strong>Thema:</strong> "Sollte es ein Grundrecht auf digitale Privatsphäre geben?"</p>
+<p>Person A: Vertritt die Position, dass digitale Privatsphäre ein unantastbares Grundrecht sein muss.<br />
+Person B: Vertritt die Position, dass Sicherheitsinteressen im digitalen Raum Vorrang haben müssen.</p>
+<p>Diskutieren Sie Ihre Positionen und versuchen Sie, einen Kompromiss zu finden.</p>
+<hr />
+<h2 id="bewertung">Bewertung</h2>
+<table>
+<thead>
+<tr>
+<th>Modul</th>
+<th>Maximum</th>
+<th>Bestehen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lesen</td>
+<td>100</td>
+<td>≥ 60</td>
+</tr>
+<tr>
+<td>Hören</td>
+<td>100</td>
+<td>≥ 60</td>
+</tr>
+<tr>
+<td>Schreiben</td>
+<td>100</td>
+<td>≥ 60</td>
+</tr>
+<tr>
+<td>Sprechen</td>
+<td>100</td>
+<td>≥ 60</td>
+</tr>
+<tr>
+<td><strong>Gesamt</strong></td>
+<td><strong>400</strong></td>
+<td><strong>≥ 240</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Jedes Modul muss einzeln bestanden werden (60% Bestehensgrenze pro Modul).</p>
+<hr />
+<h2 id="hinweis">Hinweis</h2>
+<p>Das Goethe-Zertifikat C2: GDS wird von vielen Hochschulen als Nachweis der sprachlichen Studierfähigkeit anerkannt und berechtigt zum Studium an deutschen Universitäten. Offizielle Modelltests und Vorbereitungsmaterialien finden Sie auf der Website des Goethe-Instituts: <a href="https://www.goethe.de/de/spr/kup/prf/prf/gc2.html">goethe.de</a></p>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer bg-primary text-light mt-5 py-4 shadow-sm"><div class="container text-center small"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-2 text-light-emphasis">Official certification materials for German language proficiency</p><div class="d-flex justify-content-center gap-3 flex-wrap mb-2"><a href="https://www.goethe.de" class="link-light text-decoration-none" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="link-light text-decoration-none" target="_blank" rel="noopener">GitHub ↗</a></div><p class="mb-0 text-light-emphasis">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>

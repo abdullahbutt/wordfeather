@@ -1,0 +1,752 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 Grammatik - C1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        .jump-links {
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 4rem minmax(0, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+
+            .alphabet-nav {
+                top: 6rem;
+                width: 100%;
+                margin-bottom: 0 !important;
+            }
+
+            .alphabet-nav .jump-links {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.4rem !important;
+            }
+
+            .alphabet-nav .btn {
+                width: 2.2rem;
+                padding: 0.2rem 0;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="BASE/index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="BASE/B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="BASE/C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="BASE/C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                if (nav) nav.appendChild(li);
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">C1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">02 Grammatik</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">02 Grammatik</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">C1</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="c1-grammatik-grammar">C1 Grammatik / Grammar</h1>
+<p>Fachkundige Grammatik für das Goethe-Zertifikat C1.</p>
+<hr />
+<h2 id="1-erweiterte-partizipialkonstruktionen">1. Erweiterte Partizipialkonstruktionen</h2>
+<h3 id="links-attribute-typisch-fur-wissenschaftliche-texte">Links-Attribute (typisch für wissenschaftliche Texte)</h3>
+<ul>
+<li>Die <strong>im Rahmen der Studie durchgeführten</strong> Experimente ... (= Experimente, die im Rahmen der Studie durchgeführt wurden)</li>
+<li>Die <strong>von zahlreichen Experten als überholt angesehene</strong> Theorie ... (= Theorie, die von zahlreichen Experten als überholt angesehen wird)</li>
+<li>Der <strong>sich seit Jahren verschärfende</strong> Fachkräftemangel ...</li>
+</ul>
+<h3 id="umformung-relativsatz-partizipialattribut">Umformung: Relativsatz ↔ Partizipialattribut</h3>
+<table>
+<thead>
+<tr>
+<th>Relativsatz</th>
+<th>Partizipialattribut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Die Maßnahmen, die von der Regierung beschlossen wurden</td>
+<td>Die von der Regierung beschlossenen Maßnahmen</td>
+</tr>
+<tr>
+<td>Die Kosten, die ständig steigen</td>
+<td>Die ständig steigenden Kosten</td>
+</tr>
+<tr>
+<td>Die Studie, die kürzlich veröffentlicht wurde</td>
+<td>Die kürzlich veröffentlichte Studie</td>
+</tr>
+<tr>
+<td>Die Fragen, die noch zu klären sind</td>
+<td>Die noch zu klärenden Fragen</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-nomen-verb-verbindungen-funktionsverbgefuge">2. Nomen-Verb-Verbindungen (Funktionsverbgefüge)</h2>
+<table>
+<thead>
+<tr>
+<th>Wendung</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anklage erheben</td>
+<td>anklagen</td>
+<td>Gegen den Verdächtigen wurde Anklage erhoben.</td>
+</tr>
+<tr>
+<td>Aufsehen erregen</td>
+<td>auffallen</td>
+<td>Der Fall erregte großes Aufsehen.</td>
+</tr>
+<tr>
+<td>Auskunft erteilen</td>
+<td>informieren</td>
+<td>Können Sie mir Auskunft erteilen?</td>
+</tr>
+<tr>
+<td>Berücksichtigung finden</td>
+<td>berücksichtigt werden</td>
+<td>Alle Aspekte müssen Berücksichtigung finden.</td>
+</tr>
+<tr>
+<td>Bezug nehmen auf</td>
+<td>sich beziehen auf</td>
+<td>Ich nehme Bezug auf Ihr Schreiben.</td>
+</tr>
+<tr>
+<td>Einfluss nehmen auf</td>
+<td>beeinflussen</td>
+<td>Die Medien nehmen Einfluss auf die öffentliche Meinung.</td>
+</tr>
+<tr>
+<td>in Angriff nehmen</td>
+<td>beginnen</td>
+<td>Das Projekt wurde in Angriff genommen.</td>
+</tr>
+<tr>
+<td>in Betracht ziehen</td>
+<td>erwägen</td>
+<td>Wir sollten alle Optionen in Betracht ziehen.</td>
+</tr>
+<tr>
+<td>in Frage stellen</td>
+<td>bezweifeln</td>
+<td>Diese Theorie wird zunehmend in Frage gestellt.</td>
+</tr>
+<tr>
+<td>Kritik üben an</td>
+<td>kritisieren</td>
+<td>Die Opposition übt scharfe Kritik an der Regierung.</td>
+</tr>
+<tr>
+<td>Stellung nehmen zu</td>
+<td>sich äußern zu</td>
+<td>Der Minister nahm Stellung zu den Vorwürfen.</td>
+</tr>
+<tr>
+<td>unter Beweis stellen</td>
+<td>beweisen</td>
+<td>Sie hat ihre Kompetenz unter Beweis gestellt.</td>
+</tr>
+<tr>
+<td>zur Debatte stehen</td>
+<td>diskutiert werden</td>
+<td>Dieses Thema steht zur Debatte.</td>
+</tr>
+<tr>
+<td>zur Verfügung stehen</td>
+<td>vorhanden sein</td>
+<td>Stehen Ihnen genügend Mittel zur Verfügung?</td>
+</tr>
+<tr>
+<td>zum Ausdruck bringen</td>
+<td>ausdrücken</td>
+<td>Er brachte seine Besorgnis zum Ausdruck.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-modalpartikeln-modal-particles">3. Modalpartikeln / Modal Particles</h2>
+<table>
+<thead>
+<tr>
+<th>Partikel</th>
+<th>Funktion</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ja</td>
+<td>Betonung (bekannt)</td>
+<td>Das ist <strong>ja</strong> interessant!</td>
+</tr>
+<tr>
+<td>doch</td>
+<td>Widerspruch, Aufforderung</td>
+<td>Komm <strong>doch</strong> mit! / Das stimmt <strong>doch</strong> nicht!</td>
+</tr>
+<tr>
+<td>halt/eben</td>
+<td>Resignation</td>
+<td>Das ist <strong>halt/eben</strong> so.</td>
+</tr>
+<tr>
+<td>wohl</td>
+<td>Vermutung</td>
+<td>Er ist <strong>wohl</strong> schon gegangen.</td>
+</tr>
+<tr>
+<td>schon</td>
+<td>Zuversicht/Einschränkung</td>
+<td>Das wird <strong>schon</strong> klappen. / Das stimmt <strong>schon</strong>, aber ...</td>
+</tr>
+<tr>
+<td>mal</td>
+<td>Abschwächung</td>
+<td>Können Sie <strong>mal</strong> helfen?</td>
+</tr>
+<tr>
+<td>bloß/nur</td>
+<td>Warnung/Nachdrücklichkeit</td>
+<td>Tu das <strong>bloß</strong> nicht!</td>
+</tr>
+<tr>
+<td>denn</td>
+<td>Interesse/Überraschung</td>
+<td>Was ist <strong>denn</strong> passiert?</td>
+</tr>
+<tr>
+<td>eigentlich</td>
+<td>Themenübergang</td>
+<td>Was machst du <strong>eigentlich</strong> beruflich?</td>
+</tr>
+<tr>
+<td>ruhig</td>
+<td>Ermutigung</td>
+<td>Du kannst <strong>ruhig</strong> fragen.</td>
+</tr>
+<tr>
+<td>etwa</td>
+<td>Ungläubige Frage</td>
+<td>Hast du <strong>etwa</strong> vergessen?</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-subjektlose-passivkonstruktionen">4. Subjektlose Passivkonstruktionen</h2>
+<ul>
+<li>Es <strong>wurde</strong> bis spät in die Nacht <strong>diskutiert</strong>.</li>
+<li>Hier <strong>darf</strong> nicht <strong>geraucht werden</strong>.</li>
+<li>Im Vertrag <strong>wird</strong> festgelegt, dass ...</li>
+<li><strong>Wird</strong> hier noch <strong>gearbeitet</strong>?</li>
+<li>Es <strong>wurde</strong> ihm mitgeteilt, dass ...</li>
+</ul>
+<hr />
+<h2 id="5-konjunktiv-i-indirekte-rede-vertiefung">5. Konjunktiv I — Indirekte Rede (Vertiefung)</h2>
+<h3 id="bildung">Bildung</h3>
+<table>
+<thead>
+<tr>
+<th>Infinitiv</th>
+<th>er/sie (K1)</th>
+<th>sie (Pl.) (K1→K2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sein</td>
+<td>sei</td>
+<td>seien</td>
+</tr>
+<tr>
+<td>haben</td>
+<td>habe</td>
+<td>hätten (K2, da K1=haben=Indikativ)</td>
+</tr>
+<tr>
+<td>können</td>
+<td>könne</td>
+<td>könnten</td>
+</tr>
+<tr>
+<td>müssen</td>
+<td>müsse</td>
+<td>müssten</td>
+</tr>
+<tr>
+<td>gehen</td>
+<td>gehe</td>
+<td>gingen</td>
+</tr>
+<tr>
+<td>kommen</td>
+<td>komme</td>
+<td>kämen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="anwendung-in-der-berichterstattung">Anwendung in der Berichterstattung</h3>
+<ul>
+<li>Der Sprecher erklärte, die Regierung <strong>sei</strong> sich der Probleme bewusst.</li>
+<li>Die Forscherin betonte, es <strong>gebe</strong> deutliche Hinweise auf einen Zusammenhang.</li>
+<li>Er fügte hinzu, man <strong>müsse</strong> weitere Untersuchungen <strong>durchführen</strong>.</li>
+<li>Laut Bericht <strong>seien</strong> die Ergebnisse <strong>veröffentlicht worden</strong>.</li>
+<li>Die Ministerin sagte, sie <strong>werde</strong> die Maßnahmen <strong>überprüfen lassen</strong>.</li>
+</ul>
+<hr />
+<h2 id="6-satzbau-komplexe-strukturen">6. Satzbau — Komplexe Strukturen</h2>
+<h3 id="verbletzt-satze-mit-multiplen-nebensatzen">Verbletzt-Sätze mit multiplen Nebensätzen</h3>
+<ul>
+<li>Obwohl die Studie zeigt, <strong>dass</strong> die Maßnahmen wirksam <strong>sind</strong>, <strong>bleibt</strong> unklar, <strong>ob</strong> sie langfristig finanzierbar <strong>sein werden</strong>.</li>
+</ul>
+<h3 id="korrelate-es">Korrelate (es)</h3>
+<ul>
+<li><strong>Es</strong> ist davon auszugehen, <strong>dass</strong> sich die Lage verschärft.</li>
+<li><strong>Es</strong> liegt nahe, <strong>dass</strong> der Rückgang auf wirtschaftliche Faktoren zurückzuführen ist.</li>
+<li><strong>Es</strong> bedarf weiterer Forschung, <strong>um</strong> diesen Zusammenhang zu bestätigen.</li>
+</ul>
+<h3 id="satzverschachtelung">Satzverschachtelung</h3>
+<ul>
+<li>Die These, <strong>die</strong> der Autor, <strong>der</strong> an der Universität Heidelberg lehrt, aufgestellt hat, <strong>ist</strong> umstritten.<br />
+→ Besser: Die vom Heidelberger Professor aufgestellte These ist umstritten.</li>
+</ul>
+<hr />
+<h2 id="7-irreale-vergleiche-unreal-comparisons">7. Irreale Vergleiche / Unreal Comparisons</h2>
+<ul>
+<li>Er tut so, <strong>als ob</strong> er alles wüsste. / Er tut so, <strong>als</strong> wüsste er alles.</li>
+<li>Sie sprach, <strong>als ob</strong> sie eine Expertin <strong>wäre</strong>.</li>
+<li>Es sieht aus, <strong>als ob</strong> es regnen <strong>würde</strong>.</li>
+<li>Er tat, <strong>als hätte</strong> er nichts gehört.</li>
+</ul>
+<hr />
+<h2 id="8-weiterfuhrende-relativsatze">8. Weiterführende Relativsätze</h2>
+<h3 id="mit-was-bezieht-sich-auf-den-ganzen-satz">Mit "was" (bezieht sich auf den ganzen Satz)</h3>
+<ul>
+<li>Er hat die Prüfung bestanden, <strong>was</strong> mich sehr freut.</li>
+<li>Sie kam zu spät, <strong>was</strong> alle überrascht hat.</li>
+<li>Er hat gelogen, <strong>was</strong> ihm niemand verziehen hat.</li>
+</ul>
+<h3 id="mit-woruber-wofur-worin-usw">Mit "worüber, wofür, worin" usw.</h3>
+<ul>
+<li>Das ist ein Thema, <strong>worüber</strong> viel diskutiert wird.</li>
+<li>Das ist ein Ergebnis, <strong>worauf</strong> wir stolz sein können.</li>
+</ul>
+<hr />
+<h2 id="9-verbalstil-vs-nominalstil">9. Verbalstil vs. Nominalstil</h2>
+<h3 id="verbalstil-mundlich-informell">Verbalstil (mündlich, informell)</h3>
+<ul>
+<li>Man hat die Kosten <strong>gesenkt</strong>.</li>
+<li>Die Bevölkerung <strong>wächst</strong>.</li>
+<li>Man <strong>muss berücksichtigen</strong>, dass ...</li>
+</ul>
+<h3 id="nominalstil-schriftlich-formell">Nominalstil (schriftlich, formell)</h3>
+<ul>
+<li><strong>Die Senkung</strong> der Kosten wurde durchgeführt.</li>
+<li><strong>Das Wachstum</strong> der Bevölkerung.</li>
+<li><strong>Unter Berücksichtigung</strong> der Tatsache, dass ...</li>
+</ul>
+<hr />
+<h2 id="ubungen">Übungen</h2>
+<h3 id="ubung-1-partizipialkonstruktionen-umformen">Übung 1: Partizipialkonstruktionen umformen</h3>
+<ol>
+<li>Die Studie, die an der TU München durchgeführt wurde → Die an der TU München durchgeführte Studie</li>
+<li>Die Probleme, die im Bericht erwähnt wurden → ?</li>
+<li>Die Preise, die in den letzten Monaten gestiegen sind → ?</li>
+</ol>
+<h3 id="ubung-2-funktionsverbgefuge-verwenden">Übung 2: Funktionsverbgefüge verwenden</h3>
+<ol>
+<li>kritisieren → Kritik üben an</li>
+<li>beeinflussen → ?</li>
+<li>beginnen → ?</li>
+<li>beweisen → ?</li>
+</ol>
+<h3 id="ubung-3-indirekte-rede-konjunktiv-i">Übung 3: Indirekte Rede (Konjunktiv I)</h3>
+<ol>
+<li>"Ich bin zufrieden." → Er sagte, er sei zufrieden.</li>
+<li>"Wir haben das Problem gelöst." → Sie erklärten, sie ...</li>
+<li>"Die Regierung muss handeln." → Der Experte betonte, die Regierung ...</li>
+</ol>
+                </div>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        function setupJumpCollapse() {
+            var THRESHOLD = 8;
+            var nav = document.querySelector('.alphabet-nav');
+            if (!nav) return;
+            var existing = nav.querySelector('.jump-more-btn');
+            if (existing) existing.remove();
+            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
+            links.forEach(function (l) { l.style.display = ''; });
+            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
+            var firstBatch = links.slice(0, THRESHOLD);
+            var lastBatch = links.slice(THRESHOLD);
+            var moreBtn = document.createElement('button');
+            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
+            moreBtn.textContent = '\u2026';
+            moreBtn.title = 'Show more buttons';
+            var isExpanded = false;
+            var toggleDisplay = function () {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    firstBatch.forEach(function (l) { l.style.display = 'none'; });
+                    lastBatch.forEach(function (l) { l.style.display = ''; });
+                    moreBtn.title = 'Show first buttons';
+                } else {
+                    firstBatch.forEach(function (l) { l.style.display = ''; });
+                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
+                    moreBtn.title = 'Show more buttons';
+                }
+            };
+            moreBtn.addEventListener('click', toggleDisplay);
+            lastBatch.forEach(function (l) { l.style.display = 'none'; });
+            nav.querySelector('.jump-links').appendChild(moreBtn);
+        }
+
+        window.addEventListener('resize', setupJumpCollapse);
+
+        (function () {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            fetch(prefix + 'jump_grammatik.html')
+                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function (html) {
+                    document.getElementById('jump-bar-placeholder').innerHTML = html;
+                    document.querySelectorAll('.jump-links a[data-section]').forEach(function (link) {
+                        var number = link.getAttribute('data-section');
+                        var heading = document.querySelector('h2[id^="' + number + '-"]');
+                        if (heading) {
+                            link.setAttribute('href', '#' + heading.id);
+                        } else {
+                            link.classList.add('disabled');
+                            link.setAttribute('aria-disabled', 'true');
+                        }
+                    });
+                    setupJumpCollapse();
+                })
+                .catch(function () {
+                    var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        var m = h.id.match(/^(\d+)-/);
+                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
+                    });
+                    document.getElementById('jump-bar-placeholder').innerHTML =
+                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
+                    setupJumpCollapse();
+                });
+        })();
+    </script>
+    <script>
+        (function() {
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var prefix = parts.length <= 1 ? '' : '../';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top border-bottom shadow-sm" style="background:#f1f3f5;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">GitHub ↗</a></div></div></div><p class="mb-0 mt-3 text-center text-secondary small">Generated: 2026-04-20</p></div></footer>';
+            fetch(prefix + 'footer.html')
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+        })();
+    </script>
+</body>
+</html>
+
+
