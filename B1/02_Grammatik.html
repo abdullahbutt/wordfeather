@@ -651,26 +651,7 @@
         window.addEventListener('resize', setupJumpCollapse);
 
         (function () {
-            var parts = window.location.pathname.split('/').filter(Boolean);
-            var prefix = parts.length <= 1 ? '' : '../';
-            fetch(prefix + 'jump_grammatik.html')
-                .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
-                .then(function (html) {
-                    document.getElementById('jump-bar-placeholder').innerHTML = html;
-                    document.querySelectorAll('.jump-links a[data-section]').forEach(function (link) {
-                        var number = link.getAttribute('data-section');
-                        var heading = document.querySelector('h2[id^="' + number + '-"]');
-                        if (heading) {
-                            link.setAttribute('href', '#' + heading.id);
-                        } else {
-                            link.classList.add('disabled');
-                            link.setAttribute('aria-disabled', 'true');
-                        }
-                    });
-                    setupJumpCollapse();
-                })
-                .catch(function () {
-                    var buttons = '';
+            var buttons = '';
                     document.querySelectorAll('h2[id]').forEach(function (h) {
                         var m = h.id.match(/^(\d+)-/);
                         if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
@@ -678,7 +659,6 @@
                     document.getElementById('jump-bar-placeholder').innerHTML =
                         '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
                     setupJumpCollapse();
-                });
         })();
     </script>
     <script>
