@@ -1,0 +1,25 @@
+{
+  "name": "Deutsch Learning Hub — Goethe A1 to C2",
+  "short_name": "Deutsch Lernen",
+  "description": "Complete A1–C2 learning materials for the Goethe-Zertifikat",
+  "start_url": "/deutsch-lernen-goethe-a1-c2/",
+  "scope": "/deutsch-lernen-goethe-a1-c2/",
+  "display": "standalone",
+  "background_color": "#1d4ed8",
+  "theme_color": "#1d4ed8",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
