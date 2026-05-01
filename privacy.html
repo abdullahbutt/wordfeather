@@ -503,7 +503,7 @@
       document.getElementById('footer-placeholder').innerHTML = html;
     }
 
-    fetch(prefix + 'footer.html')
+    fetch(prefix + 'footer.html?v=' + Date.now())
             .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
             .then(renderFooter)
             .catch(function () { renderFooter(footerFallback); });
