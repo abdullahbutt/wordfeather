@@ -446,7 +446,19 @@
     <script>
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js')
-            .then(function() { console.log('SW registered'); })
+            .then(function(reg) {
+                // Check for updates on every page load
+                reg.update();
+                // When a new SW is found, activate it immediately
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>

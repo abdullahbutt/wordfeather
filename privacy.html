@@ -513,5 +513,22 @@
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script>
 
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js')
+            .then(function(reg) {
+                reg.update();
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
 </body>
 </html>

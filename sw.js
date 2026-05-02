@@ -1,20 +1,25 @@
-// Deutsch Learning Hub - Service Worker
-const CACHE_NAME = 'deutsch-lernen-v2';
+// Deutsch Learning Hub - Service Worker v3
+const CACHE_NAME = 'deutsch-lernen-v3';
 const BASE = '/deutsch-lernen-goethe-a1-c2/';
 
-const URLS_TO_CACHE = ['/deutsch-lernen-goethe-a1-c2/', '/deutsch-lernen-goethe-a1-c2/A1/01_Wortschatz.html', '/deutsch-lernen-goethe-a1-c2/A1/02_Grammatik.html', '/deutsch-lernen-goethe-a1-c2/A1/03_Saetze.html', '/deutsch-lernen-goethe-a1-c2/A1/04_Lesen.html', '/deutsch-lernen-goethe-a1-c2/A1/05_Hoeren.html', '/deutsch-lernen-goethe-a1-c2/A1/06_Sprechen.html', '/deutsch-lernen-goethe-a1-c2/A1/07_Schreiben.html', '/deutsch-lernen-goethe-a1-c2/A1/08_Musterpruefung.html', '/deutsch-lernen-goethe-a1-c2/A1/README.html', '/deutsch-lernen-goethe-a1-c2/A1/index.html', '/deutsch-lernen-goethe-a1-c2/A2/01_Wortschatz.html', '/deutsch-lernen-goethe-a1-c2/A2/02_Grammatik.html', '/deutsch-lernen-goethe-a1-c2/A2/03_Saetze.html', '/deutsch-lernen-goethe-a1-c2/A2/04_Lesen.html', '/deutsch-lernen-goethe-a1-c2/A2/05_Hoeren.html', '/deutsch-lernen-goethe-a1-c2/A2/06_Sprechen.html', '/deutsch-lernen-goethe-a1-c2/A2/07_Schreiben.html', '/deutsch-lernen-goethe-a1-c2/A2/08_Musterpruefung.html', '/deutsch-lernen-goethe-a1-c2/A2/README.html', '/deutsch-lernen-goethe-a1-c2/A2/index.html', '/deutsch-lernen-goethe-a1-c2/B1/01_Wortschatz.html', '/deutsch-lernen-goethe-a1-c2/B1/02_Grammatik.html', '/deutsch-lernen-goethe-a1-c2/B1/03_Saetze.html', '/deutsch-lernen-goethe-a1-c2/B1/04_Lesen.html', '/deutsch-lernen-goethe-a1-c2/B1/05_Hoeren.html', '/deutsch-lernen-goethe-a1-c2/B1/06_Sprechen.html', '/deutsch-lernen-goethe-a1-c2/B1/07_Schreiben.html', '/deutsch-lernen-goethe-a1-c2/B1/08_Musterpruefung.html', '/deutsch-lernen-goethe-a1-c2/B1/README.html', '/deutsch-lernen-goethe-a1-c2/B1/index.html', '/deutsch-lernen-goethe-a1-c2/B2/01_Wortschatz.html', '/deutsch-lernen-goethe-a1-c2/B2/02_Grammatik.html', '/deutsch-lernen-goethe-a1-c2/B2/03_Saetze.html', '/deutsch-lernen-goethe-a1-c2/B2/04_Lesen.html', '/deutsch-lernen-goethe-a1-c2/B2/05_Hoeren.html', '/deutsch-lernen-goethe-a1-c2/B2/06_Sprechen.html', '/deutsch-lernen-goethe-a1-c2/B2/07_Schreiben.html', '/deutsch-lernen-goethe-a1-c2/B2/08_Musterpruefung.html', '/deutsch-lernen-goethe-a1-c2/B2/README.html', '/deutsch-lernen-goethe-a1-c2/B2/index.html', '/deutsch-lernen-goethe-a1-c2/C1/01_Wortschatz.html', '/deutsch-lernen-goethe-a1-c2/C1/02_Grammatik.html', '/deutsch-lernen-goethe-a1-c2/C1/03_Saetze.html', '/deutsch-lernen-goethe-a1-c2/C1/04_Lesen.html', '/deutsch-lernen-goethe-a1-c2/C1/05_Hoeren.html', '/deutsch-lernen-goethe-a1-c2/C1/06_Sprechen.html', '/deutsch-lernen-goethe-a1-c2/C1/07_Schreiben.html', '/deutsch-lernen-goethe-a1-c2/C1/08_Musterpruefung.html', '/deutsch-lernen-goethe-a1-c2/C1/README.html', '/deutsch-lernen-goethe-a1-c2/C1/index.html', '/deutsch-lernen-goethe-a1-c2/C2/01_Wortschatz.html', '/deutsch-lernen-goethe-a1-c2/C2/02_Grammatik.html', '/deutsch-lernen-goethe-a1-c2/C2/03_Saetze.html', '/deutsch-lernen-goethe-a1-c2/C2/04_Lesen.html', '/deutsch-lernen-goethe-a1-c2/C2/05_Hoeren.html', '/deutsch-lernen-goethe-a1-c2/C2/06_Sprechen.html', '/deutsch-lernen-goethe-a1-c2/C2/07_Schreiben.html', '/deutsch-lernen-goethe-a1-c2/C2/08_Musterpruefung.html', '/deutsch-lernen-goethe-a1-c2/C2/README.html', '/deutsch-lernen-goethe-a1-c2/C2/index.html', '/deutsch-lernen-goethe-a1-c2/index.html', '/deutsch-lernen-goethe-a1-c2/privacy.html', '/deutsch-lernen-goethe-a1-c2/manifest.json', '/deutsch-lernen-goethe-a1-c2/icon-192x192.png', '/deutsch-lernen-goethe-a1-c2/icon-512x512.png', '/deutsch-lernen-goethe-a1-c2/og-image.png', '/deutsch-lernen-goethe-a1-c2/header.html', '/deutsch-lernen-goethe-a1-c2/footer.html', '/deutsch-lernen-goethe-a1-c2/jump_grammatik.html', '/deutsch-lernen-goethe-a1-c2/jump_saetze.html', '/deutsch-lernen-goethe-a1-c2/jump_wortschatz.html'];
+// Static assets that rarely change (cache-first)
+const STATIC_ASSETS = [
+  'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+  'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
+  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
+];
 
-// Install: cache all pages
+// Install: cache static assets only
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(URLS_TO_CACHE);
+      return cache.addAll(STATIC_ASSETS);
     })
   );
   self.skipWaiting();
 });
 
-// Activate: clean old caches
+// Activate: clean ALL old caches immediately
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(names) {
@@ -27,25 +32,46 @@ self.addEventListener('activate', function(event) {
   self.clients.claim();
 });
 
-// Fetch: serve from cache, fall back to network
+// Fetch strategy:
+// HTML pages: network-first (always get latest, cache as offline fallback)
+// Static assets: cache-first (fast loading)
 self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      if (response) { return response; }
-      return fetch(event.request).then(function(networkResponse) {
-        // Cache new requests dynamically (e.g. Bootstrap CDN)
+  var request = event.request;
+  var url = new URL(request.url);
+
+  // HTML pages and own assets: network-first
+  if (request.mode === 'navigate' ||
+      (url.origin === self.location.origin && url.pathname.startsWith(BASE))) {
+    event.respondWith(
+      fetch(request).then(function(networkResponse) {
         if (networkResponse && networkResponse.status === 200) {
           var responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then(function(cache) {
-            cache.put(event.request, responseClone);
+            cache.put(request, responseClone);
           });
         }
         return networkResponse;
       }).catch(function() {
-        // Offline fallback for navigation requests
-        if (event.request.mode === 'navigate') {
-          return caches.match(BASE);
+        return caches.match(request).then(function(cachedResponse) {
+          return cachedResponse || caches.match(BASE);
+        });
+      })
+    );
+    return;
+  }
+
+  // External static assets (CDN): cache-first
+  event.respondWith(
+    caches.match(request).then(function(cachedResponse) {
+      if (cachedResponse) { return cachedResponse; }
+      return fetch(request).then(function(networkResponse) {
+        if (networkResponse && networkResponse.status === 200) {
+          var responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then(function(cache) {
+            cache.put(request, responseClone);
+          });
         }
+        return networkResponse;
       });
     })
   );
