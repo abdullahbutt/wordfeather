@@ -115,17 +115,21 @@
       var headers = table.querySelectorAll('thead th');
       if (headers.length === 0) return;
 
-      // Build column map
-      var colMap = {};
+      // Build column map (supports duplicate headers like Deutsch, Englisch, Deutsch, Englisch)
+      var colMap = { de: [], en: [] };
       headers.forEach(function (th, i) {
         var text = th.textContent.trim().toLowerCase();
-        if (text === 'deutsch') colMap.de = i;
-        else if (text === 'englisch') colMap.en = i;
-        else if (text === 'beispielsatz') colMap.example = i;
+        if (text === 'deutsch' || text === 'kollokation' || text === 'wendung' ||
+            text === 'einfaches verb' || text === 'beispielsatz' || text === 'bedeutung' ||
+            text === 'neutral') {
+          colMap.de.push(i);
+        } else if (text === 'englisch') {
+          colMap.en.push(i);
+        }
       });
 
-      // Skip tables without Deutsch/Englisch columns
-      if (colMap.de === undefined && colMap.en === undefined) return;
+      // Skip tables without recognized columns
+      if (colMap.de.length === 0 && colMap.en.length === 0) return;
 
       // Process each data row
       var rows = table.querySelectorAll('tbody tr');
@@ -133,20 +137,15 @@
         var cells = row.querySelectorAll('td');
         if (cells.length === 0) return;
 
-        // German word
-        if (colMap.de !== undefined && cells[colMap.de]) {
-          wrapCell(cells[colMap.de], 'de-DE');
-        }
+        // German columns
+        colMap.de.forEach(function (idx) {
+          if (cells[idx]) wrapCell(cells[idx], 'de-DE');
+        });
 
-        // English translation
-        if (colMap.en !== undefined && cells[colMap.en]) {
-          wrapCell(cells[colMap.en], 'en-US');
-        }
-
-        // Example sentence (German)
-        if (colMap.example !== undefined && cells[colMap.example]) {
-          wrapCell(cells[colMap.example], 'de-DE');
-        }
+        // English columns
+        colMap.en.forEach(function (idx) {
+          if (cells[idx]) wrapCell(cells[idx], 'en-US');
+        });
       });
     });
 
