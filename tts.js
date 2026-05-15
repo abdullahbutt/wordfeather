@@ -149,8 +149,44 @@
       });
     });
 
-    // Handle Sätze pages: <li><strong>German</strong> — English</li>
-    addButtonsToSaetze();
+    // Route to the right handler based on page type
+    var path = window.location.pathname;
+    if (path.indexOf('Saetze') > -1) {
+      addButtonsToSaetze();
+    } else {
+      addButtonsToSprechen();
+    }
+  }
+
+  function addButtonsToSprechen() {
+    var items = document.querySelectorAll('.markdown-content ul li, .markdown-content ol li');
+
+    items.forEach(function (li) {
+      // Skip if already processed by addButtonsToSaetze
+      if (li.querySelector('.tts-btn')) return;
+
+      var strongs = li.querySelectorAll('strong');
+      var ems = li.querySelectorAll('em');
+
+      // Only process if there's at least a strong tag
+      if (strongs.length === 0) return;
+
+      // Add German speaker after each <strong>
+      strongs.forEach(function (el) {
+        var text = el.textContent.trim();
+        if (text && text !== '—' && text.length > 1) {
+          el.parentNode.insertBefore(createBtn(text, 'de-DE'), el.nextSibling);
+        }
+      });
+
+      // Add English speaker after each <em>
+      ems.forEach(function (el) {
+        var text = el.textContent.trim();
+        if (text && text !== '—' && text.length > 1) {
+          el.parentNode.insertBefore(createBtn(text, 'en-US'), el.nextSibling);
+        }
+      });
+    });
   }
 
   function addButtonsToSaetze() {
