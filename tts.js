@@ -149,6 +149,46 @@
         }
       });
     });
+
+    // Handle Sätze pages: <li><strong>German</strong> — English</li>
+    addButtonsToSaetze();
+  }
+
+  function addButtonsToSaetze() {
+    var items = document.querySelectorAll('.markdown-content ol li');
+
+    items.forEach(function (li) {
+      var strong = li.querySelector('strong');
+      if (!strong) return;
+
+      var germanText = strong.textContent.trim();
+      var fullText = li.textContent.trim();
+
+      // Split on — or - to get English part
+      var parts = fullText.split(/\s*[—–]\s*/);
+      var englishText = parts.length > 1 ? parts.slice(1).join(' — ').trim() : '';
+
+      // Build new content: 🔊 German — 🔊 English
+      var wrapper = document.createElement('span');
+
+      var deSpan = document.createElement('strong');
+      deSpan.textContent = germanText;
+      wrapper.appendChild(deSpan);
+      wrapper.appendChild(createBtn(germanText, 'de-DE'));
+
+      if (englishText) {
+        var dash = document.createTextNode(' — ');
+        wrapper.appendChild(dash);
+
+        var enSpan = document.createElement('span');
+        enSpan.textContent = englishText;
+        wrapper.appendChild(enSpan);
+        wrapper.appendChild(createBtn(englishText, 'en-US'));
+      }
+
+      li.innerHTML = '';
+      li.appendChild(wrapper);
+    });
   }
 
   function wrapCell(cell, lang) {
