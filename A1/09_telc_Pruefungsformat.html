@@ -1,0 +1,600 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/deutsch-lernen-goethe-a1-c2/manifest.json">
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Deutsch Lernen">
+    <link rel="apple-touch-icon" href="/deutsch-lernen-goethe-a1-c2/icon-192x192.png">
+    <title>09 telc Prüfungsformat - A1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    
+        .site-footer {
+            background: var(--page-bg, #f1f3f5);
+            color: var(--page-text, #1f2937);
+        }
+        [data-bs-theme="dark"] .site-footer {
+            background: #1e293b !important;
+            color: #e2e8f0;
+            border-color: #374151 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .text-secondary {
+            color: #94a3b8 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary {
+            color: #94a3b8;
+            border-color: #475569;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary:hover {
+            background: #334155;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main>
+        <div class="container py-4">
+            <div class="card content-card p-4 p-md-5">
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb small">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">A1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">09 telc Prüfungsformat</li>
+                    </ol>
+                </nav>
+                <div class="page-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <h1 class="h2 mb-0">09 telc Prüfungsformat</h1>
+                    <span class="badge bg-primary rounded-pill fs-6">A1</span>
+                </div>
+
+                <div class="markdown-content">
+<h1>A1 telc Deutsch A1 — Prüfungsformat / Exam Format</h1>
+<blockquote>
+<p><strong>Hinweis / Note:</strong> Grammatik, Wortschatz und Fertigkeiten sind für Goethe und telc identisch — nur das Prüfungsformat unterscheidet sich. Die Dateien 01–07 in diesem Ordner gelten für beide Prüfungen.</p>
+<p><em>Grammar, vocabulary, and skills are identical for Goethe and telc — only the exam format differs. Files 01–07 in this folder apply to both exams.</em></p>
+</blockquote>
+<hr />
+<h2>Überblick / Overview</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>telc Deutsch A1</th>
+<th>Goethe A1 (zum Vergleich)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dauer / Duration</strong></td>
+<td>ca. 75 Minuten</td>
+<td>ca. 80 Minuten</td>
+</tr>
+<tr>
+<td><strong>Teile / Parts</strong></td>
+<td>Hören, Lesen, Schreiben, Sprechen</td>
+<td>Lesen, Hören, Schreiben, Sprechen</td>
+</tr>
+<tr>
+<td><strong>Bestehen / Pass</strong></td>
+<td>60% gesamt</td>
+<td>60% pro Modul</td>
+</tr>
+<tr>
+<td><strong>Preis / Price</strong></td>
+<td>~100–130 €</td>
+<td>~100–150 €</td>
+</tr>
+<tr>
+<td><strong>Ergebnis / Result</strong></td>
+<td>ca. 4–6 Wochen</td>
+<td>ca. 4–6 Wochen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wichtiger Unterschied / Key Difference:</strong> Bei telc müssen Sie 60% insgesamt erreichen, nicht pro Modul. Das bedeutet, eine Schwäche in einem Bereich kann durch Stärke in einem anderen ausgeglichen werden.</p>
+<p><em>With telc you need 60% overall, not per module. A weakness in one area can be compensated by strength in another.</em></p>
+<hr />
+<h2>HÖREN / LISTENING (ca. 20 Minuten)</h2>
+<h3>Teil 1: Kurze Ansagen / Short Announcements (6 Aufgaben / items)</h3>
+<p>Sie hören kurze Ansagen aus dem Alltag (Bahnhof, Supermarkt, Telefon). Zu jedem Hörtext gibt es eine Aufgabe.</p>
+<p><em>You hear short everyday announcements (train station, supermarket, phone). Each has one task.</em></p>
+<p><strong>Aufgabentyp / Task type:</strong> Richtig oder Falsch / True or False</p>
+<p><strong>Beispiel / Example:</strong></p>
+<blockquote>
+<p>Sie hören: <em>"Der Zug nach München fährt heute von Gleis 3, nicht von Gleis 7."</em>
+Aussage: Der Zug fährt von Gleis 7. → <strong>Falsch</strong></p>
+</blockquote>
+<p><strong>Tipps / Tips:</strong>
+- Lesen Sie die Aussage VOR dem Hören. <em>Read the statement BEFORE listening.</em>
+- Achten Sie auf Verneinungen (nicht, kein). <em>Watch for negations.</em>
+- Sie hören jeden Text zweimal. <em>You hear each text twice.</em></p>
+<h3>Teil 2: Kurze Gespräche / Short Dialogues (4 Aufgaben / items)</h3>
+<p>Sie hören kurze Gespräche zwischen zwei Personen. Wählen Sie die richtige Antwort (a, b oder c).</p>
+<p><em>You hear short dialogues between two people. Choose the correct answer (a, b, or c).</em></p>
+<p><strong>Aufgabentyp / Task type:</strong> Multiple Choice (3 Optionen)</p>
+<p><strong>Beispiel / Example:</strong></p>
+<blockquote>
+<p>Sie hören ein Gespräch im Café.
+Frage: Was bestellt die Frau?
+a) Kaffee ☐  b) Tee ☐  c) Orangensaft ☐ → <strong>a) Kaffee</strong> ✓</p>
+</blockquote>
+<h3>Teil 3: Telefonansagen / Phone Messages (5 Aufgaben / items)</h3>
+<p>Sie hören Nachrichten auf dem Anrufbeantworter. Ergänzen Sie die fehlenden Informationen.</p>
+<p><em>You hear voicemail messages. Complete the missing information.</em></p>
+<p><strong>Aufgabentyp / Task type:</strong> Lückentext / Gap fill (Zahlen, Uhrzeiten, Namen)</p>
+<p><strong>Beispiel / Example:</strong></p>
+<blockquote>
+<p>Termin beim Arzt: Mittwoch um _____ Uhr.
+Sie hören: <em>"Ihr Termin ist am Mittwoch um halb drei."</em> → <strong>14:30</strong></p>
+</blockquote>
+<p><strong>Tipps / Tips:</strong>
+- Üben Sie Zahlen und Uhrzeiten! <em>Practice numbers and times!</em>
+- Schreiben Sie sofort mit. <em>Write immediately while listening.</em></p>
+<hr />
+<h2>LESEN / READING (ca. 25 Minuten)</h2>
+<h3>Teil 1: Schilder und Kurztexte / Signs and Short Texts (5 Aufgaben / items)</h3>
+<p>Sie lesen kurze Texte wie Schilder, Anzeigen, Hinweise. Entscheiden Sie: Richtig oder Falsch?</p>
+<p><em>Read short texts like signs, ads, notices. Decide: True or False?</em></p>
+<p><strong>Aufgabentyp / Task type:</strong> Richtig / Falsch</p>
+<p><strong>Beispiel / Example:</strong></p>
+<blockquote>
+<p>Schild: „Öffnungszeiten: Mo–Fr 9–18 Uhr, Sa 9–14 Uhr"
+Aussage: Am Samstag kann man bis 18 Uhr einkaufen. → <strong>Falsch</strong></p>
+</blockquote>
+<h3>Teil 2: Kurze Texte zuordnen / Matching Short Texts (5 Aufgaben / items)</h3>
+<p>Sie lesen kurze Texte (z.B. Kleinanzeigen) und ordnen sie den passenden Situationen zu.</p>
+<p><em>Read short texts (e.g., classified ads) and match them to situations.</em></p>
+<p><strong>Aufgabentyp / Task type:</strong> Zuordnung / Matching</p>
+<p><strong>Beispiel / Example:</strong></p>
+<blockquote>
+<p>Situation: Sie suchen eine Wohnung mit 2 Zimmern.
+a) „Großes WG-Zimmer frei, ab sofort" — Nein
+b) „2-Zimmer-Wohnung, 55qm, ab 01.05." — <strong>Ja</strong> ✓</p>
+</blockquote>
+<h3>Teil 3: Formular oder Anzeige / Forms or Ads (5 Aufgaben / items)</h3>
+<p>Sie lesen ein Formular, eine Anzeige oder einen kurzen Brief und beantworten Fragen.</p>
+<p><em>Read a form, ad, or short letter and answer questions.</em></p>
+<p><strong>Aufgabentyp / Task type:</strong> Multiple Choice (3 Optionen)</p>
+<p><strong>Tipps / Tips:</strong>
+- Schlüsselwörter in der Frage markieren. <em>Mark key words in the question.</em>
+- Antwort steht fast immer wörtlich im Text. <em>The answer is almost always literally in the text.</em></p>
+<hr />
+<h2>SCHREIBEN / WRITING (ca. 20 Minuten)</h2>
+<h3>Teil 1: Formular ausfüllen / Fill in a Form (1 Aufgabe)</h3>
+<p>Sie füllen ein einfaches Formular aus (Name, Adresse, Telefonnummer, Beruf, etc.).</p>
+<p><em>Fill in a simple form (name, address, phone number, job, etc.).</em></p>
+<p><strong>Beispiel / Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feld / Field</th>
+<th>Ihre Angaben / Your details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vorname</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong>___</td>
+</tr>
+<tr>
+<td>Nachname</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong>___</td>
+</tr>
+<tr>
+<td>Geburtsdatum</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong>___</td>
+</tr>
+<tr>
+<td>Adresse</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong>___</td>
+</tr>
+<tr>
+<td>Telefon</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong>___</td>
+</tr>
+<tr>
+<td>E-Mail</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong>___</td>
+</tr>
+<tr>
+<td>Beruf</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong>___</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tipps / Tips:</strong>
+- Achten Sie auf: Vorname ≠ Nachname. <em>Watch out: first name ≠ last name.</em>
+- Datum im deutschen Format: TT.MM.JJJJ (z.B. 15.03.1990). <em>Date in German format.</em></p>
+<h3>Teil 2: Kurze Nachricht schreiben / Write a Short Message (1 Aufgabe)</h3>
+<p>Schreiben Sie eine kurze Nachricht oder SMS (ca. 30 Wörter) zu einer Alltagssituation.</p>
+<p><em>Write a short message or SMS (approx. 30 words) about an everyday situation.</em></p>
+<p><strong>Beispiel / Example:</strong></p>
+<blockquote>
+<p>Situation: Sie können morgen nicht zum Deutschkurs kommen. Schreiben Sie eine Nachricht an Ihre Lehrerin.
+<em>You can't come to German class tomorrow. Write a message to your teacher.</em></p>
+</blockquote>
+<p>Punkte / Points:
+- Alle 3 Inhaltspunkte bearbeiten. <em>Address all 3 content points.</em>
+- Anrede und Gruß nicht vergessen. <em>Don't forget greeting and sign-off.</em>
+- 30 Wörter reichen! <em>30 words are enough!</em></p>
+<p><strong>Musterantwort / Model answer:</strong></p>
+<blockquote>
+<p>Liebe Frau Müller,
+ich kann morgen leider nicht zum Kurs kommen. Ich bin krank. Kann ich die Hausaufgaben per E-Mail bekommen?
+Vielen Dank!
+Mit freundlichen Grüßen, [Name]</p>
+</blockquote>
+<hr />
+<h2>SPRECHEN / SPEAKING (ca. 11 Minuten, Gruppenprüfung)</h2>
+<blockquote>
+<p><strong>Wichtig:</strong> Die telc Sprechprüfung ist eine <strong>Gruppenprüfung</strong> (2–3 Teilnehmer), NICHT eine Einzelprüfung wie bei Goethe.</p>
+<p><em>Important: The telc speaking exam is a </em><em>group exam</em><em> (2–3 participants), NOT an individual exam like Goethe.</em></p>
+</blockquote>
+<h3>Teil 1: Sich vorstellen / Introduce Yourself (ca. 2 Min)</h3>
+<p>Stellen Sie sich vor. Die Prüfer zeigen Ihnen Karten mit Themen.</p>
+<p><em>Introduce yourself. The examiners show you cards with topics.</em></p>
+<p><strong>Themen / Topics:</strong>
+- Name, Alter, Herkunft / <em>Name, age, origin</em>
+- Wohnort / <em>Where you live</em>
+- Sprachen / <em>Languages</em>
+- Beruf oder Ausbildung / <em>Job or education</em>
+- Familie / <em>Family</em>
+- Hobbys / <em>Hobbies</em></p>
+<p><strong>Nützliche Sätze / Useful phrases:</strong>
+- Ich heiße... / Mein Name ist... — <em>My name is...</em>
+- Ich komme aus... — <em>I come from...</em>
+- Ich wohne in... — <em>I live in...</em>
+- Ich spreche... — <em>I speak...</em>
+- Ich bin... von Beruf. — <em>I am a... (job).</em>
+- Ich bin verheiratet / ledig. — <em>I am married / single.</em>
+- Mein Hobby ist... / In meiner Freizeit... — <em>My hobby is... / In my free time...</em></p>
+<h3>Teil 2: Bilder beschreiben und Gespräch / Describe Pictures and Conversation (ca. 4 Min)</h3>
+<p>Sie bekommen ein Bild und sprechen darüber. Dann stellen Sie Ihrem Partner / Ihrer Partnerin eine Frage.</p>
+<p><em>You get a picture and talk about it. Then ask your partner a question.</em></p>
+<p><strong>Themen / Topics:</strong>
+- Einkaufen, Familie, Essen, Wohnung, Verkehr, Freizeit
+- <em>Shopping, family, food, home, transport, free time</em></p>
+<p><strong>Nützliche Sätze / Useful phrases:</strong>
+- Auf dem Bild sehe ich... — <em>In the picture I see...</em>
+- Das ist ein/eine... — <em>That is a...</em>
+- Die Person macht/hat... — <em>The person is doing/has...</em>
+- Und du? / Und Sie? — <em>And you?</em>
+- Wie findest du...? — <em>What do you think of...?</em></p>
+<h3>Teil 3: Etwas aushandeln / Negotiate Something (ca. 5 Min)</h3>
+<p>Sie und Ihr Partner planen etwas zusammen. Machen Sie Vorschläge und reagieren Sie auf die Vorschläge des Partners.</p>
+<p><em>You and your partner plan something together. Make suggestions and react to your partner's suggestions.</em></p>
+<p><strong>Beispiel / Example:</strong></p>
+<blockquote>
+<p>Sie möchten zusammen kochen. Besprechen Sie:
+- Was kochen? / <em>What to cook?</em>
+- Wann? / <em>When?</em>
+- Was einkaufen? / <em>What to buy?</em>
+- Wer macht was? / <em>Who does what?</em></p>
+</blockquote>
+<p><strong>Nützliche Sätze / Useful phrases:</strong>
+- Wollen wir...? / Sollen wir...? — <em>Shall we...?</em>
+- Ich schlage vor, dass... — <em>I suggest that...</em>
+- Gute Idee! / Das finde ich gut! — <em>Good idea!</em>
+- Ich bin nicht sicher. Vielleicht... — <em>I'm not sure. Maybe...</em>
+- Einverstanden! / OK, machen wir das. — <em>Agreed! / OK, let's do that.</em></p>
+<hr />
+<h2>Bewertung / Scoring</h2>
+<table>
+<thead>
+<tr>
+<th>Bereich / Section</th>
+<th>Punkte / Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hören</td>
+<td>45</td>
+</tr>
+<tr>
+<td>Lesen</td>
+<td>45</td>
+</tr>
+<tr>
+<td>Schreiben</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Sprechen</td>
+<td>30</td>
+</tr>
+<tr>
+<td><strong>Gesamt / Total</strong></td>
+<td><strong>150</strong></td>
+</tr>
+<tr>
+<td><strong>Bestehen / Pass</strong></td>
+<td><strong>≥ 90 (60%)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wichtig / Important:</strong>
+- Schriftliche Prüfung (Hören + Lesen + Schreiben) und mündliche Prüfung (Sprechen) können an verschiedenen Tagen stattfinden.
+- <em>Written exam (Listening + Reading + Writing) and oral exam (Speaking) can take place on different days.</em>
+- Es gibt kein Bestehen pro Modul — nur die Gesamtpunktzahl zählt!
+- <em>There is no passing per module — only the total score counts!</em></p>
+<hr />
+<h2>Unterschiede Goethe vs. telc A1 / Differences</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Goethe A1</th>
+<th>telc A1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sprechen</strong></td>
+<td>Einzelprüfung + Paar</td>
+<td>Gruppenprüfung (2–3)</td>
+</tr>
+<tr>
+<td><strong>Bestehen</strong></td>
+<td>60% pro Modul</td>
+<td>60% gesamt</td>
+</tr>
+<tr>
+<td><strong>Schreiben</strong></td>
+<td>Formular + kurze Nachricht</td>
+<td>Formular + kurze Nachricht</td>
+</tr>
+<tr>
+<td><strong>Hören</strong></td>
+<td>3 Teile</td>
+<td>3 Teile</td>
+</tr>
+<tr>
+<td><strong>Lesen</strong></td>
+<td>3 Teile</td>
+<td>3 Teile</td>
+</tr>
+<tr>
+<td><strong>Allgemein</strong></td>
+<td>Etwas variabler</td>
+<td>Vorhersehbarer / More predictable</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Tipps für die telc A1-Prüfung / Tips for the telc A1 Exam</h2>
+<ol>
+<li><strong>Formular korrekt ausfüllen</strong> — Üben Sie das deutsche Datumsformat und Ihre persönlichen Daten. <em>Practice the German date format and your personal details.</em></li>
+<li><strong>Zahlen und Uhrzeiten</strong> — Diese kommen in fast jedem Hörtext vor! <em>These appear in almost every listening text!</em></li>
+<li><strong>Gruppenprüfung üben</strong> — Üben Sie mit einem Partner, Fragen zu stellen und zu reagieren. <em>Practice with a partner asking questions and responding.</em></li>
+<li><strong>30 Wörter reichen</strong> — Schreiben Sie nicht zu viel. Kurz und korrekt ist besser als lang und fehlerhaft. <em>Don't write too much. Short and correct beats long and faulty.</em></li>
+<li><strong>Schlüsselwörter markieren</strong> — Markieren Sie wichtige Wörter in Fragen und Texten. <em>Mark key words in questions and texts.</em></li>
+</ol>
+                </div>
+            </div>
+                    <div id="footer-placeholder"></div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\\/g, '/');
+            var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+            var prefix = levelMatch ? '../' : '';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a><a href="https://www.paypal.com/paypalme/abdullahbuttde" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">☕ Buy a Coffee</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="BASE/privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div><p class="mb-0 mt-3 text-center text-secondary small">Last updated: April 2026</p></div></footer>';
+            fetch(prefix + 'footer.html?v=' + Date.now())
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { var html = footerFallback.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; });
+        })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js')
+            .then(function(reg) {
+                // Check for updates on every page load
+                reg.update();
+                // When a new SW is found, activate it immediately
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
+
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
+
