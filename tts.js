@@ -113,7 +113,18 @@
 
     tables.forEach(function (table) {
       var headers = table.querySelectorAll('thead th');
-      if (headers.length === 0) return;
+      
+      // Dictionary page: no thead, uses de-col/en-col classes
+      if (headers.length === 0) {
+        var deColCells = table.querySelectorAll('td.de-col');
+        var enColCells = table.querySelectorAll('td.en-col');
+        if (deColCells.length > 0) {
+          deColCells.forEach(function (cell) { wrapCell(cell, 'de-DE'); });
+          enColCells.forEach(function (cell) { wrapCell(cell, 'en-US'); });
+          return;
+        }
+        return;
+      }
 
       // Build column map (supports duplicate headers like Deutsch, Englisch, Deutsch, Englisch)
       var colMap = { de: [], en: [] };
