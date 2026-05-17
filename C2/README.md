@@ -35,3 +35,4 @@ Das GDS wird von vielen deutschen Hochschulen als Nachweis der sprachlichen Stud
 6. [Sprechen](./06_Sprechen.md) — Speaking practice
 7. [Schreiben](./07_Schreiben.md) — Writing practice
 8. [Musterprüfung](./08_Musterpruefung.md) — Sample exam
+9. [telc Prüfungsformat](./09_telc_Pruefungsformat.md) — telc exam format, tasks, and tips

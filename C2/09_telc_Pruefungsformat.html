@@ -1,0 +1,523 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/deutsch-lernen-goethe-a1-c2/manifest.json">
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Deutsch Lernen">
+    <link rel="apple-touch-icon" href="/deutsch-lernen-goethe-a1-c2/icon-192x192.png">
+    <title>09 telc Prüfungsformat - C2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    
+        .site-footer {
+            background: var(--page-bg, #f1f3f5);
+            color: var(--page-text, #1f2937);
+        }
+        [data-bs-theme="dark"] .site-footer {
+            background: #1e293b !important;
+            color: #e2e8f0;
+            border-color: #374151 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .text-secondary {
+            color: #94a3b8 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary {
+            color: #94a3b8;
+            border-color: #475569;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary:hover {
+            background: #334155;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main>
+        <div class="container py-4">
+            <div class="card content-card p-4 p-md-5">
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb small">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">C2</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">09 telc Prüfungsformat</li>
+                    </ol>
+                </nav>
+                <div class="page-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <h1 class="h2 mb-0">09 telc Prüfungsformat</h1>
+                    <span class="badge bg-primary rounded-pill fs-6">C2</span>
+                </div>
+                <div class="markdown-content">
+<h1>C2 telc Deutsch C2 — Prüfungsformat / Exam Format</h1>
+<blockquote>
+<p><strong>Hinweis:</strong> Grammatik, Wortschatz und Fertigkeiten sind für Goethe und telc identisch — nur das Prüfungsformat unterscheidet sich. Die Dateien 01–07 gelten für beide Prüfungen.</p>
+</blockquote>
+<hr />
+<h2>Überblick</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>telc Deutsch C2</th>
+<th>Goethe C2: GDS (Vergleich)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dauer</strong></td>
+<td>ca. 210 Min (schriftlich) + 20 Min (mündlich)</td>
+<td>ca. 195 Min + 15 Min</td>
+</tr>
+<tr>
+<td><strong>Teile</strong></td>
+<td>Lesen, Sprachbausteine, Hören, Schreiben, Sprechen</td>
+<td>Lesen, Hören, Schreiben, Sprechen</td>
+</tr>
+<tr>
+<td><strong>Bestehen</strong></td>
+<td>60% schriftlich + 60% mündlich</td>
+<td>60% pro Modul</td>
+</tr>
+<tr>
+<td><strong>Besonderheit</strong></td>
+<td>Sprachbausteine + Paraphrase-Aufgabe</td>
+<td>Modulare Prüfung, anspruchsvolles Schreiben</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wichtig:</strong> C2 ist das höchste Sprachniveau. Die Prüfung setzt nahezu muttersprachliche Kompetenz voraus. Sowohl telc C2 als auch Goethe C2 (GDS) werden als Nachweis höchster Sprachkompetenz anerkannt.</p>
+<hr />
+<h2>LESEN (ca. 60 Minuten)</h2>
+<h3>Teil 1: Textrekonstruktion (8 Aufgaben)</h3>
+<p>Sie lesen einen anspruchsvollen Fachtext (Wissenschaft, Kultur, Politik). 8 Textpassagen wurden entfernt. Setzen Sie diese wieder ein.</p>
+<p><strong>Aufgabentyp:</strong> Zuordnung (12 Optionen → 8 Lücken)</p>
+<p><strong>Textarten:</strong> Wissenschaftliche Aufsätze, Feuilleton-Beiträge, kulturwissenschaftliche Texte, politische Analysen</p>
+<p><strong>Tipps:</strong>
+- Kohäsionsmittel analysieren: Pronominalreferenz, Textdeixis, thematische Progression
+- Argumentationslogik folgen: These → Antithese → Synthese
+- Sprachregister beachten: Passt der Stil der Option zum umgebenden Text?</p>
+<h3>Teil 2: Detailverstehen (10 Aufgaben)</h3>
+<p>Zwei anspruchsvolle Texte mit je 5 Fragen.</p>
+<p><strong>Aufgabentyp:</strong> Multiple Choice (a, b, c, d)</p>
+<p><strong>Schwierigkeit:</strong> Implizite Aussagen, ironische Wendungen, kulturelle Anspielungen, mehrdeutige Formulierungen</p>
+<h3>Teil 3: Selektives Verstehen (8 Aufgaben)</h3>
+<p>Mehrere kurze Texte (Rezensionen, Kommentare, Berichte). Informationen zuordnen.</p>
+<p><strong>Aufgabentyp:</strong> Zuordnung</p>
+<hr />
+<h2>SPRACHBAUSTEINE (ca. 20 Minuten)</h2>
+<h3>Teil 1: Lückentext (10 Aufgaben)</h3>
+<p>Komplexer Sachtext auf höchstem Niveau.</p>
+<p><strong>Was wird getestet:</strong>
+- Seltene Konjunktive: Es sei denn, als ob, möge
+- Komplexe Partizipialkonstruktionen: die zu erwartenden Ergebnisse
+- Archaische/gehobene Formen: anstatt ... zu, ohne ... zu, um ... willen
+- Doppelte Verneinung: nicht un-
+- Registerwechsel: formell ↔ literarisch</p>
+<h3>Teil 2: Paraphrase / Umformung (10 Aufgaben)</h3>
+<p>Sie formulieren Sätze um, ohne den Sinn zu verändern. C2-spezifische Aufgabe!</p>
+<p><strong>Beispiel:</strong></p>
+<blockquote>
+<p>Original: Obwohl das Projekt gescheitert ist, hat man daraus viel gelernt.
+Umformung: Ungeachtet des _____ des Projekts hat man daraus viel gelernt.
+→ <strong>Scheiterns</strong></p>
+</blockquote>
+<p><strong>Typische Umformungen:</strong>
+- Verbalstil ↔ Nominalstil (scheitern → das Scheitern)
+- Aktiv ↔ Passiv (Man hat entschieden → Es wurde entschieden)
+- Nebensatz ↔ Präposition (Weil es regnete → Wegen des Regens)
+- Direkte ↔ Indirekte Rede</p>
+<hr />
+<h2>HÖREN (ca. 40 Minuten)</h2>
+<h3>Teil 1: Globalverstehen (8 Aufgaben)</h3>
+<p>Nachrichten, Reportagen, Vorträge. Hauptaussagen erfassen.</p>
+<p><strong>Aufgabentyp:</strong> Zuordnung (12 Überschriften → 8 Texte)</p>
+<p><strong>Schwierigkeit:</strong> Schnelles Sprechtempo, Fachvokabular, implizite Botschaften</p>
+<h3>Teil 2: Detailverstehen (10 Aufgaben)</h3>
+<p>Langer Vortrag oder Diskussion auf akademischem Niveau.</p>
+<p><strong>Aufgabentyp:</strong> Richtig / Falsch / Nicht im Text</p>
+<h3>Teil 3: Selektives Verstehen (7 Aufgaben)</h3>
+<p>Verschiedene Kurztexte (Radio, Gespräche, Ansagen) mit spezifischen Informationen.</p>
+<p><strong>Aufgabentyp:</strong> Zuordnung</p>
+<p><strong>Tipps:</strong>
+- Alles wird nur EINMAL gespielt
+- Erwarten Sie Ironie, Understatement, Andeutungen
+- Notizen machen — bei C2-Tempo vergessen Sie sonst Details</p>
+<hr />
+<h2>SCHREIBEN (ca. 60 Minuten)</h2>
+<h3>Einen wissenschaftlichen/argumentativen Text schreiben (1 Aufgabe, ca. 400 Wörter)</h3>
+<p>Sie verfassen einen differenzierten, gut strukturierten Text zu einem komplexen Thema.</p>
+<p><strong>Mögliche Aufgabentypen:</strong>
+- Erörterung einer These mit Gegenargumenten
+- Grafik/Statistik interpretieren und kommentieren
+- Stellungnahme zu einem kontroversen Sachtext</p>
+<p><strong>Erwartete Qualität:</strong>
+- Differenzierte Argumentation mit Synthese
+- Wissenschaftlicher Sprachstil (Nominalstil, Passiv, Konjunktiv I)
+- Stilistische Variation (keine Wiederholungen, Synonyme verwenden)
+- Komplexe Satzstrukturen (Partizipialattribute, Appositionen)
+- Kohärente Textstruktur mit logischer Progression</p>
+<p><strong>Nützliche Formulierungen:</strong>
+- Es bedarf einer differenzierten Betrachtung, um...
+- Die vorliegende Problematik lässt sich nicht auf einen einfachen Nenner bringen.
+- Wenngleich die Argumentation schlüssig erscheint, so ist doch einzuwenden...
+- Im Lichte der vorgebrachten Argumente erscheint es angemessen...
+- Abschließend sei hervorgehoben, dass die Thematik weiterer Forschung bedarf.</p>
+<hr />
+<h2>SPRECHEN (ca. 20 Minuten, Paarprüfung)</h2>
+<h3>Teil 1A: Vortrag (ca. 5 Min pro Person)</h3>
+<p>Sie halten einen differenzierten Vortrag zu einem komplexen Thema. C2-Niveau erfordert nahezu muttersprachliche Souveränität!</p>
+<p><strong>Typische Themen:</strong>
+- Die Grenzen der Meinungsfreiheit in demokratischen Gesellschaften
+- Künstliche Intelligenz und die Zukunft menschlicher Arbeit
+- Kulturelle Identität in einer globalisierten Welt
+- Ethische Grenzen wissenschaftlicher Forschung
+- Medienverantwortung im Zeitalter der Desinformation</p>
+<p><strong>Erwartete Leistung:</strong>
+- Eloquente, fließende Darstellung ohne Abbrüche
+- Differenzierte Perspektiven mit Nuancierung
+- Stilsicherheit — angemessenes Register
+- Kulturelle Kompetenz — Bezüge herstellen
+- Souveräner Umgang mit abstrakten Konzepten</p>
+<p><strong>Nützliche Formulierungen:</strong>
+- Erlauben Sie mir, zunächst den Rahmen abzustecken, in dem...
+- Es wäre zu kurz gegriffen, wenn man behauptete, dass...
+- Die Komplexität des Themas verbietet einfache Antworten, gleichwohl...
+- An dieser Stelle sei an ... erinnert.
+- Abschließend möchte ich den Bogen schlagen zu...</p>
+<h3>Teil 1B: Anschlussgespräch (ca. 3 Min)</h3>
+<p>Ihr Partner und die Prüfer stellen Rückfragen. Erwarten Sie kritische, anspruchsvolle Fragen!</p>
+<h3>Teil 2: Debatte (ca. 6 Min)</h3>
+<p>Sie und Ihr Partner debattieren ein kontroverses Thema. Beide müssen argumentieren, reagieren, konzedieren.</p>
+<p><strong>Nützliche Formulierungen:</strong>
+- Sie haben insofern recht, als..., allerdings greift dieses Argument zu kurz, wenn...
+- Ich möchte Ihren Gedanken aufgreifen und weiterführen:...
+- Mir scheint, Sie setzen hier zweierlei Dinge gleich, nämlich...
+- Gestatten Sie mir, einen methodischen Einwand vorzubringen:...
+- Ich konzediere, dass..., bestehe aber darauf, dass...
+- Lassen Sie uns die Diskussion auf einer Metaebene betrachten:...</p>
+<hr />
+<h2>Bewertung</h2>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Punkte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lesen</td>
+<td>52</td>
+</tr>
+<tr>
+<td>Sprachbausteine</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Hören</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Schreiben</td>
+<td>48</td>
+</tr>
+<tr>
+<td><strong>Schriftlich gesamt</strong></td>
+<td><strong>190</strong></td>
+</tr>
+<tr>
+<td>Sprechen</td>
+<td>48</td>
+</tr>
+<tr>
+<td><strong>Gesamt</strong></td>
+<td><strong>238</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bestehen:</strong> Schriftlich ≥ 114 (60%) + Mündlich ≥ 29 (60%)</p>
+<hr />
+<h2>Unterschiede Goethe C2 (GDS) vs. telc C2</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Goethe C2: GDS</th>
+<th>telc C2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sprachbausteine</strong></td>
+<td>❌ Nicht vorhanden</td>
+<td>✅ Eigenes Modul + Paraphrase</td>
+</tr>
+<tr>
+<td><strong>Sprechen</strong></td>
+<td>Einzelprüfung (Vortrag + Gespräch)</td>
+<td>Paarprüfung (Vortrag + Debatte)</td>
+</tr>
+<tr>
+<td><strong>Bestehen</strong></td>
+<td>60% pro Modul (modulares System)</td>
+<td>60% schriftlich + 60% mündlich</td>
+</tr>
+<tr>
+<td><strong>Schreiben</strong></td>
+<td>2 Aufgaben (Zusammenfassung + Erörterung)</td>
+<td>1 Aufgabe (400 Wörter)</td>
+</tr>
+<tr>
+<td><strong>Hören</strong></td>
+<td>Vorträge, Diskussionen, Interviews</td>
+<td>Ähnlich anspruchsvoll</td>
+</tr>
+<tr>
+<td><strong>Besonderheit</strong></td>
+<td>GDS = Großes Deutsches Sprachdiplom</td>
+<td>Paraphrase-Aufgabe einzigartig</td>
+</tr>
+<tr>
+<td><strong>Anerkennung</strong></td>
+<td>Weltweit höchste Anerkennung</td>
+<td>Ebenfalls breit anerkannt</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Tipps für die telc C2-Prüfung</h2>
+<ol>
+<li><strong>Paraphrase üben</strong> — Die Umformungsaufgabe ist telc-spezifisch. Üben Sie Nominalisierung/Verbalisierung, Aktiv/Passiv-Wechsel und indirekte Rede systematisch.</li>
+<li><strong>Schreiben: 400 Wörter in 60 Min</strong> — Planen Sie 10 Min Struktur, 40 Min Schreiben, 10 Min Überarbeitung. Verwenden Sie Nominalstil und Konjunktiv I.</li>
+<li><strong>Hören: C2-Tempo</strong> — Hören Sie regelmäßig Deutschlandfunk, arte-Dokumentationen, Uni-Vorlesungen. Notieren Sie Schlüsselwörter.</li>
+<li><strong>Vortrag: 5 Minuten</strong> — Das ist LANG. Üben Sie mit Stoppuhr. Strukturieren Sie klar: Einleitung (30s) → 3-4 Aspekte (je 1 Min) → Fazit (30s).</li>
+<li><strong>Debatte</strong> — Lernen Sie die Kunst des eleganten Widerspruchs. Konzedieren Sie Punkte, bevor Sie widersprechen.</li>
+<li><strong>Stilsicherheit</strong> — Vermeiden Sie Umgangssprache komplett. C2 erwartet einen gehobenen, differenzierten Sprachstil.</li>
+<li><strong>Lesestrategie</strong> — Bei der Textrekonstruktion: Analysieren Sie Kohäsionsmittel (Pronomen, Konnektoren, Synonyme) systematisch.</li>
+</ol>
+                </div>
+            </div>
+                    <div id="footer-placeholder"></div>
+    </main>
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\\/g, '/');
+            var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+            var prefix = levelMatch ? '../' : '';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a><a href="https://www.paypal.com/paypalme/abdullahbuttde" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">☕ Buy a Coffee</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="BASE/privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div><p class="mb-0 mt-3 text-center text-secondary small">Last updated: April 2026</p></div></footer>';
+            fetch(prefix + 'footer.html?v=' + Date.now())
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { var html = footerFallback.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; });
+        })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js')
+            .then(function(reg) {
+                // Check for updates on every page load
+                reg.update();
+                // When a new SW is found, activate it immediately
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
+
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
+

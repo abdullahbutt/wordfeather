@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/deutsch-lernen-goethe-a1-c2/manifest.json">
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Deutsch Lernen">
+    <link rel="apple-touch-icon" href="/deutsch-lernen-goethe-a1-c2/icon-192x192.png">
+    <title>09 telc Prüfungsformat - C1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .alphabet-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    
+        .site-footer {
+            background: var(--page-bg, #f1f3f5);
+            color: var(--page-text, #1f2937);
+        }
+        [data-bs-theme="dark"] .site-footer {
+            background: #1e293b !important;
+            color: #e2e8f0;
+            border-color: #374151 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .text-secondary {
+            color: #94a3b8 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary {
+            color: #94a3b8;
+            border-color: #475569;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary:hover {
+            background: #334155;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main>
+        <div class="container py-4">
+            <div class="card content-card p-4 p-md-5">
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb small">
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">C1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">09 telc Prüfungsformat</li>
+                    </ol>
+                </nav>
+                <div class="page-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <h1 class="h2 mb-0">09 telc Prüfungsformat</h1>
+                    <span class="badge bg-primary rounded-pill fs-6">C1</span>
+                </div>
+                <div class="markdown-content">
+<h1>C1 telc Deutsch C1 — Prüfungsformat / Exam Format</h1>
+<blockquote>
+<p><strong>Hinweis:</strong> Grammatik, Wortschatz und Fertigkeiten sind für Goethe und telc identisch — nur das Prüfungsformat unterscheidet sich. Die Dateien 01–07 gelten für beide Prüfungen.</p>
+</blockquote>
+<hr />
+<h2>Überblick</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>telc Deutsch C1</th>
+<th>Goethe C1 (Vergleich)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dauer</strong></td>
+<td>ca. 205 Min (schriftlich) + 16 Min (mündlich)</td>
+<td>ca. 190 Min + 15 Min</td>
+</tr>
+<tr>
+<td><strong>Teile</strong></td>
+<td>Lesen, Sprachbausteine, Hören, Schreiben, Sprechen</td>
+<td>Lesen, Hören, Schreiben, Sprechen</td>
+</tr>
+<tr>
+<td><strong>Bestehen</strong></td>
+<td>60% schriftlich + 60% mündlich</td>
+<td>60% pro Modul</td>
+</tr>
+<tr>
+<td><strong>Besonderheit</strong></td>
+<td>Sprachbausteine + Hochschulvariante verfügbar</td>
+<td>Modulare Prüfung</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wichtig:</strong> Es gibt zwei Varianten: <strong>telc Deutsch C1</strong> (allgemein) und <strong>telc Deutsch C1 Hochschule</strong> (für Studienzulassung an deutschen Universitäten).</p>
+<hr />
+<h2>LESEN (ca. 65 Minuten)</h2>
+<h3>Teil 1: Textrekonstruktion (6 Aufgaben)</h3>
+<p>Sie lesen einen längeren Text, aus dem 6 Sätze/Abschnitte entfernt wurden. Setzen Sie diese an die richtige Stelle zurück.</p>
+<p><strong>Aufgabentyp:</strong> Zuordnung (8 Optionen → 6 Lücken)</p>
+<p><strong>Tipps:</strong>
+- Achten Sie auf Konnektoren (jedoch, darüber hinaus, folglich)
+- Pronomen und Referenzen helfen: „diese Entwicklung" → Welche Entwicklung wurde vorher erwähnt?
+- Lesen Sie den Text ohne Lücken, um das Gesamtverständnis zu entwickeln</p>
+<h3>Teil 2: Detailverstehen (10 Aufgaben)</h3>
+<p>Sie lesen einen längeren, anspruchsvollen Text und beantworten Fragen.</p>
+<p><strong>Aufgabentyp:</strong> Multiple Choice (a, b, c, d — vier Optionen!)</p>
+<p><strong>Typische Textarten:</strong> Wissenschaftliche Artikel, Feuilleton, Fachberichte, Essays</p>
+<h3>Teil 3: Selektives Verstehen (8 Aufgaben)</h3>
+<p>Sie lesen mehrere kurze Texte und ordnen Informationen zu.</p>
+<p><strong>Aufgabentyp:</strong> Zuordnung / Matching</p>
+<hr />
+<h2>SPRACHBAUSTEINE (ca. 20 Minuten)</h2>
+<h3>Teil 1: Lückentext mit Multiple Choice (10 Aufgaben)</h3>
+<p>Formeller/wissenschaftlicher Text mit komplexen grammatischen Strukturen.</p>
+<p><strong>Was wird getestet:</strong>
+- Partizipialattribute (die von der Regierung beschlossene Maßnahme)
+- Konjunktiv I (Indirekte Rede: Er sagte, er habe/sei...)
+- Komplexe Präpositionen (angesichts, hinsichtlich, unbeschadet, zugunsten)
+- Funktionsverbgefüge (in Betracht ziehen, zur Verfügung stellen)
+- Nominalisierung auf C1-Niveau</p>
+<h3>Teil 2: Lückentext — freie Zuordnung (10 Aufgaben)</h3>
+<p>Anspruchsvoller Text mit Wortliste (15 Wörter → 10 Lücken).</p>
+<p><strong>Tipps:</strong>
+- C1-Konnektoren kennen: nichtsdestotrotz, indes, zumal, wenngleich
+- Kollokationen üben: einen Beitrag leisten, Abhilfe schaffen, Kritik üben
+- Auf Valenz achten: sich befassen MIT, bestehen AUS, beruhen AUF</p>
+<hr />
+<h2>HÖREN (ca. 40 Minuten)</h2>
+<h3>Teil 1: Globalverstehen (8 Aufgaben)</h3>
+<p>Sie hören Nachrichten oder Kurzbeiträge. Zu jedem Text: Welche Überschrift passt?</p>
+<p><strong>Aufgabentyp:</strong> Zuordnung (12 Überschriften → 8 Texte)</p>
+<h3>Teil 2: Detailverstehen (10 Aufgaben)</h3>
+<p>Sie hören ein Expertengespräch oder Interview und beantworten Fragen.</p>
+<p><strong>Aufgabentyp:</strong> Richtig / Falsch / Nicht im Text</p>
+<p><strong>Wichtig:</strong> Es gibt DREI Optionen — auch „Nicht im Text" ist möglich!</p>
+<h3>Teil 3: Selektives Verstehen (7 Aufgaben)</h3>
+<p>Sie hören kurze Texte und ordnen Aussagen zu.</p>
+<p><strong>Aufgabentyp:</strong> Zuordnung</p>
+<p><strong>Tipps:</strong>
+- Alles wird nur EINMAL gespielt
+- Texte sind schnell und komplex — universitäres Niveau
+- „Nicht im Text" bedeutet: Die Information kommt überhaupt nicht vor (nicht verwechseln mit „falsch")</p>
+<hr />
+<h2>SCHREIBEN (ca. 50 Minuten)</h2>
+<h3>Einen Text schreiben (1 Aufgabe, ca. 350 Wörter)</h3>
+<p>Sie wählen eine von zwei Aufgaben und schreiben einen strukturierten Text.</p>
+<p><strong>Mögliche Aufgabentypen:</strong>
+- Erörterung zu einem aktuellen Thema
+- Stellungnahme zu einer Grafik/Statistik
+- Zusammenfassung und Kommentar zu einem Lesetext</p>
+<p><strong>Erwartete Struktur:</strong>
+1. Einleitung — Thema vorstellen, Relevanz erklären
+2. Darstellung — Argumente/Daten systematisch präsentieren
+3. Eigene Position — Differenziert argumentieren
+4. Fazit — Zusammenfassung, Ausblick, offene Fragen</p>
+<p><strong>Nützliche Formulierungen:</strong>
+- Im Folgenden soll erörtert werden, inwiefern...
+- Die vorliegende Grafik veranschaulicht...
+- Es lässt sich feststellen, dass...
+- Dem ist entgegenzuhalten, dass...
+- Zusammenfassend lässt sich konstatieren, dass...
+- Abschließend sei darauf hingewiesen, dass...</p>
+<p><strong>Bewertungskriterien:</strong>
+1. Inhalt und Aufgabenerfüllung (alle Punkte bearbeitet?)
+2. Textaufbau und Kohärenz (logischer Aufbau, Absätze, Konnektoren)
+3. Ausdruck (C1-Wortschatz, keine Wiederholungen)
+4. Korrektheit (Grammatik, Orthografie, Zeichensetzung)</p>
+<hr />
+<h2>SPRECHEN (ca. 16 Minuten, Paarprüfung)</h2>
+<h3>Teil 1A: Präsentation (ca. 3 Min pro Person)</h3>
+<p>Sie bekommen ein Thema und halten einen Kurzvortrag. Anspruchsvoller als B2!</p>
+<p><strong>Typische Themen:</strong>
+- Digitalisierung und ihre gesellschaftlichen Auswirkungen
+- Chancengleichheit im Bildungssystem
+- Work-Life-Balance in der modernen Arbeitswelt
+- Nachhaltigkeit und Konsumverhalten
+- Gentrifizierung und bezahlbarer Wohnraum</p>
+<p><strong>Erwartete Struktur:</strong>
+1. Einleitung mit Fragestellung
+2. Verschiedene Perspektiven beleuchten
+3. Eigene Erfahrungen und Beispiele
+4. Differenzierte Meinung mit Begründung
+5. Fazit und offene Fragen</p>
+<p><strong>Nützliche Formulierungen:</strong>
+- Ich möchte das Thema ... aus verschiedenen Perspektiven beleuchten.
+- Zunächst ist festzuhalten, dass...
+- Ein zentraler Aspekt ist die Frage, ob...
+- Aus meiner persönlichen Erfahrung heraus kann ich berichten, dass...
+- Abwägend lässt sich sagen, dass...</p>
+<h3>Teil 1B: Rückfragen und Kommentare (ca. 2 Min)</h3>
+<p>Ihr Partner stellt Rückfragen zu Ihrer Präsentation. Sie antworten differenziert.</p>
+<h3>Teil 2: Diskussion (ca. 6 Min)</h3>
+<p>Sie und Ihr Partner diskutieren ein kontroverses Thema. Argumentieren Sie auf C1-Niveau!</p>
+<p><strong>Nützliche Formulierungen:</strong>
+- Ich teile Ihre Auffassung insofern, als...
+- Da muss ich Ihnen allerdings widersprechen, denn...
+- Sie sprechen einen wichtigen Punkt an, dennoch...
+- Lassen Sie mich einen weiteren Aspekt einbringen:...
+- Ich möchte das differenzierter betrachten:...</p>
+<hr />
+<h2>Bewertung</h2>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Punkte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lesen</td>
+<td>48</td>
+</tr>
+<tr>
+<td>Sprachbausteine</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Hören</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Schreiben</td>
+<td>48</td>
+</tr>
+<tr>
+<td><strong>Schriftlich gesamt</strong></td>
+<td><strong>186</strong></td>
+</tr>
+<tr>
+<td>Sprechen</td>
+<td>48</td>
+</tr>
+<tr>
+<td><strong>Gesamt</strong></td>
+<td><strong>234</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bestehen:</strong> Schriftlich ≥ 112 (60%) + Mündlich ≥ 29 (60%)</p>
+<hr />
+<h2>Unterschiede Goethe vs. telc C1</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Goethe C1</th>
+<th>telc C1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sprachbausteine</strong></td>
+<td>❌ Nicht vorhanden</td>
+<td>✅ Eigenes Modul</td>
+</tr>
+<tr>
+<td><strong>Sprechen</strong></td>
+<td>Einzelprüfung (Vortrag + Gespräch)</td>
+<td>Paarprüfung</td>
+</tr>
+<tr>
+<td><strong>Bestehen</strong></td>
+<td>60% pro Modul (modulares System)</td>
+<td>60% schriftlich + 60% mündlich</td>
+</tr>
+<tr>
+<td><strong>Schreiben</strong></td>
+<td>2 Aufgaben (Zusammenfassung + Erörterung)</td>
+<td>1 Aufgabe (350 Wörter)</td>
+</tr>
+<tr>
+<td><strong>Hören</strong></td>
+<td>„Nicht im Text" als Option</td>
+<td>Auch „Nicht im Text"</td>
+</tr>
+<tr>
+<td><strong>Hochschulzulassung</strong></td>
+<td>Wird anerkannt</td>
+<td>telc C1 Hochschule wird anerkannt</td>
+</tr>
+<tr>
+<td><strong>Schwierigkeitsgrad</strong></td>
+<td>Modularer Vorteil</td>
+<td>Sprachbausteine als Zusatzchance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Tipps für die telc C1-Prüfung</h2>
+<ol>
+<li><strong>Sprachbausteine auf C1-Niveau</strong> — Partizipialattribute, Konjunktiv I, Funktionsverbgefüge und komplexe Präpositionen intensiv üben.</li>
+<li><strong>Schreiben: 350 Wörter</strong> — Das ist VIEL in 50 Minuten. Planen Sie 5 Min Struktur, 40 Min Schreiben, 5 Min Korrektur.</li>
+<li><strong>Hören: „Nicht im Text"</strong> — Diese dritte Option ist eine Falle! Etwas, das nicht gesagt wurde, ist NICHT dasselbe wie etwas Falsches.</li>
+<li><strong>Präsentation vorbereiten</strong> — Üben Sie 3-Minuten-Vorträge mit klarer Struktur. Vermeiden Sie Umgangssprache.</li>
+<li><strong>Diskussion</strong> — Lernen Sie, höflich zu widersprechen und Argumente differenziert zu betrachten. Verwenden Sie C1-Konnektoren.</li>
+<li><strong>Hochschulvariante</strong> — Wenn Sie das Zertifikat für die Uni brauchen, melden Sie sich für telc Deutsch C1 Hochschule an!</li>
+</ol>
+                </div>
+            </div>
+                    <div id="footer-placeholder"></div>
+    </main>
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+    </script>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\\/g, '/');
+            var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+            var prefix = levelMatch ? '../' : '';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🇩🇪 Deutsch Lernen — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a><a href="https://www.paypal.com/paypalme/abdullahbuttde" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">☕ Buy a Coffee</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="BASE/privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div><p class="mb-0 mt-3 text-center text-secondary small">Last updated: April 2026</p></div></footer>';
+            fetch(prefix + 'footer.html?v=' + Date.now())
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { var html = footerFallback.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; });
+        })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js')
+            .then(function(reg) {
+                // Check for updates on every page load
+                reg.update();
+                // When a new SW is found, activate it immediately
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
+
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
+

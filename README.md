@@ -43,7 +43,7 @@ Jeder Ordner enthält **9 Dateien** / Each folder contains **9 files**:
 | `06_Sprechen.md` | Speaking exam preparation — prompts and Redemittel |
 | `07_Schreiben.md` | Writing exam tasks with model answers |
 | `08_Musterpruefung.md` | Complete sample exam (Modelltest) with answer key |
-| `09_telc_Pruefungsformat.md` | telc exam format, task types, scoring, and tips (A1–A2 so far) |
+| `09_telc_Pruefungsformat.md` | telc exam format, task types, scoring, and tips (A1–C2) |
 | `README.md` | Level overview and study plan |
 
 ---
