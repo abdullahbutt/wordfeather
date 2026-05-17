@@ -207,6 +207,7 @@
             color: #e2e8f0;
         }
     </style>
+    <script>var saved=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-bs-theme',saved);</script>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -526,6 +527,37 @@ Person B: ist dagegen / <em>is against</em></p>
     <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\\/g, '/');
+            var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+            var prefix = levelMatch ? '../' : '';
+
+            fetch(prefix + 'header.html?v=' + Date.now())
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(); })
+                .then(function(html) {
+                    html = html.replace(/BASE\//g, prefix);
+                    document.getElementById('header-placeholder').innerHTML = html;
+                    var btn = document.getElementById('themeToggle');
+                    if (btn) {
+                        function syncBtn() {
+                            var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                            btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                        }
+                        syncBtn();
+                        btn.addEventListener('click', function() {
+                            var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                            document.documentElement.setAttribute('data-bs-theme', next);
+                            localStorage.setItem('theme', next);
+                            syncBtn();
+                        });
+                    }
+                })
+                .catch(function() {
+                    document.getElementById('header-placeholder').innerHTML = '<nav class="navbar navbar-dark bg-primary sticky-top"><div class="container"><a class="navbar-brand" href="' + prefix + 'index.html">🇩🇪 Deutsch Lernen</a></div></nav>';
+                });
+        })();
+    </script>
     <script>
         const backToTopButton = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
