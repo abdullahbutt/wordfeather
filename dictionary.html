@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Über 2.258 prüfungsrelevante deutsche Wörter von A1 bis C2 mit englischen Übersetzungen und natürlichen Beispielsätzen. Ideal für Goethe- und telc-Prüfungsvorbereitung.">
+    <meta name="description" content="Über 2.496 prüfungsrelevante deutsche Wörter von A1 bis C2 mit englischen Übersetzungen und natürlichen Beispielsätzen. Ideal für Goethe- und telc-Prüfungsvorbereitung.">
     <meta name="keywords" content="Deutsch lernen, Deutsche Wörterbuch A1–C2, Goethe Prüfung, telc Prüfung, A1 B1 C1 Deutsch">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="/deutsch-lernen-goethe-a1-c2/manifest.json">
@@ -26522,164 +26522,6 @@
             </div>
             <div id="footer-placeholder"></div>
         </div>
-    </main>
-    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle" aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;display:none;align-items:center;justify-content:center;z-index:1050;font-size:1.2rem;">↑</a>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    (function() {
-        var path = window.location.pathname.replace(/\\/g, '/');
-        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
-        var prefix = levelMatch ? '../' : '';
-
-        // Load header and attach theme toggle
-        fetch(prefix + 'header.html?v=' + Date.now())
-            .then(function(r) { return r.ok ? r.text() : Promise.reject(); })
-            .then(function(h) {
-                h = h.replace(/BASE\//g, prefix);
-                document.getElementById('header-placeholder').innerHTML = h;
-                setupThemeToggle();
-            })
-            .catch(function() {
-                document.getElementById('header-placeholder').innerHTML = '<nav class="navbar navbar-dark bg-primary sticky-top"><div class="container"><a class="navbar-brand" href="index.html">🇩🇪 Deutsch Lernen</a></div></nav>';
-            });
-
-        // Load footer
-        fetch(prefix + 'footer.html?v=' + Date.now())
-            .then(function(r) { return r.ok ? r.text() : Promise.reject(); })
-            .then(function(h) { h = h.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = h; })
-            .catch(function() { document.getElementById('footer-placeholder').innerHTML = ''; });
-
-        // Theme toggle - same code as all other pages
-        function setupThemeToggle() {
-            var btn = document.getElementById('themeToggle');
-            if (!btn) return;
-            function syncBtn() {
-                var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
-                btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
-                btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-            }
-            syncBtn();
-            btn.addEventListener('click', function() {
-                var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-bs-theme', next);
-                localStorage.setItem('theme', next);
-                syncBtn();
-            });
-        }
-
-        // Back to top
-        var backBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            backBtn.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
-        });
-
-        // Search & Filter
-        var input = document.getElementById('searchInput');
-        var wordCards = document.querySelectorAll('.word-card');
-        var letterHeaders = document.querySelectorAll('.letter-header');
-        var noResults = document.getElementById('noResults');
-        var wordCount = document.getElementById('wordCount');
-        var activeLevel = 'ALL';
-
-        function filterWords() {
-            var q = input.value.toLowerCase().trim();
-            var visible = 0;
-            var visibleLetters = new Set();
-            wordCards.forEach(function(card) {
-                var de = card.getAttribute('data-de');
-                var en = card.getAttribute('data-en');
-                var ex = card.getAttribute('data-ex');
-                var level = card.getAttribute('data-level');
-                var matchSearch = !q || de.indexOf(q) > -1 || en.indexOf(q) > -1 || ex.indexOf(q) > -1;
-                var matchLevel = activeLevel === 'ALL' || level === activeLevel;
-                if (matchSearch && matchLevel) {
-                    card.style.display = '';
-                    visible++;
-                    var prev = card.previousElementSibling;
-                    while (prev && !prev.classList.contains('letter-header')) prev = prev.previousElementSibling;
-                    if (prev) visibleLetters.add(prev.id);
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            letterHeaders.forEach(function(h) {
-                h.style.display = visibleLetters.has(h.id) ? '' : 'none';
-            });
-            noResults.style.display = visible === 0 ? 'block' : 'none';
-            wordCount.textContent = visible + ' word' + (visible !== 1 ? 's' : '');
-        }
-
-        input.addEventListener('input', filterWords);
-        document.querySelectorAll('.level-filter button').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.level-filter button').forEach(function(b) { b.classList.remove('active'); });
-                btn.classList.add('active');
-                activeLevel = btn.getAttribute('data-level');
-                filterWords();
-            });
-        });
-    })();
-    </script>
-    <script>
-    // TTS
-    (function() {
-        if (!('speechSynthesis' in window)) return;
-        var synth = window.speechSynthesis;
-        var activeBtn = null;
-        var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
-        function mkBtn(text, lang) {
-            var b = document.createElement('button');
-            b.className = 'd-tts'; b.innerHTML = svg;
-            b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
-            b.onclick = function(e) {
-                e.preventDefault(); e.stopPropagation();
-                synth.cancel();
-                if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
-                if (activeBtn) activeBtn.classList.remove('playing');
-                var clean = text.replace(/\s*[,]\s*-\w+/g,'').replace(/[—–]/g,'').replace(/\(.*?\)/g,'').replace(/\s+/g,' ').trim();
-                if (!clean) return;
-                var u = new SpeechSynthesisUtterance(clean);
-                u.lang = lang; u.rate = 0.9;
-                var voices = synth.getVoices();
-                var lp = lang.split('-')[0];
-                for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
-                b.classList.add('playing'); activeBtn = b;
-                u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
-                synth.speak(u);
-            };
-            return b;
-        }
-        var initialized = false;
-        function init() {
-            if (initialized) return;
-            initialized = true;
-            document.querySelectorAll('.word-card').forEach(function(card) {
-                var deEl = card.querySelector('.word-de');
-                var enEl = card.querySelector('.word-en');
-                var exEl = card.querySelector('.word-example');
-                if (deEl && deEl.textContent.trim()) deEl.parentNode.insertBefore(mkBtn(deEl.textContent.trim(), 'de-DE'), deEl.nextSibling);
-                if (enEl && enEl.textContent.trim()) enEl.appendChild(mkBtn(enEl.textContent.trim(), 'en-US'));
-                if (exEl) {
-                    var exDe = exEl.querySelector('.ex-de');
-                    var exEn = exEl.querySelector('.ex-en');
-                    if (exDe && exDe.textContent.trim()) exDe.appendChild(mkBtn(exDe.textContent.trim(), 'de-DE'));
-                    if (exEn && exEn.textContent.trim()) exEn.appendChild(mkBtn(exEn.textContent.trim(), 'en-US'));
-                }
-            });
-        }
-        if (synth.getVoices().length > 0) init();
-        else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }
-    })();
-    </script>
-    <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js')
-            .then(function(reg) { reg.update(); })
-            .catch(function(err) { console.log('SW failed:', err); });
-    }
-    </script>
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
-
 <div class="word-card" data-de="die bewerbungsunterlagen (pl.)" data-en="application documents" data-level="B1" data-ex="Sie hat ihre Bewerbungsunterlagen sorgfältig zusammengestellt.">
     <div class="word-main">
         <div class="word-de-wrap">
@@ -29774,5 +29616,162 @@
     </div>
     
 </div>
-</body>
+
+    </main>
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle" aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;display:none;align-items:center;justify-content:center;z-index:1050;font-size:1.2rem;">↑</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    (function() {
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+
+        // Load header and attach theme toggle
+        fetch(prefix + 'header.html?v=' + Date.now())
+            .then(function(r) { return r.ok ? r.text() : Promise.reject(); })
+            .then(function(h) {
+                h = h.replace(/BASE\//g, prefix);
+                document.getElementById('header-placeholder').innerHTML = h;
+                setupThemeToggle();
+            })
+            .catch(function() {
+                document.getElementById('header-placeholder').innerHTML = '<nav class="navbar navbar-dark bg-primary sticky-top"><div class="container"><a class="navbar-brand" href="index.html">🇩🇪 Deutsch Lernen</a></div></nav>';
+            });
+
+        // Load footer
+        fetch(prefix + 'footer.html?v=' + Date.now())
+            .then(function(r) { return r.ok ? r.text() : Promise.reject(); })
+            .then(function(h) { h = h.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = h; })
+            .catch(function() { document.getElementById('footer-placeholder').innerHTML = ''; });
+
+        // Theme toggle - same code as all other pages
+        function setupThemeToggle() {
+            var btn = document.getElementById('themeToggle');
+            if (!btn) return;
+            function syncBtn() {
+                var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+            }
+            syncBtn();
+            btn.addEventListener('click', function() {
+                var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-bs-theme', next);
+                localStorage.setItem('theme', next);
+                syncBtn();
+            });
+        }
+
+        // Back to top
+        var backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            backBtn.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        // Search & Filter
+        var input = document.getElementById('searchInput');
+        var wordCards = document.querySelectorAll('.word-card');
+        var letterHeaders = document.querySelectorAll('.letter-header');
+        var noResults = document.getElementById('noResults');
+        var wordCount = document.getElementById('wordCount');
+        var activeLevel = 'ALL';
+
+        function filterWords() {
+            var q = input.value.toLowerCase().trim();
+            var visible = 0;
+            var visibleLetters = new Set();
+            wordCards.forEach(function(card) {
+                var de = card.getAttribute('data-de');
+                var en = card.getAttribute('data-en');
+                var ex = card.getAttribute('data-ex');
+                var level = card.getAttribute('data-level');
+                var matchSearch = !q || de.indexOf(q) > -1 || en.indexOf(q) > -1 || ex.indexOf(q) > -1;
+                var matchLevel = activeLevel === 'ALL' || level === activeLevel;
+                if (matchSearch && matchLevel) {
+                    card.style.display = '';
+                    visible++;
+                    var prev = card.previousElementSibling;
+                    while (prev && !prev.classList.contains('letter-header')) prev = prev.previousElementSibling;
+                    if (prev) visibleLetters.add(prev.id);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            letterHeaders.forEach(function(h) {
+                h.style.display = visibleLetters.has(h.id) ? '' : 'none';
+            });
+            noResults.style.display = visible === 0 ? 'block' : 'none';
+            wordCount.textContent = visible + ' word' + (visible !== 1 ? 's' : '');
+        }
+
+        input.addEventListener('input', filterWords);
+        document.querySelectorAll('.level-filter button').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.level-filter button').forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                activeLevel = btn.getAttribute('data-level');
+                filterWords();
+            });
+        });
+    })();
+    </script>
+    <script>
+    // TTS
+    (function() {
+        if (!('speechSynthesis' in window)) return;
+        var synth = window.speechSynthesis;
+        var activeBtn = null;
+        var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+        function mkBtn(text, lang) {
+            var b = document.createElement('button');
+            b.className = 'd-tts'; b.innerHTML = svg;
+            b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+            b.onclick = function(e) {
+                e.preventDefault(); e.stopPropagation();
+                synth.cancel();
+                if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
+                if (activeBtn) activeBtn.classList.remove('playing');
+                var clean = text.replace(/\s*[,]\s*-\w+/g,'').replace(/[—–]/g,'').replace(/\(.*?\)/g,'').replace(/\s+/g,' ').trim();
+                if (!clean) return;
+                var u = new SpeechSynthesisUtterance(clean);
+                u.lang = lang; u.rate = 0.9;
+                var voices = synth.getVoices();
+                var lp = lang.split('-')[0];
+                for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
+                b.classList.add('playing'); activeBtn = b;
+                u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
+                synth.speak(u);
+            };
+            return b;
+        }
+        var initialized = false;
+        function init() {
+            if (initialized) return;
+            initialized = true;
+            document.querySelectorAll('.word-card').forEach(function(card) {
+                var deEl = card.querySelector('.word-de');
+                var enEl = card.querySelector('.word-en');
+                var exEl = card.querySelector('.word-example');
+                if (deEl && deEl.textContent.trim()) deEl.parentNode.insertBefore(mkBtn(deEl.textContent.trim(), 'de-DE'), deEl.nextSibling);
+                if (enEl && enEl.textContent.trim()) enEl.appendChild(mkBtn(enEl.textContent.trim(), 'en-US'));
+                if (exEl) {
+                    var exDe = exEl.querySelector('.ex-de');
+                    var exEn = exEl.querySelector('.ex-en');
+                    if (exDe && exDe.textContent.trim()) exDe.appendChild(mkBtn(exDe.textContent.trim(), 'de-DE'));
+                    if (exEn && exEn.textContent.trim()) exEn.appendChild(mkBtn(exEn.textContent.trim(), 'en-US'));
+                }
+            });
+        }
+        if (synth.getVoices().length > 0) init();
+        else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }
+    })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js')
+            .then(function(reg) { reg.update(); })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script></body>
 </html>
