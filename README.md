@@ -170,3 +170,17 @@ deutsch_a1_a2_b1_b2_c1_c2/
 *Wenn dir diese Materialien geholfen haben, kannst du mich gerne mit einem Kaffee unterstützen!*
 
 [![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?logo=paypal&style=for-the-badge)](https://www.paypal.com/paypalme/abdullahbuttde)
+
+---
+
+## License
+
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+
+This project is licensed under **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
+
+**You are free to:** use, share and adapt this content for personal learning, classroom teaching and non-commercial projects — as long as you give credit.
+
+**You may not:** sell this content, include it in a paid product or service, or use it commercially without written permission.
+
+© 2024–2026 [Abdullah Butt](https://github.com/abdullahbutt) · [Full license text](LICENSE) · Commercial enquiries: abdullah.butt@msn.com
