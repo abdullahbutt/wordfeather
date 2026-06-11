@@ -352,8 +352,8 @@
     "en": "angry",
     "article": "",
     "level": "B1",
-    "example": "Er ist ärgerlich, weil sein Zug Verspätung hat.",
-    "example_en": "He is angry because his train is delayed.",
+    "example": "Es ist ärgerlich, wenn Kollegen Absprachen nicht einhalten und das Team aufhält.",
+    "example_en": "It is annoying when colleagues do not stick to agreements and hold up the team.",
     "register": "everyday"
   },
   {
@@ -1025,7 +1025,12 @@
     "level": "C1",
     "example": "Die Antikörper schützen den Körper vor Infektionen.",
     "example_en": "The antibodies protect the body from infections.",
-    "register": "formal"
+    "register": "formal",
+    "collocations": [
+      "Antikörper bilden",
+      "Immunantwort",
+      "Serologie"
+    ]
   },
   {
     "de": "einen Antrag stellen",
@@ -1111,7 +1116,7 @@
     "register": "formal"
   },
   {
-    "de": "Der Apfel fällt nicht weit vom Stamm.",
+    "de": "der Apfel fällt nicht weit vom Stamm.",
     "en": "The apple doesn't fall far from the tree.",
     "article": "",
     "level": "C2",
@@ -1141,9 +1146,9 @@
     "de": "die Apotheke, -n",
     "en": "pharmacy",
     "article": "",
-    "level": "B1",
-    "example": "Ich hole mein Rezept in der Apotheke ab.",
-    "example_en": "I pick up my prescription at the pharmacy.",
+    "level": "A2",
+    "example": "Sie kauft Schmerzmittel in der Apotheke nebenan.",
+    "example_en": "She buys painkillers at the pharmacy next door.",
     "register": "everyday"
   },
   {
@@ -1733,8 +1738,8 @@
     "en": "to look like",
     "article": "",
     "level": "A2",
-    "example": "Du siehst heute sehr müde aus.",
-    "example_en": "You look very tired today.",
+    "example": "Er sieht aus, als hätte er nicht gut geschlafen.",
+    "example_en": "He looks as though he has not slept well.",
     "register": "everyday"
   },
   {
@@ -4346,7 +4351,12 @@
     "level": "C1",
     "example": "Dies legt den Schluss nahe, dass weitere Forschung notwendig ist.",
     "example_en": "This suggests that further research is necessary.",
-    "register": "academic"
+    "register": "academic",
+    "collocations": [
+      "logische Schlussfolgerung",
+      "Schluss ziehen",
+      "implizieren"
+    ]
   },
   {
     "de": "dies-",
@@ -4364,7 +4374,12 @@
     "level": "C1",
     "example": "Diese These hält einer Überprüfung nicht stand.",
     "example_en": "This thesis does not withstand scrutiny.",
-    "register": "academic"
+    "register": "academic",
+    "collocations": [
+      "These widerlegen",
+      "Argumentation prüfen",
+      "haltbar sein"
+    ]
   },
   {
     "de": "differenzieren",
@@ -6070,7 +6085,12 @@
     "level": "C1",
     "example": "Es bedarf keiner weiteren Erklärung.",
     "example_en": "No further explanation is needed.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "selbsterklärend",
+      "offensichtlich",
+      "keiner Erläuterung bedürfen"
+    ]
   },
   {
     "de": "Es bedarf weiterer Forschung.",
@@ -6079,7 +6099,12 @@
     "level": "C1",
     "example": "Es bedarf weiterer Forschung.",
     "example_en": "Further research is needed.",
-    "register": "academic"
+    "register": "academic",
+    "collocations": [
+      "Forschungslücke",
+      "empirisch belegen",
+      "wissenschaftlich untersuchen"
+    ]
   },
   {
     "de": "Es drängt sich die Frage auf, ob ...",
@@ -6088,7 +6113,12 @@
     "level": "C1",
     "example": "Es drängt sich die Frage auf, ob diese Maßnahmen wirklich helfen.",
     "example_en": "The question arises whether these measures will actually help.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "kritisch hinterfragen",
+      "Frage aufwerfen",
+      "problematisieren"
+    ]
   },
   {
     "de": "Es ist darauf hinzuweisen, dass ...",
@@ -6097,7 +6127,12 @@
     "level": "C1",
     "example": "Es ist darauf hinzuweisen, dass die Frist bereits abgelaufen ist.",
     "example_en": "It should be pointed out that the deadline has already passed.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "Hinweis geben",
+      "aufmerksam machen",
+      "darauf hinweisen"
+    ]
   },
   {
     "de": "Es ist noch kein Meister vom Himmel gefallen.",
@@ -6115,7 +6150,12 @@
     "level": "C1",
     "example": "Es lässt sich nicht bestreiten, dass Bewegung die Gesundheit fördert.",
     "example_en": "It cannot be denied that exercise promotes health.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "unbestreitbar",
+      "unstrittig",
+      "Tatsache anerkennen"
+    ]
   },
   {
     "de": "Es liegt auf der Hand, dass ...",
@@ -6124,7 +6164,12 @@
     "level": "C1",
     "example": "Es liegt auf der Hand, dass wir sofort handeln müssen.",
     "example_en": "It is obvious that we must act immediately.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "offensichtlich",
+      "evident",
+      "naheliegend"
+    ]
   },
   {
     "de": "Es mangelt an überzeugenden Belegen.",
@@ -6133,7 +6178,12 @@
     "level": "C1",
     "example": "Es mangelt an überzeugenden Belegen für diese Theorie.",
     "example_en": "Convincing evidence for this theory is lacking.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "Belege fehlen",
+      "nicht belegt",
+      "empirisch schwach"
+    ]
   },
   {
     "de": "Es sei darauf verwiesen, dass ...",
@@ -6142,7 +6192,12 @@
     "level": "C1",
     "example": "Es sei darauf verwiesen, dass weitere Forschung notwendig ist.",
     "example_en": "It should be noted that further research is necessary.",
-    "register": "academic"
+    "register": "academic",
+    "collocations": [
+      "Verweis geben",
+      "Bezug nehmen",
+      "referenzieren"
+    ]
   },
   {
     "de": "Es steht außer Frage, dass ...",
@@ -6151,7 +6206,12 @@
     "level": "C1",
     "example": "Es steht außer Frage, dass Bildung sehr wichtig ist.",
     "example_en": "It is beyond question that education is very important.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "zweifellos",
+      "außer Zweifel stehen",
+      "unbestritten"
+    ]
   },
   {
     "de": "Es wäre verfehlt zu glauben, dass ...",
@@ -6160,7 +6220,12 @@
     "level": "C1",
     "example": "Es wäre verfehlt zu glauben, dass Geld alles löst.",
     "example_en": "It would be wrong to believe that money solves everything.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "Irrtum widerlegen",
+      "Missverständnis korrigieren",
+      "falsch liegen"
+    ]
   },
   {
     "de": "die Eskalation",
@@ -6453,13 +6518,18 @@
     "register": "everyday"
   },
   {
-    "de": "Die Fakten sprechen eine deutliche Sprache.",
+    "de": "die Fakten sprechen eine deutliche Sprache.",
     "en": "The facts speak for themselves.",
     "article": "",
     "level": "C1",
     "example": "Die Fakten sprechen eine deutliche Sprache.",
     "example_en": "The facts speak for themselves.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "Fakten belegen",
+      "klare Evidenz",
+      "eindeutig belegt"
+    ]
   },
   {
     "de": "der Faktor, -en",
@@ -7549,7 +7619,12 @@
     "level": "C1",
     "example": "Gegenstand der Ausführungen ist die aktuelle Wirtschaftslage in Deutschland.",
     "example_en": "The subject of the discussion is the current economic situation in Germany.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "Thema einführen",
+      "Fokus setzen",
+      "erörtern"
+    ]
   },
   {
     "de": "gegenüberstellen",
@@ -9498,7 +9573,12 @@
     "level": "C1",
     "example": "Im Folgenden soll ... erörtert werden.",
     "example_en": "In the following, ... shall be discussed.",
-    "register": "academic"
+    "register": "academic",
+    "collocations": [
+      "Thema einführen",
+      "Diskurs strukturieren",
+      "erörtern"
+    ]
   },
   {
     "de": "Im Hinblick auf ...",
@@ -9507,7 +9587,12 @@
     "level": "C1",
     "example": "Im Hinblick auf die Prüfung sollten wir mehr üben.",
     "example_en": "With regard to the exam, we should practise more.",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "Bezug nehmen auf",
+      "in Bezug auf",
+      "hinsichtlich"
+    ]
   },
   {
     "de": "immer",
@@ -9678,7 +9763,12 @@
     "level": "C1",
     "example": "In Anbetracht der Tatsache, dass ...",
     "example_en": "In view of the fact that ...",
-    "register": "formal"
+    "register": "academic",
+    "collocations": [
+      "Tatsache berücksichtigen",
+      "angesichts",
+      "faktische Basis"
+    ]
   },
   {
     "de": "in Anspruch nehmen",
@@ -10233,7 +10323,12 @@
     "level": "C1",
     "example": "Dem ist entgegenzuhalten, dass ...",
     "example_en": "It must be countered that ...",
-    "register": "formal"
+    "register": "formal",
+    "collocations": [
+      "Gegenargument formulieren",
+      "widersprechen",
+      "Einwand erheben"
+    ]
   },
   {
     "de": "ja",
@@ -12566,15 +12661,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Löffel, -",
-    "en": "spoon",
-    "article": "",
-    "level": "A2",
-    "example": "Kannst du mir bitte einen Löffel für die Suppe bringen?",
-    "example_en": "Can you please bring me a spoon for the soup?",
-    "register": "everyday"
-  },
-  {
     "de": "lösen",
     "en": "to solve",
     "article": "",
@@ -13857,8 +13943,8 @@
     "en": "demand",
     "article": "",
     "level": "B1",
-    "example": "Die Nachfrage nach Elektroautos ist in den letzten Jahren gestiegen.",
-    "example_en": "The demand for electric cars has risen in recent years.",
+    "example": "Die Nachfrage nach Bio-Lebensmitteln wächst, weil viele Menschen bewusster essen wollen.",
+    "example_en": "Demand for organic food is growing because many people want to eat more consciously.",
     "register": "everyday"
   },
   {
@@ -18738,7 +18824,12 @@
     "level": "C1",
     "example": "Alle Stakeholder müssen in den Entscheidungsprozess einbezogen werden.",
     "example_en": "All stakeholders must be included in the decision-making process.",
-    "register": "formal"
+    "register": "formal",
+    "collocations": [
+      "Stakeholder einbinden",
+      "Interessenvertreter",
+      "Anspruchsgruppen"
+    ]
   },
   {
     "de": "die Stammzelle, -n",
@@ -19840,7 +19931,7 @@
     "register": "everyday"
   },
   {
-    "de": "Der Ton macht die Musik.",
+    "de": "der Ton macht die Musik.",
     "en": "It's not what you say, but how you say it.",
     "article": "",
     "level": "C2",
@@ -19908,8 +19999,8 @@
     "en": "transparency",
     "article": "",
     "level": "C1",
-    "example": "Die Regierung muss mehr Transparenz in der öffentlichen Beschaffung zeigen.",
-    "example_en": "The government must show greater transparency in public procurement.",
+    "example": "Transparenz in der öffentlichen Beschaffung ist eine Grundvoraussetzung für Korruptionsprävention.",
+    "example_en": "Transparency in public procurement is a fundamental prerequisite for corruption prevention.",
     "collocations": [
       "Rechenschaft ablegen",
       "offen kommunizieren",
@@ -20710,7 +20801,12 @@
     "level": "C1",
     "example": "Unter Berücksichtigung aller Kosten ist das Projekt zu teuer.",
     "example_en": "Taking all costs into account, the project is too expensive.",
-    "register": "formal"
+    "register": "formal",
+    "collocations": [
+      "berücksichtigen",
+      "in Betracht ziehen",
+      "einbeziehen"
+    ]
   },
   {
     "de": "unter Beweis stellen",
@@ -21077,8 +21173,8 @@
     "en": "event",
     "article": "f.",
     "level": "A1",
-    "example": "Die Veranstaltung ist um 19 Uhr.",
-    "example_en": "The event is at 7 pm.",
+    "example": "Die Veranstaltung beginnt um 19 Uhr.",
+    "example_en": "The event begins at 7 pm.",
     "register": "everyday"
   },
   {
@@ -23687,7 +23783,12 @@
     "level": "C1",
     "example": "Zunächst ist festzuhalten, dass ...",
     "example_en": "First, it should be noted that ...",
-    "register": "formal"
+    "register": "formal",
+    "collocations": [
+      "Schlussfolgerung einleiten",
+      "feststellen",
+      "zusammenfassen"
+    ]
   },
   {
     "de": "zunehmen",
@@ -23790,8 +23891,8 @@
     "en": "cooperation",
     "article": "",
     "level": "B2",
-    "example": "Die Zusammenarbeit zwischen den Ländern hat sich verbessert.",
-    "example_en": "The cooperation between the countries has improved.",
+    "example": "Die institutionelle Zusammenarbeit zwischen Behörden scheitert oft an bürokratischen Hürden.",
+    "example_en": "Institutional cooperation between authorities often fails due to bureaucratic obstacles.",
     "collocations": [
       "Zusammenarbeit fördern",
       "eng zusammenarbeiten",
@@ -23820,7 +23921,12 @@
     "level": "C1",
     "example": "Zusammenfassend lässt sich feststellen ...",
     "example_en": "In summary, it can be stated ...",
-    "register": "formal"
+    "register": "formal",
+    "collocations": [
+      "Fazit ziehen",
+      "Ergebnis zusammenfassen",
+      "abschließend"
+    ]
   },
   {
     "de": "zusammenhängen",
@@ -24011,8 +24117,8 @@
     "en": "job interview",
     "article": "",
     "level": "B1",
-    "example": "Er war gut auf das Vorstellungsgespräch vorbereitet und bekam die Stelle.",
-    "example_en": "He was well prepared for the job interview and got the position.",
+    "example": "Im Vorstellungsgespräch sollte man Stärken konkret belegen und Schwächen reflektiert ansprechen.",
+    "example_en": "In a job interview you should substantiate your strengths with examples and address weaknesses reflectively.",
     "collocations": [
       "ein Vorstellungsgespräch führen",
       "sich gut präsentieren",
@@ -24889,20 +24995,6 @@
     "register": "everyday"
   },
   {
-    "de": "das Krankenhaus, -̈er",
-    "en": "hospital",
-    "article": "",
-    "level": "B1",
-    "example": "Sie wurde nach dem Unfall sofort ins Krankenhaus gebracht.",
-    "example_en": "She was taken to hospital immediately after the accident.",
-    "collocations": [
-      "ins Krankenhaus eingeliefert werden",
-      "stationär behandeln",
-      "Klinikaufenthalt"
-    ],
-    "register": "everyday"
-  },
-  {
     "de": "die Burnout-Prävention",
     "en": "burnout prevention",
     "article": "",
@@ -25481,8 +25573,8 @@
     "en": "tourist attraction",
     "article": "",
     "level": "B1",
-    "example": "Der Kölner Dom ist eine der bekanntesten Sehenswürdigkeiten Deutschlands.",
-    "example_en": "Cologne Cathedral is one of Germany's most famous tourist attractions.",
+    "example": "Wer Deutschland besucht, sollte sich die historischen Sehenswürdigkeiten in Heidelberg nicht entgehen lassen.",
+    "example_en": "Anyone visiting Germany should not miss the historic sights in Heidelberg.",
     "collocations": [
       "Sehenswürdigkeiten besichtigen",
       "Stadtführung",
@@ -27231,8 +27323,8 @@
     "en": "rent",
     "article": "",
     "level": "B1",
-    "example": "Die Miete für die Wohnung beträgt achthundert Euro pro Monat.",
-    "example_en": "The rent for the flat is eight hundred euros per month.",
+    "example": "Die Mietpreise in deutschen Großstädten sind in den letzten Jahren stark gestiegen.",
+    "example_en": "Rental prices in German cities have risen sharply in recent years.",
     "collocations": [
       "Miete zahlen",
       "Mietvertrag",
@@ -28546,15 +28638,6 @@
     "level": "A2",
     "example": "Das Paket ist heute angekommen und liegt an der Tür.",
     "example_en": "The parcel arrived today and is at the door.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Apotheke, -n",
-    "en": "pharmacy",
-    "article": "",
-    "level": "A2",
-    "example": "Er kauft Schmerzmittel in der Apotheke.",
-    "example_en": "He buys painkillers at the pharmacy.",
     "register": "everyday"
   },
   {
@@ -33752,7 +33835,7 @@
     "register": "literary"
   },
   {
-    "de": "Das Bessere ist der Feind des Guten.",
+    "de": "das Bessere ist der Feind des Guten.",
     "en": "the perfect is the enemy of the good",
     "article": "",
     "level": "C2",
@@ -33772,7 +33855,7 @@
     "register": "literary"
   },
   {
-    "de": "Die Axt im Haus erspart den Zimmermann.",
+    "de": "die Axt im Haus erspart den Zimmermann.",
     "en": "self-help is the best help",
     "article": "",
     "level": "C2",
