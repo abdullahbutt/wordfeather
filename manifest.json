@@ -9,17 +9,20 @@
   "theme_color": "#1d4ed8",
   "orientation": "any",
   "icons": [
-    {
-      "src": "icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "icons/16.png", "sizes": "16x16", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/32.png", "sizes": "32x32", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/64.png", "sizes": "64x64", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/72.png", "sizes": "72x72", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/96.png", "sizes": "96x96", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/128.png", "sizes": "128x128", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/144.png", "sizes": "144x144", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/152.png", "sizes": "152x152", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/180.png", "sizes": "180x180", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/256.png", "sizes": "256x256", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/387.png", "sizes": "387x387", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/1024.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/1240.png", "sizes": "1240x1240", "type": "image/png", "purpose": "any maskable" }
   ]
 }
