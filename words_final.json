@@ -449,20 +449,6 @@
     "register": "everyday"
   },
   {
-    "de": "die Allegorie",
-    "en": "allegory",
-    "article": "",
-    "level": "C2",
-    "example": "Die Allegorie im Roman zeigt den Kampf zwischen Gut und Böse.",
-    "example_en": "The allegory in the novel depicts the struggle between good and evil.",
-    "collocations": [
-      "eine Allegorie entschlüsseln",
-      "allegorische Deutung",
-      "verschlüsselte Botschaft"
-    ],
-    "register": "formal"
-  },
-  {
     "de": "allein",
     "en": "alone",
     "article": "—",
@@ -1379,15 +1365,6 @@
     "register": "formal"
   },
   {
-    "de": "die Aufenthaltserlaubnis",
-    "en": "residence permit",
-    "article": "",
-    "level": "A2",
-    "example": "Er beantragt eine Aufenthaltserlaubnis bei der Behörde.",
-    "example_en": "He applies for a residence permit at the authority.",
-    "register": "everyday"
-  },
-  {
     "de": "auffordern",
     "en": "to call upon",
     "article": "",
@@ -1437,15 +1414,6 @@
       "auf der Bühne stehen"
     ],
     "register": "formal"
-  },
-  {
-    "de": "die Aufgabe, -n",
-    "en": "task, exercise",
-    "article": "f.",
-    "level": "A1",
-    "example": "Die Aufgabe ist leicht.",
-    "example_en": "The task is easy.",
-    "register": "everyday"
   },
   {
     "de": "die Aufgabe, -n",
@@ -2727,15 +2695,6 @@
     "level": "A1",
     "example": "Was ist Ihr Beruf?",
     "example_en": "What is your profession?",
-    "register": "everyday"
-  },
-  {
-    "de": "die Berufsschule",
-    "en": "vocational school",
-    "article": "",
-    "level": "B1",
-    "example": "Er lernt Elektrotechnik an der Berufsschule in München.",
-    "example_en": "He is studying electrical engineering at the vocational school in Munich.",
     "register": "everyday"
   },
   {
@@ -9359,8 +9318,8 @@
     "en": "home office",
     "article": "",
     "level": "A2",
-    "example": "Ich war gestern in dem Homeoffice.",
-    "example_en": "I was at the home office yesterday.",
+    "example": "Heute arbeite ich im Homeoffice, weil mein Kind krank ist.",
+    "example_en": "Today I am working from home because my child is ill.",
     "register": "everyday"
   },
   {
@@ -9622,8 +9581,8 @@
     "en": "immune system",
     "article": "",
     "level": "B1",
-    "example": "Es gibt verschiedene Ansichten über das Immunsystem.",
-    "example_en": "There are different views on the immune system.",
+    "example": "Regelmäßige Bewegung und ausreichend Schlaf stärken das Immunsystem.",
+    "example_en": "Regular exercise and sufficient sleep strengthen the immune system.",
     "register": "everyday"
   },
   {
@@ -11365,8 +11324,8 @@
     "en": "conflict",
     "article": "",
     "level": "B1",
-    "example": "Der Konflikt ist ein ernstes Problem.",
-    "example_en": "The conflict is a serious problem.",
+    "example": "Der Konflikt zwischen den Abteilungen wurde durch eine offene Aussprache gelöst.",
+    "example_en": "The conflict between the departments was resolved through an open discussion.",
     "register": "everyday"
   },
   {
@@ -12938,8 +12897,8 @@
     "en": "market",
     "article": "",
     "level": "A2",
-    "example": "Ich war gestern in dem Markt.",
-    "example_en": "I was at the market yesterday.",
+    "example": "Jeden Samstag gibt es auf dem Markt frisches Obst und Gemüse.",
+    "example_en": "Every Saturday there is fresh fruit and vegetables at the market.",
     "register": "everyday"
   },
   {
@@ -12976,20 +12935,6 @@
       "ML-Modelle trainieren",
       "Muster erkennen",
       "prädiktive Analysen"
-    ],
-    "register": "formal"
-  },
-  {
-    "de": "maßgeblich",
-    "en": "authoritative",
-    "article": "",
-    "level": "B2",
-    "example": "Sie war maßgeblich an der Entwicklung des neuen Produkts beteiligt.",
-    "example_en": "She was significantly involved in the development of the new product.",
-    "collocations": [
-      "maßgeblich beteiligt sein",
-      "maßgeblichen Einfluss haben",
-      "entscheidend mitwirken"
     ],
     "register": "formal"
   },
@@ -13259,8 +13204,8 @@
     "en": "method",
     "article": "",
     "level": "B1",
-    "example": "Es gibt verschiedene Ansichten über die Methode.",
-    "example_en": "There are different views on the method.",
+    "example": "Diese Methode ist besonders gut für Anfänger geeignet.",
+    "example_en": "This method is particularly well suited for beginners.",
     "register": "everyday"
   },
   {
@@ -13268,8 +13213,8 @@
     "en": "method",
     "article": "",
     "level": "B2",
-    "example": "Die Methode ist von großer Bedeutung.",
-    "example_en": "The method is of great importance.",
+    "example": "Die wissenschaftliche Methode erfordert reproduzierbare Ergebnisse und transparente Dokumentation.",
+    "example_en": "The scientific method requires reproducible results and transparent documentation.",
     "collocations": [
       "eine Methode anwenden",
       "eine neue Methode entwickeln",
@@ -14268,8 +14213,8 @@
     "en": "side effect",
     "article": "",
     "level": "B1",
-    "example": "Es gibt verschiedene Ansichten über die Nebenwirkung.",
-    "example_en": "There are different views on the side effect.",
+    "example": "Die Nebenwirkungen des Medikaments umfassen Müdigkeit und Schwindel.",
+    "example_en": "The side effects of the medication include tiredness and dizziness.",
     "register": "everyday"
   },
   {
@@ -14277,8 +14222,8 @@
     "en": "side effect",
     "article": "",
     "level": "B2",
-    "example": "Die Nebenwirkung ist von großer Bedeutung.",
-    "example_en": "The side effect is of great importance.",
+    "example": "Schwerwiegende Nebenwirkungen müssen dem Arzt sofort gemeldet werden.",
+    "example_en": "Serious side effects must be reported to the doctor immediately.",
     "collocations": [
       "Nebenwirkungen auftreten",
       "unerwünschte Nebenwirkungen",
@@ -16223,8 +16168,8 @@
     "en": "right",
     "article": "",
     "level": "B1",
-    "example": "Das Recht ist von großer Bedeutung.",
-    "example_en": "The right is of great importance.",
+    "example": "Jeder Mensch hat das Recht auf eine faire Behandlung vor Gericht.",
+    "example_en": "Every person has the right to fair treatment before a court.",
     "register": "everyday"
   },
   {
@@ -17247,8 +17192,8 @@
     "en": "clean",
     "article": "",
     "level": "A2",
-    "example": "Die Aufgabe war ziemlich sauber.",
-    "example_en": "The task was quite clean.",
+    "example": "Die Wohnung muss sauber sein, bevor die Gäste kommen.",
+    "example_en": "The flat must be clean before the guests arrive.",
     "register": "everyday"
   },
   {
@@ -17761,30 +17706,12 @@
     "register": "everyday"
   },
   {
-    "de": "die See",
-    "en": "sea",
-    "article": "",
-    "level": "A2",
-    "example": "Ich war gestern in der See.",
-    "example_en": "I was at the sea yesterday.",
-    "register": "everyday"
-  },
-  {
     "de": "der See, -n",
     "en": "lake",
     "article": "m.",
     "level": "A1",
     "example": "Der See ist kalt.",
     "example_en": "The lake is cold.",
-    "register": "everyday"
-  },
-  {
-    "de": "der See, -n",
-    "en": "lake",
-    "article": "",
-    "level": "A2",
-    "example": "Kennen Sie den See in der Nähe?",
-    "example_en": "Do you know the lake nearby?",
     "register": "everyday"
   },
   {
@@ -17951,8 +17878,8 @@
     "en": "broadcast",
     "article": "",
     "level": "A2",
-    "example": "Kennen Sie die Sendung in der Nähe?",
-    "example_en": "Do you know the broadcast nearby?",
+    "example": "Ich sehe mir abends gerne eine interessante Sendung im Fernsehen an.",
+    "example_en": "In the evening I like to watch an interesting programme on television.",
     "register": "everyday"
   },
   {
@@ -18252,8 +18179,8 @@
     "en": "to sit down",
     "article": "",
     "level": "A2",
-    "example": "Ich setze mich regelmäßig.",
-    "example_en": "I sit down regularly.",
+    "example": "Er setzt sich ans Fenster und liest die Zeitung.",
+    "example_en": "He sits down by the window and reads the newspaper.",
     "register": "everyday"
   },
   {
@@ -19105,15 +19032,6 @@
     "de": "stornieren",
     "en": "to cancel",
     "article": "",
-    "level": "A2",
-    "example": "Sie storniert die Reservierung, weil sie krank ist.",
-    "example_en": "She cancels the reservation because she is ill.",
-    "register": "everyday"
-  },
-  {
-    "de": "stornieren",
-    "en": "to cancel",
-    "article": "",
     "level": "B1",
     "example": "Er storniert die Hotelreservierung, weil die Reise abgesagt wurde.",
     "example_en": "He cancels the hotel reservation because the trip has been called off.",
@@ -19202,8 +19120,8 @@
     "en": "stress",
     "article": "",
     "level": "B1",
-    "example": "Der Stress ist ein ernstes Problem.",
-    "example_en": "The stress is a serious problem.",
+    "example": "Stress im Beruf kann langfristig zu gesundheitlichen Problemen führen.",
+    "example_en": "Stress at work can lead to health problems in the long term.",
     "register": "everyday"
   },
   {
@@ -19211,8 +19129,8 @@
     "en": "stress",
     "article": "",
     "level": "B2",
-    "example": "Der Stress muss bekämpft werden.",
-    "example_en": "The stress must be fought.",
+    "example": "Chronischer Stress beeinträchtigt nicht nur die Gesundheit, sondern auch die Arbeitsleistung.",
+    "example_en": "Chronic stress affects not only health but also work performance.",
     "collocations": [
       "Stress abbauen",
       "unter Stress leiden",
@@ -20082,8 +20000,8 @@
     "en": "greenhouse effect",
     "article": "",
     "level": "B1",
-    "example": "Der Treibhauseffekt ist von großer Bedeutung.",
-    "example_en": "The greenhouse effect is of great importance.",
+    "example": "Der Treibhauseffekt hält die Erde warm, aber menschliche Aktivitäten verstärken ihn gefährlich.",
+    "example_en": "The greenhouse effect keeps the earth warm, but human activities are dangerously intensifying it.",
     "register": "everyday"
   },
   {
@@ -20091,8 +20009,8 @@
     "en": "greenhouse effect",
     "article": "",
     "level": "B2",
-    "example": "Es gibt verschiedene Ansichten über den Treibhauseffekt.",
-    "example_en": "There are different views on the greenhouse effect.",
+    "example": "Durch den verstärkten Treibhauseffekt steigen die Durchschnittstemperaturen weltweit messbar an.",
+    "example_en": "Due to the intensified greenhouse effect, average temperatures are rising measurably worldwide.",
     "collocations": [
       "den Treibhauseffekt verstärken",
       "CO₂-Emissionen reduzieren",
@@ -20552,8 +20470,8 @@
     "en": "to transfer",
     "article": "",
     "level": "A2",
-    "example": "Können Sie bitte umsteigen?",
-    "example_en": "Can you please transfer?",
+    "example": "In Frankfurt müssen wir umsteigen und den ICE nach Berlin nehmen.",
+    "example_en": "In Frankfurt we have to change and take the ICE to Berlin.",
     "register": "everyday"
   },
   {
@@ -20602,8 +20520,8 @@
     "en": "environmental awareness",
     "article": "",
     "level": "B2",
-    "example": "Wir müssen etwas gegen das Umweltbewusstsein tun.",
-    "example_en": "We have to do something about environmental awareness.",
+    "example": "Umweltbewusstsein zeigt sich im Alltag — zum Beispiel beim Vermeiden von Einwegplastik.",
+    "example_en": "Environmental awareness shows itself in everyday life — for example in avoiding single-use plastic.",
     "collocations": [
       "Umweltbewusstsein stärken",
       "nachhaltig denken",
@@ -21162,15 +21080,6 @@
   {
     "de": "die Veranstaltung, -en",
     "en": "event",
-    "article": "f.",
-    "level": "A1",
-    "example": "Die Veranstaltung beginnt um 19 Uhr.",
-    "example_en": "The event begins at 7 pm.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Veranstaltung, -en",
-    "en": "event",
     "article": "",
     "level": "A2",
     "example": "Die Veranstaltung beginnt um acht Uhr abends.",
@@ -21246,8 +21155,8 @@
     "en": "connection",
     "article": "",
     "level": "A2",
-    "example": "Die Verbindung ist von großer Bedeutung.",
-    "example_en": "The connection is of great importance.",
+    "example": "Die Zugverbindung nach Frankfurt fährt stündlich.",
+    "example_en": "The train connection to Frankfurt runs every hour.",
     "register": "everyday"
   },
   {
@@ -22371,8 +22280,8 @@
     "en": "forest",
     "article": "",
     "level": "A2",
-    "example": "Ich war gestern in dem Wald.",
-    "example_en": "I was at the forest yesterday.",
+    "example": "Im Herbst verfärben sich die Blätter im Wald bunt.",
+    "example_en": "In autumn the leaves in the forest turn colourful.",
     "register": "everyday"
   },
   {
@@ -22622,15 +22531,6 @@
     "level": "A1",
     "example": "Gehen Sie weiter.",
     "example_en": "Please keep going.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Weiterbildung",
-    "en": "continuing education",
-    "article": "",
-    "level": "B1",
-    "example": "Sie nimmt an einer Weiterbildung für digitale Medien teil.",
-    "example_en": "She is taking part in a continuing education course for digital media.",
     "register": "everyday"
   },
   {
@@ -23142,8 +23042,8 @@
     "en": "economic crisis",
     "article": "",
     "level": "B1",
-    "example": "Die Wirtschaftskrise ist ein ernstes Problem.",
-    "example_en": "The economic crisis is a serious problem.",
+    "example": "Die Wirtschaftskrise führte dazu, dass viele Betriebe schließen mussten.",
+    "example_en": "The economic crisis led to many businesses having to close.",
     "register": "everyday"
   },
   {
@@ -23151,8 +23051,8 @@
     "en": "economic crisis",
     "article": "",
     "level": "B2",
-    "example": "Viele Menschen leiden unter der Wirtschaftskrise.",
-    "example_en": "Many people suffer from economic crisis.",
+    "example": "Die Auswirkungen der Wirtschaftskrise sind am Arbeitsmarkt besonders deutlich spürbar.",
+    "example_en": "The effects of the economic crisis are particularly noticeable in the labour market.",
     "collocations": [
       "in eine Wirtschaftskrise geraten",
       "Konjunkturprogramme auflegen",
@@ -23795,8 +23695,8 @@
     "en": "to gain weight",
     "article": "",
     "level": "B1",
-    "example": "Ich nehme gern zu.",
-    "example_en": "I like to gain weight.",
+    "example": "Die Zahl der Onlinekäufe nimmt seit Jahren stetig zu.",
+    "example_en": "The number of online purchases has been steadily increasing for years.",
     "register": "everyday"
   },
   {
@@ -31664,20 +31564,6 @@
     "register": "academic"
   },
   {
-    "de": "das Intertextualität",
-    "en": "intertextuality",
-    "article": "",
-    "level": "C1",
-    "example": "Intertextualität bezeichnet Bezüge zwischen Texten, die Bedeutung konstituieren.",
-    "example_en": "Intertextuality refers to references between texts that constitute meaning.",
-    "collocations": [
-      "Texte vernetzen",
-      "literarische Anspielungen",
-      "Bedeutungsebenen"
-    ],
-    "register": "formal"
-  },
-  {
     "de": "die Erzähltheorie",
     "en": "narratology",
     "article": "",
@@ -32402,20 +32288,6 @@
       "vernetzte Geräte",
       "Smart Home",
       "Datenerhebung"
-    ],
-    "register": "formal"
-  },
-  {
-    "de": "die digitale Souveränität",
-    "en": "digital sovereignty",
-    "article": "",
-    "level": "C1",
-    "example": "Digitale Souveränität bedeutet, die eigene Datenwirtschaft kontrollieren zu können.",
-    "example_en": "Digital sovereignty means being able to control one's own data economy.",
-    "collocations": [
-      "Daten schützen",
-      "Technologieabhängigkeit",
-      "Cloud-Regulierung"
     ],
     "register": "formal"
   },
