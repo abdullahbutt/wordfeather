@@ -2,11 +2,12 @@
 """
 build.py — Deutsch Lernen Hub build pipeline
 ============================================
-Regenerates all six Wortschatz pages and updates dictionary.html
+Regenerates all six Wortschatz pages and/or dictionary.html
 from the single source of truth: words_final.json
 
 Usage:
     python3 build.py                     # rebuild Wortschatz pages + update dictionary counts
+    python3 build.py --dictionary        # fully rebuild dictionary.html from JSON
     python3 build.py --wortschatz-only   # rebuild Wortschatz pages only
     python3 build.py --audit             # run quality audit and exit
     python3 build.py --help              # show this help
@@ -19,8 +20,18 @@ from collections import defaultdict, Counter
 
 REPO    = os.path.dirname(os.path.abspath(__file__))
 JSON    = os.path.join(REPO, 'words_final.json')
+BASE    = '/deutsch-lernen-goethe-a1-c2'
 
-# ── Level metadata ────────────────────────────────────────────────────────────
+FAVICON_BLOCK = f'''\
+    <link rel="icon" type="image/x-icon" href="{BASE}/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="{BASE}/icons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{BASE}/icons/32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{BASE}/icons/96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{BASE}/icons/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{BASE}/icons/180.png">
+    <link rel="manifest" href="{BASE}/manifest.json">'''
+
+# ── Level metadata ─────────────────────────────────────────────────────────────
 META = {
     'A1': {'color':'#16a34a','desc':'Grundvokabular für absolute Anfänger — Alltag, Familie, Zahlen, Begrüßungen.'},
     'A2': {'color':'#2563eb','desc':'Erweiterter Alltagswortschatz — Einkaufen, Reisen, Körper, Schule, Technologie.'},
@@ -29,8 +40,9 @@ META = {
     'C1': {'color':'#dc2626','desc':'Formaler, akademischer und fachsprachlicher Wortschatz.'},
     'C2': {'color':'#0d9488','desc':'Nuancierter, idiomatischer und literarischer Wortschatz auf Muttersprachenniveau.'},
 }
+COLORS = {lv: META[lv]['color'] for lv in META}
 
-# ── Quality audit ─────────────────────────────────────────────────────────────
+# ── Quality audit ──────────────────────────────────────────────────────────────
 def audit(words):
     issues = []
     counts = Counter(w['level'] for w in words)
@@ -56,7 +68,9 @@ def audit(words):
 
     # Generic examples
     BANNED = ["das thema betrifft","wir sprechen über","ist sehr wichtig",
-              "hat sich verändert","ich interessiere mich für"]
+              "hat sich verändert","ich interessiere mich für",
+              "ist von großer bedeutung","ist ein ernstes problem",
+              "es gibt verschiedene ansichten","der ansatz ist "]
     generic = [w['de'] for w in words
                if any(b in w.get('example','').lower() for b in BANNED)]
     if generic:
@@ -72,7 +86,163 @@ def audit(words):
 
     return issues, counts
 
-# ── Wortschatz page builder ───────────────────────────────────────────────────
+# ── Dictionary card builder ────────────────────────────────────────────────────
+def first_letter(de):
+    """Return alphabet section key for a German de field."""
+    c = de.strip()[0].upper()
+    return {'Ä':'A', 'Ö':'O', 'Ü':'U'}.get(c, c if c.isalpha() else '#')
+
+def make_word_card(w):
+    """Build a single word-card div from a JSON entry."""
+    de    = w['de']
+    en    = w['en']
+    level = w['level']
+    ex    = w.get('example','').strip()
+    ex_en = w.get('example_en','').strip()
+    cols  = w.get('collocations', [])
+    color = COLORS[level]
+
+    col_html = ''
+    if cols:
+        pills = ''.join(
+            f'<span class="col-item">{htmllib.escape(c)}</span>' for c in cols)
+        col_html = f'<div class="word-collocations">{pills}</div>'
+
+    ex_html = ''
+    if ex:
+        en_span = (f'<br><span class="ex-en">{htmllib.escape(ex_en)}</span>'
+                   if ex_en else '')
+        ex_html = (f'\n        <div class="word-example">'
+                   f'<span class="ex-de">{htmllib.escape(ex)}</span>'
+                   f'{en_span}{col_html}</div>')
+
+    return (
+        f'<div class="word-card" '
+        f'data-de="{htmllib.escape(de.lower(), quote=True)}" '
+        f'data-en="{htmllib.escape(en, quote=True)}" '
+        f'data-level="{level}" '
+        f'data-ex="{htmllib.escape(ex, quote=True)}">\n'
+        f'    <div class="word-main">\n'
+        f'        <div class="word-de-wrap">\n'
+        f'            <span class="word-de">{htmllib.escape(de)}</span>\n'
+        f'            <span class="word-art"></span>\n'
+        f'            <span class="badge rounded-pill word-level" '
+        f'style="background:{color}">{level}</span>\n'
+        f'        </div>\n'
+        f'        <div class="word-en">{htmllib.escape(en)}</div>'
+        f'{ex_html}\n'
+        f'    </div>\n'
+        f'</div>'
+    )
+
+def build_dictionary(words):
+    """
+    Fully regenerate dictionary.html word-card section from words_final.json.
+    Preserves all HTML outside #wordList (header, search, filters, scripts, footer).
+    Inserts letter-header anchor divs at each alphabet boundary.
+    Verifies correct DOM order: cards → </main> → footer-placeholder → querySelectorAll.
+    """
+    dict_path = os.path.join(REPO, 'dictionary.html')
+    if not os.path.exists(dict_path):
+        print("  ❌ dictionary.html not found — cannot rebuild")
+        return False
+
+    with open(dict_path, encoding='utf-8') as f:
+        content = f.read()
+
+    # Sort words alphabetically
+    sorted_words = sorted(words, key=lambda w: (first_letter(w['de']), w['de'].lower()))
+
+    # Build sections: letter headers + word cards
+    sections = []
+    current_letter = None
+    for w in sorted_words:
+        ltr = first_letter(w['de'])
+        if ltr != current_letter:
+            current_letter = ltr
+            sections.append(
+                f'<div class="letter-header" id="letter-{ltr}" '
+                f'style="font-size:1.5rem;font-weight:700;color:#94a3b8;'
+                f'padding:.5rem 0 .25rem;margin-top:.5rem;'
+                f'border-bottom:1px solid #e2e8f0">'
+                f'{ltr}</div>'
+            )
+        sections.append(make_word_card(w))
+
+    cards_html = '\n'.join(sections)
+    total      = sum(1 for s in sections if 'word-card' in s)
+    letters    = sum(1 for s in sections if 'letter-header' in s)
+
+    # Build new #wordList content
+    WORDLIST = (
+        '<div id="wordList">\n'
+        '<div id="noResults" class="text-center py-5" style="display:none">\n'
+        '    <p class="fs-5">🔍 No words found</p>\n'
+        '    <p>Try a different search term or clear the level filter.</p>\n'
+        '</div>\n'
+        + cards_html +
+        '\n</div>'
+    )
+
+    # Find and replace #wordList in the HTML
+    wl_open = content.find('<div id="wordList">')
+    if wl_open == -1:
+        print("  ❌ #wordList div not found in dictionary.html")
+        return False
+
+    # Depth-count to find matching closing </div>
+    depth, i, wl_close = 0, wl_open, -1
+    while i < len(content):
+        if content[i:i+5] == '<div ':
+            depth += 1
+        elif content[i:i+6] == '</div>':
+            depth -= 1
+            if depth == 0:
+                wl_close = i + 6
+                break
+        i += 1
+
+    if wl_close == -1:
+        print("  ❌ Could not find closing </div> for #wordList")
+        return False
+
+    content_new = content[:wl_open] + WORDLIST + content[wl_close:]
+
+    # Update word count displays
+    content_new = re.sub(
+        r'id="wordCount">\d+ words',
+        f'id="wordCount">{total} words',
+        content_new
+    )
+    content_new = re.sub(
+        r'\d[\d\.]+ exam-relevant words from A1',
+        f'{total} exam-relevant words from A1',
+        content_new
+    )
+
+    # Verify DOM order
+    qs_pos     = content_new.find('var wordCards = document.querySelectorAll')
+    fp_match   = re.search(r'<div\s+id="footer-placeholder"', content_new)
+    main_close = content_new.rfind('</main>')
+    last_card  = content_new.rfind('class="word-card"')
+    last_head  = content_new.rfind('class="letter-header"')
+
+    order_ok = (
+        last_card  < qs_pos and
+        last_head  < qs_pos and
+        main_close < qs_pos and
+        (fp_match is None or fp_match.start() < qs_pos)
+    )
+
+    with open(dict_path, 'w', encoding='utf-8') as f:
+        f.write(content_new)
+
+    print(f"  ✅ dictionary.html — {total} cards, {letters} letter headers, "
+          f"order {'✅' if order_ok else '❌'}, "
+          f"footer {'✅' if fp_match else '❌'}")
+    return True
+
+# ── Wortschatz page builder ────────────────────────────────────────────────────
 TOPIC_KEYWORDS = {
     'A1': [
         ('Begrüßung & Alltag',  ['guten','hallo','danke','bitte','auf wiedersehen','tschüss']),
@@ -161,7 +331,6 @@ def build_wortschatz_page(level, level_words):
         if t not in ordered:
             ordered.append(t)
 
-    # Jump bar
     topic_nav = []
     for topic in ordered:
         ws = by_topic.get(topic, [])
@@ -177,7 +346,6 @@ def build_wortschatz_page(level, level_words):
         for tp, sl, n in topic_nav
     )
 
-    # Sections
     sections = ''
     for topic in ordered:
         ws = by_topic.get(topic, [])
@@ -229,12 +397,11 @@ def build_wortschatz_page(level, level_words):
     <meta name="description" content="Komplette {level}-Vokabelliste: {count} Wörter mit Beispielsätzen, englischen Übersetzungen und Aussprache-Funktion für Goethe- und telc-Prüfungen.">
     <meta name="keywords" content="Deutsch lernen, {level} Wortschatz, Goethe, telc, Vokabeln {level}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="/deutsch-lernen-goethe-a1-c2/manifest.json">
+{FAVICON_BLOCK}
     <meta name="theme-color" content="#1d4ed8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Deutsch Lernen">
-    <link rel="apple-touch-icon" href="/deutsch-lernen-goethe-a1-c2/icon-192x192.png">
     <title>01 Wortschatz – {level} | {count} Vokabeln</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -263,7 +430,7 @@ def build_wortschatz_page(level, level_words):
 <body id="top">
 <div id="header-placeholder"></div>
 <script>
-(function(){{var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-bs-theme',s);var path=window.location.pathname.replace(/\\\\/g,'/');var lm=path.match(/\\/(A1|A2|B1|B2|C1|C2)\\//);var prefix=lm?'../':'';var cl=lm?lm[1]:null;var modules={{A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']}};var labels=['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];var hFb='<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🇩🇪 Deutsch Lernen</a></div></nav>';function renderHeader(html){{html=html.replace(/BASE\\//g,prefix);document.getElementById('header-placeholder').innerHTML=html;if(cl){{document.querySelectorAll('.dropdown-item[data-level]').forEach(function(el){{if(el.getAttribute('data-level')===cl){{el.classList.add('active');el.setAttribute('aria-current','page');}}}}); var mf=modules[cl];var ul='<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"><li><a class="dropdown-item" href="README.html">📖 Overview</a></li><li><hr class="dropdown-divider"></li>';mf.forEach(function(f,i){{ul+='<li><a class="dropdown-item" href="'+f+'">'+labels[i]+'</a></li>';}}); ul+='</ul>';var li=document.createElement('li');li.className='nav-item dropdown';li.innerHTML='<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">'+cl+' Modules</a>'+ul;var nav=document.getElementById('nav-main-links');if(nav)nav.appendChild(li);}}var btn=document.getElementById('themeToggle');if(btn){{function sync(){{var d=document.documentElement.getAttribute('data-bs-theme')==='dark';btn.textContent=d?'☀️ Light':'🌙 Dark';}}sync();btn.addEventListener('click',function(){{var n=document.documentElement.getAttribute('data-bs-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-bs-theme',n);localStorage.setItem('theme',n);sync();}});}}}}
+(function(){{var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-bs-theme',s);var path=window.location.pathname.replace(/\\\\/g,'/');var lm=path.match(/\\/(A1|A2|B1|B2|C1|C2)\\//);var prefix=lm?'../':'';var cl=lm?lm[1]:null;var modules={{A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']}};var labels=['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];var hFb='<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">Deutsch Lernen</a></div></nav>';function renderHeader(html){{html=html.replace(/BASE\\//g,prefix);document.getElementById('header-placeholder').innerHTML=html;if(cl){{document.querySelectorAll('.dropdown-item[data-level]').forEach(function(el){{if(el.getAttribute('data-level')===cl){{el.classList.add('active');el.setAttribute('aria-current','page');}}}}); var mf=modules[cl];var ul='<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"><li><a class="dropdown-item" href="README.html">📖 Overview</a></li><li><hr class="dropdown-divider"></li>';mf.forEach(function(f,i){{ul+='<li><a class="dropdown-item" href="'+f+'">'+labels[i]+'</a></li>';}}); ul+='</ul>';var li=document.createElement('li');li.className='nav-item dropdown';li.innerHTML='<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">'+cl+' Modules</a>'+ul;var nav=document.getElementById('nav-main-links');if(nav)nav.appendChild(li);}}var btn=document.getElementById('themeToggle');if(btn){{function sync(){{var d=document.documentElement.getAttribute('data-bs-theme')==='dark';btn.textContent=d?'☀️ Light':'🌙 Dark';}}sync();btn.addEventListener('click',function(){{var n=document.documentElement.getAttribute('data-bs-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-bs-theme',n);localStorage.setItem('theme',n);sync();}});}}}}
 fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.reject();}}).then(renderHeader).catch(function(){{renderHeader(hFb);}});
 }})();
 </script>
@@ -329,7 +496,7 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
 </html>'''
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# ── Main ───────────────────────────────────────────────────────────────────────
 def main():
     args = sys.argv[1:]
 
@@ -355,27 +522,30 @@ def main():
             print("  ✅ No issues found")
         return
 
-    # Rebuild Wortschatz pages
-    for level in ['A1','A2','B1','B2','C1','C2']:
-        level_words = [w for w in words if w['level'] == level]
-        page = build_wortschatz_page(level, level_words)
-        out  = os.path.join(REPO, level, '01_Wortschatz.html')
-        with open(out, 'w', encoding='utf-8') as f:
-            f.write(page)
-        print(f"  ✅ {level}/01_Wortschatz.html — {len(level_words)} words")
+    # Rebuild Wortschatz pages (always, unless --dictionary only)
+    if '--dictionary' not in args or '--wortschatz-only' in args or len(args) == 0:
+        for level in ['A1','A2','B1','B2','C1','C2']:
+            level_words = [w for w in words if w['level'] == level]
+            page = build_wortschatz_page(level, level_words)
+            out  = os.path.join(REPO, level, '01_Wortschatz.html')
+            with open(out, 'w', encoding='utf-8') as f:
+                f.write(page)
+            print(f"  ✅ {level}/01_Wortschatz.html — {len(level_words)} words")
 
-    if '--wortschatz-only' not in args:
-        # Update word count in dictionary.html
+    # Rebuild dictionary.html
+    if '--dictionary' in args:
+        build_dictionary(words)
+    elif '--wortschatz-only' not in args:
+        # Default: just update word count in existing dictionary.html
         dict_path = os.path.join(REPO, 'dictionary.html')
         if os.path.exists(dict_path):
-            import re as _re
             with open(dict_path, encoding='utf-8') as f:
                 content = f.read()
             total = len(re.findall(r'<div class="word-card"', content))
-            content = _re.sub(r'\d[\d\.]+ exam-relevant words from A1',
-                              f'{total} exam-relevant words from A1', content)
-            content = _re.sub(r'id="wordCount">\d+ words',
-                              f'id="wordCount">{total} words', content)
+            content = re.sub(r'\d[\d\.]+ exam-relevant words from A1',
+                             f'{total} exam-relevant words from A1', content)
+            content = re.sub(r'id="wordCount">\d+ words',
+                             f'id="wordCount">{total} words', content)
             with open(dict_path, 'w', encoding='utf-8') as f:
                 f.write(content)
             print(f"  ✅ dictionary.html — word count updated to {total}")
