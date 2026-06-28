@@ -116,6 +116,7 @@
         .pos-filter button{padding:.25rem .75rem;border-radius:999px;border:1px solid #d1d5db;background:#fff;cursor:pointer;font-size:.85rem;transition:all .15s}
         .pos-filter button:hover{background:#f3f4f6}
         .pos-filter button.active{background:#7c3aed;border-color:#7c3aed;color:#fff}
+        .filter-label{font-size:.8rem;color:#64748b;font-weight:600;white-space:nowrap;min-width:2.5rem}
         [data-bs-theme="dark"] .pos-filter button{background:#1e293b;border-color:#374151;color:#e2e8f0}
         [data-bs-theme="dark"] .pos-filter button:hover{background:#334155}
         [data-bs-theme="dark"] .pos-filter button.active{background:#7c3aed;border-color:#7c3aed;color:#fff}
@@ -261,33 +262,31 @@
                         <input type="text" id="searchInput" placeholder="Search any German or English word..." autocomplete="off">
                     </div>
                 </div>
-                <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
-                    <div class="level-filter">
-                        <button data-level="ALL" class="active">All</button>
-                        <button data-level="A1">A1</button>
-                        <button data-level="A2">A2</button>
-                        <button data-level="B1">B1</button>
-                        <button data-level="B2">B2</button>
-                        <button data-level="C1">C1</button>
-                        <button data-level="C2">C2</button>
+                <div class="mb-3">
+                    <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
+                        <span class="filter-label">Level:</span>
+                        <div class="level-filter">
+                            <button data-level="ALL" class="active">All</button>
+                            <button data-level="A1">A1</button>
+                            <button data-level="A2">A2</button>
+                            <button data-level="B1">B1</button>
+                            <button data-level="B2">B2</button>
+                            <button data-level="C1">C1</button>
+                            <button data-level="C2">C2</button>
+                        </div>
+                        <span class="stats" id="wordCount">3023 words</span>
                     </div>
-                    <div class="pos-filter mt-2">
-                        <button data-pos="ALL" class="active">All types</button>
-                        <button data-pos="noun">🔵 Nouns</button>
-                        <button data-pos="verb">🟢 Verbs</button>
-                        <button data-pos="adjective">🟠 Adjectives</button>
-                        <button data-pos="adverb">🟣 Adverbs</button>
-                        <button data-pos="phrase">⬜ Phrases</button>
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="filter-label">Type:</span>
+                        <div class="pos-filter">
+                            <button data-pos="ALL" class="active">All</button>
+                            <button data-pos="noun">🔵 Nouns</button>
+                            <button data-pos="verb">🟢 Verbs</button>
+                            <button data-pos="adjective">🟠 Adjectives</button>
+                            <button data-pos="adverb">🟣 Adverbs</button>
+                            <button data-pos="phrase">⬜ Phrases</button>
+                        </div>
                     </div>
-                    <div class="pos-filter mt-2">
-                        <button data-pos="ALL" class="active">All types</button>
-                        <button data-pos="noun">🔵 Nouns</button>
-                        <button data-pos="verb">🟢 Verbs</button>
-                        <button data-pos="adjective">🟠 Adjectives</button>
-                        <button data-pos="adverb">🟣 Adverbs</button>
-                        <button data-pos="phrase">⬜ Phrases</button>
-                    </div>
-                    <span class="stats" id="wordCount">3023 words</span>
                 </div>
                 <div class="dict-layout">
                     <nav class="alpha-nav">
