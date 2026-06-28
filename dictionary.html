@@ -33660,7 +33660,7 @@
                 var matchSearch = !q || de.indexOf(q) > -1 || en.indexOf(q) > -1 || ex.indexOf(q) > -1;
                 var matchPOS = activePOS === 'ALL' || pos === activePOS;
                 var matchLevel = activeLevel === 'ALL' || level === activeLevel;
-                if (matchSearch && matchLevel) {
+                if (matchSearch && matchLevel && matchPOS) {
                     card.style.display = '';
                     visible++;
                     var prev = card.previousElementSibling;
