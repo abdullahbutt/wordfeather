@@ -1,5 +1,5 @@
 // Deutsch Learning Hub - Service Worker v3
-const CACHE_NAME = 'deutsch-lernen-v4.0.14';
+const CACHE_NAME = 'deutsch-lernen-v4.0.15';
 const BASE = '/deutsch-lernen-goethe-a1-c2/';
 
 // Static assets that rarely change (cache-first)

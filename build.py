@@ -88,6 +88,71 @@ def audit(words):
     return issues, counts
 
 # ── Dictionary card builder ────────────────────────────────────────────────────
+# ── POS detection ─────────────────────────────────────────────────────────────
+_VERB_RE      = re.compile(r'^[a-zäöüß]+en$')
+_ADJ_SUFFIXES = ('lich','ig','isch','bar','sam','haft','los','ell','iv','al','ös','iert','end','ent')
+_KNOWN_ADV = {
+    'ab','abends','also','auch','außen','außerdem','bald','bereits','besonders',
+    'bisher','da','dabei','daher','damals','danach','dann','deshalb','dort',
+    'dorthin','draußen','ebenso','eigentlich','endlich','erst','fast','ganz',
+    'gar','genau','gerade','gern','gerne','gestern','heute','hin','hoffentlich',
+    'irgendwann','irgendwo','ja','jetzt','kaum','leider','links','mal','manchmal',
+    'meistens','morgens','nachmittags','natürlich','nie','noch','normalerweise',
+    'nun','nur','oben','oft','rechts','schon','sehr','seitdem','selten','sofort',
+    'sonst','trotzdem','überall','überhaupt','übrigens','unbedingt','ungefähr',
+    'unten','vielleicht','vorbei','vorher','wahrscheinlich','wieder','wirklich',
+    'wo','zuerst','zurzeit','zusammen','zwar','morgen','viel','wenig','mehr',
+    'immer','bereits','fast','ganz','kaum','doch','halt','eben','wohl',
+    'schließlich','allerdings','freilich','gleichwohl','nichtsdestotrotz',
+    'nichtsdestoweniger','somit','demnach','ergo','mithin','zumal','indessen',
+    'überdies','hierbei','insofern','ebendies','indes',
+}
+_KNOWN_CONJ = {
+    'aber','als','bevor','denn','dass','damit','ehe','entweder','falls',
+    'nachdem','ob','obwohl','oder','seit','seitdem','sobald','sofern',
+    'solange','sondern','sowie','und','während','weder','weil','wenn',
+    'wie','wenngleich','obgleich','wohingegen',
+}
+_KNOWN_PREP = {
+    'an','auf','aus','außer','bei','bis','durch','für','gegen','hinter',
+    'in','mit','nach','neben','ohne','seit','über','um','unter','von','vor',
+    'während','wegen','zwischen','zu','gegenüber','statt','trotz','innerhalb',
+    'außerhalb','mithilfe','angesichts','aufgrund','infolge','zwecks',
+}
+_KNOWN_PRON = {
+    'ich','du','er','sie','es','wir','ihr','man','sich','dieser','jener',
+    'wer','was','jemand','niemand','etwas','nichts','beide',
+}
+_DETERMINER = {
+    'dies-','ein/eine','gern(e)','jeder/jede/jedes','kein/keine',
+    'lang(e)','nah(e)','welch-','alle','einige','viele','wenige',
+    'mehrere','manche','solche',
+}
+
+def detect_pos(w):
+    """Detect part of speech from de field and article field."""
+    de  = w['de'].strip()
+    dl  = de.lower()
+    art = w.get('article','')
+    if art in ('m.','f.','n.','m./f.','Pl.'): return 'noun'
+    if de.endswith('.') or de.endswith('!') or de.endswith('?'): return 'proverb'
+    if '...' in de: return 'phrase'
+    if dl in _DETERMINER: return 'determiner'
+    if dl in _KNOWN_PRON: return 'pronoun'
+    if dl in _KNOWN_CONJ and ' ' not in de: return 'conjunction'
+    if dl.startswith('sich ') and dl.endswith('en'): return 'verb'
+    if _VERB_RE.match(dl): return 'verb'
+    if ' ' in de and not re.match(r'^(der|die|das)\s+', de, re.I):
+        if dl.split()[-1].endswith('en'): return 'phrase'
+    if re.match(r'^(der|die|das)\s+', de, re.I) and ',' not in de: return 'noun'
+    if dl in _KNOWN_ADV: return 'adverb'
+    if dl in _KNOWN_PREP and ' ' not in de: return 'preposition'
+    if dl.endswith(_ADJ_SUFFIXES) and ' ' not in de: return 'adjective'
+    if ' ' in de: return 'phrase'
+    if len(de) > 2 and dl[0].islower(): return 'adjective'
+    return 'adverb'  # fallback for particles
+
+
 def first_letter(de):
     """Return alphabet section key for a German de field."""
     c = de.strip()[0].upper()
@@ -102,6 +167,7 @@ def make_word_card(w):
     ex_en = w.get('example_en','').strip()
     cols  = w.get('collocations', [])
     color = COLORS[level]
+    pos   = detect_pos(w)
 
     col_html = ''
     if cols:
@@ -122,6 +188,7 @@ def make_word_card(w):
         f'data-de="{htmllib.escape(de.lower(), quote=True)}" '
         f'data-en="{htmllib.escape(en, quote=True)}" '
         f'data-level="{level}" '
+        f'data-pos="{pos}" '
         f'data-ex="{htmllib.escape(ex, quote=True)}">\n'
         f'    <div class="word-main">\n'
         f'        <div class="word-de-wrap">\n'
@@ -292,6 +359,23 @@ def build_dictionary(words):
         f'{total} exam-relevant words from A1',
         content_new
     )
+
+    # Inject / refresh POS filter buttons if not already present
+    if 'class="pos-filter"' not in content_new:
+        POS_BUTTONS = '''<div class="pos-filter mt-2">
+                        <button data-pos="ALL" class="active">All types</button>
+                        <button data-pos="noun">🔵 Nouns</button>
+                        <button data-pos="verb">🟢 Verbs</button>
+                        <button data-pos="adjective">🟠 Adjectives</button>
+                        <button data-pos="adverb">🟣 Adverbs</button>
+                        <button data-pos="phrase">⬜ Phrases</button>
+                    </div>'''
+        INSERT_AFTER = 'data-level="C2">C2</button>\n                    </div>'
+        content_new = content_new.replace(
+            INSERT_AFTER,
+            INSERT_AFTER + '\n                    ' + POS_BUTTONS,
+            1
+        )
 
     # Inject / refresh JSON-LD structured data
     jsonld_block = build_jsonld(words)
