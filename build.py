@@ -7,7 +7,8 @@ from the single source of truth: words_final.json
 
 Usage:
     python3 build.py                     # rebuild Wortschatz pages + update dictionary counts
-    python3 build.py --dictionary        # fully rebuild dictionary.html from JSON
+    python3 build.py --all               # rebuild everything: Wortschatz + dictionary (recommended)
+    python3 build.py --dictionary        # fully rebuild dictionary.html from JSON only
     python3 build.py --wortschatz-only   # rebuild Wortschatz pages only
     python3 build.py --audit             # run quality audit and exit
     python3 build.py --help              # show this help
@@ -135,6 +136,78 @@ def make_word_card(w):
         f'</div>'
     )
 
+def build_jsonld(words):
+    """Build the JSON-LD structured data block for dictionary.html."""
+    counts = Counter(w['level'] for w in words)
+    data = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "DefinedTermSet",
+                "@id": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html#termset",
+                "name": "Deutsch Lernen \u2014 Goethe-Zertifikat A1 to C2 Dictionary",
+                "description": (f"Free German\u2013English vocabulary dictionary with {len(words):,} words and "
+                                f"phrases covering CEFR levels A1\u2013C2. Includes example sentences, "
+                                f"collocations and audio pronunciation. Aligned to Goethe-Zertifikat "
+                                f"and telc exam requirements."),
+                "url": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html",
+                "inLanguage": ["de", "en"],
+                "numberOfItems": len(words),
+                "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+                "creator": {
+                    "@type": "Person",
+                    "name": "Abdullah Butt",
+                    "url": "https://github.com/abdullahbutt"
+                },
+                "about": [
+                    {"@type": "Thing", "name": "German language"},
+                    {"@type": "Thing", "name": "Goethe-Zertifikat"},
+                    {"@type": "Thing", "name": "CEFR"},
+                    {"@type": "Thing", "name": "Language learning"}
+                ],
+                "educationalLevel": "A1, A2, B1, B2, C1, C2",
+                "keywords": ("Deutsch lernen, German vocabulary, Goethe-Zertifikat, "
+                             "telc, CEFR, A1 Wortschatz, B1 Wortschatz, C1 Wortschatz, learn German")
+            },
+            {
+                "@type": "Dataset",
+                "@id": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html#dataset",
+                "name": "German\u2013English CEFR Vocabulary Dataset (A1\u2013C2)",
+                "description": (f"Structured bilingual German\u2013English vocabulary dataset with "
+                                f"{len(words):,} entries, CEFR level tags (A1\u2013C2), example sentences, "
+                                f"English translations and B2\u2013C2 collocations."),
+                "url": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html",
+                "inLanguage": ["de", "en"],
+                "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+                "creator": {"@type": "Person", "name": "Abdullah Butt"},
+                "distribution": {
+                    "@type": "DataDownload",
+                    "encodingFormat": "application/json",
+                    "contentUrl": "https://raw.githubusercontent.com/abdullahbutt/deutsch-lernen-goethe-a1-c2/main/words_final.json"
+                },
+                "variableMeasured": [
+                    {"@type": "PropertyValue", "name": f"{lv} entries", "value": counts[lv]}
+                    for lv in ['A1','A2','B1','B2','C1','C2']
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home",
+                     "item": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/"},
+                    {"@type": "ListItem", "position": 2, "name": "W\u00f6rterbuch / Dictionary",
+                     "item": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html"}
+                ]
+            }
+        ]
+    }
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(data, ensure_ascii=False, indent=2)
+        + '\n</script>'
+    )
+
+
 def build_dictionary(words):
     """
     Fully regenerate dictionary.html word-card section from words_final.json.
@@ -219,6 +292,15 @@ def build_dictionary(words):
         f'{total} exam-relevant words from A1',
         content_new
     )
+
+    # Inject / refresh JSON-LD structured data
+    jsonld_block = build_jsonld(words)
+    content_new = re.sub(
+        r'<script type="application/ld\+json">.*?</script>\s*',
+        '', content_new, flags=re.DOTALL
+    )
+    if '</head>' in content_new:
+        content_new = content_new.replace('</head>', f'{jsonld_block}\n</head>', 1)
 
     # Verify DOM order
     qs_pos     = content_new.find('var wordCards = document.querySelectorAll')
@@ -520,6 +602,19 @@ def main():
                 print(f"  ⚠️  {issue}")
         else:
             print("  ✅ No issues found")
+        return
+
+    # --all: rebuild everything (Windows-friendly alternative to && chaining)
+    if '--all' in args:
+        for level in ['A1','A2','B1','B2','C1','C2']:
+            level_words = [w for w in words if w['level'] == level]
+            page = build_wortschatz_page(level, level_words)
+            out  = os.path.join(REPO, level, '01_Wortschatz.html')
+            with open(out, 'w', encoding='utf-8') as f:
+                f.write(page)
+            print(f"  ✅ {level}/01_Wortschatz.html — {len(level_words)} words")
+        build_dictionary(words)
+        print("\nBuild complete.")
         return
 
     # Rebuild Wortschatz pages (always, unless --dictionary only)
