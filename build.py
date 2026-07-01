@@ -87,7 +87,53 @@ def audit(words):
 
     return issues, counts
 
-# ── Dictionary card builder ────────────────────────────────────────────────────
+# ── App Install Banner ────────────────────────────────────────────────────────
+INSTALL_BANNER = (
+    '\n    <!-- App Install Banner -->\n'
+    '    <div style="background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%)'
+    ';color:#fff;padding:1rem 0;">\n'
+    '        <div class="container">\n'
+    '            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">\n'
+    '                <div class="d-flex align-items-center gap-3">\n'
+    '                    <span style="font-size:2rem">📱</span>\n'
+    '                    <div>\n'
+    '                        <div style="font-weight:700;font-size:1rem;line-height:1.2">'
+    'Install as a free app — no App Store needed</div>\n'
+    '                        <div style="font-size:.85rem;opacity:.9;margin-top:.2rem">'
+    'Works offline · Installs in seconds · iPhone &amp; Android</div>\n'
+    '                    </div>\n'
+    '                </div>\n'
+    '                <div class="d-flex gap-3 flex-wrap">\n'
+    '                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem'
+    ';padding:.5rem .9rem;font-size:.82rem;line-height:1.5">\n'
+    '                        <div style="font-weight:700;margin-bottom:.1rem">🍎 iPhone / iPad</div>\n'
+    '                        <div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div>\n'
+    '                    </div>\n'
+    '                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem'
+    ';padding:.5rem .9rem;font-size:.82rem;line-height:1.5">\n'
+    '                        <div style="font-weight:700;margin-bottom:.1rem">🤖 Android</div>\n'
+    '                        <div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div>\n'
+    '                    </div>\n'
+    '                </div>\n'
+    '            </div>\n'
+    '        </div>\n'
+    '    </div>\n'
+    '    <!-- End App Install Banner -->\n'
+)
+
+def inject_install_banner(content):
+    """Insert the app install banner before <main>. Idempotent."""
+    # Remove any existing banner — handles both old and new comment styles
+    content = re.sub(
+        r'\s*<!-- [─\-]*\s*App Install Banner.*?End App Install Banner\s*[─\-]*\s*-->\s*',
+        '\n', content, flags=re.DOTALL
+    )
+    main_pos = content.find('<main')
+    if main_pos == -1:
+        return content
+    return content[:main_pos] + INSTALL_BANNER + content[main_pos:]
+
+
 # ── POS detection ─────────────────────────────────────────────────────────────
 _VERB_RE      = re.compile(r'^[a-zäöüß]+en$')
 _ADJ_SUFFIXES = ('lich','ig','isch','bar','sam','haft','los','ell','iv','al','ös','iert','end','ent')
@@ -348,7 +394,8 @@ def build_dictionary(words):
 
     content_new = content[:wl_open] + WORDLIST + content[wl_close:]
 
-    # Update word count displays
+    # Inject app install banner
+    content_new = inject_install_banner(content_new)
     content_new = re.sub(
         r'id="wordCount">\d+ words',
         f'id="wordCount">{total} words',
@@ -698,6 +745,18 @@ def main():
                 f.write(page)
             print(f"  ✅ {level}/01_Wortschatz.html — {len(level_words)} words")
         build_dictionary(words)
+        # Inject banner into index.html and all level index pages
+        for page_path in (
+            [os.path.join(REPO, 'index.html')] +
+            [os.path.join(REPO, lv, 'index.html') for lv in ['A1','A2','B1','B2','C1','C2']]
+        ):
+            if os.path.exists(page_path):
+                with open(page_path, encoding='utf-8') as f:
+                    pg = f.read()
+                pg = inject_install_banner(pg)
+                with open(page_path, 'w', encoding='utf-8') as f:
+                    f.write(pg)
+                print(f"  ✅ banner → {os.path.relpath(page_path, REPO)}")
         print("\nBuild complete.")
         return
 
