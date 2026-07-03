@@ -1237,9 +1237,9 @@
     "register": "everyday"
   },
   {
-    "de": "die Artensterben",
+    "de": "das Artensterben",
     "en": "species extinction",
-    "article": "f.",
+    "article": "n.",
     "level": "C1",
     "example": "Das Artensterben bedroht das Gleichgewicht unserer Ökosysteme.",
     "example_en": "Species extinction threatens the balance of our ecosystems.",
@@ -2589,7 +2589,7 @@
     "article": "n.",
     "level": "A1",
     "example": "Das Benzin ist teuer.",
-    "example_en": "Gas is expensive.",
+    "example_en": "Petrol is expensive.",
     "register": "everyday"
   },
   {
@@ -3534,7 +3534,7 @@
   {
     "de": "die Bürger, -",
     "en": "citizen",
-    "article": "f.",
+    "article": "m.",
     "level": "A2",
     "example": "Die Bürger der Stadt wählen einen neuen Bürgermeister.",
     "example_en": "The citizens of the city are electing a new mayor.",
@@ -3729,9 +3729,9 @@
     "register": "formal"
   },
   {
-    "de": "das CO2-Emissionen",
+    "de": "die CO2-Emissionen",
     "en": "CO2 emissions",
-    "article": "n.",
+    "article": "f.",
     "level": "C1",
     "example": "Die CO2-Emissionen müssen dringend reduziert werden.",
     "example_en": "CO2 emissions urgently need to be reduced.",
@@ -4476,7 +4476,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Herr Doktor Müller.",
-    "example_en": "Doctor Schmidt is here.",
+    "example_en": "Doctor Müller.",
     "register": "everyday"
   },
   {
@@ -4903,9 +4903,9 @@
     "register": "everyday"
   },
   {
-    "de": "das Einbürgerung",
+    "de": "die Einbürgerung",
     "en": "naturalization",
-    "article": "n.",
+    "article": "f.",
     "level": "B2",
     "example": "Die Einbürgerung dauerte fast drei Jahre und viele Dokumente waren nötig.",
     "example_en": "The naturalization took almost three years and many documents were required.",
@@ -4982,7 +4982,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich gehe einkaufen.",
-    "example_en": "She goes shopping on Saturdays.",
+    "example_en": "I am going shopping.",
     "register": "everyday"
   },
   {
@@ -6568,7 +6568,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Morgen ist ein Feiertag.",
-    "example_en": "Monday is a public holiday.",
+    "example_en": "Tomorrow is a public holiday.",
     "register": "everyday"
   },
   {
@@ -6609,7 +6609,7 @@
     "article": "f.",
     "level": "B1",
     "example": "Wir haben eine schöne Ferienwohnung am Meer gemietet.",
-    "example_en": "We rented a lovely vacation rental by the sea.",
+    "example_en": "We rented a lovely holiday apartment by the sea.",
     "register": "everyday"
   },
   {
@@ -7024,7 +7024,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Frau Müller ist nett.",
-    "example_en": "Mrs Smith is nice.",
+    "example_en": "Mrs Müller is nice.",
     "register": "everyday"
   },
   {
@@ -7088,7 +7088,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Am Freitag gehe ich aus.",
-    "example_en": "Friday is my favourite day.",
+    "example_en": "On Friday I am going out.",
     "register": "everyday"
   },
   {
@@ -7106,7 +7106,7 @@
     "article": "f.",
     "level": "A1",
     "example": "In meiner Freizeit lese ich.",
-    "example_en": "In his free time he plays football.",
+    "example_en": "In my free time I read.",
     "register": "everyday"
   },
   {
@@ -7214,7 +7214,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Im Frühling blühen die Blumen.",
-    "example_en": "Spring begins in March.",
+    "example_en": "In spring the flowers bloom.",
     "register": "everyday"
   },
   {
@@ -7268,7 +7268,7 @@
     "article": "",
     "level": "A1",
     "example": "Fünf Minuten, bitte.",
-    "example_en": "I have five sisters.",
+    "example_en": "Five minutes, please.",
     "register": "everyday"
   },
   {
@@ -8622,8 +8622,8 @@
     "en": "liability",
     "article": "f.",
     "level": "C1",
-    "example": "Wir sollten die Haftung genauer betrachten.",
-    "example_en": "We should look at the liability more closely.",
+    "example": "Die Haftung des Herstellers ist im Vertrag klar geregelt.",
+    "example_en": "The manufacturer's liability is clearly regulated in the contract.",
     "collocations": [
       "Haftung übernehmen",
       "zur Haftung heranziehen",
@@ -8763,8 +8763,8 @@
     "en": "hardware",
     "article": "f.",
     "level": "B2",
-    "example": "Wir müssen etwas gegen die Hardware tun.",
-    "example_en": "We have to do something about hardware.",
+    "example": "Die neue Hardware verbessert die Leistung des Computers erheblich.",
+    "example_en": "The new hardware significantly improves the computer's performance.",
     "collocations": [
       "Hardware aufrüsten",
       "technische Komponenten",
@@ -8963,8 +8963,8 @@
     "en": "to find out",
     "article": "",
     "level": "B1",
-    "example": "Es ist wichtig, rechtzeitig herzuausfinden.",
-    "example_en": "It's important to find out on time.",
+    "example": "Es ist wichtig, rechtzeitig herauszufinden, was passiert ist.",
+    "example_en": "It is important to find out in time what happened.",
     "register": "everyday"
   },
   {
@@ -9182,8 +9182,8 @@
     "en": "to point out",
     "article": "",
     "level": "B2",
-    "example": "Es ist wichtig, rechtzeitig hinzuweisen auf.",
-    "example_en": "It's important to point out on time.",
+    "example": "Der Anwalt weist auf einen wichtigen Formfehler im Vertrag hin.",
+    "example_en": "The lawyer points out an important formal error in the contract.",
     "collocations": [
       "auf Risiken hinweisen",
       "ausdrücklich hinweisen",
@@ -9327,8 +9327,8 @@
     "en": "to broaden one's horizon",
     "article": "",
     "level": "C2",
-    "example": "Wir müssen das den Horizont erweitern.",
-    "example_en": "We have to broaden one's horizon that.",
+    "example": "Eine Reise ins Ausland kann den Horizont erweitern.",
+    "example_en": "Travelling abroad can broaden one's horizons.",
     "collocations": [
       "Horizont erweitern",
       "neue Perspektiven gewinnen",
@@ -9465,8 +9465,8 @@
     "en": "identity",
     "article": "f.",
     "level": "C1",
-    "example": "Die Identität hat sich in den letzten Jahren verändert.",
-    "example_en": "The identity has changed in recent years.",
+    "example": "Ihre kulturelle Identität ist geprägt von zwei verschiedenen Ländern.",
+    "example_en": "Her cultural identity is shaped by two different countries.",
     "collocations": [
       "Identität entwickeln",
       "kulturelle Identität",
@@ -9692,8 +9692,8 @@
     "en": "to deny",
     "article": "",
     "level": "C2",
-    "example": "Wir müssen das in Abrede stellen.",
-    "example_en": "We have to deny that.",
+    "example": "Der Angeklagte stellt jede Beteiligung an dem Verbrechen in Abrede.",
+    "example_en": "The defendant denies any involvement in the crime.",
     "collocations": [
       "Verantwortung in Abrede stellen",
       "vehement leugnen",
@@ -9720,8 +9720,8 @@
     "en": "to make use of",
     "article": "",
     "level": "B2",
-    "example": "Ich möchte das in Anspruch nehmen.",
-    "example_en": "I would like to make use of that.",
+    "example": "Sie möchte die kostenlose Beratung in Anspruch nehmen.",
+    "example_en": "She would like to make use of the free consultation.",
     "collocations": [
       "in Anspruch nehmen",
       "Leistungen in Anspruch nehmen",
@@ -9734,8 +9734,8 @@
     "en": "to consider",
     "article": "",
     "level": "B2",
-    "example": "Wir müssen das in Betracht ziehen.",
-    "example_en": "We have to consider that.",
+    "example": "Wir sollten alle Optionen sorgfältig in Betracht ziehen.",
+    "example_en": "We should carefully consider all options.",
     "collocations": [
       "in Betracht ziehen",
       "alle Optionen prüfen",
@@ -9813,8 +9813,8 @@
     "en": "to question",
     "article": "",
     "level": "B2",
-    "example": "Wir müssen das in Frage stellen.",
-    "example_en": "We have to question that.",
+    "example": "Kritiker stellen die Wirksamkeit der neuen Methode in Frage.",
+    "example_en": "Critics question the effectiveness of the new method.",
     "collocations": [
       "in Frage stellen",
       "Zweifel äußern",
@@ -9827,8 +9827,8 @@
     "en": "to accept",
     "article": "",
     "level": "B2",
-    "example": "Ich möchte das in Kauf nehmen.",
-    "example_en": "I would like to accept that.",
+    "example": "Sie nimmt lange Arbeitszeiten in Kauf, um Karriere zu machen.",
+    "example_en": "She accepts long working hours in order to advance her career.",
     "collocations": [
       "in Kauf nehmen",
       "Nachteile akzeptieren",
@@ -10021,8 +10021,8 @@
     "en": "to hit the bull's eye",
     "article": "",
     "level": "C2",
-    "example": "Wir müssen das ins Schwarze treffen.",
-    "example_en": "We have to hit the bull's eye that.",
+    "example": "Mit seiner Antwort hat er genau ins Schwarze getroffen.",
+    "example_en": "With his answer, he hit the nail on the head.",
     "register": "formal"
   },
   {
@@ -10806,7 +10806,7 @@
     "article": "n.",
     "level": "A1",
     "example": "Das Kind spielt.",
-    "example_en": "The child is playing outside.",
+    "example_en": "The child is playing.",
     "register": "everyday"
   },
   {
@@ -11042,8 +11042,8 @@
     "en": "change (coins)",
     "article": "n.",
     "level": "A2",
-    "example": "Das Kleingeld spielt eine zentrale Rolle.",
-    "example_en": "The change (coins) plays a central role.",
+    "example": "Für den Kaffeeautomaten braucht man immer etwas Kleingeld.",
+    "example_en": "You always need some small change for the coffee machine.",
     "register": "everyday"
   },
   {
@@ -11412,8 +11412,8 @@
     "en": "contextualization",
     "article": "f.",
     "level": "C2",
-    "example": "Wir sollten die Kontextualisierung genauer betrachten.",
-    "example_en": "We should look at the contextualization more closely.",
+    "example": "Die Kontextualisierung historischer Ereignisse hilft, sie besser zu verstehen.",
+    "example_en": "The contextualisation of historical events helps to understand them better.",
     "collocations": [
       "in Kontext setzen",
       "historisch einordnen",
@@ -11659,8 +11659,8 @@
     "en": "cancer research",
     "article": "f.",
     "level": "C1",
-    "example": "Wir sollten die Krebsforschung genauer betrachten.",
-    "example_en": "We should look at the cancer research more closely.",
+    "example": "Die Krebsforschung hat in den letzten Jahren große Fortschritte gemacht.",
+    "example_en": "Cancer research has made great progress in recent years.",
     "collocations": [
       "Krebstherapien entwickeln",
       "Tumormarker analysieren",
@@ -12034,7 +12034,7 @@
     "article": "n.",
     "level": "A1",
     "example": "Welches Land?",
-    "example_en": "She comes from a hot country.",
+    "example_en": "Which country?",
     "register": "everyday"
   },
   {
@@ -12312,7 +12312,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Der Lehrer ist streng.",
-    "example_en": "The teacher explains the grammar.",
+    "example_en": "The teacher is strict.",
     "register": "everyday"
   },
   {
@@ -12716,7 +12716,7 @@
     "article": "n.",
     "level": "A1",
     "example": "Das Mädchen lacht.",
-    "example_en": "The girl is reading a book.",
+    "example_en": "The girl is laughing.",
     "register": "everyday"
   },
   {
@@ -12892,8 +12892,8 @@
     "en": "market analysis",
     "article": "f.",
     "level": "C1",
-    "example": "Die Marktanalyse spielt eine zentrale Rolle.",
-    "example_en": "The market analysis plays a central role.",
+    "example": "Die Marktanalyse zeigt großes Potenzial für das neue Produkt.",
+    "example_en": "The market analysis shows great potential for the new product.",
     "collocations": [
       "Marktanalyse durchführen",
       "Marktpotenzial einschätzen",
@@ -13130,8 +13130,8 @@
     "en": "human rights",
     "article": "f.",
     "level": "B2",
-    "example": "Wir sollten die Menschenrechte genauer betrachten.",
-    "example_en": "We should look at the human rights more closely.",
+    "example": "Die Vereinten Nationen setzen sich weltweit für die Menschenrechte ein.",
+    "example_en": "The United Nations advocates for human rights worldwide.",
     "collocations": [
       "Menschenrechte schützen",
       "Menschenrechtsverletzungen anprangern",
@@ -13154,7 +13154,7 @@
     "article": "n.",
     "level": "A1",
     "example": "Das Messer ist scharf.",
-    "example_en": "He cuts the bread with a knife.",
+    "example_en": "The knife is sharp.",
     "register": "everyday"
   },
   {
@@ -13213,8 +13213,8 @@
     "en": "methodology",
     "article": "f.",
     "level": "C1",
-    "example": "Die Methodik spielt eine zentrale Rolle.",
-    "example_en": "The methodology plays a central role.",
+    "example": "Die Methodik der Studie wurde von unabhängigen Experten geprüft.",
+    "example_en": "The methodology of the study was reviewed by independent experts.",
     "collocations": [
       "wissenschaftliche Methodik",
       "methodisches Vorgehen",
@@ -13305,7 +13305,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Fünf Minuten, bitte.",
-    "example_en": "The film lasts ninety minutes.",
+    "example_en": "Five minutes, please.",
     "register": "everyday"
   },
   {
@@ -13400,7 +13400,7 @@
     "article": "f.",
     "level": "A1",
     "example": "In der Mitte der Stadt.",
-    "example_en": "The hotel is in the centre of the city.",
+    "example_en": "In the middle of the city.",
     "register": "everyday"
   },
   {
@@ -13496,7 +13496,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich mag Schokolade.",
-    "example_en": "She likes chocolate very much.",
+    "example_en": "I like chocolate.",
     "register": "everyday"
   },
   {
@@ -13523,7 +13523,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Welcher Monat ist es?",
-    "example_en": "The year has twelve months.",
+    "example_en": "Which month is it?",
     "register": "everyday"
   },
   {
@@ -14173,7 +14173,7 @@
     "article": "",
     "level": "A1",
     "example": "Neben der Bank ist ein Café.",
-    "example_en": "The café is next to the pharmacy.",
+    "example_en": "There is a café next to the bank.",
     "register": "everyday"
   },
   {
@@ -14443,7 +14443,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich gehe nie spät ins Bett.",
-    "example_en": "He never eats meat.",
+    "example_en": "I never go to bed late.",
     "register": "everyday"
   },
   {
@@ -14475,7 +14475,7 @@
     "article": "",
     "level": "A1",
     "example": "Bist du noch da?",
-    "example_en": "Are you still hungry?",
+    "example_en": "Are you still there?",
     "register": "everyday"
   },
   {
@@ -14775,8 +14775,8 @@
     "en": "ecosystem",
     "article": "n.",
     "level": "B2",
-    "example": "Wir sollten das Ökosystem genauer betrachten.",
-    "example_en": "We should look at the ecosystem more closely.",
+    "example": "Das Ökosystem des Regenwaldes ist von Abholzung bedroht.",
+    "example_en": "The rainforest ecosystem is threatened by deforestation.",
     "collocations": [
       "ein Ökosystem schützen",
       "ökologisches Gleichgewicht",
@@ -14854,7 +14854,7 @@
     "article": "",
     "level": "A1",
     "example": "Ohne Zucker, bitte.",
-    "example_en": "She drinks coffee without milk.",
+    "example_en": "Without sugar, please.",
     "register": "everyday"
   },
   {
@@ -15237,7 +15237,7 @@
     "article": "",
     "level": "A1",
     "example": "Die Hose passt gut.",
-    "example_en": "This shirt does not fit.",
+    "example_en": "The trousers fit well.",
     "register": "everyday"
   },
   {
@@ -15445,8 +15445,8 @@
     "en": "duty",
     "article": "f.",
     "level": "B1",
-    "example": "Wir sollten die Pflicht genauer betrachten.",
-    "example_en": "We should look at the duty more closely.",
+    "example": "Es ist ihre Pflicht, den Bericht bis Freitag abzugeben.",
+    "example_en": "It is her duty to submit the report by Friday.",
     "register": "everyday"
   },
   {
@@ -15538,7 +15538,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Rufen Sie die Polizei!",
-    "example_en": "The police arrived quickly.",
+    "example_en": "Call the police!",
     "register": "everyday"
   },
   {
@@ -16013,9 +16013,9 @@
     "register": "formal"
   },
   {
-    "de": "der Rathaus, -̈er",
+    "de": "das Rathaus, -̈er",
     "en": "town hall",
-    "article": "m.",
+    "article": "n.",
     "level": "A1",
     "example": "Das Rathaus ist am Marktplatz.",
     "example_en": "The town hall is at the market square.",
@@ -16113,8 +16113,8 @@
     "en": "to take into account",
     "article": "",
     "level": "C2",
-    "example": "Wir müssen das dem Rechnung tragen.",
-    "example_en": "We have to take into account that.",
+    "example": "Die neue Regelung trägt den veränderten Arbeitsbedingungen Rechnung.",
+    "example_en": "The new regulation takes the changed working conditions into account.",
     "collocations": [
       "einer Tatsache Rechnung tragen",
       "angemessen berücksichtigen",
@@ -16186,8 +16186,8 @@
     "en": "to recycle",
     "article": "",
     "level": "A2",
-    "example": "Ich möchte das recyceln.",
-    "example_en": "I would like to recycle that.",
+    "example": "Wir sollten Glas und Papier konsequent recyceln.",
+    "example_en": "We should consistently recycle glass and paper.",
     "register": "everyday"
   },
   {
@@ -16250,8 +16250,8 @@
     "en": "reform",
     "article": "f.",
     "level": "B2",
-    "example": "Die Reform hat sich in den letzten Jahren verändert.",
-    "example_en": "The reform has changed in recent years.",
+    "example": "Die Reform des Gesundheitssystems wurde nach langer Debatte beschlossen.",
+    "example_en": "The reform of the healthcare system was decided after a long debate.",
     "collocations": [
       "Reformen durchführen",
       "ein Reformpaket schnüren",
@@ -16548,8 +16548,8 @@
     "en": "resilience",
     "article": "f.",
     "level": "C1",
-    "example": "Wir müssen etwas gegen die Resilienz tun.",
-    "example_en": "We have to do something about resilience.",
+    "example": "Regelmäßige Bewegung und soziale Kontakte stärken die psychische Resilienz.",
+    "example_en": "Regular exercise and social contacts strengthen psychological resilience.",
     "collocations": [
       "Resilienz aufbauen",
       "mit Rückschlägen umgehen",
@@ -16562,8 +16562,8 @@
     "en": "resolution",
     "article": "f.",
     "level": "C1",
-    "example": "Die Resolution hat sich in den letzten Jahren verändert.",
-    "example_en": "The resolution has changed in recent years.",
+    "example": "Der UN-Sicherheitsrat verabschiedete eine Resolution zum Waffenstillstand.",
+    "example_en": "The UN Security Council adopted a resolution on the ceasefire.",
     "collocations": [
       "eine Resolution verabschieden",
       "UN-Sicherheitsrat",
@@ -16835,7 +16835,7 @@
     "article": "",
     "level": "A1",
     "example": "Die Rose ist rot.",
-    "example_en": "Her dress is red.",
+    "example_en": "The rose is red.",
     "register": "everyday"
   },
   {
@@ -16922,7 +16922,7 @@
     "article": "",
     "level": "A1",
     "example": "Die Straße ist ruhig.",
-    "example_en": "Please be quiet.",
+    "example_en": "The street is quiet.",
     "register": "everyday"
   },
   {
@@ -17302,7 +17302,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich schlafe 8 Stunden.",
-    "example_en": "The baby is sleeping.",
+    "example_en": "I sleep 8 hours.",
     "register": "everyday"
   },
   {
@@ -17352,7 +17352,7 @@
     "article": "",
     "level": "A1",
     "example": "Bitte schließen Sie die Tür.",
-    "example_en": "Please close the window.",
+    "example_en": "Please close the door.",
     "register": "everyday"
   },
   {
@@ -17370,7 +17370,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Wo ist der Schlüssel?",
-    "example_en": "She cannot find her key.",
+    "example_en": "Where is the key?",
     "register": "everyday"
   },
   {
@@ -17392,8 +17392,8 @@
     "en": "conclusion",
     "article": "f.",
     "level": "C1",
-    "example": "Wir sollten die Schlussfolgerung genauer betrachten.",
-    "example_en": "We should look at the conclusion more closely.",
+    "example": "Seine Schlussfolgerung basiert auf soliden empirischen Daten.",
+    "example_en": "His conclusion is based on solid empirical data.",
     "collocations": [
       "Schlussfolgerungen ziehen",
       "zu einer Schlussfolgerung gelangen",
@@ -17435,7 +17435,7 @@
     "article": "",
     "level": "A1",
     "example": "Das schmeckt gut!",
-    "example_en": "The soup tastes delicious.",
+    "example_en": "That tastes good!",
     "register": "everyday"
   },
   {
@@ -17611,7 +17611,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Die Kinder gehen zur Schule.",
-    "example_en": "The school starts at eight o'clock.",
+    "example_en": "The children go to school.",
     "register": "everyday"
   },
   {
@@ -17670,7 +17670,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Meine Schwester ist 20.",
-    "example_en": "My sister lives in Hamburg.",
+    "example_en": "My sister is 20.",
     "register": "everyday"
   },
   {
@@ -17720,7 +17720,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich sehe dich.",
-    "example_en": "Can you see the tower?",
+    "example_en": "I see you.",
     "register": "everyday"
   },
   {
@@ -17983,8 +17983,8 @@
     "en": "to thank",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu bedanken.",
-    "example_en": "It's important to thank.",
+    "example": "Sie bedankt sich herzlich bei ihren Kollegen für die Unterstützung.",
+    "example_en": "She thanks her colleagues warmly for their support.",
     "register": "everyday"
   },
   {
@@ -18010,8 +18010,8 @@
     "en": "to complain",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu beschweren.",
-    "example_en": "It's important to complain.",
+    "example": "Er beschwert sich beim Kundendienst über die verspätete Lieferung.",
+    "example_en": "He complains to customer service about the late delivery.",
     "register": "everyday"
   },
   {
@@ -18061,8 +18061,8 @@
     "en": "to decide",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu entscheiden.",
-    "example_en": "It's important to decide.",
+    "example": "Sie muss sich zwischen den beiden Jobangeboten entscheiden.",
+    "example_en": "She has to decide between the two job offers.",
     "register": "everyday"
   },
   {
@@ -18070,8 +18070,8 @@
     "en": "to apologize",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu entschuldigen.",
-    "example_en": "It's important to apologize.",
+    "example": "Er entschuldigt sich bei seinem Freund für die Verspätung.",
+    "example_en": "He apologises to his friend for being late.",
     "register": "everyday"
   },
   {
@@ -18079,8 +18079,8 @@
     "en": "to have the audacity",
     "article": "",
     "level": "C2",
-    "example": "Es ist wichtig, sich zu erdreisten.",
-    "example_en": "It's important to have the audacity.",
+    "example": "Er erdreistete sich, ohne Erlaubnis in ihr Büro zu gehen.",
+    "example_en": "He had the audacity to enter her office without permission.",
     "collocations": [
       "sich erdreisten zu",
       "Unverschämtheit besitzen",
@@ -18093,8 +18093,8 @@
     "en": "to recover",
     "article": "",
     "level": "B1",
-    "example": "Es ist wichtig, sich zu erholen.",
-    "example_en": "It's important to recover.",
+    "example": "Nach der Krankheit braucht sie noch Zeit, um sich zu erholen.",
+    "example_en": "After the illness, she still needs time to recover.",
     "register": "everyday"
   },
   {
@@ -18102,8 +18102,8 @@
     "en": "to remember",
     "article": "",
     "level": "A2",
-    "example": "Ich erinnre mich regelmäßig.",
-    "example_en": "I remember regularly.",
+    "example": "Ich erinnere mich gern an meine Kindheit.",
+    "example_en": "I fondly remember my childhood.",
     "register": "everyday"
   },
   {
@@ -18120,8 +18120,8 @@
     "en": "to look forward to",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu freuen auf.",
-    "example_en": "It's important to look forward to.",
+    "example": "Die Kinder freuen sich schon sehr auf die Sommerferien.",
+    "example_en": "The children are already really looking forward to the summer holidays.",
     "register": "everyday"
   },
   {
@@ -18129,8 +18129,8 @@
     "en": "to get used to",
     "article": "",
     "level": "A2",
-    "example": "Ich gewöhne mich regelmäßig.",
-    "example_en": "I get used to regularly.",
+    "example": "Er gewöhnt sich langsam an das neue Klima im Ausland.",
+    "example_en": "He is slowly getting used to the new climate abroad.",
     "register": "everyday"
   },
   {
@@ -18138,8 +18138,8 @@
     "en": "to inform oneself",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu informieren.",
-    "example_en": "It's important to inform oneself.",
+    "example": "Vor der Reise informiert sie sich gründlich über das Land.",
+    "example_en": "Before the trip, she thoroughly informs herself about the country.",
     "register": "everyday"
   },
   {
@@ -18147,8 +18147,8 @@
     "en": "to take care of",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu kümmern.",
-    "example_en": "It's important to take care of.",
+    "example": "Er kümmert sich jeden Tag liebevoll um seine kranke Mutter.",
+    "example_en": "He lovingly takes care of his sick mother every day.",
     "register": "everyday"
   },
   {
@@ -18174,8 +18174,8 @@
     "en": "to argue",
     "article": "",
     "level": "A2",
-    "example": "Man sollte sich streiten.",
-    "example_en": "One should argue.",
+    "example": "Die Geschwister streiten sich oft um die Fernbedienung.",
+    "example_en": "The siblings often argue over the remote control.",
     "register": "everyday"
   },
   {
@@ -18183,8 +18183,8 @@
     "en": "to separate",
     "article": "",
     "level": "A2",
-    "example": "Man sollte sich trennen.",
-    "example_en": "One should separate.",
+    "example": "Nach zehn Jahren Ehe haben sie sich einvernehmlich getrennt.",
+    "example_en": "After ten years of marriage, they separated amicably.",
     "register": "everyday"
   },
   {
@@ -18192,8 +18192,8 @@
     "en": "to converse",
     "article": "",
     "level": "A2",
-    "example": "Ich halte mich gern unter.",
-    "example_en": "I like to converse.",
+    "example": "Ich unterhalte mich gern mit meinen Kollegen.",
+    "example_en": "I like to converse with my colleagues.",
     "register": "everyday"
   },
   {
@@ -18201,8 +18201,8 @@
     "en": "to say goodbye",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu verabschieden.",
-    "example_en": "It's important to say goodbye.",
+    "example": "Am Bahnhof verabschieden sie sich herzlich voneinander.",
+    "example_en": "At the station they say a warm goodbye to each other.",
     "register": "everyday"
   },
   {
@@ -18224,8 +18224,8 @@
     "en": "to behave",
     "article": "",
     "level": "A2",
-    "example": "Es ist wichtig, sich zu verhalten.",
-    "example_en": "It's important to behave.",
+    "example": "In der Krise verhielt sich das Team ruhig und professionell.",
+    "example_en": "During the crisis, the team behaved calmly and professionally.",
     "register": "everyday"
   },
   {
@@ -18265,8 +18265,8 @@
     "en": "to be surprised",
     "article": "",
     "level": "A2",
-    "example": "Man sollte sich wundern.",
-    "example_en": "One should be surprised.",
+    "example": "Sie wundert sich, dass er so früh schon zu Hause ist.",
+    "example_en": "She is surprised that he is already home so early.",
     "register": "everyday"
   },
   {
@@ -18306,8 +18306,8 @@
     "en": "significance",
     "article": "f.",
     "level": "C1",
-    "example": "Die Signifikanz spielt eine zentrale Rolle.",
-    "example_en": "The significance plays a central role.",
+    "example": "Die statistische Signifikanz der Ergebnisse wurde sorgfältig berechnet.",
+    "example_en": "The statistical significance of the results was carefully calculated.",
     "collocations": [
       "statistische Signifikanz",
       "p-Wert bestimmen",
@@ -18334,8 +18334,8 @@
     "en": "scalability",
     "article": "f.",
     "level": "C1",
-    "example": "Die Skalierbarkeit spielt eine zentrale Rolle.",
-    "example_en": "The scalability plays a central role.",
+    "example": "Die Skalierbarkeit des Systems ermöglicht schnelles Unternehmenswachstum.",
+    "example_en": "The scalability of the system enables rapid company growth.",
     "collocations": [
       "skalierbare Lösung",
       "Wachstum ermöglichen",
@@ -18376,8 +18376,8 @@
     "en": "software",
     "article": "f.",
     "level": "B2",
-    "example": "Wir müssen etwas gegen die Software tun.",
-    "example_en": "We have to do something about software.",
+    "example": "Die Software muss regelmäßig aktualisiert werden, um sicher zu bleiben.",
+    "example_en": "The software must be updated regularly to stay secure.",
     "collocations": [
       "Software entwickeln",
       "ein Update installieren",
@@ -18423,7 +18423,7 @@
     "article": "",
     "level": "A1",
     "example": "Was soll ich machen?",
-    "example_en": "You should drink more water.",
+    "example_en": "What should I do?",
     "register": "everyday"
   },
   {
@@ -18573,7 +18573,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich gehe spazieren.",
-    "example_en": "We go for a walk in the park.",
+    "example_en": "I go for a walk.",
     "register": "everyday"
   },
   {
@@ -18650,7 +18650,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich spreche Deutsch.",
-    "example_en": "Do you speak German?",
+    "example_en": "I speak German.",
     "register": "everyday"
   },
   {
@@ -18805,7 +18805,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich stehe an der Haltestelle.",
-    "example_en": "The bus stop is on the corner.",
+    "example_en": "I am standing at the bus stop.",
     "register": "everyday"
   },
   {
@@ -19198,7 +19198,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Der Stuhl ist frei.",
-    "example_en": "Please sit on the chair.",
+    "example_en": "The chair is free.",
     "register": "everyday"
   },
   {
@@ -19344,7 +19344,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Ich gehe zum Supermarkt.",
-    "example_en": "The supermarket is open until eight.",
+    "example_en": "I am going to the supermarket.",
     "register": "everyday"
   },
   {
@@ -19508,7 +19508,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Eine Tasse Tee, bitte.",
-    "example_en": "She drinks a cup of coffee.",
+    "example_en": "A cup of tea, please.",
     "register": "everyday"
   },
   {
@@ -19665,8 +19665,8 @@
     "en": "theory",
     "article": "f.",
     "level": "B2",
-    "example": "Die Theorie hat sich in den letzten Jahren verändert.",
-    "example_en": "The theory has changed in recent years.",
+    "example": "Seine Theorie wurde durch neue Forschungsergebnisse widerlegt.",
+    "example_en": "His theory was refuted by new research findings.",
     "collocations": [
       "eine Theorie aufstellen",
       "Theorie und Praxis",
@@ -19955,7 +19955,7 @@
     "article": "",
     "level": "A1",
     "example": "Wir treffen uns um 3.",
-    "example_en": "We are meeting at the station.",
+    "example_en": "We are meeting at 3 o'clock.",
     "register": "everyday"
   },
   {
@@ -20300,8 +20300,8 @@
     "en": "to convince",
     "article": "",
     "level": "A2",
-    "example": "Ich zeuge gern über.",
-    "example_en": "I like to convince.",
+    "example": "Er überzeugt seine Kollegen mit guten Argumenten.",
+    "example_en": "He convinces his colleagues with good arguments.",
     "register": "everyday"
   },
   {
@@ -20328,7 +20328,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Die Uhr zeigt 10.",
-    "example_en": "What time is it?",
+    "example_en": "The clock shows ten.",
     "register": "everyday"
   },
   {
@@ -20547,8 +20547,8 @@
     "en": "notwithstanding",
     "article": "",
     "level": "C2",
-    "example": "Das Ergebnis war unbeschadet der Tatsache, dass.",
-    "example_en": "The result was notwithstanding.",
+    "example": "Unbeschadet der Tatsache, dass die Kosten gestiegen sind, wird das Projekt fortgesetzt.",
+    "example_en": "Notwithstanding the fact that costs have risen, the project will continue.",
     "collocations": [
       "trotz der Tatsache",
       "ungeachtet",
@@ -20754,8 +20754,8 @@
     "en": "to teach",
     "article": "",
     "level": "A2",
-    "example": "Ich richte gern unter.",
-    "example_en": "I like to teach.",
+    "example": "Ich unterrichte gern Deutsch an der Schule.",
+    "example_en": "I like to teach German at the school.",
     "register": "everyday"
   },
   {
@@ -20883,8 +20883,8 @@
     "en": "copyright",
     "article": "n.",
     "level": "B2",
-    "example": "Wir sollten das Urheberrecht genauer betrachten.",
-    "example_en": "We should look at the copyright more closely.",
+    "example": "Das Urheberrecht schützt die Werke von Künstlern und Autoren.",
+    "example_en": "Copyright protects the works of artists and authors.",
     "collocations": [
       "Urheberrecht schützen",
       "geistiges Eigentum",
@@ -20915,8 +20915,8 @@
     "en": "cause",
     "article": "f.",
     "level": "B2",
-    "example": "Die Ursache spielt eine zentrale Rolle.",
-    "example_en": "The cause plays a central role.",
+    "example": "Die genaue Ursache des Unfalls konnte bisher nicht geklärt werden.",
+    "example_en": "The exact cause of the accident could not yet be determined.",
     "collocations": [
       "die Ursache ermitteln",
       "auf Ursachenforschung gehen",
@@ -20943,8 +20943,8 @@
     "en": "judgment reasoning",
     "article": "f.",
     "level": "C1",
-    "example": "Die Urteilsbegründung spielt eine zentrale Rolle.",
-    "example_en": "The judgment reasoning plays a central role.",
+    "example": "Die Urteilsbegründung erklärt ausführlich die Entscheidung des Gerichts.",
+    "example_en": "The judgment reasoning explains the court's decision in detail.",
     "collocations": [
       "Urteil begründen",
       "rechtliche Grundlage darlegen",
@@ -21072,8 +21072,8 @@
     "en": "responsibility",
     "article": "f.",
     "level": "B1",
-    "example": "Die Verantwortung hat sich in den letzten Jahren verändert.",
-    "example_en": "The responsibility has changed in recent years.",
+    "example": "Als Teamleiter trägt sie große Verantwortung für ihr Team.",
+    "example_en": "As team leader, she bears great responsibility for her team.",
     "register": "everyday"
   },
   {
@@ -21250,8 +21250,8 @@
     "en": "process",
     "article": "n.",
     "level": "B2",
-    "example": "Das Verfahren hat sich in den letzten Jahren verändert.",
-    "example_en": "The process has changed in recent years.",
+    "example": "Das gerichtliche Verfahren zog sich über mehrere Monate hin.",
+    "example_en": "The court proceedings dragged on for several months.",
     "collocations": [
       "ein Verfahren einleiten",
       "gerichtliches Verfahren",
@@ -21361,8 +21361,8 @@
     "en": "verifiability",
     "article": "f.",
     "level": "C2",
-    "example": "Die Verifizierbarkeit spielt eine zentrale Rolle.",
-    "example_en": "The verifiability plays a central role.",
+    "example": "Die Verifizierbarkeit wissenschaftlicher Aussagen ist ein zentrales Prinzip der Forschung.",
+    "example_en": "The verifiability of scientific claims is a core principle of research.",
     "collocations": [
       "Überprüfbarkeit sichern",
       "wissenschaftliche Nachvollziehbarkeit",
@@ -21760,7 +21760,7 @@
     "article": "",
     "level": "A1",
     "example": "Vielen Dank!",
-    "example_en": "She drinks a lot of water.",
+    "example_en": "Thank you very much!",
     "register": "everyday"
   },
   {
@@ -21778,7 +21778,7 @@
     "article": "",
     "level": "A1",
     "example": "Vier Personen.",
-    "example_en": "She has four children.",
+    "example_en": "Four people.",
     "register": "everyday"
   },
   {
@@ -21865,7 +21865,7 @@
     "article": "",
     "level": "A1",
     "example": "Der Bus ist voll.",
-    "example_en": "The train is full.",
+    "example_en": "The bus is full.",
     "register": "everyday"
   },
   {
@@ -21882,8 +21882,8 @@
     "en": "frying pan into the fire",
     "article": "",
     "level": "C2",
-    "example": "Das Ergebnis war vom Regen in die Traufe.",
-    "example_en": "The result was frying pan into the fire.",
+    "example": "Er wechselte den Job und geriet dabei vom Regen in die Traufe.",
+    "example_en": "He changed jobs and jumped from the frying pan into the fire.",
     "register": "literary"
   },
   {
@@ -22289,7 +22289,7 @@
     "article": "",
     "level": "A1",
     "example": "Bitte warten Sie.",
-    "example_en": "We are waiting for the bus.",
+    "example_en": "Please wait.",
     "register": "everyday"
   },
   {
@@ -22298,7 +22298,7 @@
     "article": "",
     "level": "A1",
     "example": "Warum bist du hier?",
-    "example_en": "Why are you late?",
+    "example_en": "Why are you here?",
     "register": "everyday"
   },
   {
@@ -22307,7 +22307,7 @@
     "article": "",
     "level": "A1",
     "example": "Was machst du?",
-    "example_en": "What is your name?",
+    "example_en": "What are you doing?",
     "register": "everyday"
   },
   {
@@ -22493,7 +22493,7 @@
     "article": "",
     "level": "A1",
     "example": "Ist es weit?",
-    "example_en": "The station is not far from here.",
+    "example_en": "Is it far?",
     "register": "everyday"
   },
   {
@@ -22539,7 +22539,7 @@
     "article": "",
     "level": "A1",
     "example": "Welcher Tag ist heute?",
-    "example_en": "Which bus goes to the centre?",
+    "example_en": "Which day is it today?",
     "register": "everyday"
   },
   {
@@ -22895,8 +22895,8 @@
     "en": "forming of opinion",
     "article": "f.",
     "level": "C1",
-    "example": "Wir sollten die Willensbildung genauer betrachten.",
-    "example_en": "We should look at the forming of opinion more closely.",
+    "example": "Die demokratische Willensbildung erfolgt durch freie Wahlen.",
+    "example_en": "Democratic will-formation takes place through free elections.",
     "collocations": [
       "politische Willensbildung",
       "Meinungsbildung fördern",
@@ -23147,7 +23147,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Die Wohnung ist groß.",
-    "example_en": "Their flat is on the third floor.",
+    "example_en": "The flat is big.",
     "register": "everyday"
   },
   {
@@ -23305,7 +23305,7 @@
     "article": "",
     "level": "A1",
     "example": "Zehn Euro.",
-    "example_en": "He is ten years old.",
+    "example_en": "Ten euros.",
     "register": "everyday"
   },
   {
@@ -23314,7 +23314,7 @@
     "article": "",
     "level": "A1",
     "example": "Zeigen Sie mir das.",
-    "example_en": "Can you show me the way to the station?",
+    "example_en": "Please show me that.",
     "register": "everyday"
   },
   {
@@ -23383,7 +23383,7 @@
     "article": "f.",
     "level": "A1",
     "example": "Ich lese die Zeitung.",
-    "example_en": "He reads the newspaper every morning.",
+    "example_en": "I am reading the newspaper.",
     "register": "everyday"
   },
   {
@@ -23530,7 +23530,7 @@
     "article": "",
     "level": "A1",
     "example": "Ich gehe zu Fuß.",
-    "example_en": "The shop is closed.",
+    "example_en": "I go on foot.",
     "register": "everyday"
   },
   {
@@ -23580,7 +23580,7 @@
     "article": "m.",
     "level": "A1",
     "example": "Der Zug kommt.",
-    "example_en": "The train departs at nine o'clock.",
+    "example_en": "The train is coming.",
     "register": "everyday"
   },
   {
@@ -23602,8 +23602,8 @@
     "en": "supplier",
     "article": "m.",
     "level": "B2",
-    "example": "Wir müssen etwas gegen den Zulieferer tun.",
-    "example_en": "We have to do something about supplier.",
+    "example": "Der Zulieferer konnte die Bauteile nicht rechtzeitig liefern.",
+    "example_en": "The supplier was unable to deliver the parts on time.",
     "collocations": [
       "Zulieferer beauftragen",
       "Lieferkette sichern",
@@ -23616,8 +23616,8 @@
     "en": "to express",
     "article": "",
     "level": "B2",
-    "example": "Können Sie bitte zum Ausdruck bringen?",
-    "example_en": "Can you please express?",
+    "example": "In ihrer Rede bringt sie ihre Dankbarkeit deutlich zum Ausdruck.",
+    "example_en": "In her speech she clearly expresses her gratitude.",
     "collocations": [
       "zum Ausdruck bringen",
       "klar formulieren",
@@ -23676,8 +23676,8 @@
     "en": "to be available",
     "article": "",
     "level": "B2",
-    "example": "Es ist wichtig, rechtzeitig zuzur Verfügung stehen.",
-    "example_en": "It's important to be available on time.",
+    "example": "Der Berater steht Ihnen jederzeit zur Verfügung.",
+    "example_en": "The advisor is available to you at any time.",
     "collocations": [
       "zur Verfügung stehen",
       "bereitstehen",
@@ -23690,8 +23690,8 @@
     "en": "to provide",
     "article": "",
     "level": "B2",
-    "example": "Ich r Verfügung stelle gern zu.",
-    "example_en": "I like to provide.",
+    "example": "Die Bibliothek stellt kostenlos WLAN zur Verfügung.",
+    "example_en": "The library provides free Wi-Fi.",
     "collocations": [
       "Mittel zur Verfügung stellen",
       "Ressourcen bereitstellen",
