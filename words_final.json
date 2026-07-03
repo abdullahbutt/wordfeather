@@ -17680,7 +17680,12 @@
     "level": "A1",
     "example": "Das Kind lernt gerade im Verein schwimmen.",
     "example_en": "The child is currently learning to swim at the club.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "er_sie_es": "schwimmt",
+      "praeteritum": "schwamm",
+      "perfekt": "ist geschwommen"
+    }
   },
   {
     "de": "die See",

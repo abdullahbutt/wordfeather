@@ -228,6 +228,7 @@ def make_word_card(w):
     ex    = w.get('example','').strip()
     ex_en = w.get('example_en','').strip()
     cols  = w.get('collocations', [])
+    conj  = w.get('conjugation')
     color = COLORS[level]
     pos   = detect_pos(w)
 
@@ -236,6 +237,19 @@ def make_word_card(w):
         pills = ''.join(
             f'<span class="col-item">{htmllib.escape(c)}</span>' for c in cols)
         col_html = f'<div class="word-collocations">{pills}</div>'
+
+    conj_html = ''
+    if pos == 'verb' and conj:
+        parts = []
+        if conj.get('er_sie_es'):
+            parts.append(f'<strong>er/sie/es:</strong> {htmllib.escape(conj["er_sie_es"])}')
+        if conj.get('praeteritum'):
+            parts.append(f'<strong>Präteritum:</strong> {htmllib.escape(conj["praeteritum"])}')
+        if conj.get('perfekt'):
+            parts.append(f'<strong>Perfekt:</strong> {htmllib.escape(conj["perfekt"])}')
+        if parts:
+            conj_html = (f'\n        <div class="word-conjugation">'
+                         f'{" · ".join(parts)}</div>')
 
     ex_html = ''
     if ex:
@@ -260,6 +274,7 @@ def make_word_card(w):
         f'style="background:{color}">{level}</span>\n'
         f'        </div>\n'
         f'        <div class="word-en">{htmllib.escape(en)}</div>'
+        f'{conj_html}'
         f'{ex_html}\n'
         f'    </div>\n'
         f'</div>'
