@@ -1,0 +1,417 @@
+"""
+conjugator.py — Full German verb conjugation engine
+=====================================================
+Generates a complete Reverso-style conjugation table (Indikativ,
+Konjunktiv I, Konjunktiv II, Imperativ, Passiv) from a compact set
+of principal parts per verb. This is rule-based, not a lookup table
+of ~27,000 pre-typed forms — accuracy depends on correct input data,
+not on this engine guessing irregular forms.
+
+PRINCIPAL PARTS SCHEMA (per verb, stored in words_final.json under
+the "conjugation" key):
+
+    {
+        "infinitiv":            "schwimmen",   # full infinitive
+        "praesens_stamm":       null,           # du/er stem if changed
+                                                 # (e.g. "nimm" for nehmen),
+                                                 # null if regular
+        "praeteritum_stamm":    "schwamm",      # person-invariant middle
+                                                 # part; weak verbs end "te"
+                                                 # (e.g. "machte")
+        "partizip2":            "geschwommen",  # full participle
+        "hilfsverb":            "sein",         # "haben" or "sein"
+        "trennbares_praefix":   null,           # e.g. "auf" for aufstehen,
+                                                 # null if not separable
+        "konj2_stamm":          null,           # e.g. "schwömm" for
+                                                 # schwimmen; null falls
+                                                 # back to würde+Infinitiv
+        "transitiv":            false,          # generates Passiv table
+        "reflexiv":             false            # adds sich/mich/dich...
+    }
+
+Only "infinitiv", "praeteritum_stamm", "partizip2" and "hilfsverb" are
+required. Everything else defaults sensibly for regular weak verbs.
+"""
+
+import re
+
+PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'Sie']
+
+REFLEXIVE_PRONOUNS = ['mich', 'dich', 'sich', 'uns', 'euch', 'sich']
+
+# ── Fixed irregular auxiliary paradigms ─────────────────────────────────────
+HABEN = {
+    'praesens':      ['habe', 'hast', 'hat', 'haben', 'habt', 'haben'],
+    'praeteritum':   ['hatte', 'hattest', 'hatte', 'hatten', 'hattet', 'hatten'],
+    'konj1_praesens':['habe', 'habest', 'habe', 'haben', 'habet', 'haben'],
+    'konj2':         ['hätte', 'hättest', 'hätte', 'hätten', 'hättet', 'hätten'],
+}
+SEIN = {
+    'praesens':      ['bin', 'bist', 'ist', 'sind', 'seid', 'sind'],
+    'praeteritum':   ['war', 'warst', 'war', 'waren', 'wart', 'waren'],
+    'konj1_praesens':['sei', 'seist', 'sei', 'seien', 'seiet', 'seien'],
+    'konj2':         ['wäre', 'wärst', 'wäre', 'wären', 'wärt', 'wären'],
+}
+WERDEN = {
+    'praesens':      ['werde', 'wirst', 'wird', 'werden', 'werdet', 'werden'],
+    'praeteritum':   ['wurde', 'wurdest', 'wurde', 'wurden', 'wurdet', 'wurden'],
+    'konj1_praesens':['werde', 'werdest', 'werde', 'werden', 'werdet', 'werden'],
+    'konj2_wuerde':  ['würde', 'würdest', 'würde', 'würden', 'würdet', 'würden'],
+}
+
+AUX = {'haben': HABEN, 'sein': SEIN, 'werden': WERDEN}
+
+
+def _regular_stem(infinitiv, prefix):
+    """Strip trailing -en/-n and any separable prefix to get the bare stem."""
+    inf = infinitiv
+    if prefix and inf.startswith(prefix):
+        inf = inf[len(prefix):]
+    if inf.endswith('eln') or inf.endswith('ern'):
+        return inf[:-1]          # sammeln -> sammel, wandern -> wander
+    if inf.endswith('en'):
+        return inf[:-2]
+    if inf.endswith('n'):
+        return inf[:-1]
+    return inf
+
+
+def _needs_extra_e(stem):
+    """Verbs whose stem ends in d/t, or in m/n preceded by a *different*
+    non-vowel, non-l/r/h consonant, need an epenthetic -e- before
+    consonant-initial endings: arbeitest, atmet, regnest, öffnest.
+    Doubled consonants (schwimm-, komm-, renn-) and stems ending in
+    m/n after a vowel or l/r/h do NOT need it: schwimmst, kommst, lernst."""
+    if not stem:
+        return False
+    last = stem[-1]
+    if last in ('d', 't'):
+        return True
+    if last in ('m', 'n') and len(stem) >= 2:
+        prev = stem[-2]
+        if prev in 'aeiouäöüy' or prev in ('l', 'r', 'h') or prev == last:
+            return False
+        return True
+    return False
+
+
+def _present_forms(stem, changed_stem):
+    """Build the 6-person Präsens indicative forms."""
+    s = stem
+    s2 = changed_stem or stem
+    e = 'e' if _needs_extra_e(s2) else ''
+    ich  = s + 'e'
+    du   = s2 + e + 'st'
+    er   = s2 + e + 't'
+    wir  = s + 'en'
+    ihr  = s + e + 't'
+    sie  = s + 'en'
+    return [ich, du, er, wir, ihr, sie]
+
+
+def _preterite_forms(praeteritum_stamm):
+    """Build the 6-person Präteritum indicative forms.
+    Stems ending in -e (machte, wurde) use 'weak' endings [-,st,-,n,t,n],
+    attaching directly since the stem already supplies a linking vowel.
+    Stems ending in a consonant (schwamm, stand, bat) use 'strong'
+    endings [-,st,-,en,t,en], with an epenthetic -e- inserted before
+    -st/-t when the stem ends in d/t or an awkward m/n cluster
+    (stand -> standest, bat -> batest; but schwamm -> schwammst, no e)."""
+    stem = praeteritum_stamm
+    if stem.endswith('e'):
+        return [stem, stem + 'st', stem, stem + 'n', stem + 't', stem + 'n']
+    else:
+        e = 'e' if _needs_extra_e(stem) else ''
+        return [stem, stem + e + 'st', stem, stem + 'en', stem + e + 't', stem + 'en']
+
+
+def _konj1_praesens_forms(stem):
+    """Konjunktiv I endings (-e, -est, -e, -en, -et, -en) always already
+    contain the linking vowel, so no epenthetic -e- insertion is needed
+    here regardless of the stem's final consonant."""
+    return [stem + 'e', stem + 'est', stem + 'e',
+             stem + 'en', stem + 'et', stem + 'en']
+
+
+def _konj2_forms(konj2_stamm):
+    """Konjunktiv II endings, same fixed pattern as Konjunktiv I."""
+    return [konj2_stamm + 'e', konj2_stamm + 'est', konj2_stamm + 'e',
+             konj2_stamm + 'en', konj2_stamm + 'et', konj2_stamm + 'en']
+
+
+def _attach(forms, suffix_words):
+    """Append trailing words (prefix, reflexive pronoun, etc.) to each form."""
+    if not suffix_words:
+        return forms
+    return [f + ' ' + suffix_words for f in forms]
+
+
+def _attach_per_person(forms, per_person_suffix):
+    return [f + ' ' + per_person_suffix[i] for i, f in enumerate(forms)]
+
+
+def _partizip1(infinitiv, override=None):
+    """Partizip Präsens (present participle): normally infinitive + 'd'
+    (machen -> machend, schwimmen -> schwimmend, gehen -> gehend).
+    A handful of short/irregular infinitives (sein -> seiend, tun ->
+    tuend) need an inserted -e- and must be given via override."""
+    if override:
+        return override
+    return infinitiv + 'd'
+
+
+def _zu_infinitiv(infinitiv, reg_stem, prefix, reflexiv=False):
+    """zu + Infinitiv: for separable verbs 'zu' is inserted as one word
+    between prefix and stem (aufstehen -> aufzustehen); for everything
+    else it's a separate word before the infinitive (sein -> zu sein).
+    Reflexive verbs prepend 'sich' (sich freuen -> sich zu freuen)."""
+    if prefix:
+        result = prefix + 'zu' + reg_stem + 'en'
+    else:
+        result = 'zu ' + infinitiv
+    if reflexiv:
+        result = 'sich ' + result
+    return result
+
+
+def conjugate(principal_parts):
+    """
+    Generate the complete conjugation table for one verb.
+    Returns a nested dict matching the Reverso-style structure:
+        {
+          "indikativ": {"praesens": [...6], "praeteritum": [...6],
+                        "perfekt": [...6], "plusquamperfekt": [...6],
+                        "futur1": [...6], "futur2": [...6]},
+          "konjunktiv1": {"praesens": [...], "perfekt": [...],
+                          "futur1": [...], "futur2": [...]},
+          "konjunktiv2": {"praeteritum": [...], "plusquamperfekt": [...],
+                          "futur1": [...], "futur2": [...]},
+          "imperativ": {"du": "...", "ihr": "...", "Sie": "...", "wir": "..."},
+          "passiv": {...} or None if intransitive
+        }
+    """
+    p = principal_parts
+    infinitiv          = p['infinitiv']
+    praesens_stamm_in   = p.get('praesens_stamm')
+    praeteritum_stamm  = p['praeteritum_stamm']
+    partizip2          = p['partizip2']
+    hilfsverb          = p.get('hilfsverb', 'haben')
+    prefix             = p.get('trennbares_praefix')
+    konj2_stamm        = p.get('konj2_stamm')
+    transitiv          = p.get('transitiv', False)
+    reflexiv           = p.get('reflexiv', False)
+
+    reg_stem = _regular_stem(infinitiv, prefix)
+    changed_stem = praesens_stamm_in  # already prefix-stripped if separable
+
+    # ── Base conjugated forms (verb only, no prefix/reflexive yet) ─────────
+    praesens_voll_override = p.get('praesens_voll')  # for sein/werden etc.
+    konj1_voll_override    = p.get('konj1_praesens_voll')
+
+    praesens_base = list(praesens_voll_override) if praesens_voll_override \
+        else _present_forms(reg_stem, changed_stem)
+    praeteritum_base = _preterite_forms(praeteritum_stamm)
+    konj1_base = list(konj1_voll_override) if konj1_voll_override \
+        else _konj1_praesens_forms(reg_stem)
+    if konj2_stamm:
+        konj2_voll_override = p.get('konj2_voll')
+        konj2_base = list(konj2_voll_override) if konj2_voll_override \
+            else _konj2_forms(konj2_stamm)
+        konj2_is_wuerde = False
+    else:
+        konj2_base = list(WERDEN['konj2_wuerde'])
+        konj2_is_wuerde = True
+
+    def add_reflexive_and_prefix(forms, add_infinitiv_tail=None):
+        """Attach reflexive pronoun then separable prefix (finite forms),
+        or attach reflexive + full infinitive tail (non-finite constructs)."""
+        out = list(forms)
+        if reflexiv:
+            out = _attach_per_person(out, REFLEXIVE_PRONOUNS)
+        if add_infinitiv_tail:
+            out = _attach(out, add_infinitiv_tail)
+        elif prefix:
+            out = _attach(out, prefix)
+        return out
+
+    # ── INDIKATIV ────────────────────────────────────────────────────────
+    ind_praesens    = add_reflexive_and_prefix(praesens_base)
+    ind_praeteritum = add_reflexive_and_prefix(praeteritum_base)
+
+    aux = AUX[hilfsverb]
+    # Perfekt: aux(präsens) + [reflexive] + partizip2
+    ind_perfekt = []
+    for i in range(6):
+        parts = [aux['praesens'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(partizip2)
+        ind_perfekt.append(' '.join(parts))
+
+    ind_plusquamperfekt = []
+    for i in range(6):
+        parts = [aux['praeteritum'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(partizip2)
+        ind_plusquamperfekt.append(' '.join(parts))
+
+    # Futur I: werden(präsens) + [reflexive] + full infinitiv (at end)
+    ind_futur1 = []
+    for i in range(6):
+        parts = [WERDEN['praesens'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(infinitiv)
+        ind_futur1.append(' '.join(parts))
+
+    # Futur II: werden(präsens) + [reflexive] + partizip2 + hilfsverb(infinitiv)
+    ind_futur2 = []
+    for i in range(6):
+        parts = [WERDEN['praesens'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(partizip2)
+        parts.append(hilfsverb)
+        ind_futur2.append(' '.join(parts))
+
+    # ── KONJUNKTIV I ─────────────────────────────────────────────────────
+    k1_praesens = add_reflexive_and_prefix(konj1_base)
+
+    k1_perfekt = []
+    for i in range(6):
+        parts = [aux['konj1_praesens'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(partizip2)
+        k1_perfekt.append(' '.join(parts))
+
+    k1_futur1 = []
+    for i in range(6):
+        parts = [WERDEN['konj1_praesens'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(infinitiv)
+        k1_futur1.append(' '.join(parts))
+
+    k1_futur2 = []
+    for i in range(6):
+        parts = [WERDEN['konj1_praesens'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(partizip2)
+        parts.append(hilfsverb)
+        k1_futur2.append(' '.join(parts))
+
+    # ── KONJUNKTIV II ────────────────────────────────────────────────────
+    if konj2_is_wuerde:
+        # würde + [reflexive] + full infinitiv
+        k2_praeteritum = []
+        for i in range(6):
+            parts = [konj2_base[i]]
+            if reflexiv:
+                parts.append(REFLEXIVE_PRONOUNS[i])
+            parts.append(infinitiv)
+            k2_praeteritum.append(' '.join(parts))
+    else:
+        k2_praeteritum = add_reflexive_and_prefix(konj2_base)
+
+    aux2 = AUX[hilfsverb]
+    k2_plusquamperfekt = []
+    for i in range(6):
+        parts = [aux2['konj2'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(partizip2)
+        k2_plusquamperfekt.append(' '.join(parts))
+
+    k2_futur1 = []
+    for i in range(6):
+        parts = [WERDEN['konj2_wuerde'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(infinitiv)
+        k2_futur1.append(' '.join(parts))
+
+    k2_futur2 = []
+    for i in range(6):
+        parts = [WERDEN['konj2_wuerde'][i]]
+        if reflexiv:
+            parts.append(REFLEXIVE_PRONOUNS[i])
+        parts.append(partizip2)
+        parts.append(hilfsverb)
+        k2_futur2.append(' '.join(parts))
+
+    # ── IMPERATIV ────────────────────────────────────────────────────────
+    imperativ_override = p.get('imperativ_voll')
+    if imperativ_override:
+        imperativ = dict(imperativ_override)
+    else:
+        du_stem = changed_stem or reg_stem
+        e = 'e' if _needs_extra_e(du_stem) else ''
+        base_infinitiv = (reg_stem + 'en') if prefix else infinitiv
+        imp_du   = (du_stem + e).capitalize()
+        imp_ihr  = (reg_stem + e + 't').capitalize()
+        imp_sie  = base_infinitiv.capitalize() + ' Sie'
+        imp_wir  = base_infinitiv.capitalize() + ' wir'
+        if reflexiv:
+            imp_du  += ' dich'
+            imp_ihr += ' euch'
+            imp_sie += ' sich'
+            imp_wir += ' uns'
+        if prefix:
+            imp_du  += ' ' + prefix
+            imp_ihr += ' ' + prefix
+            imp_sie += ' ' + prefix
+            imp_wir += ' ' + prefix
+        imperativ = {'du': imp_du + '!', 'ihr': imp_ihr + '!',
+                     'Sie': imp_sie + '!', 'wir': imp_wir + '!'}
+
+    # ── PASSIV (only for transitive verbs) ──────────────────────────────
+    passiv = None
+    if transitiv:
+        pv_praesens = [f'{WERDEN["praesens"][i]} {partizip2}' for i in range(6)]
+        pv_praeteritum = [f'{WERDEN["praeteritum"][i]} {partizip2}' for i in range(6)]
+        pv_perfekt = [f'{SEIN["praesens"][i]} {partizip2} worden' for i in range(6)]
+        pv_plusquamperfekt = [f'{SEIN["praeteritum"][i]} {partizip2} worden' for i in range(6)]
+        pv_futur1 = [f'{WERDEN["praesens"][i]} {partizip2} werden' for i in range(6)]
+        passiv = {
+            'praesens': pv_praesens,
+            'praeteritum': pv_praeteritum,
+            'perfekt': pv_perfekt,
+            'plusquamperfekt': pv_plusquamperfekt,
+            'futur1': pv_futur1,
+        }
+
+    partizip1 = _partizip1(infinitiv, p.get('partizip1_voll'))
+    zu_infinitiv = _zu_infinitiv(infinitiv, reg_stem, prefix, reflexiv)
+
+    return {
+        'infinitiv': infinitiv,
+        'partizip1': partizip1,
+        'partizip2': partizip2,
+        'zu_infinitiv': zu_infinitiv,
+        'hilfsverb': hilfsverb,
+        'indikativ': {
+            'praesens': ind_praesens,
+            'praeteritum': ind_praeteritum,
+            'perfekt': ind_perfekt,
+            'plusquamperfekt': ind_plusquamperfekt,
+            'futur1': ind_futur1,
+            'futur2': ind_futur2,
+        },
+        'konjunktiv1': {
+            'praesens': k1_praesens,
+            'perfekt': k1_perfekt,
+            'futur1': k1_futur1,
+            'futur2': k1_futur2,
+        },
+        'konjunktiv2': {
+            'praeteritum': k2_praeteritum,
+            'plusquamperfekt': k2_plusquamperfekt,
+            'futur1': k2_futur1,
+            'futur2': k2_futur2,
+        },
+        'imperativ': imperativ,
+        'passiv': passiv,
+    }

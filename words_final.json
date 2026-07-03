@@ -1157,7 +1157,15 @@
     "level": "A1",
     "example": "Ich arbeite bei Siemens.",
     "example_en": "I work at Siemens.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "arbeiten",
+      "praeteritum_stamm": "arbeitete",
+      "partizip2": "gearbeitet",
+      "hilfsverb": "haben",
+      "transitiv": false,
+      "reflexiv": false
+    }
   },
   {
     "de": "der Arbeitgeber, -",
@@ -8588,7 +8596,17 @@
     "level": "A1",
     "example": "Ich habe ein Auto.",
     "example_en": "I have a car.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "haben",
+      "praesens_stamm": "ha",
+      "praeteritum_stamm": "hatte",
+      "partizip2": "gehabt",
+      "hilfsverb": "haben",
+      "konj2_stamm": "hätt",
+      "transitiv": true,
+      "reflexiv": false
+    }
   },
   {
     "de": "das Hähnchen, -",
@@ -12680,7 +12698,15 @@
     "level": "A1",
     "example": "Was machst du?",
     "example_en": "What are you doing?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "machen",
+      "praeteritum_stamm": "machte",
+      "partizip2": "gemacht",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "reflexiv": false
+    }
   },
   {
     "de": "die Machtausübung",
@@ -14224,7 +14250,17 @@
     "level": "A1",
     "example": "Ich nehme den Bus.",
     "example_en": "I take the bus.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "nehmen",
+      "praesens_stamm": "nimm",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "genommen",
+      "hilfsverb": "haben",
+      "konj2_stamm": "nähm",
+      "transitiv": true,
+      "reflexiv": false
+    }
   },
   {
     "de": "nein",
@@ -17682,9 +17718,13 @@
     "example_en": "The child is currently learning to swim at the club.",
     "register": "everyday",
     "conjugation": {
-      "er_sie_es": "schwimmt",
-      "praeteritum": "schwamm",
-      "perfekt": "ist geschwommen"
+      "infinitiv": "schwimmen",
+      "praeteritum_stamm": "schwamm",
+      "partizip2": "geschwommen",
+      "hilfsverb": "sein",
+      "konj2_stamm": "schwömm",
+      "transitiv": false,
+      "reflexiv": false
     }
   },
   {
@@ -17753,7 +17793,47 @@
     "level": "A1",
     "example": "Ich bin Student.",
     "example_en": "I am a student.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sein",
+      "praesens_voll": [
+        "bin",
+        "bist",
+        "ist",
+        "sind",
+        "seid",
+        "sind"
+      ],
+      "konj1_praesens_voll": [
+        "sei",
+        "seist",
+        "sei",
+        "seien",
+        "seiet",
+        "seien"
+      ],
+      "praeteritum_stamm": "war",
+      "partizip2": "gewesen",
+      "hilfsverb": "sein",
+      "konj2_stamm": "wär",
+      "konj2_voll": [
+        "wäre",
+        "wärst",
+        "wäre",
+        "wären",
+        "wärt",
+        "wären"
+      ],
+      "imperativ_voll": {
+        "du": "Sei!",
+        "ihr": "Seid!",
+        "Sie": "Seien Sie!",
+        "wir": "Seien wir!"
+      },
+      "transitiv": false,
+      "reflexiv": false,
+      "partizip1_voll": "seiend"
+    }
   },
   {
     "de": "seit",
@@ -18118,7 +18198,15 @@
     "level": "A1",
     "example": "Ich freue mich!",
     "example_en": "I am so happy!",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "freuen",
+      "praeteritum_stamm": "freute",
+      "partizip2": "gefreut",
+      "hilfsverb": "haben",
+      "transitiv": false,
+      "reflexiv": true
+    }
   },
   {
     "de": "sich freuen auf",
@@ -22649,7 +22737,24 @@
     "level": "A1",
     "example": "Ich werde Lehrer.",
     "example_en": "I am going to be a teacher.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "werden",
+      "praesens_voll": [
+        "werde",
+        "wirst",
+        "wird",
+        "werden",
+        "werdet",
+        "werden"
+      ],
+      "praeteritum_stamm": "wurde",
+      "partizip2": "geworden",
+      "hilfsverb": "sein",
+      "konj2_stamm": "würd",
+      "transitiv": false,
+      "reflexiv": false
+    }
   },
   {
     "de": "das Werk, -e",

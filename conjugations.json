@@ -1,0 +1,1181 @@
+{
+ "arbeiten": {
+  "infinitiv": "arbeiten",
+  "partizip1": "arbeitend",
+  "partizip2": "gearbeitet",
+  "zu_infinitiv": "zu arbeiten",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "arbeite",
+    "arbeitest",
+    "arbeitet",
+    "arbeiten",
+    "arbeitet",
+    "arbeiten"
+   ],
+   "praeteritum": [
+    "arbeitete",
+    "arbeitetest",
+    "arbeitete",
+    "arbeiteten",
+    "arbeitetet",
+    "arbeiteten"
+   ],
+   "perfekt": [
+    "habe gearbeitet",
+    "hast gearbeitet",
+    "hat gearbeitet",
+    "haben gearbeitet",
+    "habt gearbeitet",
+    "haben gearbeitet"
+   ],
+   "plusquamperfekt": [
+    "hatte gearbeitet",
+    "hattest gearbeitet",
+    "hatte gearbeitet",
+    "hatten gearbeitet",
+    "hattet gearbeitet",
+    "hatten gearbeitet"
+   ],
+   "futur1": [
+    "werde arbeiten",
+    "wirst arbeiten",
+    "wird arbeiten",
+    "werden arbeiten",
+    "werdet arbeiten",
+    "werden arbeiten"
+   ],
+   "futur2": [
+    "werde gearbeitet haben",
+    "wirst gearbeitet haben",
+    "wird gearbeitet haben",
+    "werden gearbeitet haben",
+    "werdet gearbeitet haben",
+    "werden gearbeitet haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "arbeite",
+    "arbeitest",
+    "arbeite",
+    "arbeiten",
+    "arbeitet",
+    "arbeiten"
+   ],
+   "perfekt": [
+    "habe gearbeitet",
+    "habest gearbeitet",
+    "habe gearbeitet",
+    "haben gearbeitet",
+    "habet gearbeitet",
+    "haben gearbeitet"
+   ],
+   "futur1": [
+    "werde arbeiten",
+    "werdest arbeiten",
+    "werde arbeiten",
+    "werden arbeiten",
+    "werdet arbeiten",
+    "werden arbeiten"
+   ],
+   "futur2": [
+    "werde gearbeitet haben",
+    "werdest gearbeitet haben",
+    "werde gearbeitet haben",
+    "werden gearbeitet haben",
+    "werdet gearbeitet haben",
+    "werden gearbeitet haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde arbeiten",
+    "würdest arbeiten",
+    "würde arbeiten",
+    "würden arbeiten",
+    "würdet arbeiten",
+    "würden arbeiten"
+   ],
+   "plusquamperfekt": [
+    "hätte gearbeitet",
+    "hättest gearbeitet",
+    "hätte gearbeitet",
+    "hätten gearbeitet",
+    "hättet gearbeitet",
+    "hätten gearbeitet"
+   ],
+   "futur1": [
+    "würde arbeiten",
+    "würdest arbeiten",
+    "würde arbeiten",
+    "würden arbeiten",
+    "würdet arbeiten",
+    "würden arbeiten"
+   ],
+   "futur2": [
+    "würde gearbeitet haben",
+    "würdest gearbeitet haben",
+    "würde gearbeitet haben",
+    "würden gearbeitet haben",
+    "würdet gearbeitet haben",
+    "würden gearbeitet haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Arbeite!",
+   "ihr": "Arbeitet!",
+   "Sie": "Arbeiten Sie!",
+   "wir": "Arbeiten wir!"
+  },
+  "passiv": null
+ },
+ "haben": {
+  "infinitiv": "haben",
+  "partizip1": "habend",
+  "partizip2": "gehabt",
+  "zu_infinitiv": "zu haben",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "habe",
+    "hast",
+    "hat",
+    "haben",
+    "habt",
+    "haben"
+   ],
+   "praeteritum": [
+    "hatte",
+    "hattest",
+    "hatte",
+    "hatten",
+    "hattet",
+    "hatten"
+   ],
+   "perfekt": [
+    "habe gehabt",
+    "hast gehabt",
+    "hat gehabt",
+    "haben gehabt",
+    "habt gehabt",
+    "haben gehabt"
+   ],
+   "plusquamperfekt": [
+    "hatte gehabt",
+    "hattest gehabt",
+    "hatte gehabt",
+    "hatten gehabt",
+    "hattet gehabt",
+    "hatten gehabt"
+   ],
+   "futur1": [
+    "werde haben",
+    "wirst haben",
+    "wird haben",
+    "werden haben",
+    "werdet haben",
+    "werden haben"
+   ],
+   "futur2": [
+    "werde gehabt haben",
+    "wirst gehabt haben",
+    "wird gehabt haben",
+    "werden gehabt haben",
+    "werdet gehabt haben",
+    "werden gehabt haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "habe",
+    "habest",
+    "habe",
+    "haben",
+    "habet",
+    "haben"
+   ],
+   "perfekt": [
+    "habe gehabt",
+    "habest gehabt",
+    "habe gehabt",
+    "haben gehabt",
+    "habet gehabt",
+    "haben gehabt"
+   ],
+   "futur1": [
+    "werde haben",
+    "werdest haben",
+    "werde haben",
+    "werden haben",
+    "werdet haben",
+    "werden haben"
+   ],
+   "futur2": [
+    "werde gehabt haben",
+    "werdest gehabt haben",
+    "werde gehabt haben",
+    "werden gehabt haben",
+    "werdet gehabt haben",
+    "werden gehabt haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "hätte",
+    "hättest",
+    "hätte",
+    "hätten",
+    "hättet",
+    "hätten"
+   ],
+   "plusquamperfekt": [
+    "hätte gehabt",
+    "hättest gehabt",
+    "hätte gehabt",
+    "hätten gehabt",
+    "hättet gehabt",
+    "hätten gehabt"
+   ],
+   "futur1": [
+    "würde haben",
+    "würdest haben",
+    "würde haben",
+    "würden haben",
+    "würdet haben",
+    "würden haben"
+   ],
+   "futur2": [
+    "würde gehabt haben",
+    "würdest gehabt haben",
+    "würde gehabt haben",
+    "würden gehabt haben",
+    "würdet gehabt haben",
+    "würden gehabt haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Ha!",
+   "ihr": "Habt!",
+   "Sie": "Haben Sie!",
+   "wir": "Haben wir!"
+  },
+  "passiv": {
+   "praesens": [
+    "werde gehabt",
+    "wirst gehabt",
+    "wird gehabt",
+    "werden gehabt",
+    "werdet gehabt",
+    "werden gehabt"
+   ],
+   "praeteritum": [
+    "wurde gehabt",
+    "wurdest gehabt",
+    "wurde gehabt",
+    "wurden gehabt",
+    "wurdet gehabt",
+    "wurden gehabt"
+   ],
+   "perfekt": [
+    "bin gehabt worden",
+    "bist gehabt worden",
+    "ist gehabt worden",
+    "sind gehabt worden",
+    "seid gehabt worden",
+    "sind gehabt worden"
+   ],
+   "plusquamperfekt": [
+    "war gehabt worden",
+    "warst gehabt worden",
+    "war gehabt worden",
+    "waren gehabt worden",
+    "wart gehabt worden",
+    "waren gehabt worden"
+   ],
+   "futur1": [
+    "werde gehabt werden",
+    "wirst gehabt werden",
+    "wird gehabt werden",
+    "werden gehabt werden",
+    "werdet gehabt werden",
+    "werden gehabt werden"
+   ]
+  }
+ },
+ "machen": {
+  "infinitiv": "machen",
+  "partizip1": "machend",
+  "partizip2": "gemacht",
+  "zu_infinitiv": "zu machen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "mache",
+    "machst",
+    "macht",
+    "machen",
+    "macht",
+    "machen"
+   ],
+   "praeteritum": [
+    "machte",
+    "machtest",
+    "machte",
+    "machten",
+    "machtet",
+    "machten"
+   ],
+   "perfekt": [
+    "habe gemacht",
+    "hast gemacht",
+    "hat gemacht",
+    "haben gemacht",
+    "habt gemacht",
+    "haben gemacht"
+   ],
+   "plusquamperfekt": [
+    "hatte gemacht",
+    "hattest gemacht",
+    "hatte gemacht",
+    "hatten gemacht",
+    "hattet gemacht",
+    "hatten gemacht"
+   ],
+   "futur1": [
+    "werde machen",
+    "wirst machen",
+    "wird machen",
+    "werden machen",
+    "werdet machen",
+    "werden machen"
+   ],
+   "futur2": [
+    "werde gemacht haben",
+    "wirst gemacht haben",
+    "wird gemacht haben",
+    "werden gemacht haben",
+    "werdet gemacht haben",
+    "werden gemacht haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "mache",
+    "machest",
+    "mache",
+    "machen",
+    "machet",
+    "machen"
+   ],
+   "perfekt": [
+    "habe gemacht",
+    "habest gemacht",
+    "habe gemacht",
+    "haben gemacht",
+    "habet gemacht",
+    "haben gemacht"
+   ],
+   "futur1": [
+    "werde machen",
+    "werdest machen",
+    "werde machen",
+    "werden machen",
+    "werdet machen",
+    "werden machen"
+   ],
+   "futur2": [
+    "werde gemacht haben",
+    "werdest gemacht haben",
+    "werde gemacht haben",
+    "werden gemacht haben",
+    "werdet gemacht haben",
+    "werden gemacht haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde machen",
+    "würdest machen",
+    "würde machen",
+    "würden machen",
+    "würdet machen",
+    "würden machen"
+   ],
+   "plusquamperfekt": [
+    "hätte gemacht",
+    "hättest gemacht",
+    "hätte gemacht",
+    "hätten gemacht",
+    "hättet gemacht",
+    "hätten gemacht"
+   ],
+   "futur1": [
+    "würde machen",
+    "würdest machen",
+    "würde machen",
+    "würden machen",
+    "würdet machen",
+    "würden machen"
+   ],
+   "futur2": [
+    "würde gemacht haben",
+    "würdest gemacht haben",
+    "würde gemacht haben",
+    "würden gemacht haben",
+    "würdet gemacht haben",
+    "würden gemacht haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Mach!",
+   "ihr": "Macht!",
+   "Sie": "Machen Sie!",
+   "wir": "Machen wir!"
+  },
+  "passiv": {
+   "praesens": [
+    "werde gemacht",
+    "wirst gemacht",
+    "wird gemacht",
+    "werden gemacht",
+    "werdet gemacht",
+    "werden gemacht"
+   ],
+   "praeteritum": [
+    "wurde gemacht",
+    "wurdest gemacht",
+    "wurde gemacht",
+    "wurden gemacht",
+    "wurdet gemacht",
+    "wurden gemacht"
+   ],
+   "perfekt": [
+    "bin gemacht worden",
+    "bist gemacht worden",
+    "ist gemacht worden",
+    "sind gemacht worden",
+    "seid gemacht worden",
+    "sind gemacht worden"
+   ],
+   "plusquamperfekt": [
+    "war gemacht worden",
+    "warst gemacht worden",
+    "war gemacht worden",
+    "waren gemacht worden",
+    "wart gemacht worden",
+    "waren gemacht worden"
+   ],
+   "futur1": [
+    "werde gemacht werden",
+    "wirst gemacht werden",
+    "wird gemacht werden",
+    "werden gemacht werden",
+    "werdet gemacht werden",
+    "werden gemacht werden"
+   ]
+  }
+ },
+ "nehmen": {
+  "infinitiv": "nehmen",
+  "partizip1": "nehmend",
+  "partizip2": "genommen",
+  "zu_infinitiv": "zu nehmen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "nehme",
+    "nimmst",
+    "nimmt",
+    "nehmen",
+    "nehmt",
+    "nehmen"
+   ],
+   "praeteritum": [
+    "nahm",
+    "nahmst",
+    "nahm",
+    "nahmen",
+    "nahmt",
+    "nahmen"
+   ],
+   "perfekt": [
+    "habe genommen",
+    "hast genommen",
+    "hat genommen",
+    "haben genommen",
+    "habt genommen",
+    "haben genommen"
+   ],
+   "plusquamperfekt": [
+    "hatte genommen",
+    "hattest genommen",
+    "hatte genommen",
+    "hatten genommen",
+    "hattet genommen",
+    "hatten genommen"
+   ],
+   "futur1": [
+    "werde nehmen",
+    "wirst nehmen",
+    "wird nehmen",
+    "werden nehmen",
+    "werdet nehmen",
+    "werden nehmen"
+   ],
+   "futur2": [
+    "werde genommen haben",
+    "wirst genommen haben",
+    "wird genommen haben",
+    "werden genommen haben",
+    "werdet genommen haben",
+    "werden genommen haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "nehme",
+    "nehmest",
+    "nehme",
+    "nehmen",
+    "nehmet",
+    "nehmen"
+   ],
+   "perfekt": [
+    "habe genommen",
+    "habest genommen",
+    "habe genommen",
+    "haben genommen",
+    "habet genommen",
+    "haben genommen"
+   ],
+   "futur1": [
+    "werde nehmen",
+    "werdest nehmen",
+    "werde nehmen",
+    "werden nehmen",
+    "werdet nehmen",
+    "werden nehmen"
+   ],
+   "futur2": [
+    "werde genommen haben",
+    "werdest genommen haben",
+    "werde genommen haben",
+    "werden genommen haben",
+    "werdet genommen haben",
+    "werden genommen haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "nähme",
+    "nähmest",
+    "nähme",
+    "nähmen",
+    "nähmet",
+    "nähmen"
+   ],
+   "plusquamperfekt": [
+    "hätte genommen",
+    "hättest genommen",
+    "hätte genommen",
+    "hätten genommen",
+    "hättet genommen",
+    "hätten genommen"
+   ],
+   "futur1": [
+    "würde nehmen",
+    "würdest nehmen",
+    "würde nehmen",
+    "würden nehmen",
+    "würdet nehmen",
+    "würden nehmen"
+   ],
+   "futur2": [
+    "würde genommen haben",
+    "würdest genommen haben",
+    "würde genommen haben",
+    "würden genommen haben",
+    "würdet genommen haben",
+    "würden genommen haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Nimm!",
+   "ihr": "Nehmt!",
+   "Sie": "Nehmen Sie!",
+   "wir": "Nehmen wir!"
+  },
+  "passiv": {
+   "praesens": [
+    "werde genommen",
+    "wirst genommen",
+    "wird genommen",
+    "werden genommen",
+    "werdet genommen",
+    "werden genommen"
+   ],
+   "praeteritum": [
+    "wurde genommen",
+    "wurdest genommen",
+    "wurde genommen",
+    "wurden genommen",
+    "wurdet genommen",
+    "wurden genommen"
+   ],
+   "perfekt": [
+    "bin genommen worden",
+    "bist genommen worden",
+    "ist genommen worden",
+    "sind genommen worden",
+    "seid genommen worden",
+    "sind genommen worden"
+   ],
+   "plusquamperfekt": [
+    "war genommen worden",
+    "warst genommen worden",
+    "war genommen worden",
+    "waren genommen worden",
+    "wart genommen worden",
+    "waren genommen worden"
+   ],
+   "futur1": [
+    "werde genommen werden",
+    "wirst genommen werden",
+    "wird genommen werden",
+    "werden genommen werden",
+    "werdet genommen werden",
+    "werden genommen werden"
+   ]
+  }
+ },
+ "schwimmen": {
+  "infinitiv": "schwimmen",
+  "partizip1": "schwimmend",
+  "partizip2": "geschwommen",
+  "zu_infinitiv": "zu schwimmen",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "schwimme",
+    "schwimmst",
+    "schwimmt",
+    "schwimmen",
+    "schwimmt",
+    "schwimmen"
+   ],
+   "praeteritum": [
+    "schwamm",
+    "schwammst",
+    "schwamm",
+    "schwammen",
+    "schwammt",
+    "schwammen"
+   ],
+   "perfekt": [
+    "bin geschwommen",
+    "bist geschwommen",
+    "ist geschwommen",
+    "sind geschwommen",
+    "seid geschwommen",
+    "sind geschwommen"
+   ],
+   "plusquamperfekt": [
+    "war geschwommen",
+    "warst geschwommen",
+    "war geschwommen",
+    "waren geschwommen",
+    "wart geschwommen",
+    "waren geschwommen"
+   ],
+   "futur1": [
+    "werde schwimmen",
+    "wirst schwimmen",
+    "wird schwimmen",
+    "werden schwimmen",
+    "werdet schwimmen",
+    "werden schwimmen"
+   ],
+   "futur2": [
+    "werde geschwommen sein",
+    "wirst geschwommen sein",
+    "wird geschwommen sein",
+    "werden geschwommen sein",
+    "werdet geschwommen sein",
+    "werden geschwommen sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "schwimme",
+    "schwimmest",
+    "schwimme",
+    "schwimmen",
+    "schwimmet",
+    "schwimmen"
+   ],
+   "perfekt": [
+    "sei geschwommen",
+    "seist geschwommen",
+    "sei geschwommen",
+    "seien geschwommen",
+    "seiet geschwommen",
+    "seien geschwommen"
+   ],
+   "futur1": [
+    "werde schwimmen",
+    "werdest schwimmen",
+    "werde schwimmen",
+    "werden schwimmen",
+    "werdet schwimmen",
+    "werden schwimmen"
+   ],
+   "futur2": [
+    "werde geschwommen sein",
+    "werdest geschwommen sein",
+    "werde geschwommen sein",
+    "werden geschwommen sein",
+    "werdet geschwommen sein",
+    "werden geschwommen sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "schwömme",
+    "schwömmest",
+    "schwömme",
+    "schwömmen",
+    "schwömmet",
+    "schwömmen"
+   ],
+   "plusquamperfekt": [
+    "wäre geschwommen",
+    "wärst geschwommen",
+    "wäre geschwommen",
+    "wären geschwommen",
+    "wärt geschwommen",
+    "wären geschwommen"
+   ],
+   "futur1": [
+    "würde schwimmen",
+    "würdest schwimmen",
+    "würde schwimmen",
+    "würden schwimmen",
+    "würdet schwimmen",
+    "würden schwimmen"
+   ],
+   "futur2": [
+    "würde geschwommen sein",
+    "würdest geschwommen sein",
+    "würde geschwommen sein",
+    "würden geschwommen sein",
+    "würdet geschwommen sein",
+    "würden geschwommen sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Schwimm!",
+   "ihr": "Schwimmt!",
+   "Sie": "Schwimmen Sie!",
+   "wir": "Schwimmen wir!"
+  },
+  "passiv": null
+ },
+ "sein": {
+  "infinitiv": "sein",
+  "partizip1": "seiend",
+  "partizip2": "gewesen",
+  "zu_infinitiv": "zu sein",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "bin",
+    "bist",
+    "ist",
+    "sind",
+    "seid",
+    "sind"
+   ],
+   "praeteritum": [
+    "war",
+    "warst",
+    "war",
+    "waren",
+    "wart",
+    "waren"
+   ],
+   "perfekt": [
+    "bin gewesen",
+    "bist gewesen",
+    "ist gewesen",
+    "sind gewesen",
+    "seid gewesen",
+    "sind gewesen"
+   ],
+   "plusquamperfekt": [
+    "war gewesen",
+    "warst gewesen",
+    "war gewesen",
+    "waren gewesen",
+    "wart gewesen",
+    "waren gewesen"
+   ],
+   "futur1": [
+    "werde sein",
+    "wirst sein",
+    "wird sein",
+    "werden sein",
+    "werdet sein",
+    "werden sein"
+   ],
+   "futur2": [
+    "werde gewesen sein",
+    "wirst gewesen sein",
+    "wird gewesen sein",
+    "werden gewesen sein",
+    "werdet gewesen sein",
+    "werden gewesen sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "sei",
+    "seist",
+    "sei",
+    "seien",
+    "seiet",
+    "seien"
+   ],
+   "perfekt": [
+    "sei gewesen",
+    "seist gewesen",
+    "sei gewesen",
+    "seien gewesen",
+    "seiet gewesen",
+    "seien gewesen"
+   ],
+   "futur1": [
+    "werde sein",
+    "werdest sein",
+    "werde sein",
+    "werden sein",
+    "werdet sein",
+    "werden sein"
+   ],
+   "futur2": [
+    "werde gewesen sein",
+    "werdest gewesen sein",
+    "werde gewesen sein",
+    "werden gewesen sein",
+    "werdet gewesen sein",
+    "werden gewesen sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "wäre",
+    "wärst",
+    "wäre",
+    "wären",
+    "wärt",
+    "wären"
+   ],
+   "plusquamperfekt": [
+    "wäre gewesen",
+    "wärst gewesen",
+    "wäre gewesen",
+    "wären gewesen",
+    "wärt gewesen",
+    "wären gewesen"
+   ],
+   "futur1": [
+    "würde sein",
+    "würdest sein",
+    "würde sein",
+    "würden sein",
+    "würdet sein",
+    "würden sein"
+   ],
+   "futur2": [
+    "würde gewesen sein",
+    "würdest gewesen sein",
+    "würde gewesen sein",
+    "würden gewesen sein",
+    "würdet gewesen sein",
+    "würden gewesen sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Sei!",
+   "ihr": "Seid!",
+   "Sie": "Seien Sie!",
+   "wir": "Seien wir!"
+  },
+  "passiv": null
+ },
+ "sich freuen": {
+  "infinitiv": "freuen",
+  "partizip1": "freuend",
+  "partizip2": "gefreut",
+  "zu_infinitiv": "sich zu freuen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "freue mich",
+    "freust dich",
+    "freut sich",
+    "freuen uns",
+    "freut euch",
+    "freuen sich"
+   ],
+   "praeteritum": [
+    "freute mich",
+    "freutest dich",
+    "freute sich",
+    "freuten uns",
+    "freutet euch",
+    "freuten sich"
+   ],
+   "perfekt": [
+    "habe mich gefreut",
+    "hast dich gefreut",
+    "hat sich gefreut",
+    "haben uns gefreut",
+    "habt euch gefreut",
+    "haben sich gefreut"
+   ],
+   "plusquamperfekt": [
+    "hatte mich gefreut",
+    "hattest dich gefreut",
+    "hatte sich gefreut",
+    "hatten uns gefreut",
+    "hattet euch gefreut",
+    "hatten sich gefreut"
+   ],
+   "futur1": [
+    "werde mich freuen",
+    "wirst dich freuen",
+    "wird sich freuen",
+    "werden uns freuen",
+    "werdet euch freuen",
+    "werden sich freuen"
+   ],
+   "futur2": [
+    "werde mich gefreut haben",
+    "wirst dich gefreut haben",
+    "wird sich gefreut haben",
+    "werden uns gefreut haben",
+    "werdet euch gefreut haben",
+    "werden sich gefreut haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "freue mich",
+    "freuest dich",
+    "freue sich",
+    "freuen uns",
+    "freuet euch",
+    "freuen sich"
+   ],
+   "perfekt": [
+    "habe mich gefreut",
+    "habest dich gefreut",
+    "habe sich gefreut",
+    "haben uns gefreut",
+    "habet euch gefreut",
+    "haben sich gefreut"
+   ],
+   "futur1": [
+    "werde mich freuen",
+    "werdest dich freuen",
+    "werde sich freuen",
+    "werden uns freuen",
+    "werdet euch freuen",
+    "werden sich freuen"
+   ],
+   "futur2": [
+    "werde mich gefreut haben",
+    "werdest dich gefreut haben",
+    "werde sich gefreut haben",
+    "werden uns gefreut haben",
+    "werdet euch gefreut haben",
+    "werden sich gefreut haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde mich freuen",
+    "würdest dich freuen",
+    "würde sich freuen",
+    "würden uns freuen",
+    "würdet euch freuen",
+    "würden sich freuen"
+   ],
+   "plusquamperfekt": [
+    "hätte mich gefreut",
+    "hättest dich gefreut",
+    "hätte sich gefreut",
+    "hätten uns gefreut",
+    "hättet euch gefreut",
+    "hätten sich gefreut"
+   ],
+   "futur1": [
+    "würde mich freuen",
+    "würdest dich freuen",
+    "würde sich freuen",
+    "würden uns freuen",
+    "würdet euch freuen",
+    "würden sich freuen"
+   ],
+   "futur2": [
+    "würde mich gefreut haben",
+    "würdest dich gefreut haben",
+    "würde sich gefreut haben",
+    "würden uns gefreut haben",
+    "würdet euch gefreut haben",
+    "würden sich gefreut haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Freu dich!",
+   "ihr": "Freut euch!",
+   "Sie": "Freuen Sie sich!",
+   "wir": "Freuen wir uns!"
+  },
+  "passiv": null
+ },
+ "werden": {
+  "infinitiv": "werden",
+  "partizip1": "werdend",
+  "partizip2": "geworden",
+  "zu_infinitiv": "zu werden",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "werde",
+    "wirst",
+    "wird",
+    "werden",
+    "werdet",
+    "werden"
+   ],
+   "praeteritum": [
+    "wurde",
+    "wurdest",
+    "wurde",
+    "wurden",
+    "wurdet",
+    "wurden"
+   ],
+   "perfekt": [
+    "bin geworden",
+    "bist geworden",
+    "ist geworden",
+    "sind geworden",
+    "seid geworden",
+    "sind geworden"
+   ],
+   "plusquamperfekt": [
+    "war geworden",
+    "warst geworden",
+    "war geworden",
+    "waren geworden",
+    "wart geworden",
+    "waren geworden"
+   ],
+   "futur1": [
+    "werde werden",
+    "wirst werden",
+    "wird werden",
+    "werden werden",
+    "werdet werden",
+    "werden werden"
+   ],
+   "futur2": [
+    "werde geworden sein",
+    "wirst geworden sein",
+    "wird geworden sein",
+    "werden geworden sein",
+    "werdet geworden sein",
+    "werden geworden sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "werde",
+    "werdest",
+    "werde",
+    "werden",
+    "werdet",
+    "werden"
+   ],
+   "perfekt": [
+    "sei geworden",
+    "seist geworden",
+    "sei geworden",
+    "seien geworden",
+    "seiet geworden",
+    "seien geworden"
+   ],
+   "futur1": [
+    "werde werden",
+    "werdest werden",
+    "werde werden",
+    "werden werden",
+    "werdet werden",
+    "werden werden"
+   ],
+   "futur2": [
+    "werde geworden sein",
+    "werdest geworden sein",
+    "werde geworden sein",
+    "werden geworden sein",
+    "werdet geworden sein",
+    "werden geworden sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde",
+    "würdest",
+    "würde",
+    "würden",
+    "würdet",
+    "würden"
+   ],
+   "plusquamperfekt": [
+    "wäre geworden",
+    "wärst geworden",
+    "wäre geworden",
+    "wären geworden",
+    "wärt geworden",
+    "wären geworden"
+   ],
+   "futur1": [
+    "würde werden",
+    "würdest werden",
+    "würde werden",
+    "würden werden",
+    "würdet werden",
+    "würden werden"
+   ],
+   "futur2": [
+    "würde geworden sein",
+    "würdest geworden sein",
+    "würde geworden sein",
+    "würden geworden sein",
+    "würdet geworden sein",
+    "würden geworden sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Werde!",
+   "ihr": "Werdet!",
+   "Sie": "Werden Sie!",
+   "wir": "Werden wir!"
+  },
+  "passiv": null
+ }
+}

@@ -87,6 +87,19 @@
         .word-en{color:var(--muted);font-size:.92rem}
         .word-conjugation{margin-top:.25rem;font-size:.78rem;color:var(--conj-text,#0d7d4d);background:var(--conj-bg,#f0fdf4);border:1px solid var(--conj-border,#bbf7d0);border-radius:.35rem;padding:.25rem .55rem;line-height:1.5}
         [data-bs-theme="dark"] .word-conjugation{--conj-text:#4ade80;--conj-bg:rgba(74,222,128,.08);--conj-border:rgba(74,222,128,.25)}
+        .conj-toggle{display:inline-block;margin-top:.3rem;font-size:.75rem;color:#0d7d4d;cursor:pointer;user-select:none;border:none;background:none;padding:0}
+        .conj-toggle:hover{text-decoration:underline}
+        [data-bs-theme="dark"] .conj-toggle{color:#4ade80}
+        .conj-table-wrap{margin-top:.5rem;font-size:.78rem;border-top:1px dashed var(--conj-border,#bbf7d0);padding-top:.5rem}
+        .conj-mood-title{font-weight:700;color:var(--conj-text,#0d7d4d);margin:.5rem 0 .2rem;font-size:.8rem}
+        [data-bs-theme="dark"] .conj-mood-title{color:#4ade80}
+        .conj-tense-block{margin-bottom:.4rem}
+        .conj-tense-label{font-weight:600;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:.15rem}
+        .conj-grid{display:grid;grid-template-columns:5.5rem 1fr;gap:.1rem .5rem;font-size:.78rem}
+        .conj-person{color:var(--muted)}
+        .conj-form{font-weight:500}
+        .conj-imperativ-row{display:flex;gap:.6rem;flex-wrap:wrap}
+        .conj-imperativ-row span{background:var(--ex-bg);border-radius:.3rem;padding:.1rem .5rem}
         .word-example{margin-top:.3rem;padding:.35rem .6rem;background:var(--ex-bg);border-radius:.4rem;font-size:.85rem;border-left:3px solid #1d4ed8}
         .ex-de{color:var(--ex-text)}.ex-en{color:var(--muted);font-style:italic;font-size:.82rem}
         .art-m{color:#2563eb}.art-f{color:#dc2626}.art-n{color:#16a34a}
@@ -30593,7 +30606,6 @@
             <span class="badge rounded-pill word-level" style="background:#16a34a">A1</span>
         </div>
         <div class="word-en">to swim</div>
-        <div class="word-conjugation"><strong>er/sie/es:</strong> schwimmt · <strong>Präteritum:</strong> schwamm · <strong>Perfekt:</strong> ist geschwommen</div>
         <div class="word-example"><span class="ex-de">Das Kind lernt gerade im Verein schwimmen.</span><br><span class="ex-en">The child is currently learning to swim at the club.</span></div>
     </div>
 </div>
@@ -33796,6 +33808,127 @@
             .then(function(reg) { reg.update(); })
             .catch(function(err) { console.log('SW failed:', err); });
     }
+    </script>
+    <script>
+    // Full verb conjugation table — lazy-loaded, click-to-expand
+    (function() {
+        var conjData = null;
+        var conjPromise = null;
+        var prefix = window.location.pathname.replace(/\\/g, '/').match(/\/(A1|A2|B1|B2|C1|C2)\//) ? '../' : '';
+
+        function loadConjugations() {
+            if (conjPromise) return conjPromise;
+            conjPromise = fetch(prefix + 'conjugations.json')
+                .then(function(r) { return r.ok ? r.json() : {}; })
+                .then(function(json) {
+                    conjData = {};
+                    Object.keys(json).forEach(function(k) {
+                        conjData[k.toLowerCase()] = json[k];
+                    });
+                    return conjData;
+                })
+                .catch(function() { conjData = {}; return conjData; });
+            return conjPromise;
+        }
+
+        var TENSE_LABELS = {
+            praesens: 'Präsens', praeteritum: 'Präteritum', perfekt: 'Perfekt',
+            plusquamperfekt: 'Plusquamperfekt', futur1: 'Futur I', futur2: 'Futur II'
+        };
+        var PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'Sie'];
+
+        function renderTenseBlock(tenseKey, forms) {
+            var rows = '';
+            for (var i = 0; i < 6; i++) {
+                rows += '<div class="conj-person">' + PERSONS[i] + '</div>' +
+                        '<div class="conj-form">' + forms[i] + '</div>';
+            }
+            return '<div class="conj-tense-block">' +
+                   '<div class="conj-tense-label">' + (TENSE_LABELS[tenseKey] || tenseKey) + '</div>' +
+                   '<div class="conj-grid">' + rows + '</div></div>';
+        }
+
+        function renderTable(table) {
+            var html = '<div class="conj-table-wrap">';
+
+            html += '<div class="conj-mood-title">Weitere Formen</div><div class="conj-imperativ-row">' +
+                    '<span>Infinitiv: ' + table.infinitiv + '</span>' +
+                    '<span>Partizip Präsens: ' + table.partizip1 + '</span>' +
+                    '<span>Partizip Perfekt: ' + table.partizip2 + '</span>' +
+                    '<span>zu + Infinitiv: ' + table.zu_infinitiv + '</span>' +
+                    '</div>';
+
+            html += '<div class="conj-mood-title">Indikativ</div>';
+            ['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'].forEach(function(t) {
+                if (table.indikativ && table.indikativ[t]) html += renderTenseBlock(t, table.indikativ[t]);
+            });
+
+            html += '<div class="conj-mood-title">Konjunktiv I</div>';
+            ['praesens','perfekt','futur1','futur2'].forEach(function(t) {
+                if (table.konjunktiv1 && table.konjunktiv1[t]) html += renderTenseBlock(t, table.konjunktiv1[t]);
+            });
+
+            html += '<div class="conj-mood-title">Konjunktiv II</div>';
+            ['praeteritum','plusquamperfekt','futur1','futur2'].forEach(function(t) {
+                if (table.konjunktiv2 && table.konjunktiv2[t]) html += renderTenseBlock(t, table.konjunktiv2[t]);
+            });
+
+            if (table.imperativ) {
+                html += '<div class="conj-mood-title">Imperativ</div><div class="conj-imperativ-row">';
+                ['du','ihr','Sie','wir'].forEach(function(p) {
+                    if (table.imperativ[p]) html += '<span>' + p + ': ' + table.imperativ[p] + '</span>';
+                });
+                html += '</div>';
+            }
+
+            if (table.passiv) {
+                html += '<div class="conj-mood-title">Passiv</div>';
+                ['praesens','praeteritum','perfekt','plusquamperfekt','futur1'].forEach(function(t) {
+                    if (table.passiv[t]) html += renderTenseBlock(t, table.passiv[t]);
+                });
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function addToggle(card) {
+            if (card.getAttribute('data-pos') !== 'verb') return;
+            if (card.querySelector('.conj-toggle')) return;
+            var de = card.getAttribute('data-de');
+            var btn = document.createElement('button');
+            btn.className = 'conj-toggle';
+            btn.type = 'button';
+            btn.textContent = '▼ Vollständige Konjugation';
+            var wrap = null;
+            btn.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation();
+                if (wrap) {
+                    wrap.remove();
+                    wrap = null;
+                    btn.textContent = '▼ Vollständige Konjugation';
+                    return;
+                }
+                loadConjugations().then(function(data) {
+                    var table = data[de];
+                    if (!table) {
+                        btn.textContent = '(noch keine vollständige Konjugation verfügbar)';
+                        btn.disabled = true;
+                        return;
+                    }
+                    var div = document.createElement('div');
+                    div.innerHTML = renderTable(table);
+                    wrap = div.firstChild;
+                    card.querySelector('.word-main').appendChild(wrap);
+                    btn.textContent = '▲ Konjugation ausblenden';
+                });
+            });
+            var mainDiv = card.querySelector('.word-main');
+            mainDiv.appendChild(btn);
+        }
+
+        document.querySelectorAll('.word-card').forEach(addToggle);
+    })();
     </script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script></body>
 </html>
