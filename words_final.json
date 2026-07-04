@@ -226,7 +226,15 @@
       "Regeln ableiten",
       "aus Daten ableiten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "ableiten",
+      "praeteritum_stamm": "leitete",
+      "partizip2": "abgeleitet",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "transitiv": true
+    }
   },
   {
     "de": "abnehmen",
@@ -349,7 +357,15 @@
       "sorgfältig abwägen",
       "Interessen abwägen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "abwägen",
+      "praeteritum_stamm": "wog",
+      "partizip2": "abgewogen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "transitiv": true
+    }
   },
   {
     "de": "acht",
@@ -1095,7 +1111,15 @@
       "Exzellenz anstreben",
       "hohe Standards anstreben"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "anstreben",
+      "praeteritum_stamm": "strebte",
+      "partizip2": "angestrebt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "transitiv": true
+    }
   },
   {
     "de": "die Antikörper (Pl.)",
@@ -1980,7 +2004,15 @@
       "Ergebnisse interpretieren",
       "statistische Analyse"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "auswerten",
+      "praeteritum_stamm": "wertete",
+      "partizip2": "ausgewertet",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "transitiv": true
+    }
   },
   {
     "de": "die Auswertung, -en",
@@ -2324,7 +2356,14 @@
       "rechtliche Ansprüche geltend machen",
       "in Anspruch nehmen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "beanspruchen",
+      "praeteritum_stamm": "beanspruchte",
+      "partizip2": "beansprucht",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "beanstanden",
@@ -2442,7 +2481,14 @@
       "notwendige Voraussetzung",
       "kausal zusammenhängen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "bedingen",
+      "praeteritum_stamm": "bedingte",
+      "partizip2": "bedingt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "beeinflussen",
@@ -2456,7 +2502,14 @@
       "den Kurs beeinflussen",
       "nachhaltig beeinflussen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "beeinflussen",
+      "praeteritum_stamm": "beeinflusste",
+      "partizip2": "beeinflusst",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "beeinträchtigen",
@@ -2470,7 +2523,14 @@
       "Leistungsfähigkeit beeinträchtigen",
       "gravierend beeinträchtigen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "beeinträchtigen",
+      "praeteritum_stamm": "beeinträchtigte",
+      "partizip2": "beeinträchtigt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "befördern",
@@ -2493,7 +2553,14 @@
       "Maßnahmen befürworten",
       "klar befürworten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "befürworten",
+      "praeteritum_stamm": "befürwortete",
+      "partizip2": "befürwortet",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Befund, -e",
@@ -2560,7 +2627,14 @@
       "günstige Bedingungen schaffen",
       "förderlich sein für"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "begünstigen",
+      "praeteritum_stamm": "begünstigte",
+      "partizip2": "begünstigt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Behandlung, -en",
@@ -2760,7 +2834,14 @@
       "mit Daten belegen",
       "wissenschaftlich belegen"
     ],
-    "register": "academic"
+    "register": "academic",
+    "conjugation": {
+      "infinitiv": "belegen",
+      "praeteritum_stamm": "belegte",
+      "partizip2": "belegt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "bemerken",
@@ -3156,7 +3237,14 @@
       "eine Aussage bestreiten",
       "vehement bestreiten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "bestreiten",
+      "praeteritum_stamm": "bestritt",
+      "partizip2": "bestritten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "beträchtlich",
@@ -4669,7 +4757,14 @@
       "Nuancen berücksichtigen",
       "differenziert betrachten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "differenzieren",
+      "praeteritum_stamm": "differenzierte",
+      "partizip2": "differenziert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Digitalisierung",
@@ -5124,7 +5219,15 @@
       "eine Regelung durchsetzen",
       "sich durchsetzen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "durchsetzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "durchgesetzt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "durch",
+      "reflexiv": true
+    }
   },
   {
     "de": "der Durst",
@@ -5462,7 +5565,15 @@
       "realistisch einschätzen",
       "falsch einschätzen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "einschätzen",
+      "praeteritum_stamm": "schätzte",
+      "partizip2": "eingeschätzt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "transitiv": true
+    }
   },
   {
     "de": "einschlägig",
@@ -5490,7 +5601,15 @@
       "Freiheiten beschneiden",
       "Grenzen setzen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "einschränken",
+      "praeteritum_stamm": "schränkte",
+      "partizip2": "eingeschränkt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "transitiv": true
+    }
   },
   {
     "de": "einsteigen",
@@ -5899,7 +6018,13 @@
       "neue Möglichkeiten entstehen",
       "ein Problem entsteht"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "entstehen",
+      "praeteritum_stamm": "entstand",
+      "partizip2": "entstanden",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "enttäuscht",
@@ -6418,7 +6543,14 @@
       "alle Optionen erwägen",
       "in Betracht ziehen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "erwägen",
+      "praeteritum_stamm": "erwog",
+      "partizip2": "erwogen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "erwarten",
@@ -6478,7 +6610,14 @@
       "einen Kompromiss erzielen",
       "große Wirkung erzielen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "erzielen",
+      "praeteritum_stamm": "erzielte",
+      "partizip2": "erzielt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "Es bedarf keiner weiteren Erklärung.",
@@ -7155,7 +7294,15 @@
       "den Sachverhalt feststellen",
       "mit Bestimmtheit feststellen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "feststellen",
+      "praeteritum_stamm": "stellte",
+      "partizip2": "festgestellt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "fest",
+      "transitiv": true
+    }
   },
   {
     "de": "das Fett",
@@ -8117,7 +8264,15 @@
       "vergleichend analysieren",
       "kontrastieren"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "gegenüberstellen",
+      "praeteritum_stamm": "stellte",
+      "partizip2": "gegenübergestellt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "gegenüber",
+      "transitiv": true
+    }
   },
   {
     "de": "das Gehalt, -̈er",
@@ -8694,7 +8849,14 @@
       "Qualität gewährleisten",
       "einen reibungslosen Ablauf gewährleisten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "gewährleisten",
+      "praeteritum_stamm": "gewährleistete",
+      "partizip2": "gewährleistet",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Gewaltenteilung",
@@ -9539,7 +9701,15 @@
       "Quellen heranziehen",
       "als Beleg heranziehen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "heranziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "herangezogen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "heran",
+      "transitiv": true
+    }
   },
   {
     "de": "herausfinden",
@@ -9666,7 +9836,15 @@
       "Aufmerksamkeit hervorrufen",
       "starke Emotionen hervorrufen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "hervorrufen",
+      "praeteritum_stamm": "rief",
+      "partizip2": "hervorgerufen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "hervor",
+      "transitiv": true
+    }
   },
   {
     "de": "die Heterogenität",
@@ -13008,7 +13186,14 @@
       "Legitimation gewinnen",
       "durch Wahlen legitimieren"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "legitimieren",
+      "praeteritum_stamm": "legitimierte",
+      "partizip2": "legitimiert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Legitimität",
@@ -14862,7 +15047,15 @@
       "wissenschaftlich belegen",
       "Schuld nachweisen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "nachweisen",
+      "praeteritum_stamm": "wies",
+      "partizip2": "nachgewiesen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "nach",
+      "transitiv": true
+    }
   },
   {
     "de": "die Nadel im Heuhaufen suchen",
@@ -14903,7 +15096,15 @@
       "Schlüsse nahelegen",
       "implizieren"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "nahelegen",
+      "praeteritum_stamm": "legte",
+      "partizip2": "nahegelegt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "nahe",
+      "transitiv": true
+    }
   },
   {
     "de": "der Name, -n",
@@ -17157,7 +17358,13 @@
       "über Erfahrungen nachdenken",
       "Selbstreflexion üben"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "reflektieren",
+      "praeteritum_stamm": "reflektierte",
+      "partizip2": "reflektiert",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Reform, -en",
@@ -17366,7 +17573,14 @@
       "Dinge in Perspektive rücken",
       "nicht überbewertet"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "relativieren",
+      "praeteritum_stamm": "relativierte",
+      "partizip2": "relativiert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Relativismus",
@@ -19495,7 +19709,15 @@
       "Compliance sicherstellen",
       "reibungslosen Ablauf garantieren"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "sicherstellen",
+      "praeteritum_stamm": "stellte",
+      "partizip2": "sichergestellt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "sicher",
+      "transitiv": true
+    }
   },
   {
     "de": "sie",
@@ -21652,7 +21874,14 @@
       "Schwierigkeiten meistern",
       "über sich hinauswachsen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "überwinden",
+      "praeteritum_stamm": "überwand",
+      "partizip2": "überwunden",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "überzeugen",
@@ -21778,7 +22007,15 @@
       "Reformen umsetzen",
       "Strategien in die Tat umsetzen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "umsetzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "umgesetzt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "um",
+      "transitiv": true
+    }
   },
   {
     "de": "umso mehr als",
@@ -22176,7 +22413,14 @@
       "finanzielle Unterstützung",
       "tatkräftig helfen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "unterstützen",
+      "praeteritum_stamm": "unterstützte",
+      "partizip2": "unterstützt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "untersuchen",
@@ -22190,7 +22434,14 @@
       "gründlich prüfen",
       "eine Untersuchung einleiten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "untersuchen",
+      "praeteritum_stamm": "untersuchte",
+      "partizip2": "untersucht",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Untersuchung",
@@ -22652,7 +22903,14 @@
       "Bedingungen vereinbaren",
       "eine Einigung erzielen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "vereinbaren",
+      "praeteritum_stamm": "vereinbarte",
+      "partizip2": "vereinbart",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "das Verfahren, -",
@@ -22911,7 +23169,14 @@
       "Risiken minimieren",
       "Konflikte aus dem Weg gehen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "vermeiden",
+      "praeteritum_stamm": "vermied",
+      "partizip2": "vermieden",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Vermessenheit",
@@ -23404,7 +23669,15 @@
       "als selbstverständlich voraussetzen",
       "Voraussetzungen erfüllen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "voraussetzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "vorausgesetzt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "voraus",
+      "transitiv": true
+    }
   },
   {
     "de": "voraussetzen",
@@ -24327,7 +24600,14 @@
       "klar widersprechen",
       "einem Argument entgegenhalten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "widersprechen",
+      "praesens_stamm": "widersprich",
+      "praeteritum_stamm": "widersprach",
+      "partizip2": "widersprochen",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "der Widerspruch, -̈e",
@@ -25412,7 +25692,14 @@
       "im Zusammenhang stehen",
       "kausal verbunden sein"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "zusammenhängen",
+      "praeteritum_stamm": "hing",
+      "partizip2": "zusammengehangen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zusammen"
+    }
   },
   {
     "de": "zusammenhängen mit",
@@ -25467,7 +25754,14 @@
       "Zustimmung erteilen",
       "mehrheitlich beschließen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "zustimmen",
+      "praeteritum_stamm": "stimmte",
+      "partizip2": "zugestimmt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu"
+    }
   },
   {
     "de": "die Zutat, -en",
