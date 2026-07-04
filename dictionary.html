@@ -102,6 +102,15 @@
         [data-bs-theme="dark"] .conj-tense-block{--conj-card-bg:#1e293b;--conj-card-border:#334155}
         .conj-tense-label{font-weight:700;text-align:center;margin-bottom:.4rem;padding-bottom:.35rem;font-size:.76rem;color:var(--page-text);border-bottom:1px solid var(--conj-card-border,#e2e8f0)}
         .conj-row{padding:.1rem 0;font-size:.78rem;line-height:1.3}
+        .conj-en-line{display:none;color:var(--muted);font-style:italic;font-size:.72rem;line-height:1.2;padding-left:.1rem}
+        body.show-english .conj-en-line{display:block}
+        .conj-en-toggle-wrap{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem;font-size:.8rem;color:var(--muted)}
+        .conj-en-toggle{position:relative;display:inline-block;width:2.4rem;height:1.3rem;flex-shrink:0}
+        .conj-en-toggle input{opacity:0;width:0;height:0}
+        .conj-en-toggle-slider{position:absolute;cursor:pointer;inset:0;background:#cbd5e1;border-radius:999px;transition:.2s}
+        .conj-en-toggle-slider:before{content:"";position:absolute;height:1rem;width:1rem;left:.15rem;bottom:.15rem;background:#fff;border-radius:50%;transition:.2s}
+        .conj-en-toggle input:checked + .conj-en-toggle-slider{background:#7c3aed}
+        .conj-en-toggle input:checked + .conj-en-toggle-slider:before{transform:translateX(1.1rem)}
         .conj-person{color:var(--muted);margin-right:.25rem}
         .conj-imperativ-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.6rem}
         .conj-imperativ-row span{background:var(--conj-card-bg,#f8fafc);border:1px solid var(--conj-card-border,#e2e8f0);border-radius:.5rem;padding:.5rem .7rem;text-align:center;font-size:.78rem;display:block}
@@ -33853,28 +33862,47 @@
             plusquamperfekt: 'Plusquamperfekt', futur1: 'Futur I', futur2: 'Futur II'
         };
         var PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'Sie'];
+        var PERSONS_EN = ['I', 'you', 'he/she/it', 'we', 'you', 'they'];
+        // English translations are only shown for the tenses a learner
+        // actually uses day-to-day — Konjunktiv/Futur II/Passiv are
+        // skipped since a rule-derived English rendering for those is
+        // often misleading rather than merely absent.
+        var EN_ELIGIBLE_TENSES = ['praesens', 'praeteritum', 'perfekt'];
 
-        function renderTenseBlock(tenseKey, forms) {
+        function renderTenseBlock(tenseKey, forms, englishForms) {
             var rows = '';
+            var showEn = englishForms && EN_ELIGIBLE_TENSES.indexOf(tenseKey) > -1;
             for (var i = 0; i < 6; i++) {
+                var enLine = showEn
+                    ? '<div class="conj-en-line">(' + PERSONS_EN[i] + ' ' + englishForms[i] + ')</div>'
+                    : '';
                 rows += '<div class="conj-row"><span class="conj-person">' + PERSONS[i] + '</span>' +
-                        forms[i] + '</div>';
+                        forms[i] + enLine + '</div>';
             }
             return '<div class="conj-tense-block">' +
                    '<div class="conj-tense-label">' + (TENSE_LABELS[tenseKey] || tenseKey) + '</div>' +
                    rows + '</div>';
         }
 
-        function renderMoodGrid(tenses, source) {
+        function renderMoodGrid(tenses, source, english) {
             var html = '';
             tenses.forEach(function(t) {
-                if (source && source[t]) html += renderTenseBlock(t, source[t]);
+                if (source && source[t]) html += renderTenseBlock(t, source[t], english && english[t]);
             });
             return html ? '<div class="conj-mood-grid">' + html + '</div>' : '';
         }
 
         function renderTable(table) {
             var html = '<div class="conj-table-wrap">';
+            var en = table.english || null;
+
+            html += '<div class="conj-en-toggle-wrap">' +
+                    '<label class="conj-en-toggle">' +
+                    '<input type="checkbox" class="conj-en-toggle-input">' +
+                    '<span class="conj-en-toggle-slider"></span>' +
+                    '</label>' +
+                    '<span>Englische Übersetzung anzeigen</span>' +
+                    '</div>';
 
             html += '<div class="conj-mood-title">Weitere Formen</div><div class="conj-imperativ-row">' +
                     '<span>Infinitiv: ' + table.infinitiv + '</span>' +
@@ -33884,7 +33912,7 @@
                     '</div>';
 
             html += '<div class="conj-mood-title">Indikativ</div>';
-            html += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ);
+            html += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ, en);
 
             html += '<div class="conj-mood-title">Konjunktiv I</div>';
             html += renderMoodGrid(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
@@ -33947,8 +33975,31 @@
                 }
                 var div = document.createElement('div');
                 div.innerHTML = renderTable(table);
-                card.querySelector('.word-main').appendChild(div.firstChild);
+                var wrap = div.firstChild;
+                var enToggleInput = wrap.querySelector('.conj-en-toggle-input');
+                if (enToggleInput) {
+                    enToggleInput.checked = localStorage.getItem('showEnglishConj') === 'true';
+                }
+                card.querySelector('.word-main').appendChild(wrap);
                 btn.textContent = '✕ Konjugation ausblenden';
+            });
+        });
+
+        // English translation toggle — event delegation since each
+        // toggle switch is created fresh whenever a conjugation table
+        // is rendered (same lesson as the tts.js conflict: attaching a
+        // listener directly to a dynamically-created node is fragile).
+        if (localStorage.getItem('showEnglishConj') === 'true') {
+            document.body.classList.add('show-english');
+        }
+        document.addEventListener('change', function(e) {
+            var toggle = e.target.closest('.conj-en-toggle-input');
+            if (!toggle) return;
+            document.body.classList.toggle('show-english', toggle.checked);
+            localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+            // keep every other already-rendered toggle switch in sync
+            document.querySelectorAll('.conj-en-toggle-input').forEach(function(t) {
+                t.checked = toggle.checked;
             });
         });
     })();

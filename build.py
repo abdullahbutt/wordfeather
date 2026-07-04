@@ -19,6 +19,7 @@ Author: Abdullah Butt
 import json, html as htmllib, re, sys, os
 from collections import defaultdict, Counter
 from conjugator import conjugate
+from english_conjugator import build_english_table
 
 REPO    = os.path.dirname(os.path.abspath(__file__))
 JSON    = os.path.join(REPO, 'words_final.json')
@@ -176,28 +177,44 @@ CONJUGATION_WS_SCRIPT = """<script>
         plusquamperfekt: 'Plusquamperfekt', futur1: 'Futur I', futur2: 'Futur II'
     };
     var PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'Sie'];
+    var PERSONS_EN = ['I', 'you', 'he/she/it', 'we', 'you', 'they'];
+    var EN_ELIGIBLE_TENSES = ['praesens', 'praeteritum', 'perfekt'];
 
-    function renderTenseBlock(tenseKey, forms) {
+    function renderTenseBlock(tenseKey, forms, englishForms) {
         var rows = '';
+        var showEn = englishForms && EN_ELIGIBLE_TENSES.indexOf(tenseKey) > -1;
         for (var i = 0; i < 6; i++) {
+            var enLine = showEn
+                ? '<div class="conj-en-line-ws">(' + PERSONS_EN[i] + ' ' + englishForms[i] + ')</div>'
+                : '';
             rows += '<div class="conj-row-ws"><span class="conj-person-ws">' + PERSONS[i] + '</span>' +
-                    forms[i] + '</div>';
+                    forms[i] + enLine + '</div>';
         }
         return '<div class="conj-tense-block-ws">' +
                '<div class="conj-tense-label-ws">' + (TENSE_LABELS[tenseKey] || tenseKey) + '</div>' +
                rows + '</div>';
     }
 
-    function renderMoodGridWs(tenses, source) {
+    function renderMoodGridWs(tenses, source, english) {
         var html = '';
         tenses.forEach(function(t) {
-            if (source && source[t]) html += renderTenseBlock(t, source[t]);
+            if (source && source[t]) html += renderTenseBlock(t, source[t], english && english[t]);
         });
         return html ? '<div class="conj-mood-grid-ws">' + html + '</div>' : '';
     }
 
     function renderTable(table) {
         var html = '<div class="conj-table-wrap-ws">';
+        var en = table.english || null;
+
+        html += '<div class="conj-en-toggle-wrap-ws">' +
+                '<label class="conj-en-toggle-ws">' +
+                '<input type="checkbox" class="conj-en-toggle-input">' +
+                '<span class="conj-en-toggle-slider-ws"></span>' +
+                '</label>' +
+                '<span>Englische Übersetzung anzeigen</span>' +
+                '</div>';
+
         html += '<div class="conj-mood-title-ws">Weitere Formen</div><div class="conj-imperativ-row-ws">' +
                 '<span>Infinitiv: ' + table.infinitiv + '</span>' +
                 '<span>Partizip Präsens: ' + table.partizip1 + '</span>' +
@@ -205,7 +222,7 @@ CONJUGATION_WS_SCRIPT = """<script>
                 '<span>zu + Infinitiv: ' + table.zu_infinitiv + '</span></div>';
 
         html += '<div class="conj-mood-title-ws">Indikativ</div>';
-        html += renderMoodGridWs(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ);
+        html += renderMoodGridWs(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ, en);
 
         html += '<div class="conj-mood-title-ws">Konjunktiv I</div>';
         html += renderMoodGridWs(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
@@ -262,9 +279,29 @@ CONJUGATION_WS_SCRIPT = """<script>
             var td = document.createElement('td');
             td.colSpan = colCount;
             td.innerHTML = renderTable(table);
+            var enToggleInput = td.querySelector('.conj-en-toggle-input');
+            if (enToggleInput) {
+                enToggleInput.checked = localStorage.getItem('showEnglishConj') === 'true';
+            }
             newRow.appendChild(td);
             row.parentNode.insertBefore(newRow, row.nextSibling);
             btn.textContent = '✕ Ausblenden';
+        });
+    });
+
+    // English translation toggle — same event-delegation pattern as
+    // the conjugation button itself, for the same reason: each toggle
+    // switch is created fresh whenever a table is rendered.
+    if (localStorage.getItem('showEnglishConj') === 'true') {
+        document.body.classList.add('show-english');
+    }
+    document.addEventListener('change', function(e) {
+        var toggle = e.target.closest('.conj-en-toggle-input');
+        if (!toggle) return;
+        document.body.classList.toggle('show-english', toggle.checked);
+        localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+        document.querySelectorAll('.conj-en-toggle-input').forEach(function(t) {
+            t.checked = toggle.checked;
         });
     });
 })();
@@ -882,6 +919,15 @@ def build_wortschatz_page(level, level_words):
         .conj-tense-block-ws{{background:var(--table-stripe);border:1px solid var(--alpha-border);border-radius:.5rem;padding:.55rem .7rem;}}
         .conj-tense-label-ws{{font-weight:700;text-align:center;margin-bottom:.4rem;padding-bottom:.35rem;font-size:.76rem;color:var(--page-text);border-bottom:1px solid var(--alpha-border);}}
         .conj-row-ws{{padding:.1rem 0;font-size:.78rem;line-height:1.3;}}
+        .conj-en-line-ws{{display:none;color:var(--muted-text);font-style:italic;font-size:.72rem;line-height:1.2;padding-left:.1rem;}}
+        body.show-english .conj-en-line-ws{{display:block;}}
+        .conj-en-toggle-wrap-ws{{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem;font-size:.8rem;color:var(--muted-text);}}
+        .conj-en-toggle-ws{{position:relative;display:inline-block;width:2.4rem;height:1.3rem;flex-shrink:0;}}
+        .conj-en-toggle-ws input{{opacity:0;width:0;height:0;}}
+        .conj-en-toggle-slider-ws{{position:absolute;cursor:pointer;inset:0;background:#cbd5e1;border-radius:999px;transition:.2s;}}
+        .conj-en-toggle-slider-ws:before{{content:"";position:absolute;height:1rem;width:1rem;left:.15rem;bottom:.15rem;background:#fff;border-radius:50%;transition:.2s;}}
+        .conj-en-toggle-ws input:checked + .conj-en-toggle-slider-ws{{background:#7c3aed;}}
+        .conj-en-toggle-ws input:checked + .conj-en-toggle-slider-ws:before{{transform:translateX(1.1rem);}}
         .conj-person-ws{{color:var(--muted-text);margin-right:.25rem;}}
         .conj-imperativ-row-ws{{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.6rem;}}
         .conj-imperativ-row-ws span{{background:var(--table-stripe);border:1px solid var(--alpha-border);border-radius:.5rem;padding:.5rem .7rem;text-align:center;font-size:.78rem;display:block;}}
@@ -995,12 +1041,18 @@ def build_conjugations(words):
     """
     result = {}
     skipped = 0
+    en_covered = 0
     for w in words:
         pp = w.get('conjugation')
         if not pp:
             continue
         try:
             table = conjugate(pp)
+            english_overrides = pp.get('english')
+            english_table = build_english_table(w.get('en', ''), english_overrides)
+            if english_table:
+                table['english'] = english_table
+                en_covered += 1
             result[w['de']] = table
         except Exception as e:
             skipped += 1
@@ -1008,7 +1060,7 @@ def build_conjugations(words):
     out_path = os.path.join(REPO, 'conjugations.json')
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=1)
-    print(f"  ✅ conjugations.json — {len(result)} verbs"
+    print(f"  ✅ conjugations.json — {len(result)} verbs, {en_covered} with English"
           f"{f', {skipped} errors' if skipped else ''}")
 
 

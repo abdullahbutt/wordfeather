@@ -102,7 +102,7 @@ def _needs_extra_e(stem):
     return False
 
 
-def _present_forms(stem, changed_stem):
+def _present_forms(stem, changed_stem, is_eln_ern=False):
     """Build the 6-person Präsens indicative forms.
     Stems ending in a sibilant (s, ß, z, x) merge the -st du-ending
     down to just -t: essen (changed stem 'iss') -> du isst, not 'issst'.
@@ -111,7 +111,11 @@ def _present_forms(stem, changed_stem):
     (fahren->fährst, laden->lädst, halten->hältst, raten->rätst)
     never takes it, even when it ends in d/t — only the raw stem
     used for ich/wir/ihr/Sie does (arbeiten->arbeitest, bitten->bittest,
-    finden->findest, none of which have a präsens vowel change)."""
+    finden->findest, none of which have a präsens vowel change).
+    -eln/-ern class verbs (wechseln, wandern) have infinitives ending
+    in just -n, not -en — so wir/sie/Sie must match the infinitive
+    exactly (wechseln, not 'wechselen') rather than getting the usual
+    stem+en ending."""
     s = stem
     s2 = changed_stem or stem
     e = 'e' if (not changed_stem and _needs_extra_e(s2)) else ''
@@ -119,9 +123,10 @@ def _present_forms(stem, changed_stem):
     ich  = s + 'e'
     du   = s2 + du_ending
     er   = s2 if (changed_stem and s2.endswith('t')) else s2 + e + 't'
-    wir  = s + 'en'
+    wir_sie_ending = 'n' if is_eln_ern else 'en'
+    wir  = s + wir_sie_ending
     ihr  = s + (('e' if _needs_extra_e(s) else '')) + 't'
-    sie  = s + 'en'
+    sie  = s + wir_sie_ending
     return [ich, du, er, wir, ihr, sie]
 
 
@@ -142,12 +147,16 @@ def _preterite_forms(praeteritum_stamm):
         return [stem, stem + du_ending, stem, stem + 'en', stem + e + 't', stem + 'en']
 
 
-def _konj1_praesens_forms(stem):
+def _konj1_praesens_forms(stem, is_eln_ern=False):
     """Konjunktiv I endings (-e, -est, -e, -en, -et, -en) always already
     contain the linking vowel, so no epenthetic -e- insertion is needed
-    here regardless of the stem's final consonant."""
+    here regardless of the stem's final consonant. wir/sie always
+    coincide with the infinitive for every verb type in German, so
+    -eln/-ern class verbs need stem+'n' there too (fordern, not
+    'forderen'), matching the same fix applied to the indicative."""
+    wir_sie_ending = 'n' if is_eln_ern else 'en'
     return [stem + 'e', stem + 'est', stem + 'e',
-             stem + 'en', stem + 'et', stem + 'en']
+             stem + wir_sie_ending, stem + 'et', stem + wir_sie_ending]
 
 
 def _konj2_forms(konj2_stamm):
@@ -177,13 +186,16 @@ def _partizip1(infinitiv, override=None):
     return infinitiv + 'd'
 
 
-def _zu_infinitiv(infinitiv, reg_stem, prefix, reflexiv=False):
+def _zu_infinitiv(infinitiv, reg_stem, prefix, reflexiv=False, is_eln_ern=False):
     """zu + Infinitiv: for separable verbs 'zu' is inserted as one word
     between prefix and stem (aufstehen -> aufzustehen); for everything
     else it's a separate word before the infinitive (sein -> zu sein).
-    Reflexive verbs prepend 'sich' (sich freuen -> sich zu freuen)."""
+    Reflexive verbs prepend 'sich' (sich freuen -> sich zu freuen).
+    -eln/-ern class verbs need reg_stem+'n' not reg_stem+'en' here too
+    (aufzufordern, not 'aufzuforderen')."""
     if prefix:
-        result = prefix + 'zu' + reg_stem + 'en'
+        ending = 'n' if is_eln_ern else 'en'
+        result = prefix + 'zu' + reg_stem + ending
     else:
         result = 'zu ' + infinitiv
     if reflexiv:
@@ -221,15 +233,27 @@ def conjugate(principal_parts):
     reg_stem = _regular_stem(infinitiv, prefix)
     changed_stem = praesens_stamm_in  # already prefix-stripped if separable
 
+    # -eln/-ern class verbs (wechseln, wandern) need special present-tense
+    # handling: their infinitive ends in just -n (not -en), so wir/sie/Sie
+    # must match the infinitive exactly rather than getting stem+en.
+    # -eln verbs specifically ALSO drop the stem-internal -e- for ich only
+    # (ich wechsle, not wechsele) — -ern verbs keep it (ich fordere).
+    bare_infinitiv = infinitiv[len(prefix):] if (prefix and infinitiv.startswith(prefix)) else infinitiv
+    is_eln_ern = bare_infinitiv.endswith('eln') or bare_infinitiv.endswith('ern')
+    is_eln = bare_infinitiv.endswith('eln')
+
     # ── Base conjugated forms (verb only, no prefix/reflexive yet) ─────────
     praesens_voll_override = p.get('praesens_voll')  # for sein/werden etc.
     konj1_voll_override    = p.get('konj1_praesens_voll')
 
     praesens_base = list(praesens_voll_override) if praesens_voll_override \
-        else _present_forms(reg_stem, changed_stem)
+        else _present_forms(reg_stem, changed_stem, is_eln_ern)
+    if is_eln and not praesens_voll_override and not changed_stem:
+        # ich wechsle, not wechsele — drop the stem-internal -e- before -l-
+        praesens_base[0] = reg_stem[:-2] + 'le'
     praeteritum_base = _preterite_forms(praeteritum_stamm)
     konj1_base = list(konj1_voll_override) if konj1_voll_override \
-        else _konj1_praesens_forms(reg_stem)
+        else _konj1_praesens_forms(reg_stem, is_eln_ern)
     if konj2_stamm:
         konj2_voll_override = p.get('konj2_voll')
         konj2_base = list(konj2_voll_override) if konj2_voll_override \
@@ -381,7 +405,7 @@ def conjugate(principal_parts):
         has_umlaut = changed_stem and any(c in changed_stem for c in 'äöü')
         du_stem = reg_stem if (not changed_stem or has_umlaut) else changed_stem
         e = 'e' if (not changed_stem and _needs_extra_e(du_stem)) else ''
-        base_infinitiv = (reg_stem + 'en') if prefix else infinitiv
+        base_infinitiv = (reg_stem + ('n' if is_eln_ern else 'en')) if prefix else infinitiv
         imp_du   = (du_stem + e).capitalize()
         imp_ihr  = (reg_stem + ('e' if _needs_extra_e(reg_stem) else '') + 't').capitalize()
         imp_sie  = base_infinitiv.capitalize() + ' Sie'
@@ -416,7 +440,7 @@ def conjugate(principal_parts):
         }
 
     partizip1 = _partizip1(infinitiv, p.get('partizip1_voll'))
-    zu_infinitiv = _zu_infinitiv(infinitiv, reg_stem, prefix, reflexiv)
+    zu_infinitiv = _zu_infinitiv(infinitiv, reg_stem, prefix, reflexiv, is_eln_ern)
 
     return {
         'infinitiv': infinitiv,

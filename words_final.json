@@ -1546,7 +1546,15 @@
       "dringend auffordern",
       "eine Aufforderung aussprechen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "auffordern",
+      "praeteritum_stamm": "forderte",
+      "partizip2": "aufgefordert",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "transitiv": true
+    }
   },
   {
     "de": "die Aufforstung",
@@ -2577,7 +2585,14 @@
     "level": "B1",
     "example": "Die Firma befördert ihn nach fünf Jahren zur Teamleitung.",
     "example_en": "The company is promoting him to team leader after five years.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "befördern",
+      "praeteritum_stamm": "beförderte",
+      "partizip2": "befördert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "befürworten",
@@ -3986,7 +4001,14 @@
     "level": "A2",
     "example": "Ich bügle meine Hemden jeden Sonntagabend.",
     "example_en": "I iron my shirts every Sunday evening.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bügeln",
+      "praeteritum_stamm": "bügelte",
+      "partizip2": "gebügelt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Bündnispolitik",
@@ -4416,7 +4438,13 @@
     "level": "A1",
     "example": "Die Fahrt dauert 2 Stunden.",
     "example_en": "The trip takes 2 hours.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "dauern",
+      "praeteritum_stamm": "dauerte",
+      "partizip2": "gedauert",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Debatte, -n",
@@ -6532,7 +6560,14 @@
       "kritisch erörtern",
       "Argumente gegenüberstellen"
     ],
-    "register": "academic"
+    "register": "academic",
+    "conjugation": {
+      "infinitiv": "erörtern",
+      "praeteritum_stamm": "erörterte",
+      "partizip2": "erörtert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "erörtern",
@@ -6546,7 +6581,14 @@
       "eine Frage erörtern",
       "kritisch beleuchten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "erörtern",
+      "praeteritum_stamm": "erörterte",
+      "partizip2": "erörtert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "erreichen",
@@ -7265,7 +7307,14 @@
     "level": "A2",
     "example": "Wir feiern heute Abend meinen Geburtstag mit Familie.",
     "example_en": "We are celebrating my birthday with family tonight.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "feiern",
+      "praeteritum_stamm": "feierte",
+      "partizip2": "gefeiert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Feiertag, -e",
@@ -7584,7 +7633,14 @@
       "ein Projekt fördern",
       "mit Fördermitteln unterstützen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "fördern",
+      "praeteritum_stamm": "förderte",
+      "partizip2": "gefördert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Folge, -n",
@@ -9828,7 +9884,15 @@
       "intellektuell herausfordern",
       "konventionelle Weisheiten hinterfragen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "herausfordern",
+      "praeteritum_stamm": "forderte",
+      "partizip2": "herausgefordert",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "heraus",
+      "transitiv": true
+    }
   },
   {
     "de": "eine Herausforderung darstellen",
@@ -11975,7 +12039,13 @@
     "level": "A2",
     "example": "Die Kinder klettern gerne auf Bäume und spielen draußen bis zum Abendessen.",
     "example_en": "The children like climbing trees and playing outside until dinner.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "klettern",
+      "praeteritum_stamm": "kletterte",
+      "partizip2": "geklettert",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "klicken",
@@ -17412,7 +17482,14 @@
     "level": "A2",
     "example": "Wir sollten Glas und Papier konsequent recyceln.",
     "example_en": "We should consistently recycle glass and paper.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "recyceln",
+      "praeteritum_stamm": "recycelte",
+      "partizip2": "recycelt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Redaktion, -en",
@@ -18549,7 +18626,13 @@
       "ein Projekt scheitert",
       "aus Fehlern lernen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "scheitern",
+      "praeteritum_stamm": "scheiterte",
+      "partizip2": "gescheitert",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "schenken",
@@ -22514,7 +22597,14 @@
       "argumentativ stützen",
       "empirisch belegen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "untermauern",
+      "praeteritum_stamm": "untermauerte",
+      "partizip2": "untermauert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Unterricht",
@@ -23199,7 +23289,14 @@
       "einen Vertrag aushandeln",
       "Kompromisse finden"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "verhandeln",
+      "praeteritum_stamm": "verhandelte",
+      "partizip2": "verhandelt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "verheiratet",
@@ -24350,7 +24447,14 @@
     "level": "A1",
     "example": "Ich möchte Geld wechseln.",
     "example_en": "I would like to change some money.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wechseln",
+      "praeteritum_stamm": "wechselte",
+      "partizip2": "gewechselt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "wechseln",
@@ -24359,7 +24463,14 @@
     "level": "A2",
     "example": "Er wechselt nächsten Monat den Job und freut sich auf die neue Herausforderung.",
     "example_en": "He is changing jobs next month and is looking forward to the new challenge.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wechseln",
+      "praeteritum_stamm": "wechselte",
+      "partizip2": "gewechselt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Weg, -e",
