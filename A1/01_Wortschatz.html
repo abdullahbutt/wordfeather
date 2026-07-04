@@ -30,12 +30,13 @@
         .jump-layout{display:block;}
         @media(min-width:992px){.jump-layout{display:grid;grid-template-columns:15rem minmax(0,1fr);gap:1.5rem;align-items:start;}.jump-bar{top:6rem;}}
         h2[id]{scroll-margin-top:6rem;}
+        .ws-search-shade{background:var(--page-bg);border-radius:.9rem;padding:.6rem;}
         .ws-search-wrap{position:relative;}
         .ws-search-wrap input{background:var(--card-bg);border:2px solid var(--alpha-border);border-radius:.75rem;padding:.7rem 1rem .7rem 2.75rem;font-size:1rem;color:var(--page-text);width:100%;transition:border-color .2s;}
         .ws-search-wrap input:focus{outline:none;border-color:#1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,.15);}
         .ws-search-wrap input::placeholder{color:var(--muted-text);}
         .ws-search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);opacity:.4;pointer-events:none;color:var(--page-text);}
-        .filter-label-ws{font-size:.8rem;font-weight:700;color:#fff;background:#6c757d;white-space:nowrap;padding:.35em .65em;border-radius:.375rem;display:inline-block;}
+        .filter-label-ws{font-size:.8rem;color:var(--muted-text);font-weight:600;white-space:nowrap;min-width:4.5rem;}
         .pos-filter-ws{display:flex;flex-wrap:wrap;gap:.4rem;}
         .pos-filter-ws button{padding:.25rem .75rem;border-radius:999px;border:1px solid var(--alpha-border);background:var(--card-bg);color:var(--page-text);cursor:pointer;font-size:.85rem;transition:all .15s;}
         .pos-filter-ws button:hover{background:var(--table-stripe);}
@@ -100,10 +101,12 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
     </p>
 
     <div class="mb-4">
+        <div class="ws-search-shade">
         <div class="ws-search-wrap">
             <svg class="ws-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             <input type="text" id="wsSearchInput"
                    placeholder="Suche nach deutschem oder englischem Wort..." autocomplete="off">
+        </div>
         </div>
         <div class="d-flex align-items-center gap-2 flex-wrap mt-2">
             <span class="filter-label-ws">Wortart:</span>
@@ -115,6 +118,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
                 <button type="button" data-pos="adverb">🟣 Adverbien</button>
                 <button type="button" data-pos="phrase">⬜ Wendungen</button>
             </div>
+            <span class="badge bg-secondary" id="wsFilterCount">739 Wörter</span>
         </div>
         <div id="wsNoResults" class="text-center text-muted py-4" style="display:none">
             Keine Wörter gefunden. Versuche einen anderen Suchbegriff.
@@ -4064,6 +4068,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
     if (!input) return;
 
     var wordCountEl = document.getElementById('wsWordCount');
+    var filterCountEl = document.getElementById('wsFilterCount');
 
     function filterRows() {
         var q = input.value.toLowerCase().trim();
@@ -4092,9 +4097,9 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
             if (sectionHasMatch) anyVisible = true;
         });
         if (noResults) noResults.style.display = anyVisible ? 'none' : 'block';
-        if (wordCountEl) {
-            wordCountEl.textContent = visibleCount + (visibleCount === 1 ? ' Wort' : ' Wörter');
-        }
+        var label = visibleCount + (visibleCount === 1 ? ' Wort' : ' Wörter');
+        if (wordCountEl) wordCountEl.textContent = label;
+        if (filterCountEl) filterCountEl.textContent = label;
     }
 
     input.addEventListener('input', filterRows);

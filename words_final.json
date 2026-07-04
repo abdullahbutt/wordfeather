@@ -727,7 +727,15 @@
       "eine Sitzung einberufen",
       "formell festsetzen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "anberaumen",
+      "praeteritum_stamm": "beraumte",
+      "partizip2": "anberaumt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "transitiv": true
+    }
   },
   {
     "de": "andere",
@@ -863,7 +871,15 @@
       "einer Sache zum Opfer fallen",
       "unweigerlich überlassen werden"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "anheimfallen",
+      "praesens_stamm": "fäll",
+      "praeteritum_stamm": "fiel",
+      "partizip2": "anheimgefallen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "anheim"
+    }
   },
   {
     "de": "anheimstellen",
@@ -877,7 +893,15 @@
       "dem Ermessen überlassen",
       "freistellen zu entscheiden"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "anheimstellen",
+      "praeteritum_stamm": "stellte",
+      "partizip2": "anheimgestellt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "anheim",
+      "transitiv": true
+    }
   },
   {
     "de": "die Anklage, -n",
@@ -950,7 +974,14 @@
       "surreal anmuten",
       "einen bestimmten Eindruck machen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "anmuten",
+      "praeteritum_stamm": "mutete",
+      "partizip2": "angemutet",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an"
+    }
   },
   {
     "de": "annehmen",
@@ -2333,7 +2364,14 @@
       "die Absicht verfolgen",
       "gezielt anstreben"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "beabsichtigen",
+      "praeteritum_stamm": "beabsichtigte",
+      "partizip2": "beabsichtigt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Beamte, -n",
@@ -2680,7 +2718,14 @@
       "mit Fragen behelligen",
       "unnötig stören"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "behelligen",
+      "praeteritum_stamm": "behelligte",
+      "partizip2": "behelligt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Behörde, -n",
@@ -2712,7 +2757,14 @@
       "schwer beizukommen sein",
       "einer Schwierigkeit Herr werden"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "beikommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "beigekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "bei"
+    }
   },
   {
     "de": "die Beilage, -n",
@@ -2997,7 +3049,14 @@
       "im Rahmen berücksichtigen",
       "angemessen berücksichtigen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "berücksichtigen",
+      "praeteritum_stamm": "berücksichtigte",
+      "partizip2": "berücksichtigt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "berühmt",
@@ -3091,7 +3150,14 @@
       "mit Leidenschaft erfüllen",
       "künstlerisch inspirieren"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "beseelen",
+      "praeteritum_stamm": "beseelte",
+      "partizip2": "beseelt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Besen, -",
@@ -3359,7 +3425,14 @@
       "logistisch bewältigen",
       "ins Werk setzen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "bewerkstelligen",
+      "praeteritum_stamm": "bewerkstelligte",
+      "partizip2": "bewerkstelligt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Bewertung, -en",
@@ -4225,7 +4298,15 @@
       "künstlerisch darbieten",
       "vor Publikum auftreten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "darbieten",
+      "praeteritum_stamm": "bot",
+      "partizip2": "dargeboten",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "dar",
+      "transitiv": true
+    }
   },
   {
     "de": "das",
@@ -6529,7 +6610,14 @@
       "überflüssig machen",
       "hinfällig werden lassen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "erübrigen",
+      "praeteritum_stamm": "erübrigte",
+      "partizip2": "erübrigt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "erwägen",
@@ -10756,7 +10844,15 @@
       "Pause einlegen",
       "zum Nachdenken anhalten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "innehalten",
+      "praesens_stamm": "hält",
+      "praeteritum_stamm": "hielt",
+      "partizip2": "innegehalten",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "inne"
+    }
   },
   {
     "de": "die Innenpolitik",
@@ -14816,7 +14912,14 @@
       "Spekulationen anstellen",
       "ohne Belege annehmen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "mutmaßen",
+      "praeteritum_stamm": "mutmaßte",
+      "partizip2": "gemutmaßt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Mutter, -̈",
@@ -15724,7 +15827,13 @@
       "in jemandes Verantwortung liegen",
       "zuständig sein"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "obliegen",
+      "praeteritum_stamm": "oblag",
+      "partizip2": "oblegen",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "das Obst",
@@ -15747,7 +15856,13 @@
       "eine Ordnung vorherrschen",
       "eine Logik obwaltet"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "obwalten",
+      "praeteritum_stamm": "obwaltete",
+      "partizip2": "obwaltet",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "oder",
@@ -19202,7 +19317,15 @@
       "unberechtigten Anspruch erheben",
       "Grenzen überschreiten"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "anmaßen",
+      "praeteritum_stamm": "maßte",
+      "partizip2": "angemaßt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich auf dünnem Eis bewegen",
@@ -19247,7 +19370,15 @@
       "intensiv auseinandersetzen",
       "eine Debatte führen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "auseinandersetzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "auseinandergesetzt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auseinander",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich ausruhen",
@@ -19343,7 +19474,14 @@
       "Verantwortung übernehmen",
       "unter Beweis stellen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "bewähren",
+      "praeteritum_stamm": "bewährte",
+      "partizip2": "bewährt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich einer Prüfung unterziehen",
@@ -19417,7 +19555,14 @@
       "Unverschämtheit besitzen",
       "dreist vorgehen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "erdreisten",
+      "praeteritum_stamm": "erdreistete",
+      "partizip2": "erdreistet",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich erholen",
@@ -19754,7 +19899,13 @@
       "nachdenklich grübeln",
       "in Gedanken verlieren"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "sinnieren",
+      "praeteritum_stamm": "sinnierte",
+      "partizip2": "sinniert",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Skalierbarkeit",
@@ -21181,7 +21332,14 @@
       "öffentlich thematisieren",
       "auf die Agenda setzen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "thematisieren",
+      "praeteritum_stamm": "thematisierte",
+      "partizip2": "thematisiert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Theorie, -n",
@@ -22672,7 +22830,14 @@
       "grafisch darstellen",
       "konkret illustrieren"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "veranschaulichen",
+      "praeteritum_stamm": "veranschaulichte",
+      "partizip2": "veranschaulicht",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "veranschaulichen",
@@ -22846,7 +23011,14 @@
       "klarer machen",
       "durch Beispiele verdeutlichen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "verdeutlichen",
+      "praeteritum_stamm": "verdeutlichte",
+      "partizip2": "verdeutlicht",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "verdienen",
@@ -23064,7 +23236,14 @@
       "Aussagen überprüfen",
       "Faktencheck durchführen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "verifizieren",
+      "praeteritum_stamm": "verifizierte",
+      "partizip2": "verifiziert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Verjährung",
@@ -23459,7 +23638,13 @@
       "sich einer Sache widmen",
       "Muße finden"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "verweilen",
+      "praeteritum_stamm": "verweilte",
+      "partizip2": "verweilt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "verwitwet",
@@ -23940,7 +24125,14 @@
       "Interessen wahren",
       "Gesicht wahren"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "wahren",
+      "praeteritum_stamm": "wahrte",
+      "partizip2": "gewahrt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Wahrheit",
@@ -24572,7 +24764,14 @@
       "Gegenbeweise vorlegen",
       "logisch widersprechen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "widerlegen",
+      "praeteritum_stamm": "widerlegte",
+      "partizip2": "widerlegt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Widerspenstigkeit",
@@ -25664,7 +25863,15 @@
       "Ergebnisse bündeln",
       "in Kürze darstellen"
     ],
-    "register": "formal"
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "zusammenfassen",
+      "praeteritum_stamm": "fasste",
+      "partizip2": "zusammengefasst",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zusammen",
+      "transitiv": true
+    }
   },
   {
     "de": "Zusammenfassend lässt sich feststellen ...",
