@@ -43,7 +43,14 @@
     "level": "A2",
     "example": "An der Kreuzung biege ich nach links ab.",
     "example_en": "At the intersection, I turn left.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abbiegen",
+      "praeteritum_stamm": "bog",
+      "partizip2": "abgebogen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "ab"
+    }
   },
   {
     "de": "der Abend, -e",
@@ -1797,7 +1804,15 @@
     "level": "A1",
     "example": "Du siehst gut aus.",
     "example_en": "You look good.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aussehen",
+      "praesens_stamm": "sieh",
+      "praeteritum_stamm": "sah",
+      "partizip2": "ausgesehen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus"
+    }
   },
   {
     "de": "aussehen",
@@ -5642,7 +5657,15 @@
     "level": "A2",
     "example": "Ich empfehle dir dieses Restaurant wärmstens.",
     "example_en": "I warmly recommend this restaurant to you.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "empfehlen",
+      "praesens_stamm": "empfiehl",
+      "praeteritum_stamm": "empfahl",
+      "partizip2": "empfohlen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "empirisch",
@@ -6107,7 +6130,14 @@
     "level": "A2",
     "example": "Meine Eltern erlauben mir, bis Mitternacht wegzubleiben.",
     "example_en": "My parents allow me to stay out until midnight.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erlauben",
+      "praeteritum_stamm": "erlaubte",
+      "partizip2": "erlaubt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Erlaubnis",
@@ -6125,7 +6155,14 @@
     "level": "A2",
     "example": "Wir erleben gerade eine sehr schwierige Zeit zusammen.",
     "example_en": "We are currently experiencing a very difficult time together.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erleben",
+      "praeteritum_stamm": "erlebte",
+      "partizip2": "erlebt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "erleichtert",
@@ -6235,7 +6272,14 @@
     "level": "A2",
     "example": "Sie hat endlich ihr Ziel erreicht.",
     "example_en": "She has finally reached her goal.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erreichen",
+      "praeteritum_stamm": "erreichte",
+      "partizip2": "erreicht",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "erschrocken",
@@ -6299,7 +6343,14 @@
     "level": "A2",
     "example": "Ich erwarte morgen früh eine wichtige E-Mail.",
     "example_en": "I am expecting an important email tomorrow morning.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erwarten",
+      "praeteritum_stamm": "erwartete",
+      "partizip2": "erwartet",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "erzählen",
@@ -6308,7 +6359,14 @@
     "level": "A1",
     "example": "Erzähl mir von dir.",
     "example_en": "Tell me about yourself.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erzählen",
+      "praeteritum_stamm": "erzählte",
+      "partizip2": "erzählt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Erziehung",
@@ -7592,7 +7650,14 @@
     "level": "A1",
     "example": "Ich fühle mich gut.",
     "example_en": "I feel good.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fühlen",
+      "praeteritum_stamm": "fühlte",
+      "partizip2": "gefühlt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "die Führung, -en",
@@ -7881,7 +7946,14 @@
     "level": "A1",
     "example": "Das gefällt mir.",
     "example_en": "I like that.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gefallen",
+      "praesens_stamm": "gefäll",
+      "praeteritum_stamm": "gefiel",
+      "partizip2": "gefallen",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "das Gefühl, -e",
@@ -9277,7 +9349,14 @@
     "level": "A2",
     "example": "Er möchte sie heiraten und hat ihr bereits einen Ring gekauft.",
     "example_en": "He wants to marry her and has already bought her a ring.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "heiraten",
+      "praeteritum_stamm": "heiratete",
+      "partizip2": "geheiratet",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "heiß",
@@ -11181,7 +11260,14 @@
     "level": "A1",
     "example": "Ich kenne Berlin gut.",
     "example_en": "I know Berlin well.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kennen",
+      "praeteritum_stamm": "kannte",
+      "partizip2": "gekannt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Kernfusion",
@@ -12276,7 +12362,13 @@
     "level": "A2",
     "example": "Er kündigt seine Wohnung, weil er in eine andere Stadt zieht.",
     "example_en": "He is giving notice on his flat because he is moving to another city.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kündigen",
+      "praeteritum_stamm": "kündigte",
+      "partizip2": "gekündigt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Kündigung, -en",
@@ -12491,7 +12583,13 @@
     "level": "A2",
     "example": "Das Flugzeug landet sicher auf dem Flughafen trotz starkem Wind.",
     "example_en": "The aircraft lands safely at the airport despite strong winds.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "landen",
+      "praeteritum_stamm": "landete",
+      "partizip2": "gelandet",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "die Landkarte, -n",
@@ -12836,7 +12934,14 @@
     "level": "A1",
     "example": "Kann ich mir das leihen?",
     "example_en": "Can I borrow that?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "leihen",
+      "praeteritum_stamm": "lieh",
+      "partizip2": "geliehen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "leihen",
@@ -14766,7 +14871,14 @@
     "level": "A1",
     "example": "Wie nennt man das?",
     "example_en": "What do you call that?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "nennen",
+      "praeteritum_stamm": "nannte",
+      "partizip2": "genannt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "nervös",
@@ -16630,7 +16742,13 @@
     "level": "A1",
     "example": "Ich rechne die Kosten.",
     "example_en": "I am calculating the costs.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rechnen",
+      "praeteritum_stamm": "rechnete",
+      "partizip2": "gerechnet",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "dem Rechnung tragen",
@@ -17736,7 +17854,14 @@
     "level": "A1",
     "example": "Das schaffe ich!",
     "example_en": "I can do it!",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schaffen",
+      "praeteritum_stamm": "schaffte",
+      "partizip2": "geschafft",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "schaffen",
@@ -18562,7 +18687,15 @@
     "level": "A2",
     "example": "Er regt sich auf, wenn andere Menschen im Kino laut telefonieren.",
     "example_en": "He gets annoyed when other people talk loudly on their phone at the cinema.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufregen",
+      "praeteritum_stamm": "regte",
+      "partizip2": "aufgeregt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich auseinandersetzen",
@@ -18585,7 +18718,15 @@
     "level": "A2",
     "example": "Nach der langen Wanderung müssen wir uns ein bisschen ausruhen.",
     "example_en": "After the long hike we need to rest for a little while.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ausruhen",
+      "praeteritum_stamm": "ruhte",
+      "partizip2": "ausgeruht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich bedanken",
@@ -18594,7 +18735,14 @@
     "level": "A2",
     "example": "Sie bedankt sich herzlich bei ihren Kollegen für die Unterstützung.",
     "example_en": "She thanks her colleagues warmly for their support.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bedanken",
+      "praeteritum_stamm": "bedankte",
+      "partizip2": "bedankt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich beeilen",
@@ -18603,7 +18751,14 @@
     "level": "A2",
     "example": "Man sollte sich beeilen.",
     "example_en": "One should hurry.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beeilen",
+      "praeteritum_stamm": "beeilte",
+      "partizip2": "beeilt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich benehmen",
@@ -18612,7 +18767,15 @@
     "level": "A2",
     "example": "Kinder sollten lernen, sich in der Öffentlichkeit gut zu benehmen.",
     "example_en": "Children should learn to behave well in public.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "benehmen",
+      "praesens_stamm": "benimm",
+      "praeteritum_stamm": "benahm",
+      "partizip2": "benommen",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich beschweren",
@@ -18621,7 +18784,14 @@
     "level": "A2",
     "example": "Er beschwert sich beim Kundendienst über die verspätete Lieferung.",
     "example_en": "He complains to customer service about the late delivery.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beschweren",
+      "praeteritum_stamm": "beschwerte",
+      "partizip2": "beschwert",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich bewähren",
@@ -18672,7 +18842,14 @@
     "level": "A2",
     "example": "Sie muss sich zwischen den beiden Jobangeboten entscheiden.",
     "example_en": "She has to decide between the two job offers.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "entscheiden",
+      "praeteritum_stamm": "entschied",
+      "partizip2": "entschieden",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich entschuldigen",
@@ -18681,7 +18858,14 @@
     "level": "A2",
     "example": "Er entschuldigt sich bei seinem Freund für die Verspätung.",
     "example_en": "He apologises to his friend for being late.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "entschuldigen",
+      "praeteritum_stamm": "entschuldigte",
+      "partizip2": "entschuldigt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich erdreisten",
@@ -18748,7 +18932,14 @@
     "level": "A2",
     "example": "Er gewöhnt sich langsam an das neue Klima im Ausland.",
     "example_en": "He is slowly getting used to the new climate abroad.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gewöhnen",
+      "praeteritum_stamm": "gewöhnte",
+      "partizip2": "gewöhnt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich informieren",
@@ -18757,7 +18948,14 @@
     "level": "A2",
     "example": "Vor der Reise informiert sie sich gründlich über das Land.",
     "example_en": "Before the trip, she thoroughly informs herself about the country.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "informieren",
+      "praeteritum_stamm": "informierte",
+      "partizip2": "informiert",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich kümmern",
@@ -18775,7 +18973,14 @@
     "level": "A1",
     "example": "Setzen Sie sich, bitte.",
     "example_en": "Please take a seat.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "setzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "gesetzt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich setzen",
@@ -18793,7 +18998,14 @@
     "level": "A2",
     "example": "Die Geschwister streiten sich oft um die Fernbedienung.",
     "example_en": "The siblings often argue over the remote control.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "streiten",
+      "praeteritum_stamm": "stritt",
+      "partizip2": "gestritten",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich trennen",
@@ -18802,7 +19014,14 @@
     "level": "A2",
     "example": "Nach zehn Jahren Ehe haben sie sich einvernehmlich getrennt.",
     "example_en": "After ten years of marriage, they separated amicably.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "trennen",
+      "praeteritum_stamm": "trennte",
+      "partizip2": "getrennt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich unterhalten",
@@ -18820,7 +19039,14 @@
     "level": "A2",
     "example": "Am Bahnhof verabschieden sie sich herzlich voneinander.",
     "example_en": "At the station they say a warm goodbye to each other.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verabschieden",
+      "praeteritum_stamm": "verabschiedete",
+      "partizip2": "verabschiedet",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich veranlasst sehen",
@@ -18843,7 +19069,15 @@
     "level": "A2",
     "example": "In der Krise verhielt sich das Team ruhig und professionell.",
     "example_en": "During the crisis, the team behaved calmly and professionally.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verhalten",
+      "praesens_stamm": "verhält",
+      "praeteritum_stamm": "verhielt",
+      "partizip2": "verhalten",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich verlieben",
@@ -18852,7 +19086,14 @@
     "level": "A2",
     "example": "Sie hat sich in ihren Sprachkursleiter verliebt.",
     "example_en": "She has fallen in love with her language course teacher.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verlieben",
+      "praeteritum_stamm": "verliebte",
+      "partizip2": "verliebt",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich verwahren gegen",
@@ -18875,7 +19116,15 @@
     "level": "A2",
     "example": "Darf ich mich kurz vorstellen? Ich heiße Anna und komme aus Berlin.",
     "example_en": "May I briefly introduce myself? My name is Anna and I come from Berlin.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorstellen",
+      "praeteritum_stamm": "stellte",
+      "partizip2": "vorgestellt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich wundern",
@@ -21766,7 +22015,14 @@
     "level": "A2",
     "example": "Das Rauchen ist in diesem Gebäude streng verboten.",
     "example_en": "Smoking is strictly forbidden in this building.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verbieten",
+      "praeteritum_stamm": "verbot",
+      "partizip2": "verboten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "verbindlich",
@@ -21848,7 +22104,14 @@
     "level": "A2",
     "example": "Die Familie verbringt den Sommer am Meer in der Nähe von Barcelona.",
     "example_en": "The family spends the summer at the seaside near Barcelona.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verbringen",
+      "praeteritum_stamm": "verbrachte",
+      "partizip2": "verbracht",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "verdeutlichen",
@@ -22098,7 +22361,14 @@
     "level": "A1",
     "example": "Ich verkaufe mein Auto.",
     "example_en": "I am selling my car.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verkaufen",
+      "praeteritum_stamm": "verkaufte",
+      "partizip2": "verkauft",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Verkehr",
@@ -22347,7 +22617,15 @@
     "level": "A2",
     "example": "Er verspricht seiner Tochter, pünktlich nach Hause zu kommen.",
     "example_en": "He promises his daughter to come home on time.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "versprechen",
+      "praesens_stamm": "versprich",
+      "praeteritum_stamm": "versprach",
+      "partizip2": "versprochen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "verstehen",
@@ -23602,7 +23880,14 @@
     "level": "A1",
     "example": "Wie viel wiegt das?",
     "example_en": "How much does that weigh?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wiegen",
+      "praeteritum_stamm": "wog",
+      "partizip2": "gewogen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Wiese, -n",

@@ -251,6 +251,35 @@ CONJUGATION_WS_SCRIPT = """<script>
 </script>"""
 
 
+WORTSCHATZ_SEARCH_SCRIPT = """<script>
+// Live search filter for Wortschatz table rows, grouped by topic section
+(function() {
+    var input = document.getElementById('wsSearchInput');
+    var noResults = document.getElementById('wsNoResults');
+    if (!input) return;
+
+    function filterRows() {
+        var q = input.value.toLowerCase().trim();
+        var anyVisible = false;
+        document.querySelectorAll('.topic-section').forEach(function(section) {
+            var sectionHasMatch = false;
+            section.querySelectorAll('tbody tr').forEach(function(row) {
+                var blob = row.getAttribute('data-search') || '';
+                var show = !q || blob.indexOf(q) > -1;
+                row.style.display = show ? '' : 'none';
+                if (show) sectionHasMatch = true;
+            });
+            section.style.display = sectionHasMatch ? '' : 'none';
+            if (sectionHasMatch) anyVisible = true;
+        });
+        if (noResults) noResults.style.display = anyVisible ? 'none' : 'block';
+    }
+
+    input.addEventListener('input', filterRows);
+})();
+</script>"""
+
+
 # ── POS detection ─────────────────────────────────────────────────────────────
 _VERB_RE      = re.compile(r'^[a-zäöüß]+en$')
 _ADJ_SUFFIXES = ('lich','ig','isch','bar','sam','haft','los','ell','iv','al','ös','iert','end','ent')
@@ -697,6 +726,7 @@ def build_wortschatz_page(level, level_words):
         if not ws:
             continue
         slug = re.sub(r'[^a-z0-9]+', '-', topic.lower()).strip('-')
+        sections += f'<div class="topic-section" data-topic-section="{slug}">\n'
         sections += (f'<h2 id="{slug}" class="mt-4 mb-3" style="color:{color}">'
                      f'{htmllib.escape(topic)} '
                      f'<small class="text-muted fs-6">({len(ws)} Wörter)</small></h2>\n')
@@ -725,14 +755,19 @@ def build_wortschatz_page(level, level_words):
             conj_btn = (f'<br><button type="button" class="conj-toggle-ws" '
                         f'data-de-lower="{htmllib.escape(w["de"].lower())}">'
                         f'📖 Konjugation</button>' if pos == 'verb' else '')
+            search_blob = htmllib.escape(
+                f"{w['de']} {w['en']} {w.get('example','')} {w.get('example_en','')}".lower(),
+                quote=True)
             sections += (
-                f'<tr data-pos="{pos}">\n'
+                f'<tr data-pos="{pos}" data-search="{search_blob}">\n'
                 f'  <td class="fw-semibold de-word">{de}{conj_btn}</td>\n'
                 f'  <td class="text-muted">{en}</td>\n'
                 f'  <td><span class="ex-de d-block">{exd}</span>{exe_row}{col_html}</td>\n'
                 f'</tr>\n'
             )
-        sections += '</tbody>\n</table>\n</div>\n'
+        sections += '</tbody>\n</table>\n</div>\n</div>\n'
+
+
 
     prev_btn = (f'<a href="../{prev}/01_Wortschatz.html" class="btn btn-sm btn-outline-secondary">'
                 f'← {prev} Wortschatz</a>' if prev else '')
@@ -815,10 +850,21 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
         </div>
     </div>
     <p class="text-muted mb-1">{htmllib.escape(desc)}</p>
-    <p class="text-muted small mb-4">
+    <p class="text-muted small mb-3">
         Klicke auf <strong>🔊</strong> um Aussprache zu hören.
         Jeder Eintrag enthält Beispielsatz und englische Übersetzung.
     </p>
+
+    <div class="mb-4">
+        <div class="input-group">
+            <span class="input-group-text bg-white border-end-0">🔍</span>
+            <input type="text" id="wsSearchInput" class="form-control border-start-0"
+                   placeholder="Suche nach deutschem oder englischem Wort..." autocomplete="off">
+        </div>
+        <div id="wsNoResults" class="text-center text-muted py-4" style="display:none">
+            Keine Wörter gefunden. Versuche einen anderen Suchbegriff.
+        </div>
+    </div>
 
     <div class="jump-layout">
     <div><div class="jump-bar">
@@ -852,8 +898,10 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
 }})();
 </script>
 <script src="../tts.js?v=7"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>if('serviceWorker' in navigator){{navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js').then(function(r){{r.update();}}).catch(function(){{}});}}</script>
 {CONJUGATION_WS_SCRIPT}
+{WORTSCHATZ_SEARCH_SCRIPT}
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "d435b2572b82459cb083e37f7c734b75"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>'''

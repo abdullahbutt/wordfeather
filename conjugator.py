@@ -81,7 +81,11 @@ def _needs_extra_e(stem):
     non-vowel, non-l/r/h consonant, need an epenthetic -e- before
     consonant-initial endings: arbeitest, atmet, regnest, öffnest.
     Doubled consonants (schwimm-, komm-, renn-) and stems ending in
-    m/n after a vowel or l/r/h do NOT need it: schwimmst, kommst, lernst."""
+    m/n after a vowel or a genuine single l/r/h DO NOT need it:
+    schwimmst, kommst, lernst, wohnst. But the 'ch' digraph is NOT
+    the same as a plain 'h' — it behaves like any other consonant
+    cluster and DOES need the epenthetic -e-: rechnen->rechnest,
+    zeichnen->zeichnest (not 'rechnst'/'zeichnst')."""
     if not stem:
         return False
     last = stem[-1]
@@ -89,6 +93,9 @@ def _needs_extra_e(stem):
         return True
     if last in ('m', 'n') and len(stem) >= 2:
         prev = stem[-2]
+        is_ch_digraph = prev == 'h' and len(stem) >= 3 and stem[-3] == 'c'
+        if is_ch_digraph:
+            return True
         if prev in 'aeiouäöüy' or prev in ('l', 'r', 'h') or prev == last:
             return False
         return True
