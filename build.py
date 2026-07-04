@@ -817,7 +817,7 @@ def build_wortschatz_page(level, level_words):
         .conj-toggle-ws:disabled{{background:#94a3b8;box-shadow:none;cursor:default;transform:none;}}
         [data-bs-theme="dark"] .conj-toggle-ws{{background:#8b5cf6;}}
         [data-bs-theme="dark"] .conj-toggle-ws:hover{{background:#7c3aed;}}
-        .conj-table-wrap-ws{{margin-top:.6rem;font-size:.82rem;border-top:1px dashed #bbf7d0;padding-top:.6rem;}}
+        .conj-table-wrap-ws{{width:100%;margin-top:.6rem;font-size:.82rem;border-top:1px dashed #bbf7d0;padding-top:.6rem;}}
         .conj-mood-title-ws{{font-weight:700;color:#0d7d4d;margin:.9rem 0 .5rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.03em;}}
         [data-bs-theme="dark"] .conj-mood-title-ws{{color:#4ade80;}}
         .conj-mood-title-ws:first-child{{margin-top:0;}}
