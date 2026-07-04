@@ -93,16 +93,19 @@
         .conj-toggle:disabled{background:#94a3b8;box-shadow:none;cursor:default;transform:none}
         [data-bs-theme="dark"] .conj-toggle{background:#8b5cf6}
         [data-bs-theme="dark"] .conj-toggle:hover{background:#7c3aed}
-        .conj-table-wrap{margin-top:.5rem;font-size:.78rem;border-top:1px dashed var(--conj-border,#bbf7d0);padding-top:.5rem}
-        .conj-mood-title{font-weight:700;color:var(--conj-text,#0d7d4d);margin:.5rem 0 .2rem;font-size:.8rem}
+        .conj-table-wrap{margin-top:.5rem;font-size:.82rem;border-top:1px dashed var(--conj-border,#bbf7d0);padding-top:.6rem}
+        .conj-mood-title{font-weight:700;color:var(--conj-text,#0d7d4d);margin:.9rem 0 .5rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.03em}
         [data-bs-theme="dark"] .conj-mood-title{color:#4ade80}
-        .conj-tense-block{margin-bottom:.4rem}
-        .conj-tense-label{font-weight:600;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:.15rem}
-        .conj-grid{display:grid;grid-template-columns:5.5rem 1fr;gap:.1rem .5rem;font-size:.78rem}
-        .conj-person{color:var(--muted)}
-        .conj-form{font-weight:500}
-        .conj-imperativ-row{display:flex;gap:.6rem;flex-wrap:wrap}
-        .conj-imperativ-row span{background:var(--ex-bg);border-radius:.3rem;padding:.1rem .5rem}
+        .conj-mood-title:first-child{margin-top:0}
+        .conj-mood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.6rem}
+        .conj-tense-block{background:var(--conj-card-bg,#f8fafc);border:1px solid var(--conj-card-border,#e2e8f0);border-radius:.5rem;padding:.55rem .7rem}
+        [data-bs-theme="dark"] .conj-tense-block{--conj-card-bg:#1e293b;--conj-card-border:#334155}
+        .conj-tense-label{font-weight:700;text-align:center;margin-bottom:.4rem;padding-bottom:.35rem;font-size:.76rem;color:var(--page-text);border-bottom:1px solid var(--conj-card-border,#e2e8f0)}
+        .conj-row{padding:.1rem 0;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .conj-person{color:var(--muted);margin-right:.25rem}
+        .conj-imperativ-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.6rem}
+        .conj-imperativ-row span{background:var(--conj-card-bg,#f8fafc);border:1px solid var(--conj-card-border,#e2e8f0);border-radius:.5rem;padding:.5rem .7rem;text-align:center;font-size:.78rem;display:block}
+        [data-bs-theme="dark"] .conj-imperativ-row span{--conj-card-bg:#1e293b;--conj-card-border:#334155}
         .word-example{margin-top:.3rem;padding:.35rem .6rem;background:var(--ex-bg);border-radius:.4rem;font-size:.85rem;border-left:3px solid #1d4ed8}
         .ex-de{color:var(--ex-text)}.ex-en{color:var(--muted);font-style:italic;font-size:.82rem}
         .art-m{color:#2563eb}.art-f{color:#dc2626}.art-n{color:#16a34a}
@@ -33854,12 +33857,20 @@
         function renderTenseBlock(tenseKey, forms) {
             var rows = '';
             for (var i = 0; i < 6; i++) {
-                rows += '<div class="conj-person">' + PERSONS[i] + '</div>' +
-                        '<div class="conj-form">' + forms[i] + '</div>';
+                rows += '<div class="conj-row"><span class="conj-person">' + PERSONS[i] + '</span>' +
+                        forms[i] + '</div>';
             }
             return '<div class="conj-tense-block">' +
                    '<div class="conj-tense-label">' + (TENSE_LABELS[tenseKey] || tenseKey) + '</div>' +
-                   '<div class="conj-grid">' + rows + '</div></div>';
+                   rows + '</div>';
+        }
+
+        function renderMoodGrid(tenses, source) {
+            var html = '';
+            tenses.forEach(function(t) {
+                if (source && source[t]) html += renderTenseBlock(t, source[t]);
+            });
+            return html ? '<div class="conj-mood-grid">' + html + '</div>' : '';
         }
 
         function renderTable(table) {
@@ -33873,19 +33884,13 @@
                     '</div>';
 
             html += '<div class="conj-mood-title">Indikativ</div>';
-            ['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'].forEach(function(t) {
-                if (table.indikativ && table.indikativ[t]) html += renderTenseBlock(t, table.indikativ[t]);
-            });
+            html += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ);
 
             html += '<div class="conj-mood-title">Konjunktiv I</div>';
-            ['praesens','perfekt','futur1','futur2'].forEach(function(t) {
-                if (table.konjunktiv1 && table.konjunktiv1[t]) html += renderTenseBlock(t, table.konjunktiv1[t]);
-            });
+            html += renderMoodGrid(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
 
             html += '<div class="conj-mood-title">Konjunktiv II</div>';
-            ['praeteritum','plusquamperfekt','futur1','futur2'].forEach(function(t) {
-                if (table.konjunktiv2 && table.konjunktiv2[t]) html += renderTenseBlock(t, table.konjunktiv2[t]);
-            });
+            html += renderMoodGrid(['praeteritum','plusquamperfekt','futur1','futur2'], table.konjunktiv2);
 
             if (table.imperativ) {
                 html += '<div class="conj-mood-title">Imperativ</div><div class="conj-imperativ-row">';
@@ -33897,9 +33902,7 @@
 
             if (table.passiv) {
                 html += '<div class="conj-mood-title">Passiv</div>';
-                ['praesens','praeteritum','perfekt','plusquamperfekt','futur1'].forEach(function(t) {
-                    if (table.passiv[t]) html += renderTenseBlock(t, table.passiv[t]);
-                });
+                html += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1'], table.passiv);
             }
 
             html += '</div>';
