@@ -6508,7 +6508,15 @@
     "level": "A1",
     "example": "Ich esse gern Pizza.",
     "example_en": "I like eating pizza.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "essen",
+      "praesens_stamm": "iss",
+      "praeteritum_stamm": "aß",
+      "partizip2": "gegessen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "das Essen, -",
@@ -6748,7 +6756,14 @@
     "level": "A1",
     "example": "Ich fahre nach Berlin.",
     "example_en": "I am going to Berlin.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fahren",
+      "praesens_stamm": "fähr",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "gefahren",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "die Fahrkarte, -n",
@@ -7034,7 +7049,14 @@
     "level": "A1",
     "example": "Ich finde das gut.",
     "example_en": "I find that good.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "finden",
+      "praeteritum_stamm": "fand",
+      "partizip2": "gefunden",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Finger, -",
@@ -7106,7 +7128,13 @@
     "level": "A1",
     "example": "Wir fliegen nach Spanien.",
     "example_en": "We are flying to Spain.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fliegen",
+      "praeteritum_stamm": "flog",
+      "partizip2": "geflogen",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "die Flüchtlinge (Pl.)",
@@ -7303,7 +7331,14 @@
     "level": "A1",
     "example": "Darf ich fragen?",
     "example_en": "May I ask?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fragen",
+      "praeteritum_stamm": "fragte",
+      "partizip2": "gefragt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Fragmentierung",
@@ -7770,7 +7805,15 @@
     "level": "A1",
     "example": "Geben Sie mir das Buch.",
     "example_en": "Give me the book.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "geben",
+      "praesens_stamm": "gib",
+      "praeteritum_stamm": "gab",
+      "partizip2": "gegeben",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "gebraucht",
@@ -7925,7 +7968,13 @@
     "level": "A1",
     "example": "Ich gehe nach Hause.",
     "example_en": "I am going home.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "gegangen",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "geläutert",
@@ -9246,7 +9295,13 @@
     "level": "A1",
     "example": "Ich heiße Maria.",
     "example_en": "My name is Maria.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "heißen",
+      "praeteritum_stamm": "hieß",
+      "partizip2": "geheißen",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Heizung, -en",
@@ -9264,7 +9319,14 @@
     "level": "A1",
     "example": "Kann ich Ihnen helfen?",
     "example_en": "Can you help me please?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "helfen",
+      "praesens_stamm": "hilf",
+      "praeteritum_stamm": "half",
+      "partizip2": "geholfen",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "hell",
@@ -9619,7 +9681,13 @@
     "level": "A2",
     "example": "Sie hofft, dass sie die Prüfung besteht.",
     "example_en": "She hopes that she passes the exam.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hoffen",
+      "praeteritum_stamm": "hoffte",
+      "partizip2": "gehofft",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Hoffnung, -en",
@@ -11029,7 +11097,14 @@
     "level": "A1",
     "example": "Ich kaufe ein Buch.",
     "example_en": "I am buying a book.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kaufen",
+      "praeteritum_stamm": "kaufte",
+      "partizip2": "gekauft",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "das Kaufhaus, -̈er",
@@ -11493,7 +11568,14 @@
     "level": "A1",
     "example": "Mein Vater kocht jeden Sonntag ein großes Mittagessen für die Familie.",
     "example_en": "My father cooks a big lunch for the family every Sunday.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kochen",
+      "praeteritum_stamm": "kochte",
+      "partizip2": "gekocht",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "können",
@@ -11502,7 +11584,23 @@
     "level": "A1",
     "example": "Ich kann Deutsch sprechen.",
     "example_en": "Can you speak German?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "können",
+      "praesens_voll": [
+        "kann",
+        "kannst",
+        "kann",
+        "können",
+        "könnt",
+        "können"
+      ],
+      "praeteritum_stamm": "konnte",
+      "partizip2": "gekonnt",
+      "hilfsverb": "haben",
+      "konj2_stamm": "könnt",
+      "kein_imperativ": true
+    }
   },
   {
     "de": "der Koffer, -",
@@ -11565,7 +11663,13 @@
     "level": "A1",
     "example": "Ich komme aus Indien.",
     "example_en": "I come from India.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "gekommen",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "kommentieren",
@@ -11860,7 +11964,13 @@
     "level": "A1",
     "example": "Was kostet das?",
     "example_en": "What does that cost?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kosten",
+      "praeteritum_stamm": "kostete",
+      "partizip2": "gekostet",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "kosten",
@@ -12321,7 +12431,13 @@
     "level": "A1",
     "example": "Die Kinder lachen.",
     "example_en": "The children are laughing.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lachen",
+      "praeteritum_stamm": "lachte",
+      "partizip2": "gelacht",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "das Ladegerät, -e",
@@ -12452,7 +12568,14 @@
     "level": "A1",
     "example": "Sie läuft jeden Morgen eine halbe Stunde durch den Park.",
     "example_en": "She runs through the park for half an hour every morning.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "laufen",
+      "praesens_stamm": "läuf",
+      "praeteritum_stamm": "lief",
+      "partizip2": "gelaufen",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "die Laune, -n",
@@ -12479,7 +12602,13 @@
     "level": "A1",
     "example": "Ich lebe in Berlin.",
     "example_en": "I live in Berlin.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "leben",
+      "praeteritum_stamm": "lebte",
+      "partizip2": "gelebt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Lebenserwartung",
@@ -12779,7 +12908,15 @@
     "level": "A1",
     "example": "Ich lese ein Buch.",
     "example_en": "I'm reading a book.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lesen",
+      "praesens_stamm": "lies",
+      "praeteritum_stamm": "las",
+      "partizip2": "gelesen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Leute (Pl.)",
@@ -12833,7 +12970,13 @@
     "level": "A1",
     "example": "Berlin liegt in Deutschland.",
     "example_en": "Berlin is in Germany.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "liegen",
+      "praeteritum_stamm": "lag",
+      "partizip2": "gelegen",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "das Lineal, -e",
@@ -13836,7 +13979,23 @@
     "level": "A1",
     "example": "Ich mag Schokolade.",
     "example_en": "I like chocolate.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "mögen",
+      "praesens_voll": [
+        "mag",
+        "magst",
+        "mag",
+        "mögen",
+        "mögt",
+        "mögen"
+      ],
+      "praeteritum_stamm": "mochte",
+      "partizip2": "gemocht",
+      "hilfsverb": "haben",
+      "konj2_stamm": "möcht",
+      "kein_imperativ": true
+    }
   },
   {
     "de": "möglich",
@@ -14060,7 +14219,23 @@
     "level": "A1",
     "example": "Ich muss arbeiten.",
     "example_en": "I have to work.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "müssen",
+      "praesens_voll": [
+        "muss",
+        "musst",
+        "muss",
+        "müssen",
+        "müsst",
+        "müssen"
+      ],
+      "praeteritum_stamm": "musste",
+      "partizip2": "gemusst",
+      "hilfsverb": "haben",
+      "konj2_stamm": "müsst",
+      "kein_imperativ": true
+    }
   },
   {
     "de": "die Multipolarität",
@@ -17652,7 +17827,14 @@
     "level": "A1",
     "example": "Ich schlafe 8 Stunden.",
     "example_en": "I sleep 8 hours.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schlafen",
+      "praesens_stamm": "schläf",
+      "praeteritum_stamm": "schlief",
+      "partizip2": "geschlafen",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "das Schlafzimmer, -",
@@ -17702,7 +17884,14 @@
     "level": "A1",
     "example": "Bitte schließen Sie die Tür.",
     "example_en": "Please close the door.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schließen",
+      "praeteritum_stamm": "schloss",
+      "partizip2": "geschlossen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "schlimm",
@@ -17830,7 +18019,14 @@
     "level": "A1",
     "example": "Ich schneide das Brot.",
     "example_en": "I'm cutting the bread.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schneiden",
+      "praeteritum_stamm": "schnitt",
+      "partizip2": "geschnitten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "schnell",
@@ -17916,7 +18112,14 @@
     "level": "A1",
     "example": "Ich schreibe einen Brief.",
     "example_en": "I'm writing a letter.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schreiben",
+      "praeteritum_stamm": "schrieb",
+      "partizip2": "geschrieben",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "schüchtern",
@@ -18079,7 +18282,15 @@
     "level": "A1",
     "example": "Ich sehe dich.",
     "example_en": "I see you.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sehen",
+      "praesens_stamm": "sieh",
+      "praeteritum_stamm": "sah",
+      "partizip2": "gesehen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Sehenswürdigkeit, -en",
@@ -18830,7 +19041,23 @@
     "level": "A1",
     "example": "Was soll ich machen?",
     "example_en": "What should I do?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sollen",
+      "praesens_voll": [
+        "soll",
+        "sollst",
+        "soll",
+        "sollen",
+        "sollt",
+        "sollen"
+      ],
+      "praeteritum_stamm": "sollte",
+      "partizip2": "gesollt",
+      "hilfsverb": "haben",
+      "konj2_stamm": "sollt",
+      "kein_imperativ": true
+    }
   },
   {
     "de": "somit",
@@ -19057,7 +19284,14 @@
     "level": "A1",
     "example": "Ich spreche Deutsch.",
     "example_en": "I speak German.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sprechen",
+      "praesens_stamm": "sprich",
+      "praeteritum_stamm": "sprach",
+      "partizip2": "gesprochen",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Sprechstunde, -n",
@@ -19212,7 +19446,13 @@
     "level": "A1",
     "example": "Ich stehe an der Haltestelle.",
     "example_en": "I am standing at the bus stop.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "stehen",
+      "praeteritum_stamm": "stand",
+      "partizip2": "gestanden",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "der Stein, -e",
@@ -20251,7 +20491,15 @@
     "level": "A1",
     "example": "Ich trage eine Jacke.",
     "example_en": "I'm wearing a jacket.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "tragen",
+      "praesens_stamm": "träg",
+      "praeteritum_stamm": "trug",
+      "partizip2": "getragen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Tragweite",
@@ -20362,7 +20610,15 @@
     "level": "A1",
     "example": "Wir treffen uns um 3.",
     "example_en": "We are meeting at 3 o'clock.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "treffen",
+      "praesens_stamm": "triff",
+      "praeteritum_stamm": "traf",
+      "partizip2": "getroffen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "treiben",
@@ -20449,7 +20705,14 @@
     "level": "A1",
     "example": "Ich trinke Wasser.",
     "example_en": "I drink water.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "trinken",
+      "praeteritum_stamm": "trank",
+      "partizip2": "getrunken",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "trocken",
@@ -21714,7 +21977,15 @@
     "level": "A1",
     "example": "Ich habe das vergessen.",
     "example_en": "I have forgotten that.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vergessen",
+      "praesens_stamm": "vergiss",
+      "praeteritum_stamm": "vergaß",
+      "partizip2": "vergessen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "vergleichen",
@@ -21723,7 +21994,14 @@
     "level": "A2",
     "example": "Man sollte die Preise verschiedener Anbieter sorgfältig vergleichen.",
     "example_en": "One should carefully compare the prices of different providers.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vergleichen",
+      "praeteritum_stamm": "verglich",
+      "partizip2": "verglichen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "das Verhalten",
@@ -21865,7 +22143,14 @@
     "level": "A1",
     "example": "Ich habe meinen Schlüssel verloren.",
     "example_en": "I have lost my keys.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verlieren",
+      "praeteritum_stamm": "verlor",
+      "partizip2": "verloren",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "vermeiden",
@@ -22071,7 +22356,14 @@
     "level": "A1",
     "example": "Ich verstehe das nicht.",
     "example_en": "I do not understand that.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verstehen",
+      "praeteritum_stamm": "verstand",
+      "partizip2": "verstanden",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "versuchen",
@@ -22723,7 +23015,15 @@
     "level": "A1",
     "example": "Ich wasche meine Kleidung.",
     "example_en": "I am washing my clothes.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "waschen",
+      "praesens_stamm": "wäsch",
+      "praeteritum_stamm": "wusch",
+      "partizip2": "gewaschen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Waschmaschine, -n",
@@ -23462,7 +23762,24 @@
     "level": "A1",
     "example": "Ich weiß das nicht.",
     "example_en": "I don't know that.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wissen",
+      "praesens_voll": [
+        "weiß",
+        "weißt",
+        "weiß",
+        "wissen",
+        "wisst",
+        "wissen"
+      ],
+      "praeteritum_stamm": "wusste",
+      "partizip2": "gewusst",
+      "hilfsverb": "haben",
+      "konj2_stamm": "wüsst",
+      "transitiv": true,
+      "kein_imperativ": true
+    }
   },
   {
     "de": "die Wissenschaft, -en",
@@ -23598,7 +23915,23 @@
     "level": "A1",
     "example": "Ich will nach Hause.",
     "example_en": "I want to go home.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wollen",
+      "praesens_voll": [
+        "will",
+        "willst",
+        "will",
+        "wollen",
+        "wollt",
+        "wollen"
+      ],
+      "praeteritum_stamm": "wollte",
+      "partizip2": "gewollt",
+      "hilfsverb": "haben",
+      "konj2_stamm": "wollt",
+      "kein_imperativ": true
+    }
   },
   {
     "de": "das Wort, -̈er",
