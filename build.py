@@ -852,7 +852,7 @@ def build_wortschatz_page(level, level_words):
         .ws-search-wrap input:focus{{outline:none;border-color:#1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,.15);}}
         .ws-search-wrap input::placeholder{{color:var(--muted-text);}}
         .ws-search-icon{{position:absolute;left:1rem;top:50%;transform:translateY(-50%);opacity:.4;pointer-events:none;color:var(--page-text);}}
-        .filter-label-ws{{font-size:.8rem;color:var(--muted-text);font-weight:600;white-space:nowrap;min-width:4.5rem;}}
+        .filter-label-ws{{font-size:.8rem;font-weight:700;color:#fff;background:#6c757d;white-space:nowrap;padding:.35em .65em;border-radius:.375rem;display:inline-block;}}
         .pos-filter-ws{{display:flex;flex-wrap:wrap;gap:.4rem;}}
         .pos-filter-ws button{{padding:.25rem .75rem;border-radius:999px;border:1px solid var(--alpha-border);background:var(--card-bg);color:var(--page-text);cursor:pointer;font-size:.85rem;transition:all .15s;}}
         .pos-filter-ws button:hover{{background:var(--table-stripe);}}
