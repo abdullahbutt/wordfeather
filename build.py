@@ -18,6 +18,7 @@ Author: Abdullah Butt
 
 import json, html as htmllib, re, sys, os
 from collections import defaultdict, Counter
+from conjugator import conjugate
 
 REPO    = os.path.dirname(os.path.abspath(__file__))
 JSON    = os.path.join(REPO, 'words_final.json')
@@ -148,6 +149,106 @@ def inject_install_banner(content):
     if main_pos == -1:
         return content
     return content[:main_pos] + INSTALL_BANNER + content[main_pos:]
+
+
+CONJUGATION_WS_SCRIPT = """<script>
+// Full verb conjugation table for Wortschatz tables — lazy-loaded, click-to-expand
+(function() {
+    var conjData = null;
+    var conjPromise = null;
+    var prefix = '../';
+
+    function loadConjugations() {
+        if (conjPromise) return conjPromise;
+        conjPromise = fetch(prefix + 'conjugations.json')
+            .then(function(r) { return r.ok ? r.json() : {}; })
+            .then(function(json) {
+                conjData = {};
+                Object.keys(json).forEach(function(k) { conjData[k.toLowerCase()] = json[k]; });
+                return conjData;
+            })
+            .catch(function() { conjData = {}; return conjData; });
+        return conjPromise;
+    }
+
+    var TENSE_LABELS = {
+        praesens: 'Präsens', praeteritum: 'Präteritum', perfekt: 'Perfekt',
+        plusquamperfekt: 'Plusquamperfekt', futur1: 'Futur I', futur2: 'Futur II'
+    };
+    var PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'Sie'];
+
+    function renderTenseBlock(tenseKey, forms) {
+        var rows = '';
+        for (var i = 0; i < 6; i++) {
+            rows += '<div class="conj-person-ws">' + PERSONS[i] + '</div>' +
+                    '<div>' + forms[i] + '</div>';
+        }
+        return '<div style="margin-bottom:.4rem">' +
+               '<div class="conj-tense-label-ws">' + (TENSE_LABELS[tenseKey] || tenseKey) + '</div>' +
+               '<div class="conj-grid-ws">' + rows + '</div></div>';
+    }
+
+    function renderTable(table) {
+        var html = '<div class="conj-table-wrap-ws">';
+        html += '<div class="conj-mood-title-ws">Weitere Formen</div><div class="conj-imperativ-row-ws">' +
+                '<span>Infinitiv: ' + table.infinitiv + '</span>' +
+                '<span>Partizip Präsens: ' + table.partizip1 + '</span>' +
+                '<span>Partizip Perfekt: ' + table.partizip2 + '</span>' +
+                '<span>zu + Infinitiv: ' + table.zu_infinitiv + '</span></div>';
+
+        html += '<div class="conj-mood-title-ws">Indikativ</div>';
+        ['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'].forEach(function(t) {
+            if (table.indikativ && table.indikativ[t]) html += renderTenseBlock(t, table.indikativ[t]);
+        });
+        html += '<div class="conj-mood-title-ws">Konjunktiv I</div>';
+        ['praesens','perfekt','futur1','futur2'].forEach(function(t) {
+            if (table.konjunktiv1 && table.konjunktiv1[t]) html += renderTenseBlock(t, table.konjunktiv1[t]);
+        });
+        html += '<div class="conj-mood-title-ws">Konjunktiv II</div>';
+        ['praeteritum','plusquamperfekt','futur1','futur2'].forEach(function(t) {
+            if (table.konjunktiv2 && table.konjunktiv2[t]) html += renderTenseBlock(t, table.konjunktiv2[t]);
+        });
+        if (table.imperativ) {
+            html += '<div class="conj-mood-title-ws">Imperativ</div><div class="conj-imperativ-row-ws">';
+            ['du','ihr','Sie','wir'].forEach(function(p) {
+                if (table.imperativ[p]) html += '<span>' + p + ': ' + table.imperativ[p] + '</span>';
+            });
+            html += '</div>';
+        }
+        if (table.passiv) {
+            html += '<div class="conj-mood-title-ws">Passiv</div>';
+            ['praesens','praeteritum','perfekt','plusquamperfekt','futur1'].forEach(function(t) {
+                if (table.passiv[t]) html += renderTenseBlock(t, table.passiv[t]);
+            });
+        }
+        html += '</div>';
+        return html;
+    }
+
+    document.querySelectorAll('.conj-toggle-ws').forEach(function(btn) {
+        var de = btn.getAttribute('data-de-lower');
+        var wrap = null;
+        var cell = btn.closest('td');
+        btn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            if (wrap) { wrap.remove(); wrap = null; btn.textContent = '📖 Konjugation'; return; }
+            loadConjugations().then(function(data) {
+                var table = data[de];
+                if (!table) {
+                    btn.textContent = '(noch nicht verfügbar)';
+                    btn.disabled = true;
+                    return;
+                }
+                var div = document.createElement('div');
+                div.innerHTML = renderTable(table);
+                wrap = div.firstChild;
+                cell.appendChild(wrap);
+                btn.textContent = '✕ Ausblenden';
+            });
+        });
+    });
+})();
+</script>"""
 
 
 # ── POS detection ─────────────────────────────────────────────────────────────
@@ -612,6 +713,7 @@ def build_wortschatz_page(level, level_words):
             exd = htmllib.escape(w.get('example', ''))
             exe = htmllib.escape(w.get('example_en', ''))
             cols = w.get('collocations', [])
+            pos = detect_pos(w)
             col_html = ''
             if cols:
                 pills = ' '.join(
@@ -620,9 +722,12 @@ def build_wortschatz_page(level, level_words):
                     for c in cols[:3])
                 col_html = f'<div class="mt-1">{pills}</div>'
             exe_row = (f'<span class="ex-en d-block text-muted small">{exe}</span>' if exe else '')
+            conj_btn = (f'<br><button type="button" class="conj-toggle-ws" '
+                        f'data-de-lower="{htmllib.escape(w["de"].lower())}">'
+                        f'📖 Konjugation</button>' if pos == 'verb' else '')
             sections += (
-                f'<tr>\n'
-                f'  <td class="fw-semibold de-word">{de}</td>\n'
+                f'<tr data-pos="{pos}">\n'
+                f'  <td class="fw-semibold de-word">{de}{conj_btn}</td>\n'
                 f'  <td class="text-muted">{en}</td>\n'
                 f'  <td><span class="ex-de d-block">{exd}</span>{exe_row}{col_html}</td>\n'
                 f'</tr>\n'
@@ -669,6 +774,19 @@ def build_wortschatz_page(level, level_words):
         [data-bs-theme="dark"] .table{{--bs-table-bg:var(--table-bg);--bs-table-striped-bg:var(--table-stripe);}}
         [data-bs-theme="dark"] .table-bordered td,[data-bs-theme="dark"] .table-bordered th{{border-color:#374151;}}
         [data-bs-theme="dark"] .badge.text-bg-light{{background:#1e293b!important;color:#cbd5e1!important;border-color:#374151!important;}}
+        .conj-toggle-ws{{display:inline-flex;align-items:center;gap:.25rem;margin-top:.3rem;font-size:.72rem;font-weight:700;color:#fff;cursor:pointer;user-select:none;border:none;background:#7c3aed;border-radius:999px;padding:.2rem .6rem;box-shadow:0 1px 3px rgba(124,58,237,.35);transition:background .15s,transform .1s;}}
+        .conj-toggle-ws:hover{{background:#6d28d9;transform:translateY(-1px);}}
+        .conj-toggle-ws:disabled{{background:#94a3b8;box-shadow:none;cursor:default;transform:none;}}
+        [data-bs-theme="dark"] .conj-toggle-ws{{background:#8b5cf6;}}
+        [data-bs-theme="dark"] .conj-toggle-ws:hover{{background:#7c3aed;}}
+        .conj-table-wrap-ws{{margin-top:.6rem;font-size:.78rem;border-top:1px dashed #bbf7d0;padding-top:.5rem;}}
+        .conj-mood-title-ws{{font-weight:700;color:#0d7d4d;margin:.5rem 0 .2rem;font-size:.8rem;}}
+        [data-bs-theme="dark"] .conj-mood-title-ws{{color:#4ade80;}}
+        .conj-tense-label-ws{{font-weight:600;color:var(--muted-text);font-size:.72rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:.15rem;margin-top:.3rem;}}
+        .conj-grid-ws{{display:grid;grid-template-columns:5.5rem 1fr;gap:.1rem .5rem;font-size:.78rem;}}
+        .conj-person-ws{{color:var(--muted-text);}}
+        .conj-imperativ-row-ws{{display:flex;gap:.5rem;flex-wrap:wrap;}}
+        .conj-imperativ-row-ws span{{background:var(--table-stripe);border-radius:.3rem;padding:.1rem .5rem;}}
     </style>
 </head>
 <body id="top">
@@ -735,9 +853,38 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
 </script>
 <script src="../tts.js?v=7"></script>
 <script>if('serviceWorker' in navigator){{navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js').then(function(r){{r.update();}}).catch(function(){{}});}}</script>
+{CONJUGATION_WS_SCRIPT}
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "d435b2572b82459cb083e37f7c734b75"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>'''
+
+
+def build_conjugations(words):
+    """
+    Generate conjugations.json — full Reverso-style conjugation tables
+    for every verb entry that has a 'conjugation' principal-parts block.
+    Verbs without this data are simply skipped (no error) — this lets
+    the dataset be populated incrementally across sessions.
+    Keyed by the verb's exact 'de' field so the front-end can look it
+    up directly from data-de on click.
+    """
+    result = {}
+    skipped = 0
+    for w in words:
+        pp = w.get('conjugation')
+        if not pp:
+            continue
+        try:
+            table = conjugate(pp)
+            result[w['de']] = table
+        except Exception as e:
+            skipped += 1
+            print(f"  ⚠️  conjugation error for '{w['de']}': {e}")
+    out_path = os.path.join(REPO, 'conjugations.json')
+    with open(out_path, 'w', encoding='utf-8') as f:
+        json.dump(result, f, ensure_ascii=False, indent=1)
+    print(f"  ✅ conjugations.json — {len(result)} verbs"
+          f"{f', {skipped} errors' if skipped else ''}")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
@@ -776,6 +923,7 @@ def main():
                 f.write(page)
             print(f"  ✅ {level}/01_Wortschatz.html — {len(level_words)} words")
         build_dictionary(words)
+        build_conjugations(words)
         # Inject banner into index.html and all level index pages
         for page_path in (
             [os.path.join(REPO, 'index.html')] +

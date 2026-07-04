@@ -96,15 +96,24 @@ def _needs_extra_e(stem):
 
 
 def _present_forms(stem, changed_stem):
-    """Build the 6-person Präsens indicative forms."""
+    """Build the 6-person Präsens indicative forms.
+    Stems ending in a sibilant (s, ß, z, x) merge the -st du-ending
+    down to just -t: essen (changed stem 'iss') -> du isst, not 'issst'.
+    The epenthetic -e- (arbeitest, findest) only applies to the
+    REGULAR unchanged stem. A genuine ablaut-changed präsens stem
+    (fahren->fährst, laden->lädst, halten->hältst, raten->rätst)
+    never takes it, even when it ends in d/t — only the raw stem
+    used for ich/wir/ihr/Sie does (arbeiten->arbeitest, bitten->bittest,
+    finden->findest, none of which have a präsens vowel change)."""
     s = stem
     s2 = changed_stem or stem
-    e = 'e' if _needs_extra_e(s2) else ''
+    e = 'e' if (not changed_stem and _needs_extra_e(s2)) else ''
+    du_ending = 't' if s2[-1] in ('s', 'ß', 'z', 'x') else e + 'st'
     ich  = s + 'e'
-    du   = s2 + e + 'st'
-    er   = s2 + e + 't'
+    du   = s2 + du_ending
+    er   = s2 if (changed_stem and s2.endswith('t')) else s2 + e + 't'
     wir  = s + 'en'
-    ihr  = s + e + 't'
+    ihr  = s + (('e' if _needs_extra_e(s) else '')) + 't'
     sie  = s + 'en'
     return [ich, du, er, wir, ihr, sie]
 
@@ -122,7 +131,8 @@ def _preterite_forms(praeteritum_stamm):
         return [stem, stem + 'st', stem, stem + 'n', stem + 't', stem + 'n']
     else:
         e = 'e' if _needs_extra_e(stem) else ''
-        return [stem, stem + e + 'st', stem, stem + 'en', stem + e + 't', stem + 'en']
+        du_ending = 't' if stem[-1] in ('s', 'ß', 'z', 'x') else e + 'st'
+        return [stem, stem + du_ending, stem, stem + 'en', stem + e + 't', stem + 'en']
 
 
 def _konj1_praesens_forms(stem):
@@ -343,15 +353,30 @@ def conjugate(principal_parts):
         k2_futur2.append(' '.join(parts))
 
     # ── IMPERATIV ────────────────────────────────────────────────────────
+    # Modal verbs (dürfen, können, müssen, sollen, wollen, mögen) have no
+    # true imperative in standard German — set 'kein_imperativ': True to
+    # suppress it entirely (the UI hides the section when imperativ is None).
     imperativ_override = p.get('imperativ_voll')
-    if imperativ_override:
+    if p.get('kein_imperativ'):
+        imperativ = None
+    elif imperativ_override:
         imperativ = dict(imperativ_override)
     else:
-        du_stem = changed_stem or reg_stem
-        e = 'e' if _needs_extra_e(du_stem) else ''
+        # German imperative uses e->i/ie present-tense stem changes
+        # (nehmen->Nimm!, sehen->Sieh!) but NOT a->ä/au->äu umlaut
+        # changes (fahren->Fahr! not *Fähr!, halten->Halt! not *Hält!,
+        # laden->Lad! not *Läd!, braten->Brat! not *Brät!).
+        # Verbs with ANY präsens ablaut (even umlaut-excluded ones)
+        # also skip the epenthetic -e- even on the regular fallback
+        # stem (halten->Halt! not *Halte!, laden->Lad! not *Lade!) —
+        # only verbs with NO präsens vowel change at all keep it
+        # (arbeiten->Arbeite!, bitten->Bitte!).
+        has_umlaut = changed_stem and any(c in changed_stem for c in 'äöü')
+        du_stem = reg_stem if (not changed_stem or has_umlaut) else changed_stem
+        e = 'e' if (not changed_stem and _needs_extra_e(du_stem)) else ''
         base_infinitiv = (reg_stem + 'en') if prefix else infinitiv
         imp_du   = (du_stem + e).capitalize()
-        imp_ihr  = (reg_stem + e + 't').capitalize()
+        imp_ihr  = (reg_stem + ('e' if _needs_extra_e(reg_stem) else '') + 't').capitalize()
         imp_sie  = base_infinitiv.capitalize() + ' Sie'
         imp_wir  = base_infinitiv.capitalize() + ' wir'
         if reflexiv:

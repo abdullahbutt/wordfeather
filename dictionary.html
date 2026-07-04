@@ -87,9 +87,12 @@
         .word-en{color:var(--muted);font-size:.92rem}
         .word-conjugation{margin-top:.25rem;font-size:.78rem;color:var(--conj-text,#0d7d4d);background:var(--conj-bg,#f0fdf4);border:1px solid var(--conj-border,#bbf7d0);border-radius:.35rem;padding:.25rem .55rem;line-height:1.5}
         [data-bs-theme="dark"] .word-conjugation{--conj-text:#4ade80;--conj-bg:rgba(74,222,128,.08);--conj-border:rgba(74,222,128,.25)}
-        .conj-toggle{display:inline-block;margin-top:.3rem;font-size:.75rem;color:#0d7d4d;cursor:pointer;user-select:none;border:none;background:none;padding:0}
-        .conj-toggle:hover{text-decoration:underline}
-        [data-bs-theme="dark"] .conj-toggle{color:#4ade80}
+        .conj-toggle{display:inline-flex;align-items:center;gap:.25rem;margin-top:.4rem;font-size:.75rem;font-weight:700;color:#fff;cursor:pointer;user-select:none;border:none;background:#7c3aed;border-radius:999px;padding:.25rem .7rem;box-shadow:0 1px 3px rgba(124,58,237,.35);transition:background .15s,transform .1s}
+        .conj-toggle:hover{background:#6d28d9;transform:translateY(-1px)}
+        .conj-toggle:active{transform:translateY(0)}
+        .conj-toggle:disabled{background:#94a3b8;box-shadow:none;cursor:default;transform:none}
+        [data-bs-theme="dark"] .conj-toggle{background:#8b5cf6}
+        [data-bs-theme="dark"] .conj-toggle:hover{background:#7c3aed}
         .conj-table-wrap{margin-top:.5rem;font-size:.78rem;border-top:1px dashed var(--conj-border,#bbf7d0);padding-top:.5rem}
         .conj-mood-title{font-weight:700;color:var(--conj-text,#0d7d4d);margin:.5rem 0 .2rem;font-size:.8rem}
         [data-bs-theme="dark"] .conj-mood-title{color:#4ade80}
@@ -149,13 +152,13 @@
       "@type": "DefinedTermSet",
       "@id": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html#termset",
       "name": "Deutsch Lernen — Goethe-Zertifikat A1 to C2 Dictionary",
-      "description": "Free German–English vocabulary dictionary with 3,023 words and phrases covering CEFR levels A1–C2. Includes example sentences, collocations and audio pronunciation. Aligned to Goethe-Zertifikat and telc exam requirements.",
+      "description": "Free German–English vocabulary dictionary with 3,024 words and phrases covering CEFR levels A1–C2. Includes example sentences, collocations and audio pronunciation. Aligned to Goethe-Zertifikat and telc exam requirements.",
       "url": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html",
       "inLanguage": [
         "de",
         "en"
       ],
-      "numberOfItems": 3023,
+      "numberOfItems": 3024,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": {
         "@type": "Person",
@@ -187,7 +190,7 @@
       "@type": "Dataset",
       "@id": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html#dataset",
       "name": "German–English CEFR Vocabulary Dataset (A1–C2)",
-      "description": "Structured bilingual German–English vocabulary dataset with 3,023 entries, CEFR level tags (A1–C2), example sentences, English translations and B2–C2 collocations.",
+      "description": "Structured bilingual German–English vocabulary dataset with 3,024 entries, CEFR level tags (A1–C2), example sentences, English translations and B2–C2 collocations.",
       "url": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html",
       "inLanguage": [
         "de",
@@ -217,7 +220,7 @@
         {
           "@type": "PropertyValue",
           "name": "B1 entries",
-          "value": 492
+          "value": 493
         },
         {
           "@type": "PropertyValue",
@@ -309,7 +312,7 @@
                     </ol>
                 </nav>
                 <h1 class="h2 mb-1">📖 Wörterbuch / Dictionary</h1>
-                <p class="info-line mb-3">3023 exam-relevant words from A1–C2 · <span class="art-m fw-bold">m.</span> der · <span class="art-f fw-bold">f.</span> die · <span class="art-n fw-bold">n.</span> das · 🔊 Tap speaker to hear pronunciation</p>
+                <p class="info-line mb-3">3024 exam-relevant words from A1–C2 · <span class="art-m fw-bold">m.</span> der · <span class="art-f fw-bold">f.</span> die · <span class="art-n fw-bold">n.</span> das · 🔊 Tap speaker to hear pronunciation</p>
                 <p class="info-line mb-3" style="font-size:0.8rem;">Reviewed and tested by native German speaker <strong>Birgit Unger</strong> — Vielen Dank! 🙏</p>
                 <div class="search-wrap mb-2">
                     <div class="position-relative">
@@ -329,7 +332,7 @@
                             <button data-level="C1">C1</button>
                             <button data-level="C2">C2</button>
                         </div>
-                        <span class="stats" id="wordCount">3023 words</span>
+                        <span class="stats" id="wordCount">3024 words</span>
                     </div>
                     <div class="d-flex align-items-center gap-2 flex-wrap">
                         <span class="filter-label">Type:</span>
@@ -494,6 +497,17 @@
         </div>
         <div class="word-en">eight</div>
         <div class="word-example"><span class="ex-de">Ich habe acht Bücher.</span><br><span class="ex-en">I have eight books.</span></div>
+    </div>
+</div>
+<div class="word-card" data-de="aktualisieren" data-en="to update" data-level="B1" data-pos="verb" data-ex="Sie aktualisiert regelmäßig die Software auf ihrem Computer.">
+    <div class="word-main">
+        <div class="word-de-wrap">
+            <span class="word-de">aktualisieren</span>
+            <span class="word-art"></span>
+            <span class="badge rounded-pill word-level" style="background:#7c3aed">B1</span>
+        </div>
+        <div class="word-en">to update</div>
+        <div class="word-example"><span class="ex-de">Sie aktualisiert regelmäßig die Software auf ihrem Computer.</span><br><span class="ex-en">She regularly updates the software on her computer.</span><div class="word-collocations"><span class="col-item">die Software aktualisieren</span><span class="col-item">den Status aktualisieren</span><span class="col-item">auf den neuesten Stand bringen</span></div></div>
     </div>
 </div>
 <div class="word-card" data-de="alle" data-en="all, everyone" data-level="A1" data-pos="determiner" data-ex="Alle Kinder spielen.">
@@ -33899,14 +33913,14 @@
             var btn = document.createElement('button');
             btn.className = 'conj-toggle';
             btn.type = 'button';
-            btn.textContent = '▼ Vollständige Konjugation';
+            btn.textContent = '📖 Konjugation (alle Formen)';
             var wrap = null;
             btn.addEventListener('click', function(e) {
                 e.preventDefault(); e.stopPropagation();
                 if (wrap) {
                     wrap.remove();
                     wrap = null;
-                    btn.textContent = '▼ Vollständige Konjugation';
+                    btn.textContent = '📖 Konjugation (alle Formen)';
                     return;
                 }
                 loadConjugations().then(function(data) {
@@ -33920,7 +33934,7 @@
                     div.innerHTML = renderTable(table);
                     wrap = div.firstChild;
                     card.querySelector('.word-main').appendChild(wrap);
-                    btn.textContent = '▲ Konjugation ausblenden';
+                    btn.textContent = '✕ Konjugation ausblenden';
                 });
             });
             var mainDiv = card.querySelector('.word-main');
