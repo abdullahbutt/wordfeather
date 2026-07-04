@@ -5733,7 +5733,33 @@
       "praeteritum_stamm": "stieg",
       "partizip2": "eingestiegen",
       "hilfsverb": "sein",
-      "trennbares_praefix": "ein"
+      "trennbares_praefix": "ein",
+      "english": {
+        "praesens_voll": [
+          "get on",
+          "get on",
+          "gets on",
+          "get on",
+          "get on",
+          "get on"
+        ],
+        "praeteritum_voll": [
+          "got on",
+          "got on",
+          "got on",
+          "got on",
+          "got on",
+          "got on"
+        ],
+        "perfekt_voll": [
+          "have got on",
+          "have got on",
+          "has got on",
+          "have got on",
+          "have got on",
+          "have got on"
+        ]
+      }
     }
   },
   {
@@ -11754,7 +11780,33 @@
       "praeteritum_stamm": "kannte",
       "partizip2": "gekannt",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "english": {
+        "praesens_voll": [
+          "know",
+          "know",
+          "knows",
+          "know",
+          "know",
+          "know"
+        ],
+        "praeteritum_voll": [
+          "knew",
+          "knew",
+          "knew",
+          "knew",
+          "knew",
+          "knew"
+        ],
+        "perfekt_voll": [
+          "have known",
+          "have known",
+          "has known",
+          "have known",
+          "have known",
+          "have known"
+        ]
+      }
     }
   },
   {
@@ -12191,7 +12243,33 @@
       "partizip2": "gekonnt",
       "hilfsverb": "haben",
       "konj2_stamm": "könnt",
-      "kein_imperativ": true
+      "kein_imperativ": true,
+      "english": {
+        "praesens_voll": [
+          "can",
+          "can",
+          "can",
+          "can",
+          "can",
+          "can"
+        ],
+        "praeteritum_voll": [
+          "could",
+          "could",
+          "could",
+          "could",
+          "could",
+          "could"
+        ],
+        "perfekt_voll": [
+          "have been able to",
+          "have been able to",
+          "have been able to",
+          "have been able to",
+          "have been able to",
+          "have been able to"
+        ]
+      }
     }
   },
   {
@@ -12880,7 +12958,33 @@
       "infinitiv": "kündigen",
       "praeteritum_stamm": "kündigte",
       "partizip2": "gekündigt",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "english": {
+        "praesens_voll": [
+          "resign",
+          "resign",
+          "resigns",
+          "resign",
+          "resign",
+          "resign"
+        ],
+        "praeteritum_voll": [
+          "resigned",
+          "resigned",
+          "resigned",
+          "resigned",
+          "resigned",
+          "resigned"
+        ],
+        "perfekt_voll": [
+          "have resigned",
+          "have resigned",
+          "has resigned",
+          "have resigned",
+          "have resigned",
+          "have resigned"
+        ]
+      }
     }
   },
   {
@@ -13460,7 +13564,33 @@
       "praeteritum_stamm": "lieh",
       "partizip2": "geliehen",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "english": {
+        "praesens_voll": [
+          "lend",
+          "lend",
+          "lends",
+          "lend",
+          "lend",
+          "lend"
+        ],
+        "praeteritum_voll": [
+          "lent",
+          "lent",
+          "lent",
+          "lent",
+          "lent",
+          "lent"
+        ],
+        "perfekt_voll": [
+          "have lent",
+          "have lent",
+          "has lent",
+          "have lent",
+          "have lent",
+          "have lent"
+        ]
+      }
     }
   },
   {
@@ -14638,7 +14768,33 @@
       "praeteritum_stamm": "mochte",
       "partizip2": "gemocht",
       "hilfsverb": "haben",
-      "kein_imperativ": true
+      "kein_imperativ": true,
+      "english": {
+        "praesens_voll": [
+          "would like",
+          "would like",
+          "would like",
+          "would like",
+          "would like",
+          "would like"
+        ],
+        "praeteritum_voll": [
+          "wanted",
+          "wanted",
+          "wanted",
+          "wanted",
+          "wanted",
+          "wanted"
+        ],
+        "perfekt_voll": [
+          "would have liked",
+          "would have liked",
+          "would have liked",
+          "would have liked",
+          "would have liked",
+          "would have liked"
+        ]
+      }
     }
   },
   {
@@ -14903,7 +15059,33 @@
       "partizip2": "gemusst",
       "hilfsverb": "haben",
       "konj2_stamm": "müsst",
-      "kein_imperativ": true
+      "kein_imperativ": true,
+      "english": {
+        "praesens_voll": [
+          "must",
+          "must",
+          "must",
+          "must",
+          "must",
+          "must"
+        ],
+        "praeteritum_voll": [
+          "had to",
+          "had to",
+          "had to",
+          "had to",
+          "had to",
+          "had to"
+        ],
+        "perfekt_voll": [
+          "have had to",
+          "have had to",
+          "has had to",
+          "have had to",
+          "have had to",
+          "have had to"
+        ]
+      }
     }
   },
   {
@@ -19217,7 +19399,33 @@
       },
       "transitiv": false,
       "reflexiv": false,
-      "partizip1_voll": "seiend"
+      "partizip1_voll": "seiend",
+      "english": {
+        "praesens_voll": [
+          "am",
+          "are",
+          "is",
+          "are",
+          "are",
+          "are"
+        ],
+        "praeteritum_voll": [
+          "was",
+          "were",
+          "was",
+          "were",
+          "were",
+          "were"
+        ],
+        "perfekt_voll": [
+          "have been",
+          "have been",
+          "has been",
+          "have been",
+          "have been",
+          "have been"
+        ]
+      }
     }
   },
   {
@@ -20100,7 +20308,33 @@
       "partizip2": "gesollt",
       "hilfsverb": "haben",
       "konj2_stamm": "sollt",
-      "kein_imperativ": true
+      "kein_imperativ": true,
+      "english": {
+        "praesens_voll": [
+          "should",
+          "should",
+          "should",
+          "should",
+          "should",
+          "should"
+        ],
+        "praeteritum_voll": [
+          "was supposed to",
+          "were supposed to",
+          "was supposed to",
+          "were supposed to",
+          "were supposed to",
+          "were supposed to"
+        ],
+        "perfekt_voll": [
+          "should have",
+          "should have",
+          "should have",
+          "should have",
+          "should have",
+          "should have"
+        ]
+      }
     }
   },
   {
