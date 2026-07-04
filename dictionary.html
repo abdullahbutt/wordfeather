@@ -97,13 +97,13 @@
         .conj-mood-title{font-weight:700;color:var(--conj-text,#0d7d4d);margin:.9rem 0 .5rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.03em}
         [data-bs-theme="dark"] .conj-mood-title{color:#4ade80}
         .conj-mood-title:first-child{margin-top:0}
-        .conj-mood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.6rem}
+        .conj-mood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.6rem}
         .conj-tense-block{background:var(--conj-card-bg,#f8fafc);border:1px solid var(--conj-card-border,#e2e8f0);border-radius:.5rem;padding:.55rem .7rem}
         [data-bs-theme="dark"] .conj-tense-block{--conj-card-bg:#1e293b;--conj-card-border:#334155}
         .conj-tense-label{font-weight:700;text-align:center;margin-bottom:.4rem;padding-bottom:.35rem;font-size:.76rem;color:var(--page-text);border-bottom:1px solid var(--conj-card-border,#e2e8f0)}
-        .conj-row{padding:.1rem 0;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .conj-row{padding:.1rem 0;font-size:.78rem;line-height:1.3}
         .conj-person{color:var(--muted);margin-right:.25rem}
-        .conj-imperativ-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.6rem}
+        .conj-imperativ-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.6rem}
         .conj-imperativ-row span{background:var(--conj-card-bg,#f8fafc);border:1px solid var(--conj-card-border,#e2e8f0);border-radius:.5rem;padding:.5rem .7rem;text-align:center;font-size:.78rem;display:block}
         [data-bs-theme="dark"] .conj-imperativ-row span{--conj-card-bg:#1e293b;--conj-card-border:#334155}
         .word-example{margin-top:.3rem;padding:.35rem .6rem;background:var(--ex-bg);border-radius:.4rem;font-size:.85rem;border-left:3px solid #1d4ed8}
@@ -33912,39 +33912,45 @@
         function addToggle(card) {
             if (card.getAttribute('data-pos') !== 'verb') return;
             if (card.querySelector('.conj-toggle')) return;
-            var de = card.getAttribute('data-de');
             var btn = document.createElement('button');
             btn.className = 'conj-toggle';
             btn.type = 'button';
             btn.textContent = '📖 Konjugation (alle Formen)';
-            var wrap = null;
-            btn.addEventListener('click', function(e) {
-                e.preventDefault(); e.stopPropagation();
-                if (wrap) {
-                    wrap.remove();
-                    wrap = null;
-                    btn.textContent = '📖 Konjugation (alle Formen)';
-                    return;
-                }
-                loadConjugations().then(function(data) {
-                    var table = data[de];
-                    if (!table) {
-                        btn.textContent = '(noch keine vollständige Konjugation verfügbar)';
-                        btn.disabled = true;
-                        return;
-                    }
-                    var div = document.createElement('div');
-                    div.innerHTML = renderTable(table);
-                    wrap = div.firstChild;
-                    card.querySelector('.word-main').appendChild(wrap);
-                    btn.textContent = '✕ Konjugation ausblenden';
-                });
-            });
             var mainDiv = card.querySelector('.word-main');
             mainDiv.appendChild(btn);
         }
 
         document.querySelectorAll('.word-card').forEach(addToggle);
+
+        // Event delegation: robust against any future DOM rebuilding of
+        // .word-card content, not just direct listener attachment.
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.conj-toggle');
+            if (!btn) return;
+            e.preventDefault(); e.stopPropagation();
+
+            var card = btn.closest('.word-card');
+            var de = card.getAttribute('data-de');
+            var existing = card.querySelector('.conj-table-wrap');
+            if (existing) {
+                existing.remove();
+                btn.textContent = '📖 Konjugation (alle Formen)';
+                return;
+            }
+
+            loadConjugations().then(function(data) {
+                var table = data[de];
+                if (!table) {
+                    btn.textContent = '(noch keine vollständige Konjugation verfügbar)';
+                    btn.disabled = true;
+                    return;
+                }
+                var div = document.createElement('div');
+                div.innerHTML = renderTable(table);
+                card.querySelector('.word-main').appendChild(div.firstChild);
+                btn.textContent = '✕ Konjugation ausblenden';
+            });
+        });
     })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -48,12 +48,12 @@
         .conj-mood-title-ws{font-weight:700;color:#0d7d4d;margin:.9rem 0 .5rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.03em;}
         [data-bs-theme="dark"] .conj-mood-title-ws{color:#4ade80;}
         .conj-mood-title-ws:first-child{margin-top:0;}
-        .conj-mood-grid-ws{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.6rem;}
+        .conj-mood-grid-ws{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.6rem;}
         .conj-tense-block-ws{background:var(--table-stripe);border:1px solid var(--alpha-border);border-radius:.5rem;padding:.55rem .7rem;}
         .conj-tense-label-ws{font-weight:700;text-align:center;margin-bottom:.4rem;padding-bottom:.35rem;font-size:.76rem;color:var(--page-text);border-bottom:1px solid var(--alpha-border);}
-        .conj-row-ws{padding:.1rem 0;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+        .conj-row-ws{padding:.1rem 0;font-size:.78rem;line-height:1.3;}
         .conj-person-ws{color:var(--muted-text);margin-right:.25rem;}
-        .conj-imperativ-row-ws{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.6rem;}
+        .conj-imperativ-row-ws{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.6rem;}
         .conj-imperativ-row-ws span{background:var(--table-stripe);border:1px solid var(--alpha-border);border-radius:.5rem;padding:.5rem .7rem;text-align:center;font-size:.78rem;display:block;}
     </style>
 </head>
@@ -3305,26 +3305,37 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
         return html;
     }
 
-    document.querySelectorAll('.conj-toggle-ws').forEach(function(btn) {
-        var de = btn.getAttribute('data-de-lower');
-        var wrap = null;
+    // Event delegation instead of per-button listeners: tts.js rebuilds
+    // the 'Deutsch' column cells (innerHTML wipe + replace) to inject
+    // its own speaker buttons, which destroys any directly-attached
+    // listeners on this button. Delegating to document survives that,
+    // since it relies on event bubbling + selector matching at click
+    // time, not on the specific DOM node still existing.
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.conj-toggle-ws');
+        if (!btn) return;
+        e.preventDefault(); e.stopPropagation();
+
         var cell = btn.closest('td');
-        btn.addEventListener('click', function(e) {
-            e.preventDefault(); e.stopPropagation();
-            if (wrap) { wrap.remove(); wrap = null; btn.textContent = '📖 Konjugation'; return; }
-            loadConjugations().then(function(data) {
-                var table = data[de];
-                if (!table) {
-                    btn.textContent = '(noch nicht verfügbar)';
-                    btn.disabled = true;
-                    return;
-                }
-                var div = document.createElement('div');
-                div.innerHTML = renderTable(table);
-                wrap = div.firstChild;
-                cell.appendChild(wrap);
-                btn.textContent = '✕ Ausblenden';
-            });
+        var existing = cell.querySelector('.conj-table-wrap-ws');
+        if (existing) {
+            existing.remove();
+            btn.textContent = '📖 Konjugation';
+            return;
+        }
+
+        var de = btn.getAttribute('data-de-lower');
+        loadConjugations().then(function(data) {
+            var table = data[de];
+            if (!table) {
+                btn.textContent = '(noch nicht verfügbar)';
+                btn.disabled = true;
+                return;
+            }
+            var div = document.createElement('div');
+            div.innerHTML = renderTable(table);
+            cell.appendChild(div.firstChild);
+            btn.textContent = '✕ Ausblenden';
         });
     });
 })();

@@ -959,7 +959,15 @@
     "level": "A2",
     "example": "Sie probiert das rote Kleid an.",
     "example_en": "She tries on the red dress.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anprobieren",
+      "praeteritum_stamm": "probierte",
+      "partizip2": "anprobiert",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "transitiv": true
+    }
   },
   {
     "de": "anregen",
@@ -1041,7 +1049,15 @@
     "level": "A2",
     "example": "Die Firma stellt nächsten Monat zehn Mitarbeiter an.",
     "example_en": "The company is hiring ten employees next month.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anstellen",
+      "praeteritum_stamm": "stellte",
+      "partizip2": "angestellt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "transitiv": true
+    }
   },
   {
     "de": "anstreben",
@@ -5743,7 +5759,14 @@
     "level": "A2",
     "example": "Der Forscher entdeckt eine unbekannte Tierart im Regenwald.",
     "example_en": "The researcher discovers an unknown animal species in the rainforest.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "entdecken",
+      "praeteritum_stamm": "entdeckte",
+      "partizip2": "entdeckt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Entdeckung, -en",
@@ -6297,7 +6320,14 @@
     "level": "A2",
     "example": "Das neue System soll das alte vollständig ersetzen.",
     "example_en": "The new system is supposed to completely replace the old one.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ersetzen",
+      "praeteritum_stamm": "ersetzte",
+      "partizip2": "ersetzt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "erst",
@@ -6921,7 +6951,13 @@
     "level": "A1",
     "example": "Was fehlt Ihnen?",
     "example_en": "What is the matter with you?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fehlen",
+      "praeteritum_stamm": "fehlte",
+      "partizip2": "gefehlt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "der Fehler, -",
@@ -7007,7 +7043,15 @@
     "level": "A1",
     "example": "Abends sehe ich fern.",
     "example_en": "In the evening I watch TV.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fernsehen",
+      "praesens_stamm": "sieh",
+      "praeteritum_stamm": "sah",
+      "partizip2": "ferngesehen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "fern"
+    }
   },
   {
     "de": "der Fernseher, -",
@@ -7641,7 +7685,13 @@
     "level": "A1",
     "example": "Wir frühstücken zusammen.",
     "example_en": "We have breakfast together.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "frühstücken",
+      "praeteritum_stamm": "frühstückte",
+      "partizip2": "gefrühstückt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "fühlen",
@@ -9231,7 +9281,14 @@
     "level": "A2",
     "example": "Er hasst es, morgens früh aufzustehen.",
     "example_en": "He hates having to get up early in the morning.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hassen",
+      "praeteritum_stamm": "hasste",
+      "partizip2": "gehasst",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Hauptbahnhof, -̈e",
@@ -9524,7 +9581,16 @@
     "level": "A2",
     "example": "Er lädt das Dokument auf seinen Computer herunter.",
     "example_en": "He downloads the document onto his computer.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "herunterladen",
+      "praesens_stamm": "läd",
+      "praeteritum_stamm": "lud",
+      "partizip2": "heruntergeladen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "herunter",
+      "transitiv": true
+    }
   },
   {
     "de": "hervorrufen",
@@ -9697,7 +9763,16 @@
     "level": "A2",
     "example": "Sie lädt das Foto auf ihre Profilseite hoch.",
     "example_en": "She uploads the photo to her profile page.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hochladen",
+      "praesens_stamm": "läd",
+      "praeteritum_stamm": "lud",
+      "partizip2": "hochgeladen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "hoch",
+      "transitiv": true
+    }
   },
   {
     "de": "Hochmut kommt vor dem Fall.",
@@ -10877,7 +10952,13 @@
     "level": "A2",
     "example": "Er joggt jeden Morgen eine halbe Stunde im Park.",
     "example_en": "He jogs for half an hour in the park every morning.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "joggen",
+      "praeteritum_stamm": "joggte",
+      "partizip2": "gejoggt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "der Journalist, -en",
@@ -11395,7 +11476,13 @@
     "level": "A2",
     "example": "Hat es mit dem Termin beim Arzt geklappt?",
     "example_en": "Did the appointment at the doctor's work out?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "klappen",
+      "praeteritum_stamm": "klappte",
+      "partizip2": "geklappt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "klar",
@@ -11554,7 +11641,13 @@
     "level": "A2",
     "example": "Sie klickt auf den Link in der E-Mail.",
     "example_en": "She clicks on the link in the email.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "klicken",
+      "praeteritum_stamm": "klickte",
+      "partizip2": "geklickt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "das Klima",
@@ -12995,7 +13088,14 @@
     "level": "A1",
     "example": "Ich lerne Deutsch.",
     "example_en": "I'm learning German.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lernen",
+      "praeteritum_stamm": "lernte",
+      "partizip2": "gelernt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "lernen",
@@ -13191,7 +13291,14 @@
     "level": "A2",
     "example": "Er löst das Problem geduldig und erklärt allen den Lösungsweg.",
     "example_en": "He solves the problem patiently and explains the solution to everyone.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lösen",
+      "praeteritum_stamm": "löste",
+      "partizip2": "gelöst",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Lohn, -̈e",
@@ -13637,7 +13744,14 @@
     "level": "A1",
     "example": "Was meinen Sie?",
     "example_en": "What do you mean?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "meinen",
+      "praeteritum_stamm": "meinte",
+      "partizip2": "gemeint",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Meinungsfreiheit",
@@ -13997,7 +14111,15 @@
     "level": "A2",
     "example": "Sie teilt ihrem Chef mit, dass sie morgen krank ist und nicht kommen kann.",
     "example_en": "She informs her boss that she is ill tomorrow and cannot come.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "mitteilen",
+      "praeteritum_stamm": "teilte",
+      "partizip2": "mitgeteilt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "mit",
+      "transitiv": true
+    }
   },
   {
     "de": "mittelfristig",
@@ -14075,7 +14197,22 @@
     "level": "A1",
     "example": "Ich möchte ein Bier.",
     "example_en": "I would like a beer.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "möchten",
+      "praesens_voll": [
+        "möchte",
+        "möchtest",
+        "möchte",
+        "möchten",
+        "möchtet",
+        "möchten"
+      ],
+      "praeteritum_stamm": "mochte",
+      "partizip2": "gemocht",
+      "hilfsverb": "haben",
+      "kein_imperativ": true
+    }
   },
   {
     "de": "mögen",
@@ -14468,7 +14605,14 @@
     "level": "A2",
     "example": "Bevor du antwortest, solltest du kurz nachdenken.",
     "example_en": "Before you answer, you should take a moment to think.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "nachdenken",
+      "praeteritum_stamm": "dachte",
+      "partizip2": "nachgedacht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "nach"
+    }
   },
   {
     "de": "nachdenklich",
@@ -15591,7 +15735,14 @@
     "level": "A2",
     "example": "Ärzte operieren den Patienten heute Morgen an der Hüfte.",
     "example_en": "Doctors are operating on the patient's hip this morning.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "operieren",
+      "praeteritum_stamm": "operierte",
+      "partizip2": "operiert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "das Opfer, -",
@@ -15733,7 +15884,14 @@
     "level": "A1",
     "example": "Ich packe den Koffer.",
     "example_en": "I am packing my suitcase.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "packen",
+      "praeteritum_stamm": "packte",
+      "partizip2": "gepackt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "das Paket, -e",
@@ -15874,7 +16032,13 @@
     "level": "A1",
     "example": "Die Hose passt gut.",
     "example_en": "The trousers fit well.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "passen",
+      "praeteritum_stamm": "passte",
+      "partizip2": "gepasst",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "passieren",
@@ -15883,7 +16047,13 @@
     "level": "A1",
     "example": "Was ist passiert?",
     "example_en": "What has happened?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "passieren",
+      "praeteritum_stamm": "passierte",
+      "partizip2": "passiert",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "das Passwort, -̈er",
@@ -16532,7 +16702,14 @@
     "level": "A2",
     "example": "Sie putzt jeden Samstag die Wohnung von oben bis unten.",
     "example_en": "She cleans the flat from top to bottom every Saturday.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "putzen",
+      "praeteritum_stamm": "putzte",
+      "partizip2": "geputzt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Qualifikation, -en",
@@ -16701,7 +16878,13 @@
     "level": "A1",
     "example": "Hier darf man nicht rauchen.",
     "example_en": "Smoking is not permitted here.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rauchen",
+      "praeteritum_stamm": "rauchte",
+      "partizip2": "geraucht",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "der Raum, -̈e",
@@ -16848,7 +17031,13 @@
     "level": "A1",
     "example": "Wir müssen reden.",
     "example_en": "We need to talk.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "reden",
+      "praeteritum_stamm": "redete",
+      "partizip2": "geredet",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "Reden ist Silber, Schweigen ist Gold.",
@@ -17009,7 +17198,13 @@
     "level": "A1",
     "example": "Es regnet.",
     "example_en": "It's raining.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "regnen",
+      "praeteritum_stamm": "regnete",
+      "partizip2": "geregnet",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Rehabilitation",
@@ -17059,7 +17254,13 @@
     "level": "A1",
     "example": "Im Sommer reist die Familie gerne ans Meer.",
     "example_en": "In summer the family likes to travel to the seaside.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "reisen",
+      "praeteritum_stamm": "reiste",
+      "partizip2": "gereist",
+      "hilfsverb": "sein"
+    }
   },
   {
     "de": "der Reiseveranstalter, -",
@@ -17147,7 +17348,14 @@
     "level": "A2",
     "example": "Sie möchten ihr altes Haus im Sommer renovieren.",
     "example_en": "They want to renovate their old house in the summer.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "renovieren",
+      "praeteritum_stamm": "renovierte",
+      "partizip2": "renoviert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Renovierung, -en",
@@ -17689,7 +17897,14 @@
     "level": "A1",
     "example": "Was sagst du?",
     "example_en": "What are you saying?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sagen",
+      "praeteritum_stamm": "sagte",
+      "partizip2": "gesagt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Sahne",
@@ -17888,7 +18103,13 @@
     "level": "A1",
     "example": "Schau mal!",
     "example_en": "Look at this picture!",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schauen",
+      "praeteritum_stamm": "schaute",
+      "partizip2": "geschaut",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "die Scheidung, -en",
@@ -17925,7 +18146,14 @@
     "level": "A1",
     "example": "Ich schenke dir ein Buch.",
     "example_en": "I'm giving you a book as a gift.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schenken",
+      "praeteritum_stamm": "schenkte",
+      "partizip2": "geschenkt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "schicken",
@@ -17934,7 +18162,14 @@
     "level": "A1",
     "example": "Ich schicke eine E-Mail.",
     "example_en": "I'm sending an email.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schicken",
+      "praeteritum_stamm": "schickte",
+      "partizip2": "geschickt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Schinken, -",
@@ -18099,7 +18334,13 @@
     "level": "A1",
     "example": "Das schmeckt gut!",
     "example_en": "That tastes good!",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schmecken",
+      "praeteritum_stamm": "schmeckte",
+      "partizip2": "geschmeckt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "der Schmerz, -en",
@@ -19030,7 +19271,15 @@
     "level": "A2",
     "example": "Ich unterhalte mich gern mit meinen Kollegen.",
     "example_en": "I like to converse with my colleagues.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "unterhalten",
+      "praesens_stamm": "unterhält",
+      "praeteritum_stamm": "unterhielt",
+      "partizip2": "unterhalten",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
   },
   {
     "de": "sich verabschieden",
@@ -19497,7 +19746,14 @@
     "level": "A1",
     "example": "Die Kinder spielen.",
     "example_en": "The children are playing.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "spielen",
+      "praeteritum_stamm": "spielte",
+      "partizip2": "gespielt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "der Spielplatz, -̈e",
@@ -19848,7 +20104,13 @@
     "level": "A1",
     "example": "Das stimmt.",
     "example_en": "That is correct.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "stimmen",
+      "praeteritum_stamm": "stimmte",
+      "partizip2": "gestimmt",
+      "hilfsverb": "haben"
+    }
   },
   {
     "de": "das Stipendium, -ien",
@@ -19884,7 +20146,14 @@
     "level": "A2",
     "example": "Bitte stör mich nicht, ich lerne gerade für die Prüfung.",
     "example_en": "Please don't disturb me, I'm studying for the exam.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "stören",
+      "praeteritum_stamm": "störte",
+      "partizip2": "gestört",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "stolz",
@@ -20067,7 +20336,14 @@
     "level": "A1",
     "example": "Ich studiere Medizin.",
     "example_en": "I'm studying medicine.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "studieren",
+      "praeteritum_stamm": "studierte",
+      "partizip2": "studiert",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "das Studium",
@@ -20195,7 +20471,14 @@
     "level": "A1",
     "example": "Ich suche mein Handy.",
     "example_en": "I am looking for my phone.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "suchen",
+      "praeteritum_stamm": "suchte",
+      "partizip2": "gesucht",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
   },
   {
     "de": "die Suchmaschine, -n",
