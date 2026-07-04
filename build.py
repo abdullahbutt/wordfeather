@@ -279,9 +279,12 @@ WORTSCHATZ_SEARCH_SCRIPT = """<script>
     var activePOS = 'ALL';
     if (!input) return;
 
+    var wordCountEl = document.getElementById('wsWordCount');
+
     function filterRows() {
         var q = input.value.toLowerCase().trim();
         var anyVisible = false;
+        var visibleCount = 0;
         document.querySelectorAll('.topic-section').forEach(function(section) {
             var sectionHasMatch = false;
             var lastRowVisible = true;
@@ -299,12 +302,15 @@ WORTSCHATZ_SEARCH_SCRIPT = """<script>
                 var show = matchesSearch && matchesPOS;
                 row.style.display = show ? '' : 'none';
                 lastRowVisible = show;
-                if (show) sectionHasMatch = true;
+                if (show) { sectionHasMatch = true; visibleCount++; }
             });
             section.style.display = sectionHasMatch ? '' : 'none';
             if (sectionHasMatch) anyVisible = true;
         });
         if (noResults) noResults.style.display = anyVisible ? 'none' : 'block';
+        if (wordCountEl) {
+            wordCountEl.textContent = visibleCount + (visibleCount === 1 ? ' Wort' : ' Wörter');
+        }
     }
 
     input.addEventListener('input', filterRows);
@@ -901,7 +907,7 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
         <h1 class="h2 mb-0">01 Wortschatz</h1>
         <div class="d-flex gap-2 align-items-center flex-wrap">
             <span class="badge fs-6 px-3 py-2" style="background:{color}">{level}</span>
-            <span class="badge bg-secondary">{count} Wörter</span>
+            <span class="badge bg-secondary" id="wsWordCount">{count} Wörter</span>
         </div>
     </div>
     <p class="text-muted mb-1">{htmllib.escape(desc)}</p>
