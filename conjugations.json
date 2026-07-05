@@ -59896,20 +59896,20 @@
     "withdraw (money)"
    ],
    "praeteritum": [
-    "withdrawed (money)",
-    "withdrawed (money)",
-    "withdrawed (money)",
-    "withdrawed (money)",
-    "withdrawed (money)",
-    "withdrawed (money)"
+    "withdrew (money)",
+    "withdrew (money)",
+    "withdrew (money)",
+    "withdrew (money)",
+    "withdrew (money)",
+    "withdrew (money)"
    ],
    "perfekt": [
-    "have withdrawed (money)",
-    "have withdrawed (money)",
-    "has withdrawed (money)",
-    "have withdrawed (money)",
-    "have withdrawed (money)",
-    "have withdrawed (money)"
+    "have withdrawn (money)",
+    "have withdrawn (money)",
+    "has withdrawn (money)",
+    "have withdrawn (money)",
+    "have withdrawn (money)",
+    "have withdrawn (money)"
    ]
   }
  },
@@ -60675,7 +60675,33 @@
    "Sie": "Füllen Sie aus!",
    "wir": "Füllen wir aus!"
   },
-  "passiv": null
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "fill in/out",
+    "fill in/out",
+    "fills in/out",
+    "fill in/out",
+    "fill in/out",
+    "fill in/out"
+   ],
+   "praeteritum": [
+    "filled in/out",
+    "filled in/out",
+    "filled in/out",
+    "filled in/out",
+    "filled in/out",
+    "filled in/out"
+   ],
+   "perfekt": [
+    "have filled in/out",
+    "have filled in/out",
+    "has filled in/out",
+    "have filled in/out",
+    "have filled in/out",
+    "have filled in/out"
+   ]
+  }
  },
  "ausrichten": {
   "infinitiv": "ausrichten",
@@ -61123,7 +61149,33 @@
    "Sie": "Zeichnen Sie ein!",
    "wir": "Zeichnen wir ein!"
   },
-  "passiv": null
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "mark",
+    "mark",
+    "marks",
+    "mark",
+    "mark",
+    "mark"
+   ],
+   "praeteritum": [
+    "marked",
+    "marked",
+    "marked",
+    "marked",
+    "marked",
+    "marked"
+   ],
+   "perfekt": [
+    "have marked",
+    "have marked",
+    "has marked",
+    "have marked",
+    "have marked",
+    "have marked"
+   ]
+  }
  },
  "entwickeln": {
   "infinitiv": "entwickeln",
@@ -61898,20 +61950,20 @@
     "ring (bell)"
    ],
    "praeteritum": [
-    "ringed (bell)",
-    "ringed (bell)",
-    "ringed (bell)",
-    "ringed (bell)",
-    "ringed (bell)",
-    "ringed (bell)"
+    "rang (bell)",
+    "rang (bell)",
+    "rang (bell)",
+    "rang (bell)",
+    "rang (bell)",
+    "rang (bell)"
    ],
    "perfekt": [
-    "have ringed (bell)",
-    "have ringed (bell)",
-    "has ringed (bell)",
-    "have ringed (bell)",
-    "have ringed (bell)",
-    "have ringed (bell)"
+    "have rung (bell)",
+    "have rung (bell)",
+    "has rung (bell)",
+    "have rung (bell)",
+    "have rung (bell)",
+    "have rung (bell)"
    ]
   }
  },
@@ -63794,20 +63846,20 @@
     "stink"
    ],
    "praeteritum": [
-    "stinked",
-    "stinked",
-    "stinked",
-    "stinked",
-    "stinked",
-    "stinked"
+    "stank",
+    "stank",
+    "stank",
+    "stank",
+    "stank",
+    "stank"
    ],
    "perfekt": [
-    "have stinked",
-    "have stinked",
-    "has stinked",
-    "have stinked",
-    "have stinked",
-    "have stinked"
+    "have stunk",
+    "have stunk",
+    "has stunk",
+    "have stunk",
+    "have stunk",
+    "have stunk"
    ]
   }
  },
@@ -64584,20 +64636,20 @@
     "plan (time)"
    ],
    "praeteritum": [
-    "planed (time)",
-    "planed (time)",
-    "planed (time)",
-    "planed (time)",
-    "planed (time)",
-    "planed (time)"
+    "planned (time)",
+    "planned (time)",
+    "planned (time)",
+    "planned (time)",
+    "planned (time)",
+    "planned (time)"
    ],
    "perfekt": [
-    "have planed (time)",
-    "have planed (time)",
-    "has planed (time)",
-    "have planed (time)",
-    "have planed (time)",
-    "have planed (time)"
+    "have planned (time)",
+    "have planned (time)",
+    "has planned (time)",
+    "have planned (time)",
+    "have planned (time)",
+    "have planned (time)"
    ]
   }
  },

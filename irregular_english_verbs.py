@@ -83,6 +83,9 @@ IRREGULAR_PAST = {
     'understand': ('understood', None),
     'win':        ('won', None),
     'write':      ('wrote', 'written'),
+    'withdraw':   ('withdrew', 'withdrawn'),
+    'ring':       ('rang', 'rung'),
+    'stink':      ('stank', 'stunk'),
 
     # Monosyllabic (or final-syllable-stressed) consonant doubling,
     # BrEng — 'stop' -> 'stopped', not the plain -ed rule's 'stoped'
@@ -91,6 +94,7 @@ IRREGULAR_PAST = {
     'jog':        ('jogged', None),
     'fit':        ('fitted', None),
     'transfer':   ('transferred', None),
+    'plan':       ('planned', None),
 
     # Explicit exceptions to the general vowel+l doubling rule below:
     # 'fail'/'prevail' end in a diphthong (ai) + l, which looks

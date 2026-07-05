@@ -37331,7 +37331,33 @@
       "praeteritum_stamm": "füllte",
       "partizip2": "ausgefüllt",
       "hilfsverb": "haben",
-      "trennbares_praefix": "aus"
+      "trennbares_praefix": "aus",
+      "english": {
+        "praesens_voll": [
+          "fill in/out",
+          "fill in/out",
+          "fills in/out",
+          "fill in/out",
+          "fill in/out",
+          "fill in/out"
+        ],
+        "praeteritum_voll": [
+          "filled in/out",
+          "filled in/out",
+          "filled in/out",
+          "filled in/out",
+          "filled in/out",
+          "filled in/out"
+        ],
+        "perfekt_voll": [
+          "have filled in/out",
+          "have filled in/out",
+          "has filled in/out",
+          "have filled in/out",
+          "have filled in/out",
+          "have filled in/out"
+        ]
+      }
     }
   },
   {
@@ -37448,7 +37474,33 @@
       "praeteritum_stamm": "zeichnete",
       "partizip2": "eingezeichnet",
       "hilfsverb": "haben",
-      "trennbares_praefix": "ein"
+      "trennbares_praefix": "ein",
+      "english": {
+        "praesens_voll": [
+          "mark",
+          "mark",
+          "marks",
+          "mark",
+          "mark",
+          "mark"
+        ],
+        "praeteritum_voll": [
+          "marked",
+          "marked",
+          "marked",
+          "marked",
+          "marked",
+          "marked"
+        ],
+        "perfekt_voll": [
+          "have marked",
+          "have marked",
+          "has marked",
+          "have marked",
+          "have marked",
+          "have marked"
+        ]
+      }
     }
   },
   {
