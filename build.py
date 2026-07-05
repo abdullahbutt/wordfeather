@@ -443,6 +443,7 @@ def detect_pos(w):
     if dl in _KNOWN_PRON: return 'pronoun'
     if dl in _KNOWN_CONJ and ' ' not in de: return 'conjunction'
     if dl.startswith('sich ') and dl.endswith('en'): return 'verb'
+    if w.get('conjugation'): return 'verb'  # authoritative — has principal parts, so it's a verb regardless of -eln/-ern suffix
     if _VERB_RE.match(dl): return 'verb'
     if ' ' in de and not re.match(r'^(der|die|das)\s+', de, re.I):
         if dl.split()[-1].endswith('en'): return 'phrase'
