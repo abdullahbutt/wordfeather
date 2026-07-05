@@ -127,7 +127,7 @@
     "de": "der Abflug",
     "en": "departure (flight)",
     "article": "m.",
-    "level": "B1",
+    "level": "A2",
     "example": "Mein Abflug nach Madrid ist um sieben Uhr morgens.",
     "example_en": "My departure to Madrid is at seven o'clock in the morning.",
     "register": "everyday"
@@ -1452,7 +1452,7 @@
     "de": "der Artikel, -",
     "en": "article",
     "article": "m.",
-    "level": "B1",
+    "level": "A2",
     "example": "Sie liest jeden Morgen einen Artikel in der Zeitung.",
     "example_en": "She reads an article in the newspaper every morning.",
     "register": "everyday"
@@ -1705,7 +1705,7 @@
     "de": "der Auftrag, -̈e",
     "en": "assignment",
     "article": "m.",
-    "level": "B1",
+    "level": "A2",
     "example": "Er hat den Auftrag pünktlich und sorgfältig erledigt.",
     "example_en": "He completed the assignment on time and carefully.",
     "register": "everyday"
@@ -3109,7 +3109,7 @@
     "de": "Bescheid geben",
     "en": "to inform",
     "article": "",
-    "level": "B2",
+    "level": "A2",
     "example": "Bitte gib mir Bescheid, wenn du angekommen bist.",
     "example_en": "Please let me know when you have arrived.",
     "collocations": [
@@ -5950,7 +5950,7 @@
     "de": "die Emotion, -en",
     "en": "emotion",
     "article": "f.",
-    "level": "B2",
+    "level": "A2",
     "example": "Sie drückt ihre Emotionen nur selten offen aus.",
     "example_en": "She rarely expresses her emotions openly.",
     "collocations": [
@@ -6335,7 +6335,7 @@
     "de": "der Erfolg, -e",
     "en": "success",
     "article": "m.",
-    "level": "B1",
+    "level": "A2",
     "example": "Harte Arbeit führt oft zum Erfolg.",
     "example_en": "Hard work often leads to success.",
     "register": "everyday"
@@ -7672,7 +7672,7 @@
     "de": "die Folge, -n",
     "en": "episode",
     "article": "f.",
-    "level": "B1",
+    "level": "A2",
     "example": "Diese Folge der Serie war besonders spannend.",
     "example_en": "This episode of the series was particularly exciting.",
     "register": "everyday"
@@ -8911,7 +8911,7 @@
     "de": "die Gesellschaft, -en",
     "en": "society",
     "article": "f.",
-    "level": "B1",
+    "level": "A2",
     "example": "Die moderne Gesellschaft steht vor großen sozialen Herausforderungen.",
     "example_en": "Modern society faces great social challenges.",
     "register": "everyday"
@@ -8920,24 +8920,10 @@
     "de": "das Gesetz, -e",
     "en": "law",
     "article": "n.",
-    "level": "B1",
+    "level": "A2",
     "example": "Dieses Gesetz schützt die Rechte aller Bürgerinnen und Bürger.",
     "example_en": "This law protects the rights of all citizens.",
     "register": "everyday"
-  },
-  {
-    "de": "das Gesetz, -e",
-    "en": "law",
-    "article": "n.",
-    "level": "B2",
-    "example": "Das neue Gesetz tritt am ersten Januar in Kraft.",
-    "example_en": "The new law comes into force on the first of January.",
-    "collocations": [
-      "ein Gesetz verabschieden",
-      "gegen ein Gesetz verstoßen",
-      "ein Gesetz in Kraft setzen"
-    ],
-    "register": "formal"
   },
   {
     "de": "die Gesetzgebung",
@@ -9238,7 +9224,7 @@
     "de": "die Grenze, -n",
     "en": "border",
     "article": "f.",
-    "level": "B1",
+    "level": "A2",
     "example": "An der Grenze mussten wir unsere Pässe vorzeigen.",
     "example_en": "At the border we had to show our passports.",
     "register": "everyday"
@@ -27265,7 +27251,7 @@
     "de": "die Entspannung",
     "en": "relaxation",
     "article": "f.",
-    "level": "B1",
+    "level": "A2",
     "example": "Yoga und Meditation sind gute Methoden zur Entspannung nach der Arbeit.",
     "example_en": "Yoga and meditation are good methods of relaxation after work.",
     "collocations": [
@@ -36903,7 +36889,7 @@
     "de": "sich bewerben",
     "en": "to apply (for a job)",
     "article": "",
-    "level": "B1",
+    "level": "A2",
     "example": "Sie bewirbt sich um die Stelle.",
     "example_en": "She applies for the position.",
     "register": "everyday",
@@ -36936,7 +36922,7 @@
     "de": "empfangen",
     "en": "to receive, to welcome",
     "article": "",
-    "level": "B1",
+    "level": "A2",
     "example": "Wir empfangen morgen Gäste.",
     "example_en": "We are receiving guests tomorrow.",
     "register": "everyday",
@@ -37003,7 +36989,7 @@
     "de": "gelten",
     "en": "to be valid, to apply",
     "article": "",
-    "level": "B1",
+    "level": "A2",
     "example": "Diese Regel gilt für alle.",
     "example_en": "This rule applies to everyone.",
     "register": "everyday",
@@ -37191,5 +37177,1725 @@
       "trennbares_praefix": "vor",
       "transitiv": true
     }
+  },
+  {
+    "de": "abheben",
+    "en": "to withdraw (money)",
+    "article": "",
+    "level": "A2",
+    "example": "Ich muss noch Geld vom Konto abheben.",
+    "example_en": "I still need to withdraw money from the account.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abheben",
+      "praeteritum_stamm": "hob",
+      "partizip2": "abgehoben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab"
+    }
+  },
+  {
+    "de": "ablehnen",
+    "en": "to reject, to decline",
+    "article": "",
+    "level": "A2",
+    "example": "Er hat das Angebot leider abgelehnt.",
+    "example_en": "He unfortunately declined the offer.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ablehnen",
+      "praeteritum_stamm": "lehnte",
+      "partizip2": "abgelehnt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab"
+    }
+  },
+  {
+    "de": "abmalen",
+    "en": "to copy (a drawing)",
+    "article": "",
+    "level": "A2",
+    "example": "Das Kind malt das Bild von der Tafel ab.",
+    "example_en": "The child copies the picture from the board.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abmalen",
+      "praeteritum_stamm": "malte",
+      "partizip2": "abgemalt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab"
+    }
+  },
+  {
+    "de": "der Abschluss, ⁠-e",
+    "en": "graduation, degree",
+    "article": "m.",
+    "level": "A2",
+    "example": "Nach dem Abschluss sucht sie eine Stelle.",
+    "example_en": "After graduation she is looking for a job."
+  },
+  {
+    "de": "die Ahnung, -en",
+    "en": "idea, clue",
+    "article": "f.",
+    "level": "A2",
+    "example": "Ich habe keine Ahnung, wo er ist.",
+    "example_en": "I have no idea where he is."
+  },
+  {
+    "de": "der Akzent, -e",
+    "en": "accent",
+    "article": "m.",
+    "level": "A2",
+    "example": "Sie spricht Deutsch mit einem leichten Akzent.",
+    "example_en": "She speaks German with a slight accent."
+  },
+  {
+    "de": "der Alkohol (Sg.)",
+    "en": "alcohol",
+    "article": "m.",
+    "level": "A2",
+    "example": "Er trinkt keinen Alkohol.",
+    "example_en": "He doesn't drink alcohol."
+  },
+  {
+    "de": "an ... vorbei (+ D.)",
+    "en": "past (something)",
+    "article": "",
+    "level": "A2",
+    "example": "Geh am Kaufhaus vorbei.",
+    "example_en": "Walk past the department store."
+  },
+  {
+    "de": "ändern",
+    "en": "to change, to alter",
+    "article": "",
+    "level": "A2",
+    "example": "Ich möchte meinen Termin ändern.",
+    "example_en": "I would like to change my appointment.",
+    "conjugation": {
+      "infinitiv": "ändern",
+      "praeteritum_stamm": "änderte",
+      "partizip2": "geändert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "der/die Angehörige, -n",
+    "en": "relative, family member",
+    "article": "m./f.",
+    "level": "A2",
+    "example": "Nur Angehörige dürfen das Zimmer betreten.",
+    "example_en": "Only relatives are allowed to enter the room."
+  },
+  {
+    "de": "der/die Angestellte, -n",
+    "en": "employee",
+    "article": "m./f.",
+    "level": "A2",
+    "example": "Sie ist Angestellte bei einer großen Firma.",
+    "example_en": "She is an employee at a large company."
+  },
+  {
+    "de": "anhören",
+    "en": "to listen to",
+    "article": "",
+    "level": "A2",
+    "example": "Hören Sie sich den Dialog an.",
+    "example_en": "Listen to the dialogue.",
+    "conjugation": {
+      "infinitiv": "anhören",
+      "praeteritum_stamm": "hörte",
+      "partizip2": "angehört",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an"
+    }
+  },
+  {
+    "de": "auf keinen Fall",
+    "en": "under no circumstances, no way",
+    "article": "",
+    "level": "A2",
+    "example": "Das mache ich auf keinen Fall.",
+    "example_en": "I will not do that under any circumstances."
+  },
+  {
+    "de": "ausfüllen",
+    "en": "to fill in/out",
+    "article": "",
+    "level": "A2",
+    "example": "Bitte füllen Sie das Formular aus.",
+    "example_en": "Please fill out the form.",
+    "conjugation": {
+      "infinitiv": "ausfüllen",
+      "praeteritum_stamm": "füllte",
+      "partizip2": "ausgefüllt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus"
+    }
+  },
+  {
+    "de": "ausländisch",
+    "en": "foreign",
+    "article": "",
+    "level": "A2",
+    "example": "Er hat viele ausländische Freunde.",
+    "example_en": "He has many foreign friends."
+  },
+  {
+    "de": "ausrichten",
+    "en": "to pass on (a message), to align",
+    "article": "",
+    "level": "A2",
+    "example": "Können Sie ihm etwas ausrichten?",
+    "example_en": "Can you pass on a message to him?",
+    "conjugation": {
+      "infinitiv": "ausrichten",
+      "praeteritum_stamm": "richtete",
+      "partizip2": "ausgerichtet",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus"
+    }
+  },
+  {
+    "de": "die Beamtin, -nen",
+    "en": "female official, civil servant",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Beamtin arbeitet im Bürgeramt.",
+    "example_en": "The official works at the citizens' office."
+  },
+  {
+    "de": "die Bedeutung, -en",
+    "en": "meaning",
+    "article": "f.",
+    "level": "A2",
+    "example": "Was ist die Bedeutung dieses Wortes?",
+    "example_en": "What is the meaning of this word?"
+  },
+  {
+    "de": "dafür",
+    "en": "for it, in favor of it",
+    "article": "",
+    "level": "A2",
+    "example": "Ich bin dafür, dass wir früher anfangen.",
+    "example_en": "I am in favor of starting earlier."
+  },
+  {
+    "de": "dass",
+    "en": "that (conjunction)",
+    "article": "",
+    "level": "A2",
+    "example": "Ich glaube, dass er recht hat.",
+    "example_en": "I believe that he is right."
+  },
+  {
+    "de": "dick",
+    "en": "thick, fat",
+    "article": "",
+    "level": "A2",
+    "example": "Das Buch ist sehr dick.",
+    "example_en": "The book is very thick."
+  },
+  {
+    "de": "dumm, dümmer, am dümmsten",
+    "en": "stupid",
+    "article": "",
+    "level": "A2",
+    "example": "Das war eine dumme Idee.",
+    "example_en": "That was a stupid idea."
+  },
+  {
+    "de": "effektiv",
+    "en": "effective",
+    "article": "",
+    "level": "A2",
+    "example": "Diese Methode ist sehr effektiv.",
+    "example_en": "This method is very effective."
+  },
+  {
+    "de": "einige",
+    "en": "some, several",
+    "article": "",
+    "level": "A2",
+    "example": "Ich habe einige Fragen dazu.",
+    "example_en": "I have some questions about that."
+  },
+  {
+    "de": "einplanen",
+    "en": "to schedule, to plan in",
+    "article": "",
+    "level": "A2",
+    "example": "Wir müssen mehr Zeit einplanen.",
+    "example_en": "We need to schedule in more time.",
+    "conjugation": {
+      "infinitiv": "einplanen",
+      "praeteritum_stamm": "plante",
+      "partizip2": "eingeplant",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein"
+    }
+  },
+  {
+    "de": "einzeichnen",
+    "en": "to mark (on a map/plan)",
+    "article": "",
+    "level": "A2",
+    "example": "Zeichnen Sie die Route auf der Karte ein.",
+    "example_en": "Mark the route on the map.",
+    "conjugation": {
+      "infinitiv": "einzeichnen",
+      "praeteritum_stamm": "zeichnete",
+      "partizip2": "eingezeichnet",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein"
+    }
+  },
+  {
+    "de": "der Enkel, -",
+    "en": "grandson",
+    "article": "m.",
+    "level": "A2",
+    "example": "Ihr Enkel besucht sie jedes Wochenende.",
+    "example_en": "Her grandson visits her every weekend."
+  },
+  {
+    "de": "die Enkelin, -nen",
+    "en": "granddaughter",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Enkelin lebt in einer anderen Stadt.",
+    "example_en": "The granddaughter lives in another city."
+  },
+  {
+    "de": "die Enttäuschung, -en",
+    "en": "disappointment",
+    "article": "f.",
+    "level": "A2",
+    "example": "Das Ergebnis war eine große Enttäuschung.",
+    "example_en": "The result was a big disappointment."
+  },
+  {
+    "de": "entwickeln",
+    "en": "to develop",
+    "article": "",
+    "level": "A2",
+    "example": "Die Firma entwickelt eine neue App.",
+    "example_en": "The company is developing a new app.",
+    "conjugation": {
+      "infinitiv": "entwickeln",
+      "praeteritum_stamm": "entwickelte",
+      "partizip2": "entwickelt",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "erforderlich",
+    "en": "required, necessary",
+    "article": "",
+    "level": "A2",
+    "example": "Ein Ausweis ist erforderlich.",
+    "example_en": "An ID is required."
+  },
+  {
+    "de": "das Fahrzeug, -e",
+    "en": "vehicle",
+    "article": "n.",
+    "level": "A2",
+    "example": "Das Fahrzeug ist neu.",
+    "example_en": "The vehicle is new."
+  },
+  {
+    "de": "das Feedback, -s",
+    "en": "feedback",
+    "article": "n.",
+    "level": "A2",
+    "example": "Danke für dein Feedback.",
+    "example_en": "Thanks for your feedback."
+  },
+  {
+    "de": "finanziell",
+    "en": "financial",
+    "article": "",
+    "level": "A2",
+    "example": "Sie hat finanzielle Probleme.",
+    "example_en": "She has financial problems."
+  },
+  {
+    "de": "die Fläche, -n",
+    "en": "area, surface",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Wohnung hat eine Fläche von 60 Quadratmetern.",
+    "example_en": "The apartment has an area of 60 square meters."
+  },
+  {
+    "de": "flexibel",
+    "en": "flexible",
+    "article": "",
+    "level": "A2",
+    "example": "Meine Arbeitszeiten sind flexibel.",
+    "example_en": "My working hours are flexible."
+  },
+  {
+    "de": "fließend",
+    "en": "fluent(ly)",
+    "article": "",
+    "level": "A2",
+    "example": "Sprechen Sie fließend Deutsch?",
+    "example_en": "Do you speak German fluently?"
+  },
+  {
+    "de": "die Fortsetzung, -en",
+    "en": "continuation, sequel",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Fortsetzung des Films kommt nächstes Jahr.",
+    "example_en": "The sequel to the film comes out next year."
+  },
+  {
+    "de": "die Freude, -n",
+    "en": "joy, pleasure",
+    "article": "f.",
+    "level": "A2",
+    "example": "Das Geschenk hat ihr große Freude gemacht.",
+    "example_en": "The gift gave her great joy."
+  },
+  {
+    "de": "funktionieren",
+    "en": "to function, to work",
+    "article": "",
+    "level": "A2",
+    "example": "Das Gerät funktioniert nicht mehr.",
+    "example_en": "The device no longer works.",
+    "conjugation": {
+      "infinitiv": "funktionieren",
+      "praeteritum_stamm": "funktionierte",
+      "partizip2": "funktioniert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "das Gebäck (Sg.)",
+    "en": "pastry, baked goods",
+    "article": "n.",
+    "level": "A2",
+    "example": "Zum Kaffee gibt es Gebäck.",
+    "example_en": "There is pastry with the coffee."
+  },
+  {
+    "de": "geboren",
+    "en": "born",
+    "article": "",
+    "level": "A2",
+    "example": "Ich bin 1998 geboren.",
+    "example_en": "I was born in 1998."
+  },
+  {
+    "de": "gelaunt",
+    "en": "-tempered, in a mood",
+    "article": "",
+    "level": "A2",
+    "example": "Ich bin heute gut gelaunt.",
+    "example_en": "I'm in a good mood today."
+  },
+  {
+    "de": "der Genitiv, -e",
+    "en": "genitive case",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Genitiv zeigt einen Besitz an.",
+    "example_en": "The genitive shows possession."
+  },
+  {
+    "de": "die Geografie (Sg. ohne Artikel)",
+    "en": "geography",
+    "article": "f.",
+    "level": "A2",
+    "example": "Geografie war ihr Lieblingsfach.",
+    "example_en": "Geography was her favorite subject."
+  },
+  {
+    "de": "die Grafik (2), -en",
+    "en": "graphic, diagram",
+    "article": "f.",
+    "level": "A2",
+    "example": "Sehen Sie sich die Grafik an.",
+    "example_en": "Look at the graphic."
+  },
+  {
+    "de": "gratulieren",
+    "en": "to congratulate",
+    "article": "",
+    "level": "A2",
+    "example": "Ich gratuliere dir zum Geburtstag.",
+    "example_en": "I congratulate you on your birthday.",
+    "conjugation": {
+      "infinitiv": "gratulieren",
+      "praeteritum_stamm": "gratulierte",
+      "partizip2": "gratuliert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "die Hälfte, -n",
+    "en": "half",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Hälfte der Gäste ist schon da.",
+    "example_en": "Half of the guests are already here."
+  },
+  {
+    "de": "die Hallig, -en",
+    "en": "small unprotected island (North Sea)",
+    "article": "f.",
+    "level": "A2",
+    "example": "Sie leben auf einer Hallig in der Nordsee.",
+    "example_en": "They live on a Hallig in the North Sea."
+  },
+  {
+    "de": "hart",
+    "en": "hard",
+    "article": "",
+    "level": "A2",
+    "example": "Das Brot ist ganz hart.",
+    "example_en": "The bread is quite hard."
+  },
+  {
+    "de": "die Hauptrolle, -n",
+    "en": "leading role",
+    "article": "f.",
+    "level": "A2",
+    "example": "Sie spielt die Hauptrolle im neuen Film.",
+    "example_en": "She plays the leading role in the new film."
+  },
+  {
+    "de": "hinten",
+    "en": "at the back, behind",
+    "article": "",
+    "level": "A2",
+    "example": "Die Kinder sitzen hinten im Auto.",
+    "example_en": "The children sit in the back of the car."
+  },
+  {
+    "de": "die Höhle, -n",
+    "en": "cave",
+    "article": "f.",
+    "level": "A2",
+    "example": "In der Höhle ist es dunkel und kalt.",
+    "example_en": "It's dark and cold in the cave."
+  },
+  {
+    "de": "in Ordnung",
+    "en": "okay, in order",
+    "article": "",
+    "level": "A2",
+    "example": "Rufen Sie morgen noch mal an. – Ja, in Ordnung.",
+    "example_en": "Call again tomorrow. – Yes, okay."
+  },
+  {
+    "de": "das Indie (Sg. ohne Artikel)",
+    "en": "indie (music/film genre)",
+    "article": "n.",
+    "level": "A2",
+    "example": "Er hört gerne Indie-Musik.",
+    "example_en": "He likes to listen to indie music."
+  },
+  {
+    "de": "die Informatik (Sg. ohne Artikel)",
+    "en": "computer science",
+    "article": "f.",
+    "level": "A2",
+    "example": "Sie studiert Informatik.",
+    "example_en": "She studies computer science."
+  },
+  {
+    "de": "inklusive (inkl.)",
+    "en": "including",
+    "article": "",
+    "level": "A2",
+    "example": "Der Preis ist inklusive Frühstück.",
+    "example_en": "The price includes breakfast."
+  },
+  {
+    "de": "sich interessieren (für + A.)",
+    "en": "to be interested (in)",
+    "article": "",
+    "level": "A2",
+    "example": "Er interessiert sich für Musik.",
+    "example_en": "He is interested in music.",
+    "conjugation": {
+      "infinitiv": "interessieren",
+      "praeteritum_stamm": "interessierte",
+      "partizip2": "interessiert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "jährlich",
+    "en": "annual, yearly",
+    "article": "",
+    "level": "A2",
+    "example": "Das Fest findet jährlich statt.",
+    "example_en": "The festival takes place annually."
+  },
+  {
+    "de": "der Katalog, -e",
+    "en": "catalog",
+    "article": "m.",
+    "level": "A2",
+    "example": "Sie bestellt Kleidung aus dem Katalog.",
+    "example_en": "She orders clothes from the catalog."
+  },
+  {
+    "de": "die Kategorie, -n",
+    "en": "category",
+    "article": "f.",
+    "level": "A2",
+    "example": "In welche Kategorie passt das?",
+    "example_en": "Which category does this fit into?"
+  },
+  {
+    "de": "das Kennzeichen, -",
+    "en": "license plate, mark",
+    "article": "n.",
+    "level": "A2",
+    "example": "Notieren Sie das Kennzeichen des Autos.",
+    "example_en": "Note down the car's license plate."
+  },
+  {
+    "de": "klingeln",
+    "en": "to ring (bell)",
+    "article": "",
+    "level": "A2",
+    "example": "Es klingelt an der Tür.",
+    "example_en": "The doorbell is ringing.",
+    "conjugation": {
+      "infinitiv": "klingeln",
+      "praeteritum_stamm": "klingelte",
+      "partizip2": "geklingelt",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "der Komparativ, -e",
+    "en": "comparative (grammar)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Komparativ von 'gut' ist 'besser'.",
+    "example_en": "The comparative of 'good' is 'better'."
+  },
+  {
+    "de": "komplett",
+    "en": "complete",
+    "article": "",
+    "level": "A2",
+    "example": "Die Bestellung ist komplett.",
+    "example_en": "The order is complete."
+  },
+  {
+    "de": "die Kondition (Sg.)",
+    "en": "fitness, condition",
+    "article": "f.",
+    "level": "A2",
+    "example": "Ich weiß nicht, ob ich für das Joggen genug Kondition habe.",
+    "example_en": "I don't know if I have enough fitness for jogging."
+  },
+  {
+    "de": "der König, -e",
+    "en": "king",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der König lebte in einem großen Schloss.",
+    "example_en": "The king lived in a large castle."
+  },
+  {
+    "de": "die Königin, -nen",
+    "en": "queen",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Königin besuchte die Stadt.",
+    "example_en": "The queen visited the city."
+  },
+  {
+    "de": "konjugiert",
+    "en": "conjugated",
+    "article": "",
+    "level": "A2",
+    "example": "Das konjugierte Verb steht ganz am Ende.",
+    "example_en": "The conjugated verb goes at the very end."
+  },
+  {
+    "de": "der Konjunktiv, -e",
+    "en": "subjunctive mood",
+    "article": "m.",
+    "level": "A2",
+    "example": "Den Konjunktiv II benutzt man für Wünsche.",
+    "example_en": "Subjunctive II is used for wishes."
+  },
+  {
+    "de": "die Konsequenz, -en",
+    "en": "consequence",
+    "article": "f.",
+    "level": "A2",
+    "example": "Das hat ernste Konsequenzen.",
+    "example_en": "This has serious consequences."
+  },
+  {
+    "de": "kopieren",
+    "en": "to copy",
+    "article": "",
+    "level": "A2",
+    "example": "Kannst du das Dokument kopieren?",
+    "example_en": "Can you copy the document?",
+    "conjugation": {
+      "infinitiv": "kopieren",
+      "praeteritum_stamm": "kopierte",
+      "partizip2": "kopiert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "kühl",
+    "en": "cool",
+    "article": "",
+    "level": "A2",
+    "example": "Heute Abend wird es kühl.",
+    "example_en": "It will be cool this evening."
+  },
+  {
+    "de": "lächeln",
+    "en": "to smile",
+    "article": "",
+    "level": "A2",
+    "example": "Sie lächelt immer freundlich.",
+    "example_en": "She always smiles in a friendly way.",
+    "conjugation": {
+      "infinitiv": "lächeln",
+      "praeteritum_stamm": "lächelte",
+      "partizip2": "gelächelt",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "der Lkw, -s",
+    "en": "truck (Lastkraftwagen)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Lkw transportiert Möbel.",
+    "example_en": "The truck transports furniture."
+  },
+  {
+    "de": "löschen",
+    "en": "to delete, to extinguish",
+    "article": "",
+    "level": "A2",
+    "example": "Ich lösche die Datei.",
+    "example_en": "I delete the file.",
+    "conjugation": {
+      "infinitiv": "löschen",
+      "praeteritum_stamm": "löschte",
+      "partizip2": "gelöscht",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "der Luxus (Sg.)",
+    "en": "luxury",
+    "article": "m.",
+    "level": "A2",
+    "example": "Das Hotel bietet viel Luxus.",
+    "example_en": "The hotel offers a lot of luxury."
+  },
+  {
+    "de": "die Mailbox, -en",
+    "en": "voicemail box",
+    "article": "f.",
+    "level": "A2",
+    "example": "Hinterlassen Sie eine Nachricht auf der Mailbox.",
+    "example_en": "Leave a message on the voicemail."
+  },
+  {
+    "de": "die Mama, -s",
+    "en": "mom",
+    "article": "f.",
+    "level": "A2",
+    "example": "Meine Mama kocht sehr gut.",
+    "example_en": "My mom cooks very well."
+  },
+  {
+    "de": "die Mathe (Sg. ohne Artikel)",
+    "en": "math (informal)",
+    "article": "f.",
+    "level": "A2",
+    "example": "Mathe ist mein Lieblingsfach.",
+    "example_en": "Math is my favorite subject."
+  },
+  {
+    "de": "die Mathematik (Sg. ohne Artikel)",
+    "en": "mathematics",
+    "article": "f.",
+    "level": "A2",
+    "example": "Er studiert Mathematik an der Universität.",
+    "example_en": "He studies mathematics at university."
+  },
+  {
+    "de": "die Maus (1), ⁠-e",
+    "en": "mouse (computer)",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Maus ist neben der Tastatur.",
+    "example_en": "The mouse is next to the keyboard."
+  },
+  {
+    "de": "mündlich",
+    "en": "oral, verbal",
+    "article": "",
+    "level": "A2",
+    "example": "Die mündliche Prüfung findet am Montag statt.",
+    "example_en": "The oral exam takes place on Monday."
+  },
+  {
+    "de": "der/die Nächste, -n",
+    "en": "the next one",
+    "article": "m./f.",
+    "level": "A2",
+    "example": "Wer ist der Nächste, bitte?",
+    "example_en": "Who is next, please?"
+  },
+  {
+    "de": "nass",
+    "en": "wet",
+    "article": "",
+    "level": "A2",
+    "example": "Meine Schuhe sind ganz nass.",
+    "example_en": "My shoes are completely wet."
+  },
+  {
+    "de": "der Nebel, -",
+    "en": "fog",
+    "article": "m.",
+    "level": "A2",
+    "example": "Heute Morgen war dichter Nebel.",
+    "example_en": "There was thick fog this morning."
+  },
+  {
+    "de": "die Nervosität (Sg.)",
+    "en": "nervousness",
+    "article": "f.",
+    "level": "A2",
+    "example": "Man konnte ihre Nervosität spüren.",
+    "example_en": "You could sense her nervousness."
+  },
+  {
+    "de": "niedrig",
+    "en": "low",
+    "article": "",
+    "level": "A2",
+    "example": "Die Preise sind hier ziemlich niedrig.",
+    "example_en": "The prices here are quite low."
+  },
+  {
+    "de": "notwendig",
+    "en": "necessary",
+    "article": "",
+    "level": "A2",
+    "example": "Das ist nicht unbedingt notwendig.",
+    "example_en": "That is not absolutely necessary."
+  },
+  {
+    "de": "nützlich",
+    "en": "useful",
+    "article": "",
+    "level": "A2",
+    "example": "Dieses Werkzeug ist sehr nützlich.",
+    "example_en": "This tool is very useful."
+  },
+  {
+    "de": "der Papa, -s",
+    "en": "dad",
+    "article": "m.",
+    "level": "A2",
+    "example": "Mein Papa arbeitet als Lehrer.",
+    "example_en": "My dad works as a teacher."
+  },
+  {
+    "de": "der PC, -s",
+    "en": "PC, computer",
+    "article": "m.",
+    "level": "A2",
+    "example": "Ich arbeite am PC.",
+    "example_en": "I work on the PC."
+  },
+  {
+    "de": "pensioniert",
+    "en": "retired",
+    "article": "",
+    "level": "A2",
+    "example": "Mein Opa ist schon pensioniert.",
+    "example_en": "My grandpa is already retired."
+  },
+  {
+    "de": "das Pferd, -e",
+    "en": "horse",
+    "article": "n.",
+    "level": "A2",
+    "example": "Sie reitet jedes Wochenende ein Pferd.",
+    "example_en": "She rides a horse every weekend."
+  },
+  {
+    "de": "der Pkw, -s",
+    "en": "car (Personenkraftwagen)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Pkw steht vor dem Haus.",
+    "example_en": "The car is parked in front of the house."
+  },
+  {
+    "de": "der Politiker, -",
+    "en": "politician (male)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Politiker hält eine Rede.",
+    "example_en": "The politician gives a speech."
+  },
+  {
+    "de": "die Politikerin, -nen",
+    "en": "politician (female)",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Politikerin besucht die Schule.",
+    "example_en": "The politician visits the school."
+  },
+  {
+    "de": "produzieren",
+    "en": "to produce",
+    "article": "",
+    "level": "A2",
+    "example": "Die Fabrik produziert Autos.",
+    "example_en": "The factory produces cars.",
+    "conjugation": {
+      "infinitiv": "produzieren",
+      "praeteritum_stamm": "produzierte",
+      "partizip2": "produziert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "der/die Prominente, -n",
+    "en": "celebrity",
+    "article": "m./f.",
+    "level": "A2",
+    "example": "Viele Prominente waren bei der Party.",
+    "example_en": "Many celebrities were at the party."
+  },
+  {
+    "de": "der Prospekt, -e",
+    "en": "brochure",
+    "article": "m.",
+    "level": "A2",
+    "example": "Nimm einen Prospekt vom Reisebüro mit.",
+    "example_en": "Take a brochure from the travel agency."
+  },
+  {
+    "de": "das Prozent, -e",
+    "en": "percent",
+    "article": "n.",
+    "level": "A2",
+    "example": "Er bekommt zehn Prozent Rabatt.",
+    "example_en": "He gets a ten percent discount."
+  },
+  {
+    "de": "prüfen",
+    "en": "to check, to test",
+    "article": "",
+    "level": "A2",
+    "example": "Die Lehrerin prüft die Hausaufgaben.",
+    "example_en": "The teacher checks the homework.",
+    "conjugation": {
+      "infinitiv": "prüfen",
+      "praeteritum_stamm": "prüfte",
+      "partizip2": "geprüft",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "der Prüfer, -",
+    "en": "examiner (male)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Prüfer stellt viele Fragen.",
+    "example_en": "The examiner asks many questions."
+  },
+  {
+    "de": "die Prüferin, -nen",
+    "en": "examiner (female)",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Prüferin war sehr freundlich.",
+    "example_en": "The examiner was very friendly."
+  },
+  {
+    "de": "der Quadratmeter, - (= qm / m²)",
+    "en": "square meter",
+    "article": "m.",
+    "level": "A2",
+    "example": "Die Wohnung hat 70 Quadratmeter.",
+    "example_en": "The apartment is 70 square meters."
+  },
+  {
+    "de": "das Quiz, -ze",
+    "en": "quiz",
+    "article": "n.",
+    "level": "A2",
+    "example": "Wir machen ein Quiz im Unterricht.",
+    "example_en": "We do a quiz in class."
+  },
+  {
+    "de": "das Radio, -s",
+    "en": "radio",
+    "article": "n.",
+    "level": "A2",
+    "example": "Sie hört gern Radio.",
+    "example_en": "She likes listening to the radio."
+  },
+  {
+    "de": "der Radweg, -e",
+    "en": "bike path",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Radweg führt am Fluss entlang.",
+    "example_en": "The bike path runs along the river."
+  },
+  {
+    "de": "die Ratte, -n",
+    "en": "rat",
+    "article": "f.",
+    "level": "A2",
+    "example": "Im Keller war eine Ratte.",
+    "example_en": "There was a rat in the basement."
+  },
+  {
+    "de": "die Realität, -en",
+    "en": "reality",
+    "article": "f.",
+    "level": "A2",
+    "example": "Das ist leider nicht die Realität.",
+    "example_en": "Unfortunately, that is not reality."
+  },
+  {
+    "de": "reduzieren",
+    "en": "to reduce",
+    "article": "",
+    "level": "A2",
+    "example": "Wir müssen die Kosten reduzieren.",
+    "example_en": "We need to reduce the costs.",
+    "conjugation": {
+      "infinitiv": "reduzieren",
+      "praeteritum_stamm": "reduzierte",
+      "partizip2": "reduziert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "sich registrieren (bei + D.)",
+    "en": "to register (with)",
+    "article": "",
+    "level": "A2",
+    "example": "Sie müssen sich online registrieren.",
+    "example_en": "You need to register online.",
+    "conjugation": {
+      "infinitiv": "registrieren",
+      "praeteritum_stamm": "registrierte",
+      "partizip2": "registriert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "das Relativpronomen, -",
+    "en": "relative pronoun",
+    "article": "n.",
+    "level": "A2",
+    "example": "'Der' ist hier ein Relativpronomen.",
+    "example_en": "'Der' is a relative pronoun here."
+  },
+  {
+    "de": "die Reparatur, -en",
+    "en": "repair",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Reparatur dauert zwei Tage.",
+    "example_en": "The repair takes two days."
+  },
+  {
+    "de": "reparieren",
+    "en": "to repair",
+    "article": "",
+    "level": "A2",
+    "example": "Kannst du mein Fahrrad reparieren?",
+    "example_en": "Can you repair my bike?",
+    "conjugation": {
+      "infinitiv": "reparieren",
+      "praeteritum_stamm": "reparierte",
+      "partizip2": "repariert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "riesig",
+    "en": "huge",
+    "article": "",
+    "level": "A2",
+    "example": "Das Haus ist riesig.",
+    "example_en": "The house is huge."
+  },
+  {
+    "de": "der Roller, -",
+    "en": "scooter",
+    "article": "m.",
+    "level": "A2",
+    "example": "Er fährt mit dem Roller zur Arbeit.",
+    "example_en": "He rides his scooter to work."
+  },
+  {
+    "de": "der Senior, -en",
+    "en": "senior citizen (male)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Senior geht jeden Tag spazieren.",
+    "example_en": "The senior citizen goes for a walk every day."
+  },
+  {
+    "de": "die Seniorin, -nen",
+    "en": "senior citizen (female)",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Seniorin liest gern Zeitung.",
+    "example_en": "The senior citizen likes to read the newspaper."
+  },
+  {
+    "de": "der Service, -s",
+    "en": "service",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Service im Hotel war ausgezeichnet.",
+    "example_en": "The service at the hotel was excellent."
+  },
+  {
+    "de": "das Smartphone, -s",
+    "en": "smartphone",
+    "article": "n.",
+    "level": "A2",
+    "example": "Ich benutze mein Smartphone jeden Tag.",
+    "example_en": "I use my smartphone every day."
+  },
+  {
+    "de": "die SMS, -",
+    "en": "text message",
+    "article": "f.",
+    "level": "A2",
+    "example": "Schick mir bitte eine SMS.",
+    "example_en": "Please send me a text message."
+  },
+  {
+    "de": "die Sofort-Überweisung, -en",
+    "en": "instant bank transfer",
+    "article": "f.",
+    "level": "A2",
+    "example": "Sie bezahlt per Sofort-Überweisung.",
+    "example_en": "She pays by instant bank transfer."
+  },
+  {
+    "de": "sogar",
+    "en": "even",
+    "article": "",
+    "level": "A2",
+    "example": "Er hat sogar am Sonntag gearbeitet.",
+    "example_en": "He even worked on Sunday."
+  },
+  {
+    "de": "sperren",
+    "en": "to block, to lock",
+    "article": "",
+    "level": "A2",
+    "example": "Sie muss ihre Geldkarte sperren.",
+    "example_en": "She has to block her bank card.",
+    "conjugation": {
+      "infinitiv": "sperren",
+      "praeteritum_stamm": "sperrte",
+      "partizip2": "gesperrt",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "spülen",
+    "en": "to wash (dishes), to rinse",
+    "article": "",
+    "level": "A2",
+    "example": "Ich muss noch das Geschirr spülen.",
+    "example_en": "I still need to wash the dishes.",
+    "conjugation": {
+      "infinitiv": "spülen",
+      "praeteritum_stamm": "spülte",
+      "partizip2": "gespült",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "das Standesamt, ⁠-er",
+    "en": "civil registry office",
+    "article": "n.",
+    "level": "A2",
+    "example": "Sie heiraten auf dem Standesamt.",
+    "example_en": "They are getting married at the civil registry office."
+  },
+  {
+    "de": "starten",
+    "en": "to start",
+    "article": "",
+    "level": "A2",
+    "example": "Das Projekt startet nächste Woche.",
+    "example_en": "The project starts next week.",
+    "conjugation": {
+      "infinitiv": "starten",
+      "praeteritum_stamm": "startete",
+      "partizip2": "gestartet",
+      "hilfsverb": "sein"
+    }
+  },
+  {
+    "de": "stinken",
+    "en": "to stink",
+    "article": "",
+    "level": "A2",
+    "example": "Der Müll stinkt schon.",
+    "example_en": "The garbage already stinks.",
+    "conjugation": {
+      "infinitiv": "stinken",
+      "praeteritum_stamm": "stank",
+      "partizip2": "gestunken",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "der Storch, ⁠-e",
+    "en": "stork",
+    "article": "m.",
+    "level": "A2",
+    "example": "Auf dem Dach sitzt ein Storch.",
+    "example_en": "There is a stork sitting on the roof."
+  },
+  {
+    "de": "sympathisch",
+    "en": "likeable",
+    "article": "",
+    "level": "A2",
+    "example": "Sie ist mir sehr sympathisch.",
+    "example_en": "I find her very likeable."
+  },
+  {
+    "de": "das Talent, -e",
+    "en": "talent",
+    "article": "n.",
+    "level": "A2",
+    "example": "Er hat viel Talent für Musik.",
+    "example_en": "He has a lot of talent for music."
+  },
+  {
+    "de": "die Tastatur, -en",
+    "en": "keyboard",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Maus liegt neben der Tastatur.",
+    "example_en": "The mouse is next to the keyboard."
+  },
+  {
+    "de": "die Tätigkeit, -en",
+    "en": "activity, occupation",
+    "article": "f.",
+    "level": "A2",
+    "example": "Beschreiben Sie Ihre Tätigkeit im Beruf.",
+    "example_en": "Describe your occupational activity."
+  },
+  {
+    "de": "der Thriller, -",
+    "en": "thriller",
+    "article": "m.",
+    "level": "A2",
+    "example": "Wir sehen uns heute einen Thriller an.",
+    "example_en": "We're watching a thriller tonight."
+  },
+  {
+    "de": "der Titel, -",
+    "en": "title",
+    "article": "m.",
+    "level": "A2",
+    "example": "Wie heißt der Titel des Buches?",
+    "example_en": "What is the title of the book?"
+  },
+  {
+    "de": "die Torte, -n",
+    "en": "cake, gateau",
+    "article": "f.",
+    "level": "A2",
+    "example": "Zum Geburtstag gibt es eine Torte.",
+    "example_en": "There's a cake for the birthday."
+  },
+  {
+    "de": "die Touristin, -nen",
+    "en": "tourist (female)",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Touristin fotografiert das Schloss.",
+    "example_en": "The tourist photographs the castle."
+  },
+  {
+    "de": "der Trailer, -",
+    "en": "trailer (film)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Hast du den Trailer schon gesehen?",
+    "example_en": "Have you already seen the trailer?"
+  },
+  {
+    "de": "der Trainer, -",
+    "en": "coach, trainer (male)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Trainer lobt die Mannschaft.",
+    "example_en": "The coach praises the team."
+  },
+  {
+    "de": "träumen (von + D.)",
+    "en": "to dream (of)",
+    "article": "",
+    "level": "A2",
+    "example": "Sie träumt von einer Weltreise.",
+    "example_en": "She dreams of traveling the world.",
+    "conjugation": {
+      "infinitiv": "träumen",
+      "praeteritum_stamm": "träumte",
+      "partizip2": "geträumt",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "der Trick, -s",
+    "en": "trick",
+    "article": "m.",
+    "level": "A2",
+    "example": "Er kennt einen guten Trick.",
+    "example_en": "He knows a good trick."
+  },
+  {
+    "de": "trotzdem",
+    "en": "nevertheless, still",
+    "article": "",
+    "level": "A2",
+    "example": "Es regnet, aber wir gehen trotzdem raus.",
+    "example_en": "It's raining, but we're going out anyway."
+  },
+  {
+    "de": "der TÜV (Sg.)",
+    "en": "German vehicle safety inspection",
+    "article": "m.",
+    "level": "A2",
+    "example": "Das Auto muss zum TÜV.",
+    "example_en": "The car needs to go for its safety inspection."
+  },
+  {
+    "de": "übrigens",
+    "en": "by the way",
+    "article": "",
+    "level": "A2",
+    "example": "Übrigens, hast du das schon gehört?",
+    "example_en": "By the way, have you heard about that?"
+  },
+  {
+    "de": "die Umgebung, -en",
+    "en": "surroundings, area",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Umgebung des Hotels ist sehr ruhig.",
+    "example_en": "The area around the hotel is very quiet."
+  },
+  {
+    "de": "unabhängig",
+    "en": "independent",
+    "article": "",
+    "level": "A2",
+    "example": "Sie möchte finanziell unabhängig sein.",
+    "example_en": "She wants to be financially independent."
+  },
+  {
+    "de": "unbedingt",
+    "en": "absolutely, definitely",
+    "article": "",
+    "level": "A2",
+    "example": "Das musst du unbedingt sehen.",
+    "example_en": "You absolutely have to see that."
+  },
+  {
+    "de": "unendlich",
+    "en": "endless, infinite",
+    "article": "",
+    "level": "A2",
+    "example": "Der Weg schien unendlich lang.",
+    "example_en": "The path seemed endlessly long."
+  },
+  {
+    "de": "unglaublich",
+    "en": "unbelievable",
+    "article": "",
+    "level": "A2",
+    "example": "Das ist ja unglaublich!",
+    "example_en": "That's unbelievable!"
+  },
+  {
+    "de": "unsympathisch",
+    "en": "unlikeable",
+    "article": "",
+    "level": "A2",
+    "example": "Er ist mir total unsympathisch.",
+    "example_en": "I find him completely unlikeable."
+  },
+  {
+    "de": "verändern",
+    "en": "to change, to alter",
+    "article": "",
+    "level": "A2",
+    "example": "Das Leben in der Stadt hat sich verändert.",
+    "example_en": "Life in the city has changed.",
+    "conjugation": {
+      "infinitiv": "verändern",
+      "praeteritum_stamm": "veränderte",
+      "partizip2": "verändert",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "die Vergangenheit (Sg.)",
+    "en": "the past",
+    "article": "f.",
+    "level": "A2",
+    "example": "Er spricht selten über die Vergangenheit.",
+    "example_en": "He rarely talks about the past."
+  },
+  {
+    "de": "sich verirren",
+    "en": "to get lost",
+    "article": "",
+    "level": "A2",
+    "example": "Wir haben uns im Wald verirrt.",
+    "example_en": "We got lost in the forest.",
+    "conjugation": {
+      "infinitiv": "verirren",
+      "praeteritum_stamm": "verirrte",
+      "partizip2": "verirrt",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "verletzen",
+    "en": "to injure, to hurt",
+    "article": "",
+    "level": "A2",
+    "example": "Er hat sich beim Sport verletzt.",
+    "example_en": "He got injured while playing sports.",
+    "conjugation": {
+      "infinitiv": "verletzen",
+      "praeteritum_stamm": "verletzte",
+      "partizip2": "verletzt",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "verplanen",
+    "en": "to plan (time), to schedule",
+    "article": "",
+    "level": "A2",
+    "example": "Die ganze Woche ist schon verplant.",
+    "example_en": "The whole week is already scheduled.",
+    "conjugation": {
+      "infinitiv": "verplanen",
+      "praeteritum_stamm": "verplante",
+      "partizip2": "verplant",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "verrückt",
+    "en": "crazy",
+    "article": "",
+    "level": "A2",
+    "example": "Das ist eine verrückte Idee.",
+    "example_en": "That's a crazy idea."
+  },
+  {
+    "de": "verschieben",
+    "en": "to postpone, to shift",
+    "article": "",
+    "level": "A2",
+    "example": "Wir müssen das Treffen verschieben.",
+    "example_en": "We need to postpone the meeting.",
+    "conjugation": {
+      "infinitiv": "verschieben",
+      "praeteritum_stamm": "verschob",
+      "partizip2": "verschoben",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "die Verzeihung (Sg.)",
+    "en": "pardon, forgiveness",
+    "article": "f.",
+    "level": "A2",
+    "example": "Verzeihung, wo finde ich den Bahnhof?",
+    "example_en": "Excuse me, where can I find the train station?"
+  },
+  {
+    "de": "verzichten (auf + A.)",
+    "en": "to do without, to forgo",
+    "article": "",
+    "level": "A2",
+    "example": "Sie verzichtet auf Fleisch.",
+    "example_en": "She does without meat.",
+    "conjugation": {
+      "infinitiv": "verzichten",
+      "praeteritum_stamm": "verzichtete",
+      "partizip2": "verzichtet",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "die Videokonferenz, -en",
+    "en": "video conference",
+    "article": "f.",
+    "level": "A2",
+    "example": "Wir haben morgen eine Videokonferenz.",
+    "example_en": "We have a video conference tomorrow."
+  },
+  {
+    "de": "virtuell",
+    "en": "virtual",
+    "article": "",
+    "level": "A2",
+    "example": "Die Ausstellung ist auch virtuell zu sehen.",
+    "example_en": "The exhibition can also be seen virtually."
+  },
+  {
+    "de": "der Vogel, ⁠-",
+    "en": "bird",
+    "article": "m.",
+    "level": "A2",
+    "example": "Ein Vogel sitzt auf dem Baum.",
+    "example_en": "A bird is sitting on the tree."
+  },
+  {
+    "de": "die Vorbereitung, -en",
+    "en": "preparation",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Vorbereitung für die Prüfung dauert lange.",
+    "example_en": "Preparing for the exam takes a long time."
+  },
+  {
+    "de": "die Vorlesung, -en",
+    "en": "lecture",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Vorlesung beginnt um neun Uhr.",
+    "example_en": "The lecture starts at nine o'clock."
+  },
+  {
+    "de": "vorwärts",
+    "en": "forward",
+    "article": "",
+    "level": "A2",
+    "example": "Geh einen Schritt vorwärts.",
+    "example_en": "Take one step forward."
+  },
+  {
+    "de": "die VR-Brille, -n",
+    "en": "VR headset",
+    "article": "f.",
+    "level": "A2",
+    "example": "Mit der VR-Brille fühlt man sich wie im Film.",
+    "example_en": "With the VR headset you feel like you're in the movie."
+  },
+  {
+    "de": "die Währung, -en",
+    "en": "currency",
+    "article": "f.",
+    "level": "A2",
+    "example": "Der Euro ist die Währung in Deutschland.",
+    "example_en": "The euro is the currency in Germany."
+  },
+  {
+    "de": "während",
+    "en": "during, while",
+    "article": "",
+    "level": "A2",
+    "example": "Während der Ferien fahren wir ans Meer.",
+    "example_en": "During the holidays we go to the sea."
+  },
+  {
+    "de": "das WC, -s",
+    "en": "toilet, restroom",
+    "article": "n.",
+    "level": "A2",
+    "example": "Wo ist bitte das WC?",
+    "example_en": "Where is the restroom, please?"
+  },
+  {
+    "de": "wild",
+    "en": "wild",
+    "article": "",
+    "level": "A2",
+    "example": "In dem Wald leben wilde Tiere.",
+    "example_en": "Wild animals live in that forest."
+  },
+  {
+    "de": "witzig",
+    "en": "funny",
+    "article": "",
+    "level": "A2",
+    "example": "Er erzählt immer witzige Geschichten.",
+    "example_en": "He always tells funny stories."
+  },
+  {
+    "de": "wofür",
+    "en": "what for",
+    "article": "",
+    "level": "A2",
+    "example": "Wofür entscheiden Sie sich?",
+    "example_en": "What do you decide on?"
+  },
+  {
+    "de": "das Wohnheim, -e",
+    "en": "dormitory, residence hall",
+    "article": "n.",
+    "level": "A2",
+    "example": "Sie wohnt im Studentenwohnheim.",
+    "example_en": "She lives in the student dormitory."
+  },
+  {
+    "de": "womit",
+    "en": "with what",
+    "article": "",
+    "level": "A2",
+    "example": "Womit kann ich dir helfen?",
+    "example_en": "What can I help you with?"
+  },
+  {
+    "de": "worauf",
+    "en": "on what, what ... for",
+    "article": "",
+    "level": "A2",
+    "example": "Worauf wartest du noch?",
+    "example_en": "What are you still waiting for?"
+  },
+  {
+    "de": "der Workshop, -s",
+    "en": "workshop",
+    "article": "m.",
+    "level": "A2",
+    "example": "Sie nimmt an einem Workshop teil.",
+    "example_en": "She takes part in a workshop."
+  },
+  {
+    "de": "worum",
+    "en": "about what",
+    "article": "",
+    "level": "A2",
+    "example": "Worum geht es im Text?",
+    "example_en": "What is the text about?"
+  },
+  {
+    "de": "wovon",
+    "en": "of what, from what",
+    "article": "",
+    "level": "A2",
+    "example": "Wovon handelt der Film?",
+    "example_en": "What is the film about?"
+  },
+  {
+    "de": "ziemlich",
+    "en": "quite, rather",
+    "article": "",
+    "level": "A2",
+    "example": "Das war ziemlich schwierig.",
+    "example_en": "That was quite difficult."
+  },
+  {
+    "de": "die Zigarette, -n",
+    "en": "cigarette",
+    "article": "f.",
+    "level": "A2",
+    "example": "Er raucht keine Zigaretten mehr.",
+    "example_en": "He no longer smokes cigarettes."
+  },
+  {
+    "de": "die Zitrone, -n",
+    "en": "lemon",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Zitrone schmeckt sauer.",
+    "example_en": "The lemon tastes sour."
+  },
+  {
+    "de": "zuhören",
+    "en": "to listen",
+    "article": "",
+    "level": "A2",
+    "example": "Bitte hör mir zu.",
+    "example_en": "Please listen to me.",
+    "conjugation": {
+      "infinitiv": "zuhören",
+      "praeteritum_stamm": "hörte",
+      "partizip2": "zugehört",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu"
+    }
+  },
+  {
+    "de": "der Zuhörer, -",
+    "en": "listener (male)",
+    "article": "m.",
+    "level": "A2",
+    "example": "Die Zuhörer applaudieren.",
+    "example_en": "The listeners applaud."
+  },
+  {
+    "de": "die Zuhörerin, -nen",
+    "en": "listener (female)",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Zuhörerin stellt eine Frage.",
+    "example_en": "The listener asks a question."
+  },
+  {
+    "de": "die Zukunft (Sg.)",
+    "en": "the future",
+    "article": "f.",
+    "level": "A2",
+    "example": "Was planst du für die Zukunft?",
+    "example_en": "What are you planning for the future?"
+  },
+  {
+    "de": "die Zulassung, -en",
+    "en": "registration, admission",
+    "article": "f.",
+    "level": "A2",
+    "example": "Die Zulassung des Autos dauert ein paar Tage.",
+    "example_en": "The car's registration takes a few days."
+  },
+  {
+    "de": "zuzüglich (zzgl.)",
+    "en": "plus, in addition to",
+    "article": "",
+    "level": "A2",
+    "example": "Der Preis ist zuzüglich Versandkosten.",
+    "example_en": "The price is plus shipping costs."
   }
 ]
