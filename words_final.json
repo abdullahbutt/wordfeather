@@ -6685,28 +6685,6 @@
     }
   },
   {
-    "de": "erörtern",
-    "en": "to discuss",
-    "article": "",
-    "level": "C2",
-    "example": "Die Experten erörtern die ethischen Folgen der künstlichen Intelligenz.",
-    "example_en": "The experts are discussing the ethical implications of artificial intelligence.",
-    "collocations": [
-      "ausführlich erörtern",
-      "eine Frage erörtern",
-      "kritisch beleuchten"
-    ],
-    "register": "formal",
-    "conjugation": {
-      "infinitiv": "erörtern",
-      "praeteritum_stamm": "erörterte",
-      "partizip2": "erörtert",
-      "hilfsverb": "haben",
-      "transitiv": true,
-      "governs": "accusative"
-    }
-  },
-  {
     "de": "erreichen",
     "en": "to reach",
     "article": "",
@@ -24978,23 +24956,6 @@
     }
   },
   {
-    "de": "wechseln",
-    "en": "to change",
-    "article": "",
-    "level": "A2",
-    "example": "Er wechselt nächsten Monat den Job und freut sich auf die neue Herausforderung.",
-    "example_en": "He is changing jobs next month and is looking forward to the new challenge.",
-    "register": "everyday",
-    "conjugation": {
-      "infinitiv": "wechseln",
-      "praeteritum_stamm": "wechselte",
-      "partizip2": "gewechselt",
-      "hilfsverb": "haben",
-      "transitiv": true,
-      "governs": "accusative"
-    }
-  },
-  {
     "de": "der Weg, -e",
     "en": "way, path",
     "article": "m.",
@@ -25019,48 +24980,6 @@
     "level": "A1",
     "example": "Mein Kopf tut weh.",
     "example_en": "My head hurts.",
-    "register": "everyday",
-    "conjugation": {
-      "infinitiv": "wehtun",
-      "praesens_voll": [
-        "tue",
-        "tust",
-        "tut",
-        "tun",
-        "tut",
-        "tun"
-      ],
-      "konj1_praesens_voll": [
-        "tue",
-        "tuest",
-        "tue",
-        "tun",
-        "tuet",
-        "tun"
-      ],
-      "partizip1_voll": "wehtuend",
-      "zu_infinitiv_voll": "wehzutun",
-      "praeteritum_stamm": "tat",
-      "partizip2": "wehgetan",
-      "hilfsverb": "haben",
-      "trennbares_praefix": "weh",
-      "konj2_stamm": "tät",
-      "imperativ_voll": {
-        "du": "Tu weh!",
-        "ihr": "Tut weh!",
-        "Sie": "Tun Sie weh!",
-        "wir": "Tun wir weh!"
-      },
-      "governs": "dative"
-    }
-  },
-  {
-    "de": "weh tun",
-    "en": "to hurt",
-    "article": "",
-    "level": "A2",
-    "example": "Mein Fuß tut seit dem Unfall sehr weh.",
-    "example_en": "My foot has been hurting a lot since the accident.",
     "register": "everyday",
     "conjugation": {
       "infinitiv": "wehtun",
