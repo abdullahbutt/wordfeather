@@ -440,7 +440,7 @@ def conjugate(principal_parts):
         }
 
     partizip1 = _partizip1(infinitiv, p.get('partizip1_voll'))
-    zu_infinitiv = _zu_infinitiv(infinitiv, reg_stem, prefix, reflexiv, is_eln_ern)
+    zu_infinitiv = p.get('zu_infinitiv_voll') or _zu_infinitiv(infinitiv, reg_stem, prefix, reflexiv, is_eln_ern)
 
     return {
         'infinitiv': infinitiv,

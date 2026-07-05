@@ -22154,7 +22154,32 @@
     "level": "A1",
     "example": "Was kann ich tun?",
     "example_en": "What can I do?",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "tun",
+      "praesens_voll": [
+        "tue",
+        "tust",
+        "tut",
+        "tun",
+        "tut",
+        "tun"
+      ],
+      "konj1_praesens_voll": [
+        "tue",
+        "tuest",
+        "tue",
+        "tun",
+        "tuet",
+        "tun"
+      ],
+      "partizip1_voll": "tuend",
+      "praeteritum_stamm": "tat",
+      "partizip2": "getan",
+      "hilfsverb": "haben",
+      "konj2_stamm": "tät",
+      "transitiv": true
+    }
   },
   {
     "de": "typisch",
@@ -24731,7 +24756,39 @@
     "level": "A1",
     "example": "Mein Kopf tut weh.",
     "example_en": "My head hurts.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wehtun",
+      "praesens_voll": [
+        "tue",
+        "tust",
+        "tut",
+        "tun",
+        "tut",
+        "tun"
+      ],
+      "konj1_praesens_voll": [
+        "tue",
+        "tuest",
+        "tue",
+        "tun",
+        "tuet",
+        "tun"
+      ],
+      "partizip1_voll": "wehtuend",
+      "zu_infinitiv_voll": "wehzutun",
+      "praeteritum_stamm": "tat",
+      "partizip2": "wehgetan",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "weh",
+      "konj2_stamm": "tät",
+      "imperativ_voll": {
+        "du": "Tu weh!",
+        "ihr": "Tut weh!",
+        "Sie": "Tun Sie weh!",
+        "wir": "Tun wir weh!"
+      }
+    }
   },
   {
     "de": "weh tun",
@@ -24740,7 +24797,39 @@
     "level": "A2",
     "example": "Mein Fuß tut seit dem Unfall sehr weh.",
     "example_en": "My foot has been hurting a lot since the accident.",
-    "register": "everyday"
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wehtun",
+      "praesens_voll": [
+        "tue",
+        "tust",
+        "tut",
+        "tun",
+        "tut",
+        "tun"
+      ],
+      "konj1_praesens_voll": [
+        "tue",
+        "tuest",
+        "tue",
+        "tun",
+        "tuet",
+        "tun"
+      ],
+      "partizip1_voll": "wehtuend",
+      "zu_infinitiv_voll": "wehzutun",
+      "praeteritum_stamm": "tat",
+      "partizip2": "wehgetan",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "weh",
+      "konj2_stamm": "tät",
+      "imperativ_voll": {
+        "du": "Tu weh!",
+        "ihr": "Tut weh!",
+        "Sie": "Tun Sie weh!",
+        "wir": "Tun wir weh!"
+      }
+    }
   },
   {
     "de": "die Wehmut",
@@ -36596,6 +36685,511 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "reflexiv": false
+    }
+  },
+  {
+    "de": "halten",
+    "en": "to hold, to stop",
+    "article": "",
+    "level": "A2",
+    "example": "Der Bus hält an der Haltestelle.",
+    "example_en": "The bus stops at the bus stop.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "halten",
+      "praesens_stamm": "hält",
+      "praeteritum_stamm": "hielt",
+      "partizip2": "gehalten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "lassen",
+    "en": "to let, to leave",
+    "article": "",
+    "level": "A2",
+    "example": "Ich lasse das Fenster offen.",
+    "example_en": "I leave the window open.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lassen",
+      "praesens_stamm": "läss",
+      "praeteritum_stamm": "ließ",
+      "partizip2": "gelassen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "rufen",
+    "en": "to call, to shout",
+    "article": "",
+    "level": "A2",
+    "example": "Die Mutter ruft ihre Kinder.",
+    "example_en": "The mother calls her children.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rufen",
+      "praeteritum_stamm": "rief",
+      "partizip2": "gerufen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "fallen",
+    "en": "to fall",
+    "article": "",
+    "level": "A2",
+    "example": "Das Blatt fällt vom Baum.",
+    "example_en": "The leaf falls from the tree.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fallen",
+      "praesens_stamm": "fäll",
+      "praeteritum_stamm": "fiel",
+      "partizip2": "gefallen",
+      "hilfsverb": "sein"
+    }
+  },
+  {
+    "de": "bitten",
+    "en": "to ask, to request",
+    "article": "",
+    "level": "A2",
+    "example": "Ich bitte dich um Hilfe.",
+    "example_en": "I ask you for help.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bitten",
+      "praeteritum_stamm": "bat",
+      "partizip2": "gebeten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "ziehen",
+    "en": "to pull, to move",
+    "article": "",
+    "level": "A2",
+    "example": "Der Hund zieht an der Leine.",
+    "example_en": "The dog pulls on the leash.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "gezogen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "werfen",
+    "en": "to throw",
+    "article": "",
+    "level": "A2",
+    "example": "Der Junge wirft den Ball.",
+    "example_en": "The boy throws the ball.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "werfen",
+      "praesens_stamm": "wirf",
+      "praeteritum_stamm": "warf",
+      "partizip2": "geworfen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "sterben",
+    "en": "to die",
+    "article": "",
+    "level": "A2",
+    "example": "Viele Tiere sterben durch Umweltverschmutzung.",
+    "example_en": "Many animals die due to pollution.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sterben",
+      "praesens_stamm": "stirb",
+      "praeteritum_stamm": "starb",
+      "partizip2": "gestorben",
+      "hilfsverb": "sein"
+    }
+  },
+  {
+    "de": "singen",
+    "en": "to sing",
+    "article": "",
+    "level": "A2",
+    "example": "Die Kinder singen ein Lied.",
+    "example_en": "The children sing a song.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "singen",
+      "praeteritum_stamm": "sang",
+      "partizip2": "gesungen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "sitzen",
+    "en": "to sit",
+    "article": "",
+    "level": "A2",
+    "example": "Die Katze sitzt auf dem Sofa.",
+    "example_en": "The cat sits on the sofa.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sitzen",
+      "praeteritum_stamm": "saß",
+      "partizip2": "gesessen",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "brechen",
+    "en": "to break",
+    "article": "",
+    "level": "A2",
+    "example": "Sie bricht das Brot in zwei Hälften.",
+    "example_en": "She breaks the bread into two halves.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "brechen",
+      "praesens_stamm": "brich",
+      "praeteritum_stamm": "brach",
+      "partizip2": "gebrochen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "bieten",
+    "en": "to offer",
+    "article": "",
+    "level": "A2",
+    "example": "Das Hotel bietet einen tollen Service.",
+    "example_en": "The hotel offers a great service.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bieten",
+      "praeteritum_stamm": "bot",
+      "partizip2": "geboten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "behalten",
+    "en": "to keep, to retain",
+    "article": "",
+    "level": "A2",
+    "example": "Ich behalte das Buch für eine Woche.",
+    "example_en": "I'll keep the book for a week.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "behalten",
+      "praesens_stamm": "behält",
+      "praeteritum_stamm": "behielt",
+      "partizip2": "behalten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "sich bewerben",
+    "en": "to apply (for a job)",
+    "article": "",
+    "level": "B1",
+    "example": "Sie bewirbt sich um die Stelle.",
+    "example_en": "She applies for the position.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bewerben",
+      "praesens_stamm": "bewirb",
+      "praeteritum_stamm": "bewarb",
+      "partizip2": "beworben",
+      "hilfsverb": "haben",
+      "reflexiv": true
+    }
+  },
+  {
+    "de": "besitzen",
+    "en": "to own, to possess",
+    "article": "",
+    "level": "B1",
+    "example": "Er besitzt ein großes Haus.",
+    "example_en": "He owns a big house.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "besitzen",
+      "praeteritum_stamm": "besaß",
+      "partizip2": "besessen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "empfangen",
+    "en": "to receive, to welcome",
+    "article": "",
+    "level": "B1",
+    "example": "Wir empfangen morgen Gäste.",
+    "example_en": "We are receiving guests tomorrow.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "empfangen",
+      "praesens_stamm": "empfäng",
+      "praeteritum_stamm": "empfing",
+      "partizip2": "empfangen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "entlassen",
+    "en": "to dismiss, to release",
+    "article": "",
+    "level": "B1",
+    "example": "Die Firma entlässt zehn Mitarbeiter.",
+    "example_en": "The company is dismissing ten employees.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "entlassen",
+      "praesens_stamm": "entläss",
+      "praeteritum_stamm": "entließ",
+      "partizip2": "entlassen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "erhalten",
+    "en": "to receive, to preserve",
+    "article": "",
+    "level": "A2",
+    "example": "Ich erhalte jeden Monat eine Rechnung.",
+    "example_en": "I receive a bill every month.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erhalten",
+      "praesens_stamm": "erhält",
+      "praeteritum_stamm": "erhielt",
+      "partizip2": "erhalten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "erkennen",
+    "en": "to recognize",
+    "article": "",
+    "level": "A2",
+    "example": "Ich erkenne dich kaum wieder.",
+    "example_en": "I hardly recognize you.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erkennen",
+      "praeteritum_stamm": "erkannte",
+      "partizip2": "erkannt",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "gelten",
+    "en": "to be valid, to apply",
+    "article": "",
+    "level": "B1",
+    "example": "Diese Regel gilt für alle.",
+    "example_en": "This rule applies to everyone.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gelten",
+      "praesens_stamm": "gilt",
+      "praeteritum_stamm": "galt",
+      "partizip2": "gegolten",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "genießen",
+    "en": "to enjoy",
+    "article": "",
+    "level": "A2",
+    "example": "Wir genießen den Urlaub.",
+    "example_en": "We enjoy the vacation.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "genießen",
+      "praeteritum_stamm": "genoss",
+      "partizip2": "genossen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "gewinnen",
+    "en": "to win",
+    "article": "",
+    "level": "A2",
+    "example": "Unsere Mannschaft gewinnt das Spiel.",
+    "example_en": "Our team wins the game.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gewinnen",
+      "praeteritum_stamm": "gewann",
+      "partizip2": "gewonnen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "gießen",
+    "en": "to pour, to water",
+    "article": "",
+    "level": "A2",
+    "example": "Ich gieße die Blumen jeden Tag.",
+    "example_en": "I water the flowers every day.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gießen",
+      "praeteritum_stamm": "goss",
+      "partizip2": "gegossen",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "hängen",
+    "en": "to hang, to be hanging",
+    "article": "",
+    "level": "A2",
+    "example": "Das Bild hängt an der Wand.",
+    "example_en": "The picture hangs on the wall.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hängen",
+      "praeteritum_stamm": "hing",
+      "partizip2": "gehangen",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "raten",
+    "en": "to guess, to advise",
+    "article": "",
+    "level": "A2",
+    "example": "Rate mal, wer heute kommt!",
+    "example_en": "Guess who's coming today!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "raten",
+      "praesens_stamm": "rät",
+      "praeteritum_stamm": "riet",
+      "partizip2": "geraten",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "reiten",
+    "en": "to ride (a horse)",
+    "article": "",
+    "level": "A2",
+    "example": "Sie reitet jeden Samstag auf dem Pferd.",
+    "example_en": "She rides the horse every Saturday.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "reiten",
+      "praeteritum_stamm": "ritt",
+      "partizip2": "geritten",
+      "hilfsverb": "sein"
+    }
+  },
+  {
+    "de": "riechen",
+    "en": "to smell",
+    "article": "",
+    "level": "A2",
+    "example": "Das Essen riecht sehr gut.",
+    "example_en": "The food smells very good.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "riechen",
+      "praeteritum_stamm": "roch",
+      "partizip2": "gerochen",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "teilnehmen",
+    "en": "to participate",
+    "article": "",
+    "level": "B1",
+    "example": "Ich nehme an dem Kurs teil.",
+    "example_en": "I am participating in the course.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "teilnehmen",
+      "praesens_stamm": "nimm",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "teilgenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "teil"
+    }
+  },
+  {
+    "de": "unterschreiben",
+    "en": "to sign",
+    "article": "",
+    "level": "A2",
+    "example": "Bitte unterschreiben Sie hier.",
+    "example_en": "Please sign here.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "unterschreiben",
+      "praeteritum_stamm": "unterschrieb",
+      "partizip2": "unterschrieben",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "verbinden",
+    "en": "to connect, to bandage",
+    "article": "",
+    "level": "B1",
+    "example": "Der Arzt verbindet die Wunde.",
+    "example_en": "The doctor bandages the wound.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verbinden",
+      "praeteritum_stamm": "verband",
+      "partizip2": "verbunden",
+      "hilfsverb": "haben",
+      "transitiv": true
+    }
+  },
+  {
+    "de": "vorschlagen",
+    "en": "to suggest, to propose",
+    "article": "",
+    "level": "B1",
+    "example": "Ich schlage vor, dass wir früher gehen.",
+    "example_en": "I suggest that we leave earlier.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorschlagen",
+      "praesens_stamm": "schläg",
+      "praeteritum_stamm": "schlug",
+      "partizip2": "vorgeschlagen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "transitiv": true
     }
   }
 ]

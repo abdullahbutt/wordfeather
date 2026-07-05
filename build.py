@@ -18,7 +18,7 @@ Author: Abdullah Butt
 
 import json, html as htmllib, re, sys, os
 from collections import defaultdict, Counter
-from conjugator import conjugate
+from conjugator import conjugate, _regular_stem
 from english_conjugator import build_english_table
 
 REPO    = os.path.dirname(os.path.abspath(__file__))
@@ -335,8 +335,10 @@ WORTSCHATZ_SEARCH_SCRIPT = """<script>
                 }
                 var blob = row.getAttribute('data-search') || '';
                 var pos = row.getAttribute('data-pos') || '';
+                var irregular = row.getAttribute('data-irregular') === 'true';
                 var matchesSearch = !q || blob.indexOf(q) > -1;
-                var matchesPOS = activePOS === 'ALL' || pos === activePOS;
+                var matchesPOS = activePOS === 'ALL' || pos === activePOS ||
+                                 (activePOS === 'irregular' && irregular);
                 var show = matchesSearch && matchesPOS;
                 row.style.display = show ? '' : 'none';
                 lastRowVisible = show;
@@ -405,6 +407,29 @@ _DETERMINER = {
     'lang(e)','nah(e)','welch-','alle','einige','viele','wenige',
     'mehrere','manche','solche',
 }
+
+def is_irregular_verb(pp):
+    """A verb is 'irregular' (unregelmäßig) for filtering purposes if it
+    is anything other than a pure weak conjugation — matching how German
+    textbooks (e.g. Netzwerk's 'Unregelmäßige Verben' appendix) define
+    the category: strong verbs (schwimmen->schwamm), mixed verbs
+    (bringen->brachte, irregular stem but weak-style endings), and
+    modal/suppletive verbs (können, sein) all count as irregular.
+    A regular weak verb's präteritum_stamm is always exactly
+    reg_stem + 'te' (or + 'ete' for epenthetic-e stems like arbeiten) —
+    anything else means the stem itself changed irregularly."""
+    if not pp:
+        return False
+    if pp.get('praesens_voll') or pp.get('praesens_stamm'):
+        return True  # ablaut or fully suppletive present tense
+    infinitiv = pp.get('infinitiv', '')
+    prefix = pp.get('trennbares_praefix')
+    reg_stem = _regular_stem(infinitiv, prefix)
+    praeteritum_stamm = pp.get('praeteritum_stamm', '')
+    if praeteritum_stamm in (reg_stem + 'te', reg_stem + 'ete'):
+        return False
+    return True
+
 
 def detect_pos(w):
     """Detect part of speech from de field and article field."""
@@ -480,6 +505,7 @@ def make_word_card(w):
         f'data-en="{htmllib.escape(en, quote=True)}" '
         f'data-level="{level}" '
         f'data-pos="{pos}" '
+        f'data-irregular="{"true" if (pos == "verb" and is_irregular_verb(conj)) else "false"}" '
         f'data-ex="{htmllib.escape(ex, quote=True)}">\n'
         f'    <div class="word-main">\n'
         f'        <div class="word-de-wrap">\n'
@@ -652,23 +678,6 @@ def build_dictionary(words):
         f'{total} exam-relevant words from A1',
         content_new
     )
-
-    # Inject / refresh POS filter buttons if not already present
-    if 'class="pos-filter"' not in content_new:
-        POS_BUTTONS = '''<div class="pos-filter mt-2">
-                        <button data-pos="ALL" class="active">All types</button>
-                        <button data-pos="noun">🔵 Nouns</button>
-                        <button data-pos="verb">🟢 Verbs</button>
-                        <button data-pos="adjective">🟠 Adjectives</button>
-                        <button data-pos="adverb">🟣 Adverbs</button>
-                        <button data-pos="phrase">⬜ Phrases</button>
-                    </div>'''
-        INSERT_AFTER = 'data-level="C2">C2</button>\n                    </div>'
-        content_new = content_new.replace(
-            INSERT_AFTER,
-            INSERT_AFTER + '\n                    ' + POS_BUTTONS,
-            1
-        )
 
     # Inject / refresh JSON-LD structured data
     jsonld_block = build_jsonld(words)
@@ -843,8 +852,9 @@ def build_wortschatz_page(level, level_words):
             search_blob = htmllib.escape(
                 f"{w['de']} {w['en']} {w.get('example','')} {w.get('example_en','')}".lower(),
                 quote=True)
+            is_irregular = pos == 'verb' and is_irregular_verb(w.get('conjugation'))
             sections += (
-                f'<tr data-pos="{pos}" data-search="{search_blob}">\n'
+                f'<tr data-pos="{pos}" data-irregular="{"true" if is_irregular else "false"}" data-search="{search_blob}">\n'
                 f'  <td class="fw-semibold de-word">{de}{conj_btn}</td>\n'
                 f'  <td class="text-muted">{en}</td>\n'
                 f'  <td><span class="ex-de d-block">{exd}</span>{exe_row}{col_html}</td>\n'
@@ -981,6 +991,7 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
                 <button type="button" data-pos="adjective">🟠 Adjektive</button>
                 <button type="button" data-pos="adverb">🟣 Adverbien</button>
                 <button type="button" data-pos="phrase">⬜ Wendungen</button>
+                <button type="button" data-pos="irregular">🔄 Unregelmäßige Verben</button>
             </div>
             <span class="badge bg-secondary" id="wsFilterCount">{count} Wörter</span>
         </div>

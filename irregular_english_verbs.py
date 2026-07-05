@@ -21,6 +21,7 @@ IRREGULAR_PAST = {
     # True irregulars (past != base+ed)
     'become':     ('became', 'become'),
     'begin':      ('began', 'begun'),
+    'break':      ('broke', 'broken'),
     'bring':      ('brought', None),
     'broadcast':  ('broadcast', None),
     'buy':        ('bought', None),
@@ -43,9 +44,14 @@ IRREGULAR_PAST = {
     'give':       ('gave', 'given'),
     'go':         ('went', 'gone'),
     'grow':       ('grew', 'grown'),
+    'hang':       ('hung', None),          # physical-object sense; 'hanged' is only for the execution sense
     'have':       ('had', None),
+    'hold':       ('held', None),
+    'hurt':       ('hurt', None),
+    'keep':       ('kept', None),
     'know':       ('knew', 'known'),
     'leave':      ('left', None),
+    'let':        ('let', None),
     'lie':        ('lay', 'lain'),          # liegen = to lie/be situated
     'lose':       ('lost', None),
     'make':       ('made', None),
@@ -55,12 +61,14 @@ IRREGULAR_PAST = {
     'pay':        ('paid', None),
     'put':        ('put', None),
     'read':       ('read', None),           # spelling unchanged, pronunciation differs
+    'ride':       ('rode', 'ridden'),
     'run':        ('ran', 'run'),
     'say':        ('said', None),
     'see':        ('saw', 'seen'),
     'sell':       ('sold', None),
     'send':       ('sent', None),
     'show':       ('showed', 'shown'),
+    'sing':       ('sang', 'sung'),
     'sit':        ('sat', None),
     'sleep':      ('slept', None),
     'speak':      ('spoke', 'spoken'),
@@ -71,7 +79,9 @@ IRREGULAR_PAST = {
     'teach':      ('taught', None),
     'tell':       ('told', None),
     'think':      ('thought', None),
+    'throw':      ('threw', 'thrown'),
     'understand': ('understood', None),
+    'win':        ('won', None),
     'write':      ('wrote', 'written'),
 
     # Monosyllabic (or final-syllable-stressed) consonant doubling,
