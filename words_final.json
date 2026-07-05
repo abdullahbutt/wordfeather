@@ -941,7 +941,8 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "an",
       "transitiv": true,
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "für + accusative (optional, e.g. \"sich für einen Kurs anmelden\")"
     }
   },
   {
@@ -1224,7 +1225,8 @@
       "infinitiv": "antworten",
       "praeteritum_stamm": "antwortete",
       "partizip2": "geantwortet",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "dative"
     }
   },
   {
@@ -3891,7 +3893,8 @@
       "partizip2": "gebracht",
       "hilfsverb": "haben",
       "konj2_stamm": "bracht",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -5335,7 +5338,8 @@
       "partizip2": "durchgesetzt",
       "hilfsverb": "haben",
       "trennbares_praefix": "durch",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "gegen + accusative (optional, \"sich gegen jmdn. durchsetzen\")"
     }
   },
   {
@@ -5988,7 +5992,8 @@
       "praeteritum_stamm": "empfahl",
       "partizip2": "empfohlen",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -6473,7 +6478,8 @@
       "praeteritum_stamm": "erlaubte",
       "partizip2": "erlaubt",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -6737,7 +6743,8 @@
       "praeteritum_stamm": "erzählte",
       "partizip2": "erzählt",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -7305,7 +7312,8 @@
       "infinitiv": "fehlen",
       "praeteritum_stamm": "fehlte",
       "partizip2": "gefehlt",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "dative"
     }
   },
   {
@@ -8077,7 +8085,8 @@
       "praeteritum_stamm": "fühlte",
       "partizip2": "gefühlt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "none (+ predicate adjective, e.g. \"sich wohl fühlen\")"
     }
   },
   {
@@ -8298,7 +8307,8 @@
       "praeteritum_stamm": "gab",
       "partizip2": "gegeben",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -8373,7 +8383,8 @@
       "praesens_stamm": "gefäll",
       "praeteritum_stamm": "gefiel",
       "partizip2": "gefallen",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "dative"
     }
   },
   {
@@ -9833,7 +9844,8 @@
       "praesens_stamm": "hilf",
       "praeteritum_stamm": "half",
       "partizip2": "geholfen",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "dative"
     }
   },
   {
@@ -13576,7 +13588,8 @@
           "have lent",
           "have lent"
         ]
-      }
+      },
+      "governs": "dative+accusative"
     }
   },
   {
@@ -14661,7 +14674,8 @@
       "partizip2": "mitgeteilt",
       "hilfsverb": "haben",
       "trennbares_praefix": "mit",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -16674,7 +16688,8 @@
       "infinitiv": "passen",
       "praeteritum_stamm": "passte",
       "partizip2": "gepasst",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "dative"
     }
   },
   {
@@ -18815,7 +18830,8 @@
       "praeteritum_stamm": "schenkte",
       "partizip2": "geschenkt",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -18831,7 +18847,8 @@
       "praeteritum_stamm": "schickte",
       "partizip2": "geschickt",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -19002,7 +19019,8 @@
       "infinitiv": "schmecken",
       "praeteritum_stamm": "schmeckte",
       "partizip2": "geschmeckt",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "dative"
     }
   },
   {
@@ -19601,7 +19619,8 @@
       "partizip2": "angemaßt",
       "hilfsverb": "haben",
       "trennbares_praefix": "an",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "accusative (with dative reflexive pronoun: \"sich (Dat.) etwas anmaßen\")"
     }
   },
   {
@@ -19632,7 +19651,8 @@
       "partizip2": "aufgeregt",
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "über + accusative"
     }
   },
   {
@@ -19654,7 +19674,8 @@
       "partizip2": "auseinandergesetzt",
       "hilfsverb": "haben",
       "trennbares_praefix": "auseinander",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "mit + dative"
     }
   },
   {
@@ -19671,7 +19692,8 @@
       "partizip2": "ausgeruht",
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "none"
     }
   },
   {
@@ -19687,7 +19709,8 @@
       "praeteritum_stamm": "bedankte",
       "partizip2": "bedankt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "bei + dative (person), für + accusative (reason)"
     }
   },
   {
@@ -19703,7 +19726,8 @@
       "praeteritum_stamm": "beeilte",
       "partizip2": "beeilt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "none"
     }
   },
   {
@@ -19720,7 +19744,8 @@
       "praeteritum_stamm": "benahm",
       "partizip2": "benommen",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "none"
     }
   },
   {
@@ -19736,7 +19761,8 @@
       "praeteritum_stamm": "beschwerte",
       "partizip2": "beschwert",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "über + accusative"
     }
   },
   {
@@ -19757,7 +19783,8 @@
       "praeteritum_stamm": "bewährte",
       "partizip2": "bewährt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "none"
     }
   },
   {
@@ -19801,7 +19828,8 @@
       "praeteritum_stamm": "entschied",
       "partizip2": "entschieden",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "für + accusative"
     }
   },
   {
@@ -19817,7 +19845,8 @@
       "praeteritum_stamm": "entschuldigte",
       "partizip2": "entschuldigt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "bei + dative (person), für + accusative (reason)"
     }
   },
   {
@@ -19838,7 +19867,8 @@
       "praeteritum_stamm": "erdreistete",
       "partizip2": "erdreistet",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "none (+ zu-infinitive)"
     }
   },
   {
@@ -19854,7 +19884,8 @@
       "praeteritum_stamm": "erholte",
       "partizip2": "erholt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "von + dative"
     }
   },
   {
@@ -19880,7 +19911,8 @@
       "partizip2": "gefreut",
       "hilfsverb": "haben",
       "transitiv": false,
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "über + accusative (already happened) / auf + accusative (future)"
     }
   },
   {
@@ -19905,7 +19937,8 @@
       "praeteritum_stamm": "gewöhnte",
       "partizip2": "gewöhnt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "an + accusative"
     }
   },
   {
@@ -19921,7 +19954,8 @@
       "praeteritum_stamm": "informierte",
       "partizip2": "informiert",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "über + accusative"
     }
   },
   {
@@ -19946,7 +19980,8 @@
       "praeteritum_stamm": "setzte",
       "partizip2": "gesetzt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "none"
     }
   },
   {
@@ -19971,7 +20006,8 @@
       "praeteritum_stamm": "stritt",
       "partizip2": "gestritten",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "mit + dative (person), über + accusative (topic)"
     }
   },
   {
@@ -19987,7 +20023,8 @@
       "praeteritum_stamm": "trennte",
       "partizip2": "getrennt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "von + dative"
     }
   },
   {
@@ -20004,7 +20041,8 @@
       "praeteritum_stamm": "unterhielt",
       "partizip2": "unterhalten",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "mit + dative (person), über + accusative (topic)"
     }
   },
   {
@@ -20020,7 +20058,8 @@
       "praeteritum_stamm": "verabschiedete",
       "partizip2": "verabschiedet",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "von + dative"
     }
   },
   {
@@ -20051,7 +20090,8 @@
       "praeteritum_stamm": "verhielt",
       "partizip2": "verhalten",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "none"
     }
   },
   {
@@ -20067,7 +20107,8 @@
       "praeteritum_stamm": "verliebte",
       "partizip2": "verliebt",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "in + accusative"
     }
   },
   {
@@ -20098,7 +20139,8 @@
       "partizip2": "vorgestellt",
       "hilfsverb": "haben",
       "trennbares_praefix": "vor",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "dative (introduce oneself to sb.) / accusative (imagine sth.)"
     }
   },
   {
@@ -23242,7 +23284,8 @@
       "praeteritum_stamm": "verbot",
       "partizip2": "verboten",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -23623,7 +23666,8 @@
       "praeteritum_stamm": "verkaufte",
       "partizip2": "verkauft",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -23901,7 +23945,8 @@
       "praeteritum_stamm": "versprach",
       "partizip2": "versprochen",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -25225,7 +25270,8 @@
       "praesens_stamm": "widersprich",
       "praeteritum_stamm": "widersprach",
       "partizip2": "widersprochen",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "dative"
     }
   },
   {
@@ -25663,7 +25709,8 @@
       "praeteritum_stamm": "wünschte",
       "partizip2": "gewünscht",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -25799,7 +25846,8 @@
       "praeteritum_stamm": "zeigte",
       "partizip2": "gezeigt",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -26387,7 +26435,8 @@
       "praeteritum_stamm": "stimmte",
       "partizip2": "zugestimmt",
       "hilfsverb": "haben",
-      "trennbares_praefix": "zu"
+      "trennbares_praefix": "zu",
+      "governs": "dative"
     }
   },
   {
@@ -36899,7 +36948,8 @@
       "praeteritum_stamm": "bewarb",
       "partizip2": "beworben",
       "hilfsverb": "haben",
-      "reflexiv": true
+      "reflexiv": true,
+      "governs": "um + accusative"
     }
   },
   {
@@ -37078,7 +37128,8 @@
       "praeteritum_stamm": "riet",
       "partizip2": "geraten",
       "hilfsverb": "haben",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative"
     }
   },
   {
@@ -37175,7 +37226,8 @@
       "partizip2": "vorgeschlagen",
       "hilfsverb": "haben",
       "trennbares_praefix": "vor",
-      "transitiv": true
+      "transitiv": true,
+      "governs": "dative+accusative"
     }
   },
   {
@@ -37686,7 +37738,8 @@
       "infinitiv": "gratulieren",
       "praeteritum_stamm": "gratulierte",
       "partizip2": "gratuliert",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "dative"
     }
   },
   {
@@ -37780,7 +37833,8 @@
       "infinitiv": "interessieren",
       "praeteritum_stamm": "interessierte",
       "partizip2": "interessiert",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "für + accusative"
     }
   },
   {
@@ -38260,7 +38314,8 @@
       "infinitiv": "registrieren",
       "praeteritum_stamm": "registrierte",
       "partizip2": "registriert",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "bei + dative"
     }
   },
   {
@@ -38528,7 +38583,8 @@
       "infinitiv": "träumen",
       "praeteritum_stamm": "träumte",
       "partizip2": "geträumt",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "von + dative"
     }
   },
   {
@@ -38644,7 +38700,8 @@
       "infinitiv": "verirren",
       "praeteritum_stamm": "verirrte",
       "partizip2": "verirrt",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "none"
     }
   },
   {
@@ -38716,7 +38773,8 @@
       "infinitiv": "verzichten",
       "praeteritum_stamm": "verzichtete",
       "partizip2": "verzichtet",
-      "hilfsverb": "haben"
+      "hilfsverb": "haben",
+      "governs": "auf + accusative"
     }
   },
   {
@@ -38907,7 +38965,8 @@
       "praeteritum_stamm": "hörte",
       "partizip2": "zugehört",
       "hilfsverb": "haben",
-      "trennbares_praefix": "zu"
+      "trennbares_praefix": "zu",
+      "governs": "dative"
     }
   },
   {

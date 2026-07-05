@@ -488,6 +488,8 @@ def make_word_card(w):
             parts.append(f'<strong>Präteritum:</strong> {htmllib.escape(conj["praeteritum"])}')
         if conj.get('perfekt'):
             parts.append(f'<strong>Perfekt:</strong> {htmllib.escape(conj["perfekt"])}')
+        if conj.get('governs'):
+            parts.append(f'<strong>+</strong> {htmllib.escape(conj["governs"])}')
         if parts:
             conj_html = (f'\n        <div class="word-conjugation">'
                          f'{" · ".join(parts)}</div>')
