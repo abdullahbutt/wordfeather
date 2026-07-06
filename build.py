@@ -336,9 +336,11 @@ WORTSCHATZ_SEARCH_SCRIPT = """<script>
                 var blob = row.getAttribute('data-search') || '';
                 var pos = row.getAttribute('data-pos') || '';
                 var irregular = row.getAttribute('data-irregular') === 'true';
+                var reflexive = row.getAttribute('data-reflexive') === 'true';
                 var matchesSearch = !q || blob.indexOf(q) > -1;
                 var matchesPOS = activePOS === 'ALL' || pos === activePOS ||
-                                 (activePOS === 'irregular' && irregular);
+                                 (activePOS === 'irregular' && irregular) ||
+                                 (activePOS === 'reflexive' && reflexive);
                 var show = matchesSearch && matchesPOS;
                 row.style.display = show ? '' : 'none';
                 lastRowVisible = show;
@@ -509,6 +511,7 @@ def make_word_card(w):
         f'data-level="{level}" '
         f'data-pos="{pos}" '
         f'data-irregular="{"true" if (pos == "verb" and is_irregular_verb(conj)) else "false"}" '
+        f'data-reflexive="{"true" if (pos == "verb" and bool(conj and conj.get("reflexiv"))) else "false"}" '
         f'data-ex="{htmllib.escape(ex, quote=True)}">\n'
         f'    <div class="word-main">\n'
         f'        <div class="word-de-wrap">\n'
@@ -856,8 +859,10 @@ def build_wortschatz_page(level, level_words):
                 f"{w['de']} {w['en']} {w.get('example','')} {w.get('example_en','')}".lower(),
                 quote=True)
             is_irregular = pos == 'verb' and is_irregular_verb(w.get('conjugation'))
+            is_reflexive = pos == 'verb' and bool(w.get('conjugation', {}).get('reflexiv'))
             sections += (
-                f'<tr data-pos="{pos}" data-irregular="{"true" if is_irregular else "false"}" data-search="{search_blob}">\n'
+                f'<tr data-pos="{pos}" data-irregular="{"true" if is_irregular else "false"}" '
+                f'data-reflexive="{"true" if is_reflexive else "false"}" data-search="{search_blob}">\n'
                 f'  <td class="fw-semibold de-word">{de}{conj_btn}</td>\n'
                 f'  <td class="text-muted">{en}</td>\n'
                 f'  <td><span class="ex-de d-block">{exd}</span>{exe_row}{col_html}</td>\n'
@@ -995,6 +1000,7 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
                 <button type="button" data-pos="adverb">🟣 Adverbien</button>
                 <button type="button" data-pos="phrase">⬜ Wendungen</button>
                 <button type="button" data-pos="irregular">🔄 Unregelmäßige Verben</button>
+                <button type="button" data-pos="reflexive">🔁 Reflexive Verben</button>
             </div>
             <span class="badge bg-secondary" id="wsFilterCount">{count} Wörter</span>
         </div>

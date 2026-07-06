@@ -1068,7 +1068,7 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "an",
       "transitiv": true,
-      "governs": "accusative"
+      "governs": "accusative (+ zu + dative, optional: \"jemanden zu etwas anregen\")"
     }
   },
   {
@@ -3332,7 +3332,7 @@
       "partizip2": "bestanden",
       "hilfsverb": "haben",
       "transitiv": true,
-      "governs": "accusative (eine Prüfung bestehen)"
+      "governs": "accusative (eine Prüfung bestehen) / aus + dative (to consist of)"
     }
   },
   {
@@ -12439,7 +12439,7 @@
       "praeteritum_stamm": "kam",
       "partizip2": "gekommen",
       "hilfsverb": "sein",
-      "governs": "none"
+      "governs": "none (to come) / auf + accusative (to think of, \"auf die Lösung kommen\") / zu + dative (to reach, \"zu einem Ergebnis kommen\")"
     }
   },
   {
@@ -14045,7 +14045,7 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "reflexiv": false,
-      "governs": "accusative"
+      "governs": "accusative (+ zu + dative, optional: \"etwas zu etwas machen\")"
     }
   },
   {
@@ -19982,7 +19982,7 @@
       "partizip2": "entschieden",
       "hilfsverb": "haben",
       "reflexiv": true,
-      "governs": "für + accusative"
+      "governs": "für/gegen + accusative"
     }
   },
   {
@@ -20931,7 +20931,7 @@
       "praeteritum_stamm": "stand",
       "partizip2": "gestanden",
       "hilfsverb": "haben",
-      "governs": "none"
+      "governs": "none (to stand) / für + accusative (to represent, \"das Symbol steht für...\")"
     }
   },
   {
@@ -23563,7 +23563,7 @@
       "partizip2": "verbracht",
       "hilfsverb": "haben",
       "transitiv": true,
-      "governs": "accusative"
+      "governs": "accusative (+ mit + dative, optional)"
     }
   },
   {
@@ -37319,7 +37319,7 @@
       "partizip2": "geraten",
       "hilfsverb": "haben",
       "transitiv": true,
-      "governs": "dative"
+      "governs": "dative (person) + zu + dative (recommendation, optional)"
     }
   },
   {
@@ -39230,5 +39230,3745 @@
     "level": "A2",
     "example": "Der Preis ist zuzüglich Versandkosten.",
     "example_en": "The price is plus shipping costs."
+  },
+  {
+    "de": "abfliegen",
+    "en": "to take off (plane), to depart by air",
+    "article": "",
+    "level": "B1",
+    "example": "Unser Flieger fliegt um sechs Uhr morgens ab.",
+    "example_en": "Our plane departs at six in the morning.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abfliegen",
+      "praeteritum_stamm": "flog",
+      "partizip2": "abgeflogen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "ab",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "abgeben",
+    "en": "to hand in, to submit",
+    "article": "",
+    "level": "B1",
+    "example": "Ich muss die Hausaufgaben morgen abgeben.",
+    "example_en": "I have to hand in the homework tomorrow.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abgeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "abgegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "governs": "accusative (+ dative, optional)"
+    }
+  },
+  {
+    "de": "abhängen",
+    "en": "to depend (on)",
+    "article": "",
+    "level": "B1",
+    "example": "Wie gut man in einer Stadt lebt, hängt von vielen Faktoren ab.",
+    "example_en": "How well one lives in a city depends on many factors.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abhängen",
+      "praeteritum_stamm": "hing",
+      "partizip2": "abgehangen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "governs": "von + dative"
+    }
+  },
+  {
+    "de": "abschließen",
+    "en": "to complete, to lock",
+    "article": "",
+    "level": "B1",
+    "example": "Sie hat ihr Studium erfolgreich abgeschlossen.",
+    "example_en": "She successfully completed her studies.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abschließen",
+      "praeteritum_stamm": "schloss",
+      "partizip2": "abgeschlossen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "abschreiben",
+    "en": "to copy (from), to write off",
+    "article": "",
+    "level": "B1",
+    "example": "Er hat die Antwort von seinem Nachbarn abgeschrieben.",
+    "example_en": "He copied the answer from his neighbor.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abschreiben",
+      "praeteritum_stamm": "schrieb",
+      "partizip2": "abgeschrieben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "governs": "accusative (von + dative, optional)"
+    }
+  },
+  {
+    "de": "abziehen",
+    "en": "to deduct, to withdraw",
+    "article": "",
+    "level": "B1",
+    "example": "Die Bank zieht die Gebühr automatisch ab.",
+    "example_en": "The bank automatically deducts the fee.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "abgezogen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "anbieten",
+    "en": "to offer",
+    "article": "",
+    "level": "B1",
+    "example": "Das Restaurant bietet auch vegetarisches Essen an.",
+    "example_en": "The restaurant also offers vegetarian food.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anbieten",
+      "praeteritum_stamm": "bot",
+      "partizip2": "angeboten",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "governs": "dative+accusative"
+    }
+  },
+  {
+    "de": "anfallen",
+    "en": "to accrue, to arise (of costs)",
+    "article": "",
+    "level": "B1",
+    "example": "Zusätzliche Kosten fallen erst später an.",
+    "example_en": "Additional costs only arise later.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "anfallen",
+      "praeteritum_stamm": "fiel",
+      "partizip2": "angefallen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "an",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "angeben",
+    "en": "to state, to indicate; to show off",
+    "article": "",
+    "level": "B1",
+    "example": "Bitte geben Sie Ihren Namen an.",
+    "example_en": "Please state your name.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "angeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "angegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "angehen",
+    "en": "to concern; to tackle",
+    "article": "",
+    "level": "B1",
+    "example": "Das Problem geht uns alle an.",
+    "example_en": "The problem concerns all of us.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "angehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "angegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "an",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "anhaben",
+    "en": "to be wearing",
+    "article": "",
+    "level": "B1",
+    "example": "Sie hat heute ein rotes Kleid an.",
+    "example_en": "She's wearing a red dress today.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anhaben",
+      "praeteritum_stamm": "hatte",
+      "partizip2": "angehabt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "ankommen",
+    "en": "to arrive",
+    "article": "",
+    "level": "B1",
+    "example": "Der Zug kommt um acht Uhr an.",
+    "example_en": "The train arrives at eight o'clock.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ankommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "angekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "an",
+      "governs": "none (auf + dative, idiomatic: \"es kommt darauf an\")"
+    }
+  },
+  {
+    "de": "anschließen",
+    "en": "to connect",
+    "article": "",
+    "level": "B1",
+    "example": "Schließen Sie das Kabel an den Computer an.",
+    "example_en": "Connect the cable to the computer.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anschließen",
+      "praeteritum_stamm": "schloss",
+      "partizip2": "angeschlossen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "governs": "accusative (an + accusative, optional)"
+    }
+  },
+  {
+    "de": "ansehen",
+    "en": "to look at, to watch",
+    "article": "",
+    "level": "B1",
+    "example": "Wir sehen uns heute Abend einen Film an.",
+    "example_en": "We're watching a film tonight.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ansehen",
+      "praeteritum_stamm": "sah",
+      "partizip2": "angesehen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "ansprechen",
+    "en": "to address, to approach (someone)",
+    "article": "",
+    "level": "B1",
+    "example": "Er hat mich auf der Straße angesprochen.",
+    "example_en": "He approached me on the street.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ansprechen",
+      "praeteritum_stamm": "sprach",
+      "partizip2": "angesprochen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "anziehen",
+    "en": "to put on (clothes), to attract",
+    "article": "",
+    "level": "B1",
+    "example": "Zieh deine Jacke an, es ist kalt.",
+    "example_en": "Put your jacket on, it's cold.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "angezogen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "auffallen",
+    "en": "to stand out, to be noticeable",
+    "article": "",
+    "level": "B1",
+    "example": "Mir ist aufgefallen, dass du müde aussiehst.",
+    "example_en": "I noticed that you look tired.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "auffallen",
+      "praeteritum_stamm": "fiel",
+      "partizip2": "aufgefallen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "auf",
+      "governs": "dative (optional, \"jemandem auffallen\")"
+    }
+  },
+  {
+    "de": "aufgeben",
+    "en": "to give up",
+    "article": "",
+    "level": "B1",
+    "example": "Gib nicht so schnell auf!",
+    "example_en": "Don't give up so quickly!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufgeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "aufgegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "aufhalten",
+    "en": "to hold up, to delay",
+    "article": "",
+    "level": "B1",
+    "example": "Der Stau hat uns eine Stunde aufgehalten.",
+    "example_en": "The traffic jam delayed us by an hour.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufhalten",
+      "praeteritum_stamm": "hielt",
+      "partizip2": "aufgehalten",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "aufheben",
+    "en": "to pick up, to keep, to cancel",
+    "article": "",
+    "level": "B1",
+    "example": "Kannst du den Stift aufheben?",
+    "example_en": "Can you pick up the pen?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufheben",
+      "praeteritum_stamm": "hob",
+      "partizip2": "aufgehoben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "aufladen",
+    "en": "to charge (battery), to load",
+    "article": "",
+    "level": "B1",
+    "example": "Ich muss mein Handy aufladen.",
+    "example_en": "I need to charge my phone.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufladen",
+      "praeteritum_stamm": "lud",
+      "partizip2": "aufgeladen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "aufnehmen",
+    "en": "to record, to admit, to take up",
+    "article": "",
+    "level": "B1",
+    "example": "Wir haben das Konzert aufgenommen.",
+    "example_en": "We recorded the concert.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufnehmen",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "aufgenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "aufstehen",
+    "en": "to get up, to stand up",
+    "article": "",
+    "level": "B1",
+    "example": "Ich stehe jeden Tag um sieben Uhr auf.",
+    "example_en": "I get up at seven every day.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufstehen",
+      "praeteritum_stamm": "stand",
+      "partizip2": "aufgestanden",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "auf",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "auftreten",
+    "en": "to appear, to occur, to perform",
+    "article": "",
+    "level": "B1",
+    "example": "Solche Probleme treten häufig auf.",
+    "example_en": "Such problems occur frequently.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "auftreten",
+      "praeteritum_stamm": "trat",
+      "partizip2": "aufgetreten",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "auf",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich ausdenken",
+    "en": "to think up, to invent",
+    "article": "",
+    "level": "B1",
+    "example": "Ich denke mir gerne fantasievolle Geschichten aus.",
+    "example_en": "I like to think up imaginative stories.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ausdenken",
+      "praeteritum_stamm": "dachte",
+      "partizip2": "ausgedacht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "reflexiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "ausfallen",
+    "en": "to be cancelled, to fail",
+    "article": "",
+    "level": "B1",
+    "example": "Der Unterricht fällt heute aus.",
+    "example_en": "Class is cancelled today.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ausfallen",
+      "praeteritum_stamm": "fiel",
+      "partizip2": "ausgefallen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "aus",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "ausgeben",
+    "en": "to spend (money)",
+    "article": "",
+    "level": "B1",
+    "example": "Wir haben viel Geld für den Urlaub ausgegeben.",
+    "example_en": "We spent a lot of money on the vacation.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ausgeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "ausgegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "ausgehen",
+    "en": "to go out; to run out; to assume",
+    "article": "",
+    "level": "B1",
+    "example": "Experten gehen davon aus, dass die Preise steigen.",
+    "example_en": "Experts assume that prices will rise.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ausgehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "ausgegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "aus",
+      "governs": "none (to go out) / von + dative (\"davon ausgehen, dass...\")"
+    }
+  },
+  {
+    "de": "aushalten",
+    "en": "to endure, to bear",
+    "article": "",
+    "level": "B1",
+    "example": "Ich kann diesen Lärm nicht mehr aushalten.",
+    "example_en": "I can't bear this noise anymore.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aushalten",
+      "praeteritum_stamm": "hielt",
+      "partizip2": "ausgehalten",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "aussprechen",
+    "en": "to pronounce, to express",
+    "article": "",
+    "level": "B1",
+    "example": "Wie spricht man dieses Wort aus?",
+    "example_en": "How do you pronounce this word?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aussprechen",
+      "praeteritum_stamm": "sprach",
+      "partizip2": "ausgesprochen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "austragen",
+    "en": "to deliver (newspapers), to carry out",
+    "article": "",
+    "level": "B1",
+    "example": "Er trägt jeden Morgen die Zeitung aus.",
+    "example_en": "He delivers the newspaper every morning.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "austragen",
+      "praeteritum_stamm": "trug",
+      "partizip2": "ausgetragen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "ausziehen",
+    "en": "to take off (clothes), to move out",
+    "article": "",
+    "level": "B1",
+    "example": "Zieh bitte deine Schuhe aus.",
+    "example_en": "Please take off your shoes.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ausziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "ausgezogen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "governs": "accusative (to take off) / none (to move out, uses sein)"
+    }
+  },
+  {
+    "de": "bedenken",
+    "en": "to consider, to bear in mind",
+    "article": "",
+    "level": "B1",
+    "example": "Das sollten wir bedenken, bevor wir entscheiden.",
+    "example_en": "We should bear that in mind before deciding.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bedenken",
+      "praeteritum_stamm": "bedachte",
+      "partizip2": "bedacht",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "sich befinden",
+    "en": "to be located",
+    "article": "",
+    "level": "B1",
+    "example": "Die Kaffeeküche befindet sich neben dem Eingang rechts.",
+    "example_en": "The kitchenette is located next to the entrance on the right.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "befinden",
+      "praeteritum_stamm": "befand",
+      "partizip2": "befunden",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "beißen",
+    "en": "to bite",
+    "article": "",
+    "level": "B1",
+    "example": "Der Hund hat mich gebissen.",
+    "example_en": "The dog bit me.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beißen",
+      "praeteritum_stamm": "biss",
+      "partizip2": "gebissen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "beitreten",
+    "en": "to join (a club/organization)",
+    "article": "",
+    "level": "B1",
+    "example": "Er ist letztes Jahr dem Verein beigetreten.",
+    "example_en": "He joined the club last year.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beitreten",
+      "praeteritum_stamm": "trat",
+      "partizip2": "beigetreten",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "bei",
+      "governs": "dative",
+      "english": {
+        "praesens_voll": [
+          "join",
+          "join",
+          "joins",
+          "join",
+          "join",
+          "join"
+        ],
+        "praeteritum_voll": [
+          "joined",
+          "joined",
+          "joined",
+          "joined",
+          "joined",
+          "joined"
+        ],
+        "perfekt_voll": [
+          "have joined",
+          "have joined",
+          "has joined",
+          "have joined",
+          "have joined",
+          "have joined"
+        ]
+      }
+    }
+  },
+  {
+    "de": "beschließen",
+    "en": "to decide, to resolve",
+    "article": "",
+    "level": "B1",
+    "example": "Wir haben beschlossen, umzuziehen.",
+    "example_en": "We decided to move.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beschließen",
+      "praeteritum_stamm": "beschloss",
+      "partizip2": "beschlossen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "besprechen",
+    "en": "to discuss",
+    "article": "",
+    "level": "B1",
+    "example": "Wir müssen den Plan noch besprechen.",
+    "example_en": "We still need to discuss the plan.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "besprechen",
+      "praeteritum_stamm": "besprach",
+      "partizip2": "besprochen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "betragen",
+    "en": "to amount to",
+    "article": "",
+    "level": "B1",
+    "example": "Die Kosten betragen insgesamt 200 Euro.",
+    "example_en": "The total cost amounts to 200 euros.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "betragen",
+      "praeteritum_stamm": "betrug",
+      "partizip2": "betragen",
+      "hilfsverb": "haben",
+      "governs": "accusative (amount)"
+    }
+  },
+  {
+    "de": "betreffen",
+    "en": "to concern, to affect",
+    "article": "",
+    "level": "B1",
+    "example": "Diese Regel betrifft alle Mitarbeiter.",
+    "example_en": "This rule concerns all employees.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "betreffen",
+      "praeteritum_stamm": "betraf",
+      "partizip2": "betroffen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "betrügen",
+    "en": "to cheat, to deceive",
+    "article": "",
+    "level": "B1",
+    "example": "Er hat seine Geschäftspartner betrogen.",
+    "example_en": "He cheated his business partners.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "betrügen",
+      "praeteritum_stamm": "betrog",
+      "partizip2": "betrogen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "beweisen",
+    "en": "to prove",
+    "article": "",
+    "level": "B1",
+    "example": "Kannst du das beweisen?",
+    "example_en": "Can you prove that?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beweisen",
+      "praeteritum_stamm": "bewies",
+      "partizip2": "bewiesen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "beziehen",
+    "en": "to receive (income); to refer to",
+    "article": "",
+    "level": "B1",
+    "example": "Worauf bezieht sich Ihre Frage?",
+    "example_en": "What does your question refer to?",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "beziehen",
+      "praeteritum_stamm": "bezog",
+      "partizip2": "bezogen",
+      "hilfsverb": "haben",
+      "governs": "accusative (auf + accusative, reflexive sense)"
+    }
+  },
+  {
+    "de": "brennen",
+    "en": "to burn",
+    "article": "",
+    "level": "B1",
+    "example": "Das Feuer brennt schon seit Stunden.",
+    "example_en": "The fire has been burning for hours.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "brennen",
+      "praeteritum_stamm": "brannte",
+      "partizip2": "gebrannt",
+      "hilfsverb": "haben",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "davongehen",
+    "en": "to walk away, to assume",
+    "article": "",
+    "level": "B1",
+    "example": "Sie ist einfach davongegangen.",
+    "example_en": "She simply walked away.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "davongehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "davongegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "davon",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "durchstreichen",
+    "en": "to cross out",
+    "article": "",
+    "level": "B1",
+    "example": "Er streicht die falsche Antwort durch.",
+    "example_en": "He crosses out the wrong answer.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "durchstreichen",
+      "praeteritum_stamm": "strich",
+      "partizip2": "durchgestrichen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "durch",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "einfallen",
+    "en": "to occur to (someone), to come to mind",
+    "article": "",
+    "level": "B1",
+    "example": "Mir fällt gerade der Name nicht ein.",
+    "example_en": "I can't think of the name right now.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einfallen",
+      "praeteritum_stamm": "fiel",
+      "partizip2": "eingefallen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "ein",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "eingehen",
+    "en": "to arrive (of mail); to respond to; to shrink",
+    "article": "",
+    "level": "B1",
+    "example": "In einer Diskussion sollte man auch auf die Standpunkte von anderen eingehen.",
+    "example_en": "In a discussion, you should also respond to others' points of view.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "eingehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "eingegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "ein",
+      "governs": "auf + dative"
+    }
+  },
+  {
+    "de": "einnehmen",
+    "en": "to take (medicine), to occupy, to earn",
+    "article": "",
+    "level": "B1",
+    "example": "Nehmen Sie die Tablette dreimal täglich ein.",
+    "example_en": "Take the tablet three times daily.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einnehmen",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "eingenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "eintragen",
+    "en": "to enter, to register (in a list)",
+    "article": "",
+    "level": "B1",
+    "example": "Bitte tragen Sie Ihren Namen in die Liste ein.",
+    "example_en": "Please enter your name on the list.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "eintragen",
+      "praeteritum_stamm": "trug",
+      "partizip2": "eingetragen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "einwerfen",
+    "en": "to post/mail (a letter), to throw in",
+    "article": "",
+    "level": "B1",
+    "example": "Kannst du den Brief einwerfen?",
+    "example_en": "Can you mail the letter?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einwerfen",
+      "praeteritum_stamm": "warf",
+      "partizip2": "eingeworfen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "governs": "accusative",
+      "english": {
+        "praesens_voll": [
+          "post",
+          "post",
+          "posts",
+          "post",
+          "post",
+          "post"
+        ],
+        "praeteritum_voll": [
+          "posted",
+          "posted",
+          "posted",
+          "posted",
+          "posted",
+          "posted"
+        ],
+        "perfekt_voll": [
+          "have posted",
+          "have posted",
+          "has posted",
+          "have posted",
+          "have posted",
+          "have posted"
+        ]
+      }
+    }
+  },
+  {
+    "de": "einziehen",
+    "en": "to move in",
+    "article": "",
+    "level": "B1",
+    "example": "Wir ziehen nächsten Monat in die neue Wohnung ein.",
+    "example_en": "We're moving into the new apartment next month.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "eingezogen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "ein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "empfinden",
+    "en": "to feel, to perceive",
+    "article": "",
+    "level": "B1",
+    "example": "Sie empfindet große Freude bei der Arbeit.",
+    "example_en": "She feels great joy in her work.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "empfinden",
+      "praeteritum_stamm": "empfand",
+      "partizip2": "empfunden",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "entfallen",
+    "en": "to be cancelled, to slip (one's mind)",
+    "article": "",
+    "level": "B1",
+    "example": "Der Termin ist leider entfallen.",
+    "example_en": "The appointment has unfortunately been cancelled.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "entfallen",
+      "praeteritum_stamm": "entfiel",
+      "partizip2": "entfallen",
+      "hilfsverb": "sein",
+      "governs": "dative (optional, \"der Name ist mir entfallen\")"
+    }
+  },
+  {
+    "de": "enthalten",
+    "en": "to contain",
+    "article": "",
+    "level": "B1",
+    "example": "Der Kuchen enthält viel Zucker.",
+    "example_en": "The cake contains a lot of sugar.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "enthalten",
+      "praeteritum_stamm": "enthielt",
+      "partizip2": "enthalten",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "sich entschließen",
+    "en": "to decide, to resolve",
+    "article": "",
+    "level": "B1",
+    "example": "Ich habe mich zu einem Urlaub auf der Alm entschlossen.",
+    "example_en": "I decided on a vacation in the mountains.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "entschließen",
+      "praeteritum_stamm": "entschloss",
+      "partizip2": "entschlossen",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "zu + dative"
+    }
+  },
+  {
+    "de": "entsprechen",
+    "en": "to correspond to, to match",
+    "article": "",
+    "level": "B1",
+    "example": "Das Ergebnis entspricht nicht unseren Erwartungen.",
+    "example_en": "The result doesn't match our expectations.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "entsprechen",
+      "praeteritum_stamm": "entsprach",
+      "partizip2": "entsprochen",
+      "hilfsverb": "haben",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "erfahren",
+    "en": "to find out, to learn (of)",
+    "article": "",
+    "level": "B1",
+    "example": "Ich habe erst gestern davon erfahren.",
+    "example_en": "I only found out about it yesterday.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erfahren",
+      "praeteritum_stamm": "erfuhr",
+      "partizip2": "erfahren",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "erfinden",
+    "en": "to invent",
+    "article": "",
+    "level": "B1",
+    "example": "Wer hat das Telefon erfunden?",
+    "example_en": "Who invented the telephone?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erfinden",
+      "praeteritum_stamm": "erfand",
+      "partizip2": "erfunden",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "ergreifen",
+    "en": "to seize, to grasp",
+    "article": "",
+    "level": "B1",
+    "example": "Sie ergriff die Chance sofort.",
+    "example_en": "She seized the opportunity immediately.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "ergreifen",
+      "praeteritum_stamm": "ergriff",
+      "partizip2": "ergriffen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "erraten",
+    "en": "to guess (correctly)",
+    "article": "",
+    "level": "B1",
+    "example": "Kannst du erraten, was ich denke?",
+    "example_en": "Can you guess what I'm thinking?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erraten",
+      "praeteritum_stamm": "erriet",
+      "partizip2": "erraten",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "erscheinen",
+    "en": "to appear, to be published",
+    "article": "",
+    "level": "B1",
+    "example": "Das Buch erscheint nächsten Monat.",
+    "example_en": "The book will be published next month.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erscheinen",
+      "praeteritum_stamm": "erschien",
+      "partizip2": "erschienen",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "erschießen",
+    "en": "to shoot dead",
+    "article": "",
+    "level": "B1",
+    "example": "Der Täter wurde von der Polizei erschossen.",
+    "example_en": "The perpetrator was shot dead by the police.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "erschießen",
+      "praeteritum_stamm": "erschoss",
+      "partizip2": "erschossen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "erschließen",
+    "en": "to develop, to open up (an area, resource)",
+    "article": "",
+    "level": "B1",
+    "example": "Die Stadt erschließt ein neues Baugebiet.",
+    "example_en": "The city is developing a new building area.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "erschließen",
+      "praeteritum_stamm": "erschloss",
+      "partizip2": "erschlossen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "fließen",
+    "en": "to flow",
+    "article": "",
+    "level": "B1",
+    "example": "Der Fluss fließt durch die ganze Stadt.",
+    "example_en": "The river flows through the whole city.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fließen",
+      "praeteritum_stamm": "floss",
+      "partizip2": "geflossen",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "freinehmen",
+    "en": "to take (time) off",
+    "article": "",
+    "level": "B1",
+    "example": "Ich nehme mir morgen frei.",
+    "example_en": "I'm taking tomorrow off.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "freinehmen",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "freigenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "frei",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "fressen",
+    "en": "to eat (of animals)",
+    "article": "",
+    "level": "B1",
+    "example": "Die Katze frisst nur zweimal am Tag.",
+    "example_en": "The cat only eats twice a day.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fressen",
+      "praeteritum_stamm": "fraß",
+      "partizip2": "gefressen",
+      "hilfsverb": "haben",
+      "governs": "accusative (optional)"
+    }
+  },
+  {
+    "de": "gelingen",
+    "en": "to succeed",
+    "article": "",
+    "level": "B1",
+    "example": "Es gelingt ihm immer, andere zu überzeugen.",
+    "example_en": "He always succeeds in convincing others.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "gelingen",
+      "praeteritum_stamm": "gelang",
+      "partizip2": "gelungen",
+      "hilfsverb": "sein",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "geraten",
+    "en": "to end up (in a situation), to turn out",
+    "article": "",
+    "level": "B1",
+    "example": "Er ist in Schwierigkeiten geraten.",
+    "example_en": "He ended up in trouble.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "geraten",
+      "praeteritum_stamm": "geriet",
+      "partizip2": "geraten",
+      "hilfsverb": "sein",
+      "governs": "in + accusative"
+    }
+  },
+  {
+    "de": "geschehen",
+    "en": "to happen",
+    "article": "",
+    "level": "B1",
+    "example": "Was ist hier geschehen?",
+    "example_en": "What happened here?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "geschehen",
+      "praeteritum_stamm": "geschah",
+      "partizip2": "geschehen",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "gutschreiben",
+    "en": "to credit (an account)",
+    "article": "",
+    "level": "B1",
+    "example": "Die Bank schreibt den Betrag Ihrem Konto gut.",
+    "example_en": "The bank credits the amount to your account.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "gutschreiben",
+      "praeteritum_stamm": "schrieb",
+      "partizip2": "gutgeschrieben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "gut",
+      "governs": "dative+accusative"
+    }
+  },
+  {
+    "de": "guttun",
+    "en": "to do (someone) good",
+    "article": "",
+    "level": "B1",
+    "example": "Der Urlaub hat mir richtig gutgetan.",
+    "example_en": "The vacation really did me good.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "guttun",
+      "praeteritum_stamm": "tat",
+      "partizip2": "gutgetan",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "gut",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "heimfahren",
+    "en": "to drive/go home",
+    "article": "",
+    "level": "B1",
+    "example": "Wir fahren spät heim.",
+    "example_en": "We're going home late.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "heimfahren",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "heimgefahren",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "heim",
+      "governs": "none",
+      "english": {
+        "praesens_voll": [
+          "drive home",
+          "drive home",
+          "drives home",
+          "drive home",
+          "drive home",
+          "drive home"
+        ],
+        "praeteritum_voll": [
+          "drove home",
+          "drove home",
+          "drove home",
+          "drove home",
+          "drove home",
+          "drove home"
+        ],
+        "perfekt_voll": [
+          "have driven home",
+          "have driven home",
+          "has driven home",
+          "have driven home",
+          "have driven home",
+          "have driven home"
+        ]
+      }
+    }
+  },
+  {
+    "de": "herankommen",
+    "en": "to come close, to get access (to)",
+    "article": "",
+    "level": "B1",
+    "example": "Wenn Sie nichts sehen, kommen Sie doch näher an das Bild heran.",
+    "example_en": "If you can't see anything, come closer to the picture.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "herankommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "herangekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "heran",
+      "governs": "an + accusative"
+    }
+  },
+  {
+    "de": "herumspringen",
+    "en": "to jump around",
+    "article": "",
+    "level": "B1",
+    "example": "Die Kinder springen im Garten herum.",
+    "example_en": "The children are jumping around in the garden.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "herumspringen",
+      "praeteritum_stamm": "sprang",
+      "partizip2": "herumgesprungen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "herum",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "herunterfahren",
+    "en": "to drive down; to shut down (computer)",
+    "article": "",
+    "level": "B1",
+    "example": "Bitte fahre den Computer richtig herunter.",
+    "example_en": "Please shut down the computer properly.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "herunterfahren",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "heruntergefahren",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "herunter",
+      "governs": "accusative (computer sense)"
+    }
+  },
+  {
+    "de": "herunterfallen",
+    "en": "to fall down",
+    "article": "",
+    "level": "B1",
+    "example": "Das Glas ist vom Tisch heruntergefallen.",
+    "example_en": "The glass fell off the table.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "herunterfallen",
+      "praeteritum_stamm": "fiel",
+      "partizip2": "heruntergefallen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "herunter",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "hervorheben",
+    "en": "to emphasize, to highlight",
+    "article": "",
+    "level": "B1",
+    "example": "Der Redner hebt die wichtigsten Punkte hervor.",
+    "example_en": "The speaker highlights the most important points.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "hervorheben",
+      "praeteritum_stamm": "hob",
+      "partizip2": "hervorgehoben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "hervor",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "hineingehen",
+    "en": "to go in(side)",
+    "article": "",
+    "level": "B1",
+    "example": "Er geht ohne zu klopfen einfach hinein.",
+    "example_en": "He just goes inside without knocking.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hineingehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "hineingegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "hinein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "hingehen",
+    "en": "to go there",
+    "article": "",
+    "level": "B1",
+    "example": "Wo gehst du hin?",
+    "example_en": "Where are you going?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hingehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "hingegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "hin",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "hinsehen",
+    "en": "to look (there/at it)",
+    "article": "",
+    "level": "B1",
+    "example": "Sieh mal genau hin!",
+    "example_en": "Take a close look!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hinsehen",
+      "praeteritum_stamm": "sah",
+      "partizip2": "hingesehen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "hin",
+      "governs": "none",
+      "english": {
+        "praesens_voll": [
+          "look",
+          "look",
+          "looks",
+          "look",
+          "look",
+          "look"
+        ],
+        "praeteritum_voll": [
+          "looked",
+          "looked",
+          "looked",
+          "looked",
+          "looked",
+          "looked"
+        ],
+        "perfekt_voll": [
+          "have looked",
+          "have looked",
+          "has looked",
+          "have looked",
+          "have looked",
+          "have looked"
+        ]
+      }
+    }
+  },
+  {
+    "de": "hinterlassen",
+    "en": "to leave behind",
+    "article": "",
+    "level": "B1",
+    "example": "Er hat mir eine Nachricht hinterlassen.",
+    "example_en": "He left me a message.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hinterlassen",
+      "praeteritum_stamm": "hinterließ",
+      "partizip2": "hinterlassen",
+      "hilfsverb": "haben",
+      "governs": "dative+accusative"
+    }
+  },
+  {
+    "de": "kaputtgehen",
+    "en": "to break, to stop working",
+    "article": "",
+    "level": "B1",
+    "example": "Mein Laptop ist letzte Woche kaputtgegangen.",
+    "example_en": "My laptop broke last week.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kaputtgehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "kaputtgegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "kaputt",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "klingen",
+    "en": "to sound (like)",
+    "article": "",
+    "level": "B1",
+    "example": "Das klingt gut!",
+    "example_en": "That sounds good!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "klingen",
+      "praeteritum_stamm": "klang",
+      "partizip2": "geklungen",
+      "hilfsverb": "haben",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "krankschreiben",
+    "en": "to certify (someone) as sick",
+    "article": "",
+    "level": "B1",
+    "example": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+    "example_en": "The doctor certified me sick for a week.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "krankschreiben",
+      "praeteritum_stamm": "schrieb",
+      "partizip2": "krankgeschrieben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "krank",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "laden",
+    "en": "to load, to charge",
+    "article": "",
+    "level": "B1",
+    "example": "Ich lade gerade die Fotos auf den Computer.",
+    "example_en": "I'm loading the photos onto the computer.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "laden",
+      "praeteritum_stamm": "lud",
+      "partizip2": "geladen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "leidtun",
+    "en": "to be sorry",
+    "article": "",
+    "level": "B1",
+    "example": "Das tut mir leid.",
+    "example_en": "I'm sorry about that.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "leidtun",
+      "praeteritum_stamm": "tat",
+      "partizip2": "leidgetan",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "leid",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "leiden",
+    "en": "to suffer",
+    "article": "",
+    "level": "B1",
+    "example": "Meine Oma leidet an Alzheimer.",
+    "example_en": "My grandma suffers from Alzheimer's.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "leiden",
+      "praeteritum_stamm": "litt",
+      "partizip2": "gelitten",
+      "hilfsverb": "haben",
+      "governs": "an + dative"
+    }
+  },
+  {
+    "de": "lügen",
+    "en": "to lie (tell an untruth)",
+    "article": "",
+    "level": "B1",
+    "example": "Er lügt nie.",
+    "example_en": "He never lies.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lügen",
+      "praeteritum_stamm": "log",
+      "partizip2": "gelogen",
+      "hilfsverb": "haben",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "messen",
+    "en": "to measure",
+    "article": "",
+    "level": "B1",
+    "example": "Der Arzt misst den Blutdruck.",
+    "example_en": "The doctor measures the blood pressure.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "messen",
+      "praeteritum_stamm": "maß",
+      "partizip2": "gemessen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "mitbringen",
+    "en": "to bring along",
+    "article": "",
+    "level": "B1",
+    "example": "Kann ich einen Freund mitbringen?",
+    "example_en": "Can I bring a friend along?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "mitbringen",
+      "praeteritum_stamm": "brachte",
+      "partizip2": "mitgebracht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "mit",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "mitkommen",
+    "en": "to come along",
+    "article": "",
+    "level": "B1",
+    "example": "Kommst du mit ins Kino?",
+    "example_en": "Are you coming along to the cinema?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "mitkommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "mitgekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "mit",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "mitnehmen",
+    "en": "to take along",
+    "article": "",
+    "level": "B1",
+    "example": "Nimmst du den Regenschirm mit?",
+    "example_en": "Are you taking the umbrella along?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "mitnehmen",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "mitgenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "mit",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "mitsingen",
+    "en": "to sing along",
+    "article": "",
+    "level": "B1",
+    "example": "Alle singen beim Konzert mit.",
+    "example_en": "Everyone sings along at the concert.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "mitsingen",
+      "praeteritum_stamm": "sang",
+      "partizip2": "mitgesungen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "mit",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "nachgeben",
+    "en": "to give in",
+    "article": "",
+    "level": "B1",
+    "example": "Sie gibt niemals nach.",
+    "example_en": "She never gives in.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "nachgeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "nachgegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "nach",
+      "governs": "dative (optional)"
+    }
+  },
+  {
+    "de": "nachsehen",
+    "en": "to check, to look up",
+    "article": "",
+    "level": "B1",
+    "example": "Ich sehe kurz im Kalender nach.",
+    "example_en": "I'll quickly check the calendar.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "nachsehen",
+      "praeteritum_stamm": "sah",
+      "partizip2": "nachgesehen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "nach",
+      "governs": "accusative (optional)"
+    }
+  },
+  {
+    "de": "nachsprechen",
+    "en": "to repeat (after someone)",
+    "article": "",
+    "level": "B1",
+    "example": "Sprechen Sie den Satz bitte nach.",
+    "example_en": "Please repeat the sentence.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "nachsprechen",
+      "praeteritum_stamm": "sprach",
+      "partizip2": "nachgesprochen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "nach",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "rauffahren",
+    "en": "to drive up",
+    "article": "",
+    "level": "B1",
+    "example": "Wir fahren mit dem Auto rauf zur Hütte.",
+    "example_en": "We're driving up to the cabin.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rauffahren",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "raufgefahren",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "rauf",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "rennen",
+    "en": "to run, to race",
+    "article": "",
+    "level": "B1",
+    "example": "Er rennt jeden Morgen zum Bus.",
+    "example_en": "He runs to the bus every morning.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rennen",
+      "praeteritum_stamm": "rannte",
+      "partizip2": "gerannt",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "rumfahren",
+    "en": "to drive around",
+    "article": "",
+    "level": "B1",
+    "example": "Wir sind einfach in der Stadt rumgefahren.",
+    "example_en": "We just drove around the city.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rumfahren",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "rumgefahren",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "rum",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "rumliegen",
+    "en": "to lie around",
+    "article": "",
+    "level": "B1",
+    "example": "Die Kleider liegen überall rum.",
+    "example_en": "The clothes are lying around everywhere.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rumliegen",
+      "praeteritum_stamm": "lag",
+      "partizip2": "rumgelegen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "rum",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "runterladen",
+    "en": "to download (informal)",
+    "article": "",
+    "level": "B1",
+    "example": "Ich lade mir die App runter.",
+    "example_en": "I'm downloading the app.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "runterladen",
+      "praeteritum_stamm": "lud",
+      "partizip2": "runtergeladen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "runter",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "scheinen",
+    "en": "to shine; to seem",
+    "article": "",
+    "level": "B1",
+    "example": "Die Sonne scheint heute den ganzen Tag.",
+    "example_en": "The sun is shining all day today.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "scheinen",
+      "praeteritum_stamm": "schien",
+      "partizip2": "geschienen",
+      "hilfsverb": "haben",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "schiefgehen",
+    "en": "to go wrong",
+    "article": "",
+    "level": "B1",
+    "example": "Bei der Präsentation ist alles schiefgegangen.",
+    "example_en": "Everything went wrong during the presentation.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schiefgehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "schiefgegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "schief",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "schießen",
+    "en": "to shoot",
+    "article": "",
+    "level": "B1",
+    "example": "Er hat auf das Tor geschossen.",
+    "example_en": "He shot at the goal.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schießen",
+      "praeteritum_stamm": "schoss",
+      "partizip2": "geschossen",
+      "hilfsverb": "haben",
+      "governs": "accusative (auf + accusative, optional)"
+    }
+  },
+  {
+    "de": "schreien",
+    "en": "to shout, to scream",
+    "article": "",
+    "level": "B1",
+    "example": "Das Baby schreit die ganze Nacht.",
+    "example_en": "The baby screams all night.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schreien",
+      "praeteritum_stamm": "schrie",
+      "partizip2": "geschrien",
+      "hilfsverb": "haben",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "schweigen",
+    "en": "to remain silent",
+    "article": "",
+    "level": "B1",
+    "example": "Er schweigt zu diesem Thema.",
+    "example_en": "He remains silent on this topic.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "schweigen",
+      "praeteritum_stamm": "schwieg",
+      "partizip2": "geschwiegen",
+      "hilfsverb": "haben",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sinken",
+    "en": "to sink, to decrease",
+    "article": "",
+    "level": "B1",
+    "example": "Die Preise sinken jedes Jahr.",
+    "example_en": "Prices decrease every year.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sinken",
+      "praeteritum_stamm": "sank",
+      "partizip2": "gesunken",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "springen",
+    "en": "to jump",
+    "article": "",
+    "level": "B1",
+    "example": "Die Kinder springen ins Wasser.",
+    "example_en": "The children jump into the water.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "springen",
+      "praeteritum_stamm": "sprang",
+      "partizip2": "gesprungen",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "stattfinden",
+    "en": "to take place",
+    "article": "",
+    "level": "B1",
+    "example": "Die Party findet am Samstag statt.",
+    "example_en": "The party takes place on Saturday.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "stattfinden",
+      "praeteritum_stamm": "fand",
+      "partizip2": "stattgefunden",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "statt",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "stehlen",
+    "en": "to steal",
+    "article": "",
+    "level": "B1",
+    "example": "Jemand hat mein Fahrrad gestohlen.",
+    "example_en": "Someone stole my bike.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "stehlen",
+      "praeteritum_stamm": "stahl",
+      "partizip2": "gestohlen",
+      "hilfsverb": "haben",
+      "governs": "accusative (+ dative, optional)"
+    }
+  },
+  {
+    "de": "steigen",
+    "en": "to climb, to rise",
+    "article": "",
+    "level": "B1",
+    "example": "Die Preise steigen ständig.",
+    "example_en": "Prices keep rising.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "steigen",
+      "praeteritum_stamm": "stieg",
+      "partizip2": "gestiegen",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "streichen",
+    "en": "to paint (a wall), to cancel/delete",
+    "article": "",
+    "level": "B1",
+    "example": "Wir streichen das Wohnzimmer neu.",
+    "example_en": "We're repainting the living room.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "streichen",
+      "praeteritum_stamm": "strich",
+      "partizip2": "gestrichen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "übernehmen",
+    "en": "to take over",
+    "article": "",
+    "level": "B1",
+    "example": "Er übernimmt die Firma von seinem Vater.",
+    "example_en": "He's taking over the company from his father.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "übernehmen",
+      "praeteritum_stamm": "übernahm",
+      "partizip2": "übernommen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "übertreiben",
+    "en": "to exaggerate",
+    "article": "",
+    "level": "B1",
+    "example": "Jetzt übertreib mal nicht!",
+    "example_en": "Now don't exaggerate!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "übertreiben",
+      "praeteritum_stamm": "übertrieb",
+      "partizip2": "übertrieben",
+      "hilfsverb": "haben",
+      "governs": "accusative (optional)"
+    }
+  },
+  {
+    "de": "überweisen",
+    "en": "to transfer (money)",
+    "article": "",
+    "level": "B1",
+    "example": "Überzeuge den Arbeitgeber von deinen Qualitäten.",
+    "example_en": "Convince the employer of your qualities.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "überweisen",
+      "praeteritum_stamm": "überwies",
+      "partizip2": "überwiesen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "überziehen",
+    "en": "to overdraw (an account), to overrun",
+    "article": "",
+    "level": "B1",
+    "example": "Er hat sein Konto überzogen.",
+    "example_en": "He overdrew his account.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "überziehen",
+      "praeteritum_stamm": "überzog",
+      "partizip2": "überzogen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "sich umsehen",
+    "en": "to look around",
+    "article": "",
+    "level": "B1",
+    "example": "Sieh dich mal um: So viele Leute sind heute da!",
+    "example_en": "Look around: there are so many people here today!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "umsehen",
+      "praeteritum_stamm": "sah",
+      "partizip2": "umgesehen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "um",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "umziehen",
+    "en": "to move (house)",
+    "article": "",
+    "level": "B1",
+    "example": "Wir ziehen nächste Woche um.",
+    "example_en": "We're moving house next week.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "umziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "umgezogen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "um",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "unterbrechen",
+    "en": "to interrupt",
+    "article": "",
+    "level": "B1",
+    "example": "Bitte unterbrich mich nicht ständig.",
+    "example_en": "Please don't keep interrupting me.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "unterbrechen",
+      "praeteritum_stamm": "unterbrach",
+      "partizip2": "unterbrochen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "unternehmen",
+    "en": "to undertake, to do (an activity)",
+    "article": "",
+    "level": "B1",
+    "example": "Hast du schlechte Laune? Unternimm etwas mit Freunden.",
+    "example_en": "In a bad mood? Do something with friends.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "unternehmen",
+      "praeteritum_stamm": "unternahm",
+      "partizip2": "unternommen",
+      "hilfsverb": "haben",
+      "governs": "mit + dative"
+    }
+  },
+  {
+    "de": "unterscheiden",
+    "en": "to distinguish, to differentiate",
+    "article": "",
+    "level": "B1",
+    "example": "Man muss zwischen den beiden Begriffen unterscheiden.",
+    "example_en": "One must distinguish between the two terms.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "unterscheiden",
+      "praeteritum_stamm": "unterschied",
+      "partizip2": "unterschieden",
+      "hilfsverb": "haben",
+      "governs": "accusative (zwischen + dative, optional)"
+    }
+  },
+  {
+    "de": "unterstreichen",
+    "en": "to underline, to emphasize",
+    "article": "",
+    "level": "B1",
+    "example": "Unterstreichen Sie die wichtigen Wörter.",
+    "example_en": "Underline the important words.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "unterstreichen",
+      "praeteritum_stamm": "unterstrich",
+      "partizip2": "unterstrichen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "vergehen",
+    "en": "to pass (of time)",
+    "article": "",
+    "level": "B1",
+    "example": "Die Zeit vergeht so schnell.",
+    "example_en": "Time passes so quickly.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vergehen",
+      "praeteritum_stamm": "verging",
+      "partizip2": "vergangen",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "verlassen",
+    "en": "to leave (a place/person)",
+    "article": "",
+    "level": "B1",
+    "example": "Sie hat die Stadt vor einem Jahr verlassen.",
+    "example_en": "She left the city a year ago.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verlassen",
+      "praeteritum_stamm": "verließ",
+      "partizip2": "verlassen",
+      "hilfsverb": "haben",
+      "governs": "accusative",
+      "english": {
+        "praesens_voll": [
+          "leave",
+          "leave",
+          "leaves",
+          "leave",
+          "leave",
+          "leave"
+        ],
+        "praeteritum_voll": [
+          "left",
+          "left",
+          "left",
+          "left",
+          "left",
+          "left"
+        ],
+        "perfekt_voll": [
+          "have left",
+          "have left",
+          "has left",
+          "have left",
+          "have left",
+          "have left"
+        ]
+      }
+    }
+  },
+  {
+    "de": "verleihen",
+    "en": "to lend out, to award (a prize)",
+    "article": "",
+    "level": "B1",
+    "example": "Die Bibliothek verleiht auch E-Books.",
+    "example_en": "The library also lends out e-books.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verleihen",
+      "praeteritum_stamm": "verlieh",
+      "partizip2": "verliehen",
+      "hilfsverb": "haben",
+      "governs": "dative+accusative"
+    }
+  },
+  {
+    "de": "verraten",
+    "en": "to betray, to reveal (a secret)",
+    "article": "",
+    "level": "B1",
+    "example": "Verrate mir bitte das Geheimnis nicht.",
+    "example_en": "Please don't reveal the secret to me.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verraten",
+      "praeteritum_stamm": "verriet",
+      "partizip2": "verraten",
+      "hilfsverb": "haben",
+      "governs": "dative+accusative"
+    }
+  },
+  {
+    "de": "verschreiben",
+    "en": "to prescribe",
+    "article": "",
+    "level": "B1",
+    "example": "Der Arzt hat mir ein neues Medikament verschrieben.",
+    "example_en": "The doctor prescribed me a new medication.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verschreiben",
+      "praeteritum_stamm": "verschrieb",
+      "partizip2": "verschrieben",
+      "hilfsverb": "haben",
+      "governs": "dative+accusative"
+    }
+  },
+  {
+    "de": "verschwinden",
+    "en": "to disappear",
+    "article": "",
+    "level": "B1",
+    "example": "Mein Schlüssel ist plötzlich verschwunden.",
+    "example_en": "My key suddenly disappeared.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verschwinden",
+      "praeteritum_stamm": "verschwand",
+      "partizip2": "verschwunden",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "verzeihen",
+    "en": "to forgive",
+    "article": "",
+    "level": "B1",
+    "example": "Ich kann ihm das nicht verzeihen.",
+    "example_en": "I can't forgive him for that.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verzeihen",
+      "praeteritum_stamm": "verzieh",
+      "partizip2": "verziehen",
+      "hilfsverb": "haben",
+      "governs": "dative (+ accusative, optional)"
+    }
+  },
+  {
+    "de": "vorbeifliegen",
+    "en": "to fly past",
+    "article": "",
+    "level": "B1",
+    "example": "Der Vogel fliegt am Fenster vorbei.",
+    "example_en": "The bird flies past the window.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorbeifliegen",
+      "praeteritum_stamm": "flog",
+      "partizip2": "vorbeigeflogen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "vorbei",
+      "governs": "an + dative (optional)"
+    }
+  },
+  {
+    "de": "vorbeikommen",
+    "en": "to come by, to stop by",
+    "article": "",
+    "level": "B1",
+    "example": "Kommst du morgen bei mir vorbei?",
+    "example_en": "Are you coming by my place tomorrow?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorbeikommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "vorbeigekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "vorbei",
+      "governs": "an + dative (optional)"
+    }
+  },
+  {
+    "de": "vorhaben",
+    "en": "to plan, to intend",
+    "article": "",
+    "level": "B1",
+    "example": "Was hast du heute Abend vor?",
+    "example_en": "What are you planning for tonight?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorhaben",
+      "praeteritum_stamm": "hatte",
+      "partizip2": "vorgehabt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "vorkommen",
+    "en": "to occur, to happen; to seem",
+    "article": "",
+    "level": "B1",
+    "example": "So etwas kommt selten vor.",
+    "example_en": "Something like that rarely happens.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorkommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "vorgekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "vor",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich vornehmen",
+    "en": "to plan to do, to resolve to do",
+    "article": "",
+    "level": "B1",
+    "example": "Nimmst du dir an Silvester immer etwas vor?",
+    "example_en": "Do you always make resolutions on New Year's Eve?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vornehmen",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "vorgenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "reflexiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "vorsingen",
+    "en": "to sing for/to (someone)",
+    "article": "",
+    "level": "B1",
+    "example": "Kannst du uns ein Lied vorsingen?",
+    "example_en": "Can you sing us a song?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorsingen",
+      "praeteritum_stamm": "sang",
+      "partizip2": "vorgesungen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "governs": "dative (+ accusative, optional)",
+      "english": {
+        "praesens_voll": [
+          "sing to",
+          "sing to",
+          "sings to",
+          "sing to",
+          "sing to",
+          "sing to"
+        ],
+        "praeteritum_voll": [
+          "sang to",
+          "sang to",
+          "sang to",
+          "sang to",
+          "sang to",
+          "sang to"
+        ],
+        "perfekt_voll": [
+          "have sung to",
+          "have sung to",
+          "has sung to",
+          "have sung to",
+          "have sung to",
+          "have sung to"
+        ]
+      }
+    }
+  },
+  {
+    "de": "vortragen",
+    "en": "to present, to recite",
+    "article": "",
+    "level": "B1",
+    "example": "Sie trägt ihr Gedicht vor der Klasse vor.",
+    "example_en": "She recites her poem in front of the class.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vortragen",
+      "praeteritum_stamm": "trug",
+      "partizip2": "vorgetragen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "vorziehen",
+    "en": "to prefer",
+    "article": "",
+    "level": "B1",
+    "example": "Ich ziehe Tee dem Kaffee vor.",
+    "example_en": "I prefer tea to coffee.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "vorgezogen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "governs": "accusative (+ dative, optional)"
+    }
+  },
+  {
+    "de": "wachsen",
+    "en": "to grow",
+    "article": "",
+    "level": "B1",
+    "example": "Die Pflanze wächst sehr schnell.",
+    "example_en": "The plant grows very quickly.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wachsen",
+      "praeteritum_stamm": "wuchs",
+      "partizip2": "gewachsen",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "wegfahren",
+    "en": "to drive away, to leave",
+    "article": "",
+    "level": "B1",
+    "example": "Wir fahren am Freitag weg.",
+    "example_en": "We're leaving on Friday.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wegfahren",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "weggefahren",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "weg",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "weglaufen",
+    "en": "to run away",
+    "article": "",
+    "level": "B1",
+    "example": "Der Hund ist mir weggelaufen.",
+    "example_en": "The dog ran away from me.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "weglaufen",
+      "praeteritum_stamm": "lief",
+      "partizip2": "weggelaufen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "weg",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "wegwerfen",
+    "en": "to throw away",
+    "article": "",
+    "level": "B1",
+    "example": "Wirf den Müll bitte nicht einfach weg.",
+    "example_en": "Please don't just throw the trash away.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wegwerfen",
+      "praeteritum_stamm": "warf",
+      "partizip2": "weggeworfen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "weg",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "wegziehen",
+    "en": "to move away",
+    "article": "",
+    "level": "B1",
+    "example": "Meine Nachbarn sind letztes Jahr weggezogen.",
+    "example_en": "My neighbors moved away last year.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wegziehen",
+      "praeteritum_stamm": "zog",
+      "partizip2": "weggezogen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "weg",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "weitergeben",
+    "en": "to pass on",
+    "article": "",
+    "level": "B1",
+    "example": "Gib die Information bitte weiter.",
+    "example_en": "Please pass the information on.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "weitergeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "weitergegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "weiter",
+      "governs": "dative+accusative"
+    }
+  },
+  {
+    "de": "weiterhelfen",
+    "en": "to help further, to be of further help",
+    "article": "",
+    "level": "B1",
+    "example": "Können Sie mir bitte weiterhelfen?",
+    "example_en": "Can you please help me further?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "weiterhelfen",
+      "praeteritum_stamm": "half",
+      "partizip2": "weitergeholfen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "weiter",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "wiedergeben",
+    "en": "to give back, to reproduce (a statement)",
+    "article": "",
+    "level": "B1",
+    "example": "Er gibt den Text mit eigenen Worten wieder.",
+    "example_en": "He restates the text in his own words.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "wiedergeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "wiedergegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "wieder",
+      "governs": "accusative (+ dative, optional)"
+    }
+  },
+  {
+    "de": "zerreißen",
+    "en": "to tear apart",
+    "article": "",
+    "level": "B1",
+    "example": "Er hat den Brief zerrissen.",
+    "example_en": "He tore up the letter.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zerreißen",
+      "praeteritum_stamm": "zerriss",
+      "partizip2": "zerrissen",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "zulassen",
+    "en": "to permit, to register (a vehicle)",
+    "article": "",
+    "level": "B1",
+    "example": "Das lässt die Firma nicht zu.",
+    "example_en": "The company doesn't permit that.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "zulassen",
+      "praeteritum_stamm": "ließ",
+      "partizip2": "zugelassen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "zurückbekommen",
+    "en": "to get back",
+    "article": "",
+    "level": "B1",
+    "example": "Hast du dein Geld zurückbekommen?",
+    "example_en": "Did you get your money back?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurückbekommen",
+      "praeteritum_stamm": "bekam",
+      "partizip2": "zurückbekommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zurück",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "zurückbringen",
+    "en": "to bring back",
+    "article": "",
+    "level": "B1",
+    "example": "Bring das Buch bitte zurück.",
+    "example_en": "Please bring the book back.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurückbringen",
+      "praeteritum_stamm": "brachte",
+      "partizip2": "zurückgebracht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zurück",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "zurückfahren",
+    "en": "to drive back",
+    "article": "",
+    "level": "B1",
+    "example": "Wann fahrt ihr zurück?",
+    "example_en": "When are you driving back?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurückfahren",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "zurückgefahren",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "zurück",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "zurückgeben",
+    "en": "to give back, to return",
+    "article": "",
+    "level": "B1",
+    "example": "Ich muss ihm das Buch zurückgeben.",
+    "example_en": "I need to give him back the book.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurückgeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "zurückgegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zurück",
+      "governs": "dative+accusative"
+    }
+  },
+  {
+    "de": "zurückgehen",
+    "en": "to go back",
+    "article": "",
+    "level": "B1",
+    "example": "Wir sollten jetzt zurückgehen.",
+    "example_en": "We should go back now.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurückgehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "zurückgegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "zurück",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "zurückkommen",
+    "en": "to come back",
+    "article": "",
+    "level": "B1",
+    "example": "Wann kommst du zurück?",
+    "example_en": "When are you coming back?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurückkommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "zurückgekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "zurück",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "zurücklaufen",
+    "en": "to run back",
+    "article": "",
+    "level": "B1",
+    "example": "Er ist schnell zum Auto zurückgelaufen.",
+    "example_en": "He quickly ran back to the car.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurücklaufen",
+      "praeteritum_stamm": "lief",
+      "partizip2": "zurückgelaufen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "zurück",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "zurückrufen",
+    "en": "to call back",
+    "article": "",
+    "level": "B1",
+    "example": "Ich rufe dich später zurück.",
+    "example_en": "I'll call you back later.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurückrufen",
+      "praeteritum_stamm": "rief",
+      "partizip2": "zurückgerufen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zurück",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "zusammensitzen",
+    "en": "to sit together",
+    "article": "",
+    "level": "B1",
+    "example": "Wir haben lange zusammengesessen.",
+    "example_en": "We sat together for a long time.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zusammensitzen",
+      "praeteritum_stamm": "saß",
+      "partizip2": "zusammengesessen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "zusammen",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "zusammenstoßen",
+    "en": "to collide",
+    "article": "",
+    "level": "B1",
+    "example": "Zwei Autos sind zusammengestoßen.",
+    "example_en": "Two cars collided.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zusammenstoßen",
+      "praeteritum_stamm": "stieß",
+      "partizip2": "zusammengestoßen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "zusammen",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "zusehen",
+    "en": "to watch, to look on",
+    "article": "",
+    "level": "B1",
+    "example": "Die Kinder sehen den Vögeln zu.",
+    "example_en": "The children watch the birds.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zusehen",
+      "praeteritum_stamm": "sah",
+      "partizip2": "zugesehen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "zwingen",
+    "en": "to force",
+    "article": "",
+    "level": "B1",
+    "example": "Niemand kann dich dazu zwingen.",
+    "example_en": "No one can force you to do that.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zwingen",
+      "praeteritum_stamm": "zwang",
+      "partizip2": "gezwungen",
+      "hilfsverb": "haben",
+      "governs": "accusative (+ zu + dative, optional)"
+    }
+  },
+  {
+    "de": "sich amüsieren",
+    "en": "to have fun, to be amused",
+    "article": "",
+    "level": "B1",
+    "example": "Er amüsiert sich oft über seine Kinder.",
+    "example_en": "He's often amused by his children.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "amüsieren",
+      "praeteritum_stamm": "amüsierte",
+      "partizip2": "amüsiert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "über + accusative"
+    }
+  },
+  {
+    "de": "sich anschaffen",
+    "en": "to acquire, to get (for oneself)",
+    "article": "",
+    "level": "B1",
+    "example": "Ich schaffe mir alle zwei Jahre ein neues Handy an.",
+    "example_en": "I get myself a new phone every two years.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anschaffen",
+      "praeteritum_stamm": "schaffte",
+      "partizip2": "angeschafft",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "reflexiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "sich anstrengen",
+    "en": "to make an effort, to try hard",
+    "article": "",
+    "level": "B1",
+    "example": "Ich strenge mich jeden Tag in der Arbeit an.",
+    "example_en": "I make an effort at work every day.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anstrengen",
+      "praeteritum_stamm": "strengte",
+      "partizip2": "angestrengt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich ärgern",
+    "en": "to be annoyed",
+    "article": "",
+    "level": "B1",
+    "example": "Mein Nachbar ärgert sich, wenn wir zu laut feiern.",
+    "example_en": "My neighbor gets annoyed when we party too loudly.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ärgern",
+      "praeteritum_stamm": "ärgerte",
+      "partizip2": "geärgert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "über + accusative"
+    }
+  },
+  {
+    "de": "sich ausbreiten",
+    "en": "to spread (out)",
+    "article": "",
+    "level": "B1",
+    "example": "Wie breiten sich Klänge im Raum aus?",
+    "example_en": "How do sounds spread in a room?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ausbreiten",
+      "praeteritum_stamm": "breitete",
+      "partizip2": "ausgebreitet",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich auskennen",
+    "en": "to know one's way around, to be familiar (with)",
+    "article": "",
+    "level": "B1",
+    "example": "Ich kenne mich gut mit Computern aus.",
+    "example_en": "I know my way around computers well.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "auskennen",
+      "praeteritum_stamm": "kannte",
+      "partizip2": "ausgekannt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "reflexiv": true,
+      "governs": "mit + dative"
+    }
+  },
+  {
+    "de": "sich beschäftigen",
+    "en": "to occupy oneself, to deal with",
+    "article": "",
+    "level": "B1",
+    "example": "Ich arbeite am Gericht und beschäftige mich viel mit Verbrechen.",
+    "example_en": "I work at the court and deal a lot with crime.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beschäftigen",
+      "praeteritum_stamm": "beschäftigte",
+      "partizip2": "beschäftigt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "mit + dative"
+    }
+  },
+  {
+    "de": "sich beteiligen",
+    "en": "to participate (in)",
+    "article": "",
+    "level": "B1",
+    "example": "Luna möchte sich gerne aktiv am Projekt beteiligen.",
+    "example_en": "Luna would like to actively participate in the project.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beteiligen",
+      "praeteritum_stamm": "beteiligte",
+      "partizip2": "beteiligt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "an + dative"
+    }
+  },
+  {
+    "de": "sich eignen",
+    "en": "to be suitable (for)",
+    "article": "",
+    "level": "B1",
+    "example": "Coole Fotos vom letzten Urlaub eignen sich nicht für eine Bewerbung.",
+    "example_en": "Cool vacation photos aren't suitable for a job application.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "eignen",
+      "praeteritum_stamm": "eignete",
+      "partizip2": "geeignet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "für + accusative"
+    }
+  },
+  {
+    "de": "sich einloggen",
+    "en": "to log in",
+    "article": "",
+    "level": "B1",
+    "example": "Wenn du dich eingeloggt hast, kannst du das Programm komplett nutzen.",
+    "example_en": "Once you're logged in, you can use the program fully.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einloggen",
+      "praeteritum_stamm": "loggte",
+      "partizip2": "eingeloggt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich einsetzen",
+    "en": "to advocate (for), to commit oneself (to)",
+    "article": "",
+    "level": "B1",
+    "example": "Er setzt sich für den Schutz der Nashörner ein.",
+    "example_en": "He advocates for the protection of rhinos.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einsetzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "eingesetzt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "reflexiv": true,
+      "governs": "für/gegen + accusative"
+    }
+  },
+  {
+    "de": "sich einigen",
+    "en": "to agree, to come to an agreement",
+    "article": "",
+    "level": "B1",
+    "example": "Bei einem Streit ist wichtig, dass man ruhig bleibt und sich am Ende einigt.",
+    "example_en": "In an argument it's important to stay calm and reach an agreement in the end.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einigen",
+      "praeteritum_stamm": "einigte",
+      "partizip2": "geeinigt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "auf + accusative"
+    }
+  },
+  {
+    "de": "sich engagieren",
+    "en": "to get involved (in), to be committed (to)",
+    "article": "",
+    "level": "B1",
+    "example": "Jenny engagiert sich für den Naturschutz.",
+    "example_en": "Jenny is committed to nature conservation.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "engagieren",
+      "praeteritum_stamm": "engagierte",
+      "partizip2": "engagiert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "für/gegen + accusative"
+    }
+  },
+  {
+    "de": "sich ereignen",
+    "en": "to happen, to occur",
+    "article": "",
+    "level": "B1",
+    "example": "Auf der Autobahn hat sich ein schrecklicher Unfall ereignet.",
+    "example_en": "A terrible accident occurred on the highway.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "ereignen",
+      "praeteritum_stamm": "ereignete",
+      "partizip2": "ereignet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich erinnern",
+    "en": "to remember",
+    "article": "",
+    "level": "B1",
+    "example": "Ich erinnere mich gern an die Party vor einem Jahr.",
+    "example_en": "I fondly remember the party from a year ago.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erinnern",
+      "praeteritum_stamm": "erinnerte",
+      "partizip2": "erinnert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "an + accusative"
+    }
+  },
+  {
+    "de": "sich erkälten",
+    "en": "to catch a cold",
+    "article": "",
+    "level": "B1",
+    "example": "Sie hat sich im Zug erkältet.",
+    "example_en": "She caught a cold on the train.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erkälten",
+      "praeteritum_stamm": "erkältete",
+      "partizip2": "erkältet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich erkundigen",
+    "en": "to inquire (about)",
+    "article": "",
+    "level": "B1",
+    "example": "Ich wollte mich nach dem Stand meiner Bewerbung erkundigen.",
+    "example_en": "I wanted to inquire about the status of my application.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erkundigen",
+      "praeteritum_stamm": "erkundigte",
+      "partizip2": "erkundigt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "nach + dative"
+    }
+  },
+  {
+    "de": "sich ernähren",
+    "en": "to eat, to nourish oneself",
+    "article": "",
+    "level": "B1",
+    "example": "Ernähren Sie sich gesund?",
+    "example_en": "Do you eat healthily?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ernähren",
+      "praeteritum_stamm": "ernährte",
+      "partizip2": "ernährt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none (von + dative, optional)"
+    }
+  },
+  {
+    "de": "sich handeln",
+    "en": "to be a matter of (impersonal)",
+    "article": "",
+    "level": "B1",
+    "example": "Bei diesem Gegenstand handelt es sich um ein wertvolles Kunstwerk.",
+    "example_en": "This object is a valuable work of art.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "handeln",
+      "praeteritum_stamm": "handelte",
+      "partizip2": "gehandelt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "um + accusative"
+    }
+  },
+  {
+    "de": "sich irren",
+    "en": "to be mistaken",
+    "article": "",
+    "level": "B1",
+    "example": "Ich habe mich wohl im Raum geirrt.",
+    "example_en": "I must have got the room wrong.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "irren",
+      "praeteritum_stamm": "irrte",
+      "partizip2": "geirrt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "in + dative"
+    }
+  },
+  {
+    "de": "sich kämmen",
+    "en": "to comb one's hair",
+    "article": "",
+    "level": "B1",
+    "example": "Kämmst du dich gleich nach dem Aufstehen?",
+    "example_en": "Do you comb your hair right after getting up?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kämmen",
+      "praeteritum_stamm": "kämmte",
+      "partizip2": "gekämmt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich konzentrieren",
+    "en": "to concentrate",
+    "article": "",
+    "level": "B1",
+    "example": "Wenn Sie das Handy ausmachen, können Sie sich besser konzentrieren.",
+    "example_en": "If you turn off your phone, you can concentrate better.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "konzentrieren",
+      "praeteritum_stamm": "konzentrierte",
+      "partizip2": "konzentriert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "auf + accusative"
+    }
+  },
+  {
+    "de": "sich kümmern",
+    "en": "to take care (of), to look after",
+    "article": "",
+    "level": "B1",
+    "example": "Ich kümmere mich um meine Katze.",
+    "example_en": "I take care of my cat.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kümmern",
+      "praeteritum_stamm": "kümmerte",
+      "partizip2": "gekümmert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "um + accusative"
+    }
+  },
+  {
+    "de": "sich langweilen",
+    "en": "to be bored",
+    "article": "",
+    "level": "B1",
+    "example": "Wann langweilst du dich?",
+    "example_en": "When do you get bored?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "langweilen",
+      "praeteritum_stamm": "langweilte",
+      "partizip2": "gelangweilt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich leisten",
+    "en": "to afford",
+    "article": "",
+    "level": "B1",
+    "example": "Die modernste Technik können sich wegen der hohen Kosten nicht alle leisten.",
+    "example_en": "Not everyone can afford the latest technology because of the high cost.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "leisten",
+      "praeteritum_stamm": "leistete",
+      "partizip2": "geleistet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "sich lohnen",
+    "en": "to be worth it",
+    "article": "",
+    "level": "B1",
+    "example": "Die Reparatur ist wirklich teuer und lohnt sich nicht.",
+    "example_en": "The repair is really expensive and isn't worth it.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lohnen",
+      "praeteritum_stamm": "lohnte",
+      "partizip2": "gelohnt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich räuspern",
+    "en": "to clear one's throat",
+    "article": "",
+    "level": "B1",
+    "example": "Moment, ich muss mich mal kurz räuspern.",
+    "example_en": "Hold on, I need to quickly clear my throat.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "räuspern",
+      "praeteritum_stamm": "räusperte",
+      "partizip2": "geräuspert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich schminken",
+    "en": "to put on makeup",
+    "article": "",
+    "level": "B1",
+    "example": "Ich schminke mich nur zu besonderen Anlässen.",
+    "example_en": "I only wear makeup on special occasions.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schminken",
+      "praeteritum_stamm": "schminkte",
+      "partizip2": "geschminkt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich spiegeln",
+    "en": "to be reflected",
+    "article": "",
+    "level": "B1",
+    "example": "Die Wolken spiegeln sich im Wasser.",
+    "example_en": "The clouds are reflected in the water.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "spiegeln",
+      "praeteritum_stamm": "spiegelte",
+      "partizip2": "gespiegelt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "in + dative"
+    }
+  },
+  {
+    "de": "sich überlegen",
+    "en": "to think over, to consider",
+    "article": "",
+    "level": "B1",
+    "example": "Überlegen Sie sich eine Geschichte.",
+    "example_en": "Think of a story.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "überlegen",
+      "praeteritum_stamm": "überlegte",
+      "partizip2": "überlegt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "sich verspäten",
+    "en": "to be late",
+    "article": "",
+    "level": "B1",
+    "example": "Entschuldigung, ich verspäte mich. Die U-Bahn kommt nicht.",
+    "example_en": "Sorry, I'm running late. The subway isn't coming.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verspäten",
+      "praeteritum_stamm": "verspätete",
+      "partizip2": "verspätet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich wohlfühlen",
+    "en": "to feel comfortable, to feel at ease",
+    "article": "",
+    "level": "B1",
+    "example": "Hier in Kiel fühle ich mich wohl.",
+    "example_en": "I feel at ease here in Kiel.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wohlfühlen",
+      "praeteritum_stamm": "fühlte",
+      "partizip2": "wohlgefühlt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "wohl",
+      "reflexiv": true,
+      "governs": "none"
+    }
+  },
+  {
+    "de": "sich wundern",
+    "en": "to be surprised",
+    "article": "",
+    "level": "B1",
+    "example": "Wundere dich nicht über ihn - er hat heute schlechte Laune.",
+    "example_en": "Don't be surprised about him - he's in a bad mood today.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wundern",
+      "praeteritum_stamm": "wunderte",
+      "partizip2": "gewundert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "über + accusative"
+    }
+  },
+  {
+    "de": "anpassen",
+    "en": "to adapt, to adjust",
+    "article": "",
+    "level": "B1",
+    "example": "Wir passen die Farbe der Wände an die Möbel an.",
+    "example_en": "We're adjusting the wall color to match the furniture.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anpassen",
+      "praeteritum_stamm": "passte",
+      "partizip2": "angepasst",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "governs": "an + accusative"
+    }
+  },
+  {
+    "de": "basieren",
+    "en": "to be based (on)",
+    "article": "",
+    "level": "B1",
+    "example": "Das Konzept der Zeitungskästen basiert auf der Ehrlichkeit der Kunden.",
+    "example_en": "The concept of the newspaper boxes is based on customer honesty.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "basieren",
+      "praeteritum_stamm": "basierte",
+      "partizip2": "basiert",
+      "hilfsverb": "haben",
+      "governs": "auf + dative"
+    }
+  },
+  {
+    "de": "deuten",
+    "en": "to point (at), to interpret",
+    "article": "",
+    "level": "B1",
+    "example": "Deuten Sie auf die Bilder.",
+    "example_en": "Point at the pictures.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "deuten",
+      "praeteritum_stamm": "deutete",
+      "partizip2": "gedeutet",
+      "hilfsverb": "haben",
+      "governs": "auf + accusative"
+    }
+  },
+  {
+    "de": "führen",
+    "en": "to lead (to)",
+    "article": "",
+    "level": "B1",
+    "example": "Welche Ereignisse können zu Veränderungen führen?",
+    "example_en": "What events can lead to changes?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "führen",
+      "praeteritum_stamm": "führte",
+      "partizip2": "geführt",
+      "hilfsverb": "haben",
+      "governs": "zu + dative"
+    }
+  },
+  {
+    "de": "gehören",
+    "en": "to belong (to)",
+    "article": "",
+    "level": "B1",
+    "example": "Zum Alltag gehören Konflikte.",
+    "example_en": "Conflicts are part of everyday life.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gehören",
+      "praeteritum_stamm": "gehörte",
+      "partizip2": "gehört",
+      "hilfsverb": "haben",
+      "governs": "zu + dative"
+    }
+  },
+  {
+    "de": "hindern",
+    "en": "to prevent, to hinder",
+    "article": "",
+    "level": "B1",
+    "example": "Niemand hindert mich daran, ein eigenes Geschäft zu eröffnen.",
+    "example_en": "Nobody's stopping me from opening my own business.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "hindern",
+      "praeteritum_stamm": "hinderte",
+      "partizip2": "gehindert",
+      "hilfsverb": "haben",
+      "governs": "an + dative"
+    }
+  },
+  {
+    "de": "kämpfen",
+    "en": "to fight (for/against)",
+    "article": "",
+    "level": "B1",
+    "example": "Er kämpft für eine bessere Bezahlung.",
+    "example_en": "He's fighting for better pay.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kämpfen",
+      "praeteritum_stamm": "kämpfte",
+      "partizip2": "gekämpft",
+      "hilfsverb": "haben",
+      "governs": "für/gegen + accusative",
+      "english": {
+        "praesens_voll": [
+          "fight",
+          "fight",
+          "fights",
+          "fight",
+          "fight",
+          "fight"
+        ],
+        "praeteritum_voll": [
+          "fought",
+          "fought",
+          "fought",
+          "fought",
+          "fought",
+          "fought"
+        ],
+        "perfekt_voll": [
+          "have fought",
+          "have fought",
+          "has fought",
+          "have fought",
+          "have fought",
+          "have fought"
+        ]
+      }
+    }
+  },
+  {
+    "de": "profitieren",
+    "en": "to benefit (from), to profit",
+    "article": "",
+    "level": "B1",
+    "example": "Viele Länder profitieren von der Globalisierung.",
+    "example_en": "Many countries benefit from globalization.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "profitieren",
+      "praeteritum_stamm": "profitierte",
+      "partizip2": "profitiert",
+      "hilfsverb": "haben",
+      "governs": "von + dative"
+    }
+  },
+  {
+    "de": "schätzen",
+    "en": "to value, to estimate",
+    "article": "",
+    "level": "B1",
+    "example": "An meinem Chef schätze ich vor allem seine Ruhe und Freundlichkeit.",
+    "example_en": "What I value most about my boss is his calmness and friendliness.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schätzen",
+      "praeteritum_stamm": "schätzte",
+      "partizip2": "geschätzt",
+      "hilfsverb": "haben",
+      "governs": "accusative (an + dative, optional)"
+    }
+  },
+  {
+    "de": "schützen",
+    "en": "to protect (from)",
+    "article": "",
+    "level": "B1",
+    "example": "Das Medikament schützt vor Erkältung.",
+    "example_en": "The medicine protects against colds.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schützen",
+      "praeteritum_stamm": "schützte",
+      "partizip2": "geschützt",
+      "hilfsverb": "haben",
+      "governs": "accusative (vor + dative, optional)"
+    }
+  },
+  {
+    "de": "sorgen",
+    "en": "to take care (of), to see to",
+    "article": "",
+    "level": "B1",
+    "example": "Ich sorge für drei Katzen im Haus.",
+    "example_en": "I take care of three cats in the house.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "sorgen",
+      "praeteritum_stamm": "sorgte",
+      "partizip2": "gesorgt",
+      "hilfsverb": "haben",
+      "governs": "für + accusative"
+    }
+  },
+  {
+    "de": "stammen",
+    "en": "to originate (from), to date (from)",
+    "article": "",
+    "level": "B1",
+    "example": "Die Möbel stammen aus dem 18. Jahrhundert.",
+    "example_en": "The furniture dates from the 18th century.",
+    "register": "formal",
+    "conjugation": {
+      "infinitiv": "stammen",
+      "praeteritum_stamm": "stammte",
+      "partizip2": "gestammt",
+      "hilfsverb": "haben",
+      "governs": "aus + dative"
+    }
+  },
+  {
+    "de": "stecken",
+    "en": "to be (hidden/contained) in, to put (something) in",
+    "article": "",
+    "level": "B1",
+    "example": "Welche Lebensweisheit steckt in der Geschichte?",
+    "example_en": "What life lesson is hidden in the story?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "stecken",
+      "praeteritum_stamm": "steckte",
+      "partizip2": "gesteckt",
+      "hilfsverb": "haben",
+      "governs": "in + dative",
+      "english": {
+        "praesens_voll": [
+          "stick",
+          "stick",
+          "sticks",
+          "stick",
+          "stick",
+          "stick"
+        ],
+        "praeteritum_voll": [
+          "stuck",
+          "stuck",
+          "stuck",
+          "stuck",
+          "stuck",
+          "stuck"
+        ],
+        "perfekt_voll": [
+          "have stuck",
+          "have stuck",
+          "has stuck",
+          "have stuck",
+          "have stuck",
+          "have stuck"
+        ]
+      }
+    }
+  },
+  {
+    "de": "sich vorbereiten",
+    "en": "to prepare (for)",
+    "article": "",
+    "level": "B1",
+    "example": "Hast du dich gut auf die Prüfung vorbereitet?",
+    "example_en": "Did you prepare well for the exam?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorbereiten",
+      "praeteritum_stamm": "bereitete",
+      "partizip2": "vorbereitet",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "reflexiv": true,
+      "governs": "auf + accusative"
+    }
+  },
+  {
+    "de": "warnen",
+    "en": "to warn (of/about)",
+    "article": "",
+    "level": "B1",
+    "example": "Er warnt sie vor dem Hund in seinem Garten.",
+    "example_en": "He warns her about the dog in his garden.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "warnen",
+      "praeteritum_stamm": "warnte",
+      "partizip2": "gewarnt",
+      "hilfsverb": "haben",
+      "governs": "accusative (person) + vor + dative",
+      "english": {
+        "praesens_voll": [
+          "warn",
+          "warn",
+          "warns",
+          "warn",
+          "warn",
+          "warn"
+        ],
+        "praeteritum_voll": [
+          "warned",
+          "warned",
+          "warned",
+          "warned",
+          "warned",
+          "warned"
+        ],
+        "perfekt_voll": [
+          "have warned",
+          "have warned",
+          "has warned",
+          "have warned",
+          "have warned",
+          "have warned"
+        ]
+      }
+    }
+  },
+  {
+    "de": "wirken",
+    "en": "to seem, to have an effect (on)",
+    "article": "",
+    "level": "B1",
+    "example": "Das Bild wirkt auf mich sehr modern.",
+    "example_en": "The picture seems very modern to me.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wirken",
+      "praeteritum_stamm": "wirkte",
+      "partizip2": "gewirkt",
+      "hilfsverb": "haben",
+      "governs": "auf + accusative"
+    }
+  },
+  {
+    "de": "zählen",
+    "en": "to count (among), to belong (to)",
+    "article": "",
+    "level": "B1",
+    "example": "Sonja zählt Verena und Felix zu ihren besten Freunden.",
+    "example_en": "Sonja counts Verena and Felix among her best friends.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zählen",
+      "praeteritum_stamm": "zählte",
+      "partizip2": "gezählt",
+      "hilfsverb": "haben",
+      "governs": "accusative (+ zu + dative)"
+    }
   }
 ]
