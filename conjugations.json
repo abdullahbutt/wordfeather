@@ -78557,164 +78557,6 @@
    ]
   }
  },
- "laden": {
-  "infinitiv": "laden",
-  "partizip1": "ladend",
-  "partizip2": "geladen",
-  "zu_infinitiv": "zu laden",
-  "hilfsverb": "haben",
-  "indikativ": {
-   "praesens": [
-    "lade",
-    "ladest",
-    "ladet",
-    "laden",
-    "ladet",
-    "laden"
-   ],
-   "praeteritum": [
-    "lud",
-    "ludest",
-    "lud",
-    "luden",
-    "ludet",
-    "luden"
-   ],
-   "perfekt": [
-    "habe geladen",
-    "hast geladen",
-    "hat geladen",
-    "haben geladen",
-    "habt geladen",
-    "haben geladen"
-   ],
-   "plusquamperfekt": [
-    "hatte geladen",
-    "hattest geladen",
-    "hatte geladen",
-    "hatten geladen",
-    "hattet geladen",
-    "hatten geladen"
-   ],
-   "futur1": [
-    "werde laden",
-    "wirst laden",
-    "wird laden",
-    "werden laden",
-    "werdet laden",
-    "werden laden"
-   ],
-   "futur2": [
-    "werde geladen haben",
-    "wirst geladen haben",
-    "wird geladen haben",
-    "werden geladen haben",
-    "werdet geladen haben",
-    "werden geladen haben"
-   ]
-  },
-  "konjunktiv1": {
-   "praesens": [
-    "lade",
-    "ladest",
-    "lade",
-    "laden",
-    "ladet",
-    "laden"
-   ],
-   "perfekt": [
-    "habe geladen",
-    "habest geladen",
-    "habe geladen",
-    "haben geladen",
-    "habet geladen",
-    "haben geladen"
-   ],
-   "futur1": [
-    "werde laden",
-    "werdest laden",
-    "werde laden",
-    "werden laden",
-    "werdet laden",
-    "werden laden"
-   ],
-   "futur2": [
-    "werde geladen haben",
-    "werdest geladen haben",
-    "werde geladen haben",
-    "werden geladen haben",
-    "werdet geladen haben",
-    "werden geladen haben"
-   ]
-  },
-  "konjunktiv2": {
-   "praeteritum": [
-    "würde laden",
-    "würdest laden",
-    "würde laden",
-    "würden laden",
-    "würdet laden",
-    "würden laden"
-   ],
-   "plusquamperfekt": [
-    "hätte geladen",
-    "hättest geladen",
-    "hätte geladen",
-    "hätten geladen",
-    "hättet geladen",
-    "hätten geladen"
-   ],
-   "futur1": [
-    "würde laden",
-    "würdest laden",
-    "würde laden",
-    "würden laden",
-    "würdet laden",
-    "würden laden"
-   ],
-   "futur2": [
-    "würde geladen haben",
-    "würdest geladen haben",
-    "würde geladen haben",
-    "würden geladen haben",
-    "würdet geladen haben",
-    "würden geladen haben"
-   ]
-  },
-  "imperativ": {
-   "du": "Lade!",
-   "ihr": "Ladet!",
-   "Sie": "Laden Sie!",
-   "wir": "Laden wir!"
-  },
-  "passiv": null,
-  "english": {
-   "praesens": [
-    "load",
-    "load",
-    "loads",
-    "load",
-    "load",
-    "load"
-   ],
-   "praeteritum": [
-    "loaded",
-    "loaded",
-    "loaded",
-    "loaded",
-    "loaded",
-    "loaded"
-   ],
-   "perfekt": [
-    "have loaded",
-    "have loaded",
-    "has loaded",
-    "have loaded",
-    "have loaded",
-    "have loaded"
-   ]
-  }
- },
  "leidtun": {
   "infinitiv": "leidtun",
   "partizip1": "leidtund",
@@ -98304,6 +98146,2376 @@
     "have counted (among)",
     "have counted (among)",
     "have counted (among)"
+   ]
+  }
+ },
+ "aufschreiben": {
+  "infinitiv": "aufschreiben",
+  "partizip1": "aufschreibend",
+  "partizip2": "aufgeschrieben",
+  "zu_infinitiv": "aufzuschreiben",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "schreibe auf",
+    "schreibst auf",
+    "schreibt auf",
+    "schreiben auf",
+    "schreibt auf",
+    "schreiben auf"
+   ],
+   "praeteritum": [
+    "schrieb auf",
+    "schriebst auf",
+    "schrieb auf",
+    "schrieben auf",
+    "schriebt auf",
+    "schrieben auf"
+   ],
+   "perfekt": [
+    "habe aufgeschrieben",
+    "hast aufgeschrieben",
+    "hat aufgeschrieben",
+    "haben aufgeschrieben",
+    "habt aufgeschrieben",
+    "haben aufgeschrieben"
+   ],
+   "plusquamperfekt": [
+    "hatte aufgeschrieben",
+    "hattest aufgeschrieben",
+    "hatte aufgeschrieben",
+    "hatten aufgeschrieben",
+    "hattet aufgeschrieben",
+    "hatten aufgeschrieben"
+   ],
+   "futur1": [
+    "werde aufschreiben",
+    "wirst aufschreiben",
+    "wird aufschreiben",
+    "werden aufschreiben",
+    "werdet aufschreiben",
+    "werden aufschreiben"
+   ],
+   "futur2": [
+    "werde aufgeschrieben haben",
+    "wirst aufgeschrieben haben",
+    "wird aufgeschrieben haben",
+    "werden aufgeschrieben haben",
+    "werdet aufgeschrieben haben",
+    "werden aufgeschrieben haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "schreibe auf",
+    "schreibest auf",
+    "schreibe auf",
+    "schreiben auf",
+    "schreibet auf",
+    "schreiben auf"
+   ],
+   "perfekt": [
+    "habe aufgeschrieben",
+    "habest aufgeschrieben",
+    "habe aufgeschrieben",
+    "haben aufgeschrieben",
+    "habet aufgeschrieben",
+    "haben aufgeschrieben"
+   ],
+   "futur1": [
+    "werde aufschreiben",
+    "werdest aufschreiben",
+    "werde aufschreiben",
+    "werden aufschreiben",
+    "werdet aufschreiben",
+    "werden aufschreiben"
+   ],
+   "futur2": [
+    "werde aufgeschrieben haben",
+    "werdest aufgeschrieben haben",
+    "werde aufgeschrieben haben",
+    "werden aufgeschrieben haben",
+    "werdet aufgeschrieben haben",
+    "werden aufgeschrieben haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde aufschreiben",
+    "würdest aufschreiben",
+    "würde aufschreiben",
+    "würden aufschreiben",
+    "würdet aufschreiben",
+    "würden aufschreiben"
+   ],
+   "plusquamperfekt": [
+    "hätte aufgeschrieben",
+    "hättest aufgeschrieben",
+    "hätte aufgeschrieben",
+    "hätten aufgeschrieben",
+    "hättet aufgeschrieben",
+    "hätten aufgeschrieben"
+   ],
+   "futur1": [
+    "würde aufschreiben",
+    "würdest aufschreiben",
+    "würde aufschreiben",
+    "würden aufschreiben",
+    "würdet aufschreiben",
+    "würden aufschreiben"
+   ],
+   "futur2": [
+    "würde aufgeschrieben haben",
+    "würdest aufgeschrieben haben",
+    "würde aufgeschrieben haben",
+    "würden aufgeschrieben haben",
+    "würdet aufgeschrieben haben",
+    "würden aufgeschrieben haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Schreib auf!",
+   "ihr": "Schreibt auf!",
+   "Sie": "Schreiben Sie auf!",
+   "wir": "Schreiben wir auf!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "write down",
+    "write down",
+    "writes down",
+    "write down",
+    "write down",
+    "write down"
+   ],
+   "praeteritum": [
+    "wrote down",
+    "wrote down",
+    "wrote down",
+    "wrote down",
+    "wrote down",
+    "wrote down"
+   ],
+   "perfekt": [
+    "have written down",
+    "have written down",
+    "has written down",
+    "have written down",
+    "have written down",
+    "have written down"
+   ]
+  }
+ },
+ "drankommen": {
+  "infinitiv": "drankommen",
+  "partizip1": "drankommend",
+  "partizip2": "drangekommen",
+  "zu_infinitiv": "dranzukommen",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "komme dran",
+    "kommst dran",
+    "kommt dran",
+    "kommen dran",
+    "kommt dran",
+    "kommen dran"
+   ],
+   "praeteritum": [
+    "kam dran",
+    "kamst dran",
+    "kam dran",
+    "kamen dran",
+    "kamt dran",
+    "kamen dran"
+   ],
+   "perfekt": [
+    "bin drangekommen",
+    "bist drangekommen",
+    "ist drangekommen",
+    "sind drangekommen",
+    "seid drangekommen",
+    "sind drangekommen"
+   ],
+   "plusquamperfekt": [
+    "war drangekommen",
+    "warst drangekommen",
+    "war drangekommen",
+    "waren drangekommen",
+    "wart drangekommen",
+    "waren drangekommen"
+   ],
+   "futur1": [
+    "werde drankommen",
+    "wirst drankommen",
+    "wird drankommen",
+    "werden drankommen",
+    "werdet drankommen",
+    "werden drankommen"
+   ],
+   "futur2": [
+    "werde drangekommen sein",
+    "wirst drangekommen sein",
+    "wird drangekommen sein",
+    "werden drangekommen sein",
+    "werdet drangekommen sein",
+    "werden drangekommen sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "komme dran",
+    "kommest dran",
+    "komme dran",
+    "kommen dran",
+    "kommet dran",
+    "kommen dran"
+   ],
+   "perfekt": [
+    "sei drangekommen",
+    "seist drangekommen",
+    "sei drangekommen",
+    "seien drangekommen",
+    "seiet drangekommen",
+    "seien drangekommen"
+   ],
+   "futur1": [
+    "werde drankommen",
+    "werdest drankommen",
+    "werde drankommen",
+    "werden drankommen",
+    "werdet drankommen",
+    "werden drankommen"
+   ],
+   "futur2": [
+    "werde drangekommen sein",
+    "werdest drangekommen sein",
+    "werde drangekommen sein",
+    "werden drangekommen sein",
+    "werdet drangekommen sein",
+    "werden drangekommen sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde drankommen",
+    "würdest drankommen",
+    "würde drankommen",
+    "würden drankommen",
+    "würdet drankommen",
+    "würden drankommen"
+   ],
+   "plusquamperfekt": [
+    "wäre drangekommen",
+    "wärst drangekommen",
+    "wäre drangekommen",
+    "wären drangekommen",
+    "wärt drangekommen",
+    "wären drangekommen"
+   ],
+   "futur1": [
+    "würde drankommen",
+    "würdest drankommen",
+    "würde drankommen",
+    "würden drankommen",
+    "würdet drankommen",
+    "würden drankommen"
+   ],
+   "futur2": [
+    "würde drangekommen sein",
+    "würdest drangekommen sein",
+    "würde drangekommen sein",
+    "würden drangekommen sein",
+    "würdet drangekommen sein",
+    "würden drangekommen sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Komm dran!",
+   "ihr": "Kommt dran!",
+   "Sie": "Kommen Sie dran!",
+   "wir": "Kommen wir dran!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "have one's turn",
+    "have one's turn",
+    "has one's turn",
+    "have one's turn",
+    "have one's turn",
+    "have one's turn"
+   ],
+   "praeteritum": [
+    "had one's turn",
+    "had one's turn",
+    "had one's turn",
+    "had one's turn",
+    "had one's turn",
+    "had one's turn"
+   ],
+   "perfekt": [
+    "have had one's turn",
+    "have had one's turn",
+    "has had one's turn",
+    "have had one's turn",
+    "have had one's turn",
+    "have had one's turn"
+   ]
+  }
+ },
+ "eingeben": {
+  "infinitiv": "eingeben",
+  "partizip1": "eingebend",
+  "partizip2": "eingegeben",
+  "zu_infinitiv": "einzugeben",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "gebe ein",
+    "gebst ein",
+    "gebt ein",
+    "geben ein",
+    "gebt ein",
+    "geben ein"
+   ],
+   "praeteritum": [
+    "gab ein",
+    "gabst ein",
+    "gab ein",
+    "gaben ein",
+    "gabt ein",
+    "gaben ein"
+   ],
+   "perfekt": [
+    "habe eingegeben",
+    "hast eingegeben",
+    "hat eingegeben",
+    "haben eingegeben",
+    "habt eingegeben",
+    "haben eingegeben"
+   ],
+   "plusquamperfekt": [
+    "hatte eingegeben",
+    "hattest eingegeben",
+    "hatte eingegeben",
+    "hatten eingegeben",
+    "hattet eingegeben",
+    "hatten eingegeben"
+   ],
+   "futur1": [
+    "werde eingeben",
+    "wirst eingeben",
+    "wird eingeben",
+    "werden eingeben",
+    "werdet eingeben",
+    "werden eingeben"
+   ],
+   "futur2": [
+    "werde eingegeben haben",
+    "wirst eingegeben haben",
+    "wird eingegeben haben",
+    "werden eingegeben haben",
+    "werdet eingegeben haben",
+    "werden eingegeben haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "gebe ein",
+    "gebest ein",
+    "gebe ein",
+    "geben ein",
+    "gebet ein",
+    "geben ein"
+   ],
+   "perfekt": [
+    "habe eingegeben",
+    "habest eingegeben",
+    "habe eingegeben",
+    "haben eingegeben",
+    "habet eingegeben",
+    "haben eingegeben"
+   ],
+   "futur1": [
+    "werde eingeben",
+    "werdest eingeben",
+    "werde eingeben",
+    "werden eingeben",
+    "werdet eingeben",
+    "werden eingeben"
+   ],
+   "futur2": [
+    "werde eingegeben haben",
+    "werdest eingegeben haben",
+    "werde eingegeben haben",
+    "werden eingegeben haben",
+    "werdet eingegeben haben",
+    "werden eingegeben haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde eingeben",
+    "würdest eingeben",
+    "würde eingeben",
+    "würden eingeben",
+    "würdet eingeben",
+    "würden eingeben"
+   ],
+   "plusquamperfekt": [
+    "hätte eingegeben",
+    "hättest eingegeben",
+    "hätte eingegeben",
+    "hätten eingegeben",
+    "hättet eingegeben",
+    "hätten eingegeben"
+   ],
+   "futur1": [
+    "würde eingeben",
+    "würdest eingeben",
+    "würde eingeben",
+    "würden eingeben",
+    "würdet eingeben",
+    "würden eingeben"
+   ],
+   "futur2": [
+    "würde eingegeben haben",
+    "würdest eingegeben haben",
+    "würde eingegeben haben",
+    "würden eingegeben haben",
+    "würdet eingegeben haben",
+    "würden eingegeben haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Geb ein!",
+   "ihr": "Gebt ein!",
+   "Sie": "Geben Sie ein!",
+   "wir": "Geben wir ein!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "enter (data)",
+    "enter (data)",
+    "enters (data)",
+    "enter (data)",
+    "enter (data)",
+    "enter (data)"
+   ],
+   "praeteritum": [
+    "entered (data)",
+    "entered (data)",
+    "entered (data)",
+    "entered (data)",
+    "entered (data)",
+    "entered (data)"
+   ],
+   "perfekt": [
+    "have entered (data)",
+    "have entered (data)",
+    "has entered (data)",
+    "have entered (data)",
+    "have entered (data)",
+    "have entered (data)"
+   ]
+  }
+ },
+ "einschlafen": {
+  "infinitiv": "einschlafen",
+  "partizip1": "einschlafend",
+  "partizip2": "eingeschlafen",
+  "zu_infinitiv": "einzuschlafen",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "schlafe ein",
+    "schlafst ein",
+    "schlaft ein",
+    "schlafen ein",
+    "schlaft ein",
+    "schlafen ein"
+   ],
+   "praeteritum": [
+    "schlief ein",
+    "schliefst ein",
+    "schlief ein",
+    "schliefen ein",
+    "schlieft ein",
+    "schliefen ein"
+   ],
+   "perfekt": [
+    "bin eingeschlafen",
+    "bist eingeschlafen",
+    "ist eingeschlafen",
+    "sind eingeschlafen",
+    "seid eingeschlafen",
+    "sind eingeschlafen"
+   ],
+   "plusquamperfekt": [
+    "war eingeschlafen",
+    "warst eingeschlafen",
+    "war eingeschlafen",
+    "waren eingeschlafen",
+    "wart eingeschlafen",
+    "waren eingeschlafen"
+   ],
+   "futur1": [
+    "werde einschlafen",
+    "wirst einschlafen",
+    "wird einschlafen",
+    "werden einschlafen",
+    "werdet einschlafen",
+    "werden einschlafen"
+   ],
+   "futur2": [
+    "werde eingeschlafen sein",
+    "wirst eingeschlafen sein",
+    "wird eingeschlafen sein",
+    "werden eingeschlafen sein",
+    "werdet eingeschlafen sein",
+    "werden eingeschlafen sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "schlafe ein",
+    "schlafest ein",
+    "schlafe ein",
+    "schlafen ein",
+    "schlafet ein",
+    "schlafen ein"
+   ],
+   "perfekt": [
+    "sei eingeschlafen",
+    "seist eingeschlafen",
+    "sei eingeschlafen",
+    "seien eingeschlafen",
+    "seiet eingeschlafen",
+    "seien eingeschlafen"
+   ],
+   "futur1": [
+    "werde einschlafen",
+    "werdest einschlafen",
+    "werde einschlafen",
+    "werden einschlafen",
+    "werdet einschlafen",
+    "werden einschlafen"
+   ],
+   "futur2": [
+    "werde eingeschlafen sein",
+    "werdest eingeschlafen sein",
+    "werde eingeschlafen sein",
+    "werden eingeschlafen sein",
+    "werdet eingeschlafen sein",
+    "werden eingeschlafen sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde einschlafen",
+    "würdest einschlafen",
+    "würde einschlafen",
+    "würden einschlafen",
+    "würdet einschlafen",
+    "würden einschlafen"
+   ],
+   "plusquamperfekt": [
+    "wäre eingeschlafen",
+    "wärst eingeschlafen",
+    "wäre eingeschlafen",
+    "wären eingeschlafen",
+    "wärt eingeschlafen",
+    "wären eingeschlafen"
+   ],
+   "futur1": [
+    "würde einschlafen",
+    "würdest einschlafen",
+    "würde einschlafen",
+    "würden einschlafen",
+    "würdet einschlafen",
+    "würden einschlafen"
+   ],
+   "futur2": [
+    "würde eingeschlafen sein",
+    "würdest eingeschlafen sein",
+    "würde eingeschlafen sein",
+    "würden eingeschlafen sein",
+    "würdet eingeschlafen sein",
+    "würden eingeschlafen sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Schlaf ein!",
+   "ihr": "Schlaft ein!",
+   "Sie": "Schlafen Sie ein!",
+   "wir": "Schlafen wir ein!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "fall asleep",
+    "fall asleep",
+    "falls asleep",
+    "fall asleep",
+    "fall asleep",
+    "fall asleep"
+   ],
+   "praeteritum": [
+    "fell asleep",
+    "fell asleep",
+    "fell asleep",
+    "fell asleep",
+    "fell asleep",
+    "fell asleep"
+   ],
+   "perfekt": [
+    "have fallen asleep",
+    "have fallen asleep",
+    "has fallen asleep",
+    "have fallen asleep",
+    "have fallen asleep",
+    "have fallen asleep"
+   ]
+  }
+ },
+ "freihaben": {
+  "infinitiv": "freihaben",
+  "partizip1": "freihabend",
+  "partizip2": "freigehabt",
+  "zu_infinitiv": "freizuhaben",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "habe frei",
+    "habst frei",
+    "habt frei",
+    "haben frei",
+    "habt frei",
+    "haben frei"
+   ],
+   "praeteritum": [
+    "hatte frei",
+    "hattest frei",
+    "hatte frei",
+    "hatten frei",
+    "hattet frei",
+    "hatten frei"
+   ],
+   "perfekt": [
+    "habe freigehabt",
+    "hast freigehabt",
+    "hat freigehabt",
+    "haben freigehabt",
+    "habt freigehabt",
+    "haben freigehabt"
+   ],
+   "plusquamperfekt": [
+    "hatte freigehabt",
+    "hattest freigehabt",
+    "hatte freigehabt",
+    "hatten freigehabt",
+    "hattet freigehabt",
+    "hatten freigehabt"
+   ],
+   "futur1": [
+    "werde freihaben",
+    "wirst freihaben",
+    "wird freihaben",
+    "werden freihaben",
+    "werdet freihaben",
+    "werden freihaben"
+   ],
+   "futur2": [
+    "werde freigehabt haben",
+    "wirst freigehabt haben",
+    "wird freigehabt haben",
+    "werden freigehabt haben",
+    "werdet freigehabt haben",
+    "werden freigehabt haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "habe frei",
+    "habest frei",
+    "habe frei",
+    "haben frei",
+    "habet frei",
+    "haben frei"
+   ],
+   "perfekt": [
+    "habe freigehabt",
+    "habest freigehabt",
+    "habe freigehabt",
+    "haben freigehabt",
+    "habet freigehabt",
+    "haben freigehabt"
+   ],
+   "futur1": [
+    "werde freihaben",
+    "werdest freihaben",
+    "werde freihaben",
+    "werden freihaben",
+    "werdet freihaben",
+    "werden freihaben"
+   ],
+   "futur2": [
+    "werde freigehabt haben",
+    "werdest freigehabt haben",
+    "werde freigehabt haben",
+    "werden freigehabt haben",
+    "werdet freigehabt haben",
+    "werden freigehabt haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde freihaben",
+    "würdest freihaben",
+    "würde freihaben",
+    "würden freihaben",
+    "würdet freihaben",
+    "würden freihaben"
+   ],
+   "plusquamperfekt": [
+    "hätte freigehabt",
+    "hättest freigehabt",
+    "hätte freigehabt",
+    "hätten freigehabt",
+    "hättet freigehabt",
+    "hätten freigehabt"
+   ],
+   "futur1": [
+    "würde freihaben",
+    "würdest freihaben",
+    "würde freihaben",
+    "würden freihaben",
+    "würdet freihaben",
+    "würden freihaben"
+   ],
+   "futur2": [
+    "würde freigehabt haben",
+    "würdest freigehabt haben",
+    "würde freigehabt haben",
+    "würden freigehabt haben",
+    "würdet freigehabt haben",
+    "würden freigehabt haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Hab frei!",
+   "ihr": "Habt frei!",
+   "Sie": "Haben Sie frei!",
+   "wir": "Haben wir frei!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "have off",
+    "have off",
+    "has off",
+    "have off",
+    "have off",
+    "have off"
+   ],
+   "praeteritum": [
+    "had off",
+    "had off",
+    "had off",
+    "had off",
+    "had off",
+    "had off"
+   ],
+   "perfekt": [
+    "have had off",
+    "have had off",
+    "has had off",
+    "have had off",
+    "have had off",
+    "have had off"
+   ]
+  }
+ },
+ "hochfahren": {
+  "infinitiv": "hochfahren",
+  "partizip1": "hochfahrend",
+  "partizip2": "hochgefahren",
+  "zu_infinitiv": "hochzufahren",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "fahre hoch",
+    "fahrst hoch",
+    "fahrt hoch",
+    "fahren hoch",
+    "fahrt hoch",
+    "fahren hoch"
+   ],
+   "praeteritum": [
+    "fuhr hoch",
+    "fuhrst hoch",
+    "fuhr hoch",
+    "fuhren hoch",
+    "fuhrt hoch",
+    "fuhren hoch"
+   ],
+   "perfekt": [
+    "habe hochgefahren",
+    "hast hochgefahren",
+    "hat hochgefahren",
+    "haben hochgefahren",
+    "habt hochgefahren",
+    "haben hochgefahren"
+   ],
+   "plusquamperfekt": [
+    "hatte hochgefahren",
+    "hattest hochgefahren",
+    "hatte hochgefahren",
+    "hatten hochgefahren",
+    "hattet hochgefahren",
+    "hatten hochgefahren"
+   ],
+   "futur1": [
+    "werde hochfahren",
+    "wirst hochfahren",
+    "wird hochfahren",
+    "werden hochfahren",
+    "werdet hochfahren",
+    "werden hochfahren"
+   ],
+   "futur2": [
+    "werde hochgefahren haben",
+    "wirst hochgefahren haben",
+    "wird hochgefahren haben",
+    "werden hochgefahren haben",
+    "werdet hochgefahren haben",
+    "werden hochgefahren haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "fahre hoch",
+    "fahrest hoch",
+    "fahre hoch",
+    "fahren hoch",
+    "fahret hoch",
+    "fahren hoch"
+   ],
+   "perfekt": [
+    "habe hochgefahren",
+    "habest hochgefahren",
+    "habe hochgefahren",
+    "haben hochgefahren",
+    "habet hochgefahren",
+    "haben hochgefahren"
+   ],
+   "futur1": [
+    "werde hochfahren",
+    "werdest hochfahren",
+    "werde hochfahren",
+    "werden hochfahren",
+    "werdet hochfahren",
+    "werden hochfahren"
+   ],
+   "futur2": [
+    "werde hochgefahren haben",
+    "werdest hochgefahren haben",
+    "werde hochgefahren haben",
+    "werden hochgefahren haben",
+    "werdet hochgefahren haben",
+    "werden hochgefahren haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde hochfahren",
+    "würdest hochfahren",
+    "würde hochfahren",
+    "würden hochfahren",
+    "würdet hochfahren",
+    "würden hochfahren"
+   ],
+   "plusquamperfekt": [
+    "hätte hochgefahren",
+    "hättest hochgefahren",
+    "hätte hochgefahren",
+    "hätten hochgefahren",
+    "hättet hochgefahren",
+    "hätten hochgefahren"
+   ],
+   "futur1": [
+    "würde hochfahren",
+    "würdest hochfahren",
+    "würde hochfahren",
+    "würden hochfahren",
+    "würdet hochfahren",
+    "würden hochfahren"
+   ],
+   "futur2": [
+    "würde hochgefahren haben",
+    "würdest hochgefahren haben",
+    "würde hochgefahren haben",
+    "würden hochgefahren haben",
+    "würdet hochgefahren haben",
+    "würden hochgefahren haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Fahr hoch!",
+   "ihr": "Fahrt hoch!",
+   "Sie": "Fahren Sie hoch!",
+   "wir": "Fahren wir hoch!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "boot up (computer)",
+    "boot up (computer)",
+    "boots up (computer)",
+    "boot up (computer)",
+    "boot up (computer)",
+    "boot up (computer)"
+   ],
+   "praeteritum": [
+    "booted up (computer)",
+    "booted up (computer)",
+    "booted up (computer)",
+    "booted up (computer)",
+    "booted up (computer)",
+    "booted up (computer)"
+   ],
+   "perfekt": [
+    "have booted up (computer)",
+    "have booted up (computer)",
+    "has booted up (computer)",
+    "have booted up (computer)",
+    "have booted up (computer)",
+    "have booted up (computer)"
+   ]
+  }
+ },
+ "lossein": {
+  "infinitiv": "lossein",
+  "partizip1": "losseind",
+  "partizip2": "los gewesen",
+  "zu_infinitiv": "loszuseien",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "seie los",
+    "seist los",
+    "seit los",
+    "seien los",
+    "seit los",
+    "seien los"
+   ],
+   "praeteritum": [
+    "war los",
+    "warst los",
+    "war los",
+    "waren los",
+    "wart los",
+    "waren los"
+   ],
+   "perfekt": [
+    "bin los gewesen",
+    "bist los gewesen",
+    "ist los gewesen",
+    "sind los gewesen",
+    "seid los gewesen",
+    "sind los gewesen"
+   ],
+   "plusquamperfekt": [
+    "war los gewesen",
+    "warst los gewesen",
+    "war los gewesen",
+    "waren los gewesen",
+    "wart los gewesen",
+    "waren los gewesen"
+   ],
+   "futur1": [
+    "werde lossein",
+    "wirst lossein",
+    "wird lossein",
+    "werden lossein",
+    "werdet lossein",
+    "werden lossein"
+   ],
+   "futur2": [
+    "werde los gewesen sein",
+    "wirst los gewesen sein",
+    "wird los gewesen sein",
+    "werden los gewesen sein",
+    "werdet los gewesen sein",
+    "werden los gewesen sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "seie los",
+    "seiest los",
+    "seie los",
+    "seien los",
+    "seiet los",
+    "seien los"
+   ],
+   "perfekt": [
+    "sei los gewesen",
+    "seist los gewesen",
+    "sei los gewesen",
+    "seien los gewesen",
+    "seiet los gewesen",
+    "seien los gewesen"
+   ],
+   "futur1": [
+    "werde lossein",
+    "werdest lossein",
+    "werde lossein",
+    "werden lossein",
+    "werdet lossein",
+    "werden lossein"
+   ],
+   "futur2": [
+    "werde los gewesen sein",
+    "werdest los gewesen sein",
+    "werde los gewesen sein",
+    "werden los gewesen sein",
+    "werdet los gewesen sein",
+    "werden los gewesen sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde lossein",
+    "würdest lossein",
+    "würde lossein",
+    "würden lossein",
+    "würdet lossein",
+    "würden lossein"
+   ],
+   "plusquamperfekt": [
+    "wäre los gewesen",
+    "wärst los gewesen",
+    "wäre los gewesen",
+    "wären los gewesen",
+    "wärt los gewesen",
+    "wären los gewesen"
+   ],
+   "futur1": [
+    "würde lossein",
+    "würdest lossein",
+    "würde lossein",
+    "würden lossein",
+    "würdet lossein",
+    "würden lossein"
+   ],
+   "futur2": [
+    "würde los gewesen sein",
+    "würdest los gewesen sein",
+    "würde los gewesen sein",
+    "würden los gewesen sein",
+    "würdet los gewesen sein",
+    "würden los gewesen sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Sei los!",
+   "ihr": "Seit los!",
+   "Sie": "Seien Sie los!",
+   "wir": "Seien wir los!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "be going on",
+    "be going on",
+    "is going on",
+    "be going on",
+    "be going on",
+    "be going on"
+   ],
+   "praeteritum": [
+    "was going on",
+    "was going on",
+    "was going on",
+    "was going on",
+    "was going on",
+    "was going on"
+   ],
+   "perfekt": [
+    "have been going on",
+    "have been going on",
+    "has been going on",
+    "have been going on",
+    "have been going on",
+    "have been going on"
+   ]
+  }
+ },
+ "losfahren": {
+  "infinitiv": "losfahren",
+  "partizip1": "losfahrend",
+  "partizip2": "losgefahren",
+  "zu_infinitiv": "loszufahren",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "fahre los",
+    "fahrst los",
+    "fahrt los",
+    "fahren los",
+    "fahrt los",
+    "fahren los"
+   ],
+   "praeteritum": [
+    "fuhr los",
+    "fuhrst los",
+    "fuhr los",
+    "fuhren los",
+    "fuhrt los",
+    "fuhren los"
+   ],
+   "perfekt": [
+    "bin losgefahren",
+    "bist losgefahren",
+    "ist losgefahren",
+    "sind losgefahren",
+    "seid losgefahren",
+    "sind losgefahren"
+   ],
+   "plusquamperfekt": [
+    "war losgefahren",
+    "warst losgefahren",
+    "war losgefahren",
+    "waren losgefahren",
+    "wart losgefahren",
+    "waren losgefahren"
+   ],
+   "futur1": [
+    "werde losfahren",
+    "wirst losfahren",
+    "wird losfahren",
+    "werden losfahren",
+    "werdet losfahren",
+    "werden losfahren"
+   ],
+   "futur2": [
+    "werde losgefahren sein",
+    "wirst losgefahren sein",
+    "wird losgefahren sein",
+    "werden losgefahren sein",
+    "werdet losgefahren sein",
+    "werden losgefahren sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "fahre los",
+    "fahrest los",
+    "fahre los",
+    "fahren los",
+    "fahret los",
+    "fahren los"
+   ],
+   "perfekt": [
+    "sei losgefahren",
+    "seist losgefahren",
+    "sei losgefahren",
+    "seien losgefahren",
+    "seiet losgefahren",
+    "seien losgefahren"
+   ],
+   "futur1": [
+    "werde losfahren",
+    "werdest losfahren",
+    "werde losfahren",
+    "werden losfahren",
+    "werdet losfahren",
+    "werden losfahren"
+   ],
+   "futur2": [
+    "werde losgefahren sein",
+    "werdest losgefahren sein",
+    "werde losgefahren sein",
+    "werden losgefahren sein",
+    "werdet losgefahren sein",
+    "werden losgefahren sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde losfahren",
+    "würdest losfahren",
+    "würde losfahren",
+    "würden losfahren",
+    "würdet losfahren",
+    "würden losfahren"
+   ],
+   "plusquamperfekt": [
+    "wäre losgefahren",
+    "wärst losgefahren",
+    "wäre losgefahren",
+    "wären losgefahren",
+    "wärt losgefahren",
+    "wären losgefahren"
+   ],
+   "futur1": [
+    "würde losfahren",
+    "würdest losfahren",
+    "würde losfahren",
+    "würden losfahren",
+    "würdet losfahren",
+    "würden losfahren"
+   ],
+   "futur2": [
+    "würde losgefahren sein",
+    "würdest losgefahren sein",
+    "würde losgefahren sein",
+    "würden losgefahren sein",
+    "würdet losgefahren sein",
+    "würden losgefahren sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Fahr los!",
+   "ihr": "Fahrt los!",
+   "Sie": "Fahren Sie los!",
+   "wir": "Fahren wir los!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "set off",
+    "set off",
+    "sets off",
+    "set off",
+    "set off",
+    "set off"
+   ],
+   "praeteritum": [
+    "seted off",
+    "seted off",
+    "seted off",
+    "seted off",
+    "seted off",
+    "seted off"
+   ],
+   "perfekt": [
+    "have seted off",
+    "have seted off",
+    "has seted off",
+    "have seted off",
+    "have seted off",
+    "have seted off"
+   ]
+  }
+ },
+ "losgehen": {
+  "infinitiv": "losgehen",
+  "partizip1": "losgehend",
+  "partizip2": "losgegangen",
+  "zu_infinitiv": "loszugehen",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "gehe los",
+    "gehst los",
+    "geht los",
+    "gehen los",
+    "geht los",
+    "gehen los"
+   ],
+   "praeteritum": [
+    "ging los",
+    "gingst los",
+    "ging los",
+    "gingen los",
+    "gingt los",
+    "gingen los"
+   ],
+   "perfekt": [
+    "bin losgegangen",
+    "bist losgegangen",
+    "ist losgegangen",
+    "sind losgegangen",
+    "seid losgegangen",
+    "sind losgegangen"
+   ],
+   "plusquamperfekt": [
+    "war losgegangen",
+    "warst losgegangen",
+    "war losgegangen",
+    "waren losgegangen",
+    "wart losgegangen",
+    "waren losgegangen"
+   ],
+   "futur1": [
+    "werde losgehen",
+    "wirst losgehen",
+    "wird losgehen",
+    "werden losgehen",
+    "werdet losgehen",
+    "werden losgehen"
+   ],
+   "futur2": [
+    "werde losgegangen sein",
+    "wirst losgegangen sein",
+    "wird losgegangen sein",
+    "werden losgegangen sein",
+    "werdet losgegangen sein",
+    "werden losgegangen sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "gehe los",
+    "gehest los",
+    "gehe los",
+    "gehen los",
+    "gehet los",
+    "gehen los"
+   ],
+   "perfekt": [
+    "sei losgegangen",
+    "seist losgegangen",
+    "sei losgegangen",
+    "seien losgegangen",
+    "seiet losgegangen",
+    "seien losgegangen"
+   ],
+   "futur1": [
+    "werde losgehen",
+    "werdest losgehen",
+    "werde losgehen",
+    "werden losgehen",
+    "werdet losgehen",
+    "werden losgehen"
+   ],
+   "futur2": [
+    "werde losgegangen sein",
+    "werdest losgegangen sein",
+    "werde losgegangen sein",
+    "werden losgegangen sein",
+    "werdet losgegangen sein",
+    "werden losgegangen sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde losgehen",
+    "würdest losgehen",
+    "würde losgehen",
+    "würden losgehen",
+    "würdet losgehen",
+    "würden losgehen"
+   ],
+   "plusquamperfekt": [
+    "wäre losgegangen",
+    "wärst losgegangen",
+    "wäre losgegangen",
+    "wären losgegangen",
+    "wärt losgegangen",
+    "wären losgegangen"
+   ],
+   "futur1": [
+    "würde losgehen",
+    "würdest losgehen",
+    "würde losgehen",
+    "würden losgehen",
+    "würdet losgehen",
+    "würden losgehen"
+   ],
+   "futur2": [
+    "würde losgegangen sein",
+    "würdest losgegangen sein",
+    "würde losgegangen sein",
+    "würden losgegangen sein",
+    "würdet losgegangen sein",
+    "würden losgegangen sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Geh los!",
+   "ihr": "Geht los!",
+   "Sie": "Gehen Sie los!",
+   "wir": "Gehen wir los!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "start",
+    "start",
+    "starts",
+    "start",
+    "start",
+    "start"
+   ],
+   "praeteritum": [
+    "started",
+    "started",
+    "started",
+    "started",
+    "started",
+    "started"
+   ],
+   "perfekt": [
+    "have started",
+    "have started",
+    "has started",
+    "have started",
+    "have started",
+    "have started"
+   ]
+  }
+ },
+ "mitlesen": {
+  "infinitiv": "mitlesen",
+  "partizip1": "mitlesend",
+  "partizip2": "mitgelesen",
+  "zu_infinitiv": "mitzulesen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "lese mit",
+    "lest mit",
+    "lest mit",
+    "lesen mit",
+    "lest mit",
+    "lesen mit"
+   ],
+   "praeteritum": [
+    "las mit",
+    "last mit",
+    "las mit",
+    "lasen mit",
+    "last mit",
+    "lasen mit"
+   ],
+   "perfekt": [
+    "habe mitgelesen",
+    "hast mitgelesen",
+    "hat mitgelesen",
+    "haben mitgelesen",
+    "habt mitgelesen",
+    "haben mitgelesen"
+   ],
+   "plusquamperfekt": [
+    "hatte mitgelesen",
+    "hattest mitgelesen",
+    "hatte mitgelesen",
+    "hatten mitgelesen",
+    "hattet mitgelesen",
+    "hatten mitgelesen"
+   ],
+   "futur1": [
+    "werde mitlesen",
+    "wirst mitlesen",
+    "wird mitlesen",
+    "werden mitlesen",
+    "werdet mitlesen",
+    "werden mitlesen"
+   ],
+   "futur2": [
+    "werde mitgelesen haben",
+    "wirst mitgelesen haben",
+    "wird mitgelesen haben",
+    "werden mitgelesen haben",
+    "werdet mitgelesen haben",
+    "werden mitgelesen haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "lese mit",
+    "lesest mit",
+    "lese mit",
+    "lesen mit",
+    "leset mit",
+    "lesen mit"
+   ],
+   "perfekt": [
+    "habe mitgelesen",
+    "habest mitgelesen",
+    "habe mitgelesen",
+    "haben mitgelesen",
+    "habet mitgelesen",
+    "haben mitgelesen"
+   ],
+   "futur1": [
+    "werde mitlesen",
+    "werdest mitlesen",
+    "werde mitlesen",
+    "werden mitlesen",
+    "werdet mitlesen",
+    "werden mitlesen"
+   ],
+   "futur2": [
+    "werde mitgelesen haben",
+    "werdest mitgelesen haben",
+    "werde mitgelesen haben",
+    "werden mitgelesen haben",
+    "werdet mitgelesen haben",
+    "werden mitgelesen haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde mitlesen",
+    "würdest mitlesen",
+    "würde mitlesen",
+    "würden mitlesen",
+    "würdet mitlesen",
+    "würden mitlesen"
+   ],
+   "plusquamperfekt": [
+    "hätte mitgelesen",
+    "hättest mitgelesen",
+    "hätte mitgelesen",
+    "hätten mitgelesen",
+    "hättet mitgelesen",
+    "hätten mitgelesen"
+   ],
+   "futur1": [
+    "würde mitlesen",
+    "würdest mitlesen",
+    "würde mitlesen",
+    "würden mitlesen",
+    "würdet mitlesen",
+    "würden mitlesen"
+   ],
+   "futur2": [
+    "würde mitgelesen haben",
+    "würdest mitgelesen haben",
+    "würde mitgelesen haben",
+    "würden mitgelesen haben",
+    "würdet mitgelesen haben",
+    "würden mitgelesen haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Les mit!",
+   "ihr": "Lest mit!",
+   "Sie": "Lesen Sie mit!",
+   "wir": "Lesen wir mit!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "read along",
+    "read along",
+    "reads along",
+    "read along",
+    "read along",
+    "read along"
+   ],
+   "praeteritum": [
+    "read along",
+    "read along",
+    "read along",
+    "read along",
+    "read along",
+    "read along"
+   ],
+   "perfekt": [
+    "have read along",
+    "have read along",
+    "has read along",
+    "have read along",
+    "have read along",
+    "have read along"
+   ]
+  }
+ },
+ "mitsprechen": {
+  "infinitiv": "mitsprechen",
+  "partizip1": "mitsprechend",
+  "partizip2": "mitgesprochen",
+  "zu_infinitiv": "mitzusprechen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "spreche mit",
+    "sprechst mit",
+    "sprecht mit",
+    "sprechen mit",
+    "sprecht mit",
+    "sprechen mit"
+   ],
+   "praeteritum": [
+    "sprach mit",
+    "sprachst mit",
+    "sprach mit",
+    "sprachen mit",
+    "spracht mit",
+    "sprachen mit"
+   ],
+   "perfekt": [
+    "habe mitgesprochen",
+    "hast mitgesprochen",
+    "hat mitgesprochen",
+    "haben mitgesprochen",
+    "habt mitgesprochen",
+    "haben mitgesprochen"
+   ],
+   "plusquamperfekt": [
+    "hatte mitgesprochen",
+    "hattest mitgesprochen",
+    "hatte mitgesprochen",
+    "hatten mitgesprochen",
+    "hattet mitgesprochen",
+    "hatten mitgesprochen"
+   ],
+   "futur1": [
+    "werde mitsprechen",
+    "wirst mitsprechen",
+    "wird mitsprechen",
+    "werden mitsprechen",
+    "werdet mitsprechen",
+    "werden mitsprechen"
+   ],
+   "futur2": [
+    "werde mitgesprochen haben",
+    "wirst mitgesprochen haben",
+    "wird mitgesprochen haben",
+    "werden mitgesprochen haben",
+    "werdet mitgesprochen haben",
+    "werden mitgesprochen haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "spreche mit",
+    "sprechest mit",
+    "spreche mit",
+    "sprechen mit",
+    "sprechet mit",
+    "sprechen mit"
+   ],
+   "perfekt": [
+    "habe mitgesprochen",
+    "habest mitgesprochen",
+    "habe mitgesprochen",
+    "haben mitgesprochen",
+    "habet mitgesprochen",
+    "haben mitgesprochen"
+   ],
+   "futur1": [
+    "werde mitsprechen",
+    "werdest mitsprechen",
+    "werde mitsprechen",
+    "werden mitsprechen",
+    "werdet mitsprechen",
+    "werden mitsprechen"
+   ],
+   "futur2": [
+    "werde mitgesprochen haben",
+    "werdest mitgesprochen haben",
+    "werde mitgesprochen haben",
+    "werden mitgesprochen haben",
+    "werdet mitgesprochen haben",
+    "werden mitgesprochen haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde mitsprechen",
+    "würdest mitsprechen",
+    "würde mitsprechen",
+    "würden mitsprechen",
+    "würdet mitsprechen",
+    "würden mitsprechen"
+   ],
+   "plusquamperfekt": [
+    "hätte mitgesprochen",
+    "hättest mitgesprochen",
+    "hätte mitgesprochen",
+    "hätten mitgesprochen",
+    "hättet mitgesprochen",
+    "hätten mitgesprochen"
+   ],
+   "futur1": [
+    "würde mitsprechen",
+    "würdest mitsprechen",
+    "würde mitsprechen",
+    "würden mitsprechen",
+    "würdet mitsprechen",
+    "würden mitsprechen"
+   ],
+   "futur2": [
+    "würde mitgesprochen haben",
+    "würdest mitgesprochen haben",
+    "würde mitgesprochen haben",
+    "würden mitgesprochen haben",
+    "würdet mitgesprochen haben",
+    "würden mitgesprochen haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Sprech mit!",
+   "ihr": "Sprecht mit!",
+   "Sie": "Sprechen Sie mit!",
+   "wir": "Sprechen wir mit!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "speak along",
+    "speak along",
+    "speaks along",
+    "speak along",
+    "speak along",
+    "speak along"
+   ],
+   "praeteritum": [
+    "spoke along",
+    "spoke along",
+    "spoke along",
+    "spoke along",
+    "spoke along",
+    "spoke along"
+   ],
+   "perfekt": [
+    "have spoken along",
+    "have spoken along",
+    "has spoken along",
+    "have spoken along",
+    "have spoken along",
+    "have spoken along"
+   ]
+  }
+ },
+ "rausgehen": {
+  "infinitiv": "rausgehen",
+  "partizip1": "rausgehend",
+  "partizip2": "rausgegangen",
+  "zu_infinitiv": "rauszugehen",
+  "hilfsverb": "sein",
+  "indikativ": {
+   "praesens": [
+    "gehe raus",
+    "gehst raus",
+    "geht raus",
+    "gehen raus",
+    "geht raus",
+    "gehen raus"
+   ],
+   "praeteritum": [
+    "ging raus",
+    "gingst raus",
+    "ging raus",
+    "gingen raus",
+    "gingt raus",
+    "gingen raus"
+   ],
+   "perfekt": [
+    "bin rausgegangen",
+    "bist rausgegangen",
+    "ist rausgegangen",
+    "sind rausgegangen",
+    "seid rausgegangen",
+    "sind rausgegangen"
+   ],
+   "plusquamperfekt": [
+    "war rausgegangen",
+    "warst rausgegangen",
+    "war rausgegangen",
+    "waren rausgegangen",
+    "wart rausgegangen",
+    "waren rausgegangen"
+   ],
+   "futur1": [
+    "werde rausgehen",
+    "wirst rausgehen",
+    "wird rausgehen",
+    "werden rausgehen",
+    "werdet rausgehen",
+    "werden rausgehen"
+   ],
+   "futur2": [
+    "werde rausgegangen sein",
+    "wirst rausgegangen sein",
+    "wird rausgegangen sein",
+    "werden rausgegangen sein",
+    "werdet rausgegangen sein",
+    "werden rausgegangen sein"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "gehe raus",
+    "gehest raus",
+    "gehe raus",
+    "gehen raus",
+    "gehet raus",
+    "gehen raus"
+   ],
+   "perfekt": [
+    "sei rausgegangen",
+    "seist rausgegangen",
+    "sei rausgegangen",
+    "seien rausgegangen",
+    "seiet rausgegangen",
+    "seien rausgegangen"
+   ],
+   "futur1": [
+    "werde rausgehen",
+    "werdest rausgehen",
+    "werde rausgehen",
+    "werden rausgehen",
+    "werdet rausgehen",
+    "werden rausgehen"
+   ],
+   "futur2": [
+    "werde rausgegangen sein",
+    "werdest rausgegangen sein",
+    "werde rausgegangen sein",
+    "werden rausgegangen sein",
+    "werdet rausgegangen sein",
+    "werden rausgegangen sein"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde rausgehen",
+    "würdest rausgehen",
+    "würde rausgehen",
+    "würden rausgehen",
+    "würdet rausgehen",
+    "würden rausgehen"
+   ],
+   "plusquamperfekt": [
+    "wäre rausgegangen",
+    "wärst rausgegangen",
+    "wäre rausgegangen",
+    "wären rausgegangen",
+    "wärt rausgegangen",
+    "wären rausgegangen"
+   ],
+   "futur1": [
+    "würde rausgehen",
+    "würdest rausgehen",
+    "würde rausgehen",
+    "würden rausgehen",
+    "würdet rausgehen",
+    "würden rausgehen"
+   ],
+   "futur2": [
+    "würde rausgegangen sein",
+    "würdest rausgegangen sein",
+    "würde rausgegangen sein",
+    "würden rausgegangen sein",
+    "würdet rausgegangen sein",
+    "würden rausgegangen sein"
+   ]
+  },
+  "imperativ": {
+   "du": "Geh raus!",
+   "ihr": "Geht raus!",
+   "Sie": "Gehen Sie raus!",
+   "wir": "Gehen wir raus!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "go out(side)",
+    "go out(side)",
+    "goes out(side)",
+    "go out(side)",
+    "go out(side)",
+    "go out(side)"
+   ],
+   "praeteritum": [
+    "went out(side)",
+    "went out(side)",
+    "went out(side)",
+    "went out(side)",
+    "went out(side)",
+    "went out(side)"
+   ],
+   "perfekt": [
+    "have gone out(side)",
+    "have gone out(side)",
+    "has gone out(side)",
+    "have gone out(side)",
+    "have gone out(side)",
+    "have gone out(side)"
+   ]
+  }
+ },
+ "vorlesen": {
+  "infinitiv": "vorlesen",
+  "partizip1": "vorlesend",
+  "partizip2": "vorgelesen",
+  "zu_infinitiv": "vorzulesen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "lese vor",
+    "lest vor",
+    "lest vor",
+    "lesen vor",
+    "lest vor",
+    "lesen vor"
+   ],
+   "praeteritum": [
+    "las vor",
+    "last vor",
+    "las vor",
+    "lasen vor",
+    "last vor",
+    "lasen vor"
+   ],
+   "perfekt": [
+    "habe vorgelesen",
+    "hast vorgelesen",
+    "hat vorgelesen",
+    "haben vorgelesen",
+    "habt vorgelesen",
+    "haben vorgelesen"
+   ],
+   "plusquamperfekt": [
+    "hatte vorgelesen",
+    "hattest vorgelesen",
+    "hatte vorgelesen",
+    "hatten vorgelesen",
+    "hattet vorgelesen",
+    "hatten vorgelesen"
+   ],
+   "futur1": [
+    "werde vorlesen",
+    "wirst vorlesen",
+    "wird vorlesen",
+    "werden vorlesen",
+    "werdet vorlesen",
+    "werden vorlesen"
+   ],
+   "futur2": [
+    "werde vorgelesen haben",
+    "wirst vorgelesen haben",
+    "wird vorgelesen haben",
+    "werden vorgelesen haben",
+    "werdet vorgelesen haben",
+    "werden vorgelesen haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "lese vor",
+    "lesest vor",
+    "lese vor",
+    "lesen vor",
+    "leset vor",
+    "lesen vor"
+   ],
+   "perfekt": [
+    "habe vorgelesen",
+    "habest vorgelesen",
+    "habe vorgelesen",
+    "haben vorgelesen",
+    "habet vorgelesen",
+    "haben vorgelesen"
+   ],
+   "futur1": [
+    "werde vorlesen",
+    "werdest vorlesen",
+    "werde vorlesen",
+    "werden vorlesen",
+    "werdet vorlesen",
+    "werden vorlesen"
+   ],
+   "futur2": [
+    "werde vorgelesen haben",
+    "werdest vorgelesen haben",
+    "werde vorgelesen haben",
+    "werden vorgelesen haben",
+    "werdet vorgelesen haben",
+    "werden vorgelesen haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde vorlesen",
+    "würdest vorlesen",
+    "würde vorlesen",
+    "würden vorlesen",
+    "würdet vorlesen",
+    "würden vorlesen"
+   ],
+   "plusquamperfekt": [
+    "hätte vorgelesen",
+    "hättest vorgelesen",
+    "hätte vorgelesen",
+    "hätten vorgelesen",
+    "hättet vorgelesen",
+    "hätten vorgelesen"
+   ],
+   "futur1": [
+    "würde vorlesen",
+    "würdest vorlesen",
+    "würde vorlesen",
+    "würden vorlesen",
+    "würdet vorlesen",
+    "würden vorlesen"
+   ],
+   "futur2": [
+    "würde vorgelesen haben",
+    "würdest vorgelesen haben",
+    "würde vorgelesen haben",
+    "würden vorgelesen haben",
+    "würdet vorgelesen haben",
+    "würden vorgelesen haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Les vor!",
+   "ihr": "Lest vor!",
+   "Sie": "Lesen Sie vor!",
+   "wir": "Lesen wir vor!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "read aloud",
+    "read aloud",
+    "reads aloud",
+    "read aloud",
+    "read aloud",
+    "read aloud"
+   ],
+   "praeteritum": [
+    "read aloud",
+    "read aloud",
+    "read aloud",
+    "read aloud",
+    "read aloud",
+    "read aloud"
+   ],
+   "perfekt": [
+    "have read aloud",
+    "have read aloud",
+    "has read aloud",
+    "have read aloud",
+    "have read aloud",
+    "have read aloud"
+   ]
+  }
+ },
+ "zuhaben": {
+  "infinitiv": "zuhaben",
+  "partizip1": "zuhabend",
+  "partizip2": "zugehabt",
+  "zu_infinitiv": "zuzuhaben",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "habe zu",
+    "habst zu",
+    "habt zu",
+    "haben zu",
+    "habt zu",
+    "haben zu"
+   ],
+   "praeteritum": [
+    "hatte zu",
+    "hattest zu",
+    "hatte zu",
+    "hatten zu",
+    "hattet zu",
+    "hatten zu"
+   ],
+   "perfekt": [
+    "habe zugehabt",
+    "hast zugehabt",
+    "hat zugehabt",
+    "haben zugehabt",
+    "habt zugehabt",
+    "haben zugehabt"
+   ],
+   "plusquamperfekt": [
+    "hatte zugehabt",
+    "hattest zugehabt",
+    "hatte zugehabt",
+    "hatten zugehabt",
+    "hattet zugehabt",
+    "hatten zugehabt"
+   ],
+   "futur1": [
+    "werde zuhaben",
+    "wirst zuhaben",
+    "wird zuhaben",
+    "werden zuhaben",
+    "werdet zuhaben",
+    "werden zuhaben"
+   ],
+   "futur2": [
+    "werde zugehabt haben",
+    "wirst zugehabt haben",
+    "wird zugehabt haben",
+    "werden zugehabt haben",
+    "werdet zugehabt haben",
+    "werden zugehabt haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "habe zu",
+    "habest zu",
+    "habe zu",
+    "haben zu",
+    "habet zu",
+    "haben zu"
+   ],
+   "perfekt": [
+    "habe zugehabt",
+    "habest zugehabt",
+    "habe zugehabt",
+    "haben zugehabt",
+    "habet zugehabt",
+    "haben zugehabt"
+   ],
+   "futur1": [
+    "werde zuhaben",
+    "werdest zuhaben",
+    "werde zuhaben",
+    "werden zuhaben",
+    "werdet zuhaben",
+    "werden zuhaben"
+   ],
+   "futur2": [
+    "werde zugehabt haben",
+    "werdest zugehabt haben",
+    "werde zugehabt haben",
+    "werden zugehabt haben",
+    "werdet zugehabt haben",
+    "werden zugehabt haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde zuhaben",
+    "würdest zuhaben",
+    "würde zuhaben",
+    "würden zuhaben",
+    "würdet zuhaben",
+    "würden zuhaben"
+   ],
+   "plusquamperfekt": [
+    "hätte zugehabt",
+    "hättest zugehabt",
+    "hätte zugehabt",
+    "hätten zugehabt",
+    "hättet zugehabt",
+    "hätten zugehabt"
+   ],
+   "futur1": [
+    "würde zuhaben",
+    "würdest zuhaben",
+    "würde zuhaben",
+    "würden zuhaben",
+    "würdet zuhaben",
+    "würden zuhaben"
+   ],
+   "futur2": [
+    "würde zugehabt haben",
+    "würdest zugehabt haben",
+    "würde zugehabt haben",
+    "würden zugehabt haben",
+    "würdet zugehabt haben",
+    "würden zugehabt haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Hab zu!",
+   "ihr": "Habt zu!",
+   "Sie": "Haben Sie zu!",
+   "wir": "Haben wir zu!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "be closed (shop)",
+    "be closed (shop)",
+    "is closed (shop)",
+    "be closed (shop)",
+    "be closed (shop)",
+    "be closed (shop)"
+   ],
+   "praeteritum": [
+    "was closed (shop)",
+    "was closed (shop)",
+    "was closed (shop)",
+    "was closed (shop)",
+    "was closed (shop)",
+    "was closed (shop)"
+   ],
+   "perfekt": [
+    "have been closed (shop)",
+    "have been closed (shop)",
+    "has been closed (shop)",
+    "have been closed (shop)",
+    "have been closed (shop)",
+    "have been closed (shop)"
+   ]
+  }
+ },
+ "zurückfinden": {
+  "infinitiv": "zurückfinden",
+  "partizip1": "zurückfindend",
+  "partizip2": "zurückgefunden",
+  "zu_infinitiv": "zurückzufinden",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "finde zurück",
+    "findest zurück",
+    "findet zurück",
+    "finden zurück",
+    "findet zurück",
+    "finden zurück"
+   ],
+   "praeteritum": [
+    "fand zurück",
+    "fandest zurück",
+    "fand zurück",
+    "fanden zurück",
+    "fandet zurück",
+    "fanden zurück"
+   ],
+   "perfekt": [
+    "habe zurückgefunden",
+    "hast zurückgefunden",
+    "hat zurückgefunden",
+    "haben zurückgefunden",
+    "habt zurückgefunden",
+    "haben zurückgefunden"
+   ],
+   "plusquamperfekt": [
+    "hatte zurückgefunden",
+    "hattest zurückgefunden",
+    "hatte zurückgefunden",
+    "hatten zurückgefunden",
+    "hattet zurückgefunden",
+    "hatten zurückgefunden"
+   ],
+   "futur1": [
+    "werde zurückfinden",
+    "wirst zurückfinden",
+    "wird zurückfinden",
+    "werden zurückfinden",
+    "werdet zurückfinden",
+    "werden zurückfinden"
+   ],
+   "futur2": [
+    "werde zurückgefunden haben",
+    "wirst zurückgefunden haben",
+    "wird zurückgefunden haben",
+    "werden zurückgefunden haben",
+    "werdet zurückgefunden haben",
+    "werden zurückgefunden haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "finde zurück",
+    "findest zurück",
+    "finde zurück",
+    "finden zurück",
+    "findet zurück",
+    "finden zurück"
+   ],
+   "perfekt": [
+    "habe zurückgefunden",
+    "habest zurückgefunden",
+    "habe zurückgefunden",
+    "haben zurückgefunden",
+    "habet zurückgefunden",
+    "haben zurückgefunden"
+   ],
+   "futur1": [
+    "werde zurückfinden",
+    "werdest zurückfinden",
+    "werde zurückfinden",
+    "werden zurückfinden",
+    "werdet zurückfinden",
+    "werden zurückfinden"
+   ],
+   "futur2": [
+    "werde zurückgefunden haben",
+    "werdest zurückgefunden haben",
+    "werde zurückgefunden haben",
+    "werden zurückgefunden haben",
+    "werdet zurückgefunden haben",
+    "werden zurückgefunden haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde zurückfinden",
+    "würdest zurückfinden",
+    "würde zurückfinden",
+    "würden zurückfinden",
+    "würdet zurückfinden",
+    "würden zurückfinden"
+   ],
+   "plusquamperfekt": [
+    "hätte zurückgefunden",
+    "hättest zurückgefunden",
+    "hätte zurückgefunden",
+    "hätten zurückgefunden",
+    "hättet zurückgefunden",
+    "hätten zurückgefunden"
+   ],
+   "futur1": [
+    "würde zurückfinden",
+    "würdest zurückfinden",
+    "würde zurückfinden",
+    "würden zurückfinden",
+    "würdet zurückfinden",
+    "würden zurückfinden"
+   ],
+   "futur2": [
+    "würde zurückgefunden haben",
+    "würdest zurückgefunden haben",
+    "würde zurückgefunden haben",
+    "würden zurückgefunden haben",
+    "würdet zurückgefunden haben",
+    "würden zurückgefunden haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Finde zurück!",
+   "ihr": "Findet zurück!",
+   "Sie": "Finden Sie zurück!",
+   "wir": "Finden wir zurück!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "find one's way back",
+    "find one's way back",
+    "finds one's way back",
+    "find one's way back",
+    "find one's way back",
+    "find one's way back"
+   ],
+   "praeteritum": [
+    "found one's way back",
+    "found one's way back",
+    "found one's way back",
+    "found one's way back",
+    "found one's way back",
+    "found one's way back"
+   ],
+   "perfekt": [
+    "have found one's way back",
+    "have found one's way back",
+    "has found one's way back",
+    "have found one's way back",
+    "have found one's way back",
+    "have found one's way back"
    ]
   }
  }

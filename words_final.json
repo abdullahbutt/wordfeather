@@ -446,7 +446,7 @@
     "de": "der Akku, -s",
     "en": "battery",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Mein Akku ist leer und ich brauche ein Ladekabel.",
     "example_en": "My battery is dead and I need a charging cable.",
     "register": "everyday"
@@ -570,7 +570,7 @@
     "de": "der Alltag",
     "en": "everyday life",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Im Alltag vergisst man oft die kleinen schönen Dinge.",
     "example_en": "In everyday life, one often forgets the small beautiful things.",
     "register": "everyday"
@@ -606,7 +606,7 @@
     "de": "die Altstadt",
     "en": "old town",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Wir haben die Altstadt zu Fuß erkundet und viel gesehen.",
     "example_en": "We explored the old town on foot and saw a lot.",
     "register": "everyday"
@@ -815,15 +815,6 @@
     "register": "everyday"
   },
   {
-    "de": "das Angebot, -e",
-    "en": "offer",
-    "article": "n.",
-    "level": "B1",
-    "example": "Das Angebot des Händlers klingt sehr verlockend.",
-    "example_en": "The dealer's offer sounds very tempting.",
-    "register": "everyday"
-  },
-  {
     "de": "der Angeklagte, -n",
     "en": "defendant",
     "article": "m.",
@@ -933,7 +924,7 @@
     "de": "die Ankunft",
     "en": "arrival",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Ankunft des Zuges verzögert sich um dreißig Minuten.",
     "example_en": "The arrival of the train is delayed by thirty minutes.",
     "register": "everyday"
@@ -956,15 +947,6 @@
       "reflexiv": true,
       "governs": "für + accusative (optional, e.g. \"sich für einen Kurs anmelden\")"
     }
-  },
-  {
-    "de": "die Anmeldung",
-    "en": "registration",
-    "article": "f.",
-    "level": "A2",
-    "example": "Die Anmeldung für das Seminar ist bereits abgeschlossen.",
-    "example_en": "Registration for the seminar has already closed.",
-    "register": "everyday"
   },
   {
     "de": "die Anmeldung, -en",
@@ -1001,7 +983,7 @@
     "de": "annehmen",
     "en": "to accept",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er nimmt das Angebot dankbar an.",
     "example_en": "He accepts the offer gratefully.",
     "register": "everyday",
@@ -1313,19 +1295,10 @@
     "register": "everyday"
   },
   {
-    "de": "die Apotheke, -n",
-    "en": "pharmacy",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie kauft Schmerzmittel in der Apotheke nebenan.",
-    "example_en": "She buys painkillers at the pharmacy next door.",
-    "register": "everyday"
-  },
-  {
     "de": "die App, -s",
     "en": "app",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Diese App hilft mir, meinen Alltag zu organisieren.",
     "example_en": "This app helps me to organise my daily life.",
     "register": "everyday"
@@ -1388,7 +1361,7 @@
     "de": "arbeitslos",
     "en": "unemployed",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er ist seit sechs Monaten arbeitslos und sucht eine Stelle.",
     "example_en": "He has been unemployed for six months and is looking for a job.",
     "register": "everyday"
@@ -1420,7 +1393,7 @@
     "de": "der Arm, -e",
     "en": "arm",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie hat sich den Arm beim Sport gebrochen.",
     "example_en": "She broke her arm while doing sport.",
     "register": "everyday"
@@ -1475,7 +1448,7 @@
     "de": "der Artikel, -",
     "en": "article",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie liest jeden Morgen einen Artikel in der Zeitung.",
     "example_en": "She reads an article in the newspaper every morning.",
     "register": "everyday"
@@ -1621,7 +1594,7 @@
     "de": "die Aufgabe, -n",
     "en": "task, exercise",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Aufgabe ist schwerer als ich dachte.",
     "example_en": "The task is harder than I thought.",
     "register": "everyday"
@@ -1639,7 +1612,7 @@
     "de": "aufhören",
     "en": "to stop",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Bitte hör auf, so laut zu sprechen!",
     "example_en": "Please stop speaking so loudly!",
     "register": "everyday",
@@ -1688,7 +1661,7 @@
     "de": "aufpassen",
     "en": "to pay attention",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Pass auf, der Boden ist sehr rutschig!",
     "example_en": "Pay attention, the floor is very slippery!",
     "register": "everyday",
@@ -1904,7 +1877,7 @@
     "de": "ausmachen",
     "en": "to turn off",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Kannst du bitte das Licht ausmachen?",
     "example_en": "Can you please turn off the light?",
     "register": "everyday",
@@ -1965,15 +1938,6 @@
     }
   },
   {
-    "de": "aussehen",
-    "en": "to look like",
-    "article": "",
-    "level": "A2",
-    "example": "Er sieht aus, als hätte er nicht gut geschlafen.",
-    "example_en": "He looks as though he has not slept well.",
-    "register": "everyday"
-  },
-  {
     "de": "die Außenpolitik",
     "en": "foreign policy",
     "article": "f.",
@@ -2014,19 +1978,10 @@
     }
   },
   {
-    "de": "aussteigen",
-    "en": "to get off",
-    "article": "",
-    "level": "A2",
-    "example": "Wir steigen an der nächsten Haltestelle aus.",
-    "example_en": "We get off at the next stop.",
-    "register": "everyday"
-  },
-  {
     "de": "die Ausstellung, -en",
     "en": "exhibition",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Ausstellung über moderne Kunst war beeindruckend.",
     "example_en": "The exhibition about modern art was impressive.",
     "register": "everyday"
@@ -2144,15 +2099,6 @@
     "level": "A1",
     "example": "Die Autobahn ist lang.",
     "example_en": "The motorway is long.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Autobahn, -en",
-    "en": "highway",
-    "article": "f.",
-    "level": "A2",
-    "example": "Wir fahren morgen früh auf der Autobahn nach München.",
-    "example_en": "We are driving to Munich on the highway tomorrow morning.",
     "register": "everyday"
   },
   {
@@ -2531,15 +2477,6 @@
     }
   },
   {
-    "de": "bedeuten",
-    "en": "to mean",
-    "article": "",
-    "level": "A2",
-    "example": "Was bedeutet dieses schwierige Wort auf Deutsch?",
-    "example_en": "What does this difficult word mean in German?",
-    "register": "everyday"
-  },
-  {
     "de": "bedeutend",
     "en": "significant",
     "article": "",
@@ -2841,7 +2778,7 @@
     "de": "das Bein, -e",
     "en": "leg",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Er hat sich das Bein beim Sport gebrochen.",
     "example_en": "He broke his leg while playing sports.",
     "register": "everyday"
@@ -3048,7 +2985,7 @@
     "de": "bequem",
     "en": "comfortable",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Sofa ist sehr bequem und ich sitze gerne darauf.",
     "example_en": "The sofa is very comfortable and I like sitting on it.",
     "register": "everyday"
@@ -3084,7 +3021,7 @@
     "de": "der Bericht, -e",
     "en": "report",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Der Journalist schreibt einen Bericht über den Unfall.",
     "example_en": "The journalist is writing a report about the accident.",
     "register": "everyday"
@@ -3093,7 +3030,7 @@
     "de": "berichten",
     "en": "to report",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie berichtet jeden Abend über die aktuellen Nachrichten.",
     "example_en": "She reports on the current news every evening.",
     "register": "everyday",
@@ -3131,7 +3068,7 @@
     "de": "berühmt",
     "en": "famous",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Die berühmte Sängerin gibt heute Abend ein Konzert.",
     "example_en": "The famous singer is giving a concert tonight.",
     "register": "everyday"
@@ -3195,7 +3132,7 @@
     "de": "beschreiben",
     "en": "to describe",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Kannst du mir den Weg zum Bahnhof beschreiben?",
     "example_en": "Can you describe the way to the train station for me?",
     "register": "everyday",
@@ -3243,7 +3180,7 @@
     "de": "besichtigen",
     "en": "to visit (sight)",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Morgen wollen wir das alte Schloss in der Stadt besichtigen.",
     "example_en": "Tomorrow we want to visit the old castle in the city.",
     "register": "everyday",
@@ -3272,15 +3209,6 @@
     "level": "A2",
     "example": "Sie ist besorgt, weil ihr Kind seit Stunden nicht nach Hause gekommen ist.",
     "example_en": "She is worried because her child has not come home for hours.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Besprechung, -en",
-    "en": "meeting",
-    "article": "f.",
-    "level": "A2",
-    "example": "Die Besprechung beginnt um neun Uhr im Konferenzraum.",
-    "example_en": "The meeting begins at nine o'clock in the conference room.",
     "register": "everyday"
   },
   {
@@ -3339,7 +3267,7 @@
     "de": "bestellen",
     "en": "to order",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich bestelle ein Buch im Internet.",
     "example_en": "I order a book on the internet.",
     "register": "everyday",
@@ -3433,7 +3361,7 @@
     "de": "die Bewegung",
     "en": "exercise, movement",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Regelmäßige Bewegung ist gut für die Gesundheit.",
     "example_en": "Regular exercise is good for your health.",
     "register": "everyday"
@@ -3484,7 +3412,7 @@
     "de": "die Bewerbung, -en",
     "en": "application",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich habe meine Bewerbung gestern abgeschickt.",
     "example_en": "I sent off my application yesterday.",
     "register": "everyday"
@@ -3524,7 +3452,7 @@
     "de": "der Bewohner, -",
     "en": "resident",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Bewohner der Stadt protestieren gegen den Lärm.",
     "example_en": "The residents of the city are protesting against the noise.",
     "register": "everyday"
@@ -3576,15 +3504,6 @@
     "level": "A1",
     "example": "Die Bibliothek ist ruhig.",
     "example_en": "The library is quiet.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Bibliothek, -en",
-    "en": "library",
-    "article": "f.",
-    "level": "A2",
-    "example": "Ich leihe mir jeden Monat Bücher aus der Bibliothek.",
-    "example_en": "I borrow books from the library every month.",
     "register": "everyday"
   },
   {
@@ -3753,7 +3672,7 @@
     "de": "der Bleistift, -e",
     "en": "pencil",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie zeichnet das Portrait mit einem weichen Bleistift.",
     "example_en": "She draws the portrait with a soft pencil.",
     "register": "everyday"
@@ -3794,7 +3713,7 @@
     "de": "das Blut",
     "en": "blood",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Nach dem Unfall verlor er viel Blut.",
     "example_en": "After the accident he lost a lot of blood.",
     "register": "everyday"
@@ -4006,7 +3925,7 @@
     "de": "die Brücke, -n",
     "en": "bridge",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die alte Brücke über den Fluss wurde kürzlich renoviert.",
     "example_en": "The old bridge over the river was recently renovated.",
     "register": "everyday"
@@ -4151,7 +4070,7 @@
     "de": "das Büro, -s",
     "en": "office",
     "article": "n.",
-    "level": "B1",
+    "level": "A1",
     "example": "Mein Büro liegt im dritten Stock des Gebäudes.",
     "example_en": "My office is on the third floor of the building.",
     "register": "everyday"
@@ -4258,15 +4177,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Chef, -s",
-    "en": "boss",
-    "article": "m.",
-    "level": "A2",
-    "example": "Mein Chef hat das Projekt heute genehmigt.",
-    "example_en": "My boss approved the project today.",
-    "register": "everyday"
-  },
-  {
     "de": "die Chefin, -nen",
     "en": "female boss",
     "article": "f.",
@@ -4300,20 +4210,6 @@
       "chronisch krank sein",
       "chronische Schmerzen haben",
       "eine chronische Erkrankung"
-    ],
-    "register": "formal"
-  },
-  {
-    "de": "die CO2-Emissionen",
-    "en": "CO2 emissions",
-    "article": "f.",
-    "level": "C1",
-    "example": "Die CO2-Emissionen müssen dringend reduziert werden.",
-    "example_en": "CO2 emissions urgently need to be reduced.",
-    "collocations": [
-      "CO₂-Emissionen senken",
-      "Klimaziele einhalten",
-      "Treibhausgasausstoß reduzieren"
     ],
     "register": "formal"
   },
@@ -4412,7 +4308,7 @@
     "de": "die Datei, -en",
     "en": "file",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich speichere die Datei auf meinem Computer.",
     "example_en": "I save the file on my computer.",
     "register": "everyday"
@@ -4421,7 +4317,7 @@
     "de": "die Daten (Pl.)",
     "en": "data",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Daten zeigen einen klaren Anstieg der Temperaturen.",
     "example_en": "The data show a clear rise in temperatures.",
     "register": "everyday"
@@ -5135,7 +5031,7 @@
     "de": "die Dose, -n",
     "en": "can, tin",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Er öffnet die Dose mit einem Dosenöffner.",
     "example_en": "He opens the can with a can opener.",
     "register": "everyday"
@@ -5262,7 +5158,7 @@
     "de": "der Drucker, -",
     "en": "printer",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Drucker ist leider gerade nicht einsatzbereit.",
     "example_en": "Unfortunately, the printer is not ready to use right now.",
     "register": "everyday"
@@ -5271,7 +5167,7 @@
     "de": "drücken",
     "en": "to press",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie drückt den Knopf und die Tür geht auf.",
     "example_en": "She presses the button and the door opens.",
     "register": "everyday",
@@ -5655,7 +5551,7 @@
     "de": "der Einkaufswagen, -",
     "en": "shopping cart",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich habe meinen Einkaufswagen vor dem Eingang des Supermarkts vergessen.",
     "example_en": "I forgot my shopping cart in front of the supermarket entrance.",
     "register": "everyday"
@@ -5844,15 +5740,6 @@
       },
       "governs": "in + accusative"
     }
-  },
-  {
-    "de": "einsteigen",
-    "en": "to get on",
-    "article": "",
-    "level": "A2",
-    "example": "Wir steigen am Hauptbahnhof in die U-Bahn ein.",
-    "example_en": "We get on the subway at the main train station.",
-    "register": "everyday"
   },
   {
     "de": "die Eintrittskarte, -n",
@@ -6061,7 +5948,7 @@
     "de": "empfehlen",
     "en": "to recommend",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich empfehle dir dieses Restaurant wärmstens.",
     "example_en": "I warmly recommend this restaurant to you.",
     "register": "everyday",
@@ -6148,7 +6035,7 @@
     "de": "entdecken",
     "en": "to discover",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Forscher entdeckt eine unbekannte Tierart im Regenwald.",
     "example_en": "The researcher discovers an unknown animal species in the rainforest.",
     "register": "everyday",
@@ -6403,7 +6290,7 @@
     "de": "das Erdgeschoss",
     "en": "ground floor",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Café befindet sich im Erdgeschoss des Gebäudes.",
     "example_en": "The café is located on the ground floor of the building.",
     "register": "everyday"
@@ -6430,33 +6317,10 @@
     "de": "das Ergebnis, -se",
     "en": "result",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Ergebnis der Prüfung war besser als erwartet.",
     "example_en": "The result of the exam was better than expected.",
     "register": "everyday"
-  },
-  {
-    "de": "das Ergebnis, -se",
-    "en": "result",
-    "article": "n.",
-    "level": "B1",
-    "example": "Wir warten noch auf das Ergebnis des Tests.",
-    "example_en": "We are still waiting for the result of the test.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Ergebnis, -se",
-    "en": "result",
-    "article": "n.",
-    "level": "B2",
-    "example": "Das Ergebnis der Studie überraschte die Forscher.",
-    "example_en": "The result of the study surprised the researchers.",
-    "collocations": [
-      "zu einem Ergebnis kommen",
-      "ein überzeugendes Ergebnis",
-      "Ergebnisse auswerten"
-    ],
-    "register": "academic"
   },
   {
     "de": "ergo",
@@ -6567,7 +6431,7 @@
     "de": "die Erlaubnis",
     "en": "permission",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Er hat keine Erlaubnis, das Gebäude zu betreten.",
     "example_en": "He does not have permission to enter the building.",
     "register": "everyday"
@@ -7032,15 +6896,6 @@
     }
   },
   {
-    "de": "das Essen, -",
-    "en": "food, meal",
-    "article": "n.",
-    "level": "A1",
-    "example": "Das Essen ist lecker.",
-    "example_en": "The food is delicious.",
-    "register": "everyday"
-  },
-  {
     "de": "die Etage, -n",
     "en": "floor, story",
     "article": "f.",
@@ -7169,7 +7024,7 @@
     "de": "das Experiment, -e",
     "en": "experiment",
     "article": "n.",
-    "level": "B2",
+    "level": "A1",
     "example": "Die Schüler führen heute ein Experiment im Labor durch.",
     "example_en": "The students are conducting an experiment in the laboratory today.",
     "collocations": [
@@ -7408,7 +7263,7 @@
     "de": "feiern",
     "en": "to celebrate",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Wir feiern heute Abend meinen Geburtstag mit Familie.",
     "example_en": "We are celebrating my birthday with family tonight.",
     "register": "everyday",
@@ -7552,7 +7407,7 @@
     "de": "das Fett",
     "en": "fat",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Zu viel Fett in der Ernährung ist ungesund.",
     "example_en": "Too much fat in the diet is unhealthy.",
     "register": "everyday"
@@ -7570,7 +7425,7 @@
     "de": "das Fieber",
     "en": "fever",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Kind hat hohes Fieber und muss im Bett bleiben.",
     "example_en": "The child has a high fever and must stay in bed.",
     "register": "everyday"
@@ -7610,7 +7465,7 @@
     "de": "der Finger, -",
     "en": "finger",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Er hat sich den Finger beim Kochen verletzt.",
     "example_en": "He injured his finger while cooking.",
     "register": "everyday"
@@ -7619,7 +7474,7 @@
     "de": "die Firma, Firmen",
     "en": "company",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Firma eröffnet nächstes Jahr eine neue Filiale.",
     "example_en": "The company is opening a new branch next year.",
     "register": "everyday"
@@ -7637,7 +7492,7 @@
     "de": "die Fitness",
     "en": "fitness",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Regelmäßiger Sport verbessert die Fitness erheblich.",
     "example_en": "Regular exercise improves fitness considerably.",
     "register": "everyday"
@@ -7664,7 +7519,7 @@
     "de": "fleißig",
     "en": "diligent",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie ist sehr fleißig und lernt jeden Tag Deutsch.",
     "example_en": "She is very diligent and studies German every day.",
     "register": "everyday"
@@ -7722,15 +7577,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Fluss, -̈e",
-    "en": "river",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Fluss fließt ruhig durch das grüne Tal.",
-    "example_en": "The river flows quietly through the green valley.",
-    "register": "everyday"
-  },
-  {
     "de": "fördern",
     "en": "to promote",
     "article": "",
@@ -7779,7 +7625,7 @@
     "de": "das Formular, -e",
     "en": "form",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Bitte füllen Sie das Formular vollständig aus.",
     "example_en": "Please fill out the form completely.",
     "register": "everyday"
@@ -8636,7 +8482,7 @@
     "de": "gemütlich",
     "en": "cozy",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Café ist sehr gemütlich und warm.",
     "example_en": "The café is very cozy and warm.",
     "register": "everyday"
@@ -8785,15 +8631,6 @@
     "register": "everyday"
   },
   {
-    "de": "das Gepäck",
-    "en": "luggage",
-    "article": "n.",
-    "level": "A2",
-    "example": "Bitte gib dein Gepäck am Schalter ab.",
-    "example_en": "Please hand in your luggage at the counter.",
-    "register": "everyday"
-  },
-  {
     "de": "die Gepäckausgabe",
     "en": "baggage claim",
     "article": "f.",
@@ -8824,7 +8661,7 @@
     "de": "das Gerät, -e",
     "en": "device",
     "article": "n.",
-    "level": "B2",
+    "level": "A1",
     "example": "Dieses Gerät kann alle deine Fotos speichern.",
     "example_en": "This device can store all your photos.",
     "collocations": [
@@ -8847,24 +8684,10 @@
     "de": "das Gericht, -e",
     "en": "dish",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Dieses Gericht schmeckt sehr lecker und ist einfach zuzubereiten.",
     "example_en": "This dish tastes very delicious and is easy to prepare.",
     "register": "everyday"
-  },
-  {
-    "de": "das Gericht, -e",
-    "en": "court",
-    "article": "n.",
-    "level": "B2",
-    "example": "Das Gericht hat den Angeklagten zu zwei Jahren Haft verurteilt.",
-    "example_en": "The court sentenced the defendant to two years in prison.",
-    "collocations": [
-      "vor Gericht erscheinen",
-      "ein Urteil sprechen",
-      "Klage einreichen"
-    ],
-    "register": "formal"
   },
   {
     "de": "die Gerichtsbarkeit",
@@ -9334,7 +9157,7 @@
     "de": "die Größe, -n",
     "en": "size",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Welche Größe haben Sie, damit ich das Hemd bestellen kann?",
     "example_en": "What is your size so that I can order the shirt?",
     "register": "everyday"
@@ -9485,7 +9308,7 @@
     "de": "gültig",
     "en": "valid",
     "article": "",
-    "level": "B2",
+    "level": "A1",
     "example": "Dieser Ausweis ist nicht mehr gültig.",
     "example_en": "This ID card is no longer valid.",
     "collocations": [
@@ -9499,7 +9322,7 @@
     "de": "die Gurke, -n",
     "en": "cucumber",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich schneide die Gurke für den Salat.",
     "example_en": "I am cutting the cucumber for the salad.",
     "register": "everyday"
@@ -9561,7 +9384,7 @@
     "de": "das Hähnchen, -",
     "en": "chicken",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich kaufe ein Hähnchen auf dem Markt.",
     "example_en": "I buy a chicken at the market.",
     "register": "everyday"
@@ -9638,7 +9461,7 @@
     "de": "der Hals, -̈e",
     "en": "throat, neck",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Mir tut der Hals beim Schlucken weh.",
     "example_en": "My throat hurts when I swallow.",
     "register": "everyday"
@@ -9664,15 +9487,6 @@
     "level": "A1",
     "example": "Die Haltestelle ist dort.",
     "example_en": "The bus stop is on the right.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Haltestelle, -n",
-    "en": "stop",
-    "article": "f.",
-    "level": "A2",
-    "example": "Ich warte an der Haltestelle auf den Bus.",
-    "example_en": "I am waiting at the stop for the bus.",
     "register": "everyday"
   },
   {
@@ -9711,7 +9525,7 @@
     "de": "die Handtasche, -n",
     "en": "handbag",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie sucht überall nach ihrer Handtasche, aber findet sie nicht.",
     "example_en": "She looks everywhere for her handbag but cannot find it.",
     "register": "everyday"
@@ -9784,15 +9598,6 @@
     "register": "everyday"
   },
   {
-    "de": "die Hausaufgabe, -n",
-    "en": "homework",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie macht ihre Hausaufgaben direkt nach der Schule.",
-    "example_en": "She does her homework right after school.",
-    "register": "everyday"
-  },
-  {
     "de": "die Hausfrau, -en",
     "en": "housewife",
     "article": "f.",
@@ -9811,24 +9616,10 @@
     "register": "everyday"
   },
   {
-    "de": "der Haushalt, -e",
-    "en": "budget",
-    "article": "m.",
-    "level": "B2",
-    "example": "Der Staat muss den Haushalt besser planen.",
-    "example_en": "The state needs to plan the budget better.",
-    "collocations": [
-      "den Haushalt aufstellen",
-      "Haushaltsmittel beantragen",
-      "Ausgaben budgetieren"
-    ],
-    "register": "formal"
-  },
-  {
     "de": "das Heft, -e",
     "en": "notebook",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Er schreibt alle neuen Vokabeln sorgfältig in sein Heft.",
     "example_en": "He carefully writes all new vocabulary in his exercise book.",
     "register": "everyday"
@@ -10056,7 +9847,7 @@
     "de": "der Herd, -e",
     "en": "stove",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie hat das Mittagessen auf dem Herd gekocht.",
     "example_en": "She cooked lunch on the stove.",
     "register": "everyday"
@@ -10239,7 +10030,7 @@
     "de": "die Hitze",
     "en": "heat",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Bei dieser Hitze möchte ich am liebsten im Schatten sitzen.",
     "example_en": "In this heat I would most like to sit in the shade.",
     "register": "everyday"
@@ -10330,7 +10121,7 @@
     "de": "höflich",
     "en": "polite",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er ist immer höflich und grüßt alle Nachbarn freundlich.",
     "example_en": "He is always polite and greets all neighbours in a friendly way.",
     "register": "everyday"
@@ -10456,7 +10247,7 @@
     "de": "der Husten",
     "en": "cough",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Mein Husten wird seit drei Tagen nicht besser.",
     "example_en": "My cough has not been getting better for three days.",
     "register": "everyday"
@@ -10650,7 +10441,7 @@
     "de": "der Imperativ, -e",
     "en": "imperative",
     "article": "m.",
-    "level": "C1",
+    "level": "A1",
     "example": "Der Imperativ wird benutzt, um Befehle oder Bitten auszudrücken.",
     "example_en": "The imperative is used to express commands or requests.",
     "collocations": [
@@ -11113,7 +10904,7 @@
     "de": "die Insel, -n",
     "en": "island",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Insel Rügen in der Ostsee ist ein beliebtes Urlaubsziel.",
     "example_en": "The island of Ruegen in the Baltic Sea is a popular holiday destination.",
     "register": "everyday"
@@ -11241,15 +11032,6 @@
     "level": "A1",
     "example": "Ich suche im Internet.",
     "example_en": "I am searching on the internet.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Internet",
-    "en": "internet",
-    "article": "n.",
-    "level": "A2",
-    "example": "Ich suche die Adresse schnell im Internet.",
-    "example_en": "I quickly look up the address on the internet.",
     "register": "everyday"
   },
   {
@@ -11474,7 +11256,7 @@
     "de": "joggen",
     "en": "to jog",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er joggt jeden Morgen eine halbe Stunde im Park.",
     "example_en": "He jogs for half an hour in the park every morning.",
     "register": "everyday",
@@ -11490,7 +11272,7 @@
     "de": "der Journalist, -en",
     "en": "journalist",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Der Journalist hat den Politiker kritisch befragt.",
     "example_en": "The journalist questioned the politician critically.",
     "register": "everyday"
@@ -11522,16 +11304,7 @@
     "de": "die Jugendherberge, -n",
     "en": "youth hostel",
     "article": "f.",
-    "level": "A2",
-    "example": "Wir übernachten in einer günstigen Jugendherberge.",
-    "example_en": "We are staying overnight in an affordable youth hostel.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Jugendherberge, -n",
-    "en": "youth hostel",
-    "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Jugendherberge bietet Reisenden preiswerte Unterkunft in der Stadtmitte.",
     "example_en": "The youth hostel offers travellers affordable accommodation in the city centre.",
     "register": "everyday"
@@ -11617,7 +11390,7 @@
     "de": "die Kaffeemaschine, -n",
     "en": "coffee maker",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Kaffeemaschine macht jeden Morgen frischen Kaffee.",
     "example_en": "The coffee maker makes fresh coffee every morning.",
     "register": "everyday"
@@ -11667,7 +11440,7 @@
     "de": "die Kantine, -n",
     "en": "canteen",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Wir essen jeden Tag in der Kantine.",
     "example_en": "We eat in the canteen every day.",
     "register": "everyday"
@@ -11699,7 +11472,7 @@
     "de": "die Karriere, -n",
     "en": "career",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Sie plant ihre Karriere sorgfältig und bildet sich ständig weiter.",
     "example_en": "She plans her career carefully and continues to train constantly.",
     "register": "everyday"
@@ -11732,19 +11505,10 @@
     "register": "everyday"
   },
   {
-    "de": "die Kasse, -n",
-    "en": "checkout",
-    "article": "f.",
-    "level": "A2",
-    "example": "Ich bezahle meine Einkäufe an der Kasse.",
-    "example_en": "I pay for my shopping at the checkout.",
-    "register": "everyday"
-  },
-  {
     "de": "der Kassenzettel, -",
     "en": "receipt",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Bitte bewahre den Kassenzettel für eine Rückgabe auf.",
     "example_en": "Please keep the receipt in case of a return.",
     "register": "everyday"
@@ -12154,15 +11918,6 @@
     "register": "everyday"
   },
   {
-    "de": "die Kleidung",
-    "en": "clothing",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie kauft neue Kleidung für den Winter.",
-    "example_en": "She buys new clothing for the winter.",
-    "register": "everyday"
-  },
-  {
     "de": "klein",
     "en": "small, little",
     "article": "",
@@ -12184,7 +11939,7 @@
     "de": "klettern",
     "en": "to climb",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Kinder klettern gerne auf Bäume und spielen draußen bis zum Abendessen.",
     "example_en": "The children like climbing trees and playing outside until dinner.",
     "register": "everyday",
@@ -12275,7 +12030,7 @@
     "de": "das Knie, -",
     "en": "knee",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Nach dem Sturz schmerzt mir das Knie sehr.",
     "example_en": "After the fall, my knee hurts a lot.",
     "register": "everyday"
@@ -12382,15 +12137,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Koffer, -",
-    "en": "suitcase",
-    "article": "m.",
-    "level": "B1",
-    "example": "Sie packt ihren Koffer sorgfältig, weil der Flug nach Tokio früh morgens abgeht.",
-    "example_en": "She packs her suitcase carefully because the flight to Tokyo departs early in the morning.",
-    "register": "everyday"
-  },
-  {
     "de": "die Kohle",
     "en": "coal",
     "article": "f.",
@@ -12406,15 +12152,6 @@
     "level": "A1",
     "example": "Mein Kollege ist nett.",
     "example_en": "My colleague is nice.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Kollege, -n",
-    "en": "colleague",
-    "article": "m.",
-    "level": "A2",
-    "example": "Mein Kollege hilft mir immer, wenn ich eine Frage habe.",
-    "example_en": "My colleague always helps me when I have a question.",
     "register": "everyday"
   },
   {
@@ -12602,7 +12339,7 @@
     "de": "der Kontakt, -e",
     "en": "contact",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich habe keinen Kontakt mehr zu meiner alten Schule.",
     "example_en": "I no longer have contact with my old school.",
     "register": "everyday"
@@ -12653,18 +12390,9 @@
     "de": "das Konto, Konten",
     "en": "account",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich habe ein Konto bei der Sparkasse eröffnet.",
     "example_en": "I opened an account at the savings bank.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Konto, Konten",
-    "en": "account",
-    "article": "n.",
-    "level": "B1",
-    "example": "Auf meinem Konto ist leider kein Geld mehr.",
-    "example_en": "Unfortunately there is no more money in my account.",
     "register": "everyday"
   },
   {
@@ -12685,7 +12413,7 @@
     "de": "das Konzert, -e",
     "en": "concert",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Konzert gestern Abend war wirklich beeindruckend.",
     "example_en": "The concert last night was really impressive.",
     "register": "everyday"
@@ -12703,7 +12431,7 @@
     "de": "die Kopfschmerzen (Pl.)",
     "en": "headache",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie hat starke Kopfschmerzen und bleibt heute zu Hause.",
     "example_en": "She has a bad headache and is staying home today.",
     "register": "everyday"
@@ -12751,15 +12479,6 @@
       "hilfsverb": "haben",
       "governs": "accusative (amount)"
     }
-  },
-  {
-    "de": "kosten",
-    "en": "to taste",
-    "article": "",
-    "level": "A2",
-    "example": "Wie viel kostet dieses Hemd? — Es kostet fünfundzwanzig Euro.",
-    "example_en": "How much does this shirt cost? — It costs twenty-five euros.",
-    "register": "everyday"
   },
   {
     "de": "kostenlos",
@@ -12817,15 +12536,6 @@
     "register": "everyday"
   },
   {
-    "de": "das Krankenhaus, -̈er",
-    "en": "hospital",
-    "article": "n.",
-    "level": "A2",
-    "example": "Ich war gestern in dem Krankenhaus.",
-    "example_en": "I was at the hospital yesterday.",
-    "register": "everyday"
-  },
-  {
     "de": "die Krankenkasse, -n",
     "en": "health insurance",
     "article": "f.",
@@ -12870,7 +12580,7 @@
     "de": "die Krankheit, -en",
     "en": "illness",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Er konnte wegen einer schweren Krankheit mehrere Wochen nicht arbeiten.",
     "example_en": "He was unable to work for several weeks because of a serious illness.",
     "register": "everyday"
@@ -12902,7 +12612,7 @@
     "de": "die Kreditkarte, -n",
     "en": "credit card",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie bezahlt ihren Einkauf mit der Kreditkarte.",
     "example_en": "She pays for her shopping with her credit card.",
     "register": "everyday"
@@ -13104,7 +12814,7 @@
     "de": "der Künstler, -",
     "en": "artist",
     "article": "m.",
-    "level": "B2",
+    "level": "A1",
     "example": "Der Künstler stellt seine Werke in einer Galerie aus.",
     "example_en": "The artist exhibits his works in a gallery.",
     "collocations": [
@@ -13147,15 +12857,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Kugelschreiber, -",
-    "en": "pen",
-    "article": "m.",
-    "level": "A2",
-    "example": "Sie schreibt ihre Telefonnummer mit einem blauen Kugelschreiber auf den Zettel.",
-    "example_en": "She writes her phone number on the piece of paper with a blue ballpoint pen.",
-    "register": "everyday"
-  },
-  {
     "de": "der Kunde, -n",
     "en": "customer",
     "article": "m.",
@@ -13165,39 +12866,12 @@
     "register": "everyday"
   },
   {
-    "de": "der Kunde, -n",
-    "en": "customer",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Kunde beschwert sich über die lange Wartezeit an der Kasse.",
-    "example_en": "The customer complains about the long wait at the checkout.",
-    "register": "everyday"
-  },
-  {
     "de": "der Kurs, -e",
     "en": "course",
     "article": "m.",
     "level": "A1",
     "example": "Ich besuche einen Deutschkurs.",
     "example_en": "I am attending a German course.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Kurs, -e",
-    "en": "course",
-    "article": "m.",
-    "level": "A2",
-    "example": "Sie nimmt an einem Deutschkurs in Berlin teil.",
-    "example_en": "She takes part in a German course in Berlin.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Kurs, -e",
-    "en": "course",
-    "article": "m.",
-    "level": "B1",
-    "example": "Der Eurokurs ist heute stark gestiegen.",
-    "example_en": "The euro exchange rate has risen sharply today.",
     "register": "everyday"
   },
   {
@@ -13227,7 +12901,7 @@
     "de": "das Labor, -e",
     "en": "laboratory",
     "article": "n.",
-    "level": "B2",
+    "level": "A1",
     "example": "Die Wissenschaftlerin führt ihre Experimente im Labor durch.",
     "example_en": "The scientist carries out her experiments in the laboratory.",
     "collocations": [
@@ -13275,7 +12949,7 @@
     "de": "die Lage",
     "en": "location",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die wirtschaftliche Lage des Unternehmens ist angespannt, aber noch stabil.",
     "example_en": "The company's economic situation is strained but still stable.",
     "register": "everyday"
@@ -13284,7 +12958,7 @@
     "de": "die Lampe, -n",
     "en": "lamp",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Lampe im Wohnzimmer ist kaputt und gibt kein Licht mehr.",
     "example_en": "The lamp in the living room is broken and no longer gives any light.",
     "register": "everyday"
@@ -13341,7 +13015,7 @@
     "de": "die Landschaft, -en",
     "en": "landscape",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die bayerische Landschaft im Herbst ist wunderschön.",
     "example_en": "The Bavarian landscape in autumn is beautiful.",
     "register": "everyday"
@@ -13510,7 +13184,7 @@
     "de": "ledig",
     "en": "single",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er ist noch ledig, aber er möchte bald heiraten.",
     "example_en": "He is still single but would like to get married soon.",
     "register": "everyday"
@@ -13766,15 +13440,6 @@
     }
   },
   {
-    "de": "lernen",
-    "en": "to learn",
-    "article": "",
-    "level": "A2",
-    "example": "Sie lernt jeden Abend eine Stunde Deutsch für ihren Kurs.",
-    "example_en": "She studies German for an hour every evening for her course.",
-    "register": "everyday"
-  },
-  {
     "de": "lesen",
     "en": "to read",
     "article": "",
@@ -13999,15 +13664,6 @@
     "register": "everyday"
   },
   {
-    "de": "die Luft",
-    "en": "air",
-    "article": "f.",
-    "level": "A2",
-    "example": "Die frische Luft auf dem Land tut mir gut.",
-    "example_en": "The fresh air in the countryside does me good.",
-    "register": "everyday"
-  },
-  {
     "de": "die Luftverschmutzung",
     "en": "air pollution",
     "article": "f.",
@@ -14110,15 +13766,6 @@
     "level": "A1",
     "example": "Mahlzeit!",
     "example_en": "Enjoy your meal!",
-    "register": "everyday"
-  },
-  {
-    "de": "die Mahlzeit, -en",
-    "en": "meal",
-    "article": "f.",
-    "level": "A2",
-    "example": "Wir essen unsere Mahlzeit gemeinsam am Tisch.",
-    "example_en": "We eat our meal together at the table.",
     "register": "everyday"
   },
   {
@@ -14245,15 +13892,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Markt, -̈e",
-    "en": "market",
-    "article": "m.",
-    "level": "A2",
-    "example": "Jeden Samstag gibt es auf dem Markt frisches Obst und Gemüse.",
-    "example_en": "Every Saturday there is fresh fruit and vegetables at the market.",
-    "register": "everyday"
-  },
-  {
     "de": "die Marktanalyse, -n",
     "en": "market analysis",
     "article": "f.",
@@ -14271,7 +13909,7 @@
     "de": "die Marmelade, -n",
     "en": "jam",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich streiche jeden Morgen Marmelade auf mein Brot.",
     "example_en": "Every morning I spread jam on my bread.",
     "register": "everyday"
@@ -14334,15 +13972,6 @@
     "level": "B1",
     "example": "Medienkompetenz ist heute für Kinder sehr wichtig.",
     "example_en": "Media literacy is very important for children today.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Medikament, -e",
-    "en": "medication",
-    "article": "n.",
-    "level": "A2",
-    "example": "Der Arzt hat mir ein neues Medikament verschrieben.",
-    "example_en": "The doctor prescribed me a new medication.",
     "register": "everyday"
   },
   {
@@ -14563,16 +14192,7 @@
     "de": "die Methode, -n",
     "en": "method",
     "article": "f.",
-    "level": "B1",
-    "example": "Diese Methode ist besonders gut für Anfänger geeignet.",
-    "example_en": "This method is particularly well suited for beginners.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Methode, -n",
-    "en": "method",
-    "article": "f.",
-    "level": "B2",
+    "level": "A1",
     "example": "Die wissenschaftliche Methode erfordert reproduzierbare Ergebnisse und transparente Dokumentation.",
     "example_en": "The scientific method requires reproducible results and transparent documentation.",
     "collocations": [
@@ -14763,7 +14383,7 @@
     "de": "die Mittagspause, -n",
     "en": "lunch break",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Während der Mittagspause gehe ich gern spazieren.",
     "example_en": "During my lunch break I like to go for a walk.",
     "register": "everyday"
@@ -15043,15 +14663,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Morgen, -",
-    "en": "morning",
-    "article": "m.",
-    "level": "A1",
-    "example": "Guten Morgen!",
-    "example_en": "Good morning!",
-    "register": "everyday"
-  },
-  {
     "de": "morgens",
     "en": "in the morning",
     "article": "",
@@ -15087,7 +14698,7 @@
     "de": "der Motorrad, -̈er",
     "en": "motorcycle",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Er fährt jeden Tag mit dem Motorrad zur Arbeit.",
     "example_en": "He rides his motorcycle to work every day.",
     "register": "everyday"
@@ -15446,15 +15057,6 @@
     "level": "A1",
     "example": "Ich habe eine Nachricht.",
     "example_en": "I have a message.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Nachricht, -en",
-    "en": "news",
-    "article": "f.",
-    "level": "B1",
-    "example": "Die Nachricht über den Unfall hat alle sehr erschrocken.",
-    "example_en": "The news about the accident shocked everyone greatly.",
     "register": "everyday"
   },
   {
@@ -16129,7 +15731,7 @@
     "de": "die Nudel, -n",
     "en": "noodle, pasta",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Nudeln kochen bereits seit zehn Minuten im Topf.",
     "example_en": "The pasta has already been cooking in the pot for ten minutes.",
     "register": "everyday"
@@ -16348,7 +15950,7 @@
     "de": "das Öl, -e",
     "en": "oil",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Öl schwimmt oben auf dem Wasser.",
     "example_en": "The oil floats on top of the water.",
     "register": "everyday"
@@ -16494,7 +16096,7 @@
     "de": "die Oper, -n",
     "en": "opera",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Wir gehen heute Abend in die Oper.",
     "example_en": "We are going to the opera this evening.",
     "register": "everyday"
@@ -16843,7 +16445,7 @@
     "de": "das Passwort, -̈er",
     "en": "password",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Du solltest dein Passwort regelmäßig ändern.",
     "example_en": "You should change your password regularly.",
     "register": "everyday"
@@ -16895,19 +16497,10 @@
     "register": "everyday"
   },
   {
-    "de": "die Pause, -n",
-    "en": "break",
-    "article": "f.",
-    "level": "A2",
-    "example": "In der Pause kaufe ich mir ein Brötchen.",
-    "example_en": "During the break I buy myself a bread roll.",
-    "register": "everyday"
-  },
-  {
     "de": "das Pech",
     "en": "bad luck",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Leider hatte er Pech und verpasste den letzten Zug.",
     "example_en": "Unfortunately he had bad luck and missed the last train.",
     "register": "everyday"
@@ -16998,7 +16591,7 @@
     "de": "der Pfeffer",
     "en": "pepper",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich gebe dem Steak etwas Pfeffer und Salz.",
     "example_en": "I add some pepper and salt to the steak.",
     "register": "everyday"
@@ -17007,7 +16600,7 @@
     "de": "die Pflanze, -n",
     "en": "plant",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Pflanze auf meinem Balkon braucht täglich Wasser.",
     "example_en": "The plant on my balcony needs water every day.",
     "register": "everyday"
@@ -17259,7 +16852,7 @@
     "de": "das Praktikum, Praktika",
     "en": "internship",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie macht ein Praktikum bei einer Marketingfirma in Berlin.",
     "example_en": "She is doing an internship at a marketing firm in Berlin.",
     "register": "everyday"
@@ -17268,7 +16861,7 @@
     "de": "praktisch",
     "en": "practical",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Diese kleine Tasche ist sehr praktisch für kurze Reisen.",
     "example_en": "This small bag is very practical for short trips.",
     "register": "everyday"
@@ -17277,7 +16870,7 @@
     "de": "die Praxis, Praxen",
     "en": "doctor's office",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich habe einen Termin in der Praxis um zehn Uhr.",
     "example_en": "I have an appointment at the doctor's office at ten o'clock.",
     "register": "everyday"
@@ -17289,15 +16882,6 @@
     "level": "A1",
     "example": "Der Preis ist gut.",
     "example_en": "The price is very reasonable.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Preis, -e",
-    "en": "price",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Preis für dieses Fahrrad ist leider zu hoch.",
-    "example_en": "The price for this bicycle is unfortunately too high.",
     "register": "everyday"
   },
   {
@@ -17451,7 +17035,7 @@
     "de": "die Prüfung, -en",
     "en": "exam",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Morgen schreibe ich eine wichtige Prüfung in Mathematik.",
     "example_en": "Tomorrow I am writing an important exam in mathematics.",
     "register": "everyday"
@@ -17620,15 +17204,6 @@
     "register": "everyday"
   },
   {
-    "de": "das Rathaus, -̈er",
-    "en": "town hall",
-    "article": "n.",
-    "level": "A2",
-    "example": "Das Rathaus steht im Zentrum der Stadt.",
-    "example_en": "The town hall stands in the centre of the city.",
-    "register": "everyday"
-  },
-  {
     "de": "die Ratifizierung",
     "en": "ratification",
     "article": "f.",
@@ -17741,15 +17316,6 @@
     "level": "A1",
     "example": "Die Rechnung, bitte.",
     "example_en": "Can I have the bill please?",
-    "register": "everyday"
-  },
-  {
-    "de": "die Rechnung, -en",
-    "en": "bill",
-    "article": "f.",
-    "level": "B1",
-    "example": "Kannst du bitte die Rechnung für das Abendessen bezahlen?",
-    "example_en": "Can you please pay the bill for dinner?",
     "register": "everyday"
   },
   {
@@ -17920,7 +17486,7 @@
     "de": "regelmäßig",
     "en": "regular",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er geht regelmäßig zum Sport — dreimal pro Woche ins Fitnessstudio.",
     "example_en": "He exercises regularly — three times a week at the gym.",
     "register": "everyday"
@@ -18046,7 +17612,7 @@
     "de": "der Reiseführer, -",
     "en": "travel guide",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Reiseführer zeigte uns die schönsten Sehenswürdigkeiten.",
     "example_en": "The tour guide showed us the most beautiful sights.",
     "register": "everyday"
@@ -18296,15 +17862,6 @@
     "register": "formal"
   },
   {
-    "de": "das Rezept, -e",
-    "en": "recipe",
-    "article": "n.",
-    "level": "A2",
-    "example": "Hast du ein gutes Rezept für Apfelkuchen?",
-    "example_en": "Do you have a good recipe for apple cake?",
-    "register": "everyday"
-  },
-  {
     "de": "die Rezession",
     "en": "recession",
     "article": "f.",
@@ -18506,7 +18063,7 @@
     "de": "die Route, -n",
     "en": "route",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Wir haben die schnellste Route durch die Stadt gewählt.",
     "example_en": "We chose the fastest route through the city.",
     "register": "everyday"
@@ -18725,7 +18282,7 @@
     "de": "die Sahne",
     "en": "cream",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich nehme gerne Sahne in meinen Kaffee.",
     "example_en": "I like to put cream in my coffee.",
     "register": "everyday"
@@ -18846,15 +18403,6 @@
     "register": "everyday"
   },
   {
-    "de": "sauber",
-    "en": "clean",
-    "article": "",
-    "level": "A2",
-    "example": "Die Wohnung muss sauber sein, bevor die Gäste kommen.",
-    "example_en": "The flat must be clean before the guests arrive.",
-    "register": "everyday"
-  },
-  {
     "de": "schade",
     "en": "too bad",
     "article": "",
@@ -18893,15 +18441,6 @@
       "transitiv": true,
       "governs": "accusative"
     }
-  },
-  {
-    "de": "schaffen",
-    "en": "to manage",
-    "article": "",
-    "level": "A2",
-    "example": "Sie schafft es, jeden Morgen pünktlich zur Arbeit zu kommen.",
-    "example_en": "She manages to get to work on time every morning.",
-    "register": "everyday"
   },
   {
     "de": "der Schatten",
@@ -19001,7 +18540,7 @@
     "de": "der Schinken, -",
     "en": "ham",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich lege jeden Morgen frischen Schinken auf mein Brot.",
     "example_en": "I put fresh ham on my bread every morning.",
     "register": "everyday"
@@ -19251,7 +18790,7 @@
     "de": "das Schnitzel, -",
     "en": "schnitzel",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Wiener Schnitzel im Restaurant war dünn und knusprig.",
     "example_en": "The Wiener schnitzel at the restaurant was thin and crispy.",
     "register": "everyday"
@@ -19260,7 +18799,7 @@
     "de": "der Schnupfen",
     "en": "runny nose",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Wegen meines Schnupfens konnte ich kaum schlafen.",
     "example_en": "Because of my runny nose, I could hardly sleep.",
     "register": "everyday"
@@ -19451,15 +18990,6 @@
     "register": "everyday"
   },
   {
-    "de": "der See, -n",
-    "en": "lake",
-    "article": "m.",
-    "level": "A1",
-    "example": "Der See ist kalt.",
-    "example_en": "The lake is cold.",
-    "register": "everyday"
-  },
-  {
     "de": "die Segregation",
     "en": "segregation",
     "article": "f.",
@@ -19490,15 +19020,6 @@
       "transitiv": true,
       "governs": "accusative"
     }
-  },
-  {
-    "de": "die Sehenswürdigkeit, -en",
-    "en": "attraction",
-    "article": "f.",
-    "level": "A2",
-    "example": "Der Kölner Dom ist eine berühmte Sehenswürdigkeit.",
-    "example_en": "Cologne Cathedral is a famous attraction.",
-    "register": "everyday"
   },
   {
     "de": "sehr",
@@ -19689,7 +19210,7 @@
     "de": "das Semester, -",
     "en": "semester",
     "article": "n.",
-    "level": "B1",
+    "level": "A1",
     "example": "Im nächsten Semester belege ich drei neue Kurse.",
     "example_en": "Next semester I am taking three new courses.",
     "register": "everyday"
@@ -19989,7 +19510,7 @@
     "de": "sich entschuldigen",
     "en": "to apologize",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er entschuldigt sich bei seinem Freund für die Verspätung.",
     "example_en": "He apologises to his friend for being late.",
     "register": "everyday",
@@ -20167,7 +19688,7 @@
     "de": "sich trennen",
     "en": "to separate",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Nach zehn Jahren Ehe haben sie sich einvernehmlich getrennt.",
     "example_en": "After ten years of marriage, they separated amicably.",
     "register": "everyday",
@@ -20202,7 +19723,7 @@
     "de": "sich verabschieden",
     "en": "to say goodbye",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Am Bahnhof verabschieden sie sich herzlich voneinander.",
     "example_en": "At the station they say a warm goodbye to each other.",
     "register": "everyday",
@@ -20282,7 +19803,7 @@
     "de": "sich vorstellen",
     "en": "to introduce oneself",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Darf ich mich kurz vorstellen? Ich heiße Anna und komme aus Berlin.",
     "example_en": "May I briefly introduce myself? My name is Anna and I come from Berlin.",
     "register": "everyday",
@@ -20732,7 +20253,7 @@
     "de": "der Spielplatz, -̈e",
     "en": "playground",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Gemeinde plant einen neuen Spielplatz für Kinder.",
     "example_en": "The community is planning a new playground for children.",
     "register": "everyday"
@@ -20785,7 +20306,7 @@
     "de": "die Spritze, -n",
     "en": "injection",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Krankenschwester gibt ihm eine Spritze.",
     "example_en": "The nurse gives him an injection.",
     "register": "everyday"
@@ -20794,7 +20315,7 @@
     "de": "das Stadion, Stadien",
     "en": "stadium",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Stadion war beim Spiel völlig ausverkauft.",
     "example_en": "The stadium was completely sold out during the match.",
     "register": "everyday"
@@ -20881,7 +20402,7 @@
     "de": "die Statistik, -en",
     "en": "statistics",
     "article": "f.",
-    "level": "B2",
+    "level": "A1",
     "example": "Die Statistik zeigt einen deutlichen Anstieg der Preise.",
     "example_en": "The statistics show a clear rise in prices.",
     "collocations": [
@@ -20950,15 +20471,6 @@
     "level": "A1",
     "example": "An Ihrer Stelle würde ich...",
     "example_en": "In your position I would...",
-    "register": "everyday"
-  },
-  {
-    "de": "die Stelle, -n",
-    "en": "position",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie hat eine neue Stelle als Ingenieurin gefunden.",
-    "example_en": "She found a new position as an engineer.",
     "register": "everyday"
   },
   {
@@ -21204,7 +20716,7 @@
     "de": "der Strand, -̈e",
     "en": "beach",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Kennen Sie den Strand in der Nähe?",
     "example_en": "Do you know the beach nearby?",
     "register": "everyday"
@@ -21240,16 +20752,7 @@
     "de": "der Stress",
     "en": "stress",
     "article": "m.",
-    "level": "B1",
-    "example": "Stress im Beruf kann langfristig zu gesundheitlichen Problemen führen.",
-    "example_en": "Stress at work can lead to health problems in the long term.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Stress",
-    "en": "stress",
-    "article": "m.",
-    "level": "B2",
+    "level": "A1",
     "example": "Chronischer Stress beeinträchtigt nicht nur die Gesundheit, sondern auch die Arbeitsleistung.",
     "example_en": "Chronic stress affects not only health but also work performance.",
     "collocations": [
@@ -21335,7 +20838,7 @@
     "de": "das Studium",
     "en": "studies",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Mein Studium dauert insgesamt fünf Jahre.",
     "example_en": "My studies last five years in total.",
     "register": "everyday"
@@ -21498,7 +21001,7 @@
     "de": "die Süßigkeit, -en",
     "en": "candy",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Kind isst zu viele Süßigkeiten nach dem Abendessen.",
     "example_en": "The child eats too many sweets after dinner.",
     "register": "everyday"
@@ -21567,7 +21070,7 @@
     "de": "die Tablette, -n",
     "en": "pill",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Arzt hat mir eine Tablette gegen Schmerzen verschrieben.",
     "example_en": "The doctor prescribed me a pill for the pain.",
     "register": "everyday"
@@ -21593,15 +21096,6 @@
     "level": "A1",
     "example": "Schreiben Sie an die Tafel.",
     "example_en": "Write on the board.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Tafel, -n",
-    "en": "blackboard",
-    "article": "f.",
-    "level": "A2",
-    "example": "Die Lehrerin schreibt das Wort an die Tafel.",
-    "example_en": "The teacher writes the word on the blackboard.",
     "register": "everyday"
   },
   {
@@ -21998,15 +21492,6 @@
     "register": "everyday"
   },
   {
-    "de": "die Tomate, -n",
-    "en": "tomato",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie schneidet die Tomaten für den Salat in kleine Stücke.",
-    "example_en": "She cuts the tomatoes into small pieces for the salad.",
-    "register": "everyday"
-  },
-  {
     "de": "der Ton macht die Musik.",
     "en": "It's not what you say, but how you say it.",
     "article": "m.",
@@ -22388,7 +21873,7 @@
     "de": "typisch",
     "en": "typical",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Es ist typisch für ihn, immer zehn Minuten zu spät zu kommen.",
     "example_en": "It is typical of him to always arrive ten minutes late.",
     "register": "everyday"
@@ -22482,7 +21967,7 @@
     "de": "die Überraschung, -en",
     "en": "surprise",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Überraschungsparty war ein voller Erfolg.",
     "example_en": "The surprise party was a complete success.",
     "register": "everyday"
@@ -22758,15 +22243,6 @@
     }
   },
   {
-    "de": "umsteigen",
-    "en": "to transfer",
-    "article": "",
-    "level": "A2",
-    "example": "In Frankfurt müssen wir umsteigen und den ICE nach Berlin nehmen.",
-    "example_en": "In Frankfurt we have to change and take the ICE to Berlin.",
-    "register": "everyday"
-  },
-  {
     "de": "umstritten",
     "en": "controversial",
     "article": "",
@@ -22784,7 +22260,7 @@
     "de": "umtauschen",
     "en": "to exchange",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Das T-Shirt passt nicht — sie möchte es gegen eine größere Größe umtauschen.",
     "example_en": "The T-shirt does not fit — she would like to exchange it for a larger size.",
     "register": "everyday",
@@ -22852,7 +22328,7 @@
     "de": "der Umzug, -̈e",
     "en": "move",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Umzug in die neue Stadt war stressig, aber aufregend.",
     "example_en": "The move to the new city was stressful but exciting.",
     "register": "everyday"
@@ -22958,7 +22434,7 @@
     "de": "ungefähr",
     "en": "approximately",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Fahrt dauert ungefähr zwei Stunden, je nach Verkehr.",
     "example_en": "The journey takes approximately two hours, depending on the traffic.",
     "register": "everyday"
@@ -23081,7 +22557,7 @@
     "de": "der Unterricht",
     "en": "instruction",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Unterricht beginnt jeden Morgen um acht Uhr.",
     "example_en": "Instruction begins every morning at eight o'clock.",
     "register": "everyday"
@@ -23113,15 +22589,6 @@
     "register": "everyday"
   },
   {
-    "de": "die Unterschrift, -en",
-    "en": "signature",
-    "article": "f.",
-    "level": "A2",
-    "example": "Bitte leisten Sie Ihre Unterschrift am Ende des Formulars.",
-    "example_en": "Please place your signature at the end of the form.",
-    "register": "everyday"
-  },
-  {
     "de": "unterstützen",
     "en": "to support",
     "article": "",
@@ -23147,7 +22614,7 @@
     "de": "untersuchen",
     "en": "to examine",
     "article": "",
-    "level": "B2",
+    "level": "A1",
     "example": "Die Behörden untersuchen den Vorfall und warten auf die Laborergebnisse.",
     "example_en": "The authorities are investigating the incident and waiting for the laboratory results.",
     "collocations": [
@@ -23260,15 +22727,6 @@
     "level": "A1",
     "example": "Im Urlaub fahre ich nach Italien.",
     "example_en": "On holiday I am going to Italy.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Urlaub, -e",
-    "en": "holiday",
-    "article": "m.",
-    "level": "A2",
-    "example": "Nächsten Monat fahren wir in den Urlaub nach Italien.",
-    "example_en": "Next month we are going on holiday to Italy.",
     "register": "everyday"
   },
   {
@@ -23422,7 +22880,7 @@
     "de": "die Veranstaltung, -en",
     "en": "event",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Veranstaltung beginnt um acht Uhr abends.",
     "example_en": "The event begins at eight o'clock in the evening.",
     "register": "everyday"
@@ -23606,15 +23064,6 @@
     }
   },
   {
-    "de": "verdienen",
-    "en": "to earn",
-    "article": "",
-    "level": "A2",
-    "example": "Sie verdient genug, um ihre Miete und Lebenshaltungskosten zu decken.",
-    "example_en": "She earns enough to cover her rent and living expenses.",
-    "register": "everyday"
-  },
-  {
     "de": "der Verein, -e",
     "en": "club",
     "article": "m.",
@@ -23636,7 +23085,7 @@
     "de": "vereinbaren",
     "en": "to agree",
     "article": "",
-    "level": "B2",
+    "level": "A1",
     "example": "Sie vereinbaren einen Termin für die Vertragsunterzeichnung nächste Woche.",
     "example_en": "They arrange an appointment for the contract signing next week.",
     "collocations": [
@@ -23732,7 +23181,7 @@
     "de": "vergleichen",
     "en": "to compare",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Man sollte die Preise verschiedener Anbieter sorgfältig vergleichen.",
     "example_en": "One should carefully compare the prices of different providers.",
     "register": "everyday",
@@ -23959,7 +23408,7 @@
     "de": "der Vermieter, -",
     "en": "landlord",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Vermieter erhöht die Miete zum nächsten Monat.",
     "example_en": "The landlord is raising the rent from next month.",
     "register": "everyday"
@@ -23968,7 +23417,7 @@
     "de": "vermissen",
     "en": "to miss (person)",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie vermisst ihre beste Freundin sehr seit dem Umzug.",
     "example_en": "She misses her best friend a lot since the move.",
     "register": "everyday",
@@ -24039,7 +23488,7 @@
     "de": "die Verpackung, -en",
     "en": "packaging",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Verpackung des Produkts besteht aus recyceltem Karton.",
     "example_en": "The packaging of the product is made from recycled cardboard.",
     "register": "everyday"
@@ -24126,7 +23575,7 @@
     "de": "die Verspätung, -en",
     "en": "delay",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Zug hat heute eine Verspätung von zwanzig Minuten.",
     "example_en": "The train is twenty minutes late today.",
     "register": "everyday"
@@ -24170,7 +23619,7 @@
     "de": "versuchen",
     "en": "to try",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er versucht jeden Tag, sein Deutsch zu verbessern.",
     "example_en": "He tries every day to improve his German.",
     "register": "everyday",
@@ -24187,16 +23636,7 @@
     "de": "der Vertrag, -̈e",
     "en": "contract",
     "article": "m.",
-    "level": "A2",
-    "example": "Wir unterschreiben morgen den Vertrag für die neue Wohnung.",
-    "example_en": "We are signing the contract for the new apartment tomorrow.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Vertrag, -̈e",
-    "en": "contract",
-    "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Der Arbeitsvertrag enthält genaue Regelungen zu Arbeitszeiten, Gehalt und Kündigungsfristen.",
     "example_en": "The employment contract contains precise provisions on working hours, salary and notice periods.",
     "register": "everyday"
@@ -24878,7 +24318,7 @@
     "de": "die Waschmaschine, -n",
     "en": "washing machine",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Waschmaschine ist kaputt und muss repariert werden.",
     "example_en": "The washing machine is broken and needs to be repaired.",
     "register": "everyday"
@@ -25260,7 +24700,7 @@
     "de": "die Werkstatt, -̈en",
     "en": "workshop",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Er bringt sein Auto in die Werkstatt, weil die Bremsen nicht funktionieren.",
     "example_en": "He takes his car to the garage because the brakes are not working.",
     "register": "everyday"
@@ -25895,7 +25335,7 @@
     "de": "der Wunsch, -̈e",
     "en": "wish",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ihr größter Wunsch ist eine Reise nach Japan.",
     "example_en": "Her greatest wish is a trip to Japan.",
     "register": "everyday"
@@ -25965,15 +25405,6 @@
     "level": "A1",
     "example": "Ich gehe zum Zahnarzt.",
     "example_en": "I am going to the dentist.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Zahnarzt, -̈e",
-    "en": "dentist",
-    "article": "m.",
-    "level": "A2",
-    "example": "Ich gehe morgen zum Zahnarzt, weil mein Zahn wehtut.",
-    "example_en": "I am going to the dentist tomorrow because my tooth hurts.",
     "register": "everyday"
   },
   {
@@ -26066,7 +25497,7 @@
     "de": "die Zeitschrift, -en",
     "en": "magazine",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich lese diese Zeitschrift jeden Monat mit großem Interesse.",
     "example_en": "I read this magazine every month with great interest.",
     "register": "everyday"
@@ -26239,7 +25670,7 @@
     "de": "zubereiten",
     "en": "to prepare",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie bereitet das Abendessen frisch zu und vermeidet fertige Produkte.",
     "example_en": "She prepares dinner fresh and avoids ready-made products.",
     "register": "everyday",
@@ -26280,7 +25711,7 @@
     "de": "zufrieden",
     "en": "satisfied",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Nach dem Gespräch war sie zufrieden.",
     "example_en": "After the conversation she was satisfied.",
     "register": "everyday"
@@ -26560,7 +25991,7 @@
     "de": "der Zuschauer, -",
     "en": "spectator",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Zuschauer applaudierten begeistert nach dem Konzert.",
     "example_en": "The spectators applauded enthusiastically after the concert.",
     "register": "everyday"
@@ -26664,7 +26095,7 @@
     "de": "die Zwiebel, -n",
     "en": "onion",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Zwiebel macht beim Schneiden die Augen feucht.",
     "example_en": "The onion makes your eyes water when cutting it.",
     "register": "everyday"
@@ -26794,7 +26225,7 @@
     "de": "der Arbeitsplatz, -̈e",
     "en": "workplace / job",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Viele Arbeitsplätze werden durch die Digitalisierung verändert.",
     "example_en": "Many jobs are being changed by digitalisation.",
     "collocations": [
@@ -26962,7 +26393,7 @@
     "de": "der Feierabend, -e",
     "en": "end of work / after-work",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Nach einem langen Tag freut sie sich auf den Feierabend.",
     "example_en": "After a long day, she looks forward to finishing work.",
     "collocations": [
@@ -27158,7 +26589,7 @@
     "de": "die Präsentation, -en",
     "en": "presentation",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Sie hält morgen eine Präsentation vor dem gesamten Team.",
     "example_en": "She is giving a presentation to the entire team tomorrow.",
     "collocations": [
@@ -27242,7 +26673,7 @@
     "de": "das Rezept, -e",
     "en": "prescription",
     "article": "n.",
-    "level": "B1",
+    "level": "A1",
     "example": "Der Arzt stellt ihr ein Rezept für das neue Medikament aus.",
     "example_en": "The doctor writes her a prescription for the new medication.",
     "collocations": [
@@ -27396,7 +26827,7 @@
     "de": "der Verband, -̈e",
     "en": "bandage",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Sanitäterin legt einen sauberen Verband um seine Wunde.",
     "example_en": "The paramedic applies a clean bandage to his wound.",
     "collocations": [
@@ -27410,7 +26841,7 @@
     "de": "die Physiotherapie",
     "en": "physiotherapy",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Nach der Operation macht er sechs Wochen Physiotherapie.",
     "example_en": "After the operation, he does six weeks of physiotherapy.",
     "collocations": [
@@ -27494,7 +26925,7 @@
     "de": "das Medikament, -e",
     "en": "medication",
     "article": "n.",
-    "level": "B1",
+    "level": "A1",
     "example": "Das Medikament muss zweimal täglich nach dem Essen eingenommen werden.",
     "example_en": "The medication must be taken twice daily after meals.",
     "collocations": [
@@ -27984,27 +27415,13 @@
     "de": "das Interview, -s",
     "en": "interview",
     "article": "n.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Journalistin führte ein langes Interview mit dem Bürgermeister.",
     "example_en": "The journalist conducted a long interview with the mayor.",
     "collocations": [
       "Interview geben",
       "Fragen stellen",
       "Interview veröffentlichen"
-    ],
-    "register": "everyday"
-  },
-  {
-    "de": "die Zeitung, -en",
-    "en": "newspaper",
-    "article": "f.",
-    "level": "B1",
-    "example": "Er liest jeden Morgen die Zeitung mit einem Kaffee.",
-    "example_en": "He reads the newspaper every morning with a cup of coffee.",
-    "collocations": [
-      "Zeitung lesen",
-      "abonnieren",
-      "Tageszeitung"
     ],
     "register": "everyday"
   },
@@ -28180,7 +27597,7 @@
     "de": "die Sehenswürdigkeit, -en",
     "en": "tourist attraction",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Wer Deutschland besucht, sollte sich die historischen Sehenswürdigkeiten in Heidelberg nicht entgehen lassen.",
     "example_en": "Anyone visiting Germany should not miss the historic sights in Heidelberg.",
     "collocations": [
@@ -28194,7 +27611,7 @@
     "de": "das Reiseziel, -e",
     "en": "travel destination",
     "article": "n.",
-    "level": "B1",
+    "level": "A1",
     "example": "Italien ist ein beliebtes Reiseziel für viele Deutsche im Sommer.",
     "example_en": "Italy is a popular travel destination for many Germans in summer.",
     "collocations": [
@@ -28233,20 +27650,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Ausflug, -̈e",
-    "en": "day trip",
-    "article": "m.",
-    "level": "B1",
-    "example": "Am Wochenende machen wir einen Ausflug in die Berge.",
-    "example_en": "At the weekend we are going on a day trip to the mountains.",
-    "collocations": [
-      "Ausflug planen",
-      "Tagesausflug",
-      "Sehenswürdigkeiten erkunden"
-    ],
-    "register": "everyday"
-  },
-  {
     "de": "das Hostel, -s",
     "en": "hostel",
     "article": "n.",
@@ -28271,20 +27674,6 @@
       "Sightseeing-Tour",
       "Stadtführung buchen",
       "Sehenswürdigkeiten"
-    ],
-    "register": "everyday"
-  },
-  {
-    "de": "der Flughafen, -̈",
-    "en": "airport",
-    "article": "m.",
-    "level": "B1",
-    "example": "Wir kamen zwei Stunden vor dem Abflug am Flughafen an.",
-    "example_en": "We arrived at the airport two hours before departure.",
-    "collocations": [
-      "am Flughafen einchecken",
-      "Sicherheitskontrolle",
-      "Gate finden"
     ],
     "register": "everyday"
   },
@@ -28425,20 +27814,6 @@
       "ins Ausland reisen",
       "Reisepass beantragen",
       "Visum organisieren"
-    ],
-    "register": "everyday"
-  },
-  {
-    "de": "die Fahrkarte, -n",
-    "en": "ticket (transport)",
-    "article": "f.",
-    "level": "B1",
-    "example": "Sie kauft eine Fahrkarte am Automaten am Bahnhof.",
-    "example_en": "She buys a ticket from the machine at the station.",
-    "collocations": [
-      "Fahrkarte lösen",
-      "Einzelticket",
-      "Monatskarte"
     ],
     "register": "everyday"
   },
@@ -28754,7 +28129,7 @@
     "de": "der Wohnort, -e",
     "en": "place of residence",
     "article": "m.",
-    "level": "B1",
+    "level": "A1",
     "example": "Beim Wohnortwechsel muss man sich beim Einwohnermeldeamt ummelden.",
     "example_en": "When changing residence, you must re-register at the residents' registration office.",
     "collocations": [
@@ -28922,7 +28297,7 @@
     "de": "die Besprechung, -en",
     "en": "meeting",
     "article": "f.",
-    "level": "B1",
+    "level": "A1",
     "example": "Die wöchentliche Besprechung dauert meistens eine Stunde.",
     "example_en": "The weekly meeting usually lasts one hour.",
     "collocations": [
@@ -29787,20 +29162,6 @@
     "register": "everyday"
   },
   {
-    "de": "das Gericht, -e",
-    "en": "court",
-    "article": "n.",
-    "level": "B1",
-    "example": "Das Gericht hat den Fall nach zwei Wochen entschieden.",
-    "example_en": "The court decided the case after two weeks.",
-    "collocations": [
-      "vor Gericht gehen",
-      "Klage einreichen",
-      "Urteil sprechen"
-    ],
-    "register": "everyday"
-  },
-  {
     "de": "die Behörde, -n",
     "en": "authority",
     "article": "f.",
@@ -29927,20 +29288,6 @@
     "register": "everyday"
   },
   {
-    "de": "die Miete, -n",
-    "en": "rent",
-    "article": "f.",
-    "level": "B1",
-    "example": "Die Mietpreise in deutschen Großstädten sind in den letzten Jahren stark gestiegen.",
-    "example_en": "Rental prices in German cities have risen sharply in recent years.",
-    "collocations": [
-      "Miete zahlen",
-      "Mietvertrag",
-      "Nebenkosten"
-    ],
-    "register": "everyday"
-  },
-  {
     "de": "die Nachbarschaft, -en",
     "en": "neighbourhood",
     "article": "f.",
@@ -29951,20 +29298,6 @@
       "nachbarschaftlich",
       "Gemeinschaftsgefühl",
       "Kontakt pflegen"
-    ],
-    "register": "everyday"
-  },
-  {
-    "de": "der Kindergarten, -̈",
-    "en": "kindergarten",
-    "article": "m.",
-    "level": "B1",
-    "example": "Das Kind besucht seit September den Kindergarten um die Ecke.",
-    "example_en": "The child has been attending the kindergarten around the corner since September.",
-    "collocations": [
-      "Kind anmelden",
-      "Betreuung",
-      "frühkindliche Förderung"
     ],
     "register": "everyday"
   },
@@ -30025,48 +29358,12 @@
     "register": "everyday"
   },
   {
-    "de": "der Aufzug, -̈e",
-    "en": "lift / elevator",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Aufzug ist kaputt, also nehmen wir die Treppe.",
-    "example_en": "The lift is broken, so we take the stairs.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Treppe, -n",
-    "en": "stairs",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie geht jeden Tag die Treppe statt den Aufzug.",
-    "example_en": "She takes the stairs every day instead of the lift.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Balkon, -e",
-    "en": "balcony",
-    "article": "m.",
-    "level": "A2",
-    "example": "Im Sommer frühstücken wir gerne auf dem Balkon.",
-    "example_en": "In summer we like to have breakfast on the balcony.",
-    "register": "everyday"
-  },
-  {
     "de": "der Vorhang, -̈e",
     "en": "curtain",
     "article": "m.",
     "level": "A2",
     "example": "Er zieht den Vorhang zu, weil die Sonne so hell scheint.",
     "example_en": "He closes the curtain because the sun is shining so brightly.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Schlüssel, -",
-    "en": "key",
-    "article": "m.",
-    "level": "A2",
-    "example": "Ich habe meinen Schlüssel vergessen und stehe vor der Tür.",
-    "example_en": "I forgot my key and am standing outside the door.",
     "register": "everyday"
   },
   {
@@ -30100,7 +29397,7 @@
     "de": "das Sofa, -s",
     "en": "sofa",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Er schläft oft auf dem Sofa ein, wenn er fernsieht.",
     "example_en": "He often falls asleep on the sofa when watching television.",
     "register": "everyday"
@@ -30109,7 +29406,7 @@
     "de": "das Regal, -e",
     "en": "shelf",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Bücher stehen im Regal neben dem Fenster.",
     "example_en": "The books are on the shelf next to the window.",
     "register": "everyday"
@@ -30127,7 +29424,7 @@
     "de": "das Handtuch, -̈er",
     "en": "towel",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie nimmt ein frisches Handtuch aus dem Schrank.",
     "example_en": "She takes a fresh towel from the cupboard.",
     "register": "everyday"
@@ -30145,7 +29442,7 @@
     "de": "die Seife, -n",
     "en": "soap",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Bitte leg eine neue Seife ins Badezimmer.",
     "example_en": "Please put a new bar of soap in the bathroom.",
     "register": "everyday"
@@ -30199,126 +29496,27 @@
     "de": "der Hof, -̈e",
     "en": "courtyard",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Kinder spielen nachmittags im Hof.",
     "example_en": "The children play in the courtyard in the afternoon.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Frühstück",
-    "en": "breakfast",
-    "article": "n.",
-    "level": "A2",
-    "example": "Zum Frühstück esse ich meistens Brot mit Käse.",
-    "example_en": "For breakfast I usually eat bread and cheese.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Mittagessen, -",
-    "en": "lunch",
-    "article": "n.",
-    "level": "A2",
-    "example": "Das Mittagessen in der Kantine kostet heute fünf Euro.",
-    "example_en": "Lunch in the canteen costs five euros today.",
     "register": "everyday"
   },
   {
     "de": "das Abendessen, -",
     "en": "dinner",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Wir essen das Abendessen immer um sieben Uhr.",
     "example_en": "We always eat dinner at seven o'clock.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Kuchen, -",
-    "en": "cake",
-    "article": "m.",
-    "level": "A2",
-    "example": "Sie backt jeden Sonntag einen Kuchen für die Familie.",
-    "example_en": "She bakes a cake for the family every Sunday.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Suppe, -n",
-    "en": "soup",
-    "article": "f.",
-    "level": "A2",
-    "example": "Im Winter esse ich gerne eine heiße Suppe.",
-    "example_en": "In winter I like to eat a hot soup.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Salz",
-    "en": "salt",
-    "article": "n.",
-    "level": "A2",
-    "example": "Kannst du mir bitte das Salz reichen?",
-    "example_en": "Can you please pass me the salt?",
     "register": "everyday"
   },
   {
     "de": "der Joghurt, -s",
     "en": "yoghurt",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Zum Frühstück esse ich oft einen Joghurt mit Früchten.",
     "example_en": "For breakfast I often eat a yoghurt with fruit.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Banane, -n",
-    "en": "banana",
-    "article": "f.",
-    "level": "A2",
-    "example": "Er isst jeden Morgen eine Banane als Snack.",
-    "example_en": "He eats a banana as a snack every morning.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Apfel, -̈",
-    "en": "apple",
-    "article": "m.",
-    "level": "A2",
-    "example": "Sie kauft frische Äpfel auf dem Wochenmarkt.",
-    "example_en": "She buys fresh apples at the weekly market.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Brot, -e",
-    "en": "bread",
-    "article": "n.",
-    "level": "A2",
-    "example": "Er kauft jeden Morgen frisches Brot beim Bäcker.",
-    "example_en": "He buys fresh bread at the bakery every morning.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Butter",
-    "en": "butter",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie streicht Butter auf das Brot und legt Käse drauf.",
-    "example_en": "She spreads butter on the bread and puts cheese on top.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Käse, -",
-    "en": "cheese",
-    "article": "m.",
-    "level": "A2",
-    "example": "Dieser Käse aus der Schweiz schmeckt besonders gut.",
-    "example_en": "This cheese from Switzerland tastes particularly good.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Wurst, -̈e",
-    "en": "sausage",
-    "article": "f.",
-    "level": "A2",
-    "example": "Er kauft frische Wurst an der Fleischtheke.",
-    "example_en": "He buys fresh sausage at the meat counter.",
     "register": "everyday"
   },
   {
@@ -30331,46 +29529,10 @@
     "register": "everyday"
   },
   {
-    "de": "die Milch",
-    "en": "milk",
-    "article": "f.",
-    "level": "A2",
-    "example": "Kinder sollten jeden Tag Milch trinken.",
-    "example_en": "Children should drink milk every day.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Zucker",
-    "en": "sugar",
-    "article": "m.",
-    "level": "A2",
-    "example": "Er trinkt seinen Kaffee ohne Zucker.",
-    "example_en": "He drinks his coffee without sugar.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Ei, -er",
-    "en": "egg",
-    "article": "n.",
-    "level": "A2",
-    "example": "Zum Frühstück macht er sich zwei Eier in der Pfanne.",
-    "example_en": "He makes himself two fried eggs for breakfast.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Saft, -̈e",
-    "en": "juice",
-    "article": "m.",
-    "level": "A2",
-    "example": "Sie trinkt jeden Morgen ein Glas Orangensaft.",
-    "example_en": "She drinks a glass of orange juice every morning.",
-    "register": "everyday"
-  },
-  {
     "de": "die Pizza, -s",
     "en": "pizza",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Am Freitagabend bestellen wir oft eine Pizza.",
     "example_en": "On Friday evenings we often order a pizza.",
     "register": "everyday"
@@ -30382,51 +29544,6 @@
     "level": "A2",
     "example": "Im Sommer kaufen wir frische Erdbeeren auf dem Markt.",
     "example_en": "In summer we buy fresh strawberries at the market.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Fahrrad, -̈er",
-    "en": "bicycle",
-    "article": "n.",
-    "level": "A2",
-    "example": "Er fährt jeden Tag mit dem Fahrrad zur Arbeit.",
-    "example_en": "He rides his bicycle to work every day.",
-    "register": "everyday"
-  },
-  {
-    "de": "die U-Bahn, -en",
-    "en": "underground",
-    "article": "f.",
-    "level": "A2",
-    "example": "Die U-Bahn fährt alle fünf Minuten in die Stadtmitte.",
-    "example_en": "The underground runs every five minutes to the city centre.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Bus, -se",
-    "en": "bus",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Bus kommt in zehn Minuten an der Haltestelle an.",
-    "example_en": "The bus arrives at the stop in ten minutes.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Taxi, -s",
-    "en": "taxi",
-    "article": "n.",
-    "level": "A2",
-    "example": "Sie nimmt ein Taxi zum Flughafen.",
-    "example_en": "She takes a taxi to the airport.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Bahnhof, -̈e",
-    "en": "train station",
-    "article": "m.",
-    "level": "A2",
-    "example": "Wir treffen uns um zwölf Uhr am Hauptbahnhof.",
-    "example_en": "We meet at twelve o'clock at the main station.",
     "register": "everyday"
   },
   {
@@ -30457,30 +29574,12 @@
     "register": "everyday"
   },
   {
-    "de": "das Flugzeug, -e",
-    "en": "aeroplane",
-    "article": "n.",
-    "level": "A2",
-    "example": "Das Flugzeug landet pünktlich auf dem Flughafen.",
-    "example_en": "The aeroplane lands on time at the airport.",
-    "register": "everyday"
-  },
-  {
     "de": "das Navi, -s",
     "en": "sat nav",
     "article": "n.",
     "level": "A2",
     "example": "Das Navi zeigt uns den kürzesten Weg.",
     "example_en": "The sat nav shows us the shortest route.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Straßenbahn, -en",
-    "en": "tram",
-    "article": "f.",
-    "level": "A2",
-    "example": "Wir nehmen die Straßenbahn bis zum Marktplatz.",
-    "example_en": "We take the tram to the market square.",
     "register": "everyday"
   },
   {
@@ -30532,7 +29631,7 @@
     "de": "die Öffnungszeiten (Pl.)",
     "en": "opening hours",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Öffnungszeiten des Geschäfts sind neun bis achtzehn Uhr.",
     "example_en": "The shop's opening hours are nine to six.",
     "register": "everyday"
@@ -30547,19 +29646,10 @@
     "register": "everyday"
   },
   {
-    "de": "die Tüte, -n",
-    "en": "bag",
-    "article": "f.",
-    "level": "A2",
-    "example": "Brauchen Sie eine Tüte für Ihre Einkäufe?",
-    "example_en": "Do you need a bag for your shopping?",
-    "register": "everyday"
-  },
-  {
     "de": "der Einkauf, -̈e",
     "en": "shopping / purchase",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Nach dem Einkauf packt sie alles in den Kühlschrank.",
     "example_en": "After the shopping she puts everything in the fridge.",
     "register": "everyday"
@@ -30604,7 +29694,7 @@
     "de": "das Angebot, -e",
     "en": "offer / deal",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Dieser Supermarkt hat jeden Donnerstag ein gutes Angebot.",
     "example_en": "This supermarket has a good offer every Thursday.",
     "register": "everyday"
@@ -30637,120 +29727,12 @@
     "register": "everyday"
   },
   {
-    "de": "der Rücken, -",
-    "en": "back",
-    "article": "m.",
-    "level": "A2",
-    "example": "Ihr Rücken tut weh, weil sie den ganzen Tag sitzt.",
-    "example_en": "Her back hurts because she sits all day.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Zahn, -̈e",
-    "en": "tooth",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Zahn schmerzt seit gestern — sie geht zum Zahnarzt.",
-    "example_en": "The tooth has been hurting since yesterday — she goes to the dentist.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Bauch, -̈e",
-    "en": "stomach",
-    "article": "m.",
-    "level": "A2",
-    "example": "Nach dem großen Essen tut ihm der Bauch weh.",
-    "example_en": "After the big meal his stomach hurts.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Ohr, -en",
-    "en": "ear",
-    "article": "n.",
-    "level": "A2",
-    "example": "Das Kind hat Schmerzen im Ohr und muss zum Arzt.",
-    "example_en": "The child has ear pain and has to go to the doctor.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Nase, -n",
-    "en": "nose",
-    "article": "f.",
-    "level": "A2",
-    "example": "Ihre Nase läuft, weil sie eine Erkältung hat.",
-    "example_en": "Her nose is running because she has a cold.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Kopf, -̈e",
-    "en": "head",
-    "article": "m.",
-    "level": "A2",
-    "example": "Mir tut der Kopf weh — ich brauche eine Pause.",
-    "example_en": "My head hurts — I need a break.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Fuß, -̈e",
-    "en": "foot",
-    "article": "m.",
-    "level": "A2",
-    "example": "Er hat sich den Fuß beim Sport verletzt.",
-    "example_en": "He injured his foot while doing sport.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Hand, -̈e",
-    "en": "hand",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie wäscht sich die Hände vor dem Essen.",
-    "example_en": "She washes her hands before eating.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Regen",
-    "en": "rain",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Regen hört nicht auf — ich bleibe zu Hause.",
-    "example_en": "The rain will not stop — I am staying at home.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Schnee",
-    "en": "snow",
-    "article": "m.",
-    "level": "A2",
-    "example": "Die Kinder freuen sich über den ersten Schnee.",
-    "example_en": "The children are delighted about the first snow.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Wolke, -n",
-    "en": "cloud",
-    "article": "f.",
-    "level": "A2",
-    "example": "Dunkle Wolken am Himmel — es wird bald regnen.",
-    "example_en": "Dark clouds in the sky — it will rain soon.",
-    "register": "everyday"
-  },
-  {
     "de": "die Sonne",
     "en": "sun",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Sonne scheint heute und es ist sehr warm.",
     "example_en": "The sun is shining today and it is very warm.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Wind",
-    "en": "wind",
-    "article": "m.",
-    "level": "A2",
-    "example": "Es weht ein starker Wind, wir ziehen uns warm an.",
-    "example_en": "A strong wind is blowing, we dress warmly.",
     "register": "everyday"
   },
   {
@@ -30763,55 +29745,10 @@
     "register": "everyday"
   },
   {
-    "de": "der Berg, -e",
-    "en": "mountain",
-    "article": "m.",
-    "level": "A2",
-    "example": "Sie wandert jeden Sommer in den Bergen.",
-    "example_en": "She hikes in the mountains every summer.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Meer",
-    "en": "sea / ocean",
-    "article": "n.",
-    "level": "A2",
-    "example": "Am Wochenende fahren wir ans Meer.",
-    "example_en": "At the weekend we are going to the sea.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Blume, -n",
-    "en": "flower",
-    "article": "f.",
-    "level": "A2",
-    "example": "Er kauft einen Strauß Blumen für seine Mutter.",
-    "example_en": "He buys a bunch of flowers for his mother.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Baum, -̈e",
-    "en": "tree",
-    "article": "m.",
-    "level": "A2",
-    "example": "Im Park stehen viele alte Bäume.",
-    "example_en": "There are many old trees in the park.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Lehrer, - / die Lehrerin, -nen",
-    "en": "teacher",
-    "article": "m.",
-    "level": "A2",
-    "example": "Die Lehrerin erklärt die Aufgabe noch einmal.",
-    "example_en": "The teacher explains the task once more.",
-    "register": "everyday"
-  },
-  {
     "de": "der Stift, -e",
     "en": "pen / pencil",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Hast du einen Stift, den ich kurz ausleihen kann?",
     "example_en": "Do you have a pen I can borrow for a moment?",
     "register": "everyday"
@@ -30829,7 +29766,7 @@
     "de": "der Test, -s",
     "en": "test",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Morgen schreiben wir einen Test in Mathematik.",
     "example_en": "Tomorrow we are writing a test in mathematics.",
     "register": "everyday"
@@ -30856,7 +29793,7 @@
     "de": "das Wörterbuch, -̈er",
     "en": "dictionary",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie schlägt das Wort im Wörterbuch nach.",
     "example_en": "She looks up the word in the dictionary.",
     "register": "everyday"
@@ -30880,78 +29817,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Bruder, -̈",
-    "en": "brother",
-    "article": "m.",
-    "level": "A2",
-    "example": "Mein Bruder ist drei Jahre jünger als ich.",
-    "example_en": "My brother is three years younger than me.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Schwester, -n",
-    "en": "sister",
-    "article": "f.",
-    "level": "A2",
-    "example": "Meine Schwester wohnt jetzt in einer anderen Stadt.",
-    "example_en": "My sister now lives in another city.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Baby, -s",
-    "en": "baby",
-    "article": "n.",
-    "level": "A2",
-    "example": "Das Baby schläft jetzt endlich, die Eltern ruhen sich aus.",
-    "example_en": "The baby is finally sleeping, the parents are resting.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Opa, -s",
-    "en": "grandpa",
-    "article": "m.",
-    "level": "A2",
-    "example": "Mein Opa erzählt uns Geschichten aus seiner Kindheit.",
-    "example_en": "My grandpa tells us stories from his childhood.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Oma, -s",
-    "en": "grandma",
-    "article": "f.",
-    "level": "A2",
-    "example": "Meine Oma backt die besten Plätzchen zu Weihnachten.",
-    "example_en": "My grandma bakes the best biscuits at Christmas.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Sohn, -̈e",
-    "en": "son",
-    "article": "m.",
-    "level": "A2",
-    "example": "Ihr Sohn hat gerade sein Studium begonnen.",
-    "example_en": "Her son has just started his studies.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Tochter, -̈",
-    "en": "daughter",
-    "article": "f.",
-    "level": "A2",
-    "example": "Seine Tochter spielt Klavier und singt im Chor.",
-    "example_en": "His daughter plays piano and sings in the choir.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Eltern (Pl.)",
-    "en": "parents",
-    "article": "f.",
-    "level": "A2",
-    "example": "Ihre Eltern leben noch in der Stadt, wo sie aufgewachsen ist.",
-    "example_en": "Her parents still live in the city where she grew up.",
-    "register": "everyday"
-  },
-  {
     "de": "die Geschwister (Pl.)",
     "en": "siblings",
     "article": "f.",
@@ -30970,37 +29835,10 @@
     "register": "everyday"
   },
   {
-    "de": "das Handy, -s",
-    "en": "mobile phone",
-    "article": "n.",
-    "level": "A2",
-    "example": "Sein Handy ist kaputt und er braucht ein neues.",
-    "example_en": "His mobile phone is broken and he needs a new one.",
-    "register": "everyday"
-  },
-  {
-    "de": "die E-Mail, -s",
-    "en": "email",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie hat eine wichtige E-Mail von ihrem Chef bekommen.",
-    "example_en": "She has received an important email from her boss.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Computer, -",
-    "en": "computer",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Computer im Büro ist zu langsam.",
-    "example_en": "The computer in the office is too slow.",
-    "register": "everyday"
-  },
-  {
     "de": "das WLAN",
     "en": "Wi-Fi",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Das WLAN in der Wohnung funktioniert heute nicht.",
     "example_en": "The Wi-Fi in the flat is not working today.",
     "register": "everyday"
@@ -31009,18 +29847,9 @@
     "de": "das Foto, -s",
     "en": "photo",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie macht ein Foto von der schönen Aussicht.",
     "example_en": "She takes a photo of the beautiful view.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Nachricht, -en",
-    "en": "message",
-    "article": "f.",
-    "level": "A2",
-    "example": "Er schreibt ihr eine kurze Nachricht auf dem Handy.",
-    "example_en": "He writes her a short message on his mobile phone.",
     "register": "everyday"
   },
   {
@@ -31042,75 +29871,21 @@
     "register": "everyday"
   },
   {
-    "de": "das Kino, -s",
-    "en": "cinema",
-    "article": "n.",
-    "level": "A2",
-    "example": "Am Samstag gehen wir ins Kino und sehen einen neuen Film.",
-    "example_en": "On Saturday we go to the cinema and see a new film.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Theater, -",
-    "en": "theatre",
-    "article": "n.",
-    "level": "A2",
-    "example": "Sie geht zweimal im Jahr ins Theater.",
-    "example_en": "She goes to the theatre twice a year.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Park, -s",
-    "en": "park",
-    "article": "m.",
-    "level": "A2",
-    "example": "Am Sonntag machen wir einen Spaziergang im Park.",
-    "example_en": "On Sunday we go for a walk in the park.",
-    "register": "everyday"
-  },
-  {
     "de": "das Schwimmbad, -̈er",
     "en": "swimming pool",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Im Sommer gehen die Kinder jeden Tag ins Schwimmbad.",
     "example_en": "In summer the children go to the swimming pool every day.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Restaurant, -s",
-    "en": "restaurant",
-    "article": "n.",
-    "level": "A2",
-    "example": "Sie haben zum Hochzeitstag in einem schönen Restaurant gegessen.",
-    "example_en": "They ate at a nice restaurant on their wedding anniversary.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Café, -s",
-    "en": "café",
-    "article": "n.",
-    "level": "A2",
-    "example": "Sie trifft sich jeden Freitag mit Freundinnen im Café.",
-    "example_en": "She meets her friends at the café every Friday.",
     "register": "everyday"
   },
   {
     "de": "der Spaziergang, -̈e",
     "en": "walk",
     "article": "m.",
-    "level": "A2",
+    "level": "A1",
     "example": "Nach dem Abendessen macht die Familie einen Spaziergang.",
     "example_en": "After dinner the family goes for a walk.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Sport",
-    "en": "sport",
-    "article": "m.",
-    "level": "A2",
-    "example": "Er treibt dreimal pro Woche Sport.",
-    "example_en": "He does sport three times a week.",
     "register": "everyday"
   },
   {
@@ -31123,15 +29898,6 @@
     "register": "everyday"
   },
   {
-    "de": "der Garten, -̈",
-    "en": "garden",
-    "article": "m.",
-    "level": "A2",
-    "example": "Im Sommer verbringen wir viele Stunden im Garten.",
-    "example_en": "In summer we spend many hours in the garden.",
-    "register": "everyday"
-  },
-  {
     "de": "das Haustier, -e",
     "en": "pet",
     "article": "n.",
@@ -31141,64 +29907,10 @@
     "register": "everyday"
   },
   {
-    "de": "der Nachbar, -n",
-    "en": "neighbour",
-    "article": "m.",
-    "level": "A2",
-    "example": "Unser Nachbar grüßt uns jeden Morgen freundlich.",
-    "example_en": "Our neighbour greets us in a friendly way every morning.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Miete, -n",
-    "en": "rent",
-    "article": "f.",
-    "level": "A2",
-    "example": "Die Miete für diese Wohnung beträgt achthundert Euro.",
-    "example_en": "The rent for this flat is eight hundred euros.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Fenster, -",
-    "en": "window",
-    "article": "n.",
-    "level": "A2",
-    "example": "Sie öffnet das Fenster, weil es im Zimmer zu warm ist.",
-    "example_en": "She opens the window because it is too warm in the room.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Tür, -en",
-    "en": "door",
-    "article": "f.",
-    "level": "A2",
-    "example": "Bitte schließ die Tür, es zieht.",
-    "example_en": "Please close the door, there is a draught.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Tisch, -e",
-    "en": "table",
-    "article": "m.",
-    "level": "A2",
-    "example": "Die Kinder essen am Tisch und machen keine Unordnung.",
-    "example_en": "The children eat at the table and do not make a mess.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Stuhl, -̈e",
-    "en": "chair",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Stuhl ist kaputt — ein Bein fehlt.",
-    "example_en": "The chair is broken — one leg is missing.",
-    "register": "everyday"
-  },
-  {
     "de": "das Picknick, -s",
     "en": "picnic",
     "article": "n.",
-    "level": "A2",
+    "level": "A1",
     "example": "Am Sonntag machen wir ein Picknick im Park.",
     "example_en": "On Sunday we have a picnic in the park.",
     "register": "everyday"
@@ -31210,60 +29922,6 @@
     "level": "A2",
     "example": "Er trägt den Eimer mit Wasser in den Garten.",
     "example_en": "He carries the bucket of water into the garden.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Brücke, -n",
-    "en": "bridge",
-    "article": "f.",
-    "level": "A2",
-    "example": "Wir überqueren die Brücke über den Fluss.",
-    "example_en": "We cross the bridge over the river.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Supermarkt, -̈e",
-    "en": "supermarket",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Supermarkt ist am Samstag bis zwanzig Uhr geöffnet.",
-    "example_en": "The supermarket is open until eight o'clock on Saturday.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Post",
-    "en": "post office / post",
-    "article": "f.",
-    "level": "A2",
-    "example": "Sie geht zur Post, um ein Paket abzuschicken.",
-    "example_en": "She goes to the post office to send a parcel.",
-    "register": "everyday"
-  },
-  {
-    "de": "das Paket, -e",
-    "en": "parcel / package",
-    "article": "n.",
-    "level": "A2",
-    "example": "Das Paket ist heute angekommen und liegt an der Tür.",
-    "example_en": "The parcel arrived today and is at the door.",
-    "register": "everyday"
-  },
-  {
-    "de": "der Arzt, -̈e",
-    "en": "doctor",
-    "article": "m.",
-    "level": "A2",
-    "example": "Der Arzt verschreibt ihr ein Medikament gegen die Erkältung.",
-    "example_en": "The doctor prescribes her medication for the cold.",
-    "register": "everyday"
-  },
-  {
-    "de": "die Uhr, -en",
-    "en": "watch / clock",
-    "article": "f.",
-    "level": "A2",
-    "example": "Die Uhr an der Wand geht fünf Minuten nach.",
-    "example_en": "The clock on the wall is five minutes slow.",
     "register": "everyday"
   },
   {
@@ -34872,7 +33530,7 @@
     "de": "die CO₂-Bepreisung",
     "en": "carbon pricing",
     "article": "f.",
-    "level": "C1",
+    "level": "A1",
     "example": "CO₂-Bepreisung setzt wirtschaftliche Anreize für klimafreundliches Verhalten.",
     "example_en": "Carbon pricing creates economic incentives for climate-friendly behaviour.",
     "collocations": [
@@ -36143,20 +34801,6 @@
     "register": "academic"
   },
   {
-    "de": "das Sein-zum-Tode",
-    "en": "being-towards-death",
-    "article": "n.",
-    "level": "C2",
-    "example": "Heideggers Begriff des Seins-zum-Tode betont die Endlichkeit als Grundzug des Daseins.",
-    "example_en": "Heidegger's concept of being-towards-death emphasises finitude as a fundamental trait of Dasein.",
-    "collocations": [
-      "Existenzialphilosophie",
-      "Angst",
-      "Authentizität"
-    ],
-    "register": "academic"
-  },
-  {
     "de": "die Apophase",
     "en": "apophasis",
     "article": "f.",
@@ -36980,7 +35624,7 @@
     "de": "ziehen",
     "en": "to pull, to move",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Der Hund zieht an der Leine.",
     "example_en": "The dog pulls on the leash.",
     "register": "everyday",
@@ -37032,7 +35676,7 @@
     "de": "singen",
     "en": "to sing",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Kinder singen ein Lied.",
     "example_en": "The children sing a song.",
     "register": "everyday",
@@ -37049,7 +35693,7 @@
     "de": "sitzen",
     "en": "to sit",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Katze sitzt auf dem Sofa.",
     "example_en": "The cat sits on the sofa.",
     "register": "everyday",
@@ -37136,7 +35780,7 @@
     "de": "besitzen",
     "en": "to own, to possess",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Er besitzt ein großes Haus.",
     "example_en": "He owns a big house.",
     "register": "everyday",
@@ -37241,7 +35885,7 @@
     "de": "genießen",
     "en": "to enjoy",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Wir genießen den Urlaub.",
     "example_en": "We enjoy the vacation.",
     "register": "everyday",
@@ -37308,7 +35952,7 @@
     "de": "raten",
     "en": "to guess, to advise",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Rate mal, wer heute kommt!",
     "example_en": "Guess who's coming today!",
     "register": "everyday",
@@ -37342,7 +35986,7 @@
     "de": "riechen",
     "en": "to smell",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Das Essen riecht sehr gut.",
     "example_en": "The food smells very good.",
     "register": "everyday",
@@ -37376,7 +36020,7 @@
     "de": "unterschreiben",
     "en": "to sign",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Bitte unterschreiben Sie hier.",
     "example_en": "Please sign here.",
     "register": "everyday",
@@ -37393,7 +36037,7 @@
     "de": "verbinden",
     "en": "to connect, to bandage",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Der Arzt verbindet die Wunde.",
     "example_en": "The doctor bandages the wound.",
     "register": "everyday",
@@ -37575,7 +36219,7 @@
     "de": "ausfüllen",
     "en": "to fill in/out",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Bitte füllen Sie das Formular aus.",
     "example_en": "Please fill out the form.",
     "conjugation": {
@@ -37665,7 +36309,7 @@
     "de": "dass",
     "en": "that (conjunction)",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich glaube, dass er recht hat.",
     "example_en": "I believe that he is right."
   },
@@ -38032,7 +36676,7 @@
     "de": "sich interessieren (für + A.)",
     "en": "to be interested (in)",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Er interessiert sich für Musik.",
     "example_en": "He is interested in music.",
     "conjugation": {
@@ -38243,7 +36887,7 @@
     "de": "die Mathe (Sg. ohne Artikel)",
     "en": "math (informal)",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Mathe ist mein Lieblingsfach.",
     "example_en": "Math is my favorite subject."
   },
@@ -38259,7 +36903,7 @@
     "de": "die Maus (1), ⁠-e",
     "en": "mouse (computer)",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Die Maus ist neben der Tastatur.",
     "example_en": "The mouse is next to the keyboard."
   },
@@ -38622,7 +37266,7 @@
     "de": "die Sofort-Überweisung, -en",
     "en": "instant bank transfer",
     "article": "f.",
-    "level": "A2",
+    "level": "A1",
     "example": "Sie bezahlt per Sofort-Überweisung.",
     "example_en": "She pays by instant bank transfer."
   },
@@ -38653,7 +37297,7 @@
     "de": "spülen",
     "en": "to wash (dishes), to rinse",
     "article": "",
-    "level": "A2",
+    "level": "A1",
     "example": "Ich muss noch das Geschirr spülen.",
     "example_en": "I still need to wash the dishes.",
     "conjugation": {
@@ -39422,7 +38066,7 @@
     "de": "ankommen",
     "en": "to arrive",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Der Zug kommt um acht Uhr an.",
     "example_en": "The train arrives at eight o'clock.",
     "register": "everyday",
@@ -39456,7 +38100,7 @@
     "de": "ansehen",
     "en": "to look at, to watch",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Wir sehen uns heute Abend einen Film an.",
     "example_en": "We're watching a film tonight.",
     "register": "everyday",
@@ -39490,7 +38134,7 @@
     "de": "anziehen",
     "en": "to put on (clothes), to attract",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Zieh deine Jacke an, es ist kalt.",
     "example_en": "Put your jacket on, it's cold.",
     "register": "everyday",
@@ -39609,7 +38253,7 @@
     "de": "aufstehen",
     "en": "to get up, to stand up",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Ich stehe jeden Tag um sieben Uhr auf.",
     "example_en": "I get up at seven every day.",
     "register": "everyday",
@@ -39695,7 +38339,7 @@
     "de": "ausgehen",
     "en": "to go out; to run out; to assume",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Experten gehen davon aus, dass die Preise steigen.",
     "example_en": "Experts assume that prices will rise.",
     "register": "everyday",
@@ -39763,7 +38407,7 @@
     "de": "ausziehen",
     "en": "to take off (clothes), to move out",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Zieh bitte deine Schuhe aus.",
     "example_en": "Please take off your shoes.",
     "register": "everyday",
@@ -39796,7 +38440,7 @@
     "de": "sich befinden",
     "en": "to be located",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Kaffeeküche befindet sich neben dem Eingang rechts.",
     "example_en": "The kitchenette is located next to the entrance on the right.",
     "register": "everyday",
@@ -40034,7 +38678,7 @@
     "de": "einfallen",
     "en": "to occur to (someone), to come to mind",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Mir fällt gerade der Name nicht ein.",
     "example_en": "I can't think of the name right now.",
     "register": "everyday",
@@ -40339,7 +38983,7 @@
     "de": "erschließen",
     "en": "to develop, to open up (an area, resource)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Stadt erschließt ein neues Baugebiet.",
     "example_en": "The city is developing a new building area.",
     "register": "formal",
@@ -40724,7 +39368,7 @@
     "de": "klingen",
     "en": "to sound (like)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Das klingt gut!",
     "example_en": "That sounds good!",
     "register": "everyday",
@@ -40754,26 +39398,10 @@
     }
   },
   {
-    "de": "laden",
-    "en": "to load, to charge",
-    "article": "",
-    "level": "B1",
-    "example": "Ich lade gerade die Fotos auf den Computer.",
-    "example_en": "I'm loading the photos onto the computer.",
-    "register": "everyday",
-    "conjugation": {
-      "infinitiv": "laden",
-      "praeteritum_stamm": "lud",
-      "partizip2": "geladen",
-      "hilfsverb": "haben",
-      "governs": "accusative"
-    }
-  },
-  {
     "de": "leidtun",
     "en": "to be sorry",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Das tut mir leid.",
     "example_en": "I'm sorry about that.",
     "register": "everyday",
@@ -40838,7 +39466,7 @@
     "de": "mitbringen",
     "en": "to bring along",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Kann ich einen Freund mitbringen?",
     "example_en": "Can I bring a friend along?",
     "register": "everyday",
@@ -40855,7 +39483,7 @@
     "de": "mitkommen",
     "en": "to come along",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Kommst du mit ins Kino?",
     "example_en": "Are you coming along to the cinema?",
     "register": "everyday",
@@ -40872,7 +39500,7 @@
     "de": "mitnehmen",
     "en": "to take along",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Nimmst du den Regenschirm mit?",
     "example_en": "Are you taking the umbrella along?",
     "register": "everyday",
@@ -40940,7 +39568,7 @@
     "de": "nachsprechen",
     "en": "to repeat (after someone)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Sprechen Sie den Satz bitte nach.",
     "example_en": "Please repeat the sentence.",
     "register": "everyday",
@@ -41041,7 +39669,7 @@
     "de": "scheinen",
     "en": "to shine; to seem",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Sonne scheint heute den ganzen Tag.",
     "example_en": "The sun is shining all day today.",
     "register": "everyday",
@@ -41154,7 +39782,7 @@
     "de": "stattfinden",
     "en": "to take place",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Die Party findet am Samstag statt.",
     "example_en": "The party takes place on Saturday.",
     "register": "everyday",
@@ -41251,7 +39879,7 @@
     "de": "überweisen",
     "en": "to transfer (money)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Überzeuge den Arbeitgeber von deinen Qualitäten.",
     "example_en": "Convince the employer of your qualities.",
     "register": "everyday",
@@ -41301,7 +39929,7 @@
     "de": "umziehen",
     "en": "to move (house)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Wir ziehen nächste Woche um.",
     "example_en": "We're moving house next week.",
     "register": "everyday",
@@ -41366,7 +39994,7 @@
     "de": "unterstreichen",
     "en": "to underline, to emphasize",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Unterstreichen Sie die wichtigen Wörter.",
     "example_en": "Underline the important words.",
     "register": "everyday",
@@ -41801,7 +40429,7 @@
     "de": "wiedergeben",
     "en": "to give back, to reproduce (a statement)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Er gibt den Text mit eigenen Worten wieder.",
     "example_en": "He restates the text in his own words.",
     "register": "formal",
@@ -41885,7 +40513,7 @@
     "de": "zurückfahren",
     "en": "to drive back",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Wann fahrt ihr zurück?",
     "example_en": "When are you driving back?",
     "register": "everyday",
@@ -42553,7 +41181,7 @@
     "de": "sich überlegen",
     "en": "to think over, to consider",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Überlegen Sie sich eine Geschichte.",
     "example_en": "Think of a story.",
     "register": "everyday",
@@ -42671,7 +41299,7 @@
     "de": "führen",
     "en": "to lead (to)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Welche Ereignisse können zu Veränderungen führen?",
     "example_en": "What events can lead to changes?",
     "register": "everyday",
@@ -42687,7 +41315,7 @@
     "de": "gehören",
     "en": "to belong (to)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Zum Alltag gehören Konflikte.",
     "example_en": "Conflicts are part of everyday life.",
     "register": "everyday",
@@ -42883,7 +41511,7 @@
     "de": "sich vorbereiten",
     "en": "to prepare (for)",
     "article": "",
-    "level": "B1",
+    "level": "A1",
     "example": "Hast du dich gut auf die Prüfung vorbereitet?",
     "example_en": "Did you prepare well for the exam?",
     "register": "everyday",
@@ -42969,6 +41597,287 @@
       "partizip2": "gezählt",
       "hilfsverb": "haben",
       "governs": "accusative (+ zu + dative)"
+    }
+  },
+  {
+    "de": "aufschreiben",
+    "en": "to write down",
+    "article": "",
+    "level": "A1",
+    "example": "Schreib die Wörter auf.",
+    "example_en": "Write down the words.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufschreiben",
+      "praeteritum_stamm": "schrieb",
+      "partizip2": "aufgeschrieben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "drankommen",
+    "en": "to have one's turn, to be next",
+    "article": "",
+    "level": "A1",
+    "example": "Wer kommt dran?",
+    "example_en": "Whose turn is it?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "drankommen",
+      "praeteritum_stamm": "kam",
+      "partizip2": "drangekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "dran",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "eingeben",
+    "en": "to enter (data)",
+    "article": "",
+    "level": "A1",
+    "example": "Geben Sie das Passwort ein.",
+    "example_en": "Enter the password.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "eingeben",
+      "praeteritum_stamm": "gab",
+      "partizip2": "eingegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "einschlafen",
+    "en": "to fall asleep",
+    "article": "",
+    "level": "A1",
+    "example": "Das Kind schläft schnell ein.",
+    "example_en": "The child falls asleep quickly.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einschlafen",
+      "praeteritum_stamm": "schlief",
+      "partizip2": "eingeschlafen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "ein",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "freihaben",
+    "en": "to have off (work/school)",
+    "article": "",
+    "level": "A1",
+    "example": "Ich habe morgen frei.",
+    "example_en": "I have tomorrow off.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "freihaben",
+      "praeteritum_stamm": "hatte",
+      "partizip2": "freigehabt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "frei",
+      "governs": "none",
+      "english": {
+        "praesens_voll": [
+          "have off",
+          "have off",
+          "has off",
+          "have off",
+          "have off",
+          "have off"
+        ],
+        "praeteritum_voll": [
+          "had off",
+          "had off",
+          "had off",
+          "had off",
+          "had off",
+          "had off"
+        ],
+        "perfekt_voll": [
+          "have had off",
+          "have had off",
+          "has had off",
+          "have had off",
+          "have had off",
+          "have had off"
+        ]
+      }
+    }
+  },
+  {
+    "de": "hochfahren",
+    "en": "to boot up (computer), to drive up",
+    "article": "",
+    "level": "A1",
+    "example": "Er fährt den Computer hoch.",
+    "example_en": "He boots up the computer.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hochfahren",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "hochgefahren",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "hoch",
+      "governs": "accusative (computer sense)"
+    }
+  },
+  {
+    "de": "lossein",
+    "en": "to be going on, to be happening",
+    "article": "",
+    "level": "A1",
+    "example": "Was ist los?",
+    "example_en": "What's going on?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lossein",
+      "praeteritum_stamm": "war",
+      "partizip2": "los gewesen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "los",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "losfahren",
+    "en": "to set off, to drive off",
+    "article": "",
+    "level": "A1",
+    "example": "Wir fahren gleich los.",
+    "example_en": "We're setting off soon.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "losfahren",
+      "praeteritum_stamm": "fuhr",
+      "partizip2": "losgefahren",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "los",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "losgehen",
+    "en": "to start, to set off",
+    "article": "",
+    "level": "A1",
+    "example": "Wann geht es los?",
+    "example_en": "When does it start?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "losgehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "losgegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "los",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "mitlesen",
+    "en": "to read along",
+    "article": "",
+    "level": "A1",
+    "example": "Lies bitte mit.",
+    "example_en": "Please read along.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "mitlesen",
+      "praeteritum_stamm": "las",
+      "partizip2": "mitgelesen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "mit",
+      "governs": "accusative (optional)"
+    }
+  },
+  {
+    "de": "mitsprechen",
+    "en": "to speak along, to join in speaking",
+    "article": "",
+    "level": "A1",
+    "example": "Sprich bitte mit.",
+    "example_en": "Please speak along.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "mitsprechen",
+      "praeteritum_stamm": "sprach",
+      "partizip2": "mitgesprochen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "mit",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "rausgehen",
+    "en": "to go out(side)",
+    "article": "",
+    "level": "A1",
+    "example": "Ich gehe kurz raus.",
+    "example_en": "I'm going outside for a moment.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rausgehen",
+      "praeteritum_stamm": "ging",
+      "partizip2": "rausgegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "raus",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "vorlesen",
+    "en": "to read aloud",
+    "article": "",
+    "level": "A1",
+    "example": "Lies mir bitte die Geschichte vor.",
+    "example_en": "Please read me the story aloud.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorlesen",
+      "praeteritum_stamm": "las",
+      "partizip2": "vorgelesen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "governs": "accusative (+ dative, optional)"
+    }
+  },
+  {
+    "de": "zuhaben",
+    "en": "to be closed (shop)",
+    "article": "",
+    "level": "A1",
+    "example": "Der Laden hat heute zu.",
+    "example_en": "The shop is closed today.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zuhaben",
+      "praeteritum_stamm": "hatte",
+      "partizip2": "zugehabt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "zurückfinden",
+    "en": "to find one's way back",
+    "article": "",
+    "level": "A1",
+    "example": "Findest du zurück zum Hotel?",
+    "example_en": "Can you find your way back to the hotel?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zurückfinden",
+      "praeteritum_stamm": "fand",
+      "partizip2": "zurückgefunden",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zurück",
+      "governs": "none"
     }
   }
 ]
