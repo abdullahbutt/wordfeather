@@ -47716,16 +47716,25 @@
         var wordCount = document.getElementById('wordCount');
         var activeLevel = 'ALL';
         var activePOS   = 'ALL';
-        var activePOS   = 'ALL';
+
+        // Folds German special characters to ASCII equivalents so search works
+        // both ways on a US keyboard: typing "abschliessen" matches "abschließen",
+        // "Maerz" matches "März", "ueben" matches "üben" — and typing the accented
+        // letters directly still works too, since both sides are folded the same way.
+        function foldGerman(s) {
+            return s
+                .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue')
+                .replace(/ß/g, 'ss');
+        }
 
         function filterWords() {
-            var q = input.value.toLowerCase().trim();
+            var q = foldGerman(input.value.toLowerCase().trim());
             var visible = 0;
             var visibleLetters = new Set();
             wordCards.forEach(function(card) {
-                var de = card.getAttribute('data-de');
-                var en = card.getAttribute('data-en');
-                var ex = card.getAttribute('data-ex');
+                var de = foldGerman(card.getAttribute('data-de'));
+                var en = foldGerman((card.getAttribute('data-en') || '').toLowerCase());
+                var ex = foldGerman((card.getAttribute('data-ex') || '').toLowerCase());
                 var level = card.getAttribute('data-level');
                 var pos = card.getAttribute('data-pos');
                 var irregular = card.getAttribute('data-irregular') === 'true';

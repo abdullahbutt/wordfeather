@@ -319,8 +319,18 @@ WORTSCHATZ_SEARCH_SCRIPT = """<script>
     var wordCountEl = document.getElementById('wsWordCount');
     var filterCountEl = document.getElementById('wsFilterCount');
 
+    // Folds German special characters to ASCII equivalents so search works
+    // both ways on a US keyboard: typing "abschliessen" matches "abschließen",
+    // "Maerz" matches "März", "ueben" matches "üben" — and typing the accented
+    // letters directly still works too, since both sides are folded the same way.
+    function foldGerman(s) {
+        return s
+            .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue')
+            .replace(/ß/g, 'ss');
+    }
+
     function filterRows() {
-        var q = input.value.toLowerCase().trim();
+        var q = foldGerman(input.value.toLowerCase().trim());
         var anyVisible = false;
         var visibleCount = 0;
         document.querySelectorAll('.topic-section').forEach(function(section) {
@@ -333,7 +343,7 @@ WORTSCHATZ_SEARCH_SCRIPT = """<script>
                     row.style.display = lastRowVisible ? '' : 'none';
                     return;
                 }
-                var blob = row.getAttribute('data-search') || '';
+                var blob = foldGerman(row.getAttribute('data-search') || '');
                 var pos = row.getAttribute('data-pos') || '';
                 var irregular = row.getAttribute('data-irregular') === 'true';
                 var reflexive = row.getAttribute('data-reflexive') === 'true';
