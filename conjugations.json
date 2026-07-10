@@ -113948,5 +113948,637 @@
     "have stayed overnight"
    ]
   }
+ },
+ "zeichnen": {
+  "infinitiv": "zeichnen",
+  "partizip1": "zeichnend",
+  "partizip2": "gezeichnet",
+  "zu_infinitiv": "zu zeichnen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "zeichne",
+    "zeichnest",
+    "zeichnet",
+    "zeichnen",
+    "zeichnet",
+    "zeichnen"
+   ],
+   "praeteritum": [
+    "zeichnete",
+    "zeichnetest",
+    "zeichnete",
+    "zeichneten",
+    "zeichnetet",
+    "zeichneten"
+   ],
+   "perfekt": [
+    "habe gezeichnet",
+    "hast gezeichnet",
+    "hat gezeichnet",
+    "haben gezeichnet",
+    "habt gezeichnet",
+    "haben gezeichnet"
+   ],
+   "plusquamperfekt": [
+    "hatte gezeichnet",
+    "hattest gezeichnet",
+    "hatte gezeichnet",
+    "hatten gezeichnet",
+    "hattet gezeichnet",
+    "hatten gezeichnet"
+   ],
+   "futur1": [
+    "werde zeichnen",
+    "wirst zeichnen",
+    "wird zeichnen",
+    "werden zeichnen",
+    "werdet zeichnen",
+    "werden zeichnen"
+   ],
+   "futur2": [
+    "werde gezeichnet haben",
+    "wirst gezeichnet haben",
+    "wird gezeichnet haben",
+    "werden gezeichnet haben",
+    "werdet gezeichnet haben",
+    "werden gezeichnet haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "zeichne",
+    "zeichnest",
+    "zeichne",
+    "zeichnen",
+    "zeichnet",
+    "zeichnen"
+   ],
+   "perfekt": [
+    "habe gezeichnet",
+    "habest gezeichnet",
+    "habe gezeichnet",
+    "haben gezeichnet",
+    "habet gezeichnet",
+    "haben gezeichnet"
+   ],
+   "futur1": [
+    "werde zeichnen",
+    "werdest zeichnen",
+    "werde zeichnen",
+    "werden zeichnen",
+    "werdet zeichnen",
+    "werden zeichnen"
+   ],
+   "futur2": [
+    "werde gezeichnet haben",
+    "werdest gezeichnet haben",
+    "werde gezeichnet haben",
+    "werden gezeichnet haben",
+    "werdet gezeichnet haben",
+    "werden gezeichnet haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde zeichnen",
+    "würdest zeichnen",
+    "würde zeichnen",
+    "würden zeichnen",
+    "würdet zeichnen",
+    "würden zeichnen"
+   ],
+   "plusquamperfekt": [
+    "hätte gezeichnet",
+    "hättest gezeichnet",
+    "hätte gezeichnet",
+    "hätten gezeichnet",
+    "hättet gezeichnet",
+    "hätten gezeichnet"
+   ],
+   "futur1": [
+    "würde zeichnen",
+    "würdest zeichnen",
+    "würde zeichnen",
+    "würden zeichnen",
+    "würdet zeichnen",
+    "würden zeichnen"
+   ],
+   "futur2": [
+    "würde gezeichnet haben",
+    "würdest gezeichnet haben",
+    "würde gezeichnet haben",
+    "würden gezeichnet haben",
+    "würdet gezeichnet haben",
+    "würden gezeichnet haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Zeichne!",
+   "ihr": "Zeichnet!",
+   "Sie": "Zeichnen Sie!",
+   "wir": "Zeichnen wir!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "draw",
+    "draw",
+    "draws",
+    "draw",
+    "draw",
+    "draw"
+   ],
+   "praeteritum": [
+    "drawed",
+    "drawed",
+    "drawed",
+    "drawed",
+    "drawed",
+    "drawed"
+   ],
+   "perfekt": [
+    "have drawed",
+    "have drawed",
+    "has drawed",
+    "have drawed",
+    "have drawed",
+    "have drawed"
+   ]
+  }
+ },
+ "backen": {
+  "infinitiv": "backen",
+  "partizip1": "backend",
+  "partizip2": "gebacken",
+  "zu_infinitiv": "zu backen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "backe",
+    "backst",
+    "backt",
+    "backen",
+    "backt",
+    "backen"
+   ],
+   "praeteritum": [
+    "backte",
+    "backtest",
+    "backte",
+    "backten",
+    "backtet",
+    "backten"
+   ],
+   "perfekt": [
+    "habe gebacken",
+    "hast gebacken",
+    "hat gebacken",
+    "haben gebacken",
+    "habt gebacken",
+    "haben gebacken"
+   ],
+   "plusquamperfekt": [
+    "hatte gebacken",
+    "hattest gebacken",
+    "hatte gebacken",
+    "hatten gebacken",
+    "hattet gebacken",
+    "hatten gebacken"
+   ],
+   "futur1": [
+    "werde backen",
+    "wirst backen",
+    "wird backen",
+    "werden backen",
+    "werdet backen",
+    "werden backen"
+   ],
+   "futur2": [
+    "werde gebacken haben",
+    "wirst gebacken haben",
+    "wird gebacken haben",
+    "werden gebacken haben",
+    "werdet gebacken haben",
+    "werden gebacken haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "backe",
+    "backest",
+    "backe",
+    "backen",
+    "backet",
+    "backen"
+   ],
+   "perfekt": [
+    "habe gebacken",
+    "habest gebacken",
+    "habe gebacken",
+    "haben gebacken",
+    "habet gebacken",
+    "haben gebacken"
+   ],
+   "futur1": [
+    "werde backen",
+    "werdest backen",
+    "werde backen",
+    "werden backen",
+    "werdet backen",
+    "werden backen"
+   ],
+   "futur2": [
+    "werde gebacken haben",
+    "werdest gebacken haben",
+    "werde gebacken haben",
+    "werden gebacken haben",
+    "werdet gebacken haben",
+    "werden gebacken haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde backen",
+    "würdest backen",
+    "würde backen",
+    "würden backen",
+    "würdet backen",
+    "würden backen"
+   ],
+   "plusquamperfekt": [
+    "hätte gebacken",
+    "hättest gebacken",
+    "hätte gebacken",
+    "hätten gebacken",
+    "hättet gebacken",
+    "hätten gebacken"
+   ],
+   "futur1": [
+    "würde backen",
+    "würdest backen",
+    "würde backen",
+    "würden backen",
+    "würdet backen",
+    "würden backen"
+   ],
+   "futur2": [
+    "würde gebacken haben",
+    "würdest gebacken haben",
+    "würde gebacken haben",
+    "würden gebacken haben",
+    "würdet gebacken haben",
+    "würden gebacken haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Back!",
+   "ihr": "Backt!",
+   "Sie": "Backen Sie!",
+   "wir": "Backen wir!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "bake",
+    "bake",
+    "bakes",
+    "bake",
+    "bake",
+    "bake"
+   ],
+   "praeteritum": [
+    "baked",
+    "baked",
+    "baked",
+    "baked",
+    "baked",
+    "baked"
+   ],
+   "perfekt": [
+    "have baked",
+    "have baked",
+    "has baked",
+    "have baked",
+    "have baked",
+    "have baked"
+   ]
+  }
+ },
+ "malen": {
+  "infinitiv": "malen",
+  "partizip1": "malend",
+  "partizip2": "gemalt",
+  "zu_infinitiv": "zu malen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "male",
+    "malst",
+    "malt",
+    "malen",
+    "malt",
+    "malen"
+   ],
+   "praeteritum": [
+    "malte",
+    "maltest",
+    "malte",
+    "malten",
+    "maltet",
+    "malten"
+   ],
+   "perfekt": [
+    "habe gemalt",
+    "hast gemalt",
+    "hat gemalt",
+    "haben gemalt",
+    "habt gemalt",
+    "haben gemalt"
+   ],
+   "plusquamperfekt": [
+    "hatte gemalt",
+    "hattest gemalt",
+    "hatte gemalt",
+    "hatten gemalt",
+    "hattet gemalt",
+    "hatten gemalt"
+   ],
+   "futur1": [
+    "werde malen",
+    "wirst malen",
+    "wird malen",
+    "werden malen",
+    "werdet malen",
+    "werden malen"
+   ],
+   "futur2": [
+    "werde gemalt haben",
+    "wirst gemalt haben",
+    "wird gemalt haben",
+    "werden gemalt haben",
+    "werdet gemalt haben",
+    "werden gemalt haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "male",
+    "malest",
+    "male",
+    "malen",
+    "malet",
+    "malen"
+   ],
+   "perfekt": [
+    "habe gemalt",
+    "habest gemalt",
+    "habe gemalt",
+    "haben gemalt",
+    "habet gemalt",
+    "haben gemalt"
+   ],
+   "futur1": [
+    "werde malen",
+    "werdest malen",
+    "werde malen",
+    "werden malen",
+    "werdet malen",
+    "werden malen"
+   ],
+   "futur2": [
+    "werde gemalt haben",
+    "werdest gemalt haben",
+    "werde gemalt haben",
+    "werden gemalt haben",
+    "werdet gemalt haben",
+    "werden gemalt haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde malen",
+    "würdest malen",
+    "würde malen",
+    "würden malen",
+    "würdet malen",
+    "würden malen"
+   ],
+   "plusquamperfekt": [
+    "hätte gemalt",
+    "hättest gemalt",
+    "hätte gemalt",
+    "hätten gemalt",
+    "hättet gemalt",
+    "hätten gemalt"
+   ],
+   "futur1": [
+    "würde malen",
+    "würdest malen",
+    "würde malen",
+    "würden malen",
+    "würdet malen",
+    "würden malen"
+   ],
+   "futur2": [
+    "würde gemalt haben",
+    "würdest gemalt haben",
+    "würde gemalt haben",
+    "würden gemalt haben",
+    "würdet gemalt haben",
+    "würden gemalt haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Mal!",
+   "ihr": "Malt!",
+   "Sie": "Malen Sie!",
+   "wir": "Malen wir!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "paint",
+    "paint",
+    "paints",
+    "paint",
+    "paint",
+    "paint"
+   ],
+   "praeteritum": [
+    "painted",
+    "painted",
+    "painted",
+    "painted",
+    "painted",
+    "painted"
+   ],
+   "perfekt": [
+    "have painted",
+    "have painted",
+    "has painted",
+    "have painted",
+    "have painted",
+    "have painted"
+   ]
+  }
+ },
+ "chatten": {
+  "infinitiv": "chatten",
+  "partizip1": "chattend",
+  "partizip2": "gechattet",
+  "zu_infinitiv": "zu chatten",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "chatte",
+    "chattest",
+    "chattet",
+    "chatten",
+    "chattet",
+    "chatten"
+   ],
+   "praeteritum": [
+    "chattete",
+    "chattetest",
+    "chattete",
+    "chatteten",
+    "chattetet",
+    "chatteten"
+   ],
+   "perfekt": [
+    "habe gechattet",
+    "hast gechattet",
+    "hat gechattet",
+    "haben gechattet",
+    "habt gechattet",
+    "haben gechattet"
+   ],
+   "plusquamperfekt": [
+    "hatte gechattet",
+    "hattest gechattet",
+    "hatte gechattet",
+    "hatten gechattet",
+    "hattet gechattet",
+    "hatten gechattet"
+   ],
+   "futur1": [
+    "werde chatten",
+    "wirst chatten",
+    "wird chatten",
+    "werden chatten",
+    "werdet chatten",
+    "werden chatten"
+   ],
+   "futur2": [
+    "werde gechattet haben",
+    "wirst gechattet haben",
+    "wird gechattet haben",
+    "werden gechattet haben",
+    "werdet gechattet haben",
+    "werden gechattet haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "chatte",
+    "chattest",
+    "chatte",
+    "chatten",
+    "chattet",
+    "chatten"
+   ],
+   "perfekt": [
+    "habe gechattet",
+    "habest gechattet",
+    "habe gechattet",
+    "haben gechattet",
+    "habet gechattet",
+    "haben gechattet"
+   ],
+   "futur1": [
+    "werde chatten",
+    "werdest chatten",
+    "werde chatten",
+    "werden chatten",
+    "werdet chatten",
+    "werden chatten"
+   ],
+   "futur2": [
+    "werde gechattet haben",
+    "werdest gechattet haben",
+    "werde gechattet haben",
+    "werden gechattet haben",
+    "werdet gechattet haben",
+    "werden gechattet haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde chatten",
+    "würdest chatten",
+    "würde chatten",
+    "würden chatten",
+    "würdet chatten",
+    "würden chatten"
+   ],
+   "plusquamperfekt": [
+    "hätte gechattet",
+    "hättest gechattet",
+    "hätte gechattet",
+    "hätten gechattet",
+    "hättet gechattet",
+    "hätten gechattet"
+   ],
+   "futur1": [
+    "würde chatten",
+    "würdest chatten",
+    "würde chatten",
+    "würden chatten",
+    "würdet chatten",
+    "würden chatten"
+   ],
+   "futur2": [
+    "würde gechattet haben",
+    "würdest gechattet haben",
+    "würde gechattet haben",
+    "würden gechattet haben",
+    "würdet gechattet haben",
+    "würden gechattet haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Chatte!",
+   "ihr": "Chattet!",
+   "Sie": "Chatten Sie!",
+   "wir": "Chatten wir!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "chat (online)",
+    "chat (online)",
+    "chats (online)",
+    "chat (online)",
+    "chat (online)",
+    "chat (online)"
+   ],
+   "praeteritum": [
+    "chated (online)",
+    "chated (online)",
+    "chated (online)",
+    "chated (online)",
+    "chated (online)",
+    "chated (online)"
+   ],
+   "perfekt": [
+    "have chated (online)",
+    "have chated (online)",
+    "has chated (online)",
+    "have chated (online)",
+    "have chated (online)",
+    "have chated (online)"
+   ]
+  }
  }
 }

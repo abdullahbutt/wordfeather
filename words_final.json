@@ -49827,5 +49827,358 @@
       "hilfsverb": "haben",
       "governs": "none"
     }
+  },
+  {
+    "de": "das Gespräch, -e",
+    "en": "conversation, talk",
+    "article": "n.",
+    "level": "A1",
+    "example": "Lesen Sie die Gespräche im Kurs.",
+    "example_en": "Read the conversations in class.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Lektion, -en",
+    "en": "lesson, chapter",
+    "article": "f.",
+    "level": "A1",
+    "example": "Raten Sie Wörter aus der Lektion.",
+    "example_en": "Guess words from the lesson.",
+    "register": "everyday"
+  },
+  {
+    "de": "zeichnen",
+    "en": "to draw",
+    "article": "",
+    "level": "A1",
+    "example": "Zeichnen Sie ein Bild.",
+    "example_en": "Draw a picture.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zeichnen",
+      "praeteritum_stamm": "zeichnete",
+      "partizip2": "gezeichnet",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "aha",
+    "en": "aha, I see",
+    "article": "",
+    "level": "A1",
+    "example": "Aha, auch Türkisch.",
+    "example_en": "Aha, Turkish too.",
+    "register": "everyday"
+  },
+  {
+    "de": "Vielen Dank",
+    "en": "many thanks, thank you very much",
+    "article": "",
+    "level": "A1",
+    "example": "Vielen Dank für die Information.",
+    "example_en": "Thank you very much for the information.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Visitenkarte, -n",
+    "en": "business card",
+    "article": "f.",
+    "level": "A1",
+    "example": "Schreiben Sie Ihre Visitenkarte.",
+    "example_en": "Write your business card.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Fremdsprache, -n",
+    "en": "foreign language",
+    "article": "f.",
+    "level": "A1",
+    "example": "Ich spreche eine Fremdsprache: Deutsch.",
+    "example_en": "I speak one foreign language: German.",
+    "register": "everyday"
+  },
+  {
+    "de": "na ja",
+    "en": "well, so-so",
+    "article": "",
+    "level": "A1",
+    "example": "Wie geht's? – Na ja, es geht.",
+    "example_en": "How are you? – Well, okay I guess.",
+    "register": "everyday"
+  },
+  {
+    "de": "ach",
+    "en": "oh, ah",
+    "article": "",
+    "level": "A1",
+    "example": "Wie geht's? – Ach, nicht so gut.",
+    "example_en": "How are you? – Oh, not so good.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Familienstand (Sg.)",
+    "en": "marital status",
+    "article": "m.",
+    "level": "A1",
+    "example": "Familienstand: geschieden.",
+    "example_en": "Marital status: divorced.",
+    "register": "formal"
+  },
+  {
+    "de": "der Pfannkuchen, -",
+    "en": "pancake",
+    "article": "m.",
+    "level": "A1",
+    "example": "Superlecker ... Bananenpfannkuchen!",
+    "example_en": "Super tasty ... banana pancakes!",
+    "register": "everyday"
+  },
+  {
+    "de": "das Mineralwasser (Sg.)",
+    "en": "mineral water",
+    "article": "n.",
+    "level": "A1",
+    "example": "Haben wir Mineralwasser?",
+    "example_en": "Do we have mineral water?",
+    "register": "everyday"
+  },
+  {
+    "de": "das Pfund (Sg.)",
+    "en": "pound (500g)",
+    "article": "n.",
+    "level": "A1",
+    "example": "Wie viel kostet ein Pfund Äpfel?",
+    "example_en": "How much does a pound of apples cost?",
+    "register": "everyday"
+  },
+  {
+    "de": "das Hackfleisch (Sg.)",
+    "en": "ground/minced meat",
+    "article": "n.",
+    "level": "A1",
+    "example": "Wie viel kostet ein Kilo Hackfleisch?",
+    "example_en": "How much does a kilo of ground meat cost?",
+    "register": "everyday"
+  },
+  {
+    "de": "schmal",
+    "en": "narrow",
+    "article": "",
+    "level": "A1",
+    "example": "Mein Haus ist sehr schmal.",
+    "example_en": "My house is very narrow.",
+    "register": "everyday"
+  },
+  {
+    "de": "modern",
+    "en": "modern",
+    "article": "",
+    "level": "A1",
+    "example": "Die Lampe ist sehr modern!",
+    "example_en": "The lamp is very modern!",
+    "register": "everyday"
+  },
+  {
+    "de": "der Zentimeter (cm), -",
+    "en": "centimeter",
+    "article": "m.",
+    "level": "A1",
+    "example": "Ungefähr 60 Zentimeter breit.",
+    "example_en": "About 60 centimeters wide.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Ehepaar, -e",
+    "en": "married couple",
+    "article": "n.",
+    "level": "A1",
+    "example": "Nettes Ehepaar mit Kind.",
+    "example_en": "Nice married couple with child.",
+    "register": "everyday"
+  },
+  {
+    "de": "sofort",
+    "en": "immediately, right away",
+    "article": "",
+    "level": "A1",
+    "example": "Ich suche ab sofort eine 2-Zimmer-Wohnung.",
+    "example_en": "I'm looking for a 2-room apartment starting immediately.",
+    "register": "everyday"
+  },
+  {
+    "de": "möbliert",
+    "en": "furnished",
+    "article": "",
+    "level": "A1",
+    "example": "Das Zimmer ist möbliert.",
+    "example_en": "The room is furnished.",
+    "register": "everyday"
+  },
+  {
+    "de": "das TV, -s",
+    "en": "TV, television",
+    "article": "n.",
+    "level": "A1",
+    "example": "Schöne möblierte 1-Zi.-Wohnung mit Balkon und TV.",
+    "example_en": "Nice furnished 1-room apartment with balcony and TV.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Intensivkurs, -e",
+    "en": "intensive course",
+    "article": "m.",
+    "level": "A1",
+    "example": "Ich mache am Freitag einen Intensivkurs.",
+    "example_en": "I'm taking an intensive course on Friday.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Kita (Kindertagesstätte), -s",
+    "en": "daycare center",
+    "article": "f.",
+    "level": "A1",
+    "example": "Tom und Luka gehen in die Kita.",
+    "example_en": "Tom and Luka go to daycare.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Gitarre, -n",
+    "en": "guitar",
+    "article": "f.",
+    "level": "A1",
+    "example": "Walter spielt Gitarre.",
+    "example_en": "Walter plays guitar.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Hamburger, -",
+    "en": "hamburger",
+    "article": "m.",
+    "level": "A1",
+    "example": "Also, ich möchte einen Hamburger.",
+    "example_en": "Well, I'd like a hamburger.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Speise, -n",
+    "en": "dish, food",
+    "article": "f.",
+    "level": "A1",
+    "example": "Kleine Speisen: Hamburger, Currywurst, ...",
+    "example_en": "Small dishes: hamburger, currywurst, ...",
+    "register": "everyday"
+  },
+  {
+    "de": "der/das Ketchup, -s",
+    "en": "ketchup",
+    "article": "m./n.",
+    "level": "A1",
+    "example": "Ich möchte bitte Pommes mit Ketchup.",
+    "example_en": "I'd like fries with ketchup, please.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Grill, -s",
+    "en": "grill, barbecue",
+    "article": "m.",
+    "level": "A1",
+    "example": "Das ist wichtig: gute Grillwürstchen.",
+    "example_en": "This is important: good grilling sausages.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Würfel, -",
+    "en": "die, dice",
+    "article": "m.",
+    "level": "A1",
+    "example": "Du meinst das Würfelspiel?",
+    "example_en": "You mean the dice game?",
+    "register": "everyday"
+  },
+  {
+    "de": "backen",
+    "en": "to bake",
+    "article": "",
+    "level": "A1",
+    "example": "Luisa kann gut Kuchen backen.",
+    "example_en": "Luisa can bake cakes well.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "backen",
+      "praesens_stamm_2_3": "bäckt",
+      "praeteritum_stamm": "backte",
+      "partizip2": "gebacken",
+      "hilfsverb": "haben",
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "das Klavier, -e",
+    "en": "piano",
+    "article": "n.",
+    "level": "A1",
+    "example": "Kannst du gut Klavier spielen?",
+    "example_en": "Can you play piano well?",
+    "register": "everyday"
+  },
+  {
+    "de": "malen",
+    "en": "to paint",
+    "article": "",
+    "level": "A1",
+    "example": "Alba malt.",
+    "example_en": "Alba is painting.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "malen",
+      "praeteritum_stamm": "malte",
+      "partizip2": "gemalt",
+      "hilfsverb": "haben",
+      "governs": "accusative (optional)"
+    }
+  },
+  {
+    "de": "das Diktat, -e",
+    "en": "dictation",
+    "article": "n.",
+    "level": "A1",
+    "example": "Ich will kein Diktat schreiben.",
+    "example_en": "I don't want to write a dictation.",
+    "register": "everyday"
+  },
+  {
+    "de": "chatten",
+    "en": "to chat (online)",
+    "article": "",
+    "level": "A1",
+    "example": "In der Nacht chattet Robert.",
+    "example_en": "At night Robert chats online.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "chatten",
+      "praeteritum_stamm": "chattete",
+      "partizip2": "gechattet",
+      "hilfsverb": "haben",
+      "governs": "none"
+    }
+  },
+  {
+    "de": "nach Hause",
+    "en": "home, homeward (with motion verbs)",
+    "article": "",
+    "level": "A1",
+    "example": "Am Nachmittag kommt Lili nach Hause.",
+    "example_en": "In the afternoon Lili comes home.",
+    "register": "everyday"
+  },
+  {
+    "de": "zum Beispiel (z. B.)",
+    "en": "for example (e.g.)",
+    "article": "",
+    "level": "A1",
+    "example": "Zum Beispiel möchte ich mal wieder ins Kino gehen.",
+    "example_en": "For example, I'd like to go to the movies again.",
+    "register": "everyday"
   }
 ]
