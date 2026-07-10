@@ -50561,5 +50561,5036 @@
     "example": "Wenn ich noch einmal zwanzig wäre, würde ich das Leben nicht so ernst nehmen.",
     "example_en": "If I were twenty again, I wouldn't take life so seriously.",
     "register": "everyday"
+  },
+  {
+    "de": "das Erlebnis, -se",
+    "en": "experience",
+    "article": "n.",
+    "level": "B1",
+    "example": "Manfred Schulze erzählt Ella von seinem Glückserlebnis.",
+    "example_en": "Manfred Schulze tells Ella about his lucky experience.",
+    "register": "everyday"
+  },
+  {
+    "de": "weg sein",
+    "en": "to be gone",
+    "article": "",
+    "level": "B1",
+    "example": "So lange, bis viel Geld weg war.",
+    "example_en": "Until a lot of money was gone.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Steuer, -n",
+    "en": "tax",
+    "article": "f.",
+    "level": "B1",
+    "example": "Eine Million. Steuerfrei!",
+    "example_en": "A million. Tax-free!",
+    "register": "everyday"
+  },
+  {
+    "de": "die Stimme, -n",
+    "en": "voice",
+    "article": "f.",
+    "level": "B1",
+    "example": "Ich sah die Zahl 14 und eine Stimme fragte: ...",
+    "example_en": "I saw the number 14 and a voice asked: ...",
+    "register": "everyday"
+  },
+  {
+    "de": "setzen (sich)",
+    "en": "to sit down",
+    "article": "",
+    "level": "B1",
+    "example": "Dann habe ich mich an den Roulettetisch gesetzt.",
+    "example_en": "Then I sat down at the roulette table.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "setzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "gesetzt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "mehrer-",
+    "en": "several",
+    "article": "",
+    "level": "B1",
+    "example": "Die Frau wartete mehrere Stunden vergeblich auf ihren Mann.",
+    "example_en": "The woman waited several hours in vain for her husband.",
+    "register": "everyday"
+  },
+  {
+    "de": "vergeblich",
+    "en": "in vain",
+    "article": "",
+    "level": "B1",
+    "example": "Die Frau wartete mehrere Stunden vergeblich auf ihren Mann.",
+    "example_en": "The woman waited several hours in vain for her husband.",
+    "register": "everyday"
+  },
+  {
+    "de": "wundern (sich)",
+    "en": "to be surprised",
+    "article": "",
+    "level": "B1",
+    "example": "Sie wunderten sich zwar, als sie in Portland ... umsteigen mussten.",
+    "example_en": "They were surprised when they had to change in Portland.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wundern",
+      "praeteritum_stamm": "wunderte",
+      "partizip2": "gewundert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich) + über + accusative"
+    }
+  },
+  {
+    "de": "zwar",
+    "en": "indeed, admittedly",
+    "article": "",
+    "level": "B1",
+    "example": "Sie wunderten sich zwar, als sie umsteigen mussten, hatten aber nicht den Mut, die Flughafenmitarbeiter darauf anzusprechen.",
+    "example_en": "They were indeed surprised, but didn't have the courage to mention it to the airport staff.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Mut (Sg.)",
+    "en": "courage",
+    "article": "m.",
+    "level": "B1",
+    "example": "Hatten aber nicht den Mut, die Flughafenmitarbeiter darauf anzusprechen.",
+    "example_en": "But didn't have the courage to mention it to the airport staff.",
+    "register": "everyday"
+  },
+  {
+    "de": "beid-",
+    "en": "both",
+    "article": "",
+    "level": "B1",
+    "example": "Die Überraschung war dann groß, als die beiden schließlich ihr Ziel erreichten.",
+    "example_en": "The surprise was great when the two of them finally reached their destination.",
+    "register": "everyday"
+  },
+  {
+    "de": "tief",
+    "en": "deep",
+    "article": "",
+    "level": "B1",
+    "example": "Sie landeten im tief verschneiten Montana.",
+    "example_en": "They landed in deeply snowed-in Montana.",
+    "register": "everyday"
+  },
+  {
+    "de": "verwechseln (hat verwechselt)",
+    "en": "to mix up, confuse",
+    "article": "",
+    "level": "B1",
+    "example": "Der Vater verwechselte bei der Online-Buchung Sydney (Australien) mit Sidney (USA).",
+    "example_en": "The father mixed up Sydney (Australia) with Sidney (USA) when booking online.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verwechseln",
+      "praeteritum_stamm": "verwechselte",
+      "partizip2": "verwechselt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative + mit + dative"
+    }
+  },
+  {
+    "de": "das Mittel- (Sg.)",
+    "en": "middle-, mid-",
+    "article": "n.",
+    "level": "B1",
+    "example": "... waren letzte Woche auf Kreuzfahrt im Mittelmeer.",
+    "example_en": "They were on a cruise in the Mediterranean last week.",
+    "register": "everyday"
+  },
+  {
+    "de": "einig-",
+    "en": "some, a few",
+    "article": "",
+    "level": "B1",
+    "example": "Einige Stunden später sah Tess das Kreuzfahrtschiff abfahren.",
+    "example_en": "A few hours later Tess saw the cruise ship leave.",
+    "register": "everyday"
+  },
+  {
+    "de": "befinden (sich) (hat sich befunden)",
+    "en": "to be located",
+    "article": "",
+    "level": "B1",
+    "example": "Sie glaubte, dass ihr Mann sich an Bord befand.",
+    "example_en": "She believed her husband was on board.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "befinden",
+      "praeteritum_stamm": "befand",
+      "partizip2": "befunden",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "retten (hat gerettet)",
+    "en": "to rescue, save",
+    "article": "",
+    "level": "B1",
+    "example": "Nach Polizeiangaben verbrachte die Frau zwei Stunden im Wasser und wurde dann von Fischern gerettet.",
+    "example_en": "According to police, the woman spent two hours in the water and was then rescued by fishermen.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "retten",
+      "praeteritum_stamm": "rettete",
+      "partizip2": "gerettet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "ausreichen (hat ausgereicht)",
+    "en": "to be enough, suffice",
+    "article": "",
+    "level": "B1",
+    "example": "Damit reichte sein Geld aber nicht mehr für den Lottotipp aus.",
+    "example_en": "But his money wasn't enough for the lottery ticket anymore.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "ausreichen",
+      "praeteritum_stamm": "reichte aus",
+      "partizip2": "ausgereicht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus"
+    }
+  },
+  {
+    "de": "der Ärger (Sg.)",
+    "en": "trouble, annoyance",
+    "article": "m.",
+    "level": "B1",
+    "example": "Eine Geburtstagsparty sorgte für großen Ärger.",
+    "example_en": "A birthday party caused a lot of trouble.",
+    "register": "everyday"
+  },
+  {
+    "de": "folgen (ist gefolgt)",
+    "en": "to follow",
+    "article": "",
+    "level": "B1",
+    "example": "Über 500 Gäste folgten der Einladung.",
+    "example_en": "Over 500 guests followed the invitation.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "folgen",
+      "praeteritum_stamm": "folgte",
+      "partizip2": "gefolgt",
+      "hilfsverb": "sein",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "zumindest",
+    "en": "at least",
+    "article": "",
+    "level": "B1",
+    "example": "So dachte zumindest die 17-jährige Julia R.",
+    "example_en": "At least that's what 17-year-old Julia R. thought.",
+    "register": "everyday"
+  },
+  {
+    "de": "absagen (hat abgesagt)",
+    "en": "to cancel",
+    "article": "",
+    "level": "B1",
+    "example": "Die Feier wurde abgesagt.",
+    "example_en": "The party was cancelled.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "absagen",
+      "praeteritum_stamm": "sagte ab",
+      "partizip2": "abgesagt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "absperren (hat abgesperrt)",
+    "en": "to cordon off, seal",
+    "article": "",
+    "level": "B1",
+    "example": "Diese sperrte die Straße ab.",
+    "example_en": "It cordoned off the street.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "absperren",
+      "praeteritum_stamm": "sperrte ab",
+      "partizip2": "abgesperrt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "festnehmen (hat festgenommen)",
+    "en": "to arrest",
+    "article": "",
+    "level": "B1",
+    "example": "Zwei junge Männer wurden sogar festgenommen.",
+    "example_en": "Two young men were even arrested.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "festnehmen",
+      "praesens_stamm": "nimm",
+      "praeteritum_stamm": "nahm fest",
+      "partizip2": "festgenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "fest",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "betrunken",
+    "en": "drunk",
+    "article": "",
+    "level": "B1",
+    "example": "Betrunkener Einbrecher vor dem Fernseher eingeschlafen.",
+    "example_en": "Drunk burglar fell asleep in front of the TV.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Einbrecher, -",
+    "en": "burglar",
+    "article": "m.",
+    "level": "B1",
+    "example": "Betrunkener Einbrecher vor dem Fernseher eingeschlafen.",
+    "example_en": "Drunk burglar fell asleep in front of the TV.",
+    "register": "everyday"
+  },
+  {
+    "de": "aufregend",
+    "en": "exciting",
+    "article": "",
+    "level": "B1",
+    "example": "Ich fand es als Kind immer sehr aufregend.",
+    "example_en": "As a child I always found it very exciting.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Motorroller, -",
+    "en": "scooter, moped",
+    "article": "m.",
+    "level": "B1",
+    "example": "Ich war so glücklich, weil ich zum Geburtstag einen Motorroller bekommen habe.",
+    "example_en": "I was so happy because I got a scooter for my birthday.",
+    "register": "everyday"
+  },
+  {
+    "de": "verliebt sein",
+    "en": "to be in love",
+    "article": "",
+    "level": "B1",
+    "example": "Frisch verliebt?",
+    "example_en": "Newly in love?",
+    "register": "everyday"
+  },
+  {
+    "de": "das Feld, -er",
+    "en": "field, pitch",
+    "article": "n.",
+    "level": "B1",
+    "example": "Und dann nahm unser Trainer unsere Nummer 1 vom Feld ...",
+    "example_en": "And then our coach took our number 1 off the pitch ...",
+    "register": "everyday"
+  },
+  {
+    "de": "aller-",
+    "en": "very (superlative intensifier)",
+    "article": "",
+    "level": "B1",
+    "example": "In der allerletzten Spielminute, da kam er, mein Glücksmoment.",
+    "example_en": "In the very last minute of the game, my lucky moment arrived.",
+    "register": "everyday"
+  },
+  {
+    "de": "fliehen (ist geflohen)",
+    "en": "to flee",
+    "article": "",
+    "level": "B1",
+    "example": "Ich war aus Syrien geflohen ...",
+    "example_en": "I had fled from Syria ...",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fliehen",
+      "praeteritum_stamm": "floh",
+      "partizip2": "geflohen",
+      "hilfsverb": "sein"
+    }
+  },
+  {
+    "de": "best-",
+    "en": "best",
+    "article": "",
+    "level": "B1",
+    "example": "Letzten Sommer hat meine beste Freundin ...",
+    "example_en": "Last summer my best friend ...",
+    "register": "everyday"
+  },
+  {
+    "de": "der Schaden, -̈",
+    "en": "damage",
+    "article": "m.",
+    "level": "B1",
+    "example": "Wie hoch ist der Schaden?",
+    "example_en": "How much is the damage?",
+    "register": "everyday"
+  },
+  {
+    "de": "augenblicklich",
+    "en": "instantly",
+    "article": "",
+    "level": "B1",
+    "example": "Der Blumentopf fiel augenblicklich herunter ...",
+    "example_en": "The flowerpot fell down instantly ...",
+    "register": "everyday"
+  },
+  {
+    "de": "erschrecken (ist erschrocken)",
+    "en": "to be startled",
+    "article": "",
+    "level": "B1",
+    "example": "Sie erschrak so, dass sie die Kartons fallen ließ.",
+    "example_en": "She was so startled that she dropped the boxes.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erschrecken",
+      "praesens_stamm": "erschrick",
+      "praeteritum_stamm": "erschrak",
+      "partizip2": "erschrocken",
+      "hilfsverb": "sein"
+    }
+  },
+  {
+    "de": "der Löwe, -n",
+    "en": "lion",
+    "article": "m.",
+    "level": "B1",
+    "example": "Aber wenn ich zum Kurs laufe, komme ich immer an einem Stein-Löwen vorbei.",
+    "example_en": "But when I walk to the course, I always pass a stone lion.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Charakter, -e",
+    "en": "character",
+    "article": "m.",
+    "level": "B1",
+    "example": "Welche Charaktere magst du besonders, welche hasst du?",
+    "example_en": "Which characters do you especially like, which do you hate?",
+    "register": "everyday"
+  },
+  {
+    "de": "obwohl",
+    "en": "although",
+    "article": "",
+    "level": "B1",
+    "example": "Es ist erstaunlich, wie viel ich über meine Gesprächspartner erfahre, obwohl wir ja nur übers Fernsehen reden.",
+    "example_en": "It's amazing how much I learn about the people I talk to, even though we only talk about TV.",
+    "register": "everyday"
+  },
+  {
+    "de": "dauernd",
+    "en": "constantly",
+    "article": "",
+    "level": "B1",
+    "example": "Mein Wunschserienheld hätte dauernd Pech.",
+    "example_en": "My ideal series hero would constantly have bad luck.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Verlierer, -",
+    "en": "loser",
+    "article": "m.",
+    "level": "B1",
+    "example": "Die Leute würden sagen, er ist ein Verlierer, aber das stimmt nicht.",
+    "example_en": "People would say he's a loser, but that's not true.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Typ, -en",
+    "en": "guy, type",
+    "article": "m.",
+    "level": "B1",
+    "example": "Er ist ein Typ, der immer optimistisch bleibt.",
+    "example_en": "He's a guy who always stays optimistic.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Figur, -en",
+    "en": "character (in fiction)",
+    "article": "f.",
+    "level": "B1",
+    "example": "Eine der Hauptfiguren wäre eine Köchin, die unglaublich gut kochen kann.",
+    "example_en": "One of the main characters would be a cook who can cook incredibly well.",
+    "register": "everyday"
+  },
+  {
+    "de": "Kriminal-",
+    "en": "crime- (prefix)",
+    "article": "",
+    "level": "B1",
+    "example": "Meine Lieblingsserie ist natürlich eine Kriminalserie.",
+    "example_en": "My favourite series is of course a crime series.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Fall, -̈e",
+    "en": "case",
+    "article": "m.",
+    "level": "B1",
+    "example": "Er veröffentlicht alle Fälle im Internet.",
+    "example_en": "He publishes all cases on the internet.",
+    "register": "everyday"
+  },
+  {
+    "de": "heutig-",
+    "en": "today's, present-day",
+    "article": "",
+    "level": "B1",
+    "example": "Die Serie spielt in der heutigen Zeit.",
+    "example_en": "The series is set in the present day.",
+    "register": "everyday"
+  },
+  {
+    "de": "handeln (hat gehandelt)",
+    "en": "to be about (handeln von)",
+    "article": "",
+    "level": "B1",
+    "example": "Die Serie handelt von einer Ärztin, die ein aufregendes Privatleben hat.",
+    "example_en": "The series is about a doctor who has an exciting private life.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "handeln",
+      "praeteritum_stamm": "handelte",
+      "partizip2": "gehandelt",
+      "hilfsverb": "haben",
+      "governs": "von + dative"
+    }
+  },
+  {
+    "de": "die Sängerin, -nen",
+    "en": "singer (female)",
+    "article": "f.",
+    "level": "B1",
+    "example": "Meine Hauptfigur wäre eine Sängerin, die keinen Erfolg hat.",
+    "example_en": "My main character would be a singer who has no success.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Band, -s",
+    "en": "band",
+    "article": "f.",
+    "level": "B1",
+    "example": "Welche Hip-Hop-Bands kennen Sie?",
+    "example_en": "Which hip-hop bands do you know?",
+    "register": "everyday"
+  },
+  {
+    "de": "elektronisch",
+    "en": "electronic",
+    "article": "",
+    "level": "B1",
+    "example": "Hip-Hop, das sind elektronisch produzierte Beats mit einem schnell gesprochenen Text.",
+    "example_en": "Hip-hop is electronically produced beats with fast-spoken lyrics.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Großstadt, -̈e",
+    "en": "big city",
+    "article": "f.",
+    "level": "B1",
+    "example": "Die Texte handelten meist vom schwierigen Leben in den Großstädten der USA.",
+    "example_en": "The lyrics mostly dealt with the difficult life in the big cities of the USA.",
+    "register": "everyday"
+  },
+  {
+    "de": "inzwischen",
+    "en": "meanwhile, by now",
+    "article": "",
+    "level": "B1",
+    "example": "Die ersten deutschen Hip-Hop-Musiker rappten auf Englisch, inzwischen aber rappen die meisten auf Deutsch.",
+    "example_en": "The first German hip-hop musicians rapped in English, but by now most rap in German.",
+    "register": "everyday"
+  },
+  {
+    "de": "anfangs",
+    "en": "at first, initially",
+    "article": "",
+    "level": "B1",
+    "example": "Anfangs konnte man sich das nur schwer vorstellen: Rappen auf Deutsch? Niemals!",
+    "example_en": "At first it was hard to imagine: rapping in German? Never!",
+    "register": "everyday"
+  },
+  {
+    "de": "sogenannt-",
+    "en": "so-called",
+    "article": "",
+    "level": "B1",
+    "example": "Danach wurde der deutschsprachige Hip-Hop der sogenannten „Neuen Schule\" immer beliebter.",
+    "example_en": "After that, German-language hip-hop of the so-called \"New School\" became increasingly popular.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Song, -s",
+    "en": "song",
+    "article": "m.",
+    "level": "B1",
+    "example": "1992 hatten die Fantastischen Vier mit dem Song „Die da\" einen Hit.",
+    "example_en": "In 1992 Die Fantastischen Vier had a hit with the song \"Die da\".",
+    "register": "everyday"
+  },
+  {
+    "de": "der Hit, -s",
+    "en": "hit",
+    "article": "m.",
+    "level": "B1",
+    "example": "1992 hatten die Fantastischen Vier mit dem Song „Die da\" einen Hit.",
+    "example_en": "In 1992 Die Fantastischen Vier had a hit with the song \"Die da\".",
+    "register": "everyday"
+  },
+  {
+    "de": "völlig",
+    "en": "completely",
+    "article": "",
+    "level": "B1",
+    "example": "Ihre Texte waren außerdem positiv und lustig. Das war völlig neu.",
+    "example_en": "Their lyrics were also positive and funny. That was completely new.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Humor (Sg.)",
+    "en": "humour",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie rappen mit Wortwitz und Humor über alltägliche Dinge.",
+    "example_en": "They rap with wordplay and humour about everyday things.",
+    "register": "everyday"
+  },
+  {
+    "de": "alltäglich",
+    "en": "everyday, mundane",
+    "article": "",
+    "level": "B1",
+    "example": "Sie rappen mit Wortwitz und Humor über alltägliche Dinge.",
+    "example_en": "They rap with wordplay and humour about everyday things.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Gewalt (Sg.)",
+    "en": "violence",
+    "article": "f.",
+    "level": "B1",
+    "example": "In ihren Texten geht es oft um Gewalt, Geld und Kriminalität.",
+    "example_en": "Their lyrics are often about violence, money and crime.",
+    "register": "everyday"
+  },
+  {
+    "de": "kritisieren (hat kritisiert)",
+    "en": "to criticise",
+    "article": "",
+    "level": "B1",
+    "example": "Manche Gangsta-Rapper sprechen schlecht über Frauen. Dafür werden sie kritisiert.",
+    "example_en": "Some gangsta rappers speak badly about women. They are criticised for it.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kritisieren",
+      "praeteritum_stamm": "kritisierte",
+      "partizip2": "kritisiert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "erfolgreich",
+    "en": "successful",
+    "article": "",
+    "level": "B1",
+    "example": "Der Rapper Kollegah war 2015 der erfolgreichste deutsche Musiker.",
+    "example_en": "The rapper Kollegah was the most successful German musician in 2015.",
+    "register": "everyday"
+  },
+  {
+    "de": "beschäftigen (sich) (hat beschäftigt)",
+    "en": "to deal with, occupy oneself with",
+    "article": "",
+    "level": "B1",
+    "example": "Viele deutsche Hip-Hop-Musiker beschäftigen sich auch mit sozialen Themen.",
+    "example_en": "Many German hip-hop musicians also deal with social topics.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beschäftigen",
+      "praeteritum_stamm": "beschäftigte",
+      "partizip2": "beschäftigt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich) + mit + dative"
+    }
+  },
+  {
+    "de": "das Lager, -",
+    "en": "warehouse, storage",
+    "article": "n.",
+    "level": "B1",
+    "example": "Viele seiner Texte handeln von seinem Job als Lagerarbeiter.",
+    "example_en": "Many of his lyrics are about his job as a warehouse worker.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Verhältnis, -se",
+    "en": "relationship",
+    "article": "n.",
+    "level": "B1",
+    "example": "... ein Arbeitsverhältnis, mit dem er seinen Lebensunterhalt verdient.",
+    "example_en": "... a work relationship with which he earns his living.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Rat (Sg.)",
+    "en": "advice",
+    "article": "m.",
+    "level": "B1",
+    "example": "Kennst du jemanden, der dir schon einmal einen wichtigen Rat gegeben hat?",
+    "example_en": "Do you know someone who has ever given you important advice?",
+    "register": "everyday"
+  },
+  {
+    "de": "zuletzt",
+    "en": "last, most recently",
+    "article": "",
+    "level": "B1",
+    "example": "Erinnerst du dich an die Person, die dir zuletzt etwas geschenkt hat?",
+    "example_en": "Do you remember the person who last gave you a gift?",
+    "register": "everyday"
+  },
+  {
+    "de": "begleiten (hat begleitet)",
+    "en": "to accompany",
+    "article": "",
+    "level": "B1",
+    "example": "Der Film begleitet die Familie auf eine gemeinsame Reise in die Türkei.",
+    "example_en": "The film accompanies the family on a trip together to Turkey.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "begleiten",
+      "praeteritum_stamm": "begleitete",
+      "partizip2": "begleitet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "das Ufer, -",
+    "en": "shore, bank",
+    "article": "n.",
+    "level": "B1",
+    "example": "Eines Tages wird eine Kiste ans Ufer gespült.",
+    "example_en": "One day a crate is washed up on the shore.",
+    "register": "everyday"
+  },
+  {
+    "de": "außen",
+    "en": "outside",
+    "article": "",
+    "level": "B1",
+    "example": "Außen steht „Panama\" – innen riecht sie nach Bananen.",
+    "example_en": "On the outside it says \"Panama\" – on the inside it smells of bananas.",
+    "register": "everyday"
+  },
+  {
+    "de": "innen",
+    "en": "inside",
+    "article": "",
+    "level": "B1",
+    "example": "Außen steht „Panama\" – innen riecht sie nach Bananen.",
+    "example_en": "On the outside it says \"Panama\" – on the inside it smells of bananas.",
+    "register": "everyday"
+  },
+  {
+    "de": "begegnen (ist begegnet)",
+    "en": "to encounter, meet",
+    "article": "",
+    "level": "B1",
+    "example": "Auf ihrer Reise begegnen sie vielen Tieren und erleben zahlreiche Abenteuer.",
+    "example_en": "On their journey they encounter many animals and experience numerous adventures.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "begegnen",
+      "praeteritum_stamm": "begegnete",
+      "partizip2": "begegnet",
+      "hilfsverb": "sein",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "erfüllen (sich) (hat erfüllt)",
+    "en": "to fulfil",
+    "article": "",
+    "level": "B1",
+    "example": "Sie will ihrem Großvater einen Wunsch erfüllen: noch einmal Venedig sehen.",
+    "example_en": "She wants to fulfil her grandfather's wish: to see Venice one more time.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erfüllen",
+      "praeteritum_stamm": "erfüllte",
+      "partizip2": "erfüllt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "dafür",
+    "en": "for it, in favour of it",
+    "article": "",
+    "level": "B1",
+    "example": "Ich bin (auch) dafür. Gute Idee!",
+    "example_en": "I'm (also) in favour of it. Good idea!",
+    "register": "everyday"
+  },
+  {
+    "de": "zustimmen (hat zugestimmt)",
+    "en": "to agree",
+    "article": "",
+    "level": "B1",
+    "example": "zustimmen/sich einigen",
+    "example_en": "to agree / to come to an agreement",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zustimmen",
+      "praeteritum_stamm": "stimmte zu",
+      "partizip2": "zugestimmt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "die Medien (Pl.)",
+    "en": "the media",
+    "article": "",
+    "level": "B1",
+    "example": "Die Fernsehsender ARD und ZDF haben rund 4000 Deutsche befragt, wie lange sie jeden Tag die Medien nutzen.",
+    "example_en": "The TV channels ARD and ZDF surveyed around 4000 Germans on how long they use the media each day.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Rundfunk (Sg.)",
+    "en": "radio broadcasting",
+    "article": "m.",
+    "level": "B1",
+    "example": "Auch der Rundfunk bleibt für die Deutschen mit rund drei Stunden pro Tag weiter wichtig.",
+    "example_en": "Radio also remains important for Germans, at around three hours a day.",
+    "register": "everyday"
+  },
+  {
+    "de": "knapp",
+    "en": "just under, barely",
+    "article": "",
+    "level": "B1",
+    "example": "Das Fernsehen ist mit knapp dreieinhalb Stunden ... pro Tag für die Deutschen am wichtigsten.",
+    "example_en": "TV, at just under three and a half hours per day, is most important for Germans.",
+    "register": "everyday"
+  },
+  {
+    "de": "doppelt",
+    "en": "double, twice",
+    "article": "",
+    "level": "B1",
+    "example": "Musik von CD oder MP3 hören die jungen Deutschen zwischen 14 und 29 ungefähr doppelt so viel wie der Rest der Deutschen.",
+    "example_en": "Young Germans aged 14 to 29 listen to music from CD or MP3 about twice as much as the rest of Germans.",
+    "register": "everyday"
+  },
+  {
+    "de": "relativ",
+    "en": "relatively",
+    "article": "",
+    "level": "B1",
+    "example": "DVDs sind mit unter 10 Minuten pro Tag für alle relativ unwichtig.",
+    "example_en": "DVDs, at under 10 minutes a day, are relatively unimportant for everyone.",
+    "register": "everyday"
+  },
+  {
+    "de": "überreden (hat überredet)",
+    "en": "to persuade",
+    "article": "",
+    "level": "B1",
+    "example": "Ella kann Sami trotzdem zu einem Spaziergang überreden.",
+    "example_en": "Ella can nevertheless persuade Sami to go for a walk.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "überreden",
+      "praeteritum_stamm": "überredete",
+      "partizip2": "überredet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "das Mittel, -",
+    "en": "remedy, means",
+    "article": "n.",
+    "level": "B1",
+    "example": "Sieben ganz einfache Anti-Stress-Mittel.",
+    "example_en": "Seven very simple anti-stress remedies.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Schlaf (Sg.)",
+    "en": "sleep",
+    "article": "m.",
+    "level": "B1",
+    "example": "Zu wenig Schlaf ist einer der schlimmsten Stressfaktoren.",
+    "example_en": "Too little sleep is one of the worst stress factors.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Grundlage, -n",
+    "en": "basis, foundation",
+    "article": "f.",
+    "level": "B1",
+    "example": "Regelmäßiger gesunder Schlaf ist die Grundlage jeder Entspannung.",
+    "example_en": "Regular healthy sleep is the basis of any relaxation.",
+    "register": "everyday"
+  },
+  {
+    "de": "ausreichend",
+    "en": "sufficient",
+    "article": "",
+    "level": "B1",
+    "example": "Auf ausreichend Bewegung bei der Arbeit und in der Freizeit sollte besonders geachtet werden.",
+    "example_en": "Sufficient exercise at work and in leisure time should be given special attention.",
+    "register": "everyday"
+  },
+  {
+    "de": "ebenfalls",
+    "en": "likewise, also",
+    "article": "",
+    "level": "B1",
+    "example": "Zu viel Koffein ist ebenfalls nicht gut für die Entspannung.",
+    "example_en": "Too much caffeine is likewise not good for relaxation.",
+    "register": "everyday"
+  },
+  {
+    "de": "atmen (hat geatmet)",
+    "en": "to breathe",
+    "article": "",
+    "level": "B1",
+    "example": "Gestresste Menschen atmen schnell und flach.",
+    "example_en": "Stressed people breathe quickly and shallowly.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "atmen",
+      "praeteritum_stamm": "atmete",
+      "partizip2": "geatmet",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "flach",
+    "en": "shallow, flat",
+    "article": "",
+    "level": "B1",
+    "example": "Gestresste Menschen atmen schnell und flach.",
+    "example_en": "Stressed people breathe quickly and shallowly.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Wirkung, -en",
+    "en": "effect",
+    "article": "f.",
+    "level": "B1",
+    "example": "Erleben Sie die positive Wirkung des richtigen Atmens!",
+    "example_en": "Experience the positive effect of correct breathing!",
+    "register": "everyday"
+  },
+  {
+    "de": "öfter",
+    "en": "more often",
+    "article": "",
+    "level": "B1",
+    "example": "Wer lustig ist und öfter mal lacht, hat weniger Probleme mit der Entspannung.",
+    "example_en": "Whoever is funny and laughs more often has fewer problems relaxing.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Kraft, -̈e",
+    "en": "strength, power",
+    "article": "f.",
+    "level": "B1",
+    "example": "Dadurch können neue Kräfte gesammelt werden.",
+    "example_en": "New strength can be gathered this way.",
+    "register": "everyday"
+  },
+  {
+    "de": "gleichzeitig",
+    "en": "simultaneously",
+    "article": "",
+    "level": "B1",
+    "example": "Machen Sie oft mehrere Dinge gleichzeitig?",
+    "example_en": "Do you often do several things at the same time?",
+    "register": "everyday"
+  },
+  {
+    "de": "erschöpft",
+    "en": "exhausted",
+    "article": "",
+    "level": "B1",
+    "example": "Kein Wunder, dass Sie gestresst und erschöpft sind!",
+    "example_en": "No wonder you're stressed and exhausted!",
+    "register": "everyday"
+  },
+  {
+    "de": "umgehen (ist umgegangen)",
+    "en": "to handle, cope with (mit)",
+    "article": "",
+    "level": "B1",
+    "example": "Wenn wir zu wenig oder schlecht schlafen, können wir nicht gut mit Stress umgehen.",
+    "example_en": "If we sleep too little or badly, we can't cope well with stress.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "umgehen",
+      "praeteritum_stamm": "ging um",
+      "partizip2": "umgegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "um",
+      "governs": "mit + dative"
+    }
+  },
+  {
+    "de": "aufwachen (ist aufgewacht)",
+    "en": "to wake up",
+    "article": "",
+    "level": "B1",
+    "example": "Ich kann nur schlecht einschlafen und wache nachts dauernd auf.",
+    "example_en": "I have trouble falling asleep and keep waking up at night.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufwachen",
+      "praeteritum_stamm": "wachte auf",
+      "partizip2": "aufgewacht",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "auf"
+    }
+  },
+  {
+    "de": "der Mangel, -̈",
+    "en": "lack, shortage",
+    "article": "m.",
+    "level": "B1",
+    "example": "Durch den Schlafmangel bin ich tagsüber extrem müde und gestresst.",
+    "example_en": "Due to the lack of sleep I'm extremely tired and stressed during the day.",
+    "register": "everyday"
+  },
+  {
+    "de": "extrem",
+    "en": "extremely",
+    "article": "",
+    "level": "B1",
+    "example": "Durch den Schlafmangel bin ich tagsüber extrem müde und gestresst.",
+    "example_en": "Due to the lack of sleep I'm extremely tired and stressed during the day.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Abfalleimer, -",
+    "en": "waste bin",
+    "article": "m.",
+    "level": "B1",
+    "example": "Der Abfalleimer muss geleert werden.",
+    "example_en": "The waste bin needs to be emptied.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Verbesserung, -en",
+    "en": "improvement",
+    "article": "f.",
+    "level": "B1",
+    "example": "Machen Sie regelmäßig Sport zur Verbesserung der Fitness.",
+    "example_en": "Exercise regularly to improve fitness.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Einnahme (Sg.)",
+    "en": "taking (of medicine)",
+    "article": "f.",
+    "level": "B1",
+    "example": "Das ist besser als die Einnahme eines Medikaments.",
+    "example_en": "That's better than taking medication.",
+    "register": "everyday"
+  },
+  {
+    "de": "solch-",
+    "en": "such",
+    "article": "",
+    "level": "B1",
+    "example": "Bei solchen Problemen holt man sich am besten den Rat eines Fachmanns.",
+    "example_en": "For such problems it's best to get the advice of an expert.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Fachmann, -̈er",
+    "en": "expert",
+    "article": "m.",
+    "level": "B1",
+    "example": "Bei solchen Problemen holt man sich am besten den Rat eines Fachmanns.",
+    "example_en": "For such problems it's best to get the advice of an expert.",
+    "register": "everyday"
+  },
+  {
+    "de": "zunächst",
+    "en": "first, initially",
+    "article": "",
+    "level": "B1",
+    "example": "Wiederholen Sie alle Übungen zunächst fünfmal.",
+    "example_en": "First repeat all exercises five times.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Störung, -en",
+    "en": "disorder, disturbance",
+    "article": "f.",
+    "level": "B1",
+    "example": "Frau Sanchez hat Kopfschmerzen und außerdem Sehstörungen.",
+    "example_en": "Mrs Sanchez has headaches and also visual disturbances.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Wohl (Sg.)",
+    "en": "wellbeing",
+    "article": "n.",
+    "level": "B1",
+    "example": "Zum Wohl Ihrer Gesundheit hat die KEK zahlreiche kostenlose Kurse im Angebot.",
+    "example_en": "For your health's wellbeing, KEK offers numerous free courses.",
+    "register": "everyday"
+  },
+  {
+    "de": "umsonst",
+    "en": "free, for nothing",
+    "article": "",
+    "level": "B1",
+    "example": "So können Sie beispielsweise umsonst an unseren Gesundheitskursen teilnehmen!",
+    "example_en": "For example, you can take part in our health courses for free!",
+    "register": "everyday"
+  },
+  {
+    "de": "impfen (hat geimpft)",
+    "en": "to vaccinate",
+    "article": "",
+    "level": "B1",
+    "example": "Lassen Sie sich impfen?",
+    "example_en": "Are you getting vaccinated?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "impfen",
+      "praeteritum_stamm": "impfte",
+      "partizip2": "geimpft",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "das Drittel, -",
+    "en": "third (fraction)",
+    "article": "n.",
+    "level": "B1",
+    "example": "Ein Drittel der Kursteilnehmer ...",
+    "example_en": "A third of the course participants ...",
+    "register": "everyday"
+  },
+  {
+    "de": "grundsätzlich",
+    "en": "fundamentally, as a rule",
+    "article": "",
+    "level": "B1",
+    "example": "Ich trinke grundsätzlich keinen Alkohol.",
+    "example_en": "As a rule I don't drink alcohol.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Frucht, -̈e",
+    "en": "fruit",
+    "article": "f.",
+    "level": "B1",
+    "example": "Und ich esse morgens immer Magerquark mit Früchten.",
+    "example_en": "And in the mornings I always eat low-fat quark with fruit.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Quark (Sg.)",
+    "en": "quark (dairy product)",
+    "article": "m.",
+    "level": "B1",
+    "example": "Ich esse morgens immer Magerquark mit Früchten.",
+    "example_en": "In the mornings I always eat low-fat quark with fruit.",
+    "register": "everyday"
+  },
+  {
+    "de": "krankmelden (hat krankgemeldet)",
+    "en": "to report sick",
+    "article": "",
+    "level": "B1",
+    "example": "Sie ruft an, weil sie sich krankmelden möchte.",
+    "example_en": "She's calling because she wants to report sick.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "krankmelden",
+      "praeteritum_stamm": "meldete krank",
+      "partizip2": "krankgemeldet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "die Konferenz, -en",
+    "en": "conference",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sie ruft an, weil Ihre Kollegin eine Konferenz vorbereiten soll.",
+    "example_en": "She's calling because her colleague is supposed to prepare a conference.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Schreibblock, -̈e",
+    "en": "notepad",
+    "article": "m.",
+    "level": "B1",
+    "example": "Frau Tokic soll Schreibblöcke und Kugelschreiber bestellen.",
+    "example_en": "Mrs Tokic is supposed to order notepads and pens.",
+    "register": "everyday"
+  },
+  {
+    "de": "worüber",
+    "en": "about what",
+    "article": "",
+    "level": "B1",
+    "example": "Worüber sprechen sie?",
+    "example_en": "What are they talking about?",
+    "register": "everyday"
+  },
+  {
+    "de": "die Eile (Sg.)",
+    "en": "hurry",
+    "article": "f.",
+    "level": "B1",
+    "example": "Ella muss arbeiten und ist in Eile.",
+    "example_en": "Ella has to work and is in a hurry.",
+    "register": "everyday"
+  },
+  {
+    "de": "gar",
+    "en": "at all",
+    "article": "",
+    "level": "B1",
+    "example": "Darauf hatte ich nun aber gar keine Lust.",
+    "example_en": "But I really had no desire to do that at all.",
+    "register": "everyday"
+  },
+  {
+    "de": "jedenfalls",
+    "en": "anyway, in any case",
+    "article": "",
+    "level": "B1",
+    "example": "Jedenfalls sagte sie lächelnd: Kein Problem.",
+    "example_en": "Anyway, she said smiling: no problem.",
+    "register": "everyday"
+  },
+  {
+    "de": "halt",
+    "en": "just (filler particle)",
+    "article": "",
+    "level": "B1",
+    "example": "Dann gehen wir halt nach deinem Yoga-Kurs!",
+    "example_en": "Then we'll just go after your yoga class!",
+    "register": "everyday"
+  },
+  {
+    "de": "so viel",
+    "en": "so much",
+    "article": "",
+    "level": "B1",
+    "example": "Wenn sie nicht so viel arbeiten müsste, könnten wir jetzt was trinken gehen.",
+    "example_en": "If she didn't have to work so much, we could go for a drink now.",
+    "register": "everyday"
+  },
+  {
+    "de": "beenden (hat beendet)",
+    "en": "to finish, end",
+    "article": "",
+    "level": "B1",
+    "example": "Beenden Sie Ihre E-Mail mit guten Wünschen für die Feier.",
+    "example_en": "End your email with good wishes for the celebration.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beenden",
+      "praeteritum_stamm": "beendete",
+      "partizip2": "beendet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "aussuchen (hat ausgesucht)",
+    "en": "to pick, choose",
+    "article": "",
+    "level": "B1",
+    "example": "Sie sind 15 und dürfen sich einen Ausbildungsplatz aussuchen.",
+    "example_en": "You're 15 and may choose a training place.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aussuchen",
+      "praeteritum_stamm": "suchte aus",
+      "partizip2": "ausgesucht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "aus",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Präsident, -en",
+    "en": "president",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie sind Präsidentin/Präsident.",
+    "example_en": "You are president.",
+    "register": "everyday"
+  },
+  {
+    "de": "deswegen",
+    "en": "for that reason",
+    "article": "",
+    "level": "B1",
+    "example": "Wenn man eine Sprache oft hört, lernt man sie viel schneller. Deswegen habe ich mir oft deutsche Filme angesehen.",
+    "example_en": "If you often hear a language, you learn it much faster. That's why I often watched German films.",
+    "register": "everyday"
+  },
+  {
+    "de": "irgendwann",
+    "en": "at some point, sometime",
+    "article": "",
+    "level": "B1",
+    "example": "Sie hatten irgendwann keine Lust mehr zu übersetzen.",
+    "example_en": "At some point they no longer felt like translating.",
+    "register": "everyday"
+  },
+  {
+    "de": "daher",
+    "en": "therefore, that's why",
+    "article": "",
+    "level": "B1",
+    "example": "Daher braucht man immer eine gute Motivation, warum man das macht.",
+    "example_en": "That's why you always need good motivation for why you do it.",
+    "register": "everyday"
+  },
+  {
+    "de": "darum",
+    "en": "therefore, that's why",
+    "article": "",
+    "level": "B1",
+    "example": "Darum muss mein Deutsch einfach sehr gut sein.",
+    "example_en": "That's why my German simply has to be very good.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Wiederholung, -en",
+    "en": "repetition",
+    "article": "f.",
+    "level": "B1",
+    "example": "Er spricht sehr schnell und Sie bitten um Wiederholung.",
+    "example_en": "He speaks very fast and you ask for repetition.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Integrationskurs, -e",
+    "en": "integration course",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie möchten sich für einen Integrationskurs anmelden.",
+    "example_en": "You want to register for an integration course.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Herkunft, -̈e",
+    "en": "origin",
+    "article": "f.",
+    "level": "B1",
+    "example": "Seit 1998 gibt es in Münchner Kindergärten Sprachkurse für Kinder mit ausländischer Herkunft.",
+    "example_en": "Since 1998 there have been language courses in Munich kindergartens for children of foreign origin.",
+    "register": "everyday"
+  },
+  {
+    "de": "verstecken (sich) (hat versteckt)",
+    "en": "to hide",
+    "article": "",
+    "level": "B1",
+    "example": "Im Zaubersack sind verschiedene Dinge versteckt.",
+    "example_en": "Various things are hidden in the magic bag.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verstecken",
+      "praeteritum_stamm": "versteckte",
+      "partizip2": "versteckt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "transitiv": true,
+      "governs": "accusative or reflexive (sich)"
+    }
+  },
+  {
+    "de": "das Griechisch (Sg.)",
+    "en": "Greek (language)",
+    "article": "n.",
+    "level": "B1",
+    "example": "Mit meiner Familie spreche ich Griechisch und mit meinen Freunden Deutsch.",
+    "example_en": "With my family I speak Greek and with my friends German.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Grieche, -n",
+    "en": "Greek (person)",
+    "article": "m.",
+    "level": "B1",
+    "example": "Meine Mutter ist Griechin, ich bin aber in Österreich geboren.",
+    "example_en": "My mother is Greek, but I was born in Austria.",
+    "register": "everyday"
+  },
+  {
+    "de": "durcheinander",
+    "en": "mixed up, in a jumble",
+    "article": "",
+    "level": "B1",
+    "example": "Manchmal sprechen wir zu Hause Deutsch und Griechisch durcheinander.",
+    "example_en": "Sometimes at home we speak German and Greek mixed together.",
+    "register": "everyday"
+  },
+  {
+    "de": "spätestens",
+    "en": "at the latest",
+    "article": "",
+    "level": "B1",
+    "example": "Bei uns kann man schon in der dritten Klasse Englisch lernen, und spätestens in der fünften Klasse muss man.",
+    "example_en": "You can already learn English in third grade with us, and at the latest by fifth grade you must.",
+    "register": "everyday"
+  },
+  {
+    "de": "allmählich",
+    "en": "gradually",
+    "article": "",
+    "level": "B1",
+    "example": "Anfangs bedankte ich mich noch für das Kompliment, aber allmählich ging mir der Satz auf die Nerven.",
+    "example_en": "At first I still thanked people for the compliment, but gradually the sentence got on my nerves.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Nerv, -en",
+    "en": "nerve",
+    "article": "m.",
+    "level": "B1",
+    "example": "Allmählich ging mir der Satz auf die Nerven.",
+    "example_en": "Gradually the sentence got on my nerves.",
+    "register": "everyday"
+  },
+  {
+    "de": "korrekt",
+    "en": "correct",
+    "article": "",
+    "level": "B1",
+    "example": "Dass eine junge Frau Dativ und Genitiv korrekt verwenden kann.",
+    "example_en": "That a young woman can use dative and genitive correctly.",
+    "register": "everyday"
+  },
+  {
+    "de": "andererseits",
+    "en": "on the other hand",
+    "article": "",
+    "level": "B1",
+    "example": "Andererseits leben meine Eltern ebenso lange wie ich in Deutschland, sprechen aber kaum Deutsch.",
+    "example_en": "On the other hand, my parents have lived in Germany as long as I have, but barely speak German.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Stirn, -en",
+    "en": "forehead",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sie legt die Stirn in Falten und sagt unwillig: Sechs Kinder habe ich großgezogen.",
+    "example_en": "She frowns and says unwillingly: I raised six children.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Autor, -en",
+    "en": "author",
+    "article": "m.",
+    "level": "B1",
+    "example": "Die Autorin Hatice Akyün findet es ganz normal, dass sie sehr gut Deutsch spricht.",
+    "example_en": "The author Hatice Akyün finds it quite normal that she speaks German very well.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Kenntnisse (Pl.)",
+    "en": "knowledge, skills",
+    "article": "",
+    "level": "B1",
+    "example": "Helfen Ihnen Ihre Fremdsprachenkenntnisse beim Deutschlernen?",
+    "example_en": "Do your foreign-language skills help you learn German?",
+    "register": "everyday"
+  },
+  {
+    "de": "schimpfen (hat geschimpft)",
+    "en": "to swear, scold",
+    "article": "",
+    "level": "B1",
+    "example": "In welcher Sprache schimpfen oder träumen Sie?",
+    "example_en": "In which language do you swear or dream?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schimpfen",
+      "praeteritum_stamm": "schimpfte",
+      "partizip2": "geschimpft",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "die Schrift, -en",
+    "en": "script, writing",
+    "article": "f.",
+    "level": "B1",
+    "example": "Serbisch hat eine andere Schrift als Deutsch.",
+    "example_en": "Serbian has a different script than German.",
+    "register": "everyday"
+  },
+  {
+    "de": "etwa",
+    "en": "approximately, about",
+    "article": "",
+    "level": "B1",
+    "example": "Er bewirbt sich bei der bekanntesten Schauspielschule im Land, obwohl es etwa achthundert Mitbewerber gibt.",
+    "example_en": "He applies to the most famous acting school in the country, although there are about eight hundred competitors.",
+    "register": "everyday"
+  },
+  {
+    "de": "genügen (hat genügt)",
+    "en": "to be enough, suffice",
+    "article": "",
+    "level": "B1",
+    "example": "Manchmal genügt nur eine einzige Idee ... und schon wird alles gut.",
+    "example_en": "Sometimes just one single idea is enough ... and everything turns out fine.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "genügen",
+      "praeteritum_stamm": "genügte",
+      "partizip2": "genügt",
+      "hilfsverb": "haben",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "aufhören (hat aufgehört)",
+    "en": "to stop, quit",
+    "article": "",
+    "level": "B1",
+    "example": "Ende des Monats höre ich auf, als Krankenpfleger zu arbeiten.",
+    "example_en": "At the end of the month I'm quitting my job as a nurse.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufhören",
+      "praeteritum_stamm": "hörte auf",
+      "partizip2": "aufgehört",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf"
+    }
+  },
+  {
+    "de": "der Handel (Sg.)",
+    "en": "trade, commerce",
+    "article": "m.",
+    "level": "B1",
+    "example": "Erfahrung in Handel und Verkauf von Vorteil.",
+    "example_en": "Experience in trade and sales an advantage.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Vorteil, -e",
+    "en": "advantage",
+    "article": "m.",
+    "level": "B1",
+    "example": "Erfahrung in Handel und Verkauf von Vorteil.",
+    "example_en": "Experience in trade and sales an advantage.",
+    "register": "everyday"
+  },
+  {
+    "de": "erwarten (hat erwartet)",
+    "en": "to expect",
+    "article": "",
+    "level": "B1",
+    "example": "Wir erwarten Branchenerfahrung im Bereich Photovoltaik.",
+    "example_en": "We expect industry experience in the field of photovoltaics.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erwarten",
+      "praeteritum_stamm": "erwartete",
+      "partizip2": "erwartet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "die Voraussetzung, -en",
+    "en": "prerequisite",
+    "article": "f.",
+    "level": "B1",
+    "example": "Gute MS-Office-Kenntnisse sind Voraussetzung.",
+    "example_en": "Good MS Office skills are a prerequisite.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Serviceangestellte, -n",
+    "en": "service employee",
+    "article": "m./f.",
+    "level": "B1",
+    "example": "Wir suchen ab Juni befristet auf 3 Monate eine erfahrene Serviceangestellte.",
+    "example_en": "We are looking for an experienced service employee, fixed-term for 3 months from June.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Unterlagen (Pl.)",
+    "en": "documents",
+    "article": "",
+    "level": "B1",
+    "example": "Weitere Informationen und Bewerbungsunterlagen an: ...",
+    "example_en": "Further information and application documents to: ...",
+    "register": "everyday"
+  },
+  {
+    "de": "die Unterstützung, -en",
+    "en": "support",
+    "article": "f.",
+    "level": "B1",
+    "example": "Ihre Aufgaben: Unterstützung im Haushalt, leichter Pflegedienst.",
+    "example_en": "Your tasks: support in the household, light nursing care.",
+    "register": "everyday"
+  },
+  {
+    "de": "schriftlich",
+    "en": "in writing",
+    "article": "",
+    "level": "B1",
+    "example": "Sie brauchen uns keine schriftliche Bewerbung zu schicken.",
+    "example_en": "You don't need to send us a written application.",
+    "register": "everyday"
+  },
+  {
+    "de": "gewohnt",
+    "en": "accustomed, used to",
+    "article": "",
+    "level": "B1",
+    "example": "Außerdem bin ich es gewohnt, meine Aufgaben schnell und zuverlässig zu erledigen.",
+    "example_en": "I'm also used to completing my tasks quickly and reliably.",
+    "register": "everyday"
+  },
+  {
+    "de": "üblich",
+    "en": "usual, common",
+    "article": "",
+    "level": "B1",
+    "example": "Ich beherrsche auch die üblichen PC-Programme.",
+    "example_en": "I'm also proficient in the usual PC programs.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Anlage, -n",
+    "en": "attachment, enclosure",
+    "article": "f.",
+    "level": "B1",
+    "example": "Anlagen: Lebenslauf, Zeugnisse.",
+    "example_en": "Attachments: CV, certificates.",
+    "register": "everyday"
+  },
+  {
+    "de": "herstellen (hat hergestellt)",
+    "en": "to manufacture, produce",
+    "article": "",
+    "level": "B1",
+    "example": "Das ist eine große Firma, die ... herstellt.",
+    "example_en": "That's a big company that manufactures ...",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "herstellen",
+      "praeteritum_stamm": "stellte her",
+      "partizip2": "hergestellt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "her",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "innerhalb",
+    "en": "within",
+    "article": "",
+    "level": "B1",
+    "example": "Innerhalb weniger Wochen hat er einen Platz an der Schauspielschule bekommen.",
+    "example_en": "Within a few weeks he got a place at the acting school.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Zeitpunkt, -e",
+    "en": "point in time",
+    "article": "m.",
+    "level": "B1",
+    "example": "Beginnen Sie schon vom Zeitpunkt der Bewerbung an.",
+    "example_en": "Start already from the point of the application.",
+    "register": "everyday"
+  },
+  {
+    "de": "beruhigen (sich) (hat beruhigt)",
+    "en": "to calm down",
+    "article": "",
+    "level": "B1",
+    "example": "Das beruhigt und so können Sie vermeiden, noch zusätzlich nervös zu werden.",
+    "example_en": "This calms you down and lets you avoid becoming even more nervous.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beruhigen",
+      "praeteritum_stamm": "beruhigte",
+      "partizip2": "beruhigt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "transitiv": true,
+      "governs": "accusative or reflexive (sich)"
+    }
+  },
+  {
+    "de": "statt",
+    "en": "instead of",
+    "article": "",
+    "level": "B1",
+    "example": "Ich habe einen Job gesucht, bei dem man viel rumkommt, statt nur im Büro zu sitzen.",
+    "example_en": "I looked for a job where you get around a lot, instead of just sitting in the office.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Ersatz (Sg.)",
+    "en": "replacement",
+    "article": "m.",
+    "level": "B1",
+    "example": "Bis wann müssen Sie die Ersatztasse haben?",
+    "example_en": "By when do you need the replacement cup?",
+    "register": "everyday"
+  },
+  {
+    "de": "das Geheimnis, -se",
+    "en": "secret",
+    "article": "n.",
+    "level": "B1",
+    "example": "Das ist sein Geheimnis.",
+    "example_en": "That's his secret.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Risiko, Risiken",
+    "en": "risk",
+    "article": "n.",
+    "level": "B1",
+    "example": "Die meisten Menschen möchten kein Risiko eingehen und lassen lieber alles so, wie es ist.",
+    "example_en": "Most people don't want to take a risk and prefer to leave everything as it is.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Änderung, -en",
+    "en": "change",
+    "article": "f.",
+    "level": "B1",
+    "example": "Änderungen sollte man sich sehr gut überlegen, damit man keine Fehler macht.",
+    "example_en": "You should think changes through very carefully so you don't make mistakes.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Sinn (Sg.)",
+    "en": "sense, meaning",
+    "article": "m.",
+    "level": "B1",
+    "example": "Man kann nichts Neues lernen, ohne Fehler zu riskieren. In diesem Sinn: Versuchen wir es.",
+    "example_en": "You can't learn anything new without risking mistakes. In that sense: let's try it.",
+    "register": "everyday"
+  },
+  {
+    "de": "lohnen (sich) (hat gelohnt)",
+    "en": "to be worth it",
+    "article": "",
+    "level": "B1",
+    "example": "Es ist nicht leicht, aber es lohnt sich.",
+    "example_en": "It's not easy, but it's worth it.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "lohnen",
+      "praeteritum_stamm": "lohnte",
+      "partizip2": "gelohnt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "besitzen (hat besessen)",
+    "en": "to own, possess",
+    "article": "",
+    "level": "B1",
+    "example": "Victor Krumm besitzt ein Lebensmittelgeschäft.",
+    "example_en": "Victor Krumm owns a grocery store.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "besitzen",
+      "praeteritum_stamm": "besaß",
+      "partizip2": "besessen",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "geboren werden (ist geboren worden)",
+    "en": "to be born",
+    "article": "",
+    "level": "B1",
+    "example": "Als ich geboren wurde, entschloss er sich, nach Vietnam zurückzugehen.",
+    "example_en": "When I was born, he decided to go back to Vietnam.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "geboren werden",
+      "praesens_stamm": "wirst geboren",
+      "praeteritum_stamm": "wurde geboren",
+      "partizip2": "geboren worden",
+      "hilfsverb": "sein"
+    }
+  },
+  {
+    "de": "entschließen (sich) (hat entschlossen)",
+    "en": "to decide",
+    "article": "",
+    "level": "B1",
+    "example": "Als ich geboren wurde, entschloss er sich, nach Vietnam zurückzugehen.",
+    "example_en": "When I was born, he decided to go back to Vietnam.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "entschließen",
+      "praeteritum_stamm": "entschloss",
+      "partizip2": "entschlossen",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich) + zu + dative"
+    }
+  },
+  {
+    "de": "das Heimweh (Sg.)",
+    "en": "homesickness",
+    "article": "n.",
+    "level": "B1",
+    "example": "Anfangs hatte ich manchmal ein bisschen Heimweh, aber dann habe ich meine Frau kennengelernt und bin geblieben.",
+    "example_en": "At first I sometimes felt a bit homesick, but then I met my wife and stayed.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Gewürz, -e",
+    "en": "spice",
+    "article": "n.",
+    "level": "B1",
+    "example": "Dazu Gemüse, Kräuter, Gewürze und eine besondere Soße.",
+    "example_en": "Plus vegetables, herbs, spices and a special sauce.",
+    "register": "everyday"
+  },
+  {
+    "de": "mittlerweile",
+    "en": "in the meantime, by now",
+    "article": "",
+    "level": "B1",
+    "example": "Mittlerweile verkaufe ich Banh Mi auch auf Märkten.",
+    "example_en": "By now I also sell Banh Mi at markets.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Rücksicht, -en",
+    "en": "consideration",
+    "article": "f.",
+    "level": "B1",
+    "example": "Darauf sollte man bei der Pflege Rücksicht nehmen.",
+    "example_en": "Consideration should be given to this in care.",
+    "register": "everyday"
+  },
+  {
+    "de": "interkulturell",
+    "en": "intercultural",
+    "article": "",
+    "level": "B1",
+    "example": "Vor fünf Jahren habe ich einen interkulturellen Pflegedienst gegründet.",
+    "example_en": "Five years ago I founded an intercultural care service.",
+    "register": "everyday"
+  },
+  {
+    "de": "gründen (hat gegründet)",
+    "en": "to found, establish",
+    "article": "",
+    "level": "B1",
+    "example": "Vor fünf Jahren habe ich einen interkulturellen Pflegedienst gegründet.",
+    "example_en": "Five years ago I founded an intercultural care service.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gründen",
+      "praeteritum_stamm": "gründete",
+      "partizip2": "gegründet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "gewöhnen (sich) (hat gewöhnt)",
+    "en": "to get used to",
+    "article": "",
+    "level": "B1",
+    "example": "Türken sind es nicht gewohnt, alte Menschen von Pflegediensten betreuen zu lassen.",
+    "example_en": "Turks aren't used to having old people cared for by care services.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "gewöhnen",
+      "praeteritum_stamm": "gewöhnte",
+      "partizip2": "gewöhnt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich) + an + accusative"
+    }
+  },
+  {
+    "de": "pflegen (hat gepflegt)",
+    "en": "to care for, nurse",
+    "article": "",
+    "level": "B1",
+    "example": "Viele wollen ihre Eltern selbst pflegen.",
+    "example_en": "Many want to care for their parents themselves.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "pflegen",
+      "praeteritum_stamm": "pflegte",
+      "partizip2": "gepflegt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "jahrelang",
+    "en": "for years",
+    "article": "",
+    "level": "B1",
+    "example": "Schon in meiner Heimat Russland habe ich jahrelang ein Geschäft geleitet.",
+    "example_en": "I already ran a shop for years back home in Russia.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Kaufmann, -̈er",
+    "en": "merchant, businessman",
+    "article": "m.",
+    "level": "B1",
+    "example": "Ich bin Kaufmann von Beruf und habe lange in einer Drogerie gearbeitet.",
+    "example_en": "I'm a merchant by profession and worked in a drugstore for a long time.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Geschäftsleute (Pl.)",
+    "en": "businesspeople",
+    "article": "",
+    "level": "B1",
+    "example": "Ich glaube, wir sind die geborenen Geschäftsleute.",
+    "example_en": "I think we are natural-born businesspeople.",
+    "register": "everyday"
+  },
+  {
+    "de": "ausschließlich",
+    "en": "exclusively",
+    "article": "",
+    "level": "B1",
+    "example": "Wir verkaufen ausschließlich russische Produkte.",
+    "example_en": "We sell exclusively Russian products.",
+    "register": "everyday"
+  },
+  {
+    "de": "höchstens",
+    "en": "at most",
+    "article": "",
+    "level": "B1",
+    "example": "Ich hatte damals nur wenig Ware, höchstens 30 Artikel.",
+    "example_en": "At the time I only had a little stock, at most 30 items.",
+    "register": "everyday"
+  },
+  {
+    "de": "möglichst",
+    "en": "as ... as possible",
+    "article": "",
+    "level": "B1",
+    "example": "Er möchte möglichst viele verschiedene Menschen kennenlernen.",
+    "example_en": "He wants to meet as many different people as possible.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Rede, -n",
+    "en": "talk, speech",
+    "article": "f.",
+    "level": "B1",
+    "example": "Da ist überall die Rede von Teamfähigkeit und Konfliktfähigkeit.",
+    "example_en": "There's talk everywhere of teamwork skills and conflict management.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Kompromiss, -e",
+    "en": "compromise",
+    "article": "m.",
+    "level": "B1",
+    "example": "Das bedeutet, man kann gut im Team arbeiten und auch mal Kompromisse eingehen.",
+    "example_en": "That means you can work well in a team and also make compromises sometimes.",
+    "register": "everyday"
+  },
+  {
+    "de": "wiederkommen (ist wiedergekommen)",
+    "en": "to come back",
+    "article": "",
+    "level": "B1",
+    "example": "Der Kunde kann sich nicht entscheiden und möchte wiederkommen.",
+    "example_en": "The customer can't decide and wants to come back.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "wiederkommen",
+      "praeteritum_stamm": "kam wieder",
+      "partizip2": "wiedergekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "wieder"
+    }
+  },
+  {
+    "de": "die Mühe, -n",
+    "en": "effort, trouble",
+    "article": "f.",
+    "level": "B1",
+    "example": "Vielen Dank für Ihre Mühe.",
+    "example_en": "Thank you very much for your effort.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Zahncreme, -s",
+    "en": "toothpaste",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sie brauchen Zahncreme, Waschmittel und eine neue Bürste.",
+    "example_en": "You need toothpaste, laundry detergent and a new brush.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Waschmittel, -",
+    "en": "laundry detergent",
+    "article": "n.",
+    "level": "B1",
+    "example": "Sie brauchen Zahncreme, Waschmittel und eine neue Bürste.",
+    "example_en": "You need toothpaste, laundry detergent and a new brush.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Bürste, -n",
+    "en": "brush",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sie brauchen Zahncreme, Waschmittel und eine neue Bürste.",
+    "example_en": "You need toothpaste, laundry detergent and a new brush.",
+    "register": "everyday"
+  },
+  {
+    "de": "begrüßen (hat begrüßt)",
+    "en": "to greet",
+    "article": "",
+    "level": "B1",
+    "example": "Sie begrüßen den Kunden und bieten Hilfe an.",
+    "example_en": "You greet the customer and offer help.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "begrüßen",
+      "praeteritum_stamm": "begrüßte",
+      "partizip2": "begrüßt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "verabschieden (sich) (hat verabschiedet)",
+    "en": "to say goodbye",
+    "article": "",
+    "level": "B1",
+    "example": "Sie verabschieden sich.",
+    "example_en": "They say goodbye.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verabschieden",
+      "praeteritum_stamm": "verabschiedete",
+      "partizip2": "verabschiedet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "der Anspruch, -̈e",
+    "en": "claim, entitlement",
+    "article": "m.",
+    "level": "B1",
+    "example": "Denn ich habe Anspruch auf einen neuen Koffer.",
+    "example_en": "Because I'm entitled to a new suitcase.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Kopie, -n",
+    "en": "copy",
+    "article": "f.",
+    "level": "B1",
+    "example": "Anbei erhalten Sie eine Kopie der Rechnung.",
+    "example_en": "Please find enclosed a copy of the invoice.",
+    "register": "everyday"
+  },
+  {
+    "de": "beschädigen (hat beschädigt)",
+    "en": "to damage",
+    "article": "",
+    "level": "B1",
+    "example": "Leider musste ich feststellen, dass eine Rolle des Koffers beschädigt ist.",
+    "example_en": "Unfortunately I had to note that one wheel of the suitcase is damaged.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beschädigen",
+      "praeteritum_stamm": "beschädigte",
+      "partizip2": "beschädigt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "die Bedienungsanleitung, -en",
+    "en": "instruction manual",
+    "article": "f.",
+    "level": "B1",
+    "example": "Er funktioniert nicht, obwohl Sie alles so gemacht haben, wie es in der Bedienungsanleitung steht.",
+    "example_en": "It doesn't work even though you did everything as stated in the instruction manual.",
+    "register": "everyday"
+  },
+  {
+    "de": "jedoch",
+    "en": "however",
+    "article": "",
+    "level": "B1",
+    "example": "Sie haben einen neuen Bürostuhl bestellt, jedoch ein anderes Modell als das gelieferte.",
+    "example_en": "You ordered a new office chair, however a different model than the one delivered.",
+    "register": "everyday"
+  },
+  {
+    "de": "bereits",
+    "en": "already",
+    "article": "",
+    "level": "B1",
+    "example": "Sie sind ärgerlich, weil Sie bereits acht Wochen auf den Stuhl warten mussten.",
+    "example_en": "You are annoyed because you already had to wait eight weeks for the chair.",
+    "register": "everyday"
+  },
+  {
+    "de": "fordern (hat gefordert)",
+    "en": "to demand",
+    "article": "",
+    "level": "B1",
+    "example": "Jetzt fordern Sie Ihr Geld zurück.",
+    "example_en": "Now you demand your money back.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fordern",
+      "praeteritum_stamm": "forderte",
+      "partizip2": "gefordert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "enttäuschen (hat enttäuscht)",
+    "en": "to disappoint",
+    "article": "",
+    "level": "B1",
+    "example": "Ihr Service hat mich sehr enttäuscht.",
+    "example_en": "Your service has disappointed me greatly.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "enttäuschen",
+      "praeteritum_stamm": "enttäuschte",
+      "partizip2": "enttäuscht",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Lärm (Sg.)",
+    "en": "noise",
+    "article": "m.",
+    "level": "B1",
+    "example": "Herr Bremer findet, dass das Lärm und Schmutz macht.",
+    "example_en": "Mr Bremer thinks it causes noise and mess.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Rechtsanwalt, -̈e",
+    "en": "lawyer",
+    "article": "m.",
+    "level": "B1",
+    "example": "Herr Bremer beauftragte einen Rechtsanwalt.",
+    "example_en": "Mr Bremer hired a lawyer.",
+    "register": "everyday"
+  },
+  {
+    "de": "verdächtigen (hat verdächtigt)",
+    "en": "to suspect",
+    "article": "",
+    "level": "B1",
+    "example": "Sie verdächtigen Herrn Bremer.",
+    "example_en": "They suspect Mr Bremer.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verdächtigen",
+      "praeteritum_stamm": "verdächtigte",
+      "partizip2": "verdächtigt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Frieden, -",
+    "en": "peace",
+    "article": "m.",
+    "level": "B1",
+    "example": "Die Vögel singen, alles ist friedlich.",
+    "example_en": "The birds sing, everything is peaceful.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Wirklichkeit, -en",
+    "en": "reality",
+    "article": "f.",
+    "level": "B1",
+    "example": "Die Wirklichkeit sieht oft ganz anders aus.",
+    "example_en": "Reality often looks quite different.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Rasen, -",
+    "en": "lawn",
+    "article": "m.",
+    "level": "B1",
+    "example": "Der Rasen wird zu oft gemäht.",
+    "example_en": "The lawn is mowed too often.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Bundesland, -̈er",
+    "en": "federal state",
+    "article": "n.",
+    "level": "B1",
+    "example": "Im Bundesland Baden-Württemberg hatten vier von zehn Befragten schon mal Ärger mit dem Nachbarn.",
+    "example_en": "In the federal state of Baden-Württemberg, four out of ten respondents had already had trouble with neighbours.",
+    "register": "everyday"
+  },
+  {
+    "de": "entweder ... oder",
+    "en": "either ... or",
+    "article": "",
+    "level": "B1",
+    "example": "Der Anwalt hat geschrieben, dass wir entweder eine leisere Säge verwenden sollen oder die Sache vor Gericht geht.",
+    "example_en": "The lawyer wrote that we should either use a quieter saw or the matter goes to court.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Eigentum, -e",
+    "en": "property, possession",
+    "article": "n.",
+    "level": "B1",
+    "example": "Meine Eltern haben ein kleines Grundstück gekauft. Es ist jetzt unser Eigentum.",
+    "example_en": "My parents bought a small plot of land. It's now our property.",
+    "register": "everyday"
+  },
+  {
+    "de": "miteinander",
+    "en": "with each other",
+    "article": "",
+    "level": "B1",
+    "example": "Wir lachen viel miteinander und sind füreinander da.",
+    "example_en": "We laugh a lot with each other and are there for each other.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Radiergummi, -s",
+    "en": "eraser",
+    "article": "m.",
+    "level": "B1",
+    "example": "Elena braucht einen Radiergummi für ihre Hausaufgaben.",
+    "example_en": "Elena needs an eraser for her homework.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Farbstift, -e",
+    "en": "coloured pencil",
+    "article": "m.",
+    "level": "B1",
+    "example": "Elena braucht ... und Farbstifte ...",
+    "example_en": "Elena needs ... and coloured pencils ...",
+    "register": "everyday"
+  },
+  {
+    "de": "das Puzzle, -s",
+    "en": "puzzle, jigsaw",
+    "article": "n.",
+    "level": "B1",
+    "example": "Die Kinder setzen sich mit einem Puzzle in die Küche.",
+    "example_en": "The children sit down in the kitchen with a jigsaw puzzle.",
+    "register": "everyday"
+  },
+  {
+    "de": "bloß",
+    "en": "just, only (particle)",
+    "article": "",
+    "level": "B1",
+    "example": "Hätte ich bloß nichts gesagt!",
+    "example_en": "If only I hadn't said anything!",
+    "register": "everyday"
+  },
+  {
+    "de": "hierher",
+    "en": "here (to this place)",
+    "article": "",
+    "level": "B1",
+    "example": "Die Hanfmanns sind hierher gezogen.",
+    "example_en": "The Hanfmanns moved here.",
+    "register": "everyday"
+  },
+  {
+    "de": "abmachen (hat abgemacht)",
+    "en": "to agree, arrange",
+    "article": "",
+    "level": "B1",
+    "example": "Wir hatten doch abgemacht, dass ...",
+    "example_en": "We had agreed that ...",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abmachen",
+      "praeteritum_stamm": "machte ab",
+      "partizip2": "abgemacht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "die Frechheit, -en",
+    "en": "cheek, nerve, impudence",
+    "article": "f.",
+    "level": "B1",
+    "example": "Das ist ja wohl eine Frechheit.",
+    "example_en": "That's really quite cheeky.",
+    "register": "everyday"
+  },
+  {
+    "de": "meinetwegen",
+    "en": "as far as I'm concerned, for my sake",
+    "article": "",
+    "level": "B1",
+    "example": "Kann ich den Sitzplatz am Fenster haben? – Meinetwegen.",
+    "example_en": "Can I have the window seat? – As far as I'm concerned, sure.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Lift, -e",
+    "en": "lift, elevator",
+    "article": "m.",
+    "level": "B1",
+    "example": "Auf Luxus wie Balkon, Lift oder Terrasse kann ich gut verzichten.",
+    "example_en": "I can easily do without luxuries like a balcony, lift or terrace.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Innenstadt, -̈e",
+    "en": "city centre",
+    "article": "f.",
+    "level": "B1",
+    "example": "Die Innenstadt ist besonders teuer!",
+    "example_en": "The city centre is especially expensive!",
+    "register": "everyday"
+  },
+  {
+    "de": "die Querstraße, -n",
+    "en": "side street, cross street",
+    "article": "f.",
+    "level": "B1",
+    "example": "Ein paar Querstraßen weiter sind die Wohnungen manchmal wesentlich preiswerter.",
+    "example_en": "A few streets over the flats are sometimes considerably cheaper.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Alternative, -n",
+    "en": "alternative",
+    "article": "f.",
+    "level": "B1",
+    "example": "Wir haben uns nach langer, vergeblicher Suche für die Alternative am Stadtrand entschieden.",
+    "example_en": "After a long, fruitless search we decided on the alternative on the edge of town.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Rand, -̈er",
+    "en": "edge",
+    "article": "m.",
+    "level": "B1",
+    "example": "Wir haben uns ... für die Alternative am Stadtrand entschieden.",
+    "example_en": "We decided on the alternative on the edge of town.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Link, -s",
+    "en": "link",
+    "article": "m.",
+    "level": "B1",
+    "example": "Ich denke beim nächsten Mal an dich und stelle den Link hier ins Forum.",
+    "example_en": "I'll think of you next time and post the link here in the forum.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Staat, -en",
+    "en": "state, country",
+    "article": "m.",
+    "level": "B1",
+    "example": "Es gab zwei deutsche Staaten.",
+    "example_en": "There were two German states.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Mauer, -n",
+    "en": "wall",
+    "article": "f.",
+    "level": "B1",
+    "example": "Die beiden deutschen Staaten wurden wieder ein Land und die Mauer fiel.",
+    "example_en": "The two German states became one country again and the wall fell.",
+    "register": "everyday"
+  },
+  {
+    "de": "herrschen (hat geherrscht)",
+    "en": "to prevail, reign",
+    "article": "",
+    "level": "B1",
+    "example": "In Deutschland herrscht Ordnung.",
+    "example_en": "In Germany order prevails.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "herrschen",
+      "praeteritum_stamm": "herrschte",
+      "partizip2": "geherrscht",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "die Stufe, -n",
+    "en": "step, level",
+    "article": "f.",
+    "level": "B1",
+    "example": "Treppenstufen müssen mindestens so und so hoch sein.",
+    "example_en": "Steps must be at least so and so high.",
+    "register": "everyday"
+  },
+  {
+    "de": "mitten",
+    "en": "in the middle",
+    "article": "",
+    "level": "B1",
+    "example": "Warum es das Haus trotzdem gibt und das auch noch mitten in Berlin.",
+    "example_en": "Why the house still exists, and even right in the middle of Berlin.",
+    "register": "everyday"
+  },
+  {
+    "de": "eckig",
+    "en": "angular, cornered",
+    "article": "",
+    "level": "B1",
+    "example": "Zum Beispiel das kleine, dreieckige Stück Land nördlich der Thomaskirche.",
+    "example_en": "For example the small triangular piece of land north of the Thomaskirche.",
+    "register": "everyday"
+  },
+  {
+    "de": "nördlich",
+    "en": "north of",
+    "article": "",
+    "level": "B1",
+    "example": "Zum Beispiel das kleine, dreieckige Stück Land nördlich der Thomaskirche.",
+    "example_en": "For example the small triangular piece of land north of the Thomaskirche.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Chance, -n",
+    "en": "chance, opportunity",
+    "article": "f.",
+    "level": "B1",
+    "example": "Osman Kalin nutzt die Chance.",
+    "example_en": "Osman Kalin seizes the opportunity.",
+    "register": "everyday"
+  },
+  {
+    "de": "vergrößern (sich) (hat vergrößert)",
+    "en": "to enlarge, grow",
+    "article": "",
+    "level": "B1",
+    "example": "Er vergrößert seinen Garten nicht nur, sondern baut auch noch ein zweistöckiges Häuschen.",
+    "example_en": "He not only enlarges his garden, but also builds a two-storey little house.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vergrößern",
+      "praeteritum_stamm": "vergrößerte",
+      "partizip2": "vergrößert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "transitiv": true,
+      "governs": "accusative or reflexive (sich)"
+    }
+  },
+  {
+    "de": "längst",
+    "en": "long since, already for a long time",
+    "article": "",
+    "level": "B1",
+    "example": "Sind Kalin und seine „Sommerresidenz\" längst zu einer Touristenattraktion geworden.",
+    "example_en": "Kalin and his \"summer residence\" have long since become a tourist attraction.",
+    "register": "everyday"
+  },
+  {
+    "de": "trotz",
+    "en": "despite",
+    "article": "",
+    "level": "B1",
+    "example": "Trotz der fehlenden Baugenehmigung drücken sie ein Auge zu.",
+    "example_en": "Despite the missing building permit, they turn a blind eye.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Bau, -ten",
+    "en": "building, construction",
+    "article": "m.",
+    "level": "B1",
+    "example": "Trotz der fehlenden Baugenehmigung drücken sie ein Auge zu.",
+    "example_en": "Despite the missing building permit, they turn a blind eye.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Tourismus (Sg.)",
+    "en": "tourism",
+    "article": "m.",
+    "level": "B1",
+    "example": "Der Tourismus: Das Haus ist eine wichtige Sehenswürdigkeit.",
+    "example_en": "Tourism: the house is an important sight.",
+    "register": "everyday"
+  },
+  {
+    "de": "falls",
+    "en": "in case, if",
+    "article": "",
+    "level": "B1",
+    "example": "Wir sind jetzt per Du, falls Dich das interessiert.",
+    "example_en": "We're now on first-name terms, in case that interests you.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Chat, -s",
+    "en": "chat",
+    "article": "m.",
+    "level": "B1",
+    "example": "Lesen Sie den Chat und beantworten Sie die Fragen.",
+    "example_en": "Read the chat and answer the questions.",
+    "register": "everyday"
+  },
+  {
+    "de": "eventuell",
+    "en": "possibly, perhaps",
+    "article": "",
+    "level": "B1",
+    "example": "Eventuell haben Sie auch Angst vor negativen Konsequenzen.",
+    "example_en": "You might also be afraid of negative consequences.",
+    "register": "everyday"
+  },
+  {
+    "de": "zusagen (hat zugesagt)",
+    "en": "to agree, accept (an invitation)",
+    "article": "",
+    "level": "B1",
+    "example": "Sprechen Sie das Problem auch an, falls Sie schon zugesagt haben.",
+    "example_en": "Address the problem too, in case you've already agreed.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zusagen",
+      "praeteritum_stamm": "sagte zu",
+      "partizip2": "zugesagt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu"
+    }
+  },
+  {
+    "de": "nachher",
+    "en": "afterwards, later",
+    "article": "",
+    "level": "B1",
+    "example": "Falls Ihnen erst nachher klar wird, dass Sie das zeitlich nicht schaffen können.",
+    "example_en": "In case you only realise afterwards that you can't manage it in time.",
+    "register": "everyday"
+  },
+  {
+    "de": "tauschen (hat getauscht)",
+    "en": "to swap, exchange",
+    "article": "",
+    "level": "B1",
+    "example": "Vielleicht können Aufgaben getauscht werden?",
+    "example_en": "Maybe tasks can be swapped?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "tauschen",
+      "praeteritum_stamm": "tauschte",
+      "partizip2": "getauscht",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Kuli, -s",
+    "en": "pen, biro",
+    "article": "m.",
+    "level": "B1",
+    "example": "Es muss sich jemand um ... Blöcke und Kulis für die Teilnehmer kümmern.",
+    "example_en": "Someone needs to take care of notepads and pens for the participants.",
+    "register": "everyday"
+  },
+  {
+    "de": "morgig-",
+    "en": "tomorrow's",
+    "article": "",
+    "level": "B1",
+    "example": "Sie müssen heute die morgige Geschäftsreise für den Chef vorbereiten.",
+    "example_en": "Today you have to prepare tomorrow's business trip for the boss.",
+    "register": "everyday"
+  },
+  {
+    "de": "je",
+    "en": "the (comparative correlative)",
+    "article": "",
+    "level": "B1",
+    "example": "Je länger man wartet, desto schlechter wird die Stimmung.",
+    "example_en": "The longer you wait, the worse the mood gets.",
+    "register": "everyday"
+  },
+  {
+    "de": "desto",
+    "en": "the (comparative correlative)",
+    "article": "",
+    "level": "B1",
+    "example": "Je länger man wartet, desto schlechter wird die Stimmung.",
+    "example_en": "The longer you wait, the worse the mood gets.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Distanz, -en",
+    "en": "distance",
+    "article": "f.",
+    "level": "B1",
+    "example": "Ist es nicht schwierig, immer auf Distanz zu bleiben?",
+    "example_en": "Isn't it difficult to always keep your distance?",
+    "register": "everyday"
+  },
+  {
+    "de": "sinnvoll",
+    "en": "sensible, meaningful",
+    "article": "",
+    "level": "B1",
+    "example": "Auch sehr private Gesprächsthemen sind am Arbeitsplatz sinnvoll.",
+    "example_en": "Even very private conversation topics can be sensible in the workplace.",
+    "register": "everyday"
+  },
+  {
+    "de": "monatelang",
+    "en": "for months",
+    "article": "",
+    "level": "B1",
+    "example": "Mit ihm bin ich monatelang durch Asien gereist.",
+    "example_en": "I travelled through Asia with him for months.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Gedicht, -e",
+    "en": "poem",
+    "article": "n.",
+    "level": "B1",
+    "example": "Von ihm bekomme ich oft so schöne Gedichte.",
+    "example_en": "I often get such lovely poems from him.",
+    "register": "everyday"
+  },
+  {
+    "de": "duzen (hat geduzt)",
+    "en": "to address with 'du' (informal)",
+    "article": "",
+    "level": "B1",
+    "example": "In welchen Situationen werden Sie geduzt/gesiezt?",
+    "example_en": "In which situations are you addressed informally/formally?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "duzen",
+      "praeteritum_stamm": "duzte",
+      "partizip2": "geduzt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Elternabend, -e",
+    "en": "parents' evening",
+    "article": "m.",
+    "level": "B1",
+    "example": "Auf dem Elternabend werde ich vom Klassenlehrer gesiezt.",
+    "example_en": "At the parents' evening I'm addressed formally by the class teacher.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Werbung (Sg.)",
+    "en": "advertising",
+    "article": "f.",
+    "level": "B1",
+    "example": "Es gibt zunehmend Branchen, in denen das Du üblich ist, wie z.B. in der Werbung.",
+    "example_en": "There are increasingly industries where informal address is common, such as advertising.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Vergleich, -e",
+    "en": "comparison",
+    "article": "m.",
+    "level": "B1",
+    "example": "Im Arbeitsleben wird im Vergleich zu früher mehr geduzt.",
+    "example_en": "In working life, more people use informal address than before.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Gemeinschaft, -en",
+    "en": "community",
+    "article": "f.",
+    "level": "B1",
+    "example": "Das Du schafft Gemeinschaft.",
+    "example_en": "Using 'du' creates a sense of community.",
+    "register": "everyday"
+  },
+  {
+    "de": "derselbe",
+    "en": "the same",
+    "article": "",
+    "level": "B1",
+    "example": "Egal, ob man über die Kinder, die Nachbarn, denselben Arbeitsweg oder den Hund spricht.",
+    "example_en": "Whether one talks about the kids, the neighbours, the same commute, or the dog.",
+    "register": "everyday"
+  },
+  {
+    "de": "außer",
+    "en": "except, apart from",
+    "article": "",
+    "level": "B1",
+    "example": "Was muss außer der Anrede noch beachtet werden, wenn man höflich sein möchte?",
+    "example_en": "What else, apart from the form of address, must be considered to be polite?",
+    "register": "everyday"
+  },
+  {
+    "de": "die Form, -en",
+    "en": "form",
+    "article": "f.",
+    "level": "B1",
+    "example": "Es gibt zwei höfliche Anredeformen.",
+    "example_en": "There are two polite forms of address.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Eindruck, -̈e",
+    "en": "impression",
+    "article": "m.",
+    "level": "B1",
+    "example": "Ich habe den Eindruck, bei uns in der Ukraine siezt man öfter als in Deutschland.",
+    "example_en": "I have the impression that in Ukraine people use formal address more often than in Germany.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Ordner, -",
+    "en": "folder",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sami findet auf seinem Computer den Ordner „Alex Müller\" nicht.",
+    "example_en": "Sami can't find the folder \"Alex Müller\" on his computer.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Virus, Viren",
+    "en": "virus",
+    "article": "n.",
+    "level": "B1",
+    "example": "Oder dass ein Virus auf dem Computer ist.",
+    "example_en": "Or that there's a virus on the computer.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Monitor, -e",
+    "en": "monitor",
+    "article": "m.",
+    "level": "B1",
+    "example": "Liana schaltet die Computer und die Monitore ein.",
+    "example_en": "Liana switches on the computers and monitors.",
+    "register": "everyday"
+  },
+  {
+    "de": "anklicken (hat angeklickt)",
+    "en": "to click on",
+    "article": "",
+    "level": "B1",
+    "example": "Du musst das Programm mit der Maus anklicken.",
+    "example_en": "You have to click on the program with the mouse.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anklicken",
+      "praeteritum_stamm": "klickte an",
+      "partizip2": "angeklickt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Gott, -̈er",
+    "en": "god",
+    "article": "m.",
+    "level": "B1",
+    "example": "Gott sei Dank!",
+    "example_en": "Thank God!",
+    "register": "everyday"
+  },
+  {
+    "de": "tagelang",
+    "en": "for days",
+    "article": "",
+    "level": "B1",
+    "example": "Sie erledigen tagelang die dümmsten Arbeiten, ohne einen einzigen Fehler zu machen.",
+    "example_en": "They do the stupidest tasks for days without making a single mistake.",
+    "register": "everyday"
+  },
+  {
+    "de": "bevor",
+    "en": "before",
+    "article": "",
+    "level": "B1",
+    "example": "Man sollte lieber mal scharf nachdenken, bevor man solch einen Unsinn glaubt.",
+    "example_en": "You should think hard before believing such nonsense.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Unsinn (Sg.)",
+    "en": "nonsense",
+    "article": "m.",
+    "level": "B1",
+    "example": "Man sollte lieber mal scharf nachdenken, bevor man solch einen Unsinn glaubt.",
+    "example_en": "You should think hard before believing such nonsense.",
+    "register": "everyday"
+  },
+  {
+    "de": "nachdem",
+    "en": "after",
+    "article": "",
+    "level": "B1",
+    "example": "Nachdem du den Ordner „Alex Müller\" ... kopiert hattest, hast du ihn auf deinem Computer gelöscht.",
+    "example_en": "After you had copied the folder \"Alex Müller\", you deleted it on your computer.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Rechner, -",
+    "en": "computer",
+    "article": "m.",
+    "level": "B1",
+    "example": "Ab 16 Uhr wird auf Ihrem Rechner ein neues Antivirenprogramm installiert.",
+    "example_en": "From 4pm a new antivirus programme will be installed on your computer.",
+    "register": "everyday"
+  },
+  {
+    "de": "installieren (hat installiert)",
+    "en": "to install",
+    "article": "",
+    "level": "B1",
+    "example": "Ab 16 Uhr wird auf Ihrem Rechner ein neues Antivirenprogramm installiert.",
+    "example_en": "From 4pm a new antivirus programme will be installed on your computer.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "installieren",
+      "praeteritum_stamm": "installierte",
+      "partizip2": "installiert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Kursleiter, -",
+    "en": "course leader",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie möchten eine kleine Überraschungsfeier für Ihre Kursleiterin/Ihren Kursleiter organisieren.",
+    "example_en": "You want to organise a small surprise party for your course leader.",
+    "register": "everyday"
+  },
+  {
+    "de": "als ob",
+    "en": "as if",
+    "article": "",
+    "level": "B1",
+    "example": "Du tust ja so, als ob ich keine Ahnung hätte.",
+    "example_en": "You're acting as if I had no idea.",
+    "register": "everyday"
+  },
+  {
+    "de": "herrlich",
+    "en": "wonderful, lovely",
+    "article": "",
+    "level": "B1",
+    "example": "Ja, herrlich ist es hier.",
+    "example_en": "Yes, it's lovely here.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Manager, -",
+    "en": "manager",
+    "article": "m.",
+    "level": "B1",
+    "example": "Im Gespräch tut er so, als ob er Topmanager wäre.",
+    "example_en": "In conversation he acts as if he were a top manager.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Wohnblock, -̈e",
+    "en": "apartment block",
+    "article": "m.",
+    "level": "B1",
+    "example": "Wo wohnen Sie? – In einem Wohnblock im Zentrum von Hamburg.",
+    "example_en": "Where do you live? – In an apartment block in central Hamburg.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Salon, -s",
+    "en": "salon",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie sind im Waschsalon und möchten Ihre Wäsche waschen.",
+    "example_en": "You're at the launderette and want to wash your laundry.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Knopf, -̈e",
+    "en": "button",
+    "article": "m.",
+    "level": "B1",
+    "example": "Danach drücken Sie den Startknopf.",
+    "example_en": "After that press the start button.",
+    "register": "everyday"
+  },
+  {
+    "de": "erstellen (hat erstellt)",
+    "en": "to create",
+    "article": "",
+    "level": "B1",
+    "example": "Erklären Sie, wie Sie mit Ihrem Handy einen neuen Kontakt erstellen.",
+    "example_en": "Explain how you create a new contact on your phone.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erstellen",
+      "praeteritum_stamm": "erstellte",
+      "partizip2": "erstellt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "süchtig",
+    "en": "addicted",
+    "article": "",
+    "level": "B1",
+    "example": "Ich habe Angst, dass mein Sohn (16) spielsüchtig ist.",
+    "example_en": "I'm afraid my son (16) is addicted to gaming.",
+    "register": "everyday"
+  },
+  {
+    "de": "vorn",
+    "en": "at the front",
+    "article": "",
+    "level": "B1",
+    "example": "... und dann geht alles wieder von vorn los.",
+    "example_en": "... and then everything starts all over again from the front.",
+    "register": "everyday"
+  },
+  {
+    "de": "sämtlich-",
+    "en": "all, entire",
+    "article": "",
+    "level": "B1",
+    "example": "..., weil mein Mann sein sämtliches Geld für unwichtige Dinge ausgibt.",
+    "example_en": "... because my husband spends all his money on unimportant things.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Mountainbike, -s",
+    "en": "mountain bike",
+    "article": "n.",
+    "level": "B1",
+    "example": "Den Kredit für die Wohnung muss ich ganz alleine abbezahlen, ..., ein Mountainbike, ...",
+    "example_en": "I have to pay off the loan for the flat all by myself, ..., a mountain bike, ...",
+    "register": "everyday"
+  },
+  {
+    "de": "sowieso",
+    "en": "anyway",
+    "article": "",
+    "level": "B1",
+    "example": "...obwohl er die Berge sowieso nicht mag.",
+    "example_en": "...although he doesn't like the mountains anyway.",
+    "register": "everyday"
+  },
+  {
+    "de": "fort",
+    "en": "onward, on",
+    "article": "",
+    "level": "B1",
+    "example": "...und so weiter und so fort.",
+    "example_en": "...and so on and so forth.",
+    "register": "everyday"
+  },
+  {
+    "de": "wieso",
+    "en": "why",
+    "article": "",
+    "level": "B1",
+    "example": "Keine Ahnung, wieso dich das so aufregt.",
+    "example_en": "No idea why that upsets you so much.",
+    "register": "everyday"
+  },
+  {
+    "de": "aufregen (hat aufgeregt)",
+    "en": "to upset, agitate",
+    "article": "",
+    "level": "B1",
+    "example": "Keine Ahnung, wieso dich das so aufregt.",
+    "example_en": "No idea why that upsets you so much.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufregen",
+      "praeteritum_stamm": "regte auf",
+      "partizip2": "aufgeregt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "transitiv": true,
+      "reflexiv": true,
+      "governs": "accusative or reflexive (sich)"
+    }
+  },
+  {
+    "de": "digital",
+    "en": "digital",
+    "article": "",
+    "level": "B1",
+    "example": "Welchen Einfluss haben die digitalen Medien auf Kinder und Jugendliche?",
+    "example_en": "What influence do digital media have on children and young people?",
+    "register": "everyday"
+  },
+  {
+    "de": "die Diskussion, -en",
+    "en": "discussion",
+    "article": "f.",
+    "level": "B1",
+    "example": "Diskussion: Ein Leben ohne Handy, PC und Internet – ist das möglich?",
+    "example_en": "Discussion: a life without phone, PC and internet – is that possible?",
+    "register": "everyday"
+  },
+  {
+    "de": "der Moderator, -en",
+    "en": "moderator, host",
+    "article": "m.",
+    "level": "B1",
+    "example": "Moderator. Er leitet die Diskussion und achtet darauf, dass alle zu Wort kommen.",
+    "example_en": "Moderator. He leads the discussion and ensures everyone gets to speak.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Standpunkt, -e",
+    "en": "point of view, standpoint",
+    "article": "m.",
+    "level": "B1",
+    "example": "Er leitet die Diskussion und achtet darauf, dass alle ihren Standpunkt zum Thema sagen können.",
+    "example_en": "He leads the discussion and ensures everyone can state their point of view on the topic.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Haut (Sg.)",
+    "en": "skin",
+    "article": "f.",
+    "level": "B1",
+    "example": "Hautausschlag: Punkte, z.B. im Gesicht, auf der Brust oder am Hals.",
+    "example_en": "Skin rash: spots, e.g. on the face, chest or neck.",
+    "register": "everyday"
+  },
+  {
+    "de": "live",
+    "en": "live",
+    "article": "",
+    "level": "B1",
+    "example": "Er kam mit dem Tee zum „Stadtkurier\" und wir machten einen Live-Allergie-Test in der Redaktion.",
+    "example_en": "He came to the \"Stadtkurier\" with the tea and we did a live allergy test in the editorial office.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Sieger, -",
+    "en": "winner",
+    "article": "m.",
+    "level": "B1",
+    "example": "Die Antwort des strahlenden Siegers: Wer sich nicht wehrt, lebt verkehrt.",
+    "example_en": "The beaming winner's answer: whoever doesn't stand up for themselves is doing life wrong.",
+    "register": "everyday"
+  },
+  {
+    "de": "behandeln (hat behandelt)",
+    "en": "to treat",
+    "article": "",
+    "level": "B1",
+    "example": "Wenn man ungerecht behandelt wird, muss man etwas dagegen tun.",
+    "example_en": "If you're treated unfairly, you have to do something about it.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "behandeln",
+      "praeteritum_stamm": "behandelte",
+      "partizip2": "behandelt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "vorig-",
+    "en": "previous, last",
+    "article": "",
+    "level": "B1",
+    "example": "Vorige Woche ...",
+    "example_en": "Last week ...",
+    "register": "everyday"
+  },
+  {
+    "de": "schalten (hat geschaltet)",
+    "en": "to switch (channel)",
+    "article": "",
+    "level": "B1",
+    "example": "Wenn ich im Fernsehen Werbung sehe, schalte ich sofort um.",
+    "example_en": "When I see advertising on TV, I switch channels immediately.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schalten",
+      "praeteritum_stamm": "schaltete",
+      "partizip2": "geschaltet",
+      "hilfsverb": "haben"
+    }
+  },
+  {
+    "de": "die Limonade, -n",
+    "en": "lemonade, soft drink",
+    "article": "f.",
+    "level": "B1",
+    "example": "Limonade – schmeckt fruchtig und erfrischend.",
+    "example_en": "Lemonade – tastes fruity and refreshing.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Lieferung, -en",
+    "en": "delivery",
+    "article": "f.",
+    "level": "B1",
+    "example": "Das ist nun schon die zweite falsche Lieferung.",
+    "example_en": "That's now already the second wrong delivery.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Bedingung, -en",
+    "en": "condition",
+    "article": "f.",
+    "level": "B1",
+    "example": "Die Hersteller haben da leider unterschiedliche Garantiebedingungen.",
+    "example_en": "Unfortunately manufacturers have different warranty conditions there.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Fotoapparat, -e",
+    "en": "camera",
+    "article": "m.",
+    "level": "B1",
+    "example": "Ihr Fotoapparat ist nicht so gut wie in der Werbung versprochen.",
+    "example_en": "Your camera isn't as good as promised in the advertisement.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Beleg, -e",
+    "en": "receipt, proof",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie sind mit dem Vorschlag einverstanden, aber Sie haben keinen Beleg.",
+    "example_en": "You agree with the suggestion, but you have no receipt.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Umtausch, -̈e",
+    "en": "exchange (of goods)",
+    "article": "m.",
+    "level": "B1",
+    "example": "Vorschlag: Umtausch.",
+    "example_en": "Suggestion: exchange.",
+    "register": "everyday"
+  },
+  {
+    "de": "benötigen (hat benötigt)",
+    "en": "to need, require",
+    "article": "",
+    "level": "B1",
+    "example": "Es wird die Rechnung benötigt.",
+    "example_en": "The invoice is required.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "benötigen",
+      "praeteritum_stamm": "benötigte",
+      "partizip2": "benötigt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "gratis",
+    "en": "free of charge",
+    "article": "",
+    "level": "B1",
+    "example": "Sie wollen keine Gratisstunden, sondern das Geld zurück.",
+    "example_en": "You don't want free hours, but your money back.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Schlange, -n",
+    "en": "queue, line",
+    "article": "f.",
+    "level": "B1",
+    "example": "Die andere Schlange kommt stets schneller voran.",
+    "example_en": "The other queue always moves faster.",
+    "register": "everyday"
+  },
+  {
+    "de": "schief",
+    "en": "wrong, crooked",
+    "article": "",
+    "level": "B1",
+    "example": "Es gibt so Tage, an denen geht alles schief, was schiefgehen kann.",
+    "example_en": "There are days when everything that can go wrong does go wrong.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Missgeschick, -e",
+    "en": "mishap",
+    "article": "n.",
+    "level": "B1",
+    "example": "Peinliche und lustige Pannen und Missgeschicke.",
+    "example_en": "Embarrassing and funny mishaps and blunders.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Fahrzeug, -e",
+    "en": "vehicle",
+    "article": "n.",
+    "level": "B1",
+    "example": "Ein hupendes Fahrzeug ist ein Fahrzeug, das hupt.",
+    "example_en": "A honking vehicle is a vehicle that honks.",
+    "register": "everyday"
+  },
+  {
+    "de": "ausgezeichnet",
+    "en": "excellent",
+    "article": "",
+    "level": "B1",
+    "example": "Das Essen gelingt immer und schmeckt ausgezeichnet.",
+    "example_en": "The food always turns out well and tastes excellent.",
+    "register": "everyday"
+  },
+  {
+    "de": "reinigen (hat gereinigt)",
+    "en": "to clean",
+    "article": "",
+    "level": "B1",
+    "example": "Er reinigt sich selbstständig.",
+    "example_en": "It cleans itself independently.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "reinigen",
+      "praeteritum_stamm": "reinigte",
+      "partizip2": "gereinigt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "transitiv": true,
+      "governs": "accusative or reflexive (sich)"
+    }
+  },
+  {
+    "de": "drehen (sich) (hat gedreht)",
+    "en": "to turn, rotate",
+    "article": "",
+    "level": "B1",
+    "example": "Das sich drehende Auto.",
+    "example_en": "The car that turns.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "drehen",
+      "praeteritum_stamm": "drehte",
+      "partizip2": "gedreht",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "transitiv": true,
+      "governs": "accusative or reflexive (sich)"
+    }
+  },
+  {
+    "de": "hinterher",
+    "en": "afterwards",
+    "article": "",
+    "level": "B1",
+    "example": "Hinterher konnte telefonisch über die 50 am häufigsten genannten Ideen abgestimmt werden.",
+    "example_en": "Afterwards it was possible to vote by phone on the 50 most frequently mentioned ideas.",
+    "register": "everyday"
+  },
+  {
+    "de": "abstimmen (hat abgestimmt)",
+    "en": "to vote",
+    "article": "",
+    "level": "B1",
+    "example": "Hinterher konnte telefonisch über die 50 am häufigsten genannten Ideen abgestimmt werden.",
+    "example_en": "Afterwards it was possible to vote by phone on the 50 most frequently mentioned ideas.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "abstimmen",
+      "praeteritum_stamm": "stimmte ab",
+      "partizip2": "abgestimmt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "governs": "über + accusative"
+    }
+  },
+  {
+    "de": "der Snack, -s",
+    "en": "snack",
+    "article": "m.",
+    "level": "B1",
+    "example": "Eine Jury probierte die drei besten Snacks und wählte die Nussmischung.",
+    "example_en": "A jury tried the three best snacks and chose the nut mix.",
+    "register": "everyday"
+  },
+  {
+    "de": "einerseits",
+    "en": "on the one hand",
+    "article": "",
+    "level": "B1",
+    "example": "Sie sparen einerseits Kosten für die Marktforschung, andererseits auch Kosten für Verbrauchertests.",
+    "example_en": "On the one hand they save costs for market research, on the other hand also costs for consumer tests.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Forschung, -en",
+    "en": "research",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sie sparen ... Kosten für die Marktforschung.",
+    "example_en": "They save costs for market research.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Verbraucher, -",
+    "en": "consumer",
+    "article": "m.",
+    "level": "B1",
+    "example": "Die Verbraucher, die freiwillig bei der Entwicklung von neuen Produkten mithelfen, werden in der Regel gut bezahlt.",
+    "example_en": "Consumers who voluntarily help develop new products are usually paid well.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Projekt, -e",
+    "en": "project",
+    "article": "n.",
+    "level": "B1",
+    "example": "Würden Sie bei so einem Projekt mitmachen?",
+    "example_en": "Would you take part in such a project?",
+    "register": "everyday"
+  },
+  {
+    "de": "die Pflaume, -n",
+    "en": "plum",
+    "article": "f.",
+    "level": "B1",
+    "example": "Weiße Schokolade mit Pflaume und Aprikose.",
+    "example_en": "White chocolate with plum and apricot.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Aprikose, -n",
+    "en": "apricot",
+    "article": "f.",
+    "level": "B1",
+    "example": "Weiße Schokolade mit Pflaume und Aprikose.",
+    "example_en": "White chocolate with plum and apricot.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Kampf, -̈e",
+    "en": "fight, struggle",
+    "article": "m.",
+    "level": "B1",
+    "example": "Tag für Tag die gleichen Kämpfe mit Luis: ...",
+    "example_en": "Day after day the same fights with Luis: ...",
+    "register": "everyday"
+  },
+  {
+    "de": "neulich",
+    "en": "recently",
+    "article": "",
+    "level": "B1",
+    "example": "Paola hat dann neulich eine sprechende Zahnbürste gekauft.",
+    "example_en": "Paola recently bought a talking toothbrush.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Griff, -e",
+    "en": "handle, grip",
+    "article": "m.",
+    "level": "B1",
+    "example": "..., mit neongelber Bürste und einer kleinen sommersprossigen Figur am Griff.",
+    "example_en": "..., with a neon-yellow brush and a small freckled figure on the handle.",
+    "register": "everyday"
+  },
+  {
+    "de": "weitermachen (hat weitergemacht)",
+    "en": "to continue, carry on",
+    "article": "",
+    "level": "B1",
+    "example": "...sagte die Zahnbürste mit roboterhafter Stimme: Weitermachen!",
+    "example_en": "...said the toothbrush in a robotic voice: Keep going!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "weitermachen",
+      "praeteritum_stamm": "machte weiter",
+      "partizip2": "weitergemacht",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "weiter"
+    }
+  },
+  {
+    "de": "der Dieb, -e",
+    "en": "thief",
+    "article": "m.",
+    "level": "B1",
+    "example": "Ist ein Dieb im Bad, ...?",
+    "example_en": "Is there a thief in the bathroom, ...?",
+    "register": "everyday"
+  },
+  {
+    "de": "entschlossen sein",
+    "en": "to be determined",
+    "article": "",
+    "level": "B1",
+    "example": "Entschlossen öffnete ich die Tür und machte Licht.",
+    "example_en": "Determined, I opened the door and turned on the light.",
+    "register": "everyday"
+  },
+  {
+    "de": "schütteln (hat geschüttelt)",
+    "en": "to shake",
+    "article": "",
+    "level": "B1",
+    "example": "Ich schüttelte sie, aber sie sprach weiter.",
+    "example_en": "I shook it, but it kept talking.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schütteln",
+      "praeteritum_stamm": "schüttelte",
+      "partizip2": "geschüttelt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "schlagen (hat geschlagen)",
+    "en": "to hit, beat",
+    "article": "",
+    "level": "B1",
+    "example": "Ich konnte mir nicht den Rest der Nacht mit der Zahnbürste um die Ohren schlagen.",
+    "example_en": "I couldn't spend the rest of the night dealing with the toothbrush.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "schlagen",
+      "praesens_stamm": "schlägst",
+      "praeteritum_stamm": "schlug",
+      "partizip2": "geschlagen",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "illegal",
+    "en": "illegal",
+    "article": "",
+    "level": "B1",
+    "example": "Das ist doch illegal!",
+    "example_en": "That's illegal!",
+    "register": "everyday"
+  },
+  {
+    "de": "anzeigen (hat angezeigt)",
+    "en": "to report (to police)",
+    "article": "",
+    "level": "B1",
+    "example": "Ich finde, das muss angezeigt und bestraft werden.",
+    "example_en": "I think that has to be reported and punished.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "anzeigen",
+      "praeteritum_stamm": "zeigte an",
+      "partizip2": "angezeigt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "an",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "bestrafen (hat bestraft)",
+    "en": "to punish",
+    "article": "",
+    "level": "B1",
+    "example": "Ich finde, das muss angezeigt und bestraft werden.",
+    "example_en": "I think that has to be reported and punished.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bestrafen",
+      "praeteritum_stamm": "bestrafte",
+      "partizip2": "bestraft",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Kasten, -̈",
+    "en": "box, crate",
+    "article": "m.",
+    "level": "B1",
+    "example": "Also „vergessen\" sie schon mal, die Zeitung zu bezahlen, die sie aus dem Zeitungskasten nehmen.",
+    "example_en": "So they sometimes \"forget\" to pay for the newspaper they take from the newspaper box.",
+    "register": "everyday"
+  },
+  {
+    "de": "zerstören (hat zerstört)",
+    "en": "to destroy",
+    "article": "",
+    "level": "B1",
+    "example": "Ihr zerstört Vertrauen!",
+    "example_en": "You are destroying trust!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zerstören",
+      "praeteritum_stamm": "zerstörte",
+      "partizip2": "zerstört",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "das Vertrauen (Sg.)",
+    "en": "trust",
+    "article": "n.",
+    "level": "B1",
+    "example": "Ihr zerstört Vertrauen!",
+    "example_en": "You are destroying trust!",
+    "register": "everyday"
+  },
+  {
+    "de": "weggehen (ist weggegangen)",
+    "en": "to go away, leave",
+    "article": "",
+    "level": "B1",
+    "example": "Sie werden jetzt sofort hier weggehen, damit ich losfahren kann.",
+    "example_en": "You will leave here right now so that I can drive off.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "weggehen",
+      "praeteritum_stamm": "ging weg",
+      "partizip2": "weggegangen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "weg"
+    }
+  },
+  {
+    "de": "das Gebiet, -e",
+    "en": "area, region",
+    "article": "n.",
+    "level": "B1",
+    "example": "Auch im benachbarten Ausland wird es in den Skigebieten voraussichtlich lange Staus geben.",
+    "example_en": "Long traffic jams are also expected in the ski areas of neighbouring countries.",
+    "register": "everyday"
+  },
+  {
+    "de": "behindern (hat behindert)",
+    "en": "to obstruct, hinder",
+    "article": "",
+    "level": "B1",
+    "example": "Sie behindern die Fußgänger.",
+    "example_en": "They obstruct the pedestrians.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "behindern",
+      "praeteritum_stamm": "behinderte",
+      "partizip2": "behindert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "die Aufforderung, -en",
+    "en": "request, demand",
+    "article": "f.",
+    "level": "B1",
+    "example": "Drückt Aufforderungen aus.",
+    "example_en": "Expresses requests/demands.",
+    "register": "everyday"
+  },
+  {
+    "de": "endgültig",
+    "en": "final, definite",
+    "article": "",
+    "level": "B1",
+    "example": "Endgültig das Rauchen aufgeben.",
+    "example_en": "To give up smoking for good.",
+    "register": "everyday"
+  },
+  {
+    "de": "aufgeben (hat aufgegeben)",
+    "en": "to give up",
+    "article": "",
+    "level": "B1",
+    "example": "Endgültig das Rauchen aufgeben.",
+    "example_en": "To give up smoking for good.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufgeben",
+      "praesens_stamm": "gibst auf",
+      "praeteritum_stamm": "gab auf",
+      "partizip2": "aufgegeben",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "bemühen (sich) (hat sich bemüht)",
+    "en": "to make an effort, try hard",
+    "article": "",
+    "level": "B1",
+    "example": "Mich bemühen, regelmäßig Sport zu machen.",
+    "example_en": "To make an effort to exercise regularly.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bemühen",
+      "praeteritum_stamm": "bemühte",
+      "partizip2": "bemüht",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich) + um"
+    }
+  },
+  {
+    "de": "die Erkältung, -en",
+    "en": "cold (illness)",
+    "article": "f.",
+    "level": "B1",
+    "example": "Jede Erkältung ernst nehmen.",
+    "example_en": "To take every cold seriously.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Flöte, -n",
+    "en": "flute",
+    "article": "f.",
+    "level": "B1",
+    "example": "Ein Instrument, z.B. Flöte, lernen.",
+    "example_en": "To learn an instrument, e.g. flute.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Instrument, -e",
+    "en": "instrument",
+    "article": "n.",
+    "level": "B1",
+    "example": "Ein Instrument, z.B. Flöte, lernen.",
+    "example_en": "To learn an instrument, e.g. flute.",
+    "register": "everyday"
+  },
+  {
+    "de": "vornehmen (sich) (hat sich vorgenommen)",
+    "en": "to plan, resolve to do",
+    "article": "",
+    "level": "B1",
+    "example": "Das habe ich mir fest vorgenommen, ...",
+    "example_en": "I've firmly resolved to do that, ...",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vornehmen",
+      "praesens_stamm": "nimmst dir vor",
+      "praeteritum_stamm": "nahm sich vor",
+      "partizip2": "vorgenommen",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "trennbares_praefix": "vor",
+      "governs": "reflexive (sich) + accusative"
+    }
+  },
+  {
+    "de": "realistisch",
+    "en": "realistic",
+    "article": "",
+    "level": "B1",
+    "example": "Das ist doch nicht realistisch!",
+    "example_en": "That's not realistic!",
+    "register": "everyday"
+  },
+  {
+    "de": "bereit",
+    "en": "ready",
+    "article": "",
+    "level": "B1",
+    "example": "Das Smartphone allzeit bereit.",
+    "example_en": "The smartphone, always ready.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Generation, -en",
+    "en": "generation",
+    "article": "f.",
+    "level": "B1",
+    "example": "Was für manche als unhöflich gilt, ist für Menschen aus einer anderen Generation vielleicht durchaus üblich.",
+    "example_en": "What is considered impolite by some may be quite normal for people from a different generation.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Hauptbahnhof, -̈e",
+    "en": "main station",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie haben sich mit einem Freund am Hauptbahnhof verabredet.",
+    "example_en": "You've arranged to meet a friend at the main station.",
+    "register": "everyday"
+  },
+  {
+    "de": "verspäten (sich) (hat sich verspätet)",
+    "en": "to be late",
+    "article": "",
+    "level": "B1",
+    "example": "Er verspätet sich um 20 Minuten, ohne Sie vorher informiert zu haben.",
+    "example_en": "He is 20 minutes late without having informed you beforehand.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verspäten",
+      "praeteritum_stamm": "verspätete",
+      "partizip2": "verspätet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "die Runde, -n",
+    "en": "round, group",
+    "article": "f.",
+    "level": "B1",
+    "example": "Einer in der Runde nimmt plötzlich sein Handy und schreibt eine Nachricht.",
+    "example_en": "Someone in the group suddenly takes out their phone and writes a message.",
+    "register": "everyday"
+  },
+  {
+    "de": "der ICE, -s",
+    "en": "high-speed train (Intercity-Express)",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie sitzen im ICE im Speisewagen und möchten in Ruhe lesen.",
+    "example_en": "You're sitting in the ICE dining car and want to read in peace.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Speisewagen, -",
+    "en": "dining car",
+    "article": "m.",
+    "level": "B1",
+    "example": "Sie sitzen im ICE im Speisewagen und möchten in Ruhe lesen.",
+    "example_en": "You're sitting in the ICE dining car and want to read in peace.",
+    "register": "everyday"
+  },
+  {
+    "de": "minutenlang",
+    "en": "for minutes",
+    "article": "",
+    "level": "B1",
+    "example": "Neben Ihnen führt ein junger Mann minutenlang mit lauter Stimme Geschäftstelefonate.",
+    "example_en": "Next to you, a young man is having loud business calls for minutes.",
+    "register": "everyday"
+  },
+  {
+    "de": "weigern (sich) (hat sich geweigert)",
+    "en": "to refuse",
+    "article": "",
+    "level": "B1",
+    "example": "Sie weigert sich, „Danke\" zu sagen, nimmt das Geschenk und verschwindet in ihr Zimmer.",
+    "example_en": "She refuses to say \"thank you\", takes the gift and disappears into her room.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "weigern",
+      "praeteritum_stamm": "weigerte",
+      "partizip2": "geweigert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "zuschauen (hat zugeschaut)",
+    "en": "to watch, look on",
+    "article": "",
+    "level": "B1",
+    "example": "Die Eltern schauen zu, ohne etwas zu sagen, und lächeln.",
+    "example_en": "The parents watch without saying anything and smile.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "zuschauen",
+      "praeteritum_stamm": "schaute zu",
+      "partizip2": "zugeschaut",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu",
+      "governs": "dative"
+    }
+  },
+  {
+    "de": "unerträglich",
+    "en": "unbearable",
+    "article": "",
+    "level": "B1",
+    "example": "Sie finden den Geruch unerträglich.",
+    "example_en": "You find the smell unbearable.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Ausnahme, -n",
+    "en": "exception",
+    "article": "f.",
+    "level": "B1",
+    "example": "in Ausnahmen möglich.",
+    "example_en": "possible in exceptions.",
+    "register": "everyday"
+  },
+  {
+    "de": "absolut",
+    "en": "absolutely",
+    "article": "",
+    "level": "B1",
+    "example": "absolut unmöglich.",
+    "example_en": "absolutely impossible.",
+    "register": "everyday"
+  },
+  {
+    "de": "eindeutig",
+    "en": "clear, unambiguous",
+    "article": "",
+    "level": "B1",
+    "example": "In meiner Heimat wäre es eindeutig unhöflich, wenn man in öffentlichen Verkehrsmitteln isst.",
+    "example_en": "In my home country it would clearly be impolite to eat on public transport.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Geschwindigkeitsbeschränkung, -en",
+    "en": "speed limit",
+    "article": "f.",
+    "level": "B1",
+    "example": "Er hat sich nicht an die Geschwindigkeitsbeschränkung gehalten.",
+    "example_en": "He didn't stick to the speed limit.",
+    "register": "everyday"
+  },
+  {
+    "de": "überqueren (hat überquert)",
+    "en": "to cross",
+    "article": "",
+    "level": "B1",
+    "example": "Sie haben mit dem Fahrrad bei Rot die Straße überquert.",
+    "example_en": "You crossed the street on a red light while cycling.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "überqueren",
+      "praeteritum_stamm": "überquerte",
+      "partizip2": "überquert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "vorkommen (ist vorgekommen)",
+    "en": "to happen, occur",
+    "article": "",
+    "level": "B1",
+    "example": "Es wird bestimmt nie wieder vorkommen.",
+    "example_en": "It certainly will never happen again.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorkommen",
+      "praeteritum_stamm": "kam vor",
+      "partizip2": "vorgekommen",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "vor"
+    }
+  },
+  {
+    "de": "das Missverständnis, -se",
+    "en": "misunderstanding",
+    "article": "n.",
+    "level": "B1",
+    "example": "Das Thema ist: Interkulturelle Missverständnisse.",
+    "example_en": "The topic is: intercultural misunderstandings.",
+    "register": "everyday"
+  },
+  {
+    "de": "kulturell",
+    "en": "cultural",
+    "article": "",
+    "level": "B1",
+    "example": "Das Gefühl von Fremdheit hat mit der kulturellen und geografischen Distanz zum Herkunftsland zu tun.",
+    "example_en": "The feeling of foreignness has to do with the cultural and geographic distance to the country of origin.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Herkunftsland, -̈er",
+    "en": "country of origin",
+    "article": "n.",
+    "level": "B1",
+    "example": "Das Gefühl von Fremdheit hat mit der kulturellen und geografischen Distanz zum Herkunftsland zu tun.",
+    "example_en": "The feeling of foreignness has to do with the cultural and geographic distance to the country of origin.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Flucht (Sg.)",
+    "en": "flight, escape",
+    "article": "f.",
+    "level": "B1",
+    "example": "Wenn man auf der Flucht ist und sein Heimatland verlassen musste, fühlt man sich zuerst überall fremd und hat Heimweh.",
+    "example_en": "If you're fleeing and had to leave your homeland, at first you feel out of place everywhere and homesick.",
+    "register": "everyday"
+  },
+  {
+    "de": "verhalten (sich) (hat sich verhalten)",
+    "en": "to behave",
+    "article": "",
+    "level": "B1",
+    "example": "Wie verhalten sich Deutsche und Araber bei privaten Einladungen?",
+    "example_en": "How do Germans and Arabs behave at private invitations?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verhalten",
+      "praesens_stamm": "verhältst dich",
+      "praeteritum_stamm": "verhielt sich",
+      "partizip2": "verhalten",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "beleidigen (hat beleidigt)",
+    "en": "to insult, offend",
+    "article": "",
+    "level": "B1",
+    "example": "In Damaskus fühlt sich jeder Gastgeber beleidigt, wenn seine Gäste etwas zu essen mitbringen.",
+    "example_en": "In Damascus every host feels offended if their guests bring something to eat.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beleidigen",
+      "praeteritum_stamm": "beleidigte",
+      "partizip2": "beleidigt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "behaupten (hat behauptet)",
+    "en": "to claim, assert",
+    "article": "",
+    "level": "B1",
+    "example": "Er kann nicht bloß einfach behaupten, dass er das Essen gut findet, er muss es beweisen.",
+    "example_en": "He can't just simply claim he likes the food, he has to prove it.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "behaupten",
+      "praeteritum_stamm": "behauptete",
+      "partizip2": "behauptet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "verständlich",
+    "en": "understandable",
+    "article": "",
+    "level": "B1",
+    "example": "Ein guter arabischer Koch kann aber gar nicht die Entstehung eines Gerichts knapp und verständlich beschreiben.",
+    "example_en": "A good Arab cook can't at all describe the origin of a dish briefly and understandably.",
+    "register": "everyday"
+  },
+  {
+    "de": "loben (hat gelobt)",
+    "en": "to praise",
+    "article": "",
+    "level": "B1",
+    "example": "...entschuldigen sich dafür und loben dabei die zusätzliche Person als einen Engel der guten Laune.",
+    "example_en": "...apologise for it and praise the additional person as an angel of good cheer.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "loben",
+      "praeteritum_stamm": "lobte",
+      "partizip2": "gelobt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "die Anzahl (Sg.)",
+    "en": "number, quantity",
+    "article": "f.",
+    "level": "B1",
+    "example": "Anzahl der Gäste.",
+    "example_en": "Number of guests.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Biene, -n",
+    "en": "bee",
+    "article": "f.",
+    "level": "B1",
+    "example": "Welches Tier ist das? – Eine Biene.",
+    "example_en": "What animal is that? – A bee.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Schwierigkeit, -en",
+    "en": "difficulty",
+    "article": "f.",
+    "level": "B1",
+    "example": "Welche Schwierigkeiten haben Eltern im Sommer häufig?",
+    "example_en": "What difficulties do parents often have in summer?",
+    "register": "everyday"
+  },
+  {
+    "de": "der Zirkus, -se",
+    "en": "circus",
+    "article": "m.",
+    "level": "B1",
+    "example": "Wir lernen und üben Zirkustechniken, bis wir sie auf dem Sommerfest aufführen können.",
+    "example_en": "We learn and practise circus techniques until we can perform them at the summer festival.",
+    "register": "everyday"
+  },
+  {
+    "de": "aufführen (hat aufgeführt)",
+    "en": "to perform",
+    "article": "",
+    "level": "B1",
+    "example": "Wir lernen und üben Zirkustechniken, bis wir sie auf dem Sommerfest vor Publikum aufführen können.",
+    "example_en": "We learn and practise circus techniques until we can perform them in front of an audience at the summer festival.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "aufführen",
+      "praeteritum_stamm": "führte auf",
+      "partizip2": "aufgeführt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "auf",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "sonstig-",
+    "en": "other, further",
+    "article": "",
+    "level": "B1",
+    "example": "Sonstige Angebote: Tagesmuttervermittlung, ...",
+    "example_en": "Other services: childminder placement, ...",
+    "register": "everyday"
+  },
+  {
+    "de": "die Tagesmutter, -̈",
+    "en": "childminder",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sonstige Angebote: Tagesmuttervermittlung, ...",
+    "example_en": "Other services: childminder placement, ...",
+    "register": "everyday"
+  },
+  {
+    "de": "die Vermittlung, -en",
+    "en": "placement, mediation",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sonstige Angebote: Tagesmuttervermittlung, ...",
+    "example_en": "Other services: childminder placement, ...",
+    "register": "everyday"
+  },
+  {
+    "de": "pensioniert sein",
+    "en": "to be retired",
+    "article": "",
+    "level": "B1",
+    "example": "Seit Sie pensioniert sind, sind Sie auf der Suche nach einem neuen Hobby?",
+    "example_en": "Since you retired, are you looking for a new hobby?",
+    "register": "everyday"
+  },
+  {
+    "de": "der Augenblick, -e",
+    "en": "moment",
+    "article": "m.",
+    "level": "B1",
+    "example": "Schreibend suchen wir nach kleinen und vielleicht vergessenen Augenblicken, die das Leben liebenswert machen.",
+    "example_en": "Through writing we look for small, perhaps forgotten moments that make life worth living.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Kreis, -e",
+    "en": "circle, group",
+    "article": "m.",
+    "level": "B1",
+    "example": "Singkreis: Für alle Musikfreunde, die gern singen oder ein Instrument spielen.",
+    "example_en": "Singing circle: for all music lovers who enjoy singing or playing an instrument.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Dienst, -e",
+    "en": "service",
+    "article": "m.",
+    "level": "B1",
+    "example": "Begleit- und Fahrdienste.",
+    "example_en": "Escort and driving services.",
+    "register": "everyday"
+  },
+  {
+    "de": "vorlesen (hat vorgelesen)",
+    "en": "to read aloud",
+    "article": "",
+    "level": "B1",
+    "example": "Besuchsdienste: Zuhören oder Vorlesen, Gespräche.",
+    "example_en": "Visiting services: listening or reading aloud, conversations.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "vorlesen",
+      "praesens_stamm": "liest vor",
+      "praeteritum_stamm": "las vor",
+      "partizip2": "vorgelesen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "vor",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "zukünftig",
+    "en": "future",
+    "article": "",
+    "level": "B1",
+    "example": "Sie arbeiten zukünftig montags am Vormittag und suchen eine Betreuung für Ihre dreijährige Tochter.",
+    "example_en": "You'll be working Monday mornings in future and are looking for childcare for your three-year-old daughter.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Betreuung, -en",
+    "en": "care, supervision",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sie ... suchen eine Betreuung für Ihre dreijährige Tochter.",
+    "example_en": "You're looking for childcare for your three-year-old daughter.",
+    "register": "everyday"
+  },
+  {
+    "de": "wöchentlich",
+    "en": "weekly",
+    "article": "",
+    "level": "B1",
+    "example": "Ihre Mutter hat sich einen Arm gebrochen und muss zweimal wöchentlich zum Arzt gefahren werden.",
+    "example_en": "Your mother broke her arm and needs to be driven to the doctor twice a week.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Geduld (Sg.)",
+    "en": "patience",
+    "article": "f.",
+    "level": "B1",
+    "example": "Bis wir wieder einen freien Platz haben, müssen Sie allerdings etwas Geduld haben.",
+    "example_en": "Until we have a free spot again, you'll need a bit of patience.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Jugend (Sg.)",
+    "en": "youth",
+    "article": "f.",
+    "level": "B1",
+    "example": "Neben Sportvereinen gibt es Musikvereine, soziale Vereine, Jugendklubs, ...",
+    "example_en": "Besides sports clubs there are music clubs, social clubs, youth clubs, ...",
+    "register": "everyday"
+  },
+  {
+    "de": "die Feuerwehr, -en",
+    "en": "fire brigade",
+    "article": "f.",
+    "level": "B1",
+    "example": "...die freiwillige Feuerwehr und vieles mehr.",
+    "example_en": "...the voluntary fire brigade and much more.",
+    "register": "everyday"
+  },
+  {
+    "de": "beinahe",
+    "en": "almost, nearly",
+    "article": "",
+    "level": "B1",
+    "example": "Beinahe jeder dritte Deutsche verbringt dort seine Freizeit.",
+    "example_en": "Almost every third German spends their free time there.",
+    "register": "everyday"
+  },
+  {
+    "de": "eintreten (ist eingetreten)",
+    "en": "to join, enter",
+    "article": "",
+    "level": "B1",
+    "example": "Ein Freund gab mir den Tipp: Tritt in einen Verein ein!",
+    "example_en": "A friend gave me the tip: join a club!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "eintreten",
+      "praesens_stamm": "trittst ein",
+      "praeteritum_stamm": "trat ein",
+      "partizip2": "eingetreten",
+      "hilfsverb": "sein",
+      "trennbares_praefix": "ein",
+      "governs": "in + accusative"
+    }
+  },
+  {
+    "de": "jahrzehntelang",
+    "en": "for decades",
+    "article": "",
+    "level": "B1",
+    "example": "Ich habe Brände gelöscht, war bei Einsätzen dabei. Jahrzehntelang!",
+    "example_en": "I put out fires, was there for missions. For decades!",
+    "register": "everyday"
+  },
+  {
+    "de": "solange",
+    "en": "as long as",
+    "article": "",
+    "level": "B1",
+    "example": "Aber ich helfe, indem ich die Kinder betreue und versorge, solange die Eltern im Einsatz sind.",
+    "example_en": "But I help by looking after and caring for the children, as long as the parents are on duty.",
+    "register": "everyday"
+  },
+  {
+    "de": "versorgen (hat versorgt)",
+    "en": "to look after, provide for",
+    "article": "",
+    "level": "B1",
+    "example": "Aber ich helfe, indem ich die Kinder betreue und versorge.",
+    "example_en": "But I help by looking after and providing for the children.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "versorgen",
+      "praeteritum_stamm": "versorgte",
+      "partizip2": "versorgt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "hinweisen (hat hingewiesen)",
+    "en": "to point out",
+    "article": "",
+    "level": "B1",
+    "example": "In diesem Jahr wurde besonders auf die Bedeutung des Engagements für die Integration von Migrant/innen hingewiesen.",
+    "example_en": "This year particular attention was drawn to the importance of engagement for migrant integration.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "hinweisen",
+      "praeteritum_stamm": "wies hin",
+      "partizip2": "hingewiesen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "hin",
+      "governs": "auf + accusative"
+    }
+  },
+  {
+    "de": "die Bürgerinitiative, -n",
+    "en": "citizens' initiative",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sie organisieren sich in einer Million Vereinen, Bürgerinitiativen oder Selbsthilfegruppen.",
+    "example_en": "They organise themselves in a million clubs, citizens' initiatives or self-help groups.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Babysitter, -",
+    "en": "babysitter",
+    "article": "m.",
+    "level": "B1",
+    "example": "...engagieren sich als Babysitter, springen für kranke Lehrer ein, unterstützen Geflüchtete.",
+    "example_en": "...volunteer as babysitters, step in for sick teachers, support refugees.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Verfallsdatum, -daten",
+    "en": "expiry date",
+    "article": "n.",
+    "level": "B1",
+    "example": "Sie sammeln in Supermärkten Lebensmittel kurz vor dem Verfallsdatum ein und verteilen sie an Bedürftige.",
+    "example_en": "They collect food items nearing their expiry date in supermarkets and distribute them to those in need.",
+    "register": "everyday"
+  },
+  {
+    "de": "verteilen (hat verteilt)",
+    "en": "to distribute",
+    "article": "",
+    "level": "B1",
+    "example": "Sie sammeln ... und verteilen sie an Bedürftige.",
+    "example_en": "They collect ... and distribute them to those in need.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verteilen",
+      "praeteritum_stamm": "verteilte",
+      "partizip2": "verteilt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "die Kälte (Sg.)",
+    "en": "cold, coldness",
+    "article": "f.",
+    "level": "B1",
+    "example": "Alle reden von sozialer Kälte.",
+    "example_en": "Everyone talks about social coldness.",
+    "register": "everyday"
+  },
+  {
+    "de": "öko(logisch)",
+    "en": "eco(logical)",
+    "article": "",
+    "level": "B1",
+    "example": "Sie machen ein „freiwilliges ökologisches Jahr\".",
+    "example_en": "They do a \"voluntary ecological year\".",
+    "register": "everyday"
+  },
+  {
+    "de": "das Altenheim, -e",
+    "en": "retirement home",
+    "article": "n.",
+    "level": "B1",
+    "example": "Sie arbeiten in dieser Zeit in Altenheimen, Sportvereinen oder Naturschutzgruppen.",
+    "example_en": "During this time they work in retirement homes, sports clubs or nature conservation groups.",
+    "register": "everyday"
+  },
+  {
+    "de": "egoistisch",
+    "en": "selfish",
+    "article": "",
+    "level": "B1",
+    "example": "Die dunklen Vorhersagen einer egoistischen Spaßgesellschaft von „Ichlingen\" haben sich offensichtlich nicht erfüllt.",
+    "example_en": "The dark predictions of a selfish, pleasure-seeking society of \"ego-ists\" clearly didn't come true.",
+    "register": "everyday"
+  },
+  {
+    "de": "einsetzen (sich) (hat sich eingesetzt)",
+    "en": "to commit oneself, campaign for",
+    "article": "",
+    "level": "B1",
+    "example": "sich für etwas einsetzen.",
+    "example_en": "to campaign for something.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einsetzen",
+      "praeteritum_stamm": "setzte ein",
+      "partizip2": "eingesetzt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "trennbares_praefix": "ein",
+      "governs": "reflexive (sich) + für + accusative"
+    }
+  },
+  {
+    "de": "die Philosophie, -n",
+    "en": "philosophy",
+    "article": "f.",
+    "level": "B1",
+    "example": "Albert Schweitzer – Philosoph.",
+    "example_en": "Albert Schweitzer – philosopher.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Maßnahme, -n",
+    "en": "measure, action",
+    "article": "f.",
+    "level": "B1",
+    "example": "Als die alte Dame nicht mehr auf Ansprache reagiert, beginnt die Schülerin sofort mit Erste-Hilfe-Maßnahmen.",
+    "example_en": "When the old lady no longer responds when addressed, the pupil immediately begins first-aid measures.",
+    "register": "everyday"
+  },
+  {
+    "de": "tolerant",
+    "en": "tolerant",
+    "article": "",
+    "level": "B1",
+    "example": "Sie war sehr lebensfroh und tolerant.",
+    "example_en": "She was very cheerful and tolerant.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Gewissen, -",
+    "en": "conscience",
+    "article": "n.",
+    "level": "B1",
+    "example": "Gewissensfrage.",
+    "example_en": "Question of conscience.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Wolle (Sg.)",
+    "en": "wool",
+    "article": "f.",
+    "level": "B1",
+    "example": "Meine Freundin hat mir vorgestern zum Geburtstag einen selbstgestrickten Wollpullover geschenkt.",
+    "example_en": "My friend gave me a self-knitted wool sweater for my birthday the day before yesterday.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Lüge, -n",
+    "en": "lie",
+    "article": "f.",
+    "level": "B1",
+    "example": "Wenn man einem Menschen mit einer kleinen Lüge helfen kann, ist das gut.",
+    "example_en": "If you can help a person with a small lie, that's good.",
+    "register": "everyday"
+  },
+  {
+    "de": "heimlich",
+    "en": "secretly",
+    "article": "",
+    "level": "B1",
+    "example": "Ist es okay, heimlich die Nachrichten auf seinem Handy zu lesen?",
+    "example_en": "Is it okay to secretly read the messages on his phone?",
+    "register": "everyday"
+  },
+  {
+    "de": "missverstehen (hat missverstanden)",
+    "en": "to misunderstand",
+    "article": "",
+    "level": "B1",
+    "example": "Ich denke, er darf es nicht missverstehen, wenn ...",
+    "example_en": "I think he mustn't misunderstand it if ...",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "missverstehen",
+      "praeteritum_stamm": "missverstand",
+      "partizip2": "missverstanden",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "weiterbilden (sich) (hat sich weitergebildet)",
+    "en": "to further educate oneself",
+    "article": "",
+    "level": "B1",
+    "example": "Lernt dazu und bildet euch weiter!",
+    "example_en": "Keep learning and educate yourselves further!",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "weiterbilden",
+      "praeteritum_stamm": "bildete weiter",
+      "partizip2": "weitergebildet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "trennbares_praefix": "weiter",
+      "governs": "reflexive (sich)"
+    }
+  },
+  {
+    "de": "körperlich",
+    "en": "physical",
+    "article": "",
+    "level": "B1",
+    "example": "Mit seinen 81 Jahren ist August Wirth körperlich und geistig noch topfit.",
+    "example_en": "At 81, August Wirth is still physically and mentally very fit.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Ereignis, -se",
+    "en": "event",
+    "article": "n.",
+    "level": "B1",
+    "example": "Mit seinen 81 Jahren ist August Wirth ... kann sich an die Ereignisse aus seinem langen Leben gut erinnern.",
+    "example_en": "At 81, August Wirth ... can still remember the events of his long life well.",
+    "register": "everyday"
+  },
+  {
+    "de": "geschehen (ist geschehen)",
+    "en": "to happen",
+    "article": "",
+    "level": "B1",
+    "example": "Das geschah im Jahr 1945, in den letzten Monaten des Zweiten Weltkriegs.",
+    "example_en": "That happened in 1945, in the last months of the Second World War.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "geschehen",
+      "praesens_stamm": "geschieht",
+      "praeteritum_stamm": "geschah",
+      "partizip2": "geschehen",
+      "hilfsverb": "sein"
+    }
+  },
+  {
+    "de": "der Krieg, -e",
+    "en": "war",
+    "article": "m.",
+    "level": "B1",
+    "example": "Das geschah im Jahr 1945, in den letzten Monaten des Zweiten Weltkriegs.",
+    "example_en": "That happened in 1945, in the last months of the Second World War.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Bombe, -n",
+    "en": "bomb",
+    "article": "f.",
+    "level": "B1",
+    "example": "Im Februar wurde sein Vater bei einem Bombenangriff getötet.",
+    "example_en": "In February his father was killed in a bomb attack.",
+    "register": "everyday"
+  },
+  {
+    "de": "töten (hat getötet)",
+    "en": "to kill",
+    "article": "",
+    "level": "B1",
+    "example": "Im Februar wurde sein Vater bei einem Bombenangriff getötet.",
+    "example_en": "In February his father was killed in a bomb attack.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "töten",
+      "praeteritum_stamm": "tötete",
+      "partizip2": "getötet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "feucht",
+    "en": "moist, damp",
+    "article": "",
+    "level": "B1",
+    "example": "Als der alte Mann von dieser Flucht berichtet, werden seine Augen feucht und seine Stimme zittert leicht.",
+    "example_en": "As the old man talks about this escape, his eyes become moist and his voice trembles slightly.",
+    "register": "everyday"
+  },
+  {
+    "de": "kämpfen (hat gekämpft)",
+    "en": "to fight",
+    "article": "",
+    "level": "B1",
+    "example": "Sie hat wie eine Löwin für unsere Zukunft gekämpft.",
+    "example_en": "She fought like a lioness for our future.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "kämpfen",
+      "praeteritum_stamm": "kämpfte",
+      "partizip2": "gekämpft",
+      "hilfsverb": "haben",
+      "governs": "für + accusative"
+    }
+  },
+  {
+    "de": "empfangen (hat empfangen)",
+    "en": "to receive, welcome",
+    "article": "",
+    "level": "B1",
+    "example": "Die Flüchtlinge aus dem Osten wurden im Westen Deutschlands nicht begeistert empfangen.",
+    "example_en": "The refugees from the East were not warmly received in West Germany.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "empfangen",
+      "praesens_stamm": "empfängst",
+      "praeteritum_stamm": "empfing",
+      "partizip2": "empfangen",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "fördern (hat gefördert)",
+    "en": "to promote, support",
+    "article": "",
+    "level": "B1",
+    "example": "Er hat es immer als wichtige Aufgabe verstanden, Kinder und Jugendliche zu fördern, die es schwerer haben als andere.",
+    "example_en": "He always saw it as an important task to support children and young people who have it harder than others.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "fördern",
+      "praeteritum_stamm": "förderte",
+      "partizip2": "gefördert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "örtlich",
+    "en": "local",
+    "article": "",
+    "level": "B1",
+    "example": "Außerdem kümmerte er sich darum, dass von den örtlichen Betrieben auch für Migrantenkinder Ausbildungsplätze zur Verfügung gestellt wurden.",
+    "example_en": "He also made sure that local businesses provided training places for migrant children too.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Bürgermeister, -",
+    "en": "mayor",
+    "article": "m.",
+    "level": "B1",
+    "example": "Vor zwei Jahren wurde in August Wirths Heimatstadt eine junge Frau aus einer Migrantenfamilie zur zweiten Bürgermeisterin gewählt.",
+    "example_en": "Two years ago, in August Wirth's hometown, a young woman from a migrant family was elected second mayor.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Fortschritt, -e",
+    "en": "progress",
+    "article": "m.",
+    "level": "B1",
+    "example": "Schüler mit Migrationshintergrund würden viel schnellere Fortschritte bei ihren Deutschkenntnissen machen.",
+    "example_en": "Students with a migration background would make much faster progress in their German skills.",
+    "register": "everyday"
+  },
+  {
+    "de": "leisten (sich) (hat sich geleistet)",
+    "en": "to afford",
+    "article": "",
+    "level": "B1",
+    "example": "Gerade in vielen größeren Städten ist es für ärmere Menschen unmöglich, eine Wohnung zu finden, die sie sich leisten können.",
+    "example_en": "Especially in many larger cities it is impossible for poorer people to find a flat they can afford.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "leisten",
+      "praeteritum_stamm": "leistete",
+      "partizip2": "geleistet",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich) + accusative"
+    }
+  },
+  {
+    "de": "die Geschwindigkeit, -en",
+    "en": "speed",
+    "article": "f.",
+    "level": "B1",
+    "example": "Höchstgeschwindigkeit 120 Stundenkilometer, ...",
+    "example_en": "Maximum speed 120 kilometres per hour, ...",
+    "register": "everyday"
+  },
+  {
+    "de": "die Ansicht, -en",
+    "en": "view, opinion",
+    "article": "f.",
+    "level": "B1",
+    "example": "Meiner Ansicht nach ...",
+    "example_en": "In my opinion ...",
+    "register": "everyday"
+  },
+  {
+    "de": "der Zusammenhang, -̈e",
+    "en": "connection, context",
+    "article": "m.",
+    "level": "B1",
+    "example": "In diesem Zusammenhang finde ich auch wichtig, dass ...",
+    "example_en": "In this context I also find it important that ...",
+    "register": "everyday"
+  },
+  {
+    "de": "der Gegensatz, -̈e",
+    "en": "contrast, opposite",
+    "article": "m.",
+    "level": "B1",
+    "example": "Im Gegensatz zu ...",
+    "example_en": "In contrast to ...",
+    "register": "everyday"
+  },
+  {
+    "de": "das Zeichen, -",
+    "en": "sign, signal",
+    "article": "n.",
+    "level": "B1",
+    "example": "Ein breites Bündnis hat dazu aufgerufen, ein deutliches Zeichen gegen Fremdenhass und Rassismus zu setzen.",
+    "example_en": "A broad alliance called for a clear sign against xenophobia and racism.",
+    "register": "everyday"
+  },
+  {
+    "de": "politisch",
+    "en": "political",
+    "article": "",
+    "level": "B1",
+    "example": "Die Teilnehmenden bildeten lange Menschenketten und verbanden symbolisch religiöse, soziale, kulturelle und politische Einrichtungen mit Flüchtlingsunterkünften.",
+    "example_en": "The participants formed long human chains, symbolically connecting religious, social, cultural and political institutions with refugee shelters.",
+    "register": "everyday"
+  },
+  {
+    "de": "fair",
+    "en": "fair",
+    "article": "",
+    "level": "B1",
+    "example": "Für einen fairen Milchpreis!",
+    "example_en": "For a fair milk price!",
+    "register": "everyday"
+  },
+  {
+    "de": "der Bauer, -n",
+    "en": "farmer",
+    "article": "m.",
+    "level": "B1",
+    "example": "Immer mehr Milchbauern in Deutschland müssen ihre Höfe aufgeben.",
+    "example_en": "More and more dairy farmers in Germany have to give up their farms.",
+    "register": "everyday"
+  },
+  {
+    "de": "protestieren (hat protestiert)",
+    "en": "to protest",
+    "article": "",
+    "level": "B1",
+    "example": "Um auf diesen Missstand hinzuweisen, protestierten am Freitag etwa 50 Milchbauern vor dem Landwirtschaftsministerium.",
+    "example_en": "To draw attention to this grievance, around 50 dairy farmers protested in front of the Ministry of Agriculture on Friday.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "protestieren",
+      "praeteritum_stamm": "protestierte",
+      "partizip2": "protestiert",
+      "hilfsverb": "haben",
+      "governs": "gegen + accusative"
+    }
+  },
+  {
+    "de": "die Landwirtschaft (Sg.)",
+    "en": "agriculture",
+    "article": "f.",
+    "level": "B1",
+    "example": "Um auf diesen Missstand hinzuweisen, protestierten am Freitag etwa 50 Milchbauern vor dem Landwirtschaftsministerium.",
+    "example_en": "To draw attention to this grievance, around 50 dairy farmers protested in front of the Ministry of Agriculture on Friday.",
+    "register": "everyday"
+  },
+  {
+    "de": "städtisch",
+    "en": "municipal, urban",
+    "article": "",
+    "level": "B1",
+    "example": "Rund 50 Kinder und Jugendliche demonstrierten ... gegen die Schließung ihres städtischen Schwimmbades.",
+    "example_en": "About 50 children and young people demonstrated against the closure of their municipal swimming pool.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Streik, -s",
+    "en": "strike",
+    "article": "m.",
+    "level": "B1",
+    "example": "Haben Sie in Deutschland schon eine Demonstration oder einen Streik gesehen?",
+    "example_en": "Have you already seen a demonstration or a strike in Germany?",
+    "register": "everyday"
+  },
+  {
+    "de": "der Bundeskanzler, -",
+    "en": "federal chancellor",
+    "article": "m.",
+    "level": "B1",
+    "example": "Im Bundeskanzleramt arbeitet die Regierungschefin/der Regierungschef.",
+    "example_en": "The head of government works in the federal chancellery.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Macht, -̈e",
+    "en": "power",
+    "article": "f.",
+    "level": "B1",
+    "example": "Die Siegermächte wussten genau, wie es mit Deutschland weitergehen soll.",
+    "example_en": "The victorious powers knew exactly how things should proceed with Germany.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Zone, -n",
+    "en": "zone",
+    "article": "f.",
+    "level": "B1",
+    "example": "Deutschland wurde in vier Zonen geteilt.",
+    "example_en": "Germany was divided into four zones.",
+    "register": "everyday"
+  },
+  {
+    "de": "national",
+    "en": "national",
+    "article": "",
+    "level": "B1",
+    "example": "Welche nationalen Symbole verbinden Sie mit dem Land?",
+    "example_en": "Which national symbols do you associate with the country?",
+    "register": "everyday"
+  },
+  {
+    "de": "folgend-",
+    "en": "following",
+    "article": "",
+    "level": "B1",
+    "example": "Wir haben uns mit folgenden Fragen beschäftigt: ...",
+    "example_en": "We dealt with the following questions: ...",
+    "register": "everyday"
+  },
+  {
+    "de": "diesmal",
+    "en": "this time",
+    "article": "",
+    "level": "B1",
+    "example": "Wer diesmal nicht dabei sein konnte, muss nicht traurig sein.",
+    "example_en": "Whoever couldn't be there this time doesn't need to be sad.",
+    "register": "everyday"
+  },
+  {
+    "de": "traditionell",
+    "en": "traditional",
+    "article": "",
+    "level": "B1",
+    "example": "Lebkuchen sind ein traditionelles süßes Gebäck, das besonders gern zur Weihnachtszeit gegessen wird.",
+    "example_en": "Gingerbread is a traditional sweet pastry that is especially enjoyed at Christmas time.",
+    "register": "everyday"
+  },
+  {
+    "de": "speziell",
+    "en": "special, specific",
+    "article": "",
+    "level": "B1",
+    "example": "Die Thüringer Rostbratwurst gibt es nur in speziellen Restaurants.",
+    "example_en": "Thuringian roast sausage is only available in specific restaurants.",
+    "register": "everyday"
+  },
+  {
+    "de": "rühren (hat gerührt)",
+    "en": "to stir",
+    "article": "",
+    "level": "B1",
+    "example": "rühren + das Ei = das Rührei",
+    "example_en": "to stir + the egg = scrambled eggs",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "rühren",
+      "praeteritum_stamm": "rührte",
+      "partizip2": "gerührt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "das Zuhause (Sg.)",
+    "en": "home",
+    "article": "n.",
+    "level": "B1",
+    "example": "Mit „Zuhause\" verbinde ich ...",
+    "example_en": "I associate \"home\" with ...",
+    "register": "everyday"
+  },
+  {
+    "de": "die Tradition, -en",
+    "en": "tradition",
+    "article": "f.",
+    "level": "B1",
+    "example": "Mit „Tradition\" verbinde ich ...",
+    "example_en": "I associate \"tradition\" with ...",
+    "register": "everyday"
+  },
+  {
+    "de": "die Gegend, -en",
+    "en": "area, region",
+    "article": "f.",
+    "level": "B1",
+    "example": "Mit Heimat verbinde ich die Gegend, in der ich aufgewachsen bin.",
+    "example_en": "I associate home with the area where I grew up.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Migration (Sg.)",
+    "en": "migration",
+    "article": "f.",
+    "level": "B1",
+    "example": "Wer weiß heute noch genau, wohin er gehört – in Zeiten von Mobilität und Migration?",
+    "example_en": "Who knows exactly where they belong nowadays – in times of mobility and migration?",
+    "register": "everyday"
+  },
+  {
+    "de": "ursprünglich",
+    "en": "originally",
+    "article": "",
+    "level": "B1",
+    "example": "Meine Wurzeln sind im Libanon, denn meine Familie stammt ursprünglich aus Beirut.",
+    "example_en": "My roots are in Lebanon, because my family originally comes from Beirut.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Volk, -̈er",
+    "en": "people, nation",
+    "article": "n.",
+    "level": "B1",
+    "example": "Libanesen sind ein sehr gastfreundliches Volk.",
+    "example_en": "Lebanese people are a very hospitable people.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Staatsangehörigkeit, -en",
+    "en": "nationality, citizenship",
+    "article": "f.",
+    "level": "B1",
+    "example": "Meine Eltern kommen aus der Türkei und ich habe die türkische Staatsangehörigkeit.",
+    "example_en": "My parents come from Turkey and I have Turkish citizenship.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Profi, -s",
+    "en": "professional",
+    "article": "m.",
+    "level": "B1",
+    "example": "Als kleiner Junge habe ich immer von einer Karriere als Profi-Fußballer bei den Bayern geträumt.",
+    "example_en": "As a small boy I always dreamed of a career as a professional footballer at Bayern.",
+    "register": "everyday"
+  },
+  {
+    "de": "integrieren (hat integriert)",
+    "en": "to integrate",
+    "article": "",
+    "level": "B1",
+    "example": "Ich würde schon sagen, dass wir gut integriert sind.",
+    "example_en": "I would say that we are well integrated.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "integrieren",
+      "praeteritum_stamm": "integrierte",
+      "partizip2": "integriert",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "transitiv": true,
+      "governs": "accusative or reflexive (sich)"
+    }
+  },
+  {
+    "de": "der Einwohner, -",
+    "en": "inhabitant, resident",
+    "article": "m.",
+    "level": "B1",
+    "example": "Wie viele Einwohner hat Europa?",
+    "example_en": "How many inhabitants does Europe have?",
+    "register": "everyday"
+  },
+  {
+    "de": "der Kontinent, -e",
+    "en": "continent",
+    "article": "m.",
+    "level": "B1",
+    "example": "Europa ist ein Kontinent.",
+    "example_en": "Europe is a continent.",
+    "register": "everyday"
+  },
+  {
+    "de": "die EU (Sg.)",
+    "en": "EU (European Union)",
+    "article": "f.",
+    "level": "B1",
+    "example": "Sehen die Personen die EU eher positiv oder negativ?",
+    "example_en": "Do the people view the EU rather positively or negatively?",
+    "register": "everyday"
+  },
+  {
+    "de": "der Zuwanderer, -",
+    "en": "immigrant",
+    "article": "m.",
+    "level": "B1",
+    "example": "Auch der Deutsch-Test für Zuwanderer sollte nun kein Problem mehr für Sie sein.",
+    "example_en": "The German test for immigrants should also no longer be a problem for you now.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Nachtisch, -e",
+    "en": "dessert",
+    "article": "m.",
+    "level": "B1",
+    "example": "zubereiten, der Nachtisch, das Gebäck.",
+    "example_en": "to prepare, the dessert, the pastry.",
+    "register": "everyday"
   }
 ]
