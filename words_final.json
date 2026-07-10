@@ -50180,5 +50180,386 @@
     "example": "Zum Beispiel möchte ich mal wieder ins Kino gehen.",
     "example_en": "For example, I'd like to go to the movies again.",
     "register": "everyday"
+  },
+  {
+    "de": "besorgen",
+    "en": "to get/take care of",
+    "article": "",
+    "level": "A2",
+    "example": "Was du heute kannst besorgen, das verschiebe nicht auf morgen.",
+    "example_en": "Don't put off until tomorrow what you can take care of today.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "besorgen",
+      "praeteritum_stamm": "besorgte",
+      "partizip2": "besorgt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "die EC-Karte, -n",
+    "en": "debit card",
+    "article": "f.",
+    "level": "A2",
+    "example": "Wie lange muss man auf die EC-Karte warten?",
+    "example_en": "How long do you have to wait for the debit card?",
+    "register": "everyday"
+  },
+  {
+    "de": "der Geldautomat, -en",
+    "en": "cash machine / ATM",
+    "article": "m.",
+    "level": "A2",
+    "example": "Wo ist der nächste Geldautomat?",
+    "example_en": "Where is the nearest cash machine?",
+    "register": "everyday"
+  },
+  {
+    "de": "das Girokonto, -en",
+    "en": "current/checking account",
+    "article": "n.",
+    "level": "A2",
+    "example": "Was kostet ein Girokonto bei deiner Bank?",
+    "example_en": "How much does a current account cost at your bank?",
+    "register": "everyday"
+  },
+  {
+    "de": "die Summe, -n",
+    "en": "sum, amount",
+    "article": "f.",
+    "level": "A2",
+    "example": "Man bezahlt nicht die ganze Summe auf einmal.",
+    "example_en": "You don't pay the whole amount at once.",
+    "register": "everyday"
+  },
+  {
+    "de": "sondern",
+    "en": "but (rather)",
+    "article": "",
+    "level": "A2",
+    "example": "Man bezahlt nicht die ganze Summe auf einmal, sondern z. B. monatlich einen bestimmten Betrag.",
+    "example_en": "You don't pay the whole amount at once, but rather, for example, a fixed sum monthly.",
+    "register": "everyday"
+  },
+  {
+    "de": "monatlich",
+    "en": "monthly",
+    "article": "",
+    "level": "A2",
+    "example": "Man bezahlt monatlich einen bestimmten Betrag.",
+    "example_en": "You pay a fixed amount monthly.",
+    "register": "everyday"
+  },
+  {
+    "de": "akzeptieren",
+    "en": "to accept",
+    "article": "",
+    "level": "A2",
+    "example": "Akzeptieren Sie auch Kreditkarten?",
+    "example_en": "Do you also accept credit cards?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "akzeptieren",
+      "praeteritum_stamm": "akzeptierte",
+      "partizip2": "akzeptiert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "das Taschengeld (Sg.)",
+    "en": "pocket money, allowance",
+    "article": "n.",
+    "level": "A2",
+    "example": "Hast du als Kind Taschengeld bekommen?",
+    "example_en": "Did you get pocket money as a child?",
+    "register": "everyday"
+  },
+  {
+    "de": "erledigen",
+    "en": "to take care of, to handle",
+    "article": "",
+    "level": "A2",
+    "example": "Erledigst du deine Bankgeschäfte online?",
+    "example_en": "Do you handle your banking online?",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "erledigen",
+      "praeteritum_stamm": "erledigte",
+      "partizip2": "erledigt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "der Hersteller, -",
+    "en": "manufacturer",
+    "article": "m.",
+    "level": "A2",
+    "example": "Manche Hersteller empfehlen eine Inspektion nach 20.000 gefahrenen Kilometern.",
+    "example_en": "Some manufacturers recommend a service after 20,000 kilometres driven.",
+    "register": "everyday"
+  },
+  {
+    "de": "überprüfen",
+    "en": "to check, to inspect",
+    "article": "",
+    "level": "A2",
+    "example": "Außerdem werden die Bremsen getestet sowie Batterie und Lichter überprüft.",
+    "example_en": "In addition, the brakes are tested and the battery and lights are checked.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "überprüfen",
+      "praeteritum_stamm": "überprüfte",
+      "partizip2": "überprüft",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "einzahlen",
+    "en": "to pay in, to deposit",
+    "article": "",
+    "level": "A2",
+    "example": "Herr Marzouki möchte Geld einzahlen.",
+    "example_en": "Mr Marzouki wants to deposit money.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "einzahlen",
+      "praeteritum_stamm": "zahlte ein",
+      "partizip2": "eingezahlt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "die Broschüre, -n",
+    "en": "brochure",
+    "article": "f.",
+    "level": "A2",
+    "example": "Per Post bekommt er eine Broschüre.",
+    "example_en": "He receives a brochure by post.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Gehaltsnachweis, -e",
+    "en": "proof of salary, payslip",
+    "article": "m.",
+    "level": "A2",
+    "example": "Er zeigt dem Bankangestellten seinen Gehaltsnachweis.",
+    "example_en": "He shows the bank employee his proof of salary.",
+    "register": "everyday"
+  },
+  {
+    "de": "tippen",
+    "en": "to type, to key in",
+    "article": "",
+    "level": "A2",
+    "example": "Tippen Sie Ihre Geheimzahl ein.",
+    "example_en": "Key in your PIN.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "tippen",
+      "praeteritum_stamm": "tippte",
+      "partizip2": "getippt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
+  },
+  {
+    "de": "das Menü, -s",
+    "en": "set menu",
+    "article": "n.",
+    "level": "A2",
+    "example": "Sie lassen sich von mir ein ganzes Menü bringen und haben kein Geld dabei?",
+    "example_en": "You have me bring you a whole set menu and you don't have any money on you?",
+    "register": "everyday"
+  },
+  {
+    "de": "der Ober, -",
+    "en": "waiter",
+    "article": "m.",
+    "level": "A2",
+    "example": "Der Ober will die Polizei rufen.",
+    "example_en": "The waiter wants to call the police.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Kontoauszug, -̈e",
+    "en": "bank statement",
+    "article": "m.",
+    "level": "A2",
+    "example": "Wo kriege ich Kontoauszüge?",
+    "example_en": "Where do I get bank statements?",
+    "register": "everyday"
+  },
+  {
+    "de": "die Erhöhung, -en",
+    "en": "raise, increase",
+    "article": "f.",
+    "level": "A2",
+    "example": "Er hat heute eine Gehaltserhöhung bekommen.",
+    "example_en": "He got a pay raise today.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Umfrage, -n",
+    "en": "survey, poll",
+    "article": "f.",
+    "level": "A2",
+    "example": "Unsere Umfrage der Woche: Welches Foto haben Sie immer dabei?",
+    "example_en": "Our survey of the week: which photo do you always carry with you?",
+    "register": "everyday"
+  },
+  {
+    "de": "die Kindheit, -en",
+    "en": "childhood",
+    "article": "f.",
+    "level": "A2",
+    "example": "Meine beste Freundin Katrin und ich kennen uns schon seit der Kindheit.",
+    "example_en": "My best friend Katrin and I have known each other since childhood.",
+    "register": "everyday"
+  },
+  {
+    "de": "nebenan",
+    "en": "next door",
+    "article": "",
+    "level": "A2",
+    "example": "Katrin hat im Haus nebenan gewohnt.",
+    "example_en": "Katrin lived in the house next door.",
+    "register": "everyday"
+  },
+  {
+    "de": "verlieben (sich)",
+    "en": "to fall in love",
+    "article": "",
+    "level": "A2",
+    "example": "Später haben wir uns in denselben Jungen verliebt.",
+    "example_en": "Later we fell in love with the same boy.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "verlieben",
+      "praeteritum_stamm": "verliebte",
+      "partizip2": "verliebt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "reflexive (sich) + in + accusative"
+    }
+  },
+  {
+    "de": "zufällig",
+    "en": "by chance, coincidentally",
+    "article": "",
+    "level": "A2",
+    "example": "Vor vier Jahren haben wir uns zufällig auf der Straße getroffen.",
+    "example_en": "Four years ago we met by chance on the street.",
+    "register": "everyday"
+  },
+  {
+    "de": "seitdem",
+    "en": "since then",
+    "article": "",
+    "level": "A2",
+    "example": "Seitdem sind wir wieder beste Freundinnen.",
+    "example_en": "Since then we've been best friends again.",
+    "register": "everyday"
+  },
+  {
+    "de": "einzig-",
+    "en": "only, sole",
+    "article": "",
+    "level": "A2",
+    "example": "Ich bin das einzige Kind von Helga und Gerd.",
+    "example_en": "I am the only child of Helga and Gerd.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Gegenteil, -e",
+    "en": "opposite",
+    "article": "n.",
+    "level": "A2",
+    "example": "Im Gegenteil. Dich ruft alle fünf Minuten jemand an.",
+    "example_en": "On the contrary. Someone calls you every five minutes.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Streit (Sg.)",
+    "en": "argument, dispute",
+    "article": "m.",
+    "level": "A2",
+    "example": "Ich hatte mit meinem ersten Ehemann oft Streit.",
+    "example_en": "I often had arguments with my first husband.",
+    "register": "everyday"
+  },
+  {
+    "de": "die Meinung, -en",
+    "en": "opinion",
+    "article": "f.",
+    "level": "A2",
+    "example": "Wir haben nicht immer die gleiche Meinung, aber das finde ich nicht schlimm.",
+    "example_en": "We don't always share the same opinion, but I don't think that's a problem.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Ratschlag, -̈e",
+    "en": "piece of advice",
+    "article": "m.",
+    "level": "A2",
+    "example": "Ein Ratschlag: Sie sollten sich mehr bewegen.",
+    "example_en": "One piece of advice: you should move around more.",
+    "register": "everyday"
+  },
+  {
+    "de": "eher",
+    "en": "rather, sooner",
+    "article": "",
+    "level": "A2",
+    "example": "Die Deutschen sind bei der Wahl von Kosenamen eher einfallslos.",
+    "example_en": "Germans tend to be rather unimaginative when choosing pet names.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Raucher, - / die Raucherin, -nen",
+    "en": "smoker",
+    "article": "m./f.",
+    "level": "A2",
+    "example": "Er war schon immer ein starker Raucher.",
+    "example_en": "He has always been a heavy smoker.",
+    "register": "everyday"
+  },
+  {
+    "de": "das Märchen, -",
+    "en": "fairy tale",
+    "article": "n.",
+    "level": "A2",
+    "example": "Beliebt sind außerdem Begriffe aus den Bereichen Märchen und Essen.",
+    "example_en": "Terms from the areas of fairy tales and food are also popular.",
+    "register": "everyday"
+  },
+  {
+    "de": "der Einfall, -̈e",
+    "en": "idea",
+    "article": "m.",
+    "level": "A2",
+    "example": "Die Deutschen sind bei der Wahl von Kosenamen eher einfallslos.",
+    "example_en": "Germans tend to be rather unimaginative when choosing pet names.",
+    "register": "everyday"
+  },
+  {
+    "de": "ernst",
+    "en": "serious",
+    "article": "",
+    "level": "A2",
+    "example": "Wenn ich noch einmal zwanzig wäre, würde ich das Leben nicht so ernst nehmen.",
+    "example_en": "If I were twenty again, I wouldn't take life so seriously.",
+    "register": "everyday"
   }
 ]
