@@ -456,44 +456,74 @@
 
     <!-- ── Main Content ── -->
 
-    <!-- App Install Banner -->
-    <div style="background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;padding:1rem 0;">
+    <!-- App Install Banner (slim, collapsible, dismissible) -->
+    <div id="installBanner" class="install-banner-wrap" style="display:none;">
         <div class="container">
-            <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                <span style="font-size:1.6rem">📱</span>
-                <div>
-                    <div style="font-weight:700;font-size:1rem;line-height:1.2">Install as a free app — no App Store needed</div>
-                    <div style="font-size:.82rem;opacity:.9;margin-top:.1rem">Works offline · Installs in seconds · All devices</div>
-                </div>
-            </div>
-            <div class="row g-2">
-                <div class="col-6 col-md-3">
-                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%">
-                        <div style="font-weight:700;margin-bottom:.15rem">🍎 iPhone/iPad</div>
-                        <div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%">
-                        <div style="font-weight:700;margin-bottom:.15rem">🤖 Android</div>
-                        <div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%">
-                        <div style="font-weight:700;margin-bottom:.15rem">🖥️ macOS</div>
-                        <div>Safari → <strong>Share</strong> → Add to Dock</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%">
-                        <div style="font-weight:700;margin-bottom:.15rem">🪟 Windows</div>
-                        <div>Edge → <strong>Apps</strong> → Install this site</div>
+            <div class="install-banner">
+                <button type="button" id="installBannerToggle" class="install-banner-bar" aria-expanded="false" aria-controls="installBannerPanel">
+                    <span class="install-banner-icon">📱</span>
+                    <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>
+                    <span class="install-banner-chevron">▾</span>
+                </button>
+                <button type="button" id="installBannerClose" class="install-banner-close" aria-label="Dismiss install banner">✕</button>
+                <div id="installBannerPanel" class="install-banner-panel" hidden>
+                    <div class="row g-2">
+                        <div class="col-6 col-md-3">
+                            <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div><div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div><div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div></div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div><div>Safari → <strong>Share</strong> → Add to Dock</div></div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div><div>Edge → <strong>Apps</strong> → Install this site</div></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <style>
+        .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}
+        .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}
+        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;background:none;border:none;color:#fff;text-align:left;cursor:pointer;padding:.2rem .25rem;font-size:.85rem;}
+        .install-banner-icon{font-size:1.1rem;line-height:1;}
+        .install-banner-text{font-weight:600;flex:1;}
+        .install-banner-chevron{opacity:.8;transition:transform .2s;}
+        .install-banner-bar[aria-expanded="true"] .install-banner-chevron{transform:rotate(180deg);}
+        .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}
+        .install-banner-close:hover{opacity:1;}
+        .install-banner-panel{padding-top:.5rem;}
+        .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%;}
+        .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}
+    </style>
+    <script>
+    (function () {
+        var KEY = 'dlh_install_banner_dismissed';
+        var banner = document.getElementById('installBanner');
+        if (!banner) return;
+        var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+        var dismissed = false;
+        try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
+        if (isStandalone || dismissed) return;
+        banner.style.display = 'block';
+        var toggle = document.getElementById('installBannerToggle');
+        var panel = document.getElementById('installBannerPanel');
+        var closeBtn = document.getElementById('installBannerClose');
+        toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            panel.hidden = expanded;
+        });
+        closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            try { localStorage.setItem(KEY, '1'); } catch (e2) {}
+            banner.style.display = 'none';
+        });
+    })();
+    </script>
     <!-- End App Install Banner -->
 <main class="container py-4 py-lg-5">
 
