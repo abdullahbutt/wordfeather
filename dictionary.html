@@ -287,10 +287,77 @@
                 <h1 class="h2 mb-1">📖 Wörterbuch / Dictionary</h1>
                 <p class="info-line mb-3">4773 exam-relevant words from A1–C2 · <span class="art-m fw-bold">m.</span> der · <span class="art-f fw-bold">f.</span> die · <span class="art-n fw-bold">n.</span> das · 🔊 Tap speaker to hear pronunciation</p>
                 <p class="info-line mb-3" style="font-size:0.8rem;">Reviewed and tested by native German speaker <strong>Birgit Unger</strong> — Vielen Dank! 🙏</p>
-                <div class="search-wrap mb-2">
+                <!-- App Install Banner -->
+                <div id="installBanner" class="install-banner-wrap mb-3" style="display:none;">
+                    <div class="install-banner">
+                        <button type="button" id="installBannerToggle" class="install-banner-bar" aria-expanded="false" aria-controls="installBannerPanel">
+                            <span class="install-banner-icon">📱</span>
+                            <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>
+                            <span class="install-banner-chevron">▾</span>
+                        </button>
+                        <button type="button" id="installBannerClose" class="install-banner-close" aria-label="Dismiss install banner">✕</button>
+                        <div id="installBannerPanel" class="install-banner-panel" hidden>
+                            <div class="row g-2">
+                                <div class="col-6 col-md-3">
+                                    <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div><div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div><div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div></div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div><div>Safari → <strong>Share</strong> → Add to Dock</div></div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div><div>Edge → <strong>Apps</strong> → Install this site</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <style>
+        .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}
+        .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}
+        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;background:none;border:none;color:#fff;text-align:left;cursor:pointer;padding:.2rem .25rem;font-size:.85rem;}
+        .install-banner-icon{font-size:1.1rem;line-height:1;}
+        .install-banner-text{font-weight:600;flex:1;}
+        .install-banner-chevron{opacity:.8;transition:transform .2s;}
+        .install-banner-bar[aria-expanded="true"] .install-banner-chevron{transform:rotate(180deg);}
+        .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}
+        .install-banner-close:hover{opacity:1;}
+        .install-banner-panel{padding-top:.5rem;}
+        .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%;}
+        .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}
+    </style>
+    <script>
+    (function () {
+        var KEY = 'dlh_install_banner_dismissed';
+        var banner = document.getElementById('installBanner');
+        if (!banner) return;
+        var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+        var dismissed = false;
+        try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
+        if (isStandalone || dismissed) return;
+        banner.style.display = 'block';
+        var toggle = document.getElementById('installBannerToggle');
+        var panel = document.getElementById('installBannerPanel');
+        var closeBtn = document.getElementById('installBannerClose');
+        toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            panel.hidden = expanded;
+        });
+        closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            try { localStorage.setItem(KEY, '1'); } catch (e2) {}
+            banner.style.display = 'none';
+        });
+    })();
+    </script>
+                <!-- End App Install Banner -->
+<div class="search-wrap mb-2">
                     <div class="position-relative">
                         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                        <input type="text" id="searchInput" placeholder="Search any German or English word..." autocomplete="off">
+                        <input type="text" id="searchInput" placeholder="Search (ä = ae, ö = oe, ü = ue, ß = ss)..." autocomplete="off">
                     </div>
                 </div>
                 <div class="mb-3">
@@ -320,74 +387,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- App Install Banner (slim, collapsible, dismissible) -->
-                <div id="installBanner" class="install-banner-wrap mb-3" style="display:none;">
-                    <div class="install-banner">
-                        <button type="button" id="installBannerToggle" class="install-banner-bar" aria-expanded="false" aria-controls="installBannerPanel">
-                            <span class="install-banner-icon">📱</span>
-                            <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>
-                            <span class="install-banner-chevron">▾</span>
-                        </button>
-                        <button type="button" id="installBannerClose" class="install-banner-close" aria-label="Dismiss install banner">✕</button>
-                        <div id="installBannerPanel" class="install-banner-panel" hidden>
-                            <div class="row g-2">
-                                <div class="col-6 col-md-3">
-                                    <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div><div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div><div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div></div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div><div>Safari → <strong>Share</strong> → Add to Dock</div></div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div><div>Edge → <strong>Apps</strong> → Install this site</div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <style>
-                    .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;border-radius:.6rem;}
-                    .install-banner{position:relative;padding:.5rem 2.2rem .5rem .6rem;}
-                    .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;background:none;border:none;color:#fff;text-align:left;cursor:pointer;padding:.2rem .25rem;font-size:.85rem;}
-                    .install-banner-icon{font-size:1.1rem;line-height:1;}
-                    .install-banner-text{font-weight:600;flex:1;}
-                    .install-banner-chevron{opacity:.8;transition:transform .2s;}
-                    .install-banner-bar[aria-expanded="true"] .install-banner-chevron{transform:rotate(180deg);}
-                    .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}
-                    .install-banner-close:hover{opacity:1;}
-                    .install-banner-panel{padding-top:.5rem;}
-                    .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%;}
-                    .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}
-                </style>
-                <script>
-                (function () {
-                    var KEY = 'dlh_install_banner_dismissed';
-                    var banner = document.getElementById('installBanner');
-                    if (!banner) return;
-                    var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
-                    var dismissed = false;
-                    try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
-                    if (isStandalone || dismissed) return;
-                    banner.style.display = 'block';
-                    var toggle = document.getElementById('installBannerToggle');
-                    var panel = document.getElementById('installBannerPanel');
-                    var closeBtn = document.getElementById('installBannerClose');
-                    toggle.addEventListener('click', function () {
-                        var expanded = toggle.getAttribute('aria-expanded') === 'true';
-                        toggle.setAttribute('aria-expanded', String(!expanded));
-                        panel.hidden = expanded;
-                    });
-                    closeBtn.addEventListener('click', function (e) {
-                        e.stopPropagation();
-                        try { localStorage.setItem(KEY, '1'); } catch (e2) {}
-                        banner.style.display = 'none';
-                    });
-                })();
-                </script>
-                <!-- End App Install Banner -->
-
                 <div class="dict-layout">
                     <nav class="alpha-nav">
                         <a href="#letter-#">#</a><a href="#letter-A">A</a><a href="#letter-B">B</a><a href="#letter-C">C</a><a href="#letter-D">D</a><a href="#letter-E">E</a><a href="#letter-F">F</a><a href="#letter-G">G</a><a href="#letter-H">H</a><a href="#letter-I">I</a><a href="#letter-J">J</a><a href="#letter-K">K</a><a href="#letter-L">L</a><a href="#letter-M">M</a><a href="#letter-N">N</a><a href="#letter-O">O</a><a href="#letter-P">P</a><a href="#letter-Q">Q</a><a href="#letter-R">R</a><a href="#letter-S">S</a><a href="#letter-T">T</a><a href="#letter-U">U</a><a href="#letter-V">V</a><a href="#letter-W">W</a><a href="#letter-Z">Z</a>

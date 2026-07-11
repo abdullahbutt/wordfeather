@@ -90,66 +90,154 @@ def audit(words):
     return issues, counts
 
 # ── App Install Banner ────────────────────────────────────────────────────────
+# Slim, collapsible, dismissible banner. Collapsed by default; expands on tap.
+# Hidden entirely when the PWA is already running in standalone (installed) mode,
+# and hidden permanently once the user dismisses it (localStorage flag shared
+# across all pages that include this markup).
+INSTALL_BANNER_STYLE_SCRIPT = (
+    '    <style>\n'
+    '        .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}\n'
+    '        .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}\n'
+    '        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;background:none;'
+    'border:none;color:#fff;text-align:left;cursor:pointer;padding:.2rem .25rem;font-size:.85rem;}\n'
+    '        .install-banner-icon{font-size:1.1rem;line-height:1;}\n'
+    '        .install-banner-text{font-weight:600;flex:1;}\n'
+    '        .install-banner-chevron{opacity:.8;transition:transform .2s;}\n'
+    '        .install-banner-bar[aria-expanded="true"] .install-banner-chevron{transform:rotate(180deg);}\n'
+    '        .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;'
+    'color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}\n'
+    '        .install-banner-close:hover{opacity:1;}\n'
+    '        .install-banner-panel{padding-top:.5rem;}\n'
+    '        .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;'
+    'font-size:.78rem;line-height:1.4;height:100%;}\n'
+    '        .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}\n'
+    '    </style>\n'
+    '    <script>\n'
+    '    (function () {\n'
+    "        var KEY = 'dlh_install_banner_dismissed';\n"
+    "        var banner = document.getElementById('installBanner');\n"
+    '        if (!banner) return;\n'
+    "        var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;\n"
+    '        var dismissed = false;\n'
+    "        try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}\n"
+    '        if (isStandalone || dismissed) return;\n'
+    "        banner.style.display = 'block';\n"
+    "        var toggle = document.getElementById('installBannerToggle');\n"
+    "        var panel = document.getElementById('installBannerPanel');\n"
+    "        var closeBtn = document.getElementById('installBannerClose');\n"
+    "        toggle.addEventListener('click', function () {\n"
+    "            var expanded = toggle.getAttribute('aria-expanded') === 'true';\n"
+    "            toggle.setAttribute('aria-expanded', String(!expanded));\n"
+    '            panel.hidden = expanded;\n'
+    '        });\n'
+    "        closeBtn.addEventListener('click', function (e) {\n"
+    '            e.stopPropagation();\n'
+    "            try { localStorage.setItem(KEY, '1'); } catch (e2) {}\n"
+    "            banner.style.display = 'none';\n"
+    '        });\n'
+    '    })();\n'
+    '    </script>\n'
+)
+
+INSTALL_BANNER_CARDS = (
+    '                    <div class="row g-2">\n'
+    '                        <div class="col-6 col-md-3">\n'
+    '                            <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div>'
+    '<div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>\n'
+    '                        </div>\n'
+    '                        <div class="col-6 col-md-3">\n'
+    '                            <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div>'
+    '<div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div></div>\n'
+    '                        </div>\n'
+    '                        <div class="col-6 col-md-3">\n'
+    '                            <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div>'
+    '<div>Safari → <strong>Share</strong> → Add to Dock</div></div>\n'
+    '                        </div>\n'
+    '                        <div class="col-6 col-md-3">\n'
+    '                            <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div>'
+    '<div>Edge → <strong>Apps</strong> → Install this site</div></div>\n'
+    '                        </div>\n'
+    '                    </div>\n'
+)
+
+# Version for index.html / level index pages — inserted before <main>, wrapped
+# in its own full-width container.
 INSTALL_BANNER = (
     '\n    <!-- App Install Banner -->\n'
-    '    <div style="background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%)'
-    ';color:#fff;padding:1rem 0;">\n'
+    '    <div id="installBanner" class="install-banner-wrap" style="display:none;">\n'
     '        <div class="container">\n'
-    '            <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">\n'
-    '                <span style="font-size:1.6rem">📱</span>\n'
-    '                <div>\n'
-    '                    <div style="font-weight:700;font-size:1rem;line-height:1.2">'
-    'Install as a free app — no App Store needed</div>\n'
-    '                    <div style="font-size:.82rem;opacity:.9;margin-top:.1rem">'
-    'Works offline · Installs in seconds · All devices</div>\n'
-    '                </div>\n'
-    '            </div>\n'
-    '            <div class="row g-2">\n'
-    '                <div class="col-6 col-md-3">\n'
-    '                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem'
-    ';padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%">\n'
-    '                        <div style="font-weight:700;margin-bottom:.15rem">🍎 iPhone/iPad</div>\n'
-    '                        <div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div>\n'
-    '                    </div>\n'
-    '                </div>\n'
-    '                <div class="col-6 col-md-3">\n'
-    '                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem'
-    ';padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%">\n'
-    '                        <div style="font-weight:700;margin-bottom:.15rem">🤖 Android</div>\n'
-    '                        <div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div>\n'
-    '                    </div>\n'
-    '                </div>\n'
-    '                <div class="col-6 col-md-3">\n'
-    '                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem'
-    ';padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%">\n'
-    '                        <div style="font-weight:700;margin-bottom:.15rem">🖥️ macOS</div>\n'
-    '                        <div>Safari → <strong>Share</strong> → Add to Dock</div>\n'
-    '                    </div>\n'
-    '                </div>\n'
-    '                <div class="col-6 col-md-3">\n'
-    '                    <div style="background:rgba(255,255,255,.15);border-radius:.6rem'
-    ';padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%">\n'
-    '                        <div style="font-weight:700;margin-bottom:.15rem">🪟 Windows</div>\n'
-    '                        <div>Edge → <strong>Apps</strong> → Install this site</div>\n'
-    '                    </div>\n'
-    '                </div>\n'
+    '            <div class="install-banner">\n'
+    '                <button type="button" id="installBannerToggle" class="install-banner-bar" '
+    'aria-expanded="false" aria-controls="installBannerPanel">\n'
+    '                    <span class="install-banner-icon">📱</span>\n'
+    '                    <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>\n'
+    '                    <span class="install-banner-chevron">▾</span>\n'
+    '                </button>\n'
+    '                <button type="button" id="installBannerClose" class="install-banner-close" '
+    'aria-label="Dismiss install banner">✕</button>\n'
+    '                <div id="installBannerPanel" class="install-banner-panel" hidden>\n'
+    + INSTALL_BANNER_CARDS.replace('                    ', '                        ')
+    + '                </div>\n'
     '            </div>\n'
     '        </div>\n'
     '    </div>\n'
+    + INSTALL_BANNER_STYLE_SCRIPT +
     '    <!-- End App Install Banner -->\n'
+)
+
+# Version for dictionary.html — no outer .container (it already sits inside the
+# content card), inserted after the search/filter block instead of before <main>
+# so the search box stays the first visible element.
+INSTALL_BANNER_DICT = (
+    '                <!-- App Install Banner -->\n'
+    '                <div id="installBanner" class="install-banner-wrap mb-3" style="display:none;">\n'
+    '                    <div class="install-banner">\n'
+    '                        <button type="button" id="installBannerToggle" class="install-banner-bar" '
+    'aria-expanded="false" aria-controls="installBannerPanel">\n'
+    '                            <span class="install-banner-icon">📱</span>\n'
+    '                            <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>\n'
+    '                            <span class="install-banner-chevron">▾</span>\n'
+    '                        </button>\n'
+    '                        <button type="button" id="installBannerClose" class="install-banner-close" '
+    'aria-label="Dismiss install banner">✕</button>\n'
+    '                        <div id="installBannerPanel" class="install-banner-panel" hidden>\n'
+    + INSTALL_BANNER_CARDS.replace('                    ', '                            ')
+    + '                        </div>\n'
+    '                    </div>\n'
+    '                </div>\n'
+    + INSTALL_BANNER_STYLE_SCRIPT +
+    '                <!-- End App Install Banner -->\n'
+)
+
+_BANNER_STRIP_RE = re.compile(
+    r'\s*<!-- [─\-]*\s*App Install Banner.*?End App Install Banner\s*[─\-]*\s*-->\s*',
+    re.DOTALL
 )
 
 def inject_install_banner(content):
     """Insert the app install banner before <main>. Idempotent."""
     # Remove any existing banner — handles both old and new comment styles
-    content = re.sub(
-        r'\s*<!-- [─\-]*\s*App Install Banner.*?End App Install Banner\s*[─\-]*\s*-->\s*',
-        '\n', content, flags=re.DOTALL
-    )
+    content = _BANNER_STRIP_RE.sub('\n', content)
     main_pos = content.find('<main')
     if main_pos == -1:
         return content
     return content[:main_pos] + INSTALL_BANNER + content[main_pos:]
+
+
+def inject_install_banner_dict(content):
+    """Insert the dictionary-page install banner right below the title/subtitle
+    block, above the search box (<div class="search-wrap mb-2">), so it's
+    immediately visible without pushing the search input down more than one
+    slim bar's height. Idempotent."""
+    content = _BANNER_STRIP_RE.sub('\n', content)
+    anchor = content.find('<div class="search-wrap mb-2">')
+    if anchor == -1:
+        # Fallback: behave like the standard banner if the anchor is missing
+        main_pos = content.find('<main')
+        if main_pos == -1:
+            return content
+        return content[:main_pos] + INSTALL_BANNER + content[main_pos:]
+    return content[:anchor] + INSTALL_BANNER_DICT + content[anchor:]
 
 
 CONJUGATION_WS_SCRIPT = """<script>
@@ -682,8 +770,8 @@ def build_dictionary(words):
 
     content_new = content[:wl_open] + WORDLIST + content[wl_close:]
 
-    # Inject app install banner
-    content_new = inject_install_banner(content_new)
+    # Inject app install banner (after filters, before word list — not before <main>)
+    content_new = inject_install_banner_dict(content_new)
     content_new = re.sub(
         r'id="wordCount">\d+ words',
         f'id="wordCount">{total} words',
@@ -997,7 +1085,7 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
         <div class="ws-search-wrap">
             <svg class="ws-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             <input type="text" id="wsSearchInput"
-                   placeholder="Suche nach deutschem oder englischem Wort..." autocomplete="off">
+                   placeholder="Suche (ä = ae, ö = oe, ü = ue, ß = ss)..." autocomplete="off">
         </div>
         </div>
         <div class="d-flex align-items-center gap-2 flex-wrap mt-2">
