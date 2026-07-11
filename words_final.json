@@ -40227,7 +40227,8 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "vor",
       "reflexiv": true,
-      "governs": "accusative"
+      "governs": "accusative",
+      "praesens_stamm": "nimm"
     }
   },
   {
@@ -50331,7 +50332,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "einzahlen",
-      "praeteritum_stamm": "zahlte ein",
+      "praeteritum_stamm": "zahlte",
       "partizip2": "eingezahlt",
       "hilfsverb": "haben",
       "trennbares_praefix": "ein",
@@ -50765,7 +50766,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "ausreichen",
-      "praeteritum_stamm": "reichte aus",
+      "praeteritum_stamm": "reichte",
       "partizip2": "ausgereicht",
       "hilfsverb": "haben",
       "trennbares_praefix": "aus"
@@ -50815,7 +50816,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "absagen",
-      "praeteritum_stamm": "sagte ab",
+      "praeteritum_stamm": "sagte",
       "partizip2": "abgesagt",
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
@@ -50833,7 +50834,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "absperren",
-      "praeteritum_stamm": "sperrte ab",
+      "praeteritum_stamm": "sperrte",
       "partizip2": "abgesperrt",
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
@@ -50852,7 +50853,7 @@
     "conjugation": {
       "infinitiv": "festnehmen",
       "praesens_stamm": "nimm",
-      "praeteritum_stamm": "nahm fest",
+      "praeteritum_stamm": "nahm",
       "partizip2": "festgenommen",
       "hilfsverb": "haben",
       "trennbares_praefix": "fest",
@@ -51379,7 +51380,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "zustimmen",
-      "praeteritum_stamm": "stimmte zu",
+      "praeteritum_stamm": "stimmte",
       "partizip2": "zugestimmt",
       "hilfsverb": "haben",
       "trennbares_praefix": "zu",
@@ -51572,7 +51573,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "umgehen",
-      "praeteritum_stamm": "ging um",
+      "praeteritum_stamm": "ging",
       "partizip2": "umgegangen",
       "hilfsverb": "sein",
       "trennbares_praefix": "um",
@@ -51589,7 +51590,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "aufwachen",
-      "praeteritum_stamm": "wachte auf",
+      "praeteritum_stamm": "wachte",
       "partizip2": "aufgewacht",
       "hilfsverb": "sein",
       "trennbares_praefix": "auf"
@@ -51863,7 +51864,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "aussuchen",
-      "praeteritum_stamm": "suchte aus",
+      "praeteritum_stamm": "suchte",
       "partizip2": "ausgesucht",
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
@@ -52119,7 +52120,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "aufhören",
-      "praeteritum_stamm": "hörte auf",
+      "praeteritum_stamm": "hörte",
       "partizip2": "aufgehört",
       "hilfsverb": "haben",
       "trennbares_praefix": "auf"
@@ -52242,7 +52243,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "herstellen",
-      "praeteritum_stamm": "stellte her",
+      "praeteritum_stamm": "stellte",
       "partizip2": "hergestellt",
       "hilfsverb": "haben",
       "trennbares_praefix": "her",
@@ -52381,14 +52382,7 @@
     "level": "B1",
     "example": "Als ich geboren wurde, entschloss er sich, nach Vietnam zurückzugehen.",
     "example_en": "When I was born, he decided to go back to Vietnam.",
-    "register": "everyday",
-    "conjugation": {
-      "infinitiv": "geboren werden",
-      "praesens_stamm": "wirst geboren",
-      "praeteritum_stamm": "wurde geboren",
-      "partizip2": "geboren worden",
-      "hilfsverb": "sein"
-    }
+    "register": "everyday"
   },
   {
     "de": "entschließen (sich) (hat entschlossen)",
@@ -52585,7 +52579,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "wiederkommen",
-      "praeteritum_stamm": "kam wieder",
+      "praeteritum_stamm": "kam",
       "partizip2": "wiedergekommen",
       "hilfsverb": "sein",
       "trennbares_praefix": "wieder"
@@ -52910,7 +52904,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "abmachen",
-      "praeteritum_stamm": "machte ab",
+      "praeteritum_stamm": "machte",
       "partizip2": "abgemacht",
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
@@ -53159,7 +53153,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "zusagen",
-      "praeteritum_stamm": "sagte zu",
+      "praeteritum_stamm": "sagte",
       "partizip2": "zugesagt",
       "hilfsverb": "haben",
       "trennbares_praefix": "zu"
@@ -53389,7 +53383,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "anklicken",
-      "praeteritum_stamm": "klickte an",
+      "praeteritum_stamm": "klickte",
       "partizip2": "angeklickt",
       "hilfsverb": "haben",
       "trennbares_praefix": "an",
@@ -53621,7 +53615,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "aufregen",
-      "praeteritum_stamm": "regte auf",
+      "praeteritum_stamm": "regte",
       "partizip2": "aufgeregt",
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
@@ -53914,7 +53908,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "abstimmen",
-      "praeteritum_stamm": "stimmte ab",
+      "praeteritum_stamm": "stimmte",
       "partizip2": "abgestimmt",
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
@@ -54012,7 +54006,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "weitermachen",
-      "praeteritum_stamm": "machte weiter",
+      "praeteritum_stamm": "machte",
       "partizip2": "weitergemacht",
       "hilfsverb": "haben",
       "trennbares_praefix": "weiter"
@@ -54090,7 +54084,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "anzeigen",
-      "praeteritum_stamm": "zeigte an",
+      "praeteritum_stamm": "zeigte",
       "partizip2": "angezeigt",
       "hilfsverb": "haben",
       "trennbares_praefix": "an",
@@ -54160,7 +54154,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "weggehen",
-      "praeteritum_stamm": "ging weg",
+      "praeteritum_stamm": "ging",
       "partizip2": "weggegangen",
       "hilfsverb": "sein",
       "trennbares_praefix": "weg"
@@ -54220,8 +54214,8 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "aufgeben",
-      "praesens_stamm": "gibst auf",
-      "praeteritum_stamm": "gab auf",
+      "praesens_stamm": "gib",
+      "praeteritum_stamm": "gab",
       "partizip2": "aufgegeben",
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
@@ -54272,25 +54266,6 @@
     "example": "Ein Instrument, z.B. Flöte, lernen.",
     "example_en": "To learn an instrument, e.g. flute.",
     "register": "everyday"
-  },
-  {
-    "de": "vornehmen (sich) (hat sich vorgenommen)",
-    "en": "to plan, resolve to do",
-    "article": "",
-    "level": "B1",
-    "example": "Das habe ich mir fest vorgenommen, ...",
-    "example_en": "I've firmly resolved to do that, ...",
-    "register": "everyday",
-    "conjugation": {
-      "infinitiv": "vornehmen",
-      "praesens_stamm": "nimmst dir vor",
-      "praeteritum_stamm": "nahm sich vor",
-      "partizip2": "vorgenommen",
-      "hilfsverb": "haben",
-      "reflexiv": true,
-      "trennbares_praefix": "vor",
-      "governs": "reflexive (sich) + accusative"
-    }
   },
   {
     "de": "realistisch",
@@ -54408,7 +54383,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "zuschauen",
-      "praeteritum_stamm": "schaute zu",
+      "praeteritum_stamm": "schaute",
       "partizip2": "zugeschaut",
       "hilfsverb": "haben",
       "trennbares_praefix": "zu",
@@ -54487,7 +54462,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "vorkommen",
-      "praeteritum_stamm": "kam vor",
+      "praeteritum_stamm": "kam",
       "partizip2": "vorgekommen",
       "hilfsverb": "sein",
       "trennbares_praefix": "vor"
@@ -54528,24 +54503,6 @@
     "example": "Wenn man auf der Flucht ist und sein Heimatland verlassen musste, fühlt man sich zuerst überall fremd und hat Heimweh.",
     "example_en": "If you're fleeing and had to leave your homeland, at first you feel out of place everywhere and homesick.",
     "register": "everyday"
-  },
-  {
-    "de": "verhalten (sich) (hat sich verhalten)",
-    "en": "to behave",
-    "article": "",
-    "level": "B1",
-    "example": "Wie verhalten sich Deutsche und Araber bei privaten Einladungen?",
-    "example_en": "How do Germans and Arabs behave at private invitations?",
-    "register": "everyday",
-    "conjugation": {
-      "infinitiv": "verhalten",
-      "praesens_stamm": "verhältst dich",
-      "praeteritum_stamm": "verhielt sich",
-      "partizip2": "verhalten",
-      "hilfsverb": "haben",
-      "reflexiv": true,
-      "governs": "reflexive (sich)"
-    }
   },
   {
     "de": "beleidigen (hat beleidigt)",
@@ -54653,7 +54610,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "aufführen",
-      "praeteritum_stamm": "führte auf",
+      "praeteritum_stamm": "führte",
       "partizip2": "aufgeführt",
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
@@ -54734,8 +54691,8 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "vorlesen",
-      "praesens_stamm": "liest vor",
-      "praeteritum_stamm": "las vor",
+      "praesens_stamm": "lies",
+      "praeteritum_stamm": "las",
       "partizip2": "vorgelesen",
       "hilfsverb": "haben",
       "trennbares_praefix": "vor",
@@ -54816,8 +54773,8 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "eintreten",
-      "praesens_stamm": "trittst ein",
-      "praeteritum_stamm": "trat ein",
+      "praesens_stamm": "tritt",
+      "praeteritum_stamm": "trat",
       "partizip2": "eingetreten",
       "hilfsverb": "sein",
       "trennbares_praefix": "ein",
@@ -54869,7 +54826,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "hinweisen",
-      "praeteritum_stamm": "wies hin",
+      "praeteritum_stamm": "wies",
       "partizip2": "hingewiesen",
       "hilfsverb": "haben",
       "trennbares_praefix": "hin",
@@ -54966,7 +54923,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "einsetzen",
-      "praeteritum_stamm": "setzte ein",
+      "praeteritum_stamm": "setzte",
       "partizip2": "eingesetzt",
       "hilfsverb": "haben",
       "reflexiv": true,
@@ -55064,7 +55021,7 @@
     "register": "everyday",
     "conjugation": {
       "infinitiv": "weiterbilden",
-      "praeteritum_stamm": "bildete weiter",
+      "praeteritum_stamm": "bildete",
       "partizip2": "weitergebildet",
       "hilfsverb": "haben",
       "reflexiv": true,
