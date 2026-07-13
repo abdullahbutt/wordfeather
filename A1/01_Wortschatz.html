@@ -41,6 +41,8 @@
         .pos-filter-ws button{padding:.25rem .75rem;border-radius:999px;border:1px solid var(--alpha-border);background:var(--card-bg);color:var(--page-text);cursor:pointer;font-size:.85rem;transition:all .15s;}
         .pos-filter-ws button:hover{background:var(--table-stripe);}
         .pos-filter-ws button.active{background:#7c3aed;border-color:#7c3aed;color:#fff;}
+        .pos-filter-ws-sep{align-self:center;color:var(--page-text);opacity:.35;padding:0 .1rem;}
+        .ws-pos-footnote{font-size:.75rem;color:var(--page-text);opacity:.55;margin-top:.25rem;}
         .vocab-table th,.vocab-table td{vertical-align:top;padding:.5rem .65rem;}
         .de-word{font-size:1rem;} .ex-de{font-size:.92rem;} .ex-en{font-size:.82rem;}
         .back-to-top{position:fixed;right:1rem;bottom:1rem;z-index:1030;display:none;width:2.8rem;height:2.8rem;align-items:center;justify-content:center;box-shadow:0 .5rem 1rem rgba(13,110,253,.3);}
@@ -126,11 +128,13 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
                 <button type="button" data-pos="adjective">🟠 Adjektive</button>
                 <button type="button" data-pos="adverb">🟣 Adverbien</button>
                 <button type="button" data-pos="phrase">⬜ Wendungen</button>
-                <button type="button" data-pos="irregular">🔄 Unregelmäßige Verben</button>
-                <button type="button" data-pos="reflexive">🔁 Reflexive Verben</button>
+                <span class="pos-filter-ws-sep" aria-hidden="true">|</span>
+                <button type="button" data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben*</button>
+                <button type="button" data-pos="reflexive" title="Teilmenge von Verben – keine eigene Wortart">🔁 Reflexive Verben*</button>
             </div>
             <span class="badge bg-secondary" id="wsFilterCount">2043 Wörter</span>
         </div>
+        <div class="ws-pos-footnote">* Teilmenge von „Verben" – zählt nicht separat zur Gesamtsumme.</div>
         <div id="wsNoResults" class="text-center text-muted py-4" style="display:none">
             Keine Wörter gefunden. Versuche einen anderen Suchbegriff.
         </div>
