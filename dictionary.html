@@ -387,6 +387,7 @@
                             <button data-pos="adjective">🟠 Adjektive</button>
                             <button data-pos="adverb">🟣 Adverbien</button>
                             <button data-pos="phrase">⬜ Wendungen</button>
+                            <button data-pos="other" title="Präposition, Konjunktion, Pronomen, Determinativ, kurze Redewendungen">⚪ Sonstige</button>
                             <span class="pos-filter-sep" aria-hidden="true">|</span>
                             <button data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben*</button>
                         </div>
@@ -58541,6 +58542,10 @@
         var wordCount = document.getElementById('wordCount');
         var activeLevel = 'ALL';
         var activePOS   = 'ALL';
+        // Function-word categories with no dedicated button of their own —
+        // lumped under the "Sonstige" filter so every word is reachable
+        // via some POS button, not just search or "Alle".
+        var OTHER_POS_DICT = ['proverb', 'preposition', 'conjunction', 'pronoun', 'determiner'];
 
         // Folds German special characters to ASCII equivalents so search works
         // both ways on a US keyboard: typing "abschliessen" matches "abschließen",
@@ -58565,7 +58570,8 @@
                 var irregular = card.getAttribute('data-irregular') === 'true';
                 var matchSearch = !q || de.indexOf(q) > -1 || en.indexOf(q) > -1 || ex.indexOf(q) > -1;
                 var matchPOS = activePOS === 'ALL' || pos === activePOS ||
-                               (activePOS === 'irregular' && irregular);
+                               (activePOS === 'irregular' && irregular) ||
+                               (activePOS === 'other' && OTHER_POS_DICT.indexOf(pos) > -1);
                 var matchLevel = activeLevel === 'ALL' || level === activeLevel;
                 if (matchSearch && matchLevel && matchPOS) {
                     card.style.display = '';

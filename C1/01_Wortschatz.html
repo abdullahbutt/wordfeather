@@ -128,6 +128,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
                 <button type="button" data-pos="adjective">🟠 Adjektive</button>
                 <button type="button" data-pos="adverb">🟣 Adverbien</button>
                 <button type="button" data-pos="phrase">⬜ Wendungen</button>
+                <button type="button" data-pos="other" title="Präposition, Konjunktion, Pronomen, Determinativ, kurze Redewendungen">⚪ Sonstige</button>
                 <span class="pos-filter-ws-sep" aria-hidden="true">|</span>
                 <button type="button" data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben*</button>
                 <button type="button" data-pos="reflexive" title="Teilmenge von Verben – keine eigene Wortart">🔁 Reflexive Verben*</button>
@@ -2476,6 +2477,10 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 
     var wordCountEl = document.getElementById('wsWordCount');
     var filterCountEl = document.getElementById('wsFilterCount');
+    // Function-word categories with no dedicated button of their own —
+    // lumped under the "Sonstige" filter so every word is reachable
+    // via some POS button, not just search or "Alle".
+    var OTHER_POS_WS = ['proverb', 'preposition', 'conjunction', 'pronoun', 'determiner'];
 
     // Folds German special characters to ASCII equivalents so search works
     // both ways on a US keyboard: typing "abschliessen" matches "abschließen",
@@ -2508,7 +2513,8 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
                 var matchesSearch = !q || blob.indexOf(q) > -1;
                 var matchesPOS = activePOS === 'ALL' || pos === activePOS ||
                                  (activePOS === 'irregular' && irregular) ||
-                                 (activePOS === 'reflexive' && reflexive);
+                                 (activePOS === 'reflexive' && reflexive) ||
+                                 (activePOS === 'other' && OTHER_POS_WS.indexOf(pos) > -1);
                 var show = matchesSearch && matchesPOS;
                 row.style.display = show ? '' : 'none';
                 lastRowVisible = show;
