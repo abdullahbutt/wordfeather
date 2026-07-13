@@ -390,6 +390,7 @@
                             <button data-pos="other" title="Präposition, Konjunktion, Pronomen, Determinativ, kurze Redewendungen">⚪ Sonstige</button>
                             <span class="pos-filter-sep" aria-hidden="true">|</span>
                             <button data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben*</button>
+                            <button data-pos="reflexive" title="Teilmenge von Verben – keine eigene Wortart">🔁 Reflexive Verben*</button>
                         </div>
                     </div>
                     <div class="pos-filter-footnote">* Teilmenge von „Verben" – zählt nicht separat zur Gesamtsumme.</div>
@@ -58568,9 +58569,11 @@
                 var level = card.getAttribute('data-level');
                 var pos = card.getAttribute('data-pos');
                 var irregular = card.getAttribute('data-irregular') === 'true';
+                var reflexive = card.getAttribute('data-reflexive') === 'true';
                 var matchSearch = !q || de.indexOf(q) > -1 || en.indexOf(q) > -1 || ex.indexOf(q) > -1;
                 var matchPOS = activePOS === 'ALL' || pos === activePOS ||
                                (activePOS === 'irregular' && irregular) ||
+                               (activePOS === 'reflexive' && reflexive) ||
                                (activePOS === 'other' && OTHER_POS_DICT.indexOf(pos) > -1);
                 var matchLevel = activeLevel === 'ALL' || level === activeLevel;
                 if (matchSearch && matchLevel && matchPOS) {
