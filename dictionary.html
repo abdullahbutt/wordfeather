@@ -2,23 +2,23 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Über 3.039 prüfungsrelevante deutsche Wörter von A1 bis C2 mit englischen Übersetzungen und natürlichen Beispielsätzen. Ideal für Goethe- und telc-Prüfungsvorbereitung.">
+    <meta name="description" content="Über 5.200 prüfungsrelevante deutsche Wörter von A1 bis C2 mit englischen Übersetzungen und natürlichen Beispielsätzen. Ideal für Goethe- und telc-Prüfungsvorbereitung.">
     <meta name="keywords" content="Deutsch lernen, Deutsche Wörterbuch A1–C2, Goethe Prüfung, telc Prüfung, A1 B1 C1 Deutsch">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO: canonical + robots -->
     <link rel="canonical" href="https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
-    <meta property="og:title" content="German Dictionary A1–C2 — 4,000+ Words | Deutsch Learning Hub">
-    <meta property="og:description" content="Searchable German–English dictionary with 4,000+ CEFR-graded words from A1 to C2. Every word includes example sentences, collocations and audio pronunciation.">
+    <meta property="og:title" content="German Dictionary A1–C2 — 5,200+ Words | Deutsch Learning Hub">
+    <meta property="og:description" content="Searchable German–English dictionary with 5,200+ CEFR-graded words from A1 to C2. Every word includes example sentences, collocations and audio pronunciation.">
     <meta property="og:url" content="https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html">
     <meta property="og:image" content="https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/og-image.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Deutsch Learning Hub">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="German Dictionary A1–C2 — 4,000+ Words | Deutsch Learning Hub">
-    <meta name="twitter:description" content="Searchable German–English dictionary with 4,000+ CEFR-graded words from A1 to C2. Every word includes example sentences, collocations and audio pronunciation.">
+    <meta name="twitter:title" content="German Dictionary A1–C2 — 5,200+ Words | Deutsch Learning Hub">
+    <meta name="twitter:description" content="Searchable German–English dictionary with 5,200+ CEFR-graded words from A1 to C2. Every word includes example sentences, collocations and audio pronunciation.">
     <meta name="twitter:image" content="https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/og-image.png">
     
     <meta name="theme-color" content="#1d4ed8">
@@ -146,6 +146,10 @@
         .pos-filter button{padding:.25rem .75rem;border-radius:999px;border:1px solid #d1d5db;background:#fff;cursor:pointer;font-size:.85rem;transition:all .15s}
         .pos-filter button:hover{background:#f3f4f6}
         .pos-filter button.active{background:#7c3aed;border-color:#7c3aed;color:#fff}
+        .pos-filter-sep{align-self:center;color:#6b7280;opacity:.5;padding:0 .1rem}
+        .pos-filter-footnote{font-size:.75rem;color:#6b7280;opacity:.85;margin-top:.25rem}
+        [data-bs-theme="dark"] .pos-filter-sep{color:#e2e8f0}
+        [data-bs-theme="dark"] .pos-filter-footnote{color:#e2e8f0}
         .filter-label{font-size:.8rem;color:#64748b;font-weight:600;white-space:nowrap;min-width:2.5rem}
         [data-bs-theme="dark"] .pos-filter button{background:#1e293b;border-color:#374151;color:#e2e8f0}
         [data-bs-theme="dark"] .pos-filter button:hover{background:#334155}
@@ -383,9 +387,11 @@
                             <button data-pos="adjective">🟠 Adjektive</button>
                             <button data-pos="adverb">🟣 Adverbien</button>
                             <button data-pos="phrase">⬜ Wendungen</button>
-                            <button data-pos="irregular">🔄 Unregelmäßige Verben</button>
+                            <span class="pos-filter-sep" aria-hidden="true">|</span>
+                            <button data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben*</button>
                         </div>
                     </div>
+                    <div class="pos-filter-footnote">* Teilmenge von „Verben" – zählt nicht separat zur Gesamtsumme.</div>
                 </div>
                 <div class="dict-layout">
                     <nav class="alpha-nav">
