@@ -75,12 +75,12 @@ Jeder Ordner enthält **9 Dateien** / Each folder contains **9 files**:
 ### Wortschatz / Vocabulary (thematisch geordnet / organized by theme)
 | Stufe / Level | Wörter / Words | Themen / Themes |
 |-------|--------|---------|
-| A1 | ~740 | Alphabetisch A–Z: Alltag, Familie, Essen, Körper, Verkehr |
-| A2 | ~470 | 12 Themen: Wohnen, Gesundheit, Arbeit, Reisen, Einkaufen, Behörden |
-| B1 | ~270 | 10 Themen: Gesellschaft, Medien, Karriere, Umwelt, Bildung, Gefühle |
-| B2 | ~300 | 10 Themen: Politik, Wissenschaft, Wirtschaft, Kultur, Recht, Psychologie + Kollokationen |
-| C1 | ~250 | 9 Themen: Akademie, Diplomatie, Philosophie, Biotechnologie + Stilistische Wendungen |
-| C2 | ~240 + Idiome | Literarisch, Akademisch, Rhetorik + 29 Redewendungen + 16 Sprichwörter |
+| A1 | ~2,043 | Alphabetisch A–Z: Alltag, Familie, Essen, Körper, Verkehr |
+| A2 | ~866 | 12 Themen: Wohnen, Gesundheit, Arbeit, Reisen, Einkaufen, Behörden |
+| B1 | ~1,116 | 10 Themen: Gesellschaft, Medien, Karriere, Umwelt, Bildung, Gefühle |
+| B2 | ~433 | 10 Themen: Politik, Wissenschaft, Wirtschaft, Kultur, Recht, Psychologie + Kollokationen |
+| C1 | ~408 | 9 Themen: Akademie, Diplomatie, Philosophie, Biotechnologie + Stilistische Wendungen |
+| C2 | ~334 + Idiome | Literarisch, Akademisch, Rhetorik + 29 Redewendungen + 16 Sprichwörter |
 
 ### Grammatik / Grammar
 | Stufe / Level | Schwerpunkte / Focus Areas |
@@ -157,8 +157,8 @@ deutsch_a1_a2_b1_b2_c1_c2/
     └── (same structure)
 ```
 
-**55 Dateien · 6 Niveaustufen · Alle 4 Prüfungsmodule · 2,300+ Vokabeln**
-*55 files · 6 levels · All 4 exam modules · 2,300+ vocabulary entries*
+**55 Dateien · 6 Niveaustufen · Alle 4 Prüfungsmodule · 5.200+ Vokabeln**
+*55 files · 6 levels · All 4 exam modules · 5,200+ vocabulary entries*
 
 ---
 
