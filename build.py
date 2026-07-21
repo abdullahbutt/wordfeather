@@ -1015,6 +1015,31 @@ def build_wortschatz_page(level, level_words):
             conj_btn = (f'<br><button type="button" class="conj-toggle-ws" '
                         f'data-de-lower="{htmllib.escape(w["de"].lower())}">'
                         f'📖 Konjugation</button>' if pos == 'verb' else '')
+
+            # 6-person sentence drill (ich/du/er,sie,es/wir/ihr/sie,Sie) —
+            # same optional field as dictionary.html; only rendered when
+            # present, so words without it yet are completely unaffected.
+            person_html = ''
+            person_sentences = w.get('person_sentences')
+            if person_sentences and len(person_sentences) == 6:
+                p_rows = ''.join(
+                    f'<tr><td>{htmllib.escape(pde)}</td><td>{htmllib.escape(pen)}</td></tr>'
+                    for pde, pen in person_sentences
+                )
+                person_html = (
+                    '<details class="word-person-drill" style="margin-top:0.4rem;">'
+                    '<summary style="cursor:pointer;color:#1d4ed8;font-weight:600;font-size:0.8rem;">'
+                    'ich/du/er,sie,es/wir/ihr/sie,Sie \u2014 Beispiele</summary>'
+                    '<div style="overflow-x:auto;margin-top:0.3rem;">'
+                    '<table style="width:100%;font-size:0.82rem;border-collapse:collapse;">'
+                    '<thead><tr>'
+                    '<th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>'
+                    '<th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;">English</th>'
+                    '</tr></thead>'
+                    f'<tbody>{p_rows}</tbody>'
+                    '</table></div></details>'
+                )
+
             search_blob = htmllib.escape(
                 f"{w['de']} {w['en']} {w.get('example','')} {w.get('example_en','')}".lower(),
                 quote=True)
@@ -1025,7 +1050,7 @@ def build_wortschatz_page(level, level_words):
                 f'data-reflexive="{"true" if is_reflexive else "false"}" data-search="{search_blob}">\n'
                 f'  <td class="fw-semibold de-word">{de}{conj_btn}</td>\n'
                 f'  <td class="text-muted">{en}</td>\n'
-                f'  <td><span class="ex-de d-block">{exd}</span>{exe_row}{col_html}</td>\n'
+                f'  <td><span class="ex-de d-block">{exd}</span>{exe_row}{col_html}{person_html}</td>\n'
                 f'</tr>\n'
             )
         sections += '</tbody>\n</table>\n</div>\n</div>\n'
