@@ -17,6 +17,7 @@ Author: Abdullah Butt
 """
 
 import json, html as htmllib, re, sys, os
+from datetime import datetime, timezone
 from collections import defaultdict, Counter
 from conjugator import conjugate, _regular_stem
 from english_conjugator import build_english_table
@@ -24,6 +25,37 @@ from english_conjugator import build_english_table
 REPO    = os.path.dirname(os.path.abspath(__file__))
 JSON    = os.path.join(REPO, 'words_final.json')
 BASE    = '/deutsch-lernen-goethe-a1-c2'
+SW_JS_PATH = os.path.join(REPO, 'sw.js')
+
+
+def update_service_worker_cache_name():
+    """Stamp sw.js's CACHE_NAME with the current UTC date+time so every
+    build run automatically busts the old service-worker cache —
+    no more manually editing sw.js after a dictionary/Wortschatz change.
+    Only touches the one marked line; safe to call on every build."""
+    if not os.path.exists(SW_JS_PATH):
+        print(f"  ⚠️  sw.js not found at {SW_JS_PATH} — cache name NOT updated.")
+        return
+
+    with open(SW_JS_PATH, encoding='utf-8') as f:
+        content = f.read()
+
+    timestamp = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
+    new_cache_name = f'deutsch-lernen-v{timestamp}'
+
+    pattern = re.compile(
+        r"(// AUTO-CACHE-VERSION-START\s*\n\s*const CACHE_NAME = ')[^']*(';\s*\n// AUTO-CACHE-VERSION-END)"
+    )
+    if not pattern.search(content):
+        print("  ⚠️  sw.js AUTO-CACHE-VERSION markers not found — cache name NOT updated. "
+              "(Did sw.js get replaced with an older version without the markers?)")
+        return
+
+    new_content = pattern.sub(rf"\g<1>{new_cache_name}\g<2>", content)
+    with open(SW_JS_PATH, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print(f"  ✅ sw.js — CACHE_NAME updated to {new_cache_name}")
+
 
 FAVICON_BLOCK = f'''\
     <link rel="icon" type="image/x-icon" href="{BASE}/icons/favicon.ico">
@@ -1241,6 +1273,7 @@ def main():
                 with open(page_path, 'w', encoding='utf-8') as f:
                     f.write(pg)
                 print(f"  ✅ banner → {os.path.relpath(page_path, REPO)}")
+        update_service_worker_cache_name()
         print("\nBuild complete.")
         return
 
@@ -1272,6 +1305,7 @@ def main():
                 f.write(content)
             print(f"  ✅ dictionary.html — word count updated to {total}")
 
+    update_service_worker_cache_name()
     print("\nBuild complete.")
 
 
