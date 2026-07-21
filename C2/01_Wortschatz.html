@@ -2107,7 +2107,19 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
         document.querySelectorAll('.topic-section').forEach(function(section) {
             var sectionHasMatch = false;
             var lastRowVisible = true;
+            // Bare "tbody tr" (or even "table.vocab-table tbody tr") both
+            // fail here: CSS/JS descendant selectors don't require the
+            // NEAREST ancestor to match — a deeply nested inner table (like
+            // the person-drill sentence table inside a word-card's example
+            // cell) is still technically a descendant of the outer
+            // table.vocab-table, so it gets matched too. We explicitly check
+            // each row's closest enclosing <table> and skip anything whose
+            // nearest table isn't the real vocab table.
             section.querySelectorAll('tbody tr').forEach(function(row) {
+                var nearestTable = row.closest('table');
+                if (!nearestTable || !nearestTable.classList.contains('vocab-table')) {
+                    return; // belongs to a nested table (e.g. person-drill) — leave untouched
+                }
                 if (row.classList.contains('conj-row-container-ws')) {
                     // Conjugation panel rows have no data of their own —
                     // always follow the visibility of the verb row above them.
