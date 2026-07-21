@@ -1597,7 +1597,33 @@
     "level": "A1",
     "example": "Die Aufgabe ist schwerer als ich dachte.",
     "example_en": "The task is harder than I thought.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe eine Aufgabe.",
+        "I have a task."
+      ],
+      [
+        "Du hast eine Aufgabe.",
+        "You have a task."
+      ],
+      [
+        "Er hat eine Aufgabe.",
+        "He has a task."
+      ],
+      [
+        "Wir haben eine Aufgabe.",
+        "We have a task."
+      ],
+      [
+        "Ihr habt eine Aufgabe.",
+        "You all have a task."
+      ],
+      [
+        "Sie haben eine Aufgabe.",
+        "They have a task."
+      ]
+    ]
   },
   {
     "de": "aufgeregt",
@@ -1623,7 +1649,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
       "governs": "none (mit + dative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich höre mit der Arbeit auf.",
+        "I stop working."
+      ],
+      [
+        "Du hörst mit der Arbeit auf.",
+        "You stop working."
+      ],
+      [
+        "Er hört mit der Arbeit auf.",
+        "He stops working."
+      ],
+      [
+        "Wir hören mit der Arbeit auf.",
+        "We stop working."
+      ],
+      [
+        "Ihr hört mit der Arbeit auf.",
+        "You all stop working."
+      ],
+      [
+        "Sie hören mit der Arbeit auf.",
+        "They stop working."
+      ]
+    ]
   },
   {
     "de": "die Aufklärung",
@@ -1672,7 +1724,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
       "governs": "auf + accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich passe auf die Kinder auf.",
+        "I watch the children."
+      ],
+      [
+        "Du passt auf die Kinder auf.",
+        "You watch the children."
+      ],
+      [
+        "Er passt auf die Kinder auf.",
+        "He watches the children."
+      ],
+      [
+        "Wir passen auf die Kinder auf.",
+        "We watch the children."
+      ],
+      [
+        "Ihr passt auf die Kinder auf.",
+        "You all watch the children."
+      ],
+      [
+        "Sie passen auf die Kinder auf.",
+        "They watch the children."
+      ]
+    ]
   },
   {
     "de": "aufräumen",
@@ -1690,7 +1768,33 @@
       "trennbares_praefix": "auf",
       "transitiv": true,
       "governs": "accusative (optional object)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich räume das Zimmer auf.",
+        "I tidy up the room."
+      ],
+      [
+        "Du räumst das Zimmer auf.",
+        "You tidy up the room."
+      ],
+      [
+        "Er räumt das Zimmer auf.",
+        "He tidies up the room."
+      ],
+      [
+        "Wir räumen das Zimmer auf.",
+        "We tidy up the room."
+      ],
+      [
+        "Ihr räumt das Zimmer auf.",
+        "You all tidy up the room."
+      ],
+      [
+        "Sie räumen das Zimmer auf.",
+        "They tidy up the room."
+      ]
+    ]
   },
   {
     "de": "der Aufstieg",
@@ -1735,7 +1839,33 @@
     "level": "A1",
     "example": "Nehmen Sie den Aufzug.",
     "example_en": "Take the lift.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche den Aufzug.",
+        "I need the elevator."
+      ],
+      [
+        "Du brauchst den Aufzug.",
+        "You need the elevator."
+      ],
+      [
+        "Er braucht den Aufzug.",
+        "He needs the elevator."
+      ],
+      [
+        "Wir brauchen den Aufzug.",
+        "We need the elevator."
+      ],
+      [
+        "Ihr braucht den Aufzug.",
+        "You all need the elevator."
+      ],
+      [
+        "Sie brauchen den Aufzug.",
+        "They need the elevator."
+      ]
+    ]
   },
   {
     "de": "das Auge, -n",
@@ -1744,7 +1874,33 @@
     "level": "A1",
     "example": "Mein Auge tut weh.",
     "example_en": "My eye hurts.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe blaue Augen.",
+        "I have blue eyes."
+      ],
+      [
+        "Du hast blaue Augen.",
+        "You have blue eyes."
+      ],
+      [
+        "Er hat blaue Augen.",
+        "He has blue eyes."
+      ],
+      [
+        "Wir haben blaue Augen.",
+        "We have blue eyes."
+      ],
+      [
+        "Ihr habt blaue Augen.",
+        "You all have blue eyes."
+      ],
+      [
+        "Sie haben blaue Augen.",
+        "They have blue eyes."
+      ]
+    ]
   },
   {
     "de": "der August",
@@ -1753,7 +1909,33 @@
     "level": "A1",
     "example": "Ich habe im August Geburtstag.",
     "example_en": "My birthday is in August.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich mag den August.",
+        "I like August."
+      ],
+      [
+        "Du magst den August.",
+        "You like August."
+      ],
+      [
+        "Er mag den August.",
+        "He likes August."
+      ],
+      [
+        "Wir mögen den August.",
+        "We like August."
+      ],
+      [
+        "Ihr mögt den August.",
+        "You all like August."
+      ],
+      [
+        "Sie mögen den August.",
+        "They like August."
+      ]
+    ]
   },
   {
     "de": "aus",
@@ -1803,7 +1985,33 @@
     "level": "A1",
     "example": "Familie Baumann und Lara machen einen Ausflug.",
     "example_en": "The Baumann family and Lara go on a trip.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich mache einen Ausflug.",
+        "I am going on an excursion."
+      ],
+      [
+        "Du machst einen Ausflug.",
+        "You are going on an excursion."
+      ],
+      [
+        "Er macht einen Ausflug.",
+        "He is going on an excursion."
+      ],
+      [
+        "Wir machen einen Ausflug.",
+        "We are going on an excursion."
+      ],
+      [
+        "Ihr macht einen Ausflug.",
+        "You all are going on an excursion."
+      ],
+      [
+        "Sie machen einen Ausflug.",
+        "They are going on an excursion."
+      ]
+    ]
   },
   {
     "de": "die Ausgabe, -n",
@@ -1821,7 +2029,33 @@
     "level": "A1",
     "example": "Ich brauche eine Auskunft.",
     "example_en": "I need some information.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche eine Auskunft.",
+        "I need information."
+      ],
+      [
+        "Du brauchst eine Auskunft.",
+        "You need information."
+      ],
+      [
+        "Er braucht eine Auskunft.",
+        "He needs information."
+      ],
+      [
+        "Wir brauchen eine Auskunft.",
+        "We need information."
+      ],
+      [
+        "Ihr braucht eine Auskunft.",
+        "You all need information."
+      ],
+      [
+        "Sie brauchen eine Auskunft.",
+        "They need information."
+      ]
+    ]
   },
   {
     "de": "der Ausländer, -",
@@ -1839,7 +2073,33 @@
     "level": "A1",
     "example": "Im Ausland arbeiten oder studieren?",
     "example_en": "Work or study abroad?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich mag das Ausland.",
+        "I like foreign countries."
+      ],
+      [
+        "Du magst das Ausland.",
+        "You like foreign countries."
+      ],
+      [
+        "Er mag das Ausland.",
+        "He likes foreign countries."
+      ],
+      [
+        "Wir mögen das Ausland.",
+        "We like foreign countries."
+      ],
+      [
+        "Ihr mögt das Ausland.",
+        "You all like foreign countries."
+      ],
+      [
+        "Sie mögen das Ausland.",
+        "They like foreign countries."
+      ]
+    ]
   },
   {
     "de": "das Auslandssemester",
@@ -1889,7 +2149,33 @@
       "trennbares_praefix": "aus",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich mache das Licht aus.",
+        "I turn off the light."
+      ],
+      [
+        "Du machst das Licht aus.",
+        "You turn off the light."
+      ],
+      [
+        "Er macht das Licht aus.",
+        "He turns off the light."
+      ],
+      [
+        "Wir machen das Licht aus.",
+        "We turn off the light."
+      ],
+      [
+        "Ihr macht das Licht aus.",
+        "You all turn off the light."
+      ],
+      [
+        "Sie machen das Licht aus.",
+        "They turn off the light."
+      ]
+    ]
   },
   {
     "de": "ausschlaggebend",
@@ -1935,7 +2221,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "none (+ predicate adjective)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich sehe müde aus.",
+        "I look tired."
+      ],
+      [
+        "Du siehst müde aus.",
+        "You look tired."
+      ],
+      [
+        "Er sieht müde aus.",
+        "He looks tired."
+      ],
+      [
+        "Wir sehen müde aus.",
+        "We look tired."
+      ],
+      [
+        "Ihr seht müde aus.",
+        "You all look tired."
+      ],
+      [
+        "Sie sehen müde aus.",
+        "They look tired."
+      ]
+    ]
   },
   {
     "de": "die Außenpolitik",
@@ -1958,7 +2270,33 @@
     "level": "A1",
     "example": "Die Aussicht ist schön.",
     "example_en": "The view is beautiful.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich mag die Aussicht.",
+        "I like the view."
+      ],
+      [
+        "Du magst die Aussicht.",
+        "You like the view."
+      ],
+      [
+        "Er mag die Aussicht.",
+        "He likes the view."
+      ],
+      [
+        "Wir mögen die Aussicht.",
+        "We like the view."
+      ],
+      [
+        "Ihr mögt die Aussicht.",
+        "You all like the view."
+      ],
+      [
+        "Sie mögen die Aussicht.",
+        "They like the view."
+      ]
+    ]
   },
   {
     "de": "aussteigen",
@@ -1975,7 +2313,33 @@
       "hilfsverb": "sein",
       "trennbares_praefix": "aus",
       "governs": "aus + dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich steige am Bahnhof aus.",
+        "I get off at the station."
+      ],
+      [
+        "Du steigst am Bahnhof aus.",
+        "You get off at the station."
+      ],
+      [
+        "Er steigt am Bahnhof aus.",
+        "He gets off at the station."
+      ],
+      [
+        "Wir steigen am Bahnhof aus.",
+        "We get off at the station."
+      ],
+      [
+        "Ihr steigt am Bahnhof aus.",
+        "You all get off at the station."
+      ],
+      [
+        "Sie steigen am Bahnhof aus.",
+        "They get off at the station."
+      ]
+    ]
   },
   {
     "de": "die Ausstellung, -en",
@@ -1984,7 +2348,33 @@
     "level": "A1",
     "example": "Die Ausstellung über moderne Kunst war beeindruckend.",
     "example_en": "The exhibition about modern art was impressive.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich besuche eine Ausstellung.",
+        "I am visiting an exhibition."
+      ],
+      [
+        "Du besuchst eine Ausstellung.",
+        "You are visiting an exhibition."
+      ],
+      [
+        "Er besucht eine Ausstellung.",
+        "He is visiting an exhibition."
+      ],
+      [
+        "Wir besuchen eine Ausstellung.",
+        "We are visiting an exhibition."
+      ],
+      [
+        "Ihr besucht eine Ausstellung.",
+        "You all are visiting an exhibition."
+      ],
+      [
+        "Sie besuchen eine Ausstellung.",
+        "They are visiting an exhibition."
+      ]
+    ]
   },
   {
     "de": "der Ausstoß",
@@ -2090,7 +2480,33 @@
     "level": "A1",
     "example": "Sofia fährt gern Auto.",
     "example_en": "Sofia likes to drive.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe ein Auto.",
+        "I have a car."
+      ],
+      [
+        "Du hast ein Auto.",
+        "You have a car."
+      ],
+      [
+        "Er hat ein Auto.",
+        "He has a car."
+      ],
+      [
+        "Wir haben ein Auto.",
+        "We have a car."
+      ],
+      [
+        "Ihr habt ein Auto.",
+        "You all have a car."
+      ],
+      [
+        "Sie haben ein Auto.",
+        "They have a car."
+      ]
+    ]
   },
   {
     "de": "die Autobahn, -en",
@@ -2099,7 +2515,33 @@
     "level": "A1",
     "example": "Wo ist bitte die Autobahn?",
     "example_en": "Where is the highway, please?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Autobahn.",
+        "I see the highway."
+      ],
+      [
+        "Du siehst die Autobahn.",
+        "You see the highway."
+      ],
+      [
+        "Er sieht die Autobahn.",
+        "He sees the highway."
+      ],
+      [
+        "Wir sehen die Autobahn.",
+        "We see the highway."
+      ],
+      [
+        "Ihr seht die Autobahn.",
+        "You all see the highway."
+      ],
+      [
+        "Sie sehen die Autobahn.",
+        "They see the highway."
+      ]
+    ]
   },
   {
     "de": "die Automatisierung",
@@ -36268,7 +36710,33 @@
         ]
       },
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich fülle das Formular aus.",
+        "I fill out the form."
+      ],
+      [
+        "Du füllst das Formular aus.",
+        "You fill out the form."
+      ],
+      [
+        "Er füllt das Formular aus.",
+        "He fills out the form."
+      ],
+      [
+        "Wir füllen das Formular aus.",
+        "We fill out the form."
+      ],
+      [
+        "Ihr füllt das Formular aus.",
+        "You all fill out the form."
+      ],
+      [
+        "Sie füllen das Formular aus.",
+        "They fill out the form."
+      ]
+    ]
   },
   {
     "de": "ausländisch",
@@ -38277,7 +38745,33 @@
       "hilfsverb": "sein",
       "trennbares_praefix": "auf",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich stehe um sieben Uhr auf.",
+        "I get up at seven o'clock."
+      ],
+      [
+        "Du stehst um sieben Uhr auf.",
+        "You get up at seven."
+      ],
+      [
+        "Er steht um sieben Uhr auf.",
+        "He gets up at seven."
+      ],
+      [
+        "Wir stehen um sieben Uhr auf.",
+        "We get up at seven."
+      ],
+      [
+        "Ihr steht um sieben Uhr auf.",
+        "You all get up at seven."
+      ],
+      [
+        "Sie stehen um sieben Uhr auf.",
+        "They get up at seven."
+      ]
+    ]
   },
   {
     "de": "auftreten",
@@ -38363,7 +38857,33 @@
       "hilfsverb": "sein",
       "trennbares_praefix": "aus",
       "governs": "none (to go out) / von + dative (\"davon ausgehen, dass...\")"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich gehe am Freitag aus.",
+        "I go out on Friday."
+      ],
+      [
+        "Du gehst am Freitag aus.",
+        "You go out on Friday."
+      ],
+      [
+        "Er geht am Freitag aus.",
+        "He goes out on Friday."
+      ],
+      [
+        "Wir gehen am Freitag aus.",
+        "We go out on Friday."
+      ],
+      [
+        "Ihr geht am Freitag aus.",
+        "You all go out on Friday."
+      ],
+      [
+        "Sie gehen am Freitag aus.",
+        "They go out on Friday."
+      ]
+    ]
   },
   {
     "de": "aushalten",
@@ -38431,7 +38951,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "accusative (to take off) / none (to move out, uses sein)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich ziehe die Schuhe aus.",
+        "I take off my shoes."
+      ],
+      [
+        "Du ziehst die Schuhe aus.",
+        "You take off your shoes."
+      ],
+      [
+        "Er zieht die Schuhe aus.",
+        "He takes off his shoes."
+      ],
+      [
+        "Wir ziehen die Schuhe aus.",
+        "We take off our shoes."
+      ],
+      [
+        "Ihr zieht die Schuhe aus.",
+        "You all take off your shoes."
+      ],
+      [
+        "Sie ziehen die Schuhe aus.",
+        "They take off their shoes."
+      ]
+    ]
   },
   {
     "de": "bedenken",
@@ -41628,7 +42174,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schreibe die Wörter auf.",
+        "I write down the words."
+      ],
+      [
+        "Du schreibst die Wörter auf.",
+        "You write down the words."
+      ],
+      [
+        "Er schreibt die Wörter auf.",
+        "He writes down the words."
+      ],
+      [
+        "Wir schreiben die Wörter auf.",
+        "We write down the words."
+      ],
+      [
+        "Ihr schreibt die Wörter auf.",
+        "You all write down the words."
+      ],
+      [
+        "Sie schreiben die Wörter auf.",
+        "They write down the words."
+      ]
+    ]
   },
   {
     "de": "drankommen",
@@ -42164,7 +42736,33 @@
     "article": "m.",
     "level": "A1",
     "example": "Der Arztbesuch war kurz.",
-    "example_en": "The doctor's visit was short."
+    "example_en": "The doctor's visit was short.",
+    "person_sentences": [
+      [
+        "Ich habe einen Arztbesuch.",
+        "I have a doctor's appointment."
+      ],
+      [
+        "Du hast einen Arztbesuch.",
+        "You have a doctor's appointment."
+      ],
+      [
+        "Er hat einen Arztbesuch.",
+        "He has a doctor's appointment."
+      ],
+      [
+        "Wir haben einen Arztbesuch.",
+        "We have a doctor's appointment."
+      ],
+      [
+        "Ihr habt einen Arztbesuch.",
+        "You all have a doctor's appointment."
+      ],
+      [
+        "Sie haben einen Arztbesuch.",
+        "They have a doctor's appointment."
+      ]
+    ]
   },
   {
     "de": "die Assoziation, -en",
@@ -42172,7 +42770,33 @@
     "article": "f.",
     "level": "A1",
     "example": "Sammeln Sie freie Assoziationen.",
-    "example_en": "Collect free associations."
+    "example_en": "Collect free associations.",
+    "person_sentences": [
+      [
+        "Ich habe eine Assoziation.",
+        "I have an association."
+      ],
+      [
+        "Du hast eine Assoziation.",
+        "You have an association."
+      ],
+      [
+        "Er hat eine Assoziation.",
+        "He has an association."
+      ],
+      [
+        "Wir haben eine Assoziation.",
+        "We have an association."
+      ],
+      [
+        "Ihr habt eine Assoziation.",
+        "You all have an association."
+      ],
+      [
+        "Sie haben eine Assoziation.",
+        "They have an association."
+      ]
+    ]
   },
   {
     "de": "das Atelier, -s",
@@ -42180,7 +42804,33 @@
     "article": "n.",
     "level": "A1",
     "example": "Die Künstlerin arbeitet in ihrem Atelier.",
-    "example_en": "The artist works in her studio."
+    "example_en": "The artist works in her studio.",
+    "person_sentences": [
+      [
+        "Ich sehe ein Atelier.",
+        "I see a studio."
+      ],
+      [
+        "Du siehst ein Atelier.",
+        "You see a studio."
+      ],
+      [
+        "Er sieht ein Atelier.",
+        "He sees a studio."
+      ],
+      [
+        "Wir sehen ein Atelier.",
+        "We see a studio."
+      ],
+      [
+        "Ihr seht ein Atelier.",
+        "You all see a studio."
+      ],
+      [
+        "Sie sehen ein Atelier.",
+        "They see a studio."
+      ]
+    ]
   },
   {
     "de": "die Atmosphäre (Sg.)",
@@ -42188,7 +42838,33 @@
     "article": "f.",
     "level": "A1",
     "example": "Die Atmosphäre im Café ist gemütlich.",
-    "example_en": "The atmosphere in the café is cozy."
+    "example_en": "The atmosphere in the café is cozy.",
+    "person_sentences": [
+      [
+        "Ich mag diese Atmosphäre.",
+        "I like this atmosphere."
+      ],
+      [
+        "Du magst diese Atmosphäre.",
+        "You like this atmosphere."
+      ],
+      [
+        "Er mag diese Atmosphäre.",
+        "He likes this atmosphere."
+      ],
+      [
+        "Wir mögen diese Atmosphäre.",
+        "We like this atmosphere."
+      ],
+      [
+        "Ihr mögt diese Atmosphäre.",
+        "You all like this atmosphere."
+      ],
+      [
+        "Sie mögen diese Atmosphäre.",
+        "They like this atmosphere."
+      ]
+    ]
   },
   {
     "de": "die Attraktion, -en",
@@ -42196,7 +42872,33 @@
     "article": "f.",
     "level": "A1",
     "example": "Diese Attraktion ist sehr beliebt.",
-    "example_en": "This attraction is very popular."
+    "example_en": "This attraction is very popular.",
+    "person_sentences": [
+      [
+        "Ich sehe eine Attraktion.",
+        "I see an attraction."
+      ],
+      [
+        "Du siehst eine Attraktion.",
+        "You see an attraction."
+      ],
+      [
+        "Er sieht eine Attraktion.",
+        "He sees an attraction."
+      ],
+      [
+        "Wir sehen eine Attraktion.",
+        "We see an attraction."
+      ],
+      [
+        "Ihr seht eine Attraktion.",
+        "You all see an attraction."
+      ],
+      [
+        "Sie sehen eine Attraktion.",
+        "They see an attraction."
+      ]
+    ]
   },
   {
     "de": "die Aufforderung, -en",
@@ -42204,7 +42906,33 @@
     "article": "f.",
     "level": "A1",
     "example": "Das ist eine höfliche Aufforderung.",
-    "example_en": "That's a polite request."
+    "example_en": "That's a polite request.",
+    "person_sentences": [
+      [
+        "Ich habe eine Aufforderung.",
+        "I have a request."
+      ],
+      [
+        "Du hast eine Aufforderung.",
+        "You have a request."
+      ],
+      [
+        "Er hat eine Aufforderung.",
+        "He has a request."
+      ],
+      [
+        "Wir haben eine Aufforderung.",
+        "We have a request."
+      ],
+      [
+        "Ihr habt eine Aufforderung.",
+        "You all have a request."
+      ],
+      [
+        "Sie haben eine Aufforderung.",
+        "They have a request."
+      ]
+    ]
   },
   {
     "de": "der Ausdruck, ⁠-e",
@@ -42212,7 +42940,33 @@
     "article": "m.",
     "level": "A1",
     "example": "Das ist ein neür Ausdruck für mich.",
-    "example_en": "That's a new expression for me."
+    "example_en": "That's a new expression for me.",
+    "person_sentences": [
+      [
+        "Ich finde diesen Ausdruck schwer.",
+        "I find this expression difficult."
+      ],
+      [
+        "Du findest diesen Ausdruck schwer.",
+        "You find this expression difficult."
+      ],
+      [
+        "Er findet diesen Ausdruck schwer.",
+        "He finds this expression difficult."
+      ],
+      [
+        "Wir finden diesen Ausdruck schwer.",
+        "We find this expression difficult."
+      ],
+      [
+        "Ihr findet diesen Ausdruck schwer.",
+        "You all find this expression difficult."
+      ],
+      [
+        "Sie finden diesen Ausdruck schwer.",
+        "They find this expression difficult."
+      ]
+    ]
   },
   {
     "de": "der Ausgang, ⁠-e",
@@ -42220,7 +42974,33 @@
     "article": "m.",
     "level": "A1",
     "example": "Der Ausgang ist im Untergeschoss.",
-    "example_en": "The exit is in the basement."
+    "example_en": "The exit is in the basement.",
+    "person_sentences": [
+      [
+        "Ich sehe den Ausgang.",
+        "I see the exit."
+      ],
+      [
+        "Du siehst den Ausgang.",
+        "You see the exit."
+      ],
+      [
+        "Er sieht den Ausgang.",
+        "He sees the exit."
+      ],
+      [
+        "Wir sehen den Ausgang.",
+        "We see the exit."
+      ],
+      [
+        "Ihr seht den Ausgang.",
+        "You all see the exit."
+      ],
+      [
+        "Sie sehen den Ausgang.",
+        "They see the exit."
+      ]
+    ]
   },
   {
     "de": "die Aussage, -n",
@@ -42228,7 +43008,33 @@
     "article": "f.",
     "level": "A1",
     "example": "Eine Aussage stimmt nicht.",
-    "example_en": "One statement is not correct."
+    "example_en": "One statement is not correct.",
+    "person_sentences": [
+      [
+        "Ich habe eine Aussage.",
+        "I have a statement."
+      ],
+      [
+        "Du hast eine Aussage.",
+        "You have a statement."
+      ],
+      [
+        "Er hat eine Aussage.",
+        "He has a statement."
+      ],
+      [
+        "Wir haben eine Aussage.",
+        "We have a statement."
+      ],
+      [
+        "Ihr habt eine Aussage.",
+        "You all have a statement."
+      ],
+      [
+        "Sie haben eine Aussage.",
+        "They have a statement."
+      ]
+    ]
   },
   {
     "de": "der Aussagesatz, ⁠-e",
@@ -42236,7 +43042,33 @@
     "article": "m.",
     "level": "A1",
     "example": "Das ist ein Aussagesatz.",
-    "example_en": "That's a declarative sentence."
+    "example_en": "That's a declarative sentence.",
+    "person_sentences": [
+      [
+        "Ich sehe einen Aussagesatz.",
+        "I see a declarative sentence."
+      ],
+      [
+        "Du siehst einen Aussagesatz.",
+        "You see a declarative sentence."
+      ],
+      [
+        "Er sieht einen Aussagesatz.",
+        "He sees a declarative sentence."
+      ],
+      [
+        "Wir sehen einen Aussagesatz.",
+        "We see a declarative sentence."
+      ],
+      [
+        "Ihr seht einen Aussagesatz.",
+        "You all see a declarative sentence."
+      ],
+      [
+        "Sie sehen einen Aussagesatz.",
+        "They see a declarative sentence."
+      ]
+    ]
   },
   {
     "de": "die Aussprache (Sg.)",
@@ -42244,7 +43076,33 @@
     "article": "f.",
     "level": "A1",
     "example": "Ihre Aussprache ist sehr gut.",
-    "example_en": "Her pronunciation is very good."
+    "example_en": "Her pronunciation is very good.",
+    "person_sentences": [
+      [
+        "Ich habe eine gute Aussprache.",
+        "I have good pronunciation."
+      ],
+      [
+        "Du hast eine gute Aussprache.",
+        "You have good pronunciation."
+      ],
+      [
+        "Er hat eine gute Aussprache.",
+        "He has good pronunciation."
+      ],
+      [
+        "Wir haben eine gute Aussprache.",
+        "We have good pronunciation."
+      ],
+      [
+        "Ihr habt eine gute Aussprache.",
+        "You all have good pronunciation."
+      ],
+      [
+        "Sie haben eine gute Aussprache.",
+        "They have good pronunciation."
+      ]
+    ]
   },
   {
     "de": "der Ausweis, -e",
@@ -42252,7 +43110,33 @@
     "article": "m.",
     "level": "A1",
     "example": "Er muss den Ausweis mitbringen.",
-    "example_en": "He has to bring his ID."
+    "example_en": "He has to bring his ID.",
+    "person_sentences": [
+      [
+        "Ich brauche einen Ausweis.",
+        "I need an ID card."
+      ],
+      [
+        "Du brauchst einen Ausweis.",
+        "You need an ID card."
+      ],
+      [
+        "Er braucht einen Ausweis.",
+        "He needs an ID card."
+      ],
+      [
+        "Wir brauchen einen Ausweis.",
+        "We need an ID card."
+      ],
+      [
+        "Ihr braucht einen Ausweis.",
+        "You all need an ID card."
+      ],
+      [
+        "Sie brauchen einen Ausweis.",
+        "They need an ID card."
+      ]
+    ]
   },
   {
     "de": "der Automat, -en",
@@ -46795,7 +47679,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich hänge die Jacke auf.",
+        "I hang up the jacket."
+      ],
+      [
+        "Du hängst die Jacke auf.",
+        "You hang up the jacket."
+      ],
+      [
+        "Er hängt die Jacke auf.",
+        "He hangs up the jacket."
+      ],
+      [
+        "Wir hängen die Jacke auf.",
+        "We hang up the jacket."
+      ],
+      [
+        "Ihr hängt die Jacke auf.",
+        "You all hang up the jacket."
+      ],
+      [
+        "Sie hängen die Jacke auf.",
+        "They hang up the jacket."
+      ]
+    ]
   },
   {
     "de": "aufmachen",
@@ -46811,7 +47721,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "auf",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich mache das Fenster auf.",
+        "I open the window."
+      ],
+      [
+        "Du machst das Fenster auf.",
+        "You open the window."
+      ],
+      [
+        "Er macht das Fenster auf.",
+        "He opens the window."
+      ],
+      [
+        "Wir machen das Fenster auf.",
+        "We open the window."
+      ],
+      [
+        "Ihr macht das Fenster auf.",
+        "You all open the window."
+      ],
+      [
+        "Sie machen das Fenster auf.",
+        "They open the window."
+      ]
+    ]
   },
   {
     "de": "ausdrücken",
@@ -46827,7 +47763,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich drücke meine Meinung aus.",
+        "I express my opinion."
+      ],
+      [
+        "Du drückst deine Meinung aus.",
+        "You express your opinion."
+      ],
+      [
+        "Er drückt seine Meinung aus.",
+        "He expresses his opinion."
+      ],
+      [
+        "Wir drücken unsere Meinung aus.",
+        "We express our opinion."
+      ],
+      [
+        "Ihr drückt eure Meinung aus.",
+        "You all express your opinion."
+      ],
+      [
+        "Sie drücken ihre Meinung aus.",
+        "They express their opinion."
+      ]
+    ]
   },
   {
     "de": "auswendig",
@@ -55604,7 +56566,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich leihe ein Buch aus.",
+        "I borrow a book."
+      ],
+      [
+        "Du leihst ein Buch aus.",
+        "You borrow a book."
+      ],
+      [
+        "Er leiht ein Buch aus.",
+        "He borrows a book."
+      ],
+      [
+        "Wir leihen ein Buch aus.",
+        "We borrow a book."
+      ],
+      [
+        "Ihr leiht ein Buch aus.",
+        "You all borrow a book."
+      ],
+      [
+        "Sie leihen ein Buch aus.",
+        "They borrow a book."
+      ]
+    ]
   },
   {
     "de": "die Durchsage",
@@ -56035,7 +57023,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich wähle ein Geschenk aus.",
+        "I choose a gift."
+      ],
+      [
+        "Du wählst ein Geschenk aus.",
+        "You choose a gift."
+      ],
+      [
+        "Er wählt ein Geschenk aus.",
+        "He chooses a gift."
+      ],
+      [
+        "Wir wählen ein Geschenk aus.",
+        "We choose a gift."
+      ],
+      [
+        "Ihr wählt ein Geschenk aus.",
+        "You all choose a gift."
+      ],
+      [
+        "Sie wählen ein Geschenk aus.",
+        "They choose a gift."
+      ]
+    ]
   },
   {
     "de": "parken",
@@ -56355,7 +57369,33 @@
     "level": "A1",
     "example": "Wir suchen dringend Aushilfen.",
     "example_en": "We urgently need temporary staff.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche eine Aushilfe.",
+        "I need a temp worker."
+      ],
+      [
+        "Du brauchst eine Aushilfe.",
+        "You need a temp worker."
+      ],
+      [
+        "Er braucht eine Aushilfe.",
+        "He needs a temp worker."
+      ],
+      [
+        "Wir brauchen eine Aushilfe.",
+        "We need a temp worker."
+      ],
+      [
+        "Ihr braucht eine Aushilfe.",
+        "You all need a temp worker."
+      ],
+      [
+        "Sie brauchen eine Aushilfe.",
+        "They need a temp worker."
+      ]
+    ]
   },
   {
     "de": "dienstags",

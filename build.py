@@ -639,6 +639,30 @@ def make_word_card(w):
                    f'<span class="ex-de">{htmllib.escape(ex)}</span>'
                    f'{en_span}{col_html}</div>')
 
+    # 6-person sentence drill (ich/du/er,sie,es/wir/ihr/sie,Sie) — only
+    # rendered for words that have it; added incrementally, batch by
+    # batch, so absence of this field is completely normal and safe.
+    person_html = ''
+    person_sentences = w.get('person_sentences')
+    if person_sentences and len(person_sentences) == 6:
+        rows = ''.join(
+            f'<tr><td>{htmllib.escape(de)}</td><td>{htmllib.escape(en)}</td></tr>'
+            for de, en in person_sentences
+        )
+        person_html = (
+            '\n        <details class="word-person-drill" style="margin-top:0.5rem;">'
+            '<summary style="cursor:pointer;color:#1d4ed8;font-weight:600;font-size:0.85rem;">'
+            'ich/du/er,sie,es/wir/ihr/sie,Sie \u2014 Beispiele</summary>'
+            '<div style="overflow-x:auto;margin-top:0.4rem;">'
+            '<table style="width:100%;font-size:0.85rem;border-collapse:collapse;">'
+            '<thead><tr>'
+            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>'
+            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;">English</th>'
+            '</tr></thead>'
+            f'<tbody>{rows}</tbody>'
+            '</table></div></details>'
+        )
+
     return (
         f'<div class="word-card" '
         f'data-de="{htmllib.escape(de.lower(), quote=True)}" '
@@ -657,7 +681,8 @@ def make_word_card(w):
         f'        </div>\n'
         f'        <div class="word-en">{htmllib.escape(en)}</div>'
         f'{conj_html}'
-        f'{ex_html}\n'
+        f'{ex_html}'
+        f'{person_html}\n'
         f'    </div>\n'
         f'</div>'
     )
