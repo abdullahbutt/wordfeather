@@ -51,7 +51,33 @@
       "hilfsverb": "sein",
       "trennbares_praefix": "ab",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich biege nach links ab.",
+        "I am turning left."
+      ],
+      [
+        "Du biegst nach links ab.",
+        "You are turning left."
+      ],
+      [
+        "Er biegt nach links ab.",
+        "He is turning left."
+      ],
+      [
+        "Wir biegen nach links ab.",
+        "We are turning left."
+      ],
+      [
+        "Ihr biegt nach links ab.",
+        "You all are turning left."
+      ],
+      [
+        "Sie biegen nach links ab.",
+        "They are turning left."
+      ]
+    ]
   },
   {
     "de": "der Abend, -e",
@@ -114,7 +140,33 @@
     "level": "A2",
     "example": "Leider liegt im Biomüll immer wieder anderer Abfall.",
     "example_en": "Unfortunately, other waste keeps ending up in the organic waste.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe viel Abfall.",
+        "I have a lot of waste."
+      ],
+      [
+        "Du hast viel Abfall.",
+        "You have a lot of waste."
+      ],
+      [
+        "Er hat viel Abfall.",
+        "He has a lot of waste."
+      ],
+      [
+        "Wir haben viel Abfall.",
+        "We have a lot of waste."
+      ],
+      [
+        "Ihr habt viel Abfall.",
+        "You all have a lot of waste."
+      ],
+      [
+        "Sie haben viel Abfall.",
+        "They have a lot of waste."
+      ]
+    ]
   },
   {
     "de": "der Abfall, -̈e",
@@ -132,7 +184,33 @@
     "level": "A2",
     "example": "Mein Abflug nach Madrid ist um sieben Uhr morgens.",
     "example_en": "My departure to Madrid is at seven o'clock in the morning.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Abflug.",
+        "I see the departure."
+      ],
+      [
+        "Du siehst den Abflug.",
+        "You see the departure."
+      ],
+      [
+        "Er sieht den Abflug.",
+        "He sees the departure."
+      ],
+      [
+        "Wir sehen den Abflug.",
+        "We see the departure."
+      ],
+      [
+        "Ihr seht den Abflug.",
+        "You all see the departure."
+      ],
+      [
+        "Sie sehen den Abflug.",
+        "They see the departure."
+      ]
+    ]
   },
   {
     "de": "der Abgeordnete, -n",
@@ -257,7 +335,33 @@
       "trennbares_praefix": "ab",
       "transitiv": true,
       "governs": "none (intransitive: to lose weight)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich nehme drei Kilo ab.",
+        "I am losing three kilos."
+      ],
+      [
+        "Du nimmst drei Kilo ab.",
+        "You are losing three kilos."
+      ],
+      [
+        "Er nimmt drei Kilo ab.",
+        "He is losing three kilos."
+      ],
+      [
+        "Wir nehmen drei Kilo ab.",
+        "We are losing three kilos."
+      ],
+      [
+        "Ihr nehmt drei Kilo ab.",
+        "You all are losing three kilos."
+      ],
+      [
+        "Sie nehmen drei Kilo ab.",
+        "They are losing three kilos."
+      ]
+    ]
   },
   {
     "de": "abnehmen",
@@ -349,7 +453,33 @@
     "level": "A2",
     "example": "Sie arbeitet in der Marketingabteilung eines großen Unternehmens.",
     "example_en": "She works in the marketing department of a large company.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Abteilung.",
+        "I see the department."
+      ],
+      [
+        "Du siehst die Abteilung.",
+        "You see the department."
+      ],
+      [
+        "Er sieht die Abteilung.",
+        "He sees the department."
+      ],
+      [
+        "Wir sehen die Abteilung.",
+        "We see the department."
+      ],
+      [
+        "Ihr seht die Abteilung.",
+        "You all see the department."
+      ],
+      [
+        "Sie sehen die Abteilung.",
+        "They see the department."
+      ]
+    ]
   },
   {
     "de": "abwägen",
@@ -486,7 +616,33 @@
     "level": "A2",
     "example": "Der Supermarkt hat eine Aktion auf alle Milchprodukte.",
     "example_en": "The supermarket has a promotion on all dairy products.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe eine Aktion.",
+        "I see a promotion."
+      ],
+      [
+        "Du siehst eine Aktion.",
+        "You see a promotion."
+      ],
+      [
+        "Er sieht eine Aktion.",
+        "He sees a promotion."
+      ],
+      [
+        "Wir sehen eine Aktion.",
+        "We see a promotion."
+      ],
+      [
+        "Ihr seht eine Aktion.",
+        "You all see a promotion."
+      ],
+      [
+        "Sie sehen eine Aktion.",
+        "They see a promotion."
+      ]
+    ]
   },
   {
     "de": "der Algorithmus, -en",
@@ -550,7 +706,33 @@
     "level": "A2",
     "example": "Sie hat eine Allergie gegen Erdnüsse und muss vorsichtig sein.",
     "example_en": "She has an allergy to peanuts and has to be careful.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe eine Allergie.",
+        "I have an allergy."
+      ],
+      [
+        "Du hast eine Allergie.",
+        "You have an allergy."
+      ],
+      [
+        "Er hat eine Allergie.",
+        "He has an allergy."
+      ],
+      [
+        "Wir haben eine Allergie.",
+        "We have an allergy."
+      ],
+      [
+        "Ihr habt eine Allergie.",
+        "You all have an allergy."
+      ],
+      [
+        "Sie haben eine Allergie.",
+        "They have an allergy."
+      ]
+    ]
   },
   {
     "de": "die Allianz, -en",
@@ -660,7 +842,33 @@
     "level": "A2",
     "example": "Die Ampel springt auf Grün, und wir fahren weiter.",
     "example_en": "The traffic light turns green, and we drive on.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Ampel.",
+        "I see the traffic light."
+      ],
+      [
+        "Du siehst die Ampel.",
+        "You see the traffic light."
+      ],
+      [
+        "Er sieht die Ampel.",
+        "He sees the traffic light."
+      ],
+      [
+        "Wir sehen die Ampel.",
+        "We see the traffic light."
+      ],
+      [
+        "Ihr seht die Ampel.",
+        "You all see the traffic light."
+      ],
+      [
+        "Sie sehen die Ampel.",
+        "They see the traffic light."
+      ]
+    ]
   },
   {
     "de": "das Amt, -̈er",
@@ -669,7 +877,33 @@
     "level": "A2",
     "example": "Sie arbeitet seit Jahren im städtischen Amt.",
     "example_en": "She has worked in the municipal office for years.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich besuche das Amt.",
+        "I am visiting the government office."
+      ],
+      [
+        "Du besuchst das Amt.",
+        "You are visiting the government office."
+      ],
+      [
+        "Er besucht das Amt.",
+        "He is visiting the government office."
+      ],
+      [
+        "Wir besuchen das Amt.",
+        "We are visiting the government office."
+      ],
+      [
+        "Ihr besucht das Amt.",
+        "You all are visiting the government office."
+      ],
+      [
+        "Sie besuchen das Amt.",
+        "They are visiting the government office."
+      ]
+    ]
   },
   {
     "de": "die Amtszeit, -en",
@@ -858,7 +1092,33 @@
     "level": "A2",
     "example": "Ich habe Angst vor Hunden.",
     "example_en": "I am afraid of dogs.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe Angst.",
+        "I am afraid."
+      ],
+      [
+        "Du hast Angst.",
+        "You are afraid."
+      ],
+      [
+        "Er hat Angst.",
+        "He is afraid."
+      ],
+      [
+        "Wir haben Angst.",
+        "We are afraid."
+      ],
+      [
+        "Ihr habt Angst.",
+        "You all are afraid."
+      ],
+      [
+        "Sie haben Angst.",
+        "They are afraid."
+      ]
+    ]
   },
   {
     "de": "anheimfallen",
@@ -946,7 +1206,33 @@
       "transitiv": true,
       "reflexiv": true,
       "governs": "für + accusative (optional, e.g. \"sich für einen Kurs anmelden\")"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich melde mich für den Kurs an.",
+        "I am registering for the course."
+      ],
+      [
+        "Du meldest dich für den Kurs an.",
+        "You are registering for the course."
+      ],
+      [
+        "Er meldet sich für den Kurs an.",
+        "He is registering for the course."
+      ],
+      [
+        "Wir melden uns für den Kurs an.",
+        "We are registering for the course."
+      ],
+      [
+        "Ihr meldet euch für den Kurs an.",
+        "You all are registering for the course."
+      ],
+      [
+        "Sie melden sich für den Kurs an.",
+        "They are registering for the course."
+      ]
+    ]
   },
   {
     "de": "die Anmeldung, -en",
@@ -1028,7 +1314,33 @@
       "trennbares_praefix": "an",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich probiere die Jacke an.",
+        "I am trying on the jacket."
+      ],
+      [
+        "Du probierst die Jacke an.",
+        "You are trying on the jacket."
+      ],
+      [
+        "Er probiert die Jacke an.",
+        "He is trying on the jacket."
+      ],
+      [
+        "Wir probieren die Jacke an.",
+        "We are trying on the jacket."
+      ],
+      [
+        "Ihr probiert die Jacke an.",
+        "You all are trying on the jacket."
+      ],
+      [
+        "Sie probieren die Jacke an.",
+        "They are trying on the jacket."
+      ]
+    ]
   },
   {
     "de": "anregen",
@@ -1129,7 +1441,33 @@
       "trennbares_praefix": "an",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich stelle einen neuen Mitarbeiter an.",
+        "I am hiring a new employee."
+      ],
+      [
+        "Du stellst einen neuen Mitarbeiter an.",
+        "You are hiring a new employee."
+      ],
+      [
+        "Er stellt einen neuen Mitarbeiter an.",
+        "He is hiring a new employee."
+      ],
+      [
+        "Wir stellen einen neuen Mitarbeiter an.",
+        "We are hiring a new employee."
+      ],
+      [
+        "Ihr stellt einen neuen Mitarbeiter an.",
+        "You all are hiring a new employee."
+      ],
+      [
+        "Sie stellen einen neuen Mitarbeiter an.",
+        "They are hiring a new employee."
+      ]
+    ]
   },
   {
     "de": "anstreben",
@@ -1189,7 +1527,33 @@
     "level": "A2",
     "example": "Ihr Antrag auf ein Stipendium wurde genehmigt.",
     "example_en": "Her application for a scholarship was approved.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich mache einen Antrag.",
+        "I am doing an application."
+      ],
+      [
+        "Du machst einen Antrag.",
+        "You are doing an application."
+      ],
+      [
+        "Er macht einen Antrag.",
+        "He is doing an application."
+      ],
+      [
+        "Wir machen einen Antrag.",
+        "We are doing an application."
+      ],
+      [
+        "Ihr macht einen Antrag.",
+        "You all are doing an application."
+      ],
+      [
+        "Sie machen einen Antrag.",
+        "They are doing an application."
+      ]
+    ]
   },
   {
     "de": "der Antrag, -̈e",
@@ -1346,7 +1710,33 @@
     "level": "A2",
     "example": "Mein Arbeitgeber zieht um.",
     "example_en": "My employer is moving.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe einen guten Arbeitgeber.",
+        "I have a good employer."
+      ],
+      [
+        "Du hast einen guten Arbeitgeber.",
+        "You have a good employer."
+      ],
+      [
+        "Er hat einen guten Arbeitgeber.",
+        "He has a good employer."
+      ],
+      [
+        "Wir haben einen guten Arbeitgeber.",
+        "We have a good employer."
+      ],
+      [
+        "Ihr habt einen guten Arbeitgeber.",
+        "You all have a good employer."
+      ],
+      [
+        "Sie haben einen guten Arbeitgeber.",
+        "They have a good employer."
+      ]
+    ]
   },
   {
     "de": "der Arbeitnehmer, -",
@@ -1355,7 +1745,33 @@
     "level": "A2",
     "example": "Wie viele Stunden pro Woche arbeiten die deutschen Arbeitnehmer durchschnittlich?",
     "example_en": "How many hours per week do German employees work on average?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe einen Arbeitnehmer.",
+        "I see an employee."
+      ],
+      [
+        "Du siehst einen Arbeitnehmer.",
+        "You see an employee."
+      ],
+      [
+        "Er sieht einen Arbeitnehmer.",
+        "He sees an employee."
+      ],
+      [
+        "Wir sehen einen Arbeitnehmer.",
+        "We see an employee."
+      ],
+      [
+        "Ihr seht einen Arbeitnehmer.",
+        "You all see an employee."
+      ],
+      [
+        "Sie sehen einen Arbeitnehmer.",
+        "They see an employee."
+      ]
+    ]
   },
   {
     "de": "arbeitslos",
@@ -1574,7 +1990,33 @@
     "level": "A2",
     "example": "Die Aufführung des Theaterstücks beginnt um acht Uhr.",
     "example_en": "The performance of the play begins at eight o'clock.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich besuche eine Aufführung.",
+        "I am attending a performance."
+      ],
+      [
+        "Du besuchst eine Aufführung.",
+        "You are attending a performance."
+      ],
+      [
+        "Er besucht eine Aufführung.",
+        "He is attending a performance."
+      ],
+      [
+        "Wir besuchen eine Aufführung.",
+        "We are attending a performance."
+      ],
+      [
+        "Ihr besucht eine Aufführung.",
+        "You all are attending a performance."
+      ],
+      [
+        "Sie besuchen eine Aufführung.",
+        "They are attending a performance."
+      ]
+    ]
   },
   {
     "de": "die Aufführung, -en",
@@ -1812,7 +2254,33 @@
     "level": "A2",
     "example": "Er hat den Auftrag pünktlich und sorgfältig erledigt.",
     "example_en": "He completed the assignment on time and carefully.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe einen neuen Auftrag.",
+        "I have a new order."
+      ],
+      [
+        "Du hast einen neuen Auftrag.",
+        "You have a new order."
+      ],
+      [
+        "Er hat einen neuen Auftrag.",
+        "He has a new order."
+      ],
+      [
+        "Wir haben einen neuen Auftrag.",
+        "We have a new order."
+      ],
+      [
+        "Ihr habt einen neuen Auftrag.",
+        "You all have a new order."
+      ],
+      [
+        "Sie haben einen neuen Auftrag.",
+        "They have a new order."
+      ]
+    ]
   },
   {
     "de": "aufwachsen",
@@ -1830,7 +2298,33 @@
       "hilfsverb": "sein",
       "trennbares_praefix": "auf",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich wachse in Berlin auf.",
+        "I am growing up in Berlin."
+      ],
+      [
+        "Du wächst in Berlin auf.",
+        "You are growing up in Berlin."
+      ],
+      [
+        "Er wächst in Berlin auf.",
+        "He is growing up in Berlin."
+      ],
+      [
+        "Wir wachsen in Berlin auf.",
+        "We are growing up in Berlin."
+      ],
+      [
+        "Ihr wachst in Berlin auf.",
+        "You all are growing up in Berlin."
+      ],
+      [
+        "Sie wachsen in Berlin auf.",
+        "They are growing up in Berlin."
+      ]
+    ]
   },
   {
     "de": "der Aufzug, -̈e",
@@ -1962,7 +2456,33 @@
     "level": "A2",
     "example": "Er hat eine Ausbildung zum Koch abgeschlossen.",
     "example_en": "He completed training as a chef.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich mache eine Ausbildung.",
+        "I am doing vocational training."
+      ],
+      [
+        "Du machst eine Ausbildung.",
+        "You are doing vocational training."
+      ],
+      [
+        "Er macht eine Ausbildung.",
+        "He is doing vocational training."
+      ],
+      [
+        "Wir machen eine Ausbildung.",
+        "We are doing vocational training."
+      ],
+      [
+        "Ihr macht eine Ausbildung.",
+        "You all are doing vocational training."
+      ],
+      [
+        "Sie machen eine Ausbildung.",
+        "They are doing vocational training."
+      ]
+    ]
   },
   {
     "de": "die Ausdrucksform, -en",
@@ -2397,7 +2917,33 @@
     "level": "A2",
     "example": "Der Austausch zwischen den Studenten war sehr wertvoll.",
     "example_en": "The exchange between the students was very valuable.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe einen guten Austausch.",
+        "I have a good exchange."
+      ],
+      [
+        "Du hast einen guten Austausch.",
+        "You have a good exchange."
+      ],
+      [
+        "Er hat einen guten Austausch.",
+        "He has a good exchange."
+      ],
+      [
+        "Wir haben einen guten Austausch.",
+        "We have a good exchange."
+      ],
+      [
+        "Ihr habt einen guten Austausch.",
+        "You all have a good exchange."
+      ],
+      [
+        "Sie haben einen guten Austausch.",
+        "They have a good exchange."
+      ]
+    ]
   },
   {
     "de": "die Auswahl",
@@ -2406,7 +2952,33 @@
     "level": "A2",
     "example": "Die Auswahl an Büchern in dieser Bibliothek ist groß.",
     "example_en": "The selection of books in this library is large.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe eine große Auswahl.",
+        "I have a big selection."
+      ],
+      [
+        "Du hast eine große Auswahl.",
+        "You have a big selection."
+      ],
+      [
+        "Er hat eine große Auswahl.",
+        "He has a big selection."
+      ],
+      [
+        "Wir haben eine große Auswahl.",
+        "We have a big selection."
+      ],
+      [
+        "Ihr habt eine große Auswahl.",
+        "You all have a big selection."
+      ],
+      [
+        "Sie haben eine große Auswahl.",
+        "They have a big selection."
+      ]
+    ]
   },
   {
     "de": "auswerten",
@@ -3004,7 +3576,33 @@
     "level": "A2",
     "example": "Dieses T-Shirt ist aus reiner Baumwolle hergestellt.",
     "example_en": "This T-shirt is made from pure cotton.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche Baumwolle.",
+        "I need cotton."
+      ],
+      [
+        "Du brauchst Baumwolle.",
+        "You need cotton."
+      ],
+      [
+        "Er braucht Baumwolle.",
+        "He needs cotton."
+      ],
+      [
+        "Wir brauchen Baumwolle.",
+        "We need cotton."
+      ],
+      [
+        "Ihr braucht Baumwolle.",
+        "You all need cotton."
+      ],
+      [
+        "Sie brauchen Baumwolle.",
+        "They need cotton."
+      ]
+    ]
   },
   {
     "de": "das Bauwerk, -e",
@@ -3044,7 +3642,33 @@
     "level": "A2",
     "example": "Der Beamte bearbeitet täglich viele Anträge im Amt.",
     "example_en": "The civil servant processes many applications at the office every day.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe einen Beamten.",
+        "I see a civil servant."
+      ],
+      [
+        "Du siehst einen Beamten.",
+        "You see a civil servant."
+      ],
+      [
+        "Er sieht einen Beamten.",
+        "He sees a civil servant."
+      ],
+      [
+        "Wir sehen einen Beamten.",
+        "We see a civil servant."
+      ],
+      [
+        "Ihr seht einen Beamten.",
+        "You all see a civil servant."
+      ],
+      [
+        "Sie sehen einen Beamten.",
+        "They see a civil servant."
+      ]
+    ]
   },
   {
     "de": "beanspruchen",
@@ -3105,7 +3729,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich beantrage ein Visum.",
+        "I am applying for a visa."
+      ],
+      [
+        "Du beantragst ein Visum.",
+        "You are applying for a visa."
+      ],
+      [
+        "Er beantragt ein Visum.",
+        "He is applying for a visa."
+      ],
+      [
+        "Wir beantragen ein Visum.",
+        "We are applying for a visa."
+      ],
+      [
+        "Ihr beantragt ein Visum.",
+        "You all are applying for a visa."
+      ],
+      [
+        "Sie beantragen ein Visum.",
+        "They are applying for a visa."
+      ]
+    ]
   },
   {
     "de": "bedenklich",
@@ -3406,7 +4056,33 @@
     "level": "A2",
     "example": "Die Behandlung des Patienten daürte mehrere Wochen.",
     "example_en": "The treatment of the patient lasted several weeks.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche eine Behandlung.",
+        "I need treatment."
+      ],
+      [
+        "Du brauchst eine Behandlung.",
+        "You need treatment."
+      ],
+      [
+        "Er braucht eine Behandlung.",
+        "He needs treatment."
+      ],
+      [
+        "Wir brauchen eine Behandlung.",
+        "We need treatment."
+      ],
+      [
+        "Ihr braucht eine Behandlung.",
+        "You all need treatment."
+      ],
+      [
+        "Sie brauchen eine Behandlung.",
+        "They need treatment."
+      ]
+    ]
   },
   {
     "de": "die Behandlung, -en",
@@ -3460,7 +4136,33 @@
     "level": "A2",
     "example": "Die Behörde bearbeitet meinen Antrag sehr schnell.",
     "example_en": "The authority processes my application very quickly.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich besuche eine Behörde.",
+        "I am visiting a government agency."
+      ],
+      [
+        "Du besuchst eine Behörde.",
+        "You are visiting a government agency."
+      ],
+      [
+        "Er besucht eine Behörde.",
+        "He is visiting a government agency."
+      ],
+      [
+        "Wir besuchen eine Behörde.",
+        "We are visiting a government agency."
+      ],
+      [
+        "Ihr besucht eine Behörde.",
+        "You all are visiting a government agency."
+      ],
+      [
+        "Sie besuchen eine Behörde.",
+        "They are visiting a government agency."
+      ]
+    ]
   },
   {
     "de": "bei",
@@ -3500,7 +4202,33 @@
     "level": "A2",
     "example": "Als Beilage zum Steak bestelle ich grünen Salat.",
     "example_en": "As a side dish with the steak, I order green salad.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche eine Beilage.",
+        "I need a side dish."
+      ],
+      [
+        "Du brauchst eine Beilage.",
+        "You need a side dish."
+      ],
+      [
+        "Er braucht eine Beilage.",
+        "He needs a side dish."
+      ],
+      [
+        "Wir brauchen eine Beilage.",
+        "We need a side dish."
+      ],
+      [
+        "Ihr braucht eine Beilage.",
+        "You all need a side dish."
+      ],
+      [
+        "Sie brauchen eine Beilage.",
+        "They need a side dish."
+      ]
+    ]
   },
   {
     "de": "das Bein, -e",
@@ -3717,7 +4445,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich bemerke den Fehler.",
+        "I notice the mistake."
+      ],
+      [
+        "Du bemerkst den Fehler.",
+        "You notice the mistake."
+      ],
+      [
+        "Er bemerkt den Fehler.",
+        "He notices the mistake."
+      ],
+      [
+        "Wir bemerken den Fehler.",
+        "We notice the mistake."
+      ],
+      [
+        "Ihr bemerkt den Fehler.",
+        "You all notice the mistake."
+      ],
+      [
+        "Sie bemerken den Fehler.",
+        "They notice the mistake."
+      ]
+    ]
   },
   {
     "de": "bemüßigt sein",
@@ -3864,7 +4618,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich berate den Kunden.",
+        "I am advising the customer."
+      ],
+      [
+        "Du berätst den Kunden.",
+        "You are advising the customer."
+      ],
+      [
+        "Er berät den Kunden.",
+        "He is advising the customer."
+      ],
+      [
+        "Wir beraten den Kunden.",
+        "We are advising the customer."
+      ],
+      [
+        "Ihr beratet den Kunden.",
+        "You all are advising the customer."
+      ],
+      [
+        "Sie beraten den Kunden.",
+        "They are advising the customer."
+      ]
+    ]
   },
   {
     "de": "der Berg, -e",
@@ -4096,7 +4876,33 @@
     "level": "A2",
     "example": "Ohne diese Bescheinigung darf er nicht an der Prüfung teilnehmen.",
     "example_en": "Without this certificate, he is not allowed to take the exam.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche eine Bescheinigung.",
+        "I need a certificate."
+      ],
+      [
+        "Du brauchst eine Bescheinigung.",
+        "You need a certificate."
+      ],
+      [
+        "Er braucht eine Bescheinigung.",
+        "He needs a certificate."
+      ],
+      [
+        "Wir brauchen eine Bescheinigung.",
+        "We need a certificate."
+      ],
+      [
+        "Ihr braucht eine Bescheinigung.",
+        "You all need a certificate."
+      ],
+      [
+        "Sie brauchen eine Bescheinigung.",
+        "They need a certificate."
+      ]
+    ]
   },
   {
     "de": "beschreiben",
@@ -4170,7 +4976,33 @@
     "level": "A2",
     "example": "Er nimmt den Besen und fegt den Boden sauber.",
     "example_en": "He takes the broom and sweeps the floor clean.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche einen Besen.",
+        "I need a broom."
+      ],
+      [
+        "Du brauchst einen Besen.",
+        "You need a broom."
+      ],
+      [
+        "Er braucht einen Besen.",
+        "He needs a broom."
+      ],
+      [
+        "Wir brauchen einen Besen.",
+        "We need a broom."
+      ],
+      [
+        "Ihr braucht einen Besen.",
+        "You all need a broom."
+      ],
+      [
+        "Sie brauchen einen Besen.",
+        "They need a broom."
+      ]
+    ]
   },
   {
     "de": "besichtigen",
@@ -4257,7 +5089,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich bestätige den Termin.",
+        "I am confirming the appointment."
+      ],
+      [
+        "Du bestätigst den Termin.",
+        "You are confirming the appointment."
+      ],
+      [
+        "Er bestätigt den Termin.",
+        "He is confirming the appointment."
+      ],
+      [
+        "Wir bestätigen den Termin.",
+        "We are confirming the appointment."
+      ],
+      [
+        "Ihr bestätigt den Termin.",
+        "You all are confirming the appointment."
+      ],
+      [
+        "Sie bestätigen den Termin.",
+        "They are confirming the appointment."
+      ]
+    ]
   },
   {
     "de": "beste",
@@ -4283,7 +5141,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (eine Prüfung bestehen) / aus + dative (to consist of)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich bestehe die Prüfung.",
+        "I am passing the exam."
+      ],
+      [
+        "Du bestehst die Prüfung.",
+        "You are passing the exam."
+      ],
+      [
+        "Er besteht die Prüfung.",
+        "He is passing the exam."
+      ],
+      [
+        "Wir bestehen die Prüfung.",
+        "We are passing the exam."
+      ],
+      [
+        "Ihr besteht die Prüfung.",
+        "You all are passing the exam."
+      ],
+      [
+        "Sie bestehen die Prüfung.",
+        "They are passing the exam."
+      ]
+    ]
   },
   {
     "de": "bestellen",
@@ -4385,7 +5269,33 @@
     "level": "A2",
     "example": "Der Betrag auf meinem Konto ist zu niedrig.",
     "example_en": "The amount in my account is too low.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe einen hohen Betrag.",
+        "I have a large amount."
+      ],
+      [
+        "Du hast einen hohen Betrag.",
+        "You have a large amount."
+      ],
+      [
+        "Er hat einen hohen Betrag.",
+        "He has a large amount."
+      ],
+      [
+        "Wir haben einen hohen Betrag.",
+        "We have a large amount."
+      ],
+      [
+        "Ihr habt einen hohen Betrag.",
+        "You all have a large amount."
+      ],
+      [
+        "Sie haben einen hohen Betrag.",
+        "They have a large amount."
+      ]
+    ]
   },
   {
     "de": "der Betrieb, -e",
@@ -4394,7 +5304,33 @@
     "level": "A2",
     "example": "Die Betriebsversammlung findet am 15. März um 10.00 Uhr in der Kantine statt.",
     "example_en": "The staff meeting takes place on March 15 at 10:00 in the cafeteria.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe einen kleinen Betrieb.",
+        "I have a small business."
+      ],
+      [
+        "Du hast einen kleinen Betrieb.",
+        "You have a small business."
+      ],
+      [
+        "Er hat einen kleinen Betrieb.",
+        "He has a small business."
+      ],
+      [
+        "Wir haben einen kleinen Betrieb.",
+        "We have a small business."
+      ],
+      [
+        "Ihr habt einen kleinen Betrieb.",
+        "You all have a small business."
+      ],
+      [
+        "Sie haben einen kleinen Betrieb.",
+        "They have a small business."
+      ]
+    ]
   },
   {
     "de": "das Bett, -en",
@@ -4673,7 +5609,33 @@
     "level": "A2",
     "example": "Ihre Beziehung ist sehr vertraünsvoll und stabil.",
     "example_en": "Their relationship is very trusting and stable.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe eine gute Beziehung.",
+        "I have a good relationship."
+      ],
+      [
+        "Du hast eine gute Beziehung.",
+        "You have a good relationship."
+      ],
+      [
+        "Er hat eine gute Beziehung.",
+        "He has a good relationship."
+      ],
+      [
+        "Wir haben eine gute Beziehung.",
+        "We have a good relationship."
+      ],
+      [
+        "Ihr habt eine gute Beziehung.",
+        "You all have a good relationship."
+      ],
+      [
+        "Sie haben eine gute Beziehung.",
+        "They have a good relationship."
+      ]
+    ]
   },
   {
     "de": "die Bibliothek, -en",
@@ -4815,7 +5777,33 @@
     "level": "A2",
     "example": "Die meisten Menschen sitzen zu viel: am Schreibtisch, vor dem Bildschirm, vor dem Fernseher.",
     "example_en": "Most people sit too much: at the desk, in front of the screen, in front of the TV.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche einen großen Bildschirm.",
+        "I need a big screen."
+      ],
+      [
+        "Du brauchst einen großen Bildschirm.",
+        "You need a big screen."
+      ],
+      [
+        "Er braucht einen großen Bildschirm.",
+        "He needs a big screen."
+      ],
+      [
+        "Wir brauchen einen großen Bildschirm.",
+        "We need a big screen."
+      ],
+      [
+        "Ihr braucht einen großen Bildschirm.",
+        "You all need a big screen."
+      ],
+      [
+        "Sie brauchen einen großen Bildschirm.",
+        "They need a big screen."
+      ]
+    ]
   },
   {
     "de": "die Bildung",
@@ -4897,7 +5885,33 @@
     "level": "A2",
     "example": "Er schreibt seine Ideen auf ein leeres Blatt Papier.",
     "example_en": "He writes his ideas on a blank sheet of paper.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe ein Blatt.",
+        "I see a leaf/sheet of paper."
+      ],
+      [
+        "Du siehst ein Blatt.",
+        "You see a leaf/sheet of paper."
+      ],
+      [
+        "Er sieht ein Blatt.",
+        "He sees a leaf/sheet of paper."
+      ],
+      [
+        "Wir sehen ein Blatt.",
+        "We see a leaf/sheet of paper."
+      ],
+      [
+        "Ihr seht ein Blatt.",
+        "You all see a leaf/sheet of paper."
+      ],
+      [
+        "Sie sehen ein Blatt.",
+        "They see a leaf/sheet of paper."
+      ]
+    ]
   },
   {
     "de": "blau",
@@ -5033,7 +6047,33 @@
     "level": "A2",
     "example": "Der Arzt misst regelmäßig den Blutdruck seiner älteren Patienten.",
     "example_en": "The doctor regularly measures the blood pressure of his elderly patients.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe hohen Blutdruck.",
+        "I have high blood pressure."
+      ],
+      [
+        "Du hast hohen Blutdruck.",
+        "You have high blood pressure."
+      ],
+      [
+        "Er hat hohen Blutdruck.",
+        "He has high blood pressure."
+      ],
+      [
+        "Wir haben hohen Blutdruck.",
+        "We have high blood pressure."
+      ],
+      [
+        "Ihr habt hohen Blutdruck.",
+        "You all have high blood pressure."
+      ],
+      [
+        "Sie haben hohen Blutdruck.",
+        "They have high blood pressure."
+      ]
+    ]
   },
   {
     "de": "die Blutprobe, -n",
@@ -30964,7 +32004,33 @@
     "level": "A2",
     "example": "Er bezahlt lieber mit Bargeld als mit Karte.",
     "example_en": "He prefers to pay with cash rather than by card.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche Bargeld.",
+        "I need cash."
+      ],
+      [
+        "Du brauchst Bargeld.",
+        "You need cash."
+      ],
+      [
+        "Er braucht Bargeld.",
+        "He needs cash."
+      ],
+      [
+        "Wir brauchen Bargeld.",
+        "We need cash."
+      ],
+      [
+        "Ihr braucht Bargeld.",
+        "You all need cash."
+      ],
+      [
+        "Sie brauchen Bargeld.",
+        "They need cash."
+      ]
+    ]
   },
   {
     "de": "das Wechselgeld",
@@ -31162,7 +32228,33 @@
     "level": "A2",
     "example": "Sie schreibt einen Aufsatz über ihre Lieblingsstadt.",
     "example_en": "She writes an essay about her favourite city.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe einen Aufsatz.",
+        "I have an essay."
+      ],
+      [
+        "Du hast einen Aufsatz.",
+        "You have an essay."
+      ],
+      [
+        "Er hat einen Aufsatz.",
+        "He has an essay."
+      ],
+      [
+        "Wir haben einen Aufsatz.",
+        "We have an essay."
+      ],
+      [
+        "Ihr habt einen Aufsatz.",
+        "You all have an essay."
+      ],
+      [
+        "Sie haben einen Aufsatz.",
+        "They have an essay."
+      ]
+    ]
   },
   {
     "de": "der Cousin, -s",
@@ -36957,7 +38049,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (+ um + accusative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich bitte um Hilfe.",
+        "I am asking for help."
+      ],
+      [
+        "Du bittest um Hilfe.",
+        "You are asking for help."
+      ],
+      [
+        "Er bittet um Hilfe.",
+        "He is asking for help."
+      ],
+      [
+        "Wir bitten um Hilfe.",
+        "We are asking for help."
+      ],
+      [
+        "Ihr bittet um Hilfe.",
+        "You all are asking for help."
+      ],
+      [
+        "Sie bitten um Hilfe.",
+        "They are asking for help."
+      ]
+    ]
   },
   {
     "de": "ziehen",
@@ -37077,7 +38195,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich biete gute Qualität.",
+        "I offer good quality."
+      ],
+      [
+        "Du bietest gute Qualität.",
+        "You offer good quality."
+      ],
+      [
+        "Er bietet gute Qualität.",
+        "He offers good quality."
+      ],
+      [
+        "Wir bieten gute Qualität.",
+        "We offer good quality."
+      ],
+      [
+        "Ihr bietet gute Qualität.",
+        "You all offer good quality."
+      ],
+      [
+        "Sie bieten gute Qualität.",
+        "They offer good quality."
+      ]
+    ]
   },
   {
     "de": "behalten",
@@ -37095,7 +38239,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich behalte das Geschenk.",
+        "I am keeping the gift."
+      ],
+      [
+        "Du behältst das Geschenk.",
+        "You are keeping the gift."
+      ],
+      [
+        "Er behält das Geschenk.",
+        "He is keeping the gift."
+      ],
+      [
+        "Wir behalten das Geschenk.",
+        "We are keeping the gift."
+      ],
+      [
+        "Ihr behaltet das Geschenk.",
+        "You all are keeping the gift."
+      ],
+      [
+        "Sie behalten das Geschenk.",
+        "They are keeping the gift."
+      ]
+    ]
   },
   {
     "de": "sich bewerben",
@@ -37449,7 +38619,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich hebe Geld ab.",
+        "I am withdrawing money."
+      ],
+      [
+        "Du hebst Geld ab.",
+        "You are withdrawing money."
+      ],
+      [
+        "Er hebt Geld ab.",
+        "He is withdrawing money."
+      ],
+      [
+        "Wir heben Geld ab.",
+        "We are withdrawing money."
+      ],
+      [
+        "Ihr hebt Geld ab.",
+        "You all are withdrawing money."
+      ],
+      [
+        "Sie heben Geld ab.",
+        "They are withdrawing money."
+      ]
+    ]
   },
   {
     "de": "ablehnen",
@@ -37466,7 +38662,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich lehne das Angebot ab.",
+        "I am declining the offer."
+      ],
+      [
+        "Du lehnst das Angebot ab.",
+        "You are declining the offer."
+      ],
+      [
+        "Er lehnt das Angebot ab.",
+        "He is declining the offer."
+      ],
+      [
+        "Wir lehnen das Angebot ab.",
+        "We are declining the offer."
+      ],
+      [
+        "Ihr lehnt das Angebot ab.",
+        "You all are declining the offer."
+      ],
+      [
+        "Sie lehnen das Angebot ab.",
+        "They are declining the offer."
+      ]
+    ]
   },
   {
     "de": "abmalen",
@@ -37483,7 +38705,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich male das Bild ab.",
+        "I am copying the picture (by drawing)."
+      ],
+      [
+        "Du malst das Bild ab.",
+        "You are copying the picture."
+      ],
+      [
+        "Er malt das Bild ab.",
+        "He is copying the picture."
+      ],
+      [
+        "Wir malen das Bild ab.",
+        "We are copying the picture."
+      ],
+      [
+        "Ihr malt das Bild ab.",
+        "You all are copying the picture."
+      ],
+      [
+        "Sie malen das Bild ab.",
+        "They are copying the picture."
+      ]
+    ]
   },
   {
     "de": "der Abschluss, ⁠-e",
@@ -37491,7 +38739,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Das Abitur ist die Abschlussprüfung an einem Gymnasium.",
-    "example_en": "The Abitur is the final exam at a Gymnasium."
+    "example_en": "The Abitur is the final exam at a Gymnasium.",
+    "person_sentences": [
+      [
+        "Ich habe einen guten Abschluss.",
+        "I have a good degree."
+      ],
+      [
+        "Du hast einen guten Abschluss.",
+        "You have a good degree."
+      ],
+      [
+        "Er hat einen guten Abschluss.",
+        "He has a good degree."
+      ],
+      [
+        "Wir haben einen guten Abschluss.",
+        "We have a good degree."
+      ],
+      [
+        "Ihr habt einen guten Abschluss.",
+        "You all have a good degree."
+      ],
+      [
+        "Sie haben einen guten Abschluss.",
+        "They have a good degree."
+      ]
+    ]
   },
   {
     "de": "die Ahnung, -en",
@@ -37499,7 +38773,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Feiertage in Deutschland? Keine Ahnung.",
-    "example_en": "Holidays in Germany? No idea."
+    "example_en": "Holidays in Germany? No idea.",
+    "person_sentences": [
+      [
+        "Ich habe keine Ahnung.",
+        "I have no idea."
+      ],
+      [
+        "Du hast keine Ahnung.",
+        "You have no idea."
+      ],
+      [
+        "Er hat keine Ahnung.",
+        "He has no idea."
+      ],
+      [
+        "Wir haben keine Ahnung.",
+        "We have no idea."
+      ],
+      [
+        "Ihr habt keine Ahnung.",
+        "You all have no idea."
+      ],
+      [
+        "Sie haben keine Ahnung.",
+        "They have no idea."
+      ]
+    ]
   },
   {
     "de": "der Akzent, -e",
@@ -37507,7 +38807,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Sie spricht Deutsch mit einem leichten Akzent.",
-    "example_en": "She speaks German with a slight accent."
+    "example_en": "She speaks German with a slight accent.",
+    "person_sentences": [
+      [
+        "Ich habe einen Akzent.",
+        "I have an accent."
+      ],
+      [
+        "Du hast einen Akzent.",
+        "You have an accent."
+      ],
+      [
+        "Er hat einen Akzent.",
+        "He has an accent."
+      ],
+      [
+        "Wir haben einen Akzent.",
+        "We have an accent."
+      ],
+      [
+        "Ihr habt einen Akzent.",
+        "You all have an accent."
+      ],
+      [
+        "Sie haben einen Akzent.",
+        "They have an accent."
+      ]
+    ]
   },
   {
     "de": "der Alkohol (Sg.)",
@@ -37515,7 +38841,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Ich trinke nie Alkohol.",
-    "example_en": "I never drink alcohol."
+    "example_en": "I never drink alcohol.",
+    "person_sentences": [
+      [
+        "Ich brauche keinen Alkohol.",
+        "I need no alcohol."
+      ],
+      [
+        "Du brauchst keinen Alkohol.",
+        "You need no alcohol."
+      ],
+      [
+        "Er braucht keinen Alkohol.",
+        "He needs no alcohol."
+      ],
+      [
+        "Wir brauchen keinen Alkohol.",
+        "We need no alcohol."
+      ],
+      [
+        "Ihr braucht keinen Alkohol.",
+        "You all need no alcohol."
+      ],
+      [
+        "Sie brauchen keinen Alkohol.",
+        "They need no alcohol."
+      ]
+    ]
   },
   {
     "de": "an ... vorbei (+ D.)",
@@ -37570,7 +38922,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "an",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich höre das Lied an.",
+        "I am listening to the song."
+      ],
+      [
+        "Du hörst das Lied an.",
+        "You are listening to the song."
+      ],
+      [
+        "Er hört das Lied an.",
+        "He is listening to the song."
+      ],
+      [
+        "Wir hören das Lied an.",
+        "We are listening to the song."
+      ],
+      [
+        "Ihr hört das Lied an.",
+        "You all are listening to the song."
+      ],
+      [
+        "Sie hören das Lied an.",
+        "They are listening to the song."
+      ]
+    ]
   },
   {
     "de": "auf keinen Fall",
@@ -37670,7 +39048,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "accusative (+ dative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich richte die Hochzeit aus.",
+        "I am organizing the wedding."
+      ],
+      [
+        "Du richtest die Hochzeit aus.",
+        "You are organizing the wedding."
+      ],
+      [
+        "Er richtet die Hochzeit aus.",
+        "He is organizing the wedding."
+      ],
+      [
+        "Wir richten die Hochzeit aus.",
+        "We are organizing the wedding."
+      ],
+      [
+        "Ihr richtet die Hochzeit aus.",
+        "You all are organizing the wedding."
+      ],
+      [
+        "Sie richten die Hochzeit aus.",
+        "They are organizing the wedding."
+      ]
+    ]
   },
   {
     "de": "die Beamtin, -nen",
@@ -37678,7 +39082,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Die Beamtin arbeitet im Bürgeramt.",
-    "example_en": "The official works at the citizens' office."
+    "example_en": "The official works at the citizens' office.",
+    "person_sentences": [
+      [
+        "Ich sehe eine Beamtin.",
+        "I see a female civil servant."
+      ],
+      [
+        "Du siehst eine Beamtin.",
+        "You see a female civil servant."
+      ],
+      [
+        "Er sieht eine Beamtin.",
+        "He sees a female civil servant."
+      ],
+      [
+        "Wir sehen eine Beamtin.",
+        "We see a female civil servant."
+      ],
+      [
+        "Ihr seht eine Beamtin.",
+        "You all see a female civil servant."
+      ],
+      [
+        "Sie sehen eine Beamtin.",
+        "They see a female civil servant."
+      ]
+    ]
   },
   {
     "de": "die Bedeutung, -en",
@@ -37686,7 +39116,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Was ist die Bedeutung dieses Wortes?",
-    "example_en": "What is the meaning of this word?"
+    "example_en": "What is the meaning of this word?",
+    "person_sentences": [
+      [
+        "Ich habe eine wichtige Bedeutung.",
+        "I have an important meaning."
+      ],
+      [
+        "Du hast eine wichtige Bedeutung.",
+        "You have an important meaning."
+      ],
+      [
+        "Er hat eine wichtige Bedeutung.",
+        "He has an important meaning."
+      ],
+      [
+        "Wir haben eine wichtige Bedeutung.",
+        "We have an important meaning."
+      ],
+      [
+        "Ihr habt eine wichtige Bedeutung.",
+        "You all have an important meaning."
+      ],
+      [
+        "Sie haben eine wichtige Bedeutung.",
+        "They have an important meaning."
+      ]
+    ]
   },
   {
     "de": "dafür",
@@ -52956,7 +54412,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich besorge die Getränke.",
+        "I am getting the drinks."
+      ],
+      [
+        "Du besorgst die Getränke.",
+        "You are getting the drinks."
+      ],
+      [
+        "Er besorgt die Getränke.",
+        "He is getting the drinks."
+      ],
+      [
+        "Wir besorgen die Getränke.",
+        "We are getting the drinks."
+      ],
+      [
+        "Ihr besorgt die Getränke.",
+        "You all are getting the drinks."
+      ],
+      [
+        "Sie besorgen die Getränke.",
+        "They are getting the drinks."
+      ]
+    ]
   },
   {
     "de": "die EC-Karte, -n",
@@ -53027,7 +54509,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich akzeptiere das Angebot.",
+        "I accept the offer."
+      ],
+      [
+        "Du akzeptierst das Angebot.",
+        "You accept the offer."
+      ],
+      [
+        "Er akzeptiert das Angebot.",
+        "He accepts the offer."
+      ],
+      [
+        "Wir akzeptieren das Angebot.",
+        "We accept the offer."
+      ],
+      [
+        "Ihr akzeptiert das Angebot.",
+        "You all accept the offer."
+      ],
+      [
+        "Sie akzeptieren das Angebot.",
+        "They accept the offer."
+      ]
+    ]
   },
   {
     "de": "das Taschengeld (Sg.)",
@@ -59381,7 +60889,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich packe den Koffer aus.",
+        "I am unpacking the suitcase."
+      ],
+      [
+        "Du packst den Koffer aus.",
+        "You are unpacking the suitcase."
+      ],
+      [
+        "Er packt den Koffer aus.",
+        "He is unpacking the suitcase."
+      ],
+      [
+        "Wir packen den Koffer aus.",
+        "We are unpacking the suitcase."
+      ],
+      [
+        "Ihr packt den Koffer aus.",
+        "You all are unpacking the suitcase."
+      ],
+      [
+        "Sie packen den Koffer aus.",
+        "They are unpacking the suitcase."
+      ]
+    ]
   },
   {
     "de": "sich merken",
@@ -59416,7 +60950,33 @@
     "level": "A2",
     "example": "Oje! Ich habe den Wecker auch schon oft nicht gehört. Aber zum Glück noch nie am ersten Arbeitstag.",
     "example_en": "Oh dear! I've often not heard the alarm clock too. But luckily never on the first day of work.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe einen langen Arbeitstag.",
+        "I have a long workday."
+      ],
+      [
+        "Du hast einen langen Arbeitstag.",
+        "You have a long workday."
+      ],
+      [
+        "Er hat einen langen Arbeitstag.",
+        "He has a long workday."
+      ],
+      [
+        "Wir haben einen langen Arbeitstag.",
+        "We have a long workday."
+      ],
+      [
+        "Ihr habt einen langen Arbeitstag.",
+        "You all have a long workday."
+      ],
+      [
+        "Sie haben einen langen Arbeitstag.",
+        "They have a long workday."
+      ]
+    ]
   },
   {
     "de": "die Geldbörse",
@@ -59614,7 +61174,33 @@
       "partizip2": "gebaut",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich baue ein Haus.",
+        "I am building a house."
+      ],
+      [
+        "Du baust ein Haus.",
+        "You are building a house."
+      ],
+      [
+        "Er baut ein Haus.",
+        "He is building a house."
+      ],
+      [
+        "Wir bauen ein Haus.",
+        "We are building a house."
+      ],
+      [
+        "Ihr baut ein Haus.",
+        "You all are building a house."
+      ],
+      [
+        "Sie bauen ein Haus.",
+        "They are building a house."
+      ]
+    ]
   },
   {
     "de": "dahin",
@@ -59699,7 +61285,33 @@
       "partizip2": "beachtet",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich beachte die Regeln.",
+        "I follow the rules."
+      ],
+      [
+        "Du beachtest die Regeln.",
+        "You follow the rules."
+      ],
+      [
+        "Er beachtet die Regeln.",
+        "He follows the rules."
+      ],
+      [
+        "Wir beachten die Regeln.",
+        "We follow the rules."
+      ],
+      [
+        "Ihr beachtet die Regeln.",
+        "You all follow the rules."
+      ],
+      [
+        "Sie beachten die Regeln.",
+        "They follow the rules."
+      ]
+    ]
   },
   {
     "de": "die Müllabfuhr",
@@ -59725,7 +61337,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich stelle das Fahrrad ab.",
+        "I am parking the bike."
+      ],
+      [
+        "Du stellst das Fahrrad ab.",
+        "You are parking the bike."
+      ],
+      [
+        "Er stellt das Fahrrad ab.",
+        "He is parking the bike."
+      ],
+      [
+        "Wir stellen das Fahrrad ab.",
+        "We are parking the bike."
+      ],
+      [
+        "Ihr stellt das Fahrrad ab.",
+        "You all are parking the bike."
+      ],
+      [
+        "Sie stellen das Fahrrad ab.",
+        "They are parking the bike."
+      ]
+    ]
   },
   {
     "de": "die Einfahrt",
@@ -59819,7 +61457,33 @@
     "level": "A2",
     "example": "Oh Entschuldigung. Das war keine Absicht.",
     "example_en": "Oh sorry. That wasn't intentional.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe eine gute Absicht.",
+        "I have a good intention."
+      ],
+      [
+        "Du hast eine gute Absicht.",
+        "You have a good intention."
+      ],
+      [
+        "Er hat eine gute Absicht.",
+        "He has a good intention."
+      ],
+      [
+        "Wir haben eine gute Absicht.",
+        "We have a good intention."
+      ],
+      [
+        "Ihr habt eine gute Absicht.",
+        "You all have a good intention."
+      ],
+      [
+        "Sie haben eine gute Absicht.",
+        "They have a good intention."
+      ]
+    ]
   },
   {
     "de": "die Schicht",
@@ -59898,7 +61562,33 @@
     "level": "A2",
     "example": "Also dann: Guten Appetit.",
     "example_en": "So then: enjoy your meal.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe großen Appetit.",
+        "I have a big appetite."
+      ],
+      [
+        "Du hast großen Appetit.",
+        "You have a big appetite."
+      ],
+      [
+        "Er hat großen Appetit.",
+        "He has a big appetite."
+      ],
+      [
+        "Wir haben großen Appetit.",
+        "We have a big appetite."
+      ],
+      [
+        "Ihr habt großen Appetit.",
+        "You all have a big appetite."
+      ],
+      [
+        "Sie haben großen Appetit.",
+        "They have a big appetite."
+      ]
+    ]
   },
   {
     "de": "sich ausziehen",
@@ -60020,7 +61710,33 @@
     "level": "A2",
     "example": "Bei der Ankunft zeigt man die Reservierungsbestätigung an der Rezeption.",
     "example_en": "Upon arrival you show the reservation confirmation at reception.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche eine Bestätigung.",
+        "I need a confirmation."
+      ],
+      [
+        "Du brauchst eine Bestätigung.",
+        "You need a confirmation."
+      ],
+      [
+        "Er braucht eine Bestätigung.",
+        "He needs a confirmation."
+      ],
+      [
+        "Wir brauchen eine Bestätigung.",
+        "We need a confirmation."
+      ],
+      [
+        "Ihr braucht eine Bestätigung.",
+        "You all need a confirmation."
+      ],
+      [
+        "Sie brauchen eine Bestätigung.",
+        "They need a confirmation."
+      ]
+    ]
   },
   {
     "de": "schwierig",
@@ -60108,7 +61824,33 @@
     "level": "A2",
     "example": "Machen Sie einen Termin mit dem BIZ (Berufsinformationszentrum) in der Agentur für Arbeit.",
     "example_en": "Make an appointment with the BIZ (career information center) at the employment agency.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich besuche eine Agentur.",
+        "I am visiting an agency."
+      ],
+      [
+        "Du besuchst eine Agentur.",
+        "You are visiting an agency."
+      ],
+      [
+        "Er besucht eine Agentur.",
+        "He is visiting an agency."
+      ],
+      [
+        "Wir besuchen eine Agentur.",
+        "We are visiting an agency."
+      ],
+      [
+        "Ihr besucht eine Agentur.",
+        "You all are visiting an agency."
+      ],
+      [
+        "Sie besuchen eine Agentur.",
+        "They are visiting an agency."
+      ]
+    ]
   },
   {
     "de": "die Zeitarbeit",
@@ -60126,7 +61868,33 @@
     "level": "A2",
     "example": "Im Internet finden Sie Tipps für Auszubildende.",
     "example_en": "Online you'll find tips for trainees.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe einen Auszubildenden.",
+        "I see an apprentice."
+      ],
+      [
+        "Du siehst einen Auszubildenden.",
+        "You see an apprentice."
+      ],
+      [
+        "Er sieht einen Auszubildenden.",
+        "He sees an apprentice."
+      ],
+      [
+        "Wir sehen einen Auszubildenden.",
+        "We see an apprentice."
+      ],
+      [
+        "Ihr seht einen Auszubildenden.",
+        "You all see an apprentice."
+      ],
+      [
+        "Sie sehen einen Auszubildenden.",
+        "They see an apprentice."
+      ]
+    ]
   },
   {
     "de": "ausschalten",
@@ -60143,7 +61911,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schalte das Licht aus.",
+        "I am turning off the light."
+      ],
+      [
+        "Du schaltest das Licht aus.",
+        "You are turning off the light."
+      ],
+      [
+        "Er schaltet das Licht aus.",
+        "He is turning off the light."
+      ],
+      [
+        "Wir schalten das Licht aus.",
+        "We are turning off the light."
+      ],
+      [
+        "Ihr schaltet das Licht aus.",
+        "You all are turning off the light."
+      ],
+      [
+        "Sie schalten das Licht aus.",
+        "They are turning off the light."
+      ]
+    ]
   },
   {
     "de": "die Sicherheit",
@@ -60471,7 +62265,33 @@
     "level": "A2",
     "example": "Mitgliedsbeitrag: Azubis/Studenten: 6 Euro pro Monat",
     "example_en": "Membership fee: apprentices/students: 6 euros per month",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe einen Azubi.",
+        "I see an apprentice."
+      ],
+      [
+        "Du siehst einen Azubi.",
+        "You see an apprentice."
+      ],
+      [
+        "Er sieht einen Azubi.",
+        "He sees an apprentice."
+      ],
+      [
+        "Wir sehen einen Azubi.",
+        "We see an apprentice."
+      ],
+      [
+        "Ihr seht einen Azubi.",
+        "You all see an apprentice."
+      ],
+      [
+        "Sie sehen einen Azubi.",
+        "They see an apprentice."
+      ]
+    ]
   },
   {
     "de": "sich halten",
@@ -60561,7 +62381,33 @@
     "level": "A2",
     "example": "Das Abitur ist die Abschlussprüfung an einem Gymnasium.",
     "example_en": "The Abitur is the final exam at a Gymnasium.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich mache das Abitur.",
+        "I am doing the school-leaving exam."
+      ],
+      [
+        "Du machst das Abitur.",
+        "You are doing the school-leaving exam."
+      ],
+      [
+        "Er macht das Abitur.",
+        "He is doing the school-leaving exam."
+      ],
+      [
+        "Wir machen das Abitur.",
+        "We are doing the school-leaving exam."
+      ],
+      [
+        "Ihr macht das Abitur.",
+        "You all are doing the school-leaving exam."
+      ],
+      [
+        "Sie machen das Abitur.",
+        "They are doing the school-leaving exam."
+      ]
+    ]
   },
   {
     "de": "intelligent",
@@ -60596,7 +62442,33 @@
     "level": "A2",
     "example": "Du wolltest doch Astronaut werden.",
     "example_en": "You wanted to become an astronaut, though.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe einen Astronauten.",
+        "I see an astronaut."
+      ],
+      [
+        "Du siehst einen Astronauten.",
+        "You see an astronaut."
+      ],
+      [
+        "Er sieht einen Astronauten.",
+        "He sees an astronaut."
+      ],
+      [
+        "Wir sehen einen Astronauten.",
+        "We see an astronaut."
+      ],
+      [
+        "Ihr seht einen Astronauten.",
+        "You all see an astronaut."
+      ],
+      [
+        "Sie sehen einen Astronauten.",
+        "They see an astronaut."
+      ]
+    ]
   },
   {
     "de": "vorhin",
@@ -60650,7 +62522,33 @@
     "level": "A2",
     "example": "Mein Lieblingsfach war Biologie.",
     "example_en": "My favorite subject was biology.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe Biologie.",
+        "I have biology."
+      ],
+      [
+        "Du hast Biologie.",
+        "You have biology."
+      ],
+      [
+        "Er hat Biologie.",
+        "He has biology."
+      ],
+      [
+        "Wir haben Biologie.",
+        "We have biology."
+      ],
+      [
+        "Ihr habt Biologie.",
+        "You all have biology."
+      ],
+      [
+        "Sie haben Biologie.",
+        "They have biology."
+      ]
+    ]
   },
   {
     "de": "die Chemie",
@@ -60677,7 +62575,33 @@
     "level": "A2",
     "example": "Beginn: 8. März",
     "example_en": "Start: March 8",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Beginn.",
+        "I see the beginning."
+      ],
+      [
+        "Du siehst den Beginn.",
+        "You see the beginning."
+      ],
+      [
+        "Er sieht den Beginn.",
+        "He sees the beginning."
+      ],
+      [
+        "Wir sehen den Beginn.",
+        "We see the beginning."
+      ],
+      [
+        "Ihr seht den Beginn.",
+        "You all see the beginning."
+      ],
+      [
+        "Sie sehen den Beginn.",
+        "They see the beginning."
+      ]
+    ]
   },
   {
     "de": "die Einführung",
@@ -60740,7 +62664,33 @@
     "level": "A2",
     "example": "Anmeldung und Beratung: Frau Müller-Siechenender, Tel. 45 01 720",
     "example_en": "Registration and consultation: Ms. Muller-Siechenender, Tel. 45 01 720",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche eine Beratung.",
+        "I need advice/consultation."
+      ],
+      [
+        "Du brauchst eine Beratung.",
+        "You need advice/consultation."
+      ],
+      [
+        "Er braucht eine Beratung.",
+        "He needs advice/consultation."
+      ],
+      [
+        "Wir brauchen eine Beratung.",
+        "We need advice/consultation."
+      ],
+      [
+        "Ihr braucht eine Beratung.",
+        "You all need advice/consultation."
+      ],
+      [
+        "Sie brauchen eine Beratung.",
+        "They need advice/consultation."
+      ]
+    ]
   },
   {
     "de": "sich verletzen",
@@ -60773,7 +62723,33 @@
       "partizip2": "geblutet",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich blute stark.",
+        "I am bleeding heavily."
+      ],
+      [
+        "Du blutest stark.",
+        "You are bleeding heavily."
+      ],
+      [
+        "Er blutet stark.",
+        "He is bleeding heavily."
+      ],
+      [
+        "Wir bluten stark.",
+        "We are bleeding heavily."
+      ],
+      [
+        "Ihr blutet stark.",
+        "You all are bleeding heavily."
+      ],
+      [
+        "Sie bluten stark.",
+        "They are bleeding heavily."
+      ]
+    ]
   },
   {
     "de": "der Tagesablauf",
@@ -60816,7 +62792,33 @@
       "partizip2": "gebastelt",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich bastle gern.",
+        "I like doing crafts."
+      ],
+      [
+        "Du bastelst gern.",
+        "You like doing crafts."
+      ],
+      [
+        "Er bastelt gern.",
+        "He likes doing crafts."
+      ],
+      [
+        "Wir basteln gern.",
+        "We like doing crafts."
+      ],
+      [
+        "Ihr bastelt gern.",
+        "You all like doing crafts."
+      ],
+      [
+        "Sie basteln gern.",
+        "They like doing crafts."
+      ]
+    ]
   },
   {
     "de": "entscheiden",
@@ -60935,7 +62937,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich drucke das Dokument aus.",
+        "I am printing the document."
+      ],
+      [
+        "Du druckst das Dokument aus.",
+        "You are printing the document."
+      ],
+      [
+        "Er druckt das Dokument aus.",
+        "He is printing the document."
+      ],
+      [
+        "Wir drucken das Dokument aus.",
+        "We are printing the document."
+      ],
+      [
+        "Ihr druckt das Dokument aus.",
+        "You all are printing the document."
+      ],
+      [
+        "Sie drucken das Dokument aus.",
+        "They are printing the document."
+      ]
+    ]
   },
   {
     "de": "die Briefmarke",
@@ -61232,7 +63260,33 @@
     "level": "A2",
     "example": "Das Ticket gilt als Fahrkarte für alle Busse und Bahnen.",
     "example_en": "The ticket serves as a ticket for all buses and trains.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche die Bahn.",
+        "I need the train."
+      ],
+      [
+        "Du brauchst die Bahn.",
+        "You need the train."
+      ],
+      [
+        "Er braucht die Bahn.",
+        "He needs the train."
+      ],
+      [
+        "Wir brauchen die Bahn.",
+        "We need the train."
+      ],
+      [
+        "Ihr braucht die Bahn.",
+        "You all need the train."
+      ],
+      [
+        "Sie brauchen die Bahn.",
+        "They need the train."
+      ]
+    ]
   },
   {
     "de": "die Fotografie (Sg.)",
@@ -61386,7 +63440,33 @@
     "level": "A2",
     "example": "Verkaufe eine neue Salatschüssel mit einem passenden Salatbesteck.",
     "example_en": "Selling a new salad bowl with matching salad servers.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche Besteck.",
+        "I need cutlery."
+      ],
+      [
+        "Du brauchst Besteck.",
+        "You need cutlery."
+      ],
+      [
+        "Er braucht Besteck.",
+        "He needs cutlery."
+      ],
+      [
+        "Wir brauchen Besteck.",
+        "We need cutlery."
+      ],
+      [
+        "Ihr braucht Besteck.",
+        "You all need cutlery."
+      ],
+      [
+        "Sie brauchen Besteck.",
+        "They need cutlery."
+      ]
+    ]
   },
   {
     "de": "das Metall, -e",
@@ -61821,7 +63901,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "an",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schaue einen Film an.",
+        "I am watching a movie."
+      ],
+      [
+        "Du schaust einen Film an.",
+        "You are watching a movie."
+      ],
+      [
+        "Er schaut einen Film an.",
+        "He is watching a movie."
+      ],
+      [
+        "Wir schauen einen Film an.",
+        "We are watching a movie."
+      ],
+      [
+        "Ihr schaut einen Film an.",
+        "You all are watching a movie."
+      ],
+      [
+        "Sie schauen einen Film an.",
+        "They are watching a movie."
+      ]
+    ]
   },
   {
     "de": "entlang",
@@ -61846,7 +63952,33 @@
     "level": "A2",
     "example": "Fahr um den Kreisverkehr herum und nimm die dritte Ausfahrt.",
     "example_en": "Drive around the roundabout and take the third exit.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Ausfahrt.",
+        "I see the exit ramp."
+      ],
+      [
+        "Du siehst die Ausfahrt.",
+        "You see the exit ramp."
+      ],
+      [
+        "Er sieht die Ausfahrt.",
+        "He sees the exit ramp."
+      ],
+      [
+        "Wir sehen die Ausfahrt.",
+        "We see the exit ramp."
+      ],
+      [
+        "Ihr seht die Ausfahrt.",
+        "You all see the exit ramp."
+      ],
+      [
+        "Sie sehen die Ausfahrt.",
+        "They see the exit ramp."
+      ]
+    ]
   },
   {
     "de": "der Kopierer, -",
@@ -61937,7 +64069,33 @@
     "level": "A2",
     "example": "Der Mann vom Pannendienst sagt, dass die Autobatterie leer ist.",
     "example_en": "The breakdown service man says the car battery is dead.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich brauche eine neue Batterie.",
+        "I need a new battery."
+      ],
+      [
+        "Du brauchst eine neue Batterie.",
+        "You need a new battery."
+      ],
+      [
+        "Er braucht eine neue Batterie.",
+        "He needs a new battery."
+      ],
+      [
+        "Wir brauchen eine neue Batterie.",
+        "We need a new battery."
+      ],
+      [
+        "Ihr braucht eine neue Batterie.",
+        "You all need a new battery."
+      ],
+      [
+        "Sie brauchen eine neue Batterie.",
+        "They need a new battery."
+      ]
+    ]
   },
   {
     "de": "rechtzeitig",
@@ -62238,7 +64396,33 @@
     "level": "A2",
     "example": "Wir haben für zwei Wochen eine Ferienwohnung auf einem Bauernhof gemietet.",
     "example_en": "We rented a vacation apartment on a farm for two weeks.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich besuche einen Bauernhof.",
+        "I am visiting a farm."
+      ],
+      [
+        "Du besuchst einen Bauernhof.",
+        "You are visiting a farm."
+      ],
+      [
+        "Er besucht einen Bauernhof.",
+        "He is visiting a farm."
+      ],
+      [
+        "Wir besuchen einen Bauernhof.",
+        "We are visiting a farm."
+      ],
+      [
+        "Ihr besucht einen Bauernhof.",
+        "You all are visiting a farm."
+      ],
+      [
+        "Sie besuchen einen Bauernhof.",
+        "They are visiting a farm."
+      ]
+    ]
   },
   {
     "de": "die Kuh, -e",
@@ -62342,7 +64526,33 @@
     "level": "A2",
     "example": "Er hat über eine Stunde Aufenthalt in Berlin.",
     "example_en": "He has more than an hour's stopover in Berlin.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe einen kurzen Aufenthalt.",
+        "I have a short stay."
+      ],
+      [
+        "Du hast einen kurzen Aufenthalt.",
+        "You have a short stay."
+      ],
+      [
+        "Er hat einen kurzen Aufenthalt.",
+        "He has a short stay."
+      ],
+      [
+        "Wir haben einen kurzen Aufenthalt.",
+        "We have a short stay."
+      ],
+      [
+        "Ihr habt einen kurzen Aufenthalt.",
+        "You all have a short stay."
+      ],
+      [
+        "Sie haben einen kurzen Aufenthalt.",
+        "They have a short stay."
+      ]
+    ]
   },
   {
     "de": "buchen",
@@ -62384,7 +64594,33 @@
     "level": "A2",
     "example": "Die Angestellte im Reisebüro gibt Auskunft über günstige Busreisen.",
     "example_en": "The employee at the travel agency gives information about affordable bus trips.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe einen Angestellten.",
+        "I see an employee."
+      ],
+      [
+        "Du siehst einen Angestellten.",
+        "You see an employee."
+      ],
+      [
+        "Er sieht einen Angestellten.",
+        "He sees an employee."
+      ],
+      [
+        "Wir sehen einen Angestellten.",
+        "We see an employee."
+      ],
+      [
+        "Ihr seht einen Angestellten.",
+        "You all see an employee."
+      ],
+      [
+        "Sie sehen einen Angestellten.",
+        "They see an employee."
+      ]
+    ]
   },
   {
     "de": "die Angestellte, -n",
@@ -62393,7 +64629,33 @@
     "level": "A2",
     "example": "Die Angestellte im Reisebüro gibt Auskunft über günstige Busreisen.",
     "example_en": "The employee at the travel agency gives information about affordable bus trips.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe eine Angestellte.",
+        "I see a female employee."
+      ],
+      [
+        "Du siehst eine Angestellte.",
+        "You see a female employee."
+      ],
+      [
+        "Er sieht eine Angestellte.",
+        "He sees a female employee."
+      ],
+      [
+        "Wir sehen eine Angestellte.",
+        "We see a female employee."
+      ],
+      [
+        "Ihr seht eine Angestellte.",
+        "You all see a female employee."
+      ],
+      [
+        "Sie sehen eine Angestellte.",
+        "They see a female employee."
+      ]
+    ]
   },
   {
     "de": "surfen",
@@ -62900,7 +65162,33 @@
     "example": "Er betreut Menschen mit Behinderung.",
     "example_en": "He cares for people with disabilities.",
     "collocations": [],
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich habe eine Behinderung.",
+        "I have a disability."
+      ],
+      [
+        "Du hast eine Behinderung.",
+        "You have a disability."
+      ],
+      [
+        "Er hat eine Behinderung.",
+        "He has a disability."
+      ],
+      [
+        "Wir haben eine Behinderung.",
+        "We have a disability."
+      ],
+      [
+        "Ihr habt eine Behinderung.",
+        "You all have a disability."
+      ],
+      [
+        "Sie haben eine Behinderung.",
+        "They have a disability."
+      ]
+    ]
   },
   {
     "de": "das Tablet, -s",
@@ -62940,7 +65228,33 @@
     "example": "Warum willst du den Blogbeitrag nicht lesen?",
     "example_en": "Why don't you want to read the blog post?",
     "collocations": [],
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe einen Blogbeitrag.",
+        "I see a blog post."
+      ],
+      [
+        "Du siehst einen Blogbeitrag.",
+        "You see a blog post."
+      ],
+      [
+        "Er sieht einen Blogbeitrag.",
+        "He sees a blog post."
+      ],
+      [
+        "Wir sehen einen Blogbeitrag.",
+        "We see a blog post."
+      ],
+      [
+        "Ihr seht einen Blogbeitrag.",
+        "You all see a blog post."
+      ],
+      [
+        "Sie sehen einen Blogbeitrag.",
+        "They see a blog post."
+      ]
+    ]
   },
   {
     "de": "die Schuluniform, -en",
