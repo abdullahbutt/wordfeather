@@ -4858,7 +4858,33 @@
       "partizip2": "gegeben",
       "hilfsverb": "haben",
       "governs": "dative (jdm. Bescheid geben)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich gebe dir Bescheid.",
+        "I'll let you know."
+      ],
+      [
+        "Du gibst mir Bescheid.",
+        "You'll let me know."
+      ],
+      [
+        "Er gibt uns Bescheid.",
+        "He'll let us know."
+      ],
+      [
+        "Wir geben euch Bescheid.",
+        "We'll let you all know."
+      ],
+      [
+        "Ihr gebt uns Bescheid.",
+        "You all will let us know."
+      ],
+      [
+        "Sie geben mir Bescheid.",
+        "They'll let me know."
+      ]
+    ]
   },
   {
     "de": "bescheiden",
@@ -28123,7 +28149,33 @@
     "level": "A2",
     "example": "Das Tal liegt zwischen zwei hohen Bergen.",
     "example_en": "The valley lies between two high mountains.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Tal.",
+        "I see the valley."
+      ],
+      [
+        "Du siehst das Tal.",
+        "You see the valley."
+      ],
+      [
+        "Er sieht das Tal.",
+        "He sees the valley."
+      ],
+      [
+        "Wir sehen das Tal.",
+        "We see the valley."
+      ],
+      [
+        "Ihr seht das Tal.",
+        "You all see the valley."
+      ],
+      [
+        "Sie sehen das Tal.",
+        "They see the valley."
+      ]
+    ]
   },
   {
     "de": "tanken",
@@ -28140,7 +28192,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich tanke das Auto.",
+        "I am filling up the car."
+      ],
+      [
+        "Du tankst das Auto.",
+        "You are filling up the car."
+      ],
+      [
+        "Er tankt das Auto.",
+        "He is filling up the car."
+      ],
+      [
+        "Wir tanken das Auto.",
+        "We are filling up the car."
+      ],
+      [
+        "Ihr tankt das Auto.",
+        "You all are filling up the car."
+      ],
+      [
+        "Sie tanken das Auto.",
+        "They are filling up the car."
+      ]
+    ]
   },
   {
     "de": "die Tankstelle, -n",
@@ -28201,7 +28279,33 @@
     "level": "A2",
     "example": "Drücken Sie die rote Taste, um den Drucker einzuschalten.",
     "example_en": "Press the red button to switch the printer on.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Taste.",
+        "I see the key."
+      ],
+      [
+        "Du siehst die Taste.",
+        "You see the key."
+      ],
+      [
+        "Er sieht die Taste.",
+        "He sees the key."
+      ],
+      [
+        "Wir sehen die Taste.",
+        "We see the key."
+      ],
+      [
+        "Ihr seht die Taste.",
+        "You all see the key."
+      ],
+      [
+        "Sie sehen die Taste.",
+        "They see the key."
+      ]
+    ]
   },
   {
     "de": "das Taxi, -s",
@@ -28246,7 +28350,33 @@
     "level": "A2",
     "example": "Sie hat wegen der Kinder eine Teilzeitarbeit angenommen.",
     "example_en": "She took a part-time job because of the children.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Teilzeitarbeit.",
+        "I see the part-time work."
+      ],
+      [
+        "Du siehst die Teilzeitarbeit.",
+        "You see the part-time work."
+      ],
+      [
+        "Er sieht die Teilzeitarbeit.",
+        "He sees the part-time work."
+      ],
+      [
+        "Wir sehen die Teilzeitarbeit.",
+        "We see the part-time work."
+      ],
+      [
+        "Ihr seht die Teilzeitarbeit.",
+        "You all see the part-time work."
+      ],
+      [
+        "Sie sehen die Teilzeitarbeit.",
+        "They see the part-time work."
+      ]
+    ]
   },
   {
     "de": "das Telefon, -e",
@@ -28525,7 +28655,33 @@
     "level": "A2",
     "example": "Der Stürmer schoss in der letzten Minute das entscheidende Tor.",
     "example_en": "The striker scored the decisive goal in the last minute.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Tor.",
+        "I see the goal (sports)."
+      ],
+      [
+        "Du siehst das Tor.",
+        "You see the goal (sports)."
+      ],
+      [
+        "Er sieht das Tor.",
+        "He sees the goal (sports)."
+      ],
+      [
+        "Wir sehen das Tor.",
+        "We see the goal (sports)."
+      ],
+      [
+        "Ihr seht das Tor.",
+        "You all see the goal (sports)."
+      ],
+      [
+        "Sie sehen das Tor.",
+        "They see the goal (sports)."
+      ]
+    ]
   },
   {
     "de": "tragen",
@@ -28791,7 +28947,33 @@
       "partizip2": "getrocknet",
       "hilfsverb": "haben",
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich trockne die Wäsche.",
+        "I am drying the laundry."
+      ],
+      [
+        "Du trocknest die Wäsche.",
+        "You are drying the laundry."
+      ],
+      [
+        "Er trocknet die Wäsche.",
+        "He is drying the laundry."
+      ],
+      [
+        "Wir trocknen die Wäsche.",
+        "We are drying the laundry."
+      ],
+      [
+        "Ihr trocknet die Wäsche.",
+        "You all are drying the laundry."
+      ],
+      [
+        "Sie trocknen die Wäsche.",
+        "They are drying the laundry."
+      ]
+    ]
   },
   {
     "de": "ein Tropfen auf den heißen Stein",
@@ -29010,7 +29192,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich übersetze den Text.",
+        "I am translating the text."
+      ],
+      [
+        "Du übersetzt den Text.",
+        "You are translating the text."
+      ],
+      [
+        "Er übersetzt den Text.",
+        "He is translating the text."
+      ],
+      [
+        "Wir übersetzen den Text.",
+        "We are translating the text."
+      ],
+      [
+        "Ihr übersetzt den Text.",
+        "You all are translating the text."
+      ],
+      [
+        "Sie übersetzen den Text.",
+        "They are translating the text."
+      ]
+    ]
   },
   {
     "de": "die Überstunde, -n",
@@ -29019,7 +29227,33 @@
     "level": "A2",
     "example": "Viele Menschen arbeiten mehr und machen Überstunden.",
     "example_en": "Many people work more and do overtime.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Überstunde.",
+        "I see the overtime."
+      ],
+      [
+        "Du siehst die Überstunde.",
+        "You see the overtime."
+      ],
+      [
+        "Er sieht die Überstunde.",
+        "He sees the overtime."
+      ],
+      [
+        "Wir sehen die Überstunde.",
+        "We see the overtime."
+      ],
+      [
+        "Ihr seht die Überstunde.",
+        "You all see the overtime."
+      ],
+      [
+        "Sie sehen die Überstunde.",
+        "They see the overtime."
+      ]
+    ]
   },
   {
     "de": "übertragen",
@@ -29099,7 +29333,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (+ von + dative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich überzeuge dich.",
+        "I am convincing you."
+      ],
+      [
+        "Du überzeugst mich.",
+        "You are convincing me."
+      ],
+      [
+        "Er überzeugt uns.",
+        "He is convincing us."
+      ],
+      [
+        "Wir überzeugen euch.",
+        "We are convincing you all."
+      ],
+      [
+        "Ihr überzeugt uns.",
+        "You all are convincing us."
+      ],
+      [
+        "Sie überzeugen mich.",
+        "They are convincing me."
+      ]
+    ]
   },
   {
     "de": "Übung macht den Meister.",
@@ -29322,7 +29582,33 @@
     "level": "A2",
     "example": "Der Umweltschutz ist mir sehr wichtig.",
     "example_en": "Environmental protection is very important to me.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Umweltschutz.",
+        "I see the environmental protection."
+      ],
+      [
+        "Du siehst den Umweltschutz.",
+        "You see the environmental protection."
+      ],
+      [
+        "Er sieht den Umweltschutz.",
+        "He sees the environmental protection."
+      ],
+      [
+        "Wir sehen den Umweltschutz.",
+        "We see the environmental protection."
+      ],
+      [
+        "Ihr seht den Umweltschutz.",
+        "You all see the environmental protection."
+      ],
+      [
+        "Sie sehen den Umweltschutz.",
+        "They see the environmental protection."
+      ]
+    ]
   },
   {
     "de": "die Umweltverschmutzung",
@@ -29538,7 +29824,33 @@
     "level": "A2",
     "example": "Die Unterkunft in Berlin war günstig und zentral gelegen.",
     "example_en": "The accommodation in Berlin was affordable and centrally located.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Unterkunft.",
+        "I see the accommodation."
+      ],
+      [
+        "Du siehst die Unterkunft.",
+        "You see the accommodation."
+      ],
+      [
+        "Er sieht die Unterkunft.",
+        "He sees the accommodation."
+      ],
+      [
+        "Wir sehen die Unterkunft.",
+        "We see the accommodation."
+      ],
+      [
+        "Ihr seht die Unterkunft.",
+        "You all see the accommodation."
+      ],
+      [
+        "Sie sehen die Unterkunft.",
+        "They see the accommodation."
+      ]
+    ]
   },
   {
     "de": "untermauern",
@@ -29586,7 +29898,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (+ in + dative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich unterrichte Deutsch.",
+        "I am teaching German."
+      ],
+      [
+        "Du unterrichtest Deutsch.",
+        "You are teaching German."
+      ],
+      [
+        "Er unterrichtet Deutsch.",
+        "He is teaching German."
+      ],
+      [
+        "Wir unterrichten Deutsch.",
+        "We are teaching German."
+      ],
+      [
+        "Ihr unterrichtet Deutsch.",
+        "You all are teaching German."
+      ],
+      [
+        "Sie unterrichten Deutsch.",
+        "They are teaching German."
+      ]
+    ]
   },
   {
     "de": "die Unterschrift, -en",
@@ -29657,7 +29995,33 @@
     "level": "A2",
     "example": "Der Arzt führt eine gründliche Untersuchung durch.",
     "example_en": "The doctor carries out a thorough examination.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Untersuchung.",
+        "I see the examination."
+      ],
+      [
+        "Du siehst die Untersuchung.",
+        "You see the examination."
+      ],
+      [
+        "Er sieht die Untersuchung.",
+        "He sees the examination."
+      ],
+      [
+        "Wir sehen die Untersuchung.",
+        "We see the examination."
+      ],
+      [
+        "Ihr seht die Untersuchung.",
+        "You all see the examination."
+      ],
+      [
+        "Sie sehen die Untersuchung.",
+        "They see the examination."
+      ]
+    ]
   },
   {
     "de": "unumstritten",
@@ -29941,7 +30305,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verbiete dir das Rauchen.",
+        "I forbid you to smoke."
+      ],
+      [
+        "Du verbietest mir das Rauchen.",
+        "You forbid me to smoke."
+      ],
+      [
+        "Er verbietet uns das Rauchen.",
+        "He forbids us to smoke."
+      ],
+      [
+        "Wir verbieten euch das Rauchen.",
+        "We forbid you all to smoke."
+      ],
+      [
+        "Ihr verbietet uns das Rauchen.",
+        "You all forbid us to smoke."
+      ],
+      [
+        "Sie verbieten mir das Rauchen.",
+        "They forbid me to smoke."
+      ]
+    ]
   },
   {
     "de": "verbindlich",
@@ -29973,7 +30363,33 @@
     "level": "A2",
     "example": "Die Zugverbindung nach Frankfurt fährt stündlich.",
     "example_en": "The train connection to Frankfurt runs every hour.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Verbindung.",
+        "I see the connection."
+      ],
+      [
+        "Du siehst die Verbindung.",
+        "You see the connection."
+      ],
+      [
+        "Er sieht die Verbindung.",
+        "He sees the connection."
+      ],
+      [
+        "Wir sehen die Verbindung.",
+        "We see the connection."
+      ],
+      [
+        "Ihr seht die Verbindung.",
+        "You all see the connection."
+      ],
+      [
+        "Sie sehen die Verbindung.",
+        "They see the connection."
+      ]
+    ]
   },
   {
     "de": "das Verbot, -e",
@@ -30031,7 +30447,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (+ mit + dative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verbringe die Zeit mit dir.",
+        "I am spending the time with you."
+      ],
+      [
+        "Du verbringst die Zeit mit mir.",
+        "You are spending the time with me."
+      ],
+      [
+        "Er verbringt die Zeit mit uns.",
+        "He is spending the time with us."
+      ],
+      [
+        "Wir verbringen die Zeit mit euch.",
+        "We are spending the time with you all."
+      ],
+      [
+        "Ihr verbringt die Zeit mit uns.",
+        "You all are spending the time with us."
+      ],
+      [
+        "Sie verbringen die Zeit mit mir.",
+        "They are spending the time with me."
+      ]
+    ]
   },
   {
     "de": "verdeutlichen",
@@ -30079,7 +30521,33 @@
     "level": "A2",
     "example": "Er möchte lieber Basketball spielen und ruft bei einem Sportverein an.",
     "example_en": "He would rather play basketball and calls a sports club.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Verein.",
+        "I see the club."
+      ],
+      [
+        "Du siehst den Verein.",
+        "You see the club."
+      ],
+      [
+        "Er sieht den Verein.",
+        "He sees the club."
+      ],
+      [
+        "Wir sehen den Verein.",
+        "We see the club."
+      ],
+      [
+        "Ihr seht den Verein.",
+        "You all see the club."
+      ],
+      [
+        "Sie sehen den Verein.",
+        "They see the club."
+      ]
+    ]
   },
   {
     "de": "der Verein, -e",
@@ -30358,7 +30826,33 @@
     "level": "A2",
     "example": "Die Verletzung am Knie hindert ihn am Laufen.",
     "example_en": "The injury to his knee prevents him from running.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Verletzung.",
+        "I see the injury."
+      ],
+      [
+        "Du siehst die Verletzung.",
+        "You see the injury."
+      ],
+      [
+        "Er sieht die Verletzung.",
+        "He sees the injury."
+      ],
+      [
+        "Wir sehen die Verletzung.",
+        "We see the injury."
+      ],
+      [
+        "Ihr seht die Verletzung.",
+        "You all see the injury."
+      ],
+      [
+        "Sie sehen die Verletzung.",
+        "They see the injury."
+      ]
+    ]
   },
   {
     "de": "verlieren",
@@ -30578,7 +31072,33 @@
     "level": "A2",
     "example": "Meine Krankenversicherung deckt alle Arztbesuche ab.",
     "example_en": "My health insurance covers all doctor's visits.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Versicherung.",
+        "I see the insurance."
+      ],
+      [
+        "Du siehst die Versicherung.",
+        "You see the insurance."
+      ],
+      [
+        "Er sieht die Versicherung.",
+        "He sees the insurance."
+      ],
+      [
+        "Wir sehen die Versicherung.",
+        "We see the insurance."
+      ],
+      [
+        "Ihr seht die Versicherung.",
+        "You all see the insurance."
+      ],
+      [
+        "Sie sehen die Versicherung.",
+        "They see the insurance."
+      ]
+    ]
   },
   {
     "de": "die Verspätung, -en",
@@ -30605,7 +31125,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verspreche es dir.",
+        "I promise it to you."
+      ],
+      [
+        "Du versprichst es mir.",
+        "You promise it to me."
+      ],
+      [
+        "Er verspricht es uns.",
+        "He promises it to us."
+      ],
+      [
+        "Wir versprechen es euch.",
+        "We promise it to you all."
+      ],
+      [
+        "Ihr versprecht es uns.",
+        "You all promise it to us."
+      ],
+      [
+        "Sie versprechen es mir.",
+        "They promise it to me."
+      ]
+    ]
   },
   {
     "de": "verstehen",
@@ -30774,7 +31320,33 @@
     "level": "A2",
     "example": "Sie hat ihr Visum beantragt und wartet auf die Genehmigung.",
     "example_en": "She has applied for her visa and is waiting for approval.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Visum.",
+        "I see the visa."
+      ],
+      [
+        "Du siehst das Visum.",
+        "You see the visa."
+      ],
+      [
+        "Er sieht das Visum.",
+        "He sees the visa."
+      ],
+      [
+        "Wir sehen das Visum.",
+        "We see the visa."
+      ],
+      [
+        "Ihr seht das Visum.",
+        "You all see the visa."
+      ],
+      [
+        "Sie sehen das Visum.",
+        "They see the visa."
+      ]
+    ]
   },
   {
     "de": "das Vitamin, -e",
@@ -30783,7 +31355,33 @@
     "level": "A2",
     "example": "Vitamine sind wichtig für ein gesundes Immunsystem.",
     "example_en": "Vitamins are important for a healthy immune system.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Vitamin.",
+        "I see the vitamin."
+      ],
+      [
+        "Du siehst das Vitamin.",
+        "You see the vitamin."
+      ],
+      [
+        "Er sieht das Vitamin.",
+        "He sees the vitamin."
+      ],
+      [
+        "Wir sehen das Vitamin.",
+        "We see the vitamin."
+      ],
+      [
+        "Ihr seht das Vitamin.",
+        "You all see the vitamin."
+      ],
+      [
+        "Sie sehen das Vitamin.",
+        "They see the vitamin."
+      ]
+    ]
   },
   {
     "de": "das Völkerrecht",
@@ -31039,7 +31637,33 @@
     "level": "A2",
     "example": "Zum Mittag haben wir drei Büfetts für Vorspeisen, Nachspeisen und Salat.",
     "example_en": "For lunch we have three buffets for starters, desserts, and salad.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Vorspeise.",
+        "I see the appetizer."
+      ],
+      [
+        "Du siehst die Vorspeise.",
+        "You see the appetizer."
+      ],
+      [
+        "Er sieht die Vorspeise.",
+        "He sees the appetizer."
+      ],
+      [
+        "Wir sehen die Vorspeise.",
+        "We see the appetizer."
+      ],
+      [
+        "Ihr seht die Vorspeise.",
+        "You all see the appetizer."
+      ],
+      [
+        "Sie sehen die Vorspeise.",
+        "They see the appetizer."
+      ]
+    ]
   },
   {
     "de": "die Vorstellung, -en",
@@ -31048,7 +31672,33 @@
     "level": "A2",
     "example": "Die Vorstellung beginnt um acht Uhr abends.",
     "example_en": "The show starts at eight o'clock in the evening.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Vorstellung.",
+        "I see the show."
+      ],
+      [
+        "Du siehst die Vorstellung.",
+        "You see the show."
+      ],
+      [
+        "Er sieht die Vorstellung.",
+        "He sees the show."
+      ],
+      [
+        "Wir sehen die Vorstellung.",
+        "We see the show."
+      ],
+      [
+        "Ihr seht die Vorstellung.",
+        "You all see the show."
+      ],
+      [
+        "Sie sehen die Vorstellung.",
+        "They see the show."
+      ]
+    ]
   },
   {
     "de": "das Vorstellungsgespräch, -e",
@@ -31057,7 +31707,33 @@
     "level": "A2",
     "example": "Er hat sich gut auf das Vorstellungsgespräch vorbereitet.",
     "example_en": "He prepared well for the job interview.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Vorstellungsgespräch.",
+        "I see the job interview."
+      ],
+      [
+        "Du siehst das Vorstellungsgespräch.",
+        "You see the job interview."
+      ],
+      [
+        "Er sieht das Vorstellungsgespräch.",
+        "He sees the job interview."
+      ],
+      [
+        "Wir sehen das Vorstellungsgespräch.",
+        "We see the job interview."
+      ],
+      [
+        "Ihr seht das Vorstellungsgespräch.",
+        "You all see the job interview."
+      ],
+      [
+        "Sie sehen das Vorstellungsgespräch.",
+        "They see the job interview."
+      ]
+    ]
   },
   {
     "de": "das Vorurteil, -e",
@@ -31242,7 +31918,33 @@
     "level": "A2",
     "example": "Im Herbst verfärben sich die Blätter im Wald bunt.",
     "example_en": "In autumn the leaves in the forest turn colourful.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Wald.",
+        "I see the forest."
+      ],
+      [
+        "Du siehst den Wald.",
+        "You see the forest."
+      ],
+      [
+        "Er sieht den Wald.",
+        "He sees the forest."
+      ],
+      [
+        "Wir sehen den Wald.",
+        "We see the forest."
+      ],
+      [
+        "Ihr seht den Wald.",
+        "You all see the forest."
+      ],
+      [
+        "Sie sehen den Wald.",
+        "They see the forest."
+      ]
+    ]
   },
   {
     "de": "die Wand, -̈e",
@@ -31348,7 +32050,33 @@
     "level": "A2",
     "example": "Der Wasserhahn tropft schon seit zwei Tagen.",
     "example_en": "The faucet has been dripping for two days.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Wasserhahn.",
+        "I see the faucet."
+      ],
+      [
+        "Du siehst den Wasserhahn.",
+        "You see the faucet."
+      ],
+      [
+        "Er sieht den Wasserhahn.",
+        "He sees the faucet."
+      ],
+      [
+        "Wir sehen den Wasserhahn.",
+        "We see the faucet."
+      ],
+      [
+        "Ihr seht den Wasserhahn.",
+        "You all see the faucet."
+      ],
+      [
+        "Sie sehen den Wasserhahn.",
+        "They see the faucet."
+      ]
+    ]
   },
   {
     "de": "die Wasserknappheit",
@@ -31385,7 +32113,33 @@
     "level": "A2",
     "example": "Die Webseite der Schule wurde komplett neu gestaltet.",
     "example_en": "The school's website was completely redesigned.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Webseite.",
+        "I see the website."
+      ],
+      [
+        "Du siehst die Webseite.",
+        "You see the website."
+      ],
+      [
+        "Er sieht die Webseite.",
+        "He sees the website."
+      ],
+      [
+        "Wir sehen die Webseite.",
+        "We see the website."
+      ],
+      [
+        "Ihr seht die Webseite.",
+        "You all see the website."
+      ],
+      [
+        "Sie sehen die Webseite.",
+        "They see the website."
+      ]
+    ]
   },
   {
     "de": "wechseln",
@@ -31965,7 +32719,33 @@
     "level": "A2",
     "example": "Die Kinder spielen nachmittags auf der grünen Wiese.",
     "example_en": "The children play in the afternoon on the green meadow.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Wiese.",
+        "I see the meadow."
+      ],
+      [
+        "Du siehst die Wiese.",
+        "You see the meadow."
+      ],
+      [
+        "Er sieht die Wiese.",
+        "He sees the meadow."
+      ],
+      [
+        "Wir sehen die Wiese.",
+        "We see the meadow."
+      ],
+      [
+        "Ihr seht die Wiese.",
+        "You all see the meadow."
+      ],
+      [
+        "Sie sehen die Wiese.",
+        "They see the meadow."
+      ]
+    ]
   },
   {
     "de": "die Willensbildung",
@@ -32241,7 +33021,33 @@
     "level": "A2",
     "example": "Im dritten Stock wohnt die Wohngemeinschaft.",
     "example_en": "The shared flat is on the third floor.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Wohngemeinschaft (WG).",
+        "I see the shared flat."
+      ],
+      [
+        "Du siehst die Wohngemeinschaft (WG).",
+        "You see the shared flat."
+      ],
+      [
+        "Er sieht die Wohngemeinschaft (WG).",
+        "He sees the shared flat."
+      ],
+      [
+        "Wir sehen die Wohngemeinschaft (WG).",
+        "We see the shared flat."
+      ],
+      [
+        "Ihr seht die Wohngemeinschaft (WG).",
+        "You all see the shared flat."
+      ],
+      [
+        "Sie sehen die Wohngemeinschaft (WG).",
+        "They see the shared flat."
+      ]
+    ]
   },
   {
     "de": "die Wohnung, -en",
@@ -32423,7 +33229,33 @@
     "level": "A2",
     "example": "Das Kind überqürt die Straße am Zebrastreifen sicher.",
     "example_en": "The child crosses the street safely at the crosswalk.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Zebrastreifen.",
+        "I see the crosswalk."
+      ],
+      [
+        "Du siehst den Zebrastreifen.",
+        "You see the crosswalk."
+      ],
+      [
+        "Er sieht den Zebrastreifen.",
+        "He sees the crosswalk."
+      ],
+      [
+        "Wir sehen den Zebrastreifen.",
+        "We see the crosswalk."
+      ],
+      [
+        "Ihr seht den Zebrastreifen.",
+        "You all see the crosswalk."
+      ],
+      [
+        "Sie sehen den Zebrastreifen.",
+        "They see the crosswalk."
+      ]
+    ]
   },
   {
     "de": "zehn",
@@ -32609,7 +33441,33 @@
     "level": "A2",
     "example": "Zwischenzeugnis für den Schüler des Lessing-Gymnasiums Niki Kaiopoulos.",
     "example_en": "Interim report card for the student of the Lessing-Gymnasium Niki Kaiopoulos.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Zeugnis.",
+        "I see the report card."
+      ],
+      [
+        "Du siehst das Zeugnis.",
+        "You see the report card."
+      ],
+      [
+        "Er sieht das Zeugnis.",
+        "He sees the report card."
+      ],
+      [
+        "Wir sehen das Zeugnis.",
+        "We see the report card."
+      ],
+      [
+        "Ihr seht das Zeugnis.",
+        "You all see the report card."
+      ],
+      [
+        "Sie sehen das Zeugnis.",
+        "They see the report card."
+      ]
+    ]
   },
   {
     "de": "das Zeugnis, -se",
@@ -32820,7 +33678,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "zu",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich nehme zu.",
+        "I am gaining weight."
+      ],
+      [
+        "Du nimmst zu.",
+        "You are gaining weight."
+      ],
+      [
+        "Er nimmt zu.",
+        "He is gaining weight."
+      ],
+      [
+        "Wir nehmen zu.",
+        "We are gaining weight."
+      ],
+      [
+        "Ihr nehmt zu.",
+        "You all are gaining weight."
+      ],
+      [
+        "Sie nehmen zu.",
+        "They are gaining weight."
+      ]
+    ]
   },
   {
     "de": "zunehmen",
@@ -33052,7 +33936,33 @@
     "level": "A2",
     "example": "Welche Zutaten brauche ich für diesen Kuchen?",
     "example_en": "Which ingredients do I need for this cake?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Zutat.",
+        "I see the ingredient."
+      ],
+      [
+        "Du siehst die Zutat.",
+        "You see the ingredient."
+      ],
+      [
+        "Er sieht die Zutat.",
+        "He sees the ingredient."
+      ],
+      [
+        "Wir sehen die Zutat.",
+        "We see the ingredient."
+      ],
+      [
+        "Ihr seht die Zutat.",
+        "You all see the ingredient."
+      ],
+      [
+        "Sie sehen die Zutat.",
+        "They see the ingredient."
+      ]
+    ]
   },
   {
     "de": "zuverlässig",
@@ -36432,7 +37342,33 @@
     "level": "A2",
     "example": "Er zieht den Vorhang zu, weil die Sonne so hell scheint.",
     "example_en": "He closes the curtain because the sun is shining so brightly.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Vorhang.",
+        "I see the curtain."
+      ],
+      [
+        "Du siehst den Vorhang.",
+        "You see the curtain."
+      ],
+      [
+        "Er sieht den Vorhang.",
+        "He sees the curtain."
+      ],
+      [
+        "Wir sehen den Vorhang.",
+        "We see the curtain."
+      ],
+      [
+        "Ihr seht den Vorhang.",
+        "You all see the curtain."
+      ],
+      [
+        "Sie sehen den Vorhang.",
+        "They see the curtain."
+      ]
+    ]
   },
   {
     "de": "die Waschküche, -n",
@@ -36441,7 +37377,33 @@
     "level": "A2",
     "example": "Die Waschküche im Keller ist montags frei.",
     "example_en": "The laundry room in the basement is free on Mondays.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Waschküche.",
+        "I see the laundry room."
+      ],
+      [
+        "Du siehst die Waschküche.",
+        "You see the laundry room."
+      ],
+      [
+        "Er sieht die Waschküche.",
+        "He sees the laundry room."
+      ],
+      [
+        "Wir sehen die Waschküche.",
+        "We see the laundry room."
+      ],
+      [
+        "Ihr seht die Waschküche.",
+        "You all see the laundry room."
+      ],
+      [
+        "Sie sehen die Waschküche.",
+        "They see the laundry room."
+      ]
+    ]
   },
   {
     "de": "der Briefkasten, -̈",
@@ -36485,7 +37447,33 @@
     "level": "A2",
     "example": "Wir hängen ein Bild an die Wand im Wohnzimmer.",
     "example_en": "We hang a picture on the wall in the living room.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Wand.",
+        "I see the wall."
+      ],
+      [
+        "Du siehst die Wand.",
+        "You see the wall."
+      ],
+      [
+        "Er sieht die Wand.",
+        "He sees the wall."
+      ],
+      [
+        "Wir sehen die Wand.",
+        "We see the wall."
+      ],
+      [
+        "Ihr seht die Wand.",
+        "You all see the wall."
+      ],
+      [
+        "Sie sehen die Wand.",
+        "They see the wall."
+      ]
+    ]
   },
   {
     "de": "das Sofa, -s",
@@ -36556,7 +37544,33 @@
     "level": "A2",
     "example": "Zürst habe ich heute Morgen den Wecker nicht gehört.",
     "example_en": "First I didn't hear the alarm clock this morning.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Wecker.",
+        "I see the alarm clock."
+      ],
+      [
+        "Du siehst den Wecker.",
+        "You see the alarm clock."
+      ],
+      [
+        "Er sieht den Wecker.",
+        "He sees the alarm clock."
+      ],
+      [
+        "Wir sehen den Wecker.",
+        "We see the alarm clock."
+      ],
+      [
+        "Ihr seht den Wecker.",
+        "You all see the alarm clock."
+      ],
+      [
+        "Sie sehen den Wecker.",
+        "They see the alarm clock."
+      ]
+    ]
   },
   {
     "de": "die Seife, -n",
@@ -36574,7 +37588,33 @@
     "level": "A2",
     "example": "Das Waschbecken ist verstopft und läuft nicht mehr ab.",
     "example_en": "The washbasin is blocked and no longer drains.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Waschbecken.",
+        "I see the washbasin."
+      ],
+      [
+        "Du siehst das Waschbecken.",
+        "You see the washbasin."
+      ],
+      [
+        "Er sieht das Waschbecken.",
+        "He sees the washbasin."
+      ],
+      [
+        "Wir sehen das Waschbecken.",
+        "We see the washbasin."
+      ],
+      [
+        "Ihr seht das Waschbecken.",
+        "You all see the washbasin."
+      ],
+      [
+        "Sie sehen das Waschbecken.",
+        "They see the washbasin."
+      ]
+    ]
   },
   {
     "de": "der Mülleimer, -",
@@ -36653,7 +37693,33 @@
     "level": "A2",
     "example": "Im Vorhof steht ein alter Baum.",
     "example_en": "There is an old tree in the front yard.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Vorhof.",
+        "I see the front yard."
+      ],
+      [
+        "Du siehst den Vorhof.",
+        "You see the front yard."
+      ],
+      [
+        "Er sieht den Vorhof.",
+        "He sees the front yard."
+      ],
+      [
+        "Wir sehen den Vorhof.",
+        "We see the front yard."
+      ],
+      [
+        "Ihr seht den Vorhof.",
+        "You all see the front yard."
+      ],
+      [
+        "Sie sehen den Vorhof.",
+        "They see the front yard."
+      ]
+    ]
   },
   {
     "de": "das Klo, -s",
@@ -36812,7 +37878,33 @@
     "level": "A2",
     "example": "Er hält an der Tankstelle an, um zu tanken.",
     "example_en": "He stops at the petrol station to refuel.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Tankstelle.",
+        "I see the petrol station."
+      ],
+      [
+        "Du siehst die Tankstelle.",
+        "You see the petrol station."
+      ],
+      [
+        "Er sieht die Tankstelle.",
+        "He sees the petrol station."
+      ],
+      [
+        "Wir sehen die Tankstelle.",
+        "We see the petrol station."
+      ],
+      [
+        "Ihr seht die Tankstelle.",
+        "You all see the petrol station."
+      ],
+      [
+        "Sie sehen die Tankstelle.",
+        "They see the petrol station."
+      ]
+    ]
   },
   {
     "de": "der Führerschein, -e",
@@ -37031,7 +38123,33 @@
     "level": "A2",
     "example": "Der Kassierer gibt ihr drei Euro Wechselgeld.",
     "example_en": "The cashier gives her three euros in change.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Wechselgeld.",
+        "I see the change (money)."
+      ],
+      [
+        "Du siehst das Wechselgeld.",
+        "You see the change (money)."
+      ],
+      [
+        "Er sieht das Wechselgeld.",
+        "He sees the change (money)."
+      ],
+      [
+        "Wir sehen das Wechselgeld.",
+        "We see the change (money)."
+      ],
+      [
+        "Ihr seht das Wechselgeld.",
+        "You all see the change (money)."
+      ],
+      [
+        "Sie sehen das Wechselgeld.",
+        "They see the change (money)."
+      ]
+    ]
   },
   {
     "de": "die Öffnungszeiten (Pl.)",
@@ -37277,7 +38395,33 @@
     "level": "A2",
     "example": "Die Warteschlange an der Kasse ist heute sehr lang.",
     "example_en": "The queue at the checkout is very long today.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Warteschlange.",
+        "I see the queue."
+      ],
+      [
+        "Du siehst die Warteschlange.",
+        "You see the queue."
+      ],
+      [
+        "Er sieht die Warteschlange.",
+        "He sees the queue."
+      ],
+      [
+        "Wir sehen die Warteschlange.",
+        "We see the queue."
+      ],
+      [
+        "Ihr seht die Warteschlange.",
+        "You all see the queue."
+      ],
+      [
+        "Sie sehen die Warteschlange.",
+        "They see the queue."
+      ]
+    ]
   },
   {
     "de": "der Gutschein, -e",
@@ -43700,7 +44844,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich werfe den Ball.",
+        "I am throwing the ball."
+      ],
+      [
+        "Du wirfst den Ball.",
+        "You are throwing the ball."
+      ],
+      [
+        "Er wirft den Ball.",
+        "He is throwing the ball."
+      ],
+      [
+        "Wir werfen den Ball.",
+        "We are throwing the ball."
+      ],
+      [
+        "Ihr werft den Ball.",
+        "You all are throwing the ball."
+      ],
+      [
+        "Sie werfen den Ball.",
+        "They are throwing the ball."
+      ]
+    ]
   },
   {
     "de": "sterben",
@@ -44425,7 +45595,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "teil",
       "governs": "an + dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich nehme an dem Kurs teil.",
+        "I am taking part in the course."
+      ],
+      [
+        "Du nimmst an dem Kurs teil.",
+        "You are taking part in the course."
+      ],
+      [
+        "Er nimmt an dem Kurs teil.",
+        "He is taking part in the course."
+      ],
+      [
+        "Wir nehmen an dem Kurs teil.",
+        "We are taking part in the course."
+      ],
+      [
+        "Ihr nehmt an dem Kurs teil.",
+        "You all are taking part in the course."
+      ],
+      [
+        "Sie nehmen an dem Kurs teil.",
+        "They are taking part in the course."
+      ]
+    ]
   },
   {
     "de": "unterschreiben",
@@ -44478,7 +45674,33 @@
       "trennbares_praefix": "vor",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schlage einen Termin vor.",
+        "I am suggesting an appointment."
+      ],
+      [
+        "Du schlägst einen Termin vor.",
+        "You are suggesting an appointment."
+      ],
+      [
+        "Er schlägt einen Termin vor.",
+        "He is suggesting an appointment."
+      ],
+      [
+        "Wir schlagen einen Termin vor.",
+        "We are suggesting an appointment."
+      ],
+      [
+        "Ihr schlagt einen Termin vor.",
+        "You all are suggesting an appointment."
+      ],
+      [
+        "Sie schlagen einen Termin vor.",
+        "They are suggesting an appointment."
+      ]
+    ]
   },
   {
     "de": "abheben",
@@ -44766,7 +45988,33 @@
       "partizip2": "geändert",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich ändere den Plan.",
+        "I am changing the plan."
+      ],
+      [
+        "Du änderst den Plan.",
+        "You are changing the plan."
+      ],
+      [
+        "Er ändert den Plan.",
+        "He is changing the plan."
+      ],
+      [
+        "Wir ändern den Plan.",
+        "We are changing the plan."
+      ],
+      [
+        "Ihr ändert den Plan.",
+        "You all are changing the plan."
+      ],
+      [
+        "Sie ändern den Plan.",
+        "They are changing the plan."
+      ]
+    ]
   },
   {
     "de": "der/die Angehörige, -n",
@@ -47963,7 +49211,33 @@
     "article": "n.",
     "level": "A2",
     "example": "Er hat viel Talent für Musik.",
-    "example_en": "He has a lot of talent for music."
+    "example_en": "He has a lot of talent for music.",
+    "person_sentences": [
+      [
+        "Ich sehe das Talent.",
+        "I see the talent."
+      ],
+      [
+        "Du siehst das Talent.",
+        "You see the talent."
+      ],
+      [
+        "Er sieht das Talent.",
+        "He sees the talent."
+      ],
+      [
+        "Wir sehen das Talent.",
+        "We see the talent."
+      ],
+      [
+        "Ihr seht das Talent.",
+        "You all see the talent."
+      ],
+      [
+        "Sie sehen das Talent.",
+        "They see the talent."
+      ]
+    ]
   },
   {
     "de": "die Tastatur, -en",
@@ -47971,7 +49245,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Die Maus liegt neben der Tastatur.",
-    "example_en": "The mouse is next to the keyboard."
+    "example_en": "The mouse is next to the keyboard.",
+    "person_sentences": [
+      [
+        "Ich sehe die Tastatur.",
+        "I see the keyboard."
+      ],
+      [
+        "Du siehst die Tastatur.",
+        "You see the keyboard."
+      ],
+      [
+        "Er sieht die Tastatur.",
+        "He sees the keyboard."
+      ],
+      [
+        "Wir sehen die Tastatur.",
+        "We see the keyboard."
+      ],
+      [
+        "Ihr seht die Tastatur.",
+        "You all see the keyboard."
+      ],
+      [
+        "Sie sehen die Tastatur.",
+        "They see the keyboard."
+      ]
+    ]
   },
   {
     "de": "die Tätigkeit, -en",
@@ -47979,7 +49279,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Beschreiben Sie Ihre Tätigkeit im Beruf.",
-    "example_en": "Describe your occupational activity."
+    "example_en": "Describe your occupational activity.",
+    "person_sentences": [
+      [
+        "Ich sehe die Tätigkeit.",
+        "I see the activity."
+      ],
+      [
+        "Du siehst die Tätigkeit.",
+        "You see the activity."
+      ],
+      [
+        "Er sieht die Tätigkeit.",
+        "He sees the activity."
+      ],
+      [
+        "Wir sehen die Tätigkeit.",
+        "We see the activity."
+      ],
+      [
+        "Ihr seht die Tätigkeit.",
+        "You all see the activity."
+      ],
+      [
+        "Sie sehen die Tätigkeit.",
+        "They see the activity."
+      ]
+    ]
   },
   {
     "de": "der Thriller, -",
@@ -47987,7 +49313,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Wir sehen uns heute einen Thriller an.",
-    "example_en": "We're watching a thriller tonight."
+    "example_en": "We're watching a thriller tonight.",
+    "person_sentences": [
+      [
+        "Ich sehe den Thriller.",
+        "I see the thriller."
+      ],
+      [
+        "Du siehst den Thriller.",
+        "You see the thriller."
+      ],
+      [
+        "Er sieht den Thriller.",
+        "He sees the thriller."
+      ],
+      [
+        "Wir sehen den Thriller.",
+        "We see the thriller."
+      ],
+      [
+        "Ihr seht den Thriller.",
+        "You all see the thriller."
+      ],
+      [
+        "Sie sehen den Thriller.",
+        "They see the thriller."
+      ]
+    ]
   },
   {
     "de": "der Titel, -",
@@ -47995,7 +49347,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Wie heißt der Titel des Buches?",
-    "example_en": "What is the title of the book?"
+    "example_en": "What is the title of the book?",
+    "person_sentences": [
+      [
+        "Ich sehe den Titel.",
+        "I see the title."
+      ],
+      [
+        "Du siehst den Titel.",
+        "You see the title."
+      ],
+      [
+        "Er sieht den Titel.",
+        "He sees the title."
+      ],
+      [
+        "Wir sehen den Titel.",
+        "We see the title."
+      ],
+      [
+        "Ihr seht den Titel.",
+        "You all see the title."
+      ],
+      [
+        "Sie sehen den Titel.",
+        "They see the title."
+      ]
+    ]
   },
   {
     "de": "die Torte, -n",
@@ -48003,7 +49381,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Hmmm, superlecker, die Hochzeitstorte!",
-    "example_en": "Hmmm, super delicious, the wedding cake!"
+    "example_en": "Hmmm, super delicious, the wedding cake!",
+    "person_sentences": [
+      [
+        "Ich sehe die Torte.",
+        "I see the cake."
+      ],
+      [
+        "Du siehst die Torte.",
+        "You see the cake."
+      ],
+      [
+        "Er sieht die Torte.",
+        "He sees the cake."
+      ],
+      [
+        "Wir sehen die Torte.",
+        "We see the cake."
+      ],
+      [
+        "Ihr seht die Torte.",
+        "You all see the cake."
+      ],
+      [
+        "Sie sehen die Torte.",
+        "They see the cake."
+      ]
+    ]
   },
   {
     "de": "die Touristin, -nen",
@@ -48011,7 +49415,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Die Touristin fotografiert das Schloss.",
-    "example_en": "The tourist photographs the castle."
+    "example_en": "The tourist photographs the castle.",
+    "person_sentences": [
+      [
+        "Ich sehe die Touristin.",
+        "I see the tourist (female)."
+      ],
+      [
+        "Du siehst die Touristin.",
+        "You see the tourist (female)."
+      ],
+      [
+        "Er sieht die Touristin.",
+        "He sees the tourist (female)."
+      ],
+      [
+        "Wir sehen die Touristin.",
+        "We see the tourist (female)."
+      ],
+      [
+        "Ihr seht die Touristin.",
+        "You all see the tourist (female)."
+      ],
+      [
+        "Sie sehen die Touristin.",
+        "They see the tourist (female)."
+      ]
+    ]
   },
   {
     "de": "der Trailer, -",
@@ -48019,7 +49449,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Hast du den Trailer schon gesehen?",
-    "example_en": "Have you already seen the trailer?"
+    "example_en": "Have you already seen the trailer?",
+    "person_sentences": [
+      [
+        "Ich sehe den Trailer.",
+        "I see the trailer (film)."
+      ],
+      [
+        "Du siehst den Trailer.",
+        "You see the trailer (film)."
+      ],
+      [
+        "Er sieht den Trailer.",
+        "He sees the trailer (film)."
+      ],
+      [
+        "Wir sehen den Trailer.",
+        "We see the trailer (film)."
+      ],
+      [
+        "Ihr seht den Trailer.",
+        "You all see the trailer (film)."
+      ],
+      [
+        "Sie sehen den Trailer.",
+        "They see the trailer (film)."
+      ]
+    ]
   },
   {
     "de": "der Trainer, -",
@@ -48027,7 +49483,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Der Trainer lobt die Mannschaft.",
-    "example_en": "The coach praises the team."
+    "example_en": "The coach praises the team.",
+    "person_sentences": [
+      [
+        "Ich sehe den Trainer.",
+        "I see the coach."
+      ],
+      [
+        "Du siehst den Trainer.",
+        "You see the coach."
+      ],
+      [
+        "Er sieht den Trainer.",
+        "He sees the coach."
+      ],
+      [
+        "Wir sehen den Trainer.",
+        "We see the coach."
+      ],
+      [
+        "Ihr seht den Trainer.",
+        "You all see the coach."
+      ],
+      [
+        "Sie sehen den Trainer.",
+        "They see the coach."
+      ]
+    ]
   },
   {
     "de": "träumen (von + D.)",
@@ -48042,7 +49524,33 @@
       "partizip2": "geträumt",
       "hilfsverb": "haben",
       "governs": "von + dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich träume von dir.",
+        "I am dreaming of you."
+      ],
+      [
+        "Du träumst von mir.",
+        "You are dreaming of me."
+      ],
+      [
+        "Er träumt von uns.",
+        "He is dreaming of us."
+      ],
+      [
+        "Wir träumen von euch.",
+        "We are dreaming of you all."
+      ],
+      [
+        "Ihr träumt von uns.",
+        "You all are dreaming of us."
+      ],
+      [
+        "Sie träumen von mir.",
+        "They are dreaming of me."
+      ]
+    ]
   },
   {
     "de": "der Trick, -s",
@@ -48050,7 +49558,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Er kennt einen guten Trick.",
-    "example_en": "He knows a good trick."
+    "example_en": "He knows a good trick.",
+    "person_sentences": [
+      [
+        "Ich sehe den Trick.",
+        "I see the trick."
+      ],
+      [
+        "Du siehst den Trick.",
+        "You see the trick."
+      ],
+      [
+        "Er sieht den Trick.",
+        "He sees the trick."
+      ],
+      [
+        "Wir sehen den Trick.",
+        "We see the trick."
+      ],
+      [
+        "Ihr seht den Trick.",
+        "You all see the trick."
+      ],
+      [
+        "Sie sehen den Trick.",
+        "They see the trick."
+      ]
+    ]
   },
   {
     "de": "trotzdem",
@@ -48066,7 +49600,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Das Auto muss zum TÜV.",
-    "example_en": "The car needs to go for its safety inspection."
+    "example_en": "The car needs to go for its safety inspection.",
+    "person_sentences": [
+      [
+        "Ich sehe den TÜV.",
+        "I see the German vehicle safety inspection."
+      ],
+      [
+        "Du siehst den TÜV.",
+        "You see the German vehicle safety inspection."
+      ],
+      [
+        "Er sieht den TÜV.",
+        "He sees the German vehicle safety inspection."
+      ],
+      [
+        "Wir sehen den TÜV.",
+        "We see the German vehicle safety inspection."
+      ],
+      [
+        "Ihr seht den TÜV.",
+        "You all see the German vehicle safety inspection."
+      ],
+      [
+        "Sie sehen den TÜV.",
+        "They see the German vehicle safety inspection."
+      ]
+    ]
   },
   {
     "de": "übrigens",
@@ -48082,7 +49642,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Die Umgebung des Hotels ist sehr ruhig.",
-    "example_en": "The area around the hotel is very quiet."
+    "example_en": "The area around the hotel is very quiet.",
+    "person_sentences": [
+      [
+        "Ich sehe die Umgebung.",
+        "I see the surroundings."
+      ],
+      [
+        "Du siehst die Umgebung.",
+        "You see the surroundings."
+      ],
+      [
+        "Er sieht die Umgebung.",
+        "He sees the surroundings."
+      ],
+      [
+        "Wir sehen die Umgebung.",
+        "We see the surroundings."
+      ],
+      [
+        "Ihr seht die Umgebung.",
+        "You all see the surroundings."
+      ],
+      [
+        "Sie sehen die Umgebung.",
+        "They see the surroundings."
+      ]
+    ]
   },
   {
     "de": "unabhängig",
@@ -48137,7 +49723,33 @@
       "partizip2": "verändert",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verändere mein Leben.",
+        "I am changing my life."
+      ],
+      [
+        "Du veränderst dein Leben.",
+        "You are changing your life."
+      ],
+      [
+        "Er verändert sein Leben.",
+        "He is changing his life."
+      ],
+      [
+        "Wir verändern unser Leben.",
+        "We are changing our life."
+      ],
+      [
+        "Ihr verändert euer Leben.",
+        "You all are changing your life."
+      ],
+      [
+        "Sie verändern ihr Leben.",
+        "They are changing their life."
+      ]
+    ]
   },
   {
     "de": "die Vergangenheit (Sg.)",
@@ -48145,7 +49757,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Er spricht selten über die Vergangenheit.",
-    "example_en": "He rarely talks about the past."
+    "example_en": "He rarely talks about the past.",
+    "person_sentences": [
+      [
+        "Ich sehe die Vergangenheit.",
+        "I see the past."
+      ],
+      [
+        "Du siehst die Vergangenheit.",
+        "You see the past."
+      ],
+      [
+        "Er sieht die Vergangenheit.",
+        "He sees the past."
+      ],
+      [
+        "Wir sehen die Vergangenheit.",
+        "We see the past."
+      ],
+      [
+        "Ihr seht die Vergangenheit.",
+        "You all see the past."
+      ],
+      [
+        "Sie sehen die Vergangenheit.",
+        "They see the past."
+      ]
+    ]
   },
   {
     "de": "sich verirren",
@@ -48201,7 +49839,33 @@
       "partizip2": "verletzt",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verletze mich.",
+        "I am hurting myself."
+      ],
+      [
+        "Du verletzt dich.",
+        "You are hurting yourself."
+      ],
+      [
+        "Er verletzt sich.",
+        "He is hurting himself."
+      ],
+      [
+        "Wir verletzen uns.",
+        "We are hurting ourselves."
+      ],
+      [
+        "Ihr verletzt euch.",
+        "You all are hurting yourselves."
+      ],
+      [
+        "Sie verletzen sich.",
+        "They are hurting themselves."
+      ]
+    ]
   },
   {
     "de": "verplanen",
@@ -48216,7 +49880,33 @@
       "partizip2": "verplant",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verplane den Tag.",
+        "I am scheduling the day."
+      ],
+      [
+        "Du verplanst den Tag.",
+        "You are scheduling the day."
+      ],
+      [
+        "Er verplant den Tag.",
+        "He is scheduling the day."
+      ],
+      [
+        "Wir verplanen den Tag.",
+        "We are scheduling the day."
+      ],
+      [
+        "Ihr verplant den Tag.",
+        "You all are scheduling the day."
+      ],
+      [
+        "Sie verplanen den Tag.",
+        "They are scheduling the day."
+      ]
+    ]
   },
   {
     "de": "verrückt",
@@ -48239,7 +49929,33 @@
       "partizip2": "verschoben",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verschiebe den Termin.",
+        "I am postponing the appointment."
+      ],
+      [
+        "Du verschiebst den Termin.",
+        "You are postponing the appointment."
+      ],
+      [
+        "Er verschiebt den Termin.",
+        "He is postponing the appointment."
+      ],
+      [
+        "Wir verschieben den Termin.",
+        "We are postponing the appointment."
+      ],
+      [
+        "Ihr verschiebt den Termin.",
+        "You all are postponing the appointment."
+      ],
+      [
+        "Sie verschieben den Termin.",
+        "They are postponing the appointment."
+      ]
+    ]
   },
   {
     "de": "die Verzeihung (Sg.)",
@@ -48247,7 +49963,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Verzeihung, wo finde ich den Bahnhof?",
-    "example_en": "Excuse me, where can I find the train station?"
+    "example_en": "Excuse me, where can I find the train station?",
+    "person_sentences": [
+      [
+        "Ich sehe die Verzeihung.",
+        "I see the pardon."
+      ],
+      [
+        "Du siehst die Verzeihung.",
+        "You see the pardon."
+      ],
+      [
+        "Er sieht die Verzeihung.",
+        "He sees the pardon."
+      ],
+      [
+        "Wir sehen die Verzeihung.",
+        "We see the pardon."
+      ],
+      [
+        "Ihr seht die Verzeihung.",
+        "You all see the pardon."
+      ],
+      [
+        "Sie sehen die Verzeihung.",
+        "They see the pardon."
+      ]
+    ]
   },
   {
     "de": "verzichten (auf + A.)",
@@ -48262,7 +50004,33 @@
       "partizip2": "verzichtet",
       "hilfsverb": "haben",
       "governs": "auf + accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verzichte auf Zucker.",
+        "I am doing without sugar."
+      ],
+      [
+        "Du verzichtest auf Zucker.",
+        "You are doing without sugar."
+      ],
+      [
+        "Er verzichtet auf Zucker.",
+        "He is doing without sugar."
+      ],
+      [
+        "Wir verzichten auf Zucker.",
+        "We are doing without sugar."
+      ],
+      [
+        "Ihr verzichtet auf Zucker.",
+        "You all are doing without sugar."
+      ],
+      [
+        "Sie verzichten auf Zucker.",
+        "They are doing without sugar."
+      ]
+    ]
   },
   {
     "de": "die Videokonferenz, -en",
@@ -48270,7 +50038,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Wir haben morgen eine Videokonferenz.",
-    "example_en": "We have a video conference tomorrow."
+    "example_en": "We have a video conference tomorrow.",
+    "person_sentences": [
+      [
+        "Ich sehe die Videokonferenz.",
+        "I see the video conference."
+      ],
+      [
+        "Du siehst die Videokonferenz.",
+        "You see the video conference."
+      ],
+      [
+        "Er sieht die Videokonferenz.",
+        "He sees the video conference."
+      ],
+      [
+        "Wir sehen die Videokonferenz.",
+        "We see the video conference."
+      ],
+      [
+        "Ihr seht die Videokonferenz.",
+        "You all see the video conference."
+      ],
+      [
+        "Sie sehen die Videokonferenz.",
+        "They see the video conference."
+      ]
+    ]
   },
   {
     "de": "virtuell",
@@ -48286,7 +50080,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Ein Vogel sitzt auf dem Baum.",
-    "example_en": "A bird is sitting on the tree."
+    "example_en": "A bird is sitting on the tree.",
+    "person_sentences": [
+      [
+        "Ich sehe den Vogel.",
+        "I see the bird."
+      ],
+      [
+        "Du siehst den Vogel.",
+        "You see the bird."
+      ],
+      [
+        "Er sieht den Vogel.",
+        "He sees the bird."
+      ],
+      [
+        "Wir sehen den Vogel.",
+        "We see the bird."
+      ],
+      [
+        "Ihr seht den Vogel.",
+        "You all see the bird."
+      ],
+      [
+        "Sie sehen den Vogel.",
+        "They see the bird."
+      ]
+    ]
   },
   {
     "de": "die Vorbereitung, -en",
@@ -48294,7 +50114,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Vorbereitungskurs zum 'Einbürgerungstest'",
-    "example_en": "Preparation course for the 'naturalization test'"
+    "example_en": "Preparation course for the 'naturalization test'",
+    "person_sentences": [
+      [
+        "Ich sehe die Vorbereitung.",
+        "I see the preparation."
+      ],
+      [
+        "Du siehst die Vorbereitung.",
+        "You see the preparation."
+      ],
+      [
+        "Er sieht die Vorbereitung.",
+        "He sees the preparation."
+      ],
+      [
+        "Wir sehen die Vorbereitung.",
+        "We see the preparation."
+      ],
+      [
+        "Ihr seht die Vorbereitung.",
+        "You all see the preparation."
+      ],
+      [
+        "Sie sehen die Vorbereitung.",
+        "They see the preparation."
+      ]
+    ]
   },
   {
     "de": "die Vorlesung, -en",
@@ -48302,7 +50148,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Die Vorlesung beginnt um neun Uhr.",
-    "example_en": "The lecture starts at nine o'clock."
+    "example_en": "The lecture starts at nine o'clock.",
+    "person_sentences": [
+      [
+        "Ich sehe die Vorlesung.",
+        "I see the lecture."
+      ],
+      [
+        "Du siehst die Vorlesung.",
+        "You see the lecture."
+      ],
+      [
+        "Er sieht die Vorlesung.",
+        "He sees the lecture."
+      ],
+      [
+        "Wir sehen die Vorlesung.",
+        "We see the lecture."
+      ],
+      [
+        "Ihr seht die Vorlesung.",
+        "You all see the lecture."
+      ],
+      [
+        "Sie sehen die Vorlesung.",
+        "They see the lecture."
+      ]
+    ]
   },
   {
     "de": "vorwärts",
@@ -48318,7 +50190,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Mit der VR-Brille fühlt man sich wie im Film.",
-    "example_en": "With the VR headset you feel like you're in the movie."
+    "example_en": "With the VR headset you feel like you're in the movie.",
+    "person_sentences": [
+      [
+        "Ich sehe die VR-Brille.",
+        "I see the VR headset."
+      ],
+      [
+        "Du siehst die VR-Brille.",
+        "You see the VR headset."
+      ],
+      [
+        "Er sieht die VR-Brille.",
+        "He sees the VR headset."
+      ],
+      [
+        "Wir sehen die VR-Brille.",
+        "We see the VR headset."
+      ],
+      [
+        "Ihr seht die VR-Brille.",
+        "You all see the VR headset."
+      ],
+      [
+        "Sie sehen die VR-Brille.",
+        "They see the VR headset."
+      ]
+    ]
   },
   {
     "de": "die Währung, -en",
@@ -48326,7 +50224,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Der Euro ist die Währung in Deutschland.",
-    "example_en": "The euro is the currency in Germany."
+    "example_en": "The euro is the currency in Germany.",
+    "person_sentences": [
+      [
+        "Ich sehe die Währung.",
+        "I see the currency."
+      ],
+      [
+        "Du siehst die Währung.",
+        "You see the currency."
+      ],
+      [
+        "Er sieht die Währung.",
+        "He sees the currency."
+      ],
+      [
+        "Wir sehen die Währung.",
+        "We see the currency."
+      ],
+      [
+        "Ihr seht die Währung.",
+        "You all see the currency."
+      ],
+      [
+        "Sie sehen die Währung.",
+        "They see the currency."
+      ]
+    ]
   },
   {
     "de": "während",
@@ -48342,7 +50266,33 @@
     "article": "n.",
     "level": "A2",
     "example": "Wo ist bitte das WC?",
-    "example_en": "Where is the restroom, please?"
+    "example_en": "Where is the restroom, please?",
+    "person_sentences": [
+      [
+        "Ich sehe das WC.",
+        "I see the toilet."
+      ],
+      [
+        "Du siehst das WC.",
+        "You see the toilet."
+      ],
+      [
+        "Er sieht das WC.",
+        "He sees the toilet."
+      ],
+      [
+        "Wir sehen das WC.",
+        "We see the toilet."
+      ],
+      [
+        "Ihr seht das WC.",
+        "You all see the toilet."
+      ],
+      [
+        "Sie sehen das WC.",
+        "They see the toilet."
+      ]
+    ]
   },
   {
     "de": "wild",
@@ -48374,7 +50324,33 @@
     "article": "n.",
     "level": "A2",
     "example": "Sie wohnt im Studentenwohnheim.",
-    "example_en": "She lives in the student dormitory."
+    "example_en": "She lives in the student dormitory.",
+    "person_sentences": [
+      [
+        "Ich sehe das Wohnheim.",
+        "I see the dormitory."
+      ],
+      [
+        "Du siehst das Wohnheim.",
+        "You see the dormitory."
+      ],
+      [
+        "Er sieht das Wohnheim.",
+        "He sees the dormitory."
+      ],
+      [
+        "Wir sehen das Wohnheim.",
+        "We see the dormitory."
+      ],
+      [
+        "Ihr seht das Wohnheim.",
+        "You all see the dormitory."
+      ],
+      [
+        "Sie sehen das Wohnheim.",
+        "They see the dormitory."
+      ]
+    ]
   },
   {
     "de": "womit",
@@ -48398,7 +50374,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Sie nimmt an einem Workshop teil.",
-    "example_en": "She takes part in a workshop."
+    "example_en": "She takes part in a workshop.",
+    "person_sentences": [
+      [
+        "Ich sehe den Workshop.",
+        "I see the workshop."
+      ],
+      [
+        "Du siehst den Workshop.",
+        "You see the workshop."
+      ],
+      [
+        "Er sieht den Workshop.",
+        "He sees the workshop."
+      ],
+      [
+        "Wir sehen den Workshop.",
+        "We see the workshop."
+      ],
+      [
+        "Ihr seht den Workshop.",
+        "You all see the workshop."
+      ],
+      [
+        "Sie sehen den Workshop.",
+        "They see the workshop."
+      ]
+    ]
   },
   {
     "de": "worum",
@@ -48430,7 +50432,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Er raucht keine Zigaretten mehr.",
-    "example_en": "He no longer smokes cigarettes."
+    "example_en": "He no longer smokes cigarettes.",
+    "person_sentences": [
+      [
+        "Ich sehe die Zigarette.",
+        "I see the cigarette."
+      ],
+      [
+        "Du siehst die Zigarette.",
+        "You see the cigarette."
+      ],
+      [
+        "Er sieht die Zigarette.",
+        "He sees the cigarette."
+      ],
+      [
+        "Wir sehen die Zigarette.",
+        "We see the cigarette."
+      ],
+      [
+        "Ihr seht die Zigarette.",
+        "You all see the cigarette."
+      ],
+      [
+        "Sie sehen die Zigarette.",
+        "They see the cigarette."
+      ]
+    ]
   },
   {
     "de": "die Zitrone, -n",
@@ -48438,7 +50466,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Ein Eiskaffee, ein Stück Kuchen und ein Tee mit Zitrone.",
-    "example_en": "An iced coffee, a piece of cake, and a tea with lemon."
+    "example_en": "An iced coffee, a piece of cake, and a tea with lemon.",
+    "person_sentences": [
+      [
+        "Ich sehe die Zitrone.",
+        "I see the lemon."
+      ],
+      [
+        "Du siehst die Zitrone.",
+        "You see the lemon."
+      ],
+      [
+        "Er sieht die Zitrone.",
+        "He sees the lemon."
+      ],
+      [
+        "Wir sehen die Zitrone.",
+        "We see the lemon."
+      ],
+      [
+        "Ihr seht die Zitrone.",
+        "You all see the lemon."
+      ],
+      [
+        "Sie sehen die Zitrone.",
+        "They see the lemon."
+      ]
+    ]
   },
   {
     "de": "zuhören",
@@ -48454,7 +50508,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "zu",
       "governs": "dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich höre dir zu.",
+        "I am listening to you."
+      ],
+      [
+        "Du hörst mir zu.",
+        "You are listening to me."
+      ],
+      [
+        "Er hört uns zu.",
+        "He is listening to us."
+      ],
+      [
+        "Wir hören euch zu.",
+        "We are listening to you all."
+      ],
+      [
+        "Ihr hört uns zu.",
+        "You all are listening to us."
+      ],
+      [
+        "Sie hören mir zu.",
+        "They are listening to me."
+      ]
+    ]
   },
   {
     "de": "der Zuhörer, -",
@@ -48462,7 +50542,33 @@
     "article": "m.",
     "level": "A2",
     "example": "Die Zuhörer applaudieren.",
-    "example_en": "The listeners applaud."
+    "example_en": "The listeners applaud.",
+    "person_sentences": [
+      [
+        "Ich sehe den Zuhörer.",
+        "I see the listener (male)."
+      ],
+      [
+        "Du siehst den Zuhörer.",
+        "You see the listener (male)."
+      ],
+      [
+        "Er sieht den Zuhörer.",
+        "He sees the listener (male)."
+      ],
+      [
+        "Wir sehen den Zuhörer.",
+        "We see the listener (male)."
+      ],
+      [
+        "Ihr seht den Zuhörer.",
+        "You all see the listener (male)."
+      ],
+      [
+        "Sie sehen den Zuhörer.",
+        "They see the listener (male)."
+      ]
+    ]
   },
   {
     "de": "die Zuhörerin, -nen",
@@ -48470,7 +50576,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Die Zuhörerin stellt eine Frage.",
-    "example_en": "The listener asks a question."
+    "example_en": "The listener asks a question.",
+    "person_sentences": [
+      [
+        "Ich sehe die Zuhörerin.",
+        "I see the listener (female)."
+      ],
+      [
+        "Du siehst die Zuhörerin.",
+        "You see the listener (female)."
+      ],
+      [
+        "Er sieht die Zuhörerin.",
+        "He sees the listener (female)."
+      ],
+      [
+        "Wir sehen die Zuhörerin.",
+        "We see the listener (female)."
+      ],
+      [
+        "Ihr seht die Zuhörerin.",
+        "You all see the listener (female)."
+      ],
+      [
+        "Sie sehen die Zuhörerin.",
+        "They see the listener (female)."
+      ]
+    ]
   },
   {
     "de": "die Zukunft (Sg.)",
@@ -48478,7 +50610,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Was planst du für die Zukunft?",
-    "example_en": "What are you planning for the future?"
+    "example_en": "What are you planning for the future?",
+    "person_sentences": [
+      [
+        "Ich sehe die Zukunft.",
+        "I see the future."
+      ],
+      [
+        "Du siehst die Zukunft.",
+        "You see the future."
+      ],
+      [
+        "Er sieht die Zukunft.",
+        "He sees the future."
+      ],
+      [
+        "Wir sehen die Zukunft.",
+        "We see the future."
+      ],
+      [
+        "Ihr seht die Zukunft.",
+        "You all see the future."
+      ],
+      [
+        "Sie sehen die Zukunft.",
+        "They see the future."
+      ]
+    ]
   },
   {
     "de": "die Zulassung, -en",
@@ -48486,7 +50644,33 @@
     "article": "f.",
     "level": "A2",
     "example": "Die Zulassung des Autos daürt ein paar Tage.",
-    "example_en": "The car's registration takes a few days."
+    "example_en": "The car's registration takes a few days.",
+    "person_sentences": [
+      [
+        "Ich sehe die Zulassung.",
+        "I see the registration."
+      ],
+      [
+        "Du siehst die Zulassung.",
+        "You see the registration."
+      ],
+      [
+        "Er sieht die Zulassung.",
+        "He sees the registration."
+      ],
+      [
+        "Wir sehen die Zulassung.",
+        "We see the registration."
+      ],
+      [
+        "Ihr seht die Zulassung.",
+        "You all see the registration."
+      ],
+      [
+        "Sie sehen die Zulassung.",
+        "They see the registration."
+      ]
+    ]
   },
   {
     "de": "zuzüglich (zzgl.)",
@@ -50749,7 +52933,33 @@
       "partizip2": "unternommen",
       "hilfsverb": "haben",
       "governs": "mit + dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich unternehme etwas mit dir.",
+        "I am doing something with you."
+      ],
+      [
+        "Du unternimmst etwas mit mir.",
+        "You are doing something with me."
+      ],
+      [
+        "Er unternimmt etwas mit uns.",
+        "He is doing something with us."
+      ],
+      [
+        "Wir unternehmen etwas mit euch.",
+        "We are doing something with you all."
+      ],
+      [
+        "Ihr unternehmt etwas mit uns.",
+        "You all are doing something with us."
+      ],
+      [
+        "Sie unternehmen etwas mit mir.",
+        "They are doing something with me."
+      ]
+    ]
   },
   {
     "de": "unterscheiden",
@@ -50797,7 +53007,33 @@
       "partizip2": "vergangen",
       "hilfsverb": "sein",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich vergehe vor Langeweile.",
+        "I am dying of boredom."
+      ],
+      [
+        "Du vergehst vor Langeweile.",
+        "You are dying of boredom."
+      ],
+      [
+        "Er vergeht vor Langeweile.",
+        "He is dying of boredom."
+      ],
+      [
+        "Wir vergehen vor Langeweile.",
+        "We are dying of boredom."
+      ],
+      [
+        "Ihr vergeht vor Langeweile.",
+        "You all are dying of boredom."
+      ],
+      [
+        "Sie vergehen vor Langeweile.",
+        "They are dying of boredom."
+      ]
+    ]
   },
   {
     "de": "verlassen",
@@ -62500,7 +64736,33 @@
     "level": "A2",
     "example": "Hast du als Kind Taschengeld bekommen?",
     "example_en": "Did you get pocket money as a child?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Taschengeld.",
+        "I see the pocket money."
+      ],
+      [
+        "Du siehst das Taschengeld.",
+        "You see the pocket money."
+      ],
+      [
+        "Er sieht das Taschengeld.",
+        "He sees the pocket money."
+      ],
+      [
+        "Wir sehen das Taschengeld.",
+        "We see the pocket money."
+      ],
+      [
+        "Ihr seht das Taschengeld.",
+        "You all see the pocket money."
+      ],
+      [
+        "Sie sehen das Taschengeld.",
+        "They see the pocket money."
+      ]
+    ]
   },
   {
     "de": "erledigen",
@@ -62595,7 +64857,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich überprüfe die Rechnung.",
+        "I am checking the bill."
+      ],
+      [
+        "Du überprüfst die Rechnung.",
+        "You are checking the bill."
+      ],
+      [
+        "Er überprüft die Rechnung.",
+        "He is checking the bill."
+      ],
+      [
+        "Wir überprüfen die Rechnung.",
+        "We are checking the bill."
+      ],
+      [
+        "Ihr überprüft die Rechnung.",
+        "You all are checking the bill."
+      ],
+      [
+        "Sie überprüfen die Rechnung.",
+        "They are checking the bill."
+      ]
+    ]
   },
   {
     "de": "einzahlen",
@@ -62726,7 +65014,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich tippe eine Nachricht.",
+        "I am typing a message."
+      ],
+      [
+        "Du tippst eine Nachricht.",
+        "You are typing a message."
+      ],
+      [
+        "Er tippt eine Nachricht.",
+        "He is typing a message."
+      ],
+      [
+        "Wir tippen eine Nachricht.",
+        "We are typing a message."
+      ],
+      [
+        "Ihr tippt eine Nachricht.",
+        "You all are typing a message."
+      ],
+      [
+        "Sie tippen eine Nachricht.",
+        "They are typing a message."
+      ]
+    ]
   },
   {
     "de": "das Menü, -s",
@@ -62875,7 +65189,33 @@
     "level": "A2",
     "example": "Unsere Umfrage der Woche: Welches Foto haben Sie immer dabei?",
     "example_en": "Our survey of the week: which photo do you always carry with you?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Umfrage.",
+        "I see the survey."
+      ],
+      [
+        "Du siehst die Umfrage.",
+        "You see the survey."
+      ],
+      [
+        "Er sieht die Umfrage.",
+        "He sees the survey."
+      ],
+      [
+        "Wir sehen die Umfrage.",
+        "We see the survey."
+      ],
+      [
+        "Ihr seht die Umfrage.",
+        "You all see the survey."
+      ],
+      [
+        "Sie sehen die Umfrage.",
+        "They see the survey."
+      ]
+    ]
   },
   {
     "de": "die Kindheit, -en",
@@ -62936,7 +65276,33 @@
       "hilfsverb": "haben",
       "reflexiv": true,
       "governs": "reflexive (sich) + in + accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verliebe mich in dich.",
+        "I am falling in love with you."
+      ],
+      [
+        "Du verliebst dich in mich.",
+        "You are falling in love with me."
+      ],
+      [
+        "Er verliebt sich in sie.",
+        "He is falling in love with her."
+      ],
+      [
+        "Wir verlieben uns in euch.",
+        "We are falling in love with you all."
+      ],
+      [
+        "Ihr verliebt euch in uns.",
+        "You all are falling in love with us."
+      ],
+      [
+        "Sie verlieben sich in mich.",
+        "They are falling in love with me."
+      ]
+    ]
   },
   {
     "de": "zufällig",
@@ -69685,7 +72051,33 @@
       "partizip2": "geteilt",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich teile das Essen.",
+        "I am sharing the food."
+      ],
+      [
+        "Du teilst das Essen.",
+        "You are sharing the food."
+      ],
+      [
+        "Er teilt das Essen.",
+        "He is sharing the food."
+      ],
+      [
+        "Wir teilen das Essen.",
+        "We are sharing the food."
+      ],
+      [
+        "Ihr teilt das Essen.",
+        "You all are sharing the food."
+      ],
+      [
+        "Sie teilen das Essen.",
+        "They are sharing the food."
+      ]
+    ]
   },
   {
     "de": "jeder",
@@ -70048,7 +72440,33 @@
       "partizip2": "getrennt",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich trenne den Müll.",
+        "I am separating the trash."
+      ],
+      [
+        "Du trennst den Müll.",
+        "You are separating the trash."
+      ],
+      [
+        "Er trennt den Müll.",
+        "He is separating the trash."
+      ],
+      [
+        "Wir trennen den Müll.",
+        "We are separating the trash."
+      ],
+      [
+        "Ihr trennt den Müll.",
+        "You all are separating the trash."
+      ],
+      [
+        "Sie trennen den Müll.",
+        "They are separating the trash."
+      ]
+    ]
   },
   {
     "de": "das Plastik",
@@ -70247,7 +72665,33 @@
     "level": "A2",
     "example": "Vielen Dank für Ihr Verständnis.",
     "example_en": "Thank you very much for your understanding.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Verständnis.",
+        "I see the understanding."
+      ],
+      [
+        "Du siehst das Verständnis.",
+        "You see the understanding."
+      ],
+      [
+        "Er sieht das Verständnis.",
+        "He sees the understanding."
+      ],
+      [
+        "Wir sehen das Verständnis.",
+        "We see the understanding."
+      ],
+      [
+        "Ihr seht das Verständnis.",
+        "You all see the understanding."
+      ],
+      [
+        "Sie sehen das Verständnis.",
+        "They see the understanding."
+      ]
+    ]
   },
   {
     "de": "sich erhöhen",
@@ -70844,7 +73288,33 @@
       "partizip2": "überrascht",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich überrasche dich.",
+        "I am surprising you."
+      ],
+      [
+        "Du überraschst mich.",
+        "You are surprising me."
+      ],
+      [
+        "Er überrascht uns.",
+        "He is surprising us."
+      ],
+      [
+        "Wir überraschen euch.",
+        "We are surprising you all."
+      ],
+      [
+        "Ihr überrascht uns.",
+        "You all are surprising us."
+      ],
+      [
+        "Sie überraschen mich.",
+        "They are surprising me."
+      ]
+    ]
   },
   {
     "de": "scharf",
@@ -71089,7 +73559,33 @@
     "level": "A2",
     "example": "Was müssen neü Kursteilnehmer wissen?",
     "example_en": "What do new course participants need to know?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Teilnehmer.",
+        "I see the participant."
+      ],
+      [
+        "Du siehst den Teilnehmer.",
+        "You see the participant."
+      ],
+      [
+        "Er sieht den Teilnehmer.",
+        "He sees the participant."
+      ],
+      [
+        "Wir sehen den Teilnehmer.",
+        "We see the participant."
+      ],
+      [
+        "Ihr seht den Teilnehmer.",
+        "You all see the participant."
+      ],
+      [
+        "Sie sehen den Teilnehmer.",
+        "They see the participant."
+      ]
+    ]
   },
   {
     "de": "nutzen",
@@ -71245,7 +73741,33 @@
     "level": "A2",
     "example": "Rufen Sie bei Zeitarbeitsfirmen an.",
     "example_en": "Call temp agencies.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Zeitarbeit.",
+        "I see the temporary work."
+      ],
+      [
+        "Du siehst die Zeitarbeit.",
+        "You see the temporary work."
+      ],
+      [
+        "Er sieht die Zeitarbeit.",
+        "He sees the temporary work."
+      ],
+      [
+        "Wir sehen die Zeitarbeit.",
+        "We see the temporary work."
+      ],
+      [
+        "Ihr seht die Zeitarbeit.",
+        "You all see the temporary work."
+      ],
+      [
+        "Sie sehen die Zeitarbeit.",
+        "They see the temporary work."
+      ]
+    ]
   },
   {
     "de": "der Auszubildende",
@@ -71402,7 +73924,33 @@
     "level": "A2",
     "example": "Die Betriebsversammlung findet am 15. März um 10.00 Uhr in der Kantine statt.",
     "example_en": "The staff meeting takes place on March 15 at 10:00 in the cafeteria.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Versammlung.",
+        "I see the meeting."
+      ],
+      [
+        "Du siehst die Versammlung.",
+        "You see the meeting."
+      ],
+      [
+        "Er sieht die Versammlung.",
+        "He sees the meeting."
+      ],
+      [
+        "Wir sehen die Versammlung.",
+        "We see the meeting."
+      ],
+      [
+        "Ihr seht die Versammlung.",
+        "You all see the meeting."
+      ],
+      [
+        "Sie sehen die Versammlung.",
+        "They see the meeting."
+      ]
+    ]
   },
   {
     "de": "das Interesse",
@@ -71453,7 +74001,33 @@
       "partizip2": "gewendet",
       "hilfsverb": "haben",
       "governs": "accusative / an + accusative (sich an jdn. wenden)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich wende mich an dich.",
+        "I am turning to you."
+      ],
+      [
+        "Du wendest dich an mich.",
+        "You are turning to me."
+      ],
+      [
+        "Er wendet sich an uns.",
+        "He is turning to us."
+      ],
+      [
+        "Wir wenden uns an euch.",
+        "We are turning to you all."
+      ],
+      [
+        "Ihr wendet euch an uns.",
+        "You all are turning to us."
+      ],
+      [
+        "Sie wenden sich an mich.",
+        "They are turning to me."
+      ]
+    ]
   },
   {
     "de": "der Tarif",
@@ -71462,7 +74036,33 @@
     "level": "A2",
     "example": "Sie haben Fragen zum neün Tarifrecht? Wenden Sie sich an den Betriebsrat.",
     "example_en": "You have questions about the new tariff law? Contact the works council.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Tarif.",
+        "I see the tariff."
+      ],
+      [
+        "Du siehst den Tarif.",
+        "You see the tariff."
+      ],
+      [
+        "Er sieht den Tarif.",
+        "He sees the tariff."
+      ],
+      [
+        "Wir sehen den Tarif.",
+        "We see the tariff."
+      ],
+      [
+        "Ihr seht den Tarif.",
+        "You all see the tariff."
+      ],
+      [
+        "Sie sehen den Tarif.",
+        "They see the tariff."
+      ]
+    ]
   },
   {
     "de": "die Entlassung",
@@ -71506,7 +74106,33 @@
     "level": "A2",
     "example": "Bitte beachten Sie die Sicherheitsvorschriften!",
     "example_en": "Please observe the safety regulations!",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Vorschrift.",
+        "I see the regulation."
+      ],
+      [
+        "Du siehst die Vorschrift.",
+        "You see the regulation."
+      ],
+      [
+        "Er sieht die Vorschrift.",
+        "He sees the regulation."
+      ],
+      [
+        "Wir sehen die Vorschrift.",
+        "We see the regulation."
+      ],
+      [
+        "Ihr seht die Vorschrift.",
+        "You all see the regulation."
+      ],
+      [
+        "Sie sehen die Vorschrift.",
+        "They see the regulation."
+      ]
+    ]
   },
   {
     "de": "durchschnittlich",
@@ -71646,7 +74272,33 @@
     "level": "A2",
     "example": "Ich interessiere mich sehr für den Tanzsport.",
     "example_en": "I am very interested in competitive dancing.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Tanz.",
+        "I see the dance."
+      ],
+      [
+        "Du siehst den Tanz.",
+        "You see the dance."
+      ],
+      [
+        "Er sieht den Tanz.",
+        "He sees the dance."
+      ],
+      [
+        "Wir sehen den Tanz.",
+        "We see the dance."
+      ],
+      [
+        "Ihr seht den Tanz.",
+        "You all see the dance."
+      ],
+      [
+        "Sie sehen den Tanz.",
+        "They see the dance."
+      ]
+    ]
   },
   {
     "de": "sich fühlen",
@@ -71742,7 +74394,33 @@
     "level": "A2",
     "example": "Tim erzählt Sandra von dem Training und seinen Tanzversuchen.",
     "example_en": "Tim tells Sandra about the training and his attempts at dancing.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Versuch.",
+        "I see the attempt."
+      ],
+      [
+        "Du siehst den Versuch.",
+        "You see the attempt."
+      ],
+      [
+        "Er sieht den Versuch.",
+        "He sees the attempt."
+      ],
+      [
+        "Wir sehen den Versuch.",
+        "We see the attempt."
+      ],
+      [
+        "Ihr seht den Versuch.",
+        "You all see the attempt."
+      ],
+      [
+        "Sie sehen den Versuch.",
+        "They see the attempt."
+      ]
+    ]
   },
   {
     "de": "die Sportart",
@@ -71961,7 +74639,33 @@
     "level": "A2",
     "example": "Interessierst du dich für die Fußballweltmeisterschaft?",
     "example_en": "Are you interested in the football World Cup?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Weltmeisterschaft.",
+        "I see the world championship."
+      ],
+      [
+        "Du siehst die Weltmeisterschaft.",
+        "You see the world championship."
+      ],
+      [
+        "Er sieht die Weltmeisterschaft.",
+        "He sees the world championship."
+      ],
+      [
+        "Wir sehen die Weltmeisterschaft.",
+        "We see the world championship."
+      ],
+      [
+        "Ihr seht die Weltmeisterschaft.",
+        "You all see the world championship."
+      ],
+      [
+        "Sie sehen die Weltmeisterschaft.",
+        "They see the world championship."
+      ]
+    ]
   },
   {
     "de": "die Wettervorhersage",
@@ -71970,7 +74674,33 @@
     "level": "A2",
     "example": "Interessierst du dich für die Wettervorhersage?",
     "example_en": "Are you interested in the weather forecast?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Wettervorhersage.",
+        "I see the weather forecast."
+      ],
+      [
+        "Du siehst die Wettervorhersage.",
+        "You see the weather forecast."
+      ],
+      [
+        "Er sieht die Wettervorhersage.",
+        "He sees the weather forecast."
+      ],
+      [
+        "Wir sehen die Wettervorhersage.",
+        "We see the weather forecast."
+      ],
+      [
+        "Ihr seht die Wettervorhersage.",
+        "You all see the weather forecast."
+      ],
+      [
+        "Sie sehen die Wettervorhersage.",
+        "They see the weather forecast."
+      ]
+    ]
   },
   {
     "de": "das Gold",
@@ -72049,7 +74779,33 @@
     "level": "A2",
     "example": "Die Anrufer interessieren sich für Tischtennis.",
     "example_en": "The callers are interested in table tennis.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Tischtennis.",
+        "I see the table tennis."
+      ],
+      [
+        "Du siehst das Tischtennis.",
+        "You see the table tennis."
+      ],
+      [
+        "Er sieht das Tischtennis.",
+        "He sees the table tennis."
+      ],
+      [
+        "Wir sehen das Tischtennis.",
+        "We see the table tennis."
+      ],
+      [
+        "Ihr seht das Tischtennis.",
+        "You all see the table tennis."
+      ],
+      [
+        "Sie sehen das Tischtennis.",
+        "They see the table tennis."
+      ]
+    ]
   },
   {
     "de": "der Volleyball",
@@ -72058,7 +74814,33 @@
     "level": "A2",
     "example": "Am Strand spielen wir oft Volleyball mit Freunden.",
     "example_en": "At the beach we often play volleyball with friends.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Volleyball.",
+        "I see the volleyball."
+      ],
+      [
+        "Du siehst den Volleyball.",
+        "You see the volleyball."
+      ],
+      [
+        "Er sieht den Volleyball.",
+        "He sees the volleyball."
+      ],
+      [
+        "Wir sehen den Volleyball.",
+        "We see the volleyball."
+      ],
+      [
+        "Ihr seht den Volleyball.",
+        "You all see the volleyball."
+      ],
+      [
+        "Sie sehen den Volleyball.",
+        "They see the volleyball."
+      ]
+    ]
   },
   {
     "de": "der Azubi",
@@ -72164,7 +74946,33 @@
     "level": "A2",
     "example": "Ein Trend ist das sogenannte Nordic-Walking.",
     "example_en": "A trend is so-called Nordic walking.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Trend.",
+        "I see the trend."
+      ],
+      [
+        "Du siehst den Trend.",
+        "You see the trend."
+      ],
+      [
+        "Er sieht den Trend.",
+        "He sees the trend."
+      ],
+      [
+        "Wir sehen den Trend.",
+        "We see the trend."
+      ],
+      [
+        "Ihr seht den Trend.",
+        "You all see the trend."
+      ],
+      [
+        "Sie sehen den Trend.",
+        "They see the trend."
+      ]
+    ]
   },
   {
     "de": "extra",
@@ -72751,7 +75559,33 @@
     "level": "A2",
     "example": "Vortrag Bewerbungstraining",
     "example_en": "Lecture: application training",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Vortrag.",
+        "I see the lecture."
+      ],
+      [
+        "Du siehst den Vortrag.",
+        "You see the lecture."
+      ],
+      [
+        "Er sieht den Vortrag.",
+        "He sees the lecture."
+      ],
+      [
+        "Wir sehen den Vortrag.",
+        "We see the lecture."
+      ],
+      [
+        "Ihr seht den Vortrag.",
+        "You all see the lecture."
+      ],
+      [
+        "Sie sehen den Vortrag.",
+        "They see the lecture."
+      ]
+    ]
   },
   {
     "de": "das Zertifikat",
@@ -72760,7 +75594,33 @@
     "level": "A2",
     "example": "Halbjähriger Lehrgang mit Abschlusszertifikat",
     "example_en": "Six-month course with completion certificate",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Zertifikat.",
+        "I see the certificate."
+      ],
+      [
+        "Du siehst das Zertifikat.",
+        "You see the certificate."
+      ],
+      [
+        "Er sieht das Zertifikat.",
+        "He sees the certificate."
+      ],
+      [
+        "Wir sehen das Zertifikat.",
+        "We see the certificate."
+      ],
+      [
+        "Ihr seht das Zertifikat.",
+        "You all see the certificate."
+      ],
+      [
+        "Sie sehen das Zertifikat.",
+        "They see the certificate."
+      ]
+    ]
   },
   {
     "de": "die Förderung",
@@ -72924,7 +75784,33 @@
     "level": "A2",
     "example": "Dort habe ich zum ersten Mal den Tagesablauf in einem Krankenhaus kennengelernt.",
     "example_en": "There I got to know the daily routine in a hospital for the first time.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Tagesablauf.",
+        "I see the daily routine."
+      ],
+      [
+        "Du siehst den Tagesablauf.",
+        "You see the daily routine."
+      ],
+      [
+        "Er sieht den Tagesablauf.",
+        "He sees the daily routine."
+      ],
+      [
+        "Wir sehen den Tagesablauf.",
+        "We see the daily routine."
+      ],
+      [
+        "Ihr seht den Tagesablauf.",
+        "You all see the daily routine."
+      ],
+      [
+        "Sie sehen den Tagesablauf.",
+        "They see the daily routine."
+      ]
+    ]
   },
   {
     "de": "elektrisch",
@@ -73407,7 +76293,33 @@
     "level": "A2",
     "example": "In zehn Minuten beginnt die Trauung.",
     "example_en": "The wedding ceremony starts in ten minutes.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Trauung.",
+        "I see the wedding ceremony."
+      ],
+      [
+        "Du siehst die Trauung.",
+        "You see the wedding ceremony."
+      ],
+      [
+        "Er sieht die Trauung.",
+        "He sees the wedding ceremony."
+      ],
+      [
+        "Wir sehen die Trauung.",
+        "We see the wedding ceremony."
+      ],
+      [
+        "Ihr seht die Trauung.",
+        "You all see the wedding ceremony."
+      ],
+      [
+        "Sie sehen die Trauung.",
+        "They see the wedding ceremony."
+      ]
+    ]
   },
   {
     "de": "wahnsinnig",
@@ -73476,7 +76388,33 @@
       "partizip2": "geweint",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich weine.",
+        "I am crying."
+      ],
+      [
+        "Du weinst.",
+        "You are crying."
+      ],
+      [
+        "Er weint.",
+        "He is crying."
+      ],
+      [
+        "Wir weinen.",
+        "We are crying."
+      ],
+      [
+        "Ihr weint.",
+        "You all are crying."
+      ],
+      [
+        "Sie weinen.",
+        "They are crying."
+      ]
+    ]
   },
   {
     "de": "treten",
@@ -73493,7 +76431,33 @@
       "partizip2": "getreten",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich trete den Ball.",
+        "I am kicking the ball."
+      ],
+      [
+        "Du trittst den Ball.",
+        "You are kicking the ball."
+      ],
+      [
+        "Er tritt den Ball.",
+        "He is kicking the ball."
+      ],
+      [
+        "Wir treten den Ball.",
+        "We are kicking the ball."
+      ],
+      [
+        "Ihr tretet den Ball.",
+        "You all are kicking the ball."
+      ],
+      [
+        "Sie treten den Ball.",
+        "They are kicking the ball."
+      ]
+    ]
   },
   {
     "de": "wenigstens",
@@ -73546,7 +76510,33 @@
     "level": "A2",
     "example": "Uhren sind in meinem Land als Geschenk tabu, weil sie den Tod symbolisieren.",
     "example_en": "Clocks are taboo as gifts in my country because they symbolize death.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Tod.",
+        "I see the death."
+      ],
+      [
+        "Du siehst den Tod.",
+        "You see the death."
+      ],
+      [
+        "Er sieht den Tod.",
+        "He sees the death."
+      ],
+      [
+        "Wir sehen den Tod.",
+        "We see the death."
+      ],
+      [
+        "Ihr seht den Tod.",
+        "You all see the death."
+      ],
+      [
+        "Sie sehen den Tod.",
+        "They see the death."
+      ]
+    ]
   },
   {
     "de": "per",
@@ -73606,7 +76596,33 @@
     "level": "A2",
     "example": "Mir ist die Unterhaltung wichtig.",
     "example_en": "The conversation/entertainment is important to me.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Unterhaltung.",
+        "I see the conversation."
+      ],
+      [
+        "Du siehst die Unterhaltung.",
+        "You see the conversation."
+      ],
+      [
+        "Er sieht die Unterhaltung.",
+        "He sees the conversation."
+      ],
+      [
+        "Wir sehen die Unterhaltung.",
+        "We see the conversation."
+      ],
+      [
+        "Ihr seht die Unterhaltung.",
+        "You all see the conversation."
+      ],
+      [
+        "Sie sehen die Unterhaltung.",
+        "They see the conversation."
+      ]
+    ]
   },
   {
     "de": "die Praline",
@@ -73703,7 +76719,33 @@
     "level": "A2",
     "example": "Mein Mann hätte gern mehr Werkzeug.",
     "example_en": "My husband would like more tools.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Werkzeug.",
+        "I see the tool(s)."
+      ],
+      [
+        "Du siehst das Werkzeug.",
+        "You see the tool(s)."
+      ],
+      [
+        "Er sieht das Werkzeug.",
+        "He sees the tool(s)."
+      ],
+      [
+        "Wir sehen das Werkzeug.",
+        "We see the tool(s)."
+      ],
+      [
+        "Ihr seht das Werkzeug.",
+        "You all see the tool(s)."
+      ],
+      [
+        "Sie sehen das Werkzeug.",
+        "They see the tool(s)."
+      ]
+    ]
   },
   {
     "de": "mitspielen",
@@ -73824,7 +76866,33 @@
     "level": "A2",
     "example": "Ich muss einkaufen, sauber machen und Wäsche waschen.",
     "example_en": "I have to shop, clean, and do the laundry.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Wäsche.",
+        "I see the laundry."
+      ],
+      [
+        "Du siehst die Wäsche.",
+        "You see the laundry."
+      ],
+      [
+        "Er sieht die Wäsche.",
+        "He sees the laundry."
+      ],
+      [
+        "Wir sehen die Wäsche.",
+        "We see the laundry."
+      ],
+      [
+        "Ihr seht die Wäsche.",
+        "You all see the laundry."
+      ],
+      [
+        "Sie sehen die Wäsche.",
+        "They see the laundry."
+      ]
+    ]
   },
   {
     "de": "die Radtour, -en",
@@ -73954,7 +77022,33 @@
     "level": "A2",
     "example": "Die Teilnahme ist kostenlos und man muss sich nicht anmelden.",
     "example_en": "Participation is free and you don't need to register.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Teilnahme.",
+        "I see the participation."
+      ],
+      [
+        "Du siehst die Teilnahme.",
+        "You see the participation."
+      ],
+      [
+        "Er sieht die Teilnahme.",
+        "He sees the participation."
+      ],
+      [
+        "Wir sehen die Teilnahme.",
+        "We see the participation."
+      ],
+      [
+        "Ihr seht die Teilnahme.",
+        "You all see the participation."
+      ],
+      [
+        "Sie sehen die Teilnahme.",
+        "They see the participation."
+      ]
+    ]
   },
   {
     "de": "der Jazz (Sg.)",
@@ -74429,7 +77523,33 @@
     "level": "A2",
     "example": "Die Lampe ist fünf Jahre alt, aber in einem guten Zustand.",
     "example_en": "The lamp is five years old, but in good condition.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Zustand.",
+        "I see the condition."
+      ],
+      [
+        "Du siehst den Zustand.",
+        "You see the condition."
+      ],
+      [
+        "Er sieht den Zustand.",
+        "He sees the condition."
+      ],
+      [
+        "Wir sehen den Zustand.",
+        "We see the condition."
+      ],
+      [
+        "Ihr seht den Zustand.",
+        "You all see the condition."
+      ],
+      [
+        "Sie sehen den Zustand.",
+        "They see the condition."
+      ]
+    ]
   },
   {
     "de": "das Besteck, -e",
@@ -74869,7 +77989,33 @@
       "partizip2": "verschickt",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verschicke den Brief.",
+        "I am sending off the letter."
+      ],
+      [
+        "Du verschickst den Brief.",
+        "You are sending off the letter."
+      ],
+      [
+        "Er verschickt den Brief.",
+        "He is sending off the letter."
+      ],
+      [
+        "Wir verschicken den Brief.",
+        "We are sending off the letter."
+      ],
+      [
+        "Ihr verschickt den Brief.",
+        "You all are sending off the letter."
+      ],
+      [
+        "Sie verschicken den Brief.",
+        "They are sending off the letter."
+      ]
+    ]
   },
   {
     "de": "versenden",
@@ -74884,7 +78030,33 @@
       "partizip2": "versendet",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich versende das Paket.",
+        "I am dispatching the package."
+      ],
+      [
+        "Du versendest das Paket.",
+        "You are dispatching the package."
+      ],
+      [
+        "Er versendet das Paket.",
+        "He is dispatching the package."
+      ],
+      [
+        "Wir versenden das Paket.",
+        "We are dispatching the package."
+      ],
+      [
+        "Ihr versendet das Paket.",
+        "You all are dispatching the package."
+      ],
+      [
+        "Sie versenden das Paket.",
+        "They are dispatching the package."
+      ]
+    ]
   },
   {
     "de": "transportieren",
@@ -74899,7 +78071,33 @@
       "partizip2": "transportiert",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich transportiere die Ware.",
+        "I am transporting the goods."
+      ],
+      [
+        "Du transportierst die Ware.",
+        "You are transporting the goods."
+      ],
+      [
+        "Er transportiert die Ware.",
+        "He is transporting the goods."
+      ],
+      [
+        "Wir transportieren die Ware.",
+        "We are transporting the goods."
+      ],
+      [
+        "Ihr transportiert die Ware.",
+        "You all are transporting the goods."
+      ],
+      [
+        "Sie transportieren die Ware.",
+        "They are transporting the goods."
+      ]
+    ]
   },
   {
     "de": "verpacken",
@@ -74914,7 +78112,33 @@
       "partizip2": "verpackt",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verpacke das Geschenk.",
+        "I am packing the gift."
+      ],
+      [
+        "Du verpackst das Geschenk.",
+        "You are packing the gift."
+      ],
+      [
+        "Er verpackt das Geschenk.",
+        "He is packing the gift."
+      ],
+      [
+        "Wir verpacken das Geschenk.",
+        "We are packing the gift."
+      ],
+      [
+        "Ihr verpackt das Geschenk.",
+        "You all are packing the gift."
+      ],
+      [
+        "Sie verpacken das Geschenk.",
+        "They are packing the gift."
+      ]
+    ]
   },
   {
     "de": "die Ernte, -n",
@@ -75085,7 +78309,33 @@
     "level": "A2",
     "example": "Da müssen Sie diese Zollinhaltserklärung ausfüllen.",
     "example_en": "You have to fill out this customs declaration.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Zoll.",
+        "I see the customs."
+      ],
+      [
+        "Du siehst den Zoll.",
+        "You see the customs."
+      ],
+      [
+        "Er sieht den Zoll.",
+        "He sees the customs."
+      ],
+      [
+        "Wir sehen den Zoll.",
+        "We see the customs."
+      ],
+      [
+        "Ihr seht den Zoll.",
+        "You all see the customs."
+      ],
+      [
+        "Sie sehen den Zoll.",
+        "They see the customs."
+      ]
+    ]
   },
   {
     "de": "wert",
@@ -75394,7 +78644,33 @@
       "partizip2": "getestet",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich teste das Gerät.",
+        "I am testing the device."
+      ],
+      [
+        "Du testest das Gerät.",
+        "You are testing the device."
+      ],
+      [
+        "Er testet das Gerät.",
+        "He is testing the device."
+      ],
+      [
+        "Wir testen das Gerät.",
+        "We are testing the device."
+      ],
+      [
+        "Ihr testet das Gerät.",
+        "You all are testing the device."
+      ],
+      [
+        "Sie testen das Gerät.",
+        "They are testing the device."
+      ]
+    ]
   },
   {
     "de": "das Mobiltelefon, -e",
@@ -75524,7 +78800,33 @@
     "level": "A2",
     "example": "Tommy mag Tiger. Deshalb möchte er in den Zoo gehen.",
     "example_en": "Tommy likes tigers. That's why he wants to go to the zoo.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Tiger.",
+        "I see the tiger."
+      ],
+      [
+        "Du siehst den Tiger.",
+        "You see the tiger."
+      ],
+      [
+        "Er sieht den Tiger.",
+        "He sees the tiger."
+      ],
+      [
+        "Wir sehen den Tiger.",
+        "We see the tiger."
+      ],
+      [
+        "Ihr seht den Tiger.",
+        "You all see the tiger."
+      ],
+      [
+        "Sie sehen den Tiger.",
+        "They see the tiger."
+      ]
+    ]
   },
   {
     "de": "das Zebra, -s",
@@ -75533,7 +78835,33 @@
     "level": "A2",
     "example": "Tiger und Zebras sind meine Lieblingstiere.",
     "example_en": "Tigers and zebras are my favorite animals.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Zebra.",
+        "I see the zebra."
+      ],
+      [
+        "Du siehst das Zebra.",
+        "You see the zebra."
+      ],
+      [
+        "Er sieht das Zebra.",
+        "He sees the zebra."
+      ],
+      [
+        "Wir sehen das Zebra.",
+        "We see the zebra."
+      ],
+      [
+        "Ihr seht das Zebra.",
+        "You all see the zebra."
+      ],
+      [
+        "Sie sehen das Zebra.",
+        "They see the zebra."
+      ]
+    ]
   },
   {
     "de": "anschauen",
@@ -75983,7 +79311,33 @@
       "partizip2": "überholt",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich überhole das Auto.",
+        "I am overtaking the car."
+      ],
+      [
+        "Du überholst das Auto.",
+        "You are overtaking the car."
+      ],
+      [
+        "Er überholt das Auto.",
+        "He is overtaking the car."
+      ],
+      [
+        "Wir überholen das Auto.",
+        "We are overtaking the car."
+      ],
+      [
+        "Ihr überholt das Auto.",
+        "You all are overtaking the car."
+      ],
+      [
+        "Sie überholen das Auto.",
+        "They are overtaking the car."
+      ]
+    ]
   },
   {
     "de": "die Fahrbahn, -en",
@@ -76078,7 +79432,33 @@
     "level": "A2",
     "example": "Die Autofahrer mussten stundenlang in ihren Wagen warten.",
     "example_en": "The drivers had to wait for hours in their cars.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Wagen.",
+        "I see the car."
+      ],
+      [
+        "Du siehst den Wagen.",
+        "You see the car."
+      ],
+      [
+        "Er sieht den Wagen.",
+        "He sees the car."
+      ],
+      [
+        "Wir sehen den Wagen.",
+        "We see the car."
+      ],
+      [
+        "Ihr seht den Wagen.",
+        "You all see the car."
+      ],
+      [
+        "Sie sehen den Wagen.",
+        "They see the car."
+      ]
+    ]
   },
   {
     "de": "die Region, -en",
@@ -76222,7 +79602,33 @@
       "partizip2": "verhindert",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verhindere den Unfall.",
+        "I am preventing the accident."
+      ],
+      [
+        "Du verhinderst den Unfall.",
+        "You are preventing the accident."
+      ],
+      [
+        "Er verhindert den Unfall.",
+        "He is preventing the accident."
+      ],
+      [
+        "Wir verhindern den Unfall.",
+        "We are preventing the accident."
+      ],
+      [
+        "Ihr verhindert den Unfall.",
+        "You all are preventing the accident."
+      ],
+      [
+        "Sie verhindern den Unfall.",
+        "They are preventing the accident."
+      ]
+    ]
   },
   {
     "de": "voraussichtlich",
@@ -76477,7 +79883,33 @@
     "level": "A2",
     "example": "Gibt es Unterschiede zwischen Stadt und Land?",
     "example_en": "Are there differences between city and countryside?",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Unterschied.",
+        "I see the difference."
+      ],
+      [
+        "Du siehst den Unterschied.",
+        "You see the difference."
+      ],
+      [
+        "Er sieht den Unterschied.",
+        "He sees the difference."
+      ],
+      [
+        "Wir sehen den Unterschied.",
+        "We see the difference."
+      ],
+      [
+        "Ihr seht den Unterschied.",
+        "You all see the difference."
+      ],
+      [
+        "Sie sehen den Unterschied.",
+        "They see the difference."
+      ]
+    ]
   },
   {
     "de": "das Tempo (Sg.)",
@@ -76486,7 +79918,33 @@
     "level": "A2",
     "example": "Ein Freund musste 100 Franken wegen zu hohem Tempo zahlen.",
     "example_en": "A friend had to pay 100 francs for going too fast.",
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Tempo.",
+        "I see the speed."
+      ],
+      [
+        "Du siehst das Tempo.",
+        "You see the speed."
+      ],
+      [
+        "Er sieht das Tempo.",
+        "He sees the speed."
+      ],
+      [
+        "Wir sehen das Tempo.",
+        "We see the speed."
+      ],
+      [
+        "Ihr seht das Tempo.",
+        "You all see the speed."
+      ],
+      [
+        "Sie sehen das Tempo.",
+        "They see the speed."
+      ]
+    ]
   },
   {
     "de": "die Ostsee (Sg.)",
@@ -77299,7 +80757,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "ab",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich hebe Geld ab.",
+        "I am withdrawing money."
+      ],
+      [
+        "Du hebst Geld ab.",
+        "You are withdrawing money."
+      ],
+      [
+        "Er hebt Geld ab.",
+        "He is withdrawing money."
+      ],
+      [
+        "Wir heben Geld ab.",
+        "We are withdrawing money."
+      ],
+      [
+        "Ihr hebt Geld ab.",
+        "You all are withdrawing money."
+      ],
+      [
+        "Sie heben Geld ab.",
+        "They are withdrawing money."
+      ]
+    ]
   },
   {
     "de": "die Raucherin, -nen",
@@ -77768,7 +81252,33 @@
     "example": "Das ist doch reine Zeitverschwendung.",
     "example_en": "That's a complete waste of time.",
     "collocations": [],
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Zeitverschwendung.",
+        "I see the waste of time."
+      ],
+      [
+        "Du siehst die Zeitverschwendung.",
+        "You see the waste of time."
+      ],
+      [
+        "Er sieht die Zeitverschwendung.",
+        "He sees the waste of time."
+      ],
+      [
+        "Wir sehen die Zeitverschwendung.",
+        "We see the waste of time."
+      ],
+      [
+        "Ihr seht die Zeitverschwendung.",
+        "You all see the waste of time."
+      ],
+      [
+        "Sie sehen die Zeitverschwendung.",
+        "They see the waste of time."
+      ]
+    ]
   },
   {
     "de": "der Rollstuhl, -̈e",
@@ -77886,7 +81396,33 @@
     "example": "Das Tablet ist leichter als ein Laptop.",
     "example_en": "The tablet is lighter than a laptop.",
     "collocations": [],
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe das Tablet.",
+        "I see the tablet (device)."
+      ],
+      [
+        "Du siehst das Tablet.",
+        "You see the tablet (device)."
+      ],
+      [
+        "Er sieht das Tablet.",
+        "He sees the tablet (device)."
+      ],
+      [
+        "Wir sehen das Tablet.",
+        "We see the tablet (device)."
+      ],
+      [
+        "Ihr seht das Tablet.",
+        "You all see the tablet (device)."
+      ],
+      [
+        "Sie sehen das Tablet.",
+        "They see the tablet (device)."
+      ]
+    ]
   },
   {
     "de": "die Smartwatch, -es",
@@ -78040,7 +81576,33 @@
     "example": "Ich mache ein Praktikum bei einer Werbeagentur.",
     "example_en": "I'm doing an internship at an advertising agency.",
     "collocations": [],
-    "register": "everyday"
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Werbeagentur.",
+        "I see the advertising agency."
+      ],
+      [
+        "Du siehst die Werbeagentur.",
+        "You see the advertising agency."
+      ],
+      [
+        "Er sieht die Werbeagentur.",
+        "He sees the advertising agency."
+      ],
+      [
+        "Wir sehen die Werbeagentur.",
+        "We see the advertising agency."
+      ],
+      [
+        "Ihr seht die Werbeagentur.",
+        "You all see the advertising agency."
+      ],
+      [
+        "Sie sehen die Werbeagentur.",
+        "They see the advertising agency."
+      ]
+    ]
   },
   {
     "de": "die Messe, -n",
