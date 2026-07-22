@@ -108,6 +108,9 @@
             background: #334155;
             color: #e2e8f0;
         }
+        .d-tts{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:none;background:none;cursor:pointer;opacity:.35;transition:opacity .2s;padding:0;margin-left:3px;vertical-align:middle;border-radius:50%;font-size:13px}
+        .d-tts:hover{opacity:.8;background:rgba(29,78,216,.1)}.d-tts.playing{opacity:1;color:#1d4ed8;background:rgba(29,78,216,.15)}
+        [data-bs-theme="dark"] .d-tts:hover{background:rgba(99,102,241,.2)}[data-bs-theme="dark"] .d-tts.playing{color:#818cf8;background:rgba(99,102,241,.25)}
     </style>
 </head>
 <body id="top">
@@ -4261,6 +4264,64 @@
     }
     </script>
 
+    <script>
+    // TTS — same engine as dictionary.html, adapted for this page's plain
+    // Deutsch/English tables instead of .word-card markup. Column language
+    // is decided from each table's own header row so it also works on the
+    // less common table shapes (Urdu/transliteration columns, reversed
+    // Englisch|Deutsch order, etc.) without hardcoding per-table logic.
+    (function() {
+        if (!('speechSynthesis' in window)) return;
+        var synth = window.speechSynthesis;
+        var activeBtn = null;
+        var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+        function mkBtn(text, lang) {
+            var b = document.createElement('button');
+            b.className = 'd-tts'; b.innerHTML = svg;
+            b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+            b.onclick = function(e) {
+                e.preventDefault(); e.stopPropagation();
+                synth.cancel();
+                if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
+                if (activeBtn) activeBtn.classList.remove('playing');
+                var clean = text.replace(/\s*[,]\s*-\w+/g,'').replace(/[—–]/g,'').replace(/\(.*?\)/g,'').replace(/\s+/g,' ').trim();
+                if (!clean) return;
+                var u = new SpeechSynthesisUtterance(clean);
+                u.lang = lang; u.rate = 0.9;
+                var voices = synth.getVoices();
+                var lp = lang.split('-')[0];
+                for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
+                b.classList.add('playing'); activeBtn = b;
+                u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
+                synth.speak(u);
+            };
+            return b;
+        }
+        var SKIP = ['urdu','اردو','ihre sprache','foto','photo','umschrift','transliteration'];
+        var initialized = false;
+        function init() {
+            if (initialized) return;
+            initialized = true;
+            document.querySelectorAll('table').forEach(function(table) {
+                var ths = table.querySelectorAll('thead th');
+                var headers = Array.prototype.map.call(ths, function(th) { return th.textContent.trim(); });
+                table.querySelectorAll('tbody tr').forEach(function(row) {
+                    var cells = row.querySelectorAll('td');
+                    cells.forEach(function(cell, i) {
+                        var header = (headers[i] || '').toLowerCase();
+                        if (SKIP.some(function(s) { return header.indexOf(s) > -1; })) return;
+                        var text = cell.textContent.trim();
+                        if (!text || cell.querySelector('.d-tts')) return;
+                        var lang = /english|englisch/.test(header) ? 'en-US' : 'de-DE';
+                        cell.appendChild(mkBtn(text, lang));
+                    });
+                });
+            });
+        }
+        if (synth.getVoices().length > 0) init();
+        else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }
+    })();
+    </script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
