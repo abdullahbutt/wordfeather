@@ -108,10 +108,33 @@
     synth.speak(utterance);
   }
 
+  function addButtonsToPersonDrills() {
+    // Deliberately its own function, NOT folded into addButtonsToTables()'s
+    // generic header-text matching. That generic path scans every <table>
+    // on the page and matches columns by header text (e.g. "Beispielsatz"),
+    // which is exactly the kind of broad matching that once caused the
+    // search filter to reach into this same nested table and hide its rows.
+    // Scoping explicitly to .word-person-drill by position (not text)
+    // avoids that whole class of bug entirely.
+    document.querySelectorAll('.word-person-drill tbody tr').forEach(function (row) {
+      var cells = row.querySelectorAll('td');
+      if (cells.length < 2) return;
+      wrapCell(cells[0], 'de-DE');
+      wrapCell(cells[1], 'en-US');
+    });
+  }
+
   function addButtonsToTables() {
     var tables = document.querySelectorAll('table');
 
     tables.forEach(function (table) {
+      // Person-drill tables are handled exclusively by
+      // addButtonsToPersonDrills() below — skip them here so there's a
+      // single, deterministic code path for them regardless of any
+      // incidental header-text overlap (e.g. this table's own headers
+      // happen to say "Deutsch"/"English", same as the main vocab tables).
+      if (table.closest('.word-person-drill')) return;
+
       var headers = table.querySelectorAll('thead th');
       
       // Dictionary page: no thead, uses de-col/en-col classes
@@ -159,6 +182,8 @@
         });
       });
     });
+
+    addButtonsToPersonDrills();
 
     // Route to the right handler based on page type
     var path = window.location.pathname;
@@ -238,6 +263,13 @@
   }
 
   function wrapCell(cell, lang) {
+    // Guard against double-processing: the generic addButtonsToTables()
+    // path matches tables by header text (e.g. "Deutsch"), and the
+    // person-drill table's own header happens to say "Deutsch" too — so
+    // without this guard, a cell could get wrapped twice (once by each
+    // path) and end up with two speaker buttons instead of one.
+    if (cell.querySelector('.tts-wrap')) return;
+
     var text = cell.textContent.trim();
     if (!text || text === '—' || text === '-') return;
 
