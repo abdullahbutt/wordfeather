@@ -194,6 +194,76 @@
     })();
     </script>
 
+    <!-- App Install Banner -->
+    <div id="installBanner" class="install-banner-wrap" style="display:none;">
+        <div class="container">
+            <div class="install-banner">
+                <button type="button" id="installBannerToggle" class="install-banner-bar" aria-expanded="false" aria-controls="installBannerPanel">
+                    <span class="install-banner-icon">📱</span>
+                    <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>
+                    <span class="install-banner-chevron">▾</span>
+                </button>
+                <button type="button" id="installBannerClose" class="install-banner-close" aria-label="Dismiss install banner">✕</button>
+                <div id="installBannerPanel" class="install-banner-panel" hidden>
+                        <div class="row g-2">
+                            <div class="col-6 col-md-3">
+                                <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div><div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div><div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div></div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div><div>Safari → <strong>Share</strong> → Add to Dock</div></div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div><div>Edge → <strong>Apps</strong> → Install this site</div></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}
+        .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}
+        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;background:none;border:none;color:#fff;text-align:left;cursor:pointer;padding:.2rem .25rem;font-size:.85rem;}
+        .install-banner-icon{font-size:1.1rem;line-height:1;}
+        .install-banner-text{font-weight:600;flex:1;}
+        .install-banner-chevron{opacity:.8;transition:transform .2s;}
+        .install-banner-bar[aria-expanded="true"] .install-banner-chevron{transform:rotate(180deg);}
+        .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}
+        .install-banner-close:hover{opacity:1;}
+        .install-banner-panel{padding-top:.5rem;}
+        .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%;}
+        .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}
+    </style>
+    <script>
+    (function () {
+        var KEY = 'dlh_install_banner_dismissed';
+        var banner = document.getElementById('installBanner');
+        if (!banner) return;
+        var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+        var dismissed = false;
+        try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
+        if (isStandalone || dismissed) return;
+        banner.style.display = 'block';
+        var toggle = document.getElementById('installBannerToggle');
+        var panel = document.getElementById('installBannerPanel');
+        var closeBtn = document.getElementById('installBannerClose');
+        toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            panel.hidden = expanded;
+        });
+        closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            try { localStorage.setItem(KEY, '1'); } catch (e2) {}
+            banner.style.display = 'none';
+        });
+    })();
+    </script>
+    <!-- End App Install Banner -->
+
     <main class="container py-4 py-lg-5">
         <div class="card content-card">
             <div class="card-body p-4 p-lg-5">
@@ -209,6 +279,19 @@
                     <h1 class="h2 mb-0">10 Unterrichtsnotizen</h1>
                     <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A2</span>
                 </div>
+
+                <!-- Dictionary Banner -->
+                <a href="../dictionary.html" class="text-decoration-none d-block mb-4 mt-3">
+                    <div class="card border-0 shadow-sm" style="background:linear-gradient(135deg,#0ea5e9 0%,#6366f1 100%);border-radius:1rem;overflow:hidden;">
+                        <div class="card-body d-flex align-items-center justify-content-between flex-wrap gap-3 p-4">
+                            <div>
+                                <h5 class="mb-1 text-white fw-bold">📖 Wörterbuch / Dictionary</h5>
+                                <p class="mb-0 text-white-50 small">5,215+ words from A1–C2 · Search · Listen · der/die/das color-coded</p>
+                            </div>
+                            <span class="btn btn-light btn-sm fw-semibold px-3">Open Dictionary →</span>
+                        </div>
+                    </div>
+                </a>
 
                 <div class="jump-layout">
                 <div id="jump-bar-placeholder"></div>
@@ -624,6 +707,7 @@
 <tr><td>schwierig</td><td>schwieriger</td><td>am schwierigsten</td><td>difficult</td></tr>
 <tr><td>wichtig</td><td>wichtiger</td><td>am wichtigsten</td><td>important</td></tr>
 <tr><td>interessant</td><td>interessanter</td><td>am interessantesten</td><td>interesting</td></tr>
+<tr><td>traurig</td><td>trauriger</td><td>am traurigsten</td><td>sad</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <h3 id="als-than">als (than)</h3>
@@ -1241,6 +1325,120 @@
 <tr><td>wenn ich mit meinen Eltern zusammen bin</td><td>when I'm together with my parents</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
+<h2 id="b10-wenn-saetze-fragen-gefuehle-ausdruecken">B10. Wenn-Sätze — Fragen &amp; Gefühle ausdrücken</h2>
+<p class="notice-text"><em>Nebensätze mit wenn: die Konjunktion, ihre Position im Satz, und wie man damit Gefühle und Gewohnheiten beschreibt.</em></p>
+<p class="notice-text"><em>Vokabelnotiz (Urdu) — Wann / Wenn:</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;text-align:right;" class="urdu">اردو</th><th style="background:#d9e2f3;">Umschrift / Transliteration</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Wann?</td><td class="urdu" style="text-align:right;">کب؟</td><td style="font-style:italic;">Kab?</td><td>When? (question word)</td></tr>
+<tr><td>wenn</td><td class="urdu" style="text-align:right;">جب</td><td style="font-style:italic;">Jab</td><td>when / if (subordinating conjunction)</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<h3 id="nebensatz-mit-wenn-grammatik">Nebensatz mit wenn — Grammatik</h3>
+<p class="notice-text"><em>In Situation A bin ich ... — Was passt zusammen? Ordnen Sie zu.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>1. Ich bin nervös, wenn ich eine Prüfung habe.</td><td>I'm nervous when I have an exam.</td></tr>
+<tr><td>2. Ich bin glücklich, wenn ich mit Freunden feiern kann.</td><td>I'm happy when I can celebrate with friends.</td></tr>
+<tr><td>3. Wenn ich einen Horrorfilm sehe, dann habe ich Angst.</td><td>When I watch a horror film, I get scared.</td></tr>
+<tr><td>4. Wenn meine Freundin wegfährt, bin ich traurig.</td><td>When my girlfriend goes away, I'm sad.</td></tr>
+<tr><td>5. Ich bin genervt, wenn ich im Regen warten muss.</td><td>I'm annoyed when I have to wait in the rain.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<p class="notice-text"><em>Ergänzen Sie die Sätze. Wo stehen die Verben? — Nebensatz mit wenn:</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Hauptsatz</th><th style="background:#d9e2f3;">Nebensatz (wenn ... Verb am Ende)</th></tr></thead>
+<tbody>
+<tr><td>Ich bin nervös,</td><td>wenn ich eine Prüfung habe.</td></tr>
+<tr><td>Ich bin glücklich,</td><td>wenn ich mit Freunden feiern kann.</td></tr>
+<tr><td>Ich habe Angst,</td><td>wenn ich einen Horrorfilm sehe.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<p class="notice-text"><em>Nebensatz zuerst — Hauptsatz mit (dann) + Verb an Position 1:</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Nebensatz</th><th style="background:#d9e2f3;">Hauptsatz</th></tr></thead>
+<tbody>
+<tr><td>Wenn ich eine Prüfung habe,</td><td>(dann) bin ich nervös.</td></tr>
+<tr><td>Wenn ich mit Freunden feiern kann,</td><td>(dann) bin ich glücklich.</td></tr>
+<tr><td>Wenn ich einen Horrorfilm sehe,</td><td>(dann) habe ich Angst.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<p class="notice-text"><em>Regel: In einem Nebensatz mit „wenn" steht das konjugierte Verb ganz am Ende. Steht der Nebensatz zuerst, beginnt der Hauptsatz direkt mit dem Verb (Position 1), oft mit „dann" davor. / Rule: In a subordinate clause with "wenn", the conjugated verb goes to the very end. If the wenn-clause comes first, the main clause starts directly with the verb (position 1), often preceded by "dann".</em></p>
+<div class="spacer"></div>
+
+<p class="notice-text"><em>Und Sie? Ergänzen Sie die Sätze — personalisierte Antworten:</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>1. Ich bin glücklich, wenn ich meine Familie treffe.</td><td>I'm happy when I meet my family.</td></tr>
+<tr><td>2. Wenn ich Geburtstag habe, dann bekomme ich Geschenke.</td><td>When it's my birthday, I get presents.</td></tr>
+<tr><td>3. Ich bin genervt, wenn ich nicht gut schlafe.</td><td>I'm annoyed when I don't sleep well.</td></tr>
+<tr><td>Ich bin genervt, wenn der Zug Verspätung hat.</td><td>I'm annoyed when the train is delayed.</td></tr>
+<tr><td>Ich bin genervt, wenn jemand laut Musik hört.</td><td>I'm annoyed when someone listens to loud music.</td></tr>
+<tr><td>4. Wenn das Wetter schön ist, dann gehe ich in den Park.</td><td>When the weather is nice, I go to the park.</td></tr>
+<tr><td>Wenn das Wetter schön ist, gehe ich spazieren.</td><td>When the weather is nice, I go for a walk.</td></tr>
+<tr><td>Wenn das Wetter schön ist, spiele ich Tennis.</td><td>When the weather is nice, I play tennis.</td></tr>
+<tr><td>Wenn das Wetter schön ist, fahre ich das Rad.</td><td>When the weather is nice, I ride my bike.</td></tr>
+<tr><td>5. Ich bin traurig, wenn ich krank bin.</td><td>I'm sad when I'm sick.</td></tr>
+<tr><td>Ich bin traurig, wenn meine Freunde wegfahren.</td><td>I'm sad when my friends go away.</td></tr>
+<tr><td>Ich bin traurig, wenn meine Kinder krank sind.</td><td>I'm sad when my kids are sick.</td></tr>
+<tr><td>Ich bin traurig, wenn ich meine Familie vermisse.</td><td>I'm sad when I miss my family.</td></tr>
+<tr><td>6. Wenn meine Freunde Witze erzählen, muss ich lachen.</td><td>When my friends tell jokes, I have to laugh.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<h3 id="wann-wenn-frage-antwort">Wann? / Wenn + Subjekt + ... + Verb.</h3>
+<p class="notice-text"><em><span style="color:#c00;">Wann?</span> fragt nach dem Zeitpunkt — die Antwort mit <span style="color:#c00;">Wenn</span> steht als Nebensatz. Drei mögliche Reihenfolgen der gleichen Antwort:</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Wann gehen Sie nach Pakistan?</td><td>When are you going to Pakistan?</td></tr>
+<tr><td>Ich gehe nach Pakistan, <span style="color:#c00;">wenn</span> ich Urlaub <span style="color:#c00;">habe</span>.</td><td>I'm going to Pakistan when I have vacation.</td></tr>
+<tr><td><span style="color:#c00;">Wenn</span> ich Urlaub <span style="color:#c00;">habe</span>, (dann) <span style="color:#c00;">gehe</span> ich nach Pakistan.</td><td>When I have vacation, (then) I go to Pakistan.</td></tr>
+<tr><td><span style="color:#c00;">Wenn</span> ich Urlaub <span style="color:#c00;">habe</span>, <span style="color:#c00;">gehe</span> ich nach Pakistan.</td><td>When I have vacation, I go to Pakistan.</td></tr>
+<tr><td>Wann machen Sie die Hausaufgabe?</td><td>When do you do your homework?</td></tr>
+<tr><td>Ich mache die Hausaufgabe, <span style="color:#c00;">wenn</span> ich Zeit <span style="color:#c00;">habe</span>.</td><td>I do my homework when I have time.</td></tr>
+<tr><td><span style="color:#c00;">Wenn</span> ich Zeit <span style="color:#c00;">habe</span>, (dann) <span style="color:#c00;">mache</span> ich die Hausaufgabe.</td><td>When I have time, (then) I do my homework.</td></tr>
+<tr><td><span style="color:#c00;">Wenn</span> ich Zeit <span style="color:#c00;">habe</span>, <span style="color:#c00;">mache</span> ich die Hausaufgabe.</td><td>When I have time, I do my homework.</td></tr>
+<tr><td>Wann gehen Sie schlafen? <span style="color:#c00;">Wenn</span> ich müde <span style="color:#c00;">bin</span>.</td><td>When do you go to sleep? When I'm tired.</td></tr>
+<tr><td><span style="color:#c00;">Wenn</span> ich müde <span style="color:#c00;">bin</span>, (dann) <span style="color:#c00;">gehe</span> ich schlafen.</td><td>When I'm tired, (then) I go to sleep.</td></tr>
+<tr><td><span style="color:#c00;">Wenn</span> ich müde <span style="color:#c00;">bin</span>. <span style="color:#c00;">Gehe</span> ich schlafen.</td><td>When I'm tired. I go to sleep.</td></tr>
+<tr><td>Wann kaufen Sie ein Auto? <span style="color:#c00;">Wenn</span> ich Geld <span style="color:#c00;">habe</span>.</td><td>When are you buying a car? When I have money.</td></tr>
+<tr><td><span style="color:#c00;">Wenn</span> ich Geld <span style="color:#c00;">habe</span>, (dann) <span style="color:#c00;">kaufe</span> ich ein Auto.</td><td>When I have money, (then) I'll buy a car.</td></tr>
+<tr><td><span style="color:#c00;">Wenn</span> ich Geld <span style="color:#c00;">habe</span>, <span style="color:#c00;">kaufe</span> ich ein Auto.</td><td>When I have money, I'll buy a car.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<h3 id="freies-sprechen-was-machst-du-wenn">Freies Sprechen — Was machst du, wenn ...?</h3>
+<p class="notice-text"><em>Jede Frage und ihre Antwort als getrennte Sätze — Partnerübung mit „Was machst du, wenn ...?"</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Was machst du, wenn du zu spät kommst?</td><td>What do you do when you're late?</td></tr>
+<tr><td>Wenn ich zu spät komme, sage ich "Entschuldigung".</td><td>When I'm late, I say "sorry".</td></tr>
+<tr><td>Was machst du, wenn du dein Handy nicht findest?</td><td>What do you do when you can't find your phone?</td></tr>
+<tr><td>Wenn ich mein Handy nicht finde, bin ich traurig.</td><td>When I can't find my phone, I'm sad.</td></tr>
+<tr><td>Was machst du, wenn du am Nachmittag müde bist?</td><td>What do you do when you're tired in the afternoon?</td></tr>
+<tr><td>Wenn ich am Nachmittag müde bin, schlafe ich.</td><td>When I'm tired in the afternoon, I sleep.</td></tr>
+<tr><td>Was machst du, wenn du Kopfschmerzen hast?</td><td>What do you do when you have a headache?</td></tr>
+<tr><td>Wenn ich Kopfschmerzen habe, nehme ich Tabletten.</td><td>When I have a headache, I take tablets.</td></tr>
+<tr><td>Was machst du, wenn dein Freund Geburtstag hat?</td><td>What do you do when your friend has a birthday?</td></tr>
+<tr><td>Wenn mein Freund Geburtstag hat, kaufe ich ein Geschenk.</td><td>When my friend has a birthday, I buy a present.</td></tr>
+<tr><td>Was machst du, wenn du einen Test schreiben musst?</td><td>What do you do when you have to write a test?</td></tr>
+<tr><td>Wenn ich einen Test schreiben muss, lerne ich viel.</td><td>When I have to write a test, I study a lot.</td></tr>
+<tr><td>Was machst du, wenn du schlechte Laune hast?</td><td>What do you do when you're in a bad mood?</td></tr>
+<tr><td>Wenn ich schlechte Laune habe, gehe ich in den Park.</td><td>When I'm in a bad mood, I go to the park.</td></tr>
+<tr><td>Was machst du, wenn das Wetter am Wochenende schön ist?</td><td>What do you do when the weather is nice on the weekend?</td></tr>
+<tr><td>Wenn das Wetter am Wochenende schön ist, gehe ich einkaufen.</td><td>When the weather is nice on the weekend, I go shopping.</td></tr>
+<tr><td>Was machst du, wenn du zu einer Hochzeit gehst?</td><td>What do you do when you go to a wedding?</td></tr>
+<tr><td>Wenn ich zu einer Hochzeit gehe, kaufe ich ein Geschenk.</td><td>When I go to a wedding, I buy a present.</td></tr>
+<tr><td>Was machst du, wenn du Freunde einlädst?</td><td>What do you do when you invite friends?</td></tr>
+<tr><td>Wenn ich Freunde einlade, koche ich Biryani.</td><td>When I invite friends, I cook biryani.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
 <h2 id="teil-c-hausaufgaben-vom-lehrer-ueberprueft" class="part-heading">Teil C — Hausaufgaben (vom Lehrer überprüft)</h2>
 <p class="notice-text"><em>Checked homework — use this as a self-test: cover the English column and try translating, or cover the German and try producing it yourself before checking.</em></p>
 <h3 id="hausaufgabe-1-04-07-2026-seite-12-anfragen-1-sich-verabreden-etwas-begruenden">Hausaufgabe 1 — 04.07.2026 — Seite 12: Anfragen 1, sich verabreden, etwas begründen</h3>
@@ -1299,7 +1497,7 @@
 <div class="spacer"></div>
 <h2 id="wortschatz-training-konjugation-saetze" class="part-heading">Wortschatz-Training — Konjugation &amp; Sätze</h2>
 <p class="notice-text"><em>Klicken Sie auf ein Wort, um 6 Beispielsätze zu sehen — je einer für ich/du/er,sie,es/wir/ihr/sie,Sie. Click a word to reveal 6 example sentences — one for each grammatical person.</em></p>
-<h3 id="nomen-52">Nomen (52)</h3>
+<h3 id="nomen-52">Nomen (55)</h3>
 <div class="accordion" id="nomenAccordion">
 <div class="accordion-item">
   <h6 class="accordion-header" id="heading-nomenAccordion-0">
@@ -2443,8 +2641,74 @@
   </table></div>
     </div>
   </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-nomenAccordion-52">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nomenAccordion-52" aria-expanded="false" aria-controls="collapse-nomenAccordion-52">
+      <span class="badge bg-secondary me-2">Nomen</span><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle me-2">die</span>die Prüfung
+    </button>
+  </h6>
+  <div id="collapse-nomenAccordion-52" class="accordion-collapse collapse" aria-labelledby="heading-nomenAccordion-52" data-bs-parent="#nomenAccordion">
+    <div class="accordion-body">
+      <p class="small text-muted mb-2">Nomen (feminin) — die Prüfung</p>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich habe eine Prüfung.</td><td>I have an exam.</td></tr>
+<tr><td>Du hast eine Prüfung.</td><td>You have an exam.</td></tr>
+<tr><td>Er hat eine Prüfung.</td><td>He has an exam.</td></tr>
+<tr><td>Wir haben eine Prüfung.</td><td>We have an exam.</td></tr>
+<tr><td>Ihr habt eine Prüfung.</td><td>You all have an exam.</td></tr>
+<tr><td>Sie haben eine Prüfung.</td><td>They have an exam.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-nomenAccordion-53">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nomenAccordion-53" aria-expanded="false" aria-controls="collapse-nomenAccordion-53">
+      <span class="badge bg-secondary me-2">Nomen</span><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle me-2">das</span>das Wetter
+    </button>
+  </h6>
+  <div id="collapse-nomenAccordion-53" class="accordion-collapse collapse" aria-labelledby="heading-nomenAccordion-53" data-bs-parent="#nomenAccordion">
+    <div class="accordion-body">
+      <p class="small text-muted mb-2">Nomen (neutral) — das Wetter</p>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich sehe das Wetter.</td><td>I see the weather (forecast).</td></tr>
+<tr><td>Du siehst das Wetter.</td><td>You see the weather (forecast).</td></tr>
+<tr><td>Er sieht das Wetter.</td><td>He sees the weather (forecast).</td></tr>
+<tr><td>Wir sehen das Wetter.</td><td>We see the weather (forecast).</td></tr>
+<tr><td>Ihr seht das Wetter.</td><td>You all see the weather (forecast).</td></tr>
+<tr><td>Sie sehen das Wetter.</td><td>They see the weather (forecast).</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-nomenAccordion-54">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nomenAccordion-54" aria-expanded="false" aria-controls="collapse-nomenAccordion-54">
+      <span class="badge bg-secondary me-2">Nomen</span><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle me-2">der</span>der Urlaub
+    </button>
+  </h6>
+  <div id="collapse-nomenAccordion-54" class="accordion-collapse collapse" aria-labelledby="heading-nomenAccordion-54" data-bs-parent="#nomenAccordion">
+    <div class="accordion-body">
+      <p class="small text-muted mb-2">Nomen (maskulin) — der Urlaub</p>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich habe Urlaub.</td><td>I am on vacation.</td></tr>
+<tr><td>Du hast Urlaub.</td><td>You are on vacation.</td></tr>
+<tr><td>Er hat Urlaub.</td><td>He is on vacation.</td></tr>
+<tr><td>Wir haben Urlaub.</td><td>We are on vacation.</td></tr>
+<tr><td>Ihr habt Urlaub.</td><td>You all are on vacation.</td></tr>
+<tr><td>Sie haben Urlaub.</td><td>They are on vacation.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
 </div></div>
-<h3 id="verben-52">Verben (52)</h3>
+<h3 id="verben-52">Verben (55)</h3>
 <div class="accordion" id="verbenAccordion">
 <div class="accordion-item">
   <h6 class="accordion-header" id="heading-verbenAccordion-0">
@@ -4157,6 +4421,105 @@
 <tr><td>Wir wohnen in der Stadt.</td><td>We live in the city.</td></tr>
 <tr><td>Ihr wohnt zusammen.</td><td>You all live together.</td></tr>
 <tr><td>Sie wohnen bei den Eltern.</td><td>They live with their parents.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-verbenAccordion-52">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-verbenAccordion-52" aria-expanded="false" aria-controls="collapse-verbenAccordion-52">
+      <span class="badge bg-primary me-2">Verb</span>vermissen
+    </button>
+  </h6>
+  <div id="collapse-verbenAccordion-52" class="accordion-collapse collapse" aria-labelledby="heading-verbenAccordion-52" data-bs-parent="#verbenAccordion">
+    <div class="accordion-body">
+      <details id="conj-verbenAccordion-52" class="conj-details mb-3">
+        <summary>Konjugation anzeigen / Show conjugation (Präsens, Präteritum, Perfekt)</summary>
+        <div class="table-responsive"><table class="table table-sm table-bordered mb-2">
+    <thead><tr><th>Person</th><th>Präsens</th><th>Präteritum</th><th>Perfekt</th></tr></thead>
+    <tbody><tr><td>ich</td><td>vermisse</td><td>vermisste</td><td>habe vermisst</td></tr>
+<tr><td>du</td><td>vermisst</td><td>vermisstest</td><td>hast vermisst</td></tr>
+<tr><td>er/sie/es</td><td>vermisst</td><td>vermisste</td><td>hat vermisst</td></tr>
+<tr><td>wir</td><td>vermissen</td><td>vermissten</td><td>haben vermisst</td></tr>
+<tr><td>ihr</td><td>vermisst</td><td>vermisstet</td><td>habt vermisst</td></tr>
+<tr><td>sie/Sie</td><td>vermissen</td><td>vermissten</td><td>haben vermisst</td></tr></tbody>
+  </table></div>
+      </details>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich vermisse meine Familie.</td><td>I miss my family.</td></tr>
+<tr><td>Du vermisst deine Familie.</td><td>You miss your family.</td></tr>
+<tr><td>Er vermisst seine Familie.</td><td>He misses his family.</td></tr>
+<tr><td>Wir vermissen unsere Familie.</td><td>We miss our family.</td></tr>
+<tr><td>Ihr vermisst eure Familie.</td><td>You all miss your family.</td></tr>
+<tr><td>Sie vermissen ihre Familie.</td><td>They miss their family.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-verbenAccordion-53">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-verbenAccordion-53" aria-expanded="false" aria-controls="collapse-verbenAccordion-53">
+      <span class="badge bg-primary me-2">Verb</span>wegfahren
+    </button>
+  </h6>
+  <div id="collapse-verbenAccordion-53" class="accordion-collapse collapse" aria-labelledby="heading-verbenAccordion-53" data-bs-parent="#verbenAccordion">
+    <div class="accordion-body">
+      <details id="conj-verbenAccordion-53" class="conj-details mb-3">
+        <summary>Konjugation anzeigen / Show conjugation (Präsens, Präteritum, Perfekt)</summary>
+        <div class="table-responsive"><table class="table table-sm table-bordered mb-2">
+    <thead><tr><th>Person</th><th>Präsens</th><th>Präteritum</th><th>Perfekt</th></tr></thead>
+    <tbody><tr><td>ich</td><td>fahre weg</td><td>fuhr weg</td><td>bin weggefahren</td></tr>
+<tr><td>du</td><td>fährst weg</td><td>fuhrst weg</td><td>bist weggefahren</td></tr>
+<tr><td>er/sie/es</td><td>fährt weg</td><td>fuhr weg</td><td>ist weggefahren</td></tr>
+<tr><td>wir</td><td>fahren weg</td><td>fuhren weg</td><td>sind weggefahren</td></tr>
+<tr><td>ihr</td><td>fahrt weg</td><td>fuhrt weg</td><td>seid weggefahren</td></tr>
+<tr><td>sie/Sie</td><td>fahren weg</td><td>fuhren weg</td><td>sind weggefahren</td></tr></tbody>
+  </table></div>
+      </details>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich fahre am Wochenende weg.</td><td>I am going away on the weekend.</td></tr>
+<tr><td>Du fährst am Wochenende weg.</td><td>You are going away on the weekend.</td></tr>
+<tr><td>Er fährt am Wochenende weg.</td><td>He is going away on the weekend.</td></tr>
+<tr><td>Wir fahren am Wochenende weg.</td><td>We are going away on the weekend.</td></tr>
+<tr><td>Ihr fahrt am Wochenende weg.</td><td>You all are going away on the weekend.</td></tr>
+<tr><td>Sie fahren am Wochenende weg.</td><td>They are going away on the weekend.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-verbenAccordion-54">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-verbenAccordion-54" aria-expanded="false" aria-controls="collapse-verbenAccordion-54">
+      <span class="badge bg-primary me-2">Verb</span>erzählen
+    </button>
+  </h6>
+  <div id="collapse-verbenAccordion-54" class="accordion-collapse collapse" aria-labelledby="heading-verbenAccordion-54" data-bs-parent="#verbenAccordion">
+    <div class="accordion-body">
+      <details id="conj-verbenAccordion-54" class="conj-details mb-3">
+        <summary>Konjugation anzeigen / Show conjugation (Präsens, Präteritum, Perfekt)</summary>
+        <div class="table-responsive"><table class="table table-sm table-bordered mb-2">
+    <thead><tr><th>Person</th><th>Präsens</th><th>Präteritum</th><th>Perfekt</th></tr></thead>
+    <tbody><tr><td>ich</td><td>erzähle</td><td>erzählte</td><td>habe erzählt</td></tr>
+<tr><td>du</td><td>erzählst</td><td>erzähltest</td><td>hast erzählt</td></tr>
+<tr><td>er/sie/es</td><td>erzählt</td><td>erzählte</td><td>hat erzählt</td></tr>
+<tr><td>wir</td><td>erzählen</td><td>erzählten</td><td>haben erzählt</td></tr>
+<tr><td>ihr</td><td>erzählt</td><td>erzähltet</td><td>habt erzählt</td></tr>
+<tr><td>sie/Sie</td><td>erzählen</td><td>erzählten</td><td>haben erzählt</td></tr></tbody>
+  </table></div>
+      </details>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich erzähle einen Witz.</td><td>I am telling a joke.</td></tr>
+<tr><td>Du erzählst einen Witz.</td><td>You are telling a joke.</td></tr>
+<tr><td>Er erzählt einen Witz.</td><td>He is telling a joke.</td></tr>
+<tr><td>Wir erzählen einen Witz.</td><td>We are telling a joke.</td></tr>
+<tr><td>Ihr erzählt einen Witz.</td><td>You all are telling a joke.</td></tr>
+<tr><td>Sie erzählen einen Witz.</td><td>They are telling a joke.</td></tr></tbody>
   </table></div>
     </div>
   </div>
