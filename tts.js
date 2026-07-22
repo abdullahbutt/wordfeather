@@ -108,6 +108,29 @@
     synth.speak(utterance);
   }
 
+  function addButtonsToExampleSentences() {
+    // The "Beispielsatz" column (and dictionary.html's .word-example div)
+    // always holds BOTH a German and an English span together in the same
+    // cell — unlike a pure "Deutsch" or "Englisch" column, wrapping the
+    // whole cell as one blob is never correct here (it reads both
+    // languages together with a single, wrong-for-half-of-it voice, and
+    // on the Wortschatz page it even swallows the nested drill table's
+    // text too, since that lives in the same cell). Target the two spans
+    // directly instead, each getting its own correctly-tagged button.
+    document.querySelectorAll('.ex-de').forEach(function (el) { wrapInlineText(el, 'de-DE'); });
+    document.querySelectorAll('.ex-en').forEach(function (el) { wrapInlineText(el, 'en-US'); });
+  }
+
+  function wrapInlineText(el, lang) {
+    // Like wrapCell(), but for a <span> rather than a <td> — appends the
+    // speaker button as a sibling after the span instead of wrapping its
+    // contents, so it doesn't disturb the span's own text/classes.
+    if (el.nextElementSibling && el.nextElementSibling.classList.contains('tts-btn')) return;
+    var text = el.textContent.trim();
+    if (!text || text === '—' || text === '-') return;
+    el.parentNode.insertBefore(createBtn(text, lang), el.nextSibling);
+  }
+
   function addButtonsToPersonDrills() {
     // Deliberately its own function, NOT folded into addButtonsToTables()'s
     // generic header-text matching. That generic path scans every <table>
@@ -154,7 +177,7 @@
       headers.forEach(function (th, i) {
         var text = th.textContent.trim().toLowerCase();
         if (text === 'deutsch' || text === 'kollokation' || text === 'wendung' ||
-            text === 'einfaches verb' || text === 'beispielsatz' || text === 'bedeutung' ||
+            text === 'einfaches verb' || text === 'bedeutung' ||
             text === 'neutral') {
           colMap.de.push(i);
         } else if (text === 'englisch') {
@@ -183,6 +206,7 @@
       });
     });
 
+    addButtonsToExampleSentences();
     addButtonsToPersonDrills();
 
     // Route to the right handler based on page type
