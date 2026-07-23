@@ -293,6 +293,9 @@
             background: #334155;
             color: #e2e8f0;
         }
+        .d-tts{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:none;background:none;cursor:pointer;opacity:.35;transition:opacity .2s;padding:0;margin-left:3px;vertical-align:middle;border-radius:50%;font-size:13px}
+        .d-tts:hover{opacity:.8;background:rgba(29,78,216,.1)}.d-tts.playing{opacity:1;color:#1d4ed8;background:rgba(29,78,216,.15)}
+        [data-bs-theme="dark"] .d-tts:hover{background:rgba(99,102,241,.2)}[data-bs-theme="dark"] .d-tts.playing{color:#818cf8;background:rgba(99,102,241,.25)}
     </style>
 </head>
 <body id="top">
@@ -1769,6 +1772,121 @@ Ich habe Frühstück gemacht. Ich habe ein Drama gesehen. Ich bin nach Lahore ge
     </script>
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+// TTS — same engine as dictionary.html / 10_notes.html, extended to also
+// handle this page's inline pattern: German sentence followed by an
+// <em>(English translation)</em>, used throughout the prose/list sections
+// rather than in tables.
+(function() {
+    if (!('speechSynthesis' in window)) return;
+    var synth = window.speechSynthesis;
+    var activeBtn = null;
+    var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+    function mkBtn(text, lang) {
+        var b = document.createElement('button');
+        b.className = 'd-tts'; b.innerHTML = svg;
+        b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+        b.onclick = function(e) {
+            e.preventDefault(); e.stopPropagation();
+            synth.cancel();
+            if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
+            if (activeBtn) activeBtn.classList.remove('playing');
+            var clean = text.replace(/\s+/g,' ').trim();
+            if (!clean) return;
+            var u = new SpeechSynthesisUtterance(clean);
+            u.lang = lang; u.rate = 0.9;
+            var voices = synth.getVoices();
+            var lp = lang.split('-')[0];
+            for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
+            b.classList.add('playing'); activeBtn = b;
+            u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
+            synth.speak(u);
+        };
+        return b;
+    }
+    var SKIP_HEADERS = ['english','englisch','urdu','اردو'];
+    var initialized = false;
+    function initTables() {
+        document.querySelectorAll('table').forEach(function(table) {
+            var ths = table.querySelectorAll('thead th');
+            var headers = Array.prototype.map.call(ths, function(th) { return th.textContent.trim().toLowerCase(); });
+            table.querySelectorAll('tbody tr').forEach(function(row) {
+                var cells = row.querySelectorAll('td');
+                cells.forEach(function(cell, i) {
+                    var header = headers[i] || '';
+                    var text = cell.textContent.trim();
+                    if (!text || cell.querySelector('.d-tts')) return;
+                    var isEnglish = /english|englisch/.test(header);
+                    if (SKIP_HEADERS.some(function(s){ return header.indexOf(s) > -1; }) && !isEnglish) return;
+                    var lang = isEnglish ? 'en-US' : 'de-DE';
+                    cell.appendChild(mkBtn(text, lang));
+                });
+            });
+        });
+    }
+    function initProse() {
+        // Handles "German sentence <em>(English translation)</em>" pattern
+        // found in <p> and <li> elements outside tables.
+        document.querySelectorAll('main li, main p').forEach(function(el) {
+            if (el.closest('table')) return;
+            if (el.querySelector('.d-tts')) return;
+            var ems = el.querySelectorAll('em');
+            if (!ems.length) return;
+            ems.forEach(function(em) {
+                var raw = em.textContent.trim();
+                var m = raw.match(/^\(([\s\S]+)\)$/);
+                if (!m) return; // only handle the "(...)" translation convention
+                var enText = m[1].trim();
+                if (!enText) return;
+                var enBtn = mkBtn(enText, 'en-US');
+                em.parentNode.insertBefore(enBtn, em.nextSibling);
+                // German: the text content of em's previous sibling run back to
+                // the last sentence boundary (., —, or start of element/line).
+                var node = em.previousSibling;
+                var pieces = [];
+                while (node) {
+                    if (node.nodeType === 3) { pieces.unshift(node.textContent); }
+                    else if (node.nodeName === 'BR') { break; }
+                    else if (node.nodeName === 'STRONG' || node.nodeName === 'SPAN') { pieces.unshift(node.textContent); }
+                    else { break; }
+                    node = node.previousSibling;
+                }
+                var segment = pieces.join('');
+                var deMatch = segment.match(/(?:^|[.—]|→)\s*([^.—→]*)$/);
+                var deText = deMatch ? deMatch[1].trim() : segment.trim();
+                deText = deText.replace(/^-+\s*/, '').trim();
+                if (deText) {
+                    var deBtn = mkBtn(deText, 'de-DE');
+                    em.parentNode.insertBefore(deBtn, em);
+                }
+            });
+        });
+    }
+    function initProseFallback() {
+        // Catches lines that are pure German with no <em>(English)</em> tag —
+        // e.g. dialogue turns (Was möchten Sie? — Ich möchte ...) and pattern
+        // drills (Ich treffe ihn.) in sections like 23/24 that initProse skips.
+        document.querySelectorAll('main li, main p').forEach(function(el) {
+            if (el.closest('table')) return;
+            if (el.querySelector('.d-tts')) return;
+            var text = el.textContent.trim();
+            if (!text || text.length < 2) return;
+            // skip pure fill-in-the-blank lines with no real words to speak
+            if (/^[-_\s.,0-9]+$/.test(text)) return;
+            el.appendChild(mkBtn(text, 'de-DE'));
+        });
+    }
+    function init() {
+        if (initialized) return;
+        initialized = true;
+        initTables();
+        initProse();
+        initProseFallback();
+    }
+    if (synth.getVoices().length > 0) init();
+    else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }
+})();
+</script>
 </body>
 </html>
 
