@@ -81755,5 +81755,365 @@
         "That interests them little."
       ]
     ]
+  },
+  {
+    "de": "die Straßenreinigung",
+    "en": "street cleaning",
+    "article": "die",
+    "level": "A2",
+    "example": "Die Müllabfuhr und die Straßenreinigung sorgen für eine saubere Stadt.",
+    "example_en": "Garbage collection and street cleaning keep the city clean.",
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Straßenreinigung.",
+        "I see the street cleaning."
+      ],
+      [
+        "Du siehst die Straßenreinigung.",
+        "You see the street cleaning."
+      ],
+      [
+        "Er sieht die Straßenreinigung.",
+        "He sees the street cleaning."
+      ],
+      [
+        "Wir sehen die Straßenreinigung.",
+        "We see the street cleaning."
+      ],
+      [
+        "Ihr seht die Straßenreinigung.",
+        "You all see the street cleaning."
+      ],
+      [
+        "Sie sehen die Straßenreinigung.",
+        "They see the street cleaning."
+      ]
+    ]
+  },
+  {
+    "de": "die Ordnung",
+    "en": "order",
+    "article": "die",
+    "level": "A2",
+    "example": "Der Beamte sorgt für Ordnung.",
+    "example_en": "The official ensures order.",
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Ordnung.",
+        "I see the order."
+      ],
+      [
+        "Du siehst die Ordnung.",
+        "You see the order."
+      ],
+      [
+        "Er sieht die Ordnung.",
+        "He sees the order."
+      ],
+      [
+        "Wir sehen die Ordnung.",
+        "We see the order."
+      ],
+      [
+        "Ihr seht die Ordnung.",
+        "You all see the order."
+      ],
+      [
+        "Sie sehen die Ordnung.",
+        "They see the order."
+      ]
+    ]
+  },
+  {
+    "de": "der Fahrer, -",
+    "en": "driver",
+    "article": "der",
+    "level": "A2",
+    "example": "Der Fahrer fährt den Bus.",
+    "example_en": "The driver drives the bus.",
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe den Fahrer.",
+        "I see the driver."
+      ],
+      [
+        "Du siehst den Fahrer.",
+        "You see the driver."
+      ],
+      [
+        "Er sieht den Fahrer.",
+        "He sees the driver."
+      ],
+      [
+        "Wir sehen den Fahrer.",
+        "We see the driver."
+      ],
+      [
+        "Ihr seht den Fahrer.",
+        "You all see the driver."
+      ],
+      [
+        "Sie sehen den Fahrer.",
+        "They see the driver."
+      ]
+    ]
+  },
+  {
+    "de": "die Fernbedienung, -en",
+    "en": "remote control",
+    "article": "die",
+    "level": "A2",
+    "example": "Wo ist die Fernbedienung für den Fernseher?",
+    "example_en": "Where is the remote control for the TV?",
+    "register": "everyday",
+    "person_sentences": [
+      [
+        "Ich sehe die Fernbedienung.",
+        "I see the remote control."
+      ],
+      [
+        "Du siehst die Fernbedienung.",
+        "You see the remote control."
+      ],
+      [
+        "Er sieht die Fernbedienung.",
+        "He sees the remote control."
+      ],
+      [
+        "Wir sehen die Fernbedienung.",
+        "We see the remote control."
+      ],
+      [
+        "Ihr seht die Fernbedienung.",
+        "You all see the remote control."
+      ],
+      [
+        "Sie sehen die Fernbedienung.",
+        "They see the remote control."
+      ]
+    ]
+  },
+  {
+    "de": "beschützen",
+    "en": "to protect",
+    "article": "",
+    "level": "A2",
+    "example": "Die Polizei beschützt die Leute.",
+    "example_en": "The police protect the people.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "beschützen",
+      "praesens_stamm": null,
+      "praeteritum_stamm": "beschützte",
+      "partizip2": "beschützt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    },
+    "person_sentences": [
+      [
+        "Ich beschütze die Leute.",
+        "I protect the people."
+      ],
+      [
+        "Du beschützt die Leute.",
+        "You protect the people."
+      ],
+      [
+        "Er beschützt die Leute.",
+        "He protects the people."
+      ],
+      [
+        "Wir beschützen die Leute.",
+        "We protect the people."
+      ],
+      [
+        "Ihr beschützt die Leute.",
+        "You all protect the people."
+      ],
+      [
+        "Sie beschützen die Leute.",
+        "They protect the people."
+      ]
+    ]
+  },
+  {
+    "de": "servieren",
+    "en": "to serve (food)",
+    "article": "",
+    "level": "A2",
+    "example": "Der Kellner serviert das Essen.",
+    "example_en": "The waiter serves the food.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "servieren",
+      "praesens_stamm": null,
+      "praeteritum_stamm": "servierte",
+      "partizip2": "serviert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    },
+    "person_sentences": [
+      [
+        "Ich serviere das Essen.",
+        "I serve the food."
+      ],
+      [
+        "Du servierst das Essen.",
+        "You serve the food."
+      ],
+      [
+        "Er serviert das Essen.",
+        "He serves the food."
+      ],
+      [
+        "Wir servieren das Essen.",
+        "We serve the food."
+      ],
+      [
+        "Ihr serviert das Essen.",
+        "You all serve the food."
+      ],
+      [
+        "Sie servieren das Essen.",
+        "They serve the food."
+      ]
+    ]
+  },
+  {
+    "de": "leeren",
+    "en": "to empty",
+    "article": "",
+    "level": "A2",
+    "example": "Die Müllabfuhr leert die Mülltonne.",
+    "example_en": "The garbage collection empties the bin.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "leeren",
+      "praesens_stamm": null,
+      "praeteritum_stamm": "leerte",
+      "partizip2": "geleert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    },
+    "person_sentences": [
+      [
+        "Ich leere die Mülltonne.",
+        "I empty the bin."
+      ],
+      [
+        "Du leerst die Mülltonne.",
+        "You empty the bin."
+      ],
+      [
+        "Er leert die Mülltonne.",
+        "He empties the bin."
+      ],
+      [
+        "Wir leeren die Mülltonne.",
+        "We empty the bin."
+      ],
+      [
+        "Ihr leert die Mülltonne.",
+        "You all empty the bin."
+      ],
+      [
+        "Sie leeren die Mülltonne.",
+        "They empty the bin."
+      ]
+    ]
+  },
+  {
+    "de": "bedienen",
+    "en": "to serve / to operate",
+    "article": "",
+    "level": "A2",
+    "example": "Der Kellner bedient die Gäste.",
+    "example_en": "The waiter serves the guests.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "bedienen",
+      "praesens_stamm": null,
+      "praeteritum_stamm": "bediente",
+      "partizip2": "bedient",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    },
+    "person_sentences": [
+      [
+        "Ich bediene die Gäste.",
+        "I serve the guests."
+      ],
+      [
+        "Du bedienst die Gäste.",
+        "You serve the guests."
+      ],
+      [
+        "Er bedient die Gäste.",
+        "He serves the guests."
+      ],
+      [
+        "Wir bedienen die Gäste.",
+        "We serve the guests."
+      ],
+      [
+        "Ihr bedient die Gäste.",
+        "You all serve the guests."
+      ],
+      [
+        "Sie bedienen die Gäste.",
+        "They serve the guests."
+      ]
+    ]
+  },
+  {
+    "de": "genehmigen",
+    "en": "to approve",
+    "article": "",
+    "level": "A2",
+    "example": "Der Beamte genehmigt die Aufenthaltserlaubnis.",
+    "example_en": "The official approves the residence permit.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "genehmigen",
+      "praesens_stamm": null,
+      "praeteritum_stamm": "genehmigte",
+      "partizip2": "genehmigt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    },
+    "person_sentences": [
+      [
+        "Ich genehmige den Urlaub.",
+        "I approve the vacation."
+      ],
+      [
+        "Du genehmigst den Urlaub.",
+        "You approve the vacation."
+      ],
+      [
+        "Er genehmigt den Urlaub.",
+        "He approves the vacation."
+      ],
+      [
+        "Wir genehmigen den Urlaub.",
+        "We approve the vacation."
+      ],
+      [
+        "Ihr genehmigt den Urlaub.",
+        "You all approve the vacation."
+      ],
+      [
+        "Sie genehmigen den Urlaub.",
+        "They approve the vacation."
+      ]
+    ]
   }
 ]
