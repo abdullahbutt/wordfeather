@@ -28822,6 +28822,50 @@
     }
   },
   {
+    "de": "sich treffen",
+    "en": "to meet up (with someone)",
+    "article": "",
+    "level": "A2",
+    "example": "Ich treffe mich am Wochenende mit meiner Freundin.",
+    "example_en": "I'm meeting up with my girlfriend on the weekend.",
+    "register": "everyday",
+    "conjugation": {
+      "infinitiv": "treffen",
+      "praesens_stamm": "triff",
+      "praeteritum_stamm": "traf",
+      "partizip2": "getroffen",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "mit + dative (person)"
+    },
+    "person_sentences": [
+      [
+        "Ich treffe mich mit meinem Freund.",
+        "I meet up with my friend."
+      ],
+      [
+        "Du triffst dich mit deinem Freund.",
+        "You meet up with your friend."
+      ],
+      [
+        "Er trifft sich mit seinem Freund.",
+        "He meets up with his friend."
+      ],
+      [
+        "Wir treffen uns mit unserem Freund.",
+        "We meet up with our friend."
+      ],
+      [
+        "Ihr trefft euch mit eurem Freund.",
+        "You all meet up with your friend."
+      ],
+      [
+        "Sie treffen sich mit ihrem Freund.",
+        "They meet up with their friend."
+      ]
+    ]
+  },
+  {
     "de": "treiben",
     "en": "to do (sports)",
     "article": "",

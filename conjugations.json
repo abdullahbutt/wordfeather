@@ -42833,6 +42833,164 @@
    ]
   }
  },
+ "sich treffen": {
+  "infinitiv": "treffen",
+  "partizip1": "treffend",
+  "partizip2": "getroffen",
+  "zu_infinitiv": "sich zu treffen",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "treffe mich",
+    "triffst dich",
+    "trifft sich",
+    "treffen uns",
+    "trefft euch",
+    "treffen sich"
+   ],
+   "praeteritum": [
+    "traf mich",
+    "trafst dich",
+    "traf sich",
+    "trafen uns",
+    "traft euch",
+    "trafen sich"
+   ],
+   "perfekt": [
+    "habe mich getroffen",
+    "hast dich getroffen",
+    "hat sich getroffen",
+    "haben uns getroffen",
+    "habt euch getroffen",
+    "haben sich getroffen"
+   ],
+   "plusquamperfekt": [
+    "hatte mich getroffen",
+    "hattest dich getroffen",
+    "hatte sich getroffen",
+    "hatten uns getroffen",
+    "hattet euch getroffen",
+    "hatten sich getroffen"
+   ],
+   "futur1": [
+    "werde mich treffen",
+    "wirst dich treffen",
+    "wird sich treffen",
+    "werden uns treffen",
+    "werdet euch treffen",
+    "werden sich treffen"
+   ],
+   "futur2": [
+    "werde mich getroffen haben",
+    "wirst dich getroffen haben",
+    "wird sich getroffen haben",
+    "werden uns getroffen haben",
+    "werdet euch getroffen haben",
+    "werden sich getroffen haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "treffe mich",
+    "treffest dich",
+    "treffe sich",
+    "treffen uns",
+    "treffet euch",
+    "treffen sich"
+   ],
+   "perfekt": [
+    "habe mich getroffen",
+    "habest dich getroffen",
+    "habe sich getroffen",
+    "haben uns getroffen",
+    "habet euch getroffen",
+    "haben sich getroffen"
+   ],
+   "futur1": [
+    "werde mich treffen",
+    "werdest dich treffen",
+    "werde sich treffen",
+    "werden uns treffen",
+    "werdet euch treffen",
+    "werden sich treffen"
+   ],
+   "futur2": [
+    "werde mich getroffen haben",
+    "werdest dich getroffen haben",
+    "werde sich getroffen haben",
+    "werden uns getroffen haben",
+    "werdet euch getroffen haben",
+    "werden sich getroffen haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde mich treffen",
+    "würdest dich treffen",
+    "würde sich treffen",
+    "würden uns treffen",
+    "würdet euch treffen",
+    "würden sich treffen"
+   ],
+   "plusquamperfekt": [
+    "hätte mich getroffen",
+    "hättest dich getroffen",
+    "hätte sich getroffen",
+    "hätten uns getroffen",
+    "hättet euch getroffen",
+    "hätten sich getroffen"
+   ],
+   "futur1": [
+    "würde mich treffen",
+    "würdest dich treffen",
+    "würde sich treffen",
+    "würden uns treffen",
+    "würdet euch treffen",
+    "würden sich treffen"
+   ],
+   "futur2": [
+    "würde mich getroffen haben",
+    "würdest dich getroffen haben",
+    "würde sich getroffen haben",
+    "würden uns getroffen haben",
+    "würdet euch getroffen haben",
+    "würden sich getroffen haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Triff dich!",
+   "ihr": "Trefft euch!",
+   "Sie": "Treffen Sie sich!",
+   "wir": "Treffen wir uns!"
+  },
+  "passiv": null,
+  "english": {
+   "praesens": [
+    "meet up (with someone)",
+    "meet up (with someone)",
+    "meets up (with someone)",
+    "meet up (with someone)",
+    "meet up (with someone)",
+    "meet up (with someone)"
+   ],
+   "praeteritum": [
+    "met up (with someone)",
+    "met up (with someone)",
+    "met up (with someone)",
+    "met up (with someone)",
+    "met up (with someone)",
+    "met up (with someone)"
+   ],
+   "perfekt": [
+    "have met up (with someone)",
+    "have met up (with someone)",
+    "has met up (with someone)",
+    "have met up (with someone)",
+    "have met up (with someone)",
+    "have met up (with someone)"
+   ]
+  }
+ },
  "treiben": {
   "infinitiv": "treiben",
   "partizip1": "treibend",
