@@ -122,7 +122,33 @@
       "hilfsverb": "sein",
       "trennbares_praefix": "ab",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich fahre um acht Uhr ab.",
+        "I depart at eight o'clock."
+      ],
+      [
+        "Du fährst um acht Uhr ab.",
+        "You depart at eight o'clock."
+      ],
+      [
+        "Er fährt um acht Uhr ab.",
+        "He departs at eight o'clock."
+      ],
+      [
+        "Wir fahren um acht Uhr ab.",
+        "We depart at eight o'clock."
+      ],
+      [
+        "Ihr fahrt um acht Uhr ab.",
+        "You all depart at eight o'clock."
+      ],
+      [
+        "Sie fahren um acht Uhr ab.",
+        "They depart at eight o'clock."
+      ]
+    ]
   },
   {
     "de": "die Abfahrt, -en",
@@ -279,7 +305,33 @@
       "trennbares_praefix": "ab",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich hole meine Tochter ab.",
+        "I pick up my daughter."
+      ],
+      [
+        "Du holst meine Tochter ab.",
+        "You pick up my daughter."
+      ],
+      [
+        "Er holt meine Tochter ab.",
+        "He picks up my daughter."
+      ],
+      [
+        "Wir holen meine Tochter ab.",
+        "We pick up my daughter."
+      ],
+      [
+        "Ihr holt meine Tochter ab.",
+        "You all pick up my daughter."
+      ],
+      [
+        "Sie holen meine Tochter ab.",
+        "They pick up my daughter."
+      ]
+    ]
   },
   {
     "de": "die Abholzung",
@@ -1037,7 +1089,33 @@
       "trennbares_praefix": "an",
       "transitiv": true,
       "governs": "accusative (or mit + dative)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich fange mit der Arbeit an.",
+        "I start the work."
+      ],
+      [
+        "Du fängst mit der Arbeit an.",
+        "You start the work."
+      ],
+      [
+        "Er fängt mit der Arbeit an.",
+        "He starts the work."
+      ],
+      [
+        "Wir fangen mit der Arbeit an.",
+        "We start the work."
+      ],
+      [
+        "Ihr fangt mit der Arbeit an.",
+        "You all start the work."
+      ],
+      [
+        "Sie fangen mit der Arbeit an.",
+        "They start the work."
+      ]
+    ]
   },
   {
     "de": "die Anforderung, -en",
@@ -1282,7 +1360,33 @@
       "trennbares_praefix": "an",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich nehme das Angebot an.",
+        "I accept the offer."
+      ],
+      [
+        "Du nimmst das Angebot an.",
+        "You accept the offer."
+      ],
+      [
+        "Er nimmt das Angebot an.",
+        "He accepts the offer."
+      ],
+      [
+        "Wir nehmen das Angebot an.",
+        "We accept the offer."
+      ],
+      [
+        "Ihr nehmt das Angebot an.",
+        "You all accept the offer."
+      ],
+      [
+        "Sie nehmen das Angebot an.",
+        "They accept the offer."
+      ]
+    ]
   },
   {
     "de": "die Annexion",
@@ -1381,7 +1485,33 @@
       "trennbares_praefix": "an",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich rufe meine Mutter an.",
+        "I call my mother."
+      ],
+      [
+        "Du rufst meine Mutter an.",
+        "You call my mother."
+      ],
+      [
+        "Er ruft meine Mutter an.",
+        "He calls my mother."
+      ],
+      [
+        "Wir rufen meine Mutter an.",
+        "We call my mother."
+      ],
+      [
+        "Ihr ruft meine Mutter an.",
+        "You all call my mother."
+      ],
+      [
+        "Sie rufen meine Mutter an.",
+        "They call my mother."
+      ]
+    ]
   },
   {
     "de": "der Ansatz, -̈e",
@@ -1592,7 +1722,33 @@
       "partizip2": "geantwortet",
       "hilfsverb": "haben",
       "governs": "dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich antworte dem Lehrer.",
+        "I answer the teacher."
+      ],
+      [
+        "Du antwortest dem Lehrer.",
+        "You answer the teacher."
+      ],
+      [
+        "Er antwortet dem Lehrer.",
+        "He answers the teacher."
+      ],
+      [
+        "Wir antworten dem Lehrer.",
+        "We answer the teacher."
+      ],
+      [
+        "Ihr antwortet dem Lehrer.",
+        "You all answer the teacher."
+      ],
+      [
+        "Sie antworten dem Lehrer.",
+        "They answer the teacher."
+      ]
+    ]
   },
   {
     "de": "der Anwalt, -̈e",
@@ -1701,7 +1857,33 @@
       "transitiv": false,
       "reflexiv": false,
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich arbeite jeden Tag.",
+        "I work every day."
+      ],
+      [
+        "Du arbeitest jeden Tag.",
+        "You work every day."
+      ],
+      [
+        "Er arbeitet jeden Tag.",
+        "He works every day."
+      ],
+      [
+        "Wir arbeiten jeden Tag.",
+        "We work every day."
+      ],
+      [
+        "Ihr arbeitet jeden Tag.",
+        "You all work every day."
+      ],
+      [
+        "Sie arbeiten jeden Tag.",
+        "They work every day."
+      ]
+    ]
   },
   {
     "de": "der Arbeitgeber, -",
@@ -6302,7 +6484,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich brauche mehr Zeit.",
+        "I need more time."
+      ],
+      [
+        "Du brauchst mehr Zeit.",
+        "You need more time."
+      ],
+      [
+        "Er braucht mehr Zeit.",
+        "He needs more time."
+      ],
+      [
+        "Wir brauchen mehr Zeit.",
+        "We need more time."
+      ],
+      [
+        "Ihr braucht mehr Zeit.",
+        "You all need more time."
+      ],
+      [
+        "Sie brauchen mehr Zeit.",
+        "They need more time."
+      ]
+    ]
   },
   {
     "de": "braun",
@@ -6382,7 +6590,33 @@
       "konj2_stamm": "bracht",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich bringe dir das Buch.",
+        "I bring you the book."
+      ],
+      [
+        "Du bringst mir das Buch.",
+        "You bring me the book."
+      ],
+      [
+        "Er bringt ihr das Buch.",
+        "He brings her the book."
+      ],
+      [
+        "Wir bringen euch das Buch.",
+        "We bring you all the book."
+      ],
+      [
+        "Ihr bringt uns das Buch.",
+        "You all bring us the book."
+      ],
+      [
+        "Sie bringen ihm das Buch.",
+        "They bring him the book."
+      ]
+    ]
   },
   {
     "de": "brisant",
@@ -6992,7 +7226,33 @@
       "partizip2": "gedauert",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich glaube, die Reise dauert lange.",
+        "I think the trip takes a long time."
+      ],
+      [
+        "Du sagst, der Film dauert lange.",
+        "You say the film takes a long time."
+      ],
+      [
+        "Er meint, der Kurs dauert lange.",
+        "He thinks the course takes a long time."
+      ],
+      [
+        "Wir wissen, das Meeting dauert lange.",
+        "We know the meeting takes a long time."
+      ],
+      [
+        "Ihr denkt, die Prüfung dauert lange.",
+        "You all think the exam takes a long time."
+      ],
+      [
+        "Sie sagen, die Fahrt dauert lange.",
+        "They say the drive takes a long time."
+      ]
+    ]
   },
   {
     "de": "die Debatte, -n",
@@ -7183,7 +7443,33 @@
       "hilfsverb": "haben",
       "konj2_stamm": "dächt",
       "governs": "an + accusative (or plain accusative)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich denke an dich.",
+        "I think of you."
+      ],
+      [
+        "Du denkst an mich.",
+        "You think of me."
+      ],
+      [
+        "Er denkt an sie.",
+        "He thinks of her."
+      ],
+      [
+        "Wir denken an euch.",
+        "We think of you all."
+      ],
+      [
+        "Ihr denkt an uns.",
+        "You all think of us."
+      ],
+      [
+        "Sie denken an ihn.",
+        "They think of him."
+      ]
+    ]
   },
   {
     "de": "denn",
@@ -7838,7 +8124,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich drücke den Knopf.",
+        "I press the button."
+      ],
+      [
+        "Du drückst den Knopf.",
+        "You press the button."
+      ],
+      [
+        "Er drückt den Knopf.",
+        "He presses the button."
+      ],
+      [
+        "Wir drücken den Knopf.",
+        "We press the button."
+      ],
+      [
+        "Ihr drückt den Knopf.",
+        "You all press the button."
+      ],
+      [
+        "Sie drücken den Knopf.",
+        "They press the button."
+      ]
+    ]
   },
   {
     "de": "dual",
@@ -7882,7 +8194,33 @@
       "konj2_stamm": "dürft",
       "kein_imperativ": true,
       "governs": "none (modal + infinitive)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich darf heute schwimmen gehen.",
+        "I am allowed to go swimming today."
+      ],
+      [
+        "Du darfst heute schwimmen gehen.",
+        "You are allowed to go swimming today."
+      ],
+      [
+        "Er darf heute schwimmen gehen.",
+        "He is allowed to go swimming today."
+      ],
+      [
+        "Wir dürfen heute schwimmen gehen.",
+        "We are allowed to go swimming today."
+      ],
+      [
+        "Ihr dürft heute schwimmen gehen.",
+        "You all are allowed to go swimming today."
+      ],
+      [
+        "Sie dürfen heute schwimmen gehen.",
+        "They are allowed to go swimming today."
+      ]
+    ]
   },
   {
     "de": "dürftig",
@@ -8283,7 +8621,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "ein",
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich kaufe im Supermarkt ein.",
+        "I shop at the supermarket."
+      ],
+      [
+        "Du kaufst im Supermarkt ein.",
+        "You shop at the supermarket."
+      ],
+      [
+        "Er kauft im Supermarkt ein.",
+        "He shops at the supermarket."
+      ],
+      [
+        "Wir kaufen im Supermarkt ein.",
+        "We shop at the supermarket."
+      ],
+      [
+        "Ihr kauft im Supermarkt ein.",
+        "You all shop at the supermarket."
+      ],
+      [
+        "Sie kaufen im Supermarkt ein.",
+        "They shop at the supermarket."
+      ]
+    ]
   },
   {
     "de": "der Einkaufswagen, -",
@@ -8355,7 +8719,33 @@
       "trennbares_praefix": "ein",
       "transitiv": true,
       "governs": "accusative (+ zu + dative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich lade dich zur Feier ein.",
+        "I invite you to the party."
+      ],
+      [
+        "Du lädst mich zur Feier ein.",
+        "You invite me to the party."
+      ],
+      [
+        "Er lädt sie zur Feier ein.",
+        "He invites her to the party."
+      ],
+      [
+        "Wir laden euch zur Feier ein.",
+        "We invite you all to the party."
+      ],
+      [
+        "Ihr ladet uns zur Feier ein.",
+        "You all invite us to the party."
+      ],
+      [
+        "Sie laden ihn zur Feier ein.",
+        "They invite him to the party."
+      ]
+    ]
   },
   {
     "de": "einmal",
@@ -8529,7 +8919,33 @@
         ]
       },
       "governs": "in + accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich steige in den Bus ein.",
+        "I get into the bus."
+      ],
+      [
+        "Du steigst in den Bus ein.",
+        "You get into the bus."
+      ],
+      [
+        "Er steigt in den Bus ein.",
+        "He gets into the bus."
+      ],
+      [
+        "Wir steigen in den Bus ein.",
+        "We get into the bus."
+      ],
+      [
+        "Ihr steigt in den Bus ein.",
+        "You all get into the bus."
+      ],
+      [
+        "Sie steigen in den Bus ein.",
+        "They get into the bus."
+      ]
+    ]
   },
   {
     "de": "die Eintrittskarte, -n",
@@ -8802,7 +9218,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich empfehle dir das Restaurant.",
+        "I recommend the restaurant to you."
+      ],
+      [
+        "Du empfiehlst mir das Restaurant.",
+        "You recommend the restaurant to me."
+      ],
+      [
+        "Er empfiehlt ihr das Restaurant.",
+        "He recommends the restaurant to her."
+      ],
+      [
+        "Wir empfehlen euch das Restaurant.",
+        "We recommend the restaurant to you all."
+      ],
+      [
+        "Ihr empfehlt uns das Restaurant.",
+        "You all recommend the restaurant to us."
+      ],
+      [
+        "Sie empfehlen ihm das Restaurant.",
+        "They recommend the restaurant to him."
+      ]
+    ]
   },
   {
     "de": "empirisch",
@@ -8888,7 +9330,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich entdecke eine neue Stadt.",
+        "I discover a new city."
+      ],
+      [
+        "Du entdeckst eine neue Stadt.",
+        "You discover a new city."
+      ],
+      [
+        "Er entdeckt eine neue Stadt.",
+        "He discovers a new city."
+      ],
+      [
+        "Wir entdecken eine neue Stadt.",
+        "We discover a new city."
+      ],
+      [
+        "Ihr entdeckt eine neue Stadt.",
+        "You all discover a new city."
+      ],
+      [
+        "Sie entdecken eine neue Stadt.",
+        "They discover a new city."
+      ]
+    ]
   },
   {
     "de": "die Entdeckung, -en",
@@ -9856,7 +10324,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich erzähle dir eine Geschichte.",
+        "I tell you a story."
+      ],
+      [
+        "Du erzählst mir eine Geschichte.",
+        "You tell me a story."
+      ],
+      [
+        "Er erzählt ihr eine Geschichte.",
+        "He tells her a story."
+      ],
+      [
+        "Wir erzählen euch eine Geschichte.",
+        "We tell you all a story."
+      ],
+      [
+        "Ihr erzählt uns eine Geschichte.",
+        "You all tell us a story."
+      ],
+      [
+        "Sie erzählen ihm eine Geschichte.",
+        "They tell him a story."
+      ]
+    ]
   },
   {
     "de": "die Erziehung",
@@ -10073,7 +10567,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich esse einen Apfel.",
+        "I eat an apple."
+      ],
+      [
+        "Du isst einen Apfel.",
+        "You eat an apple."
+      ],
+      [
+        "Er isst einen Apfel.",
+        "He eats an apple."
+      ],
+      [
+        "Wir essen einen Apfel.",
+        "We eat an apple."
+      ],
+      [
+        "Ihr esst einen Apfel.",
+        "You all eat an apple."
+      ],
+      [
+        "Sie essen einen Apfel.",
+        "They eat an apple."
+      ]
+    ]
   },
   {
     "de": "die Etage, -n",
@@ -10390,7 +10910,33 @@
       "partizip2": "gefahren",
       "hilfsverb": "sein",
       "governs": "accusative (optional, e.g. \"ein Auto fahren\")"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich fahre nach Berlin.",
+        "I drive to Berlin."
+      ],
+      [
+        "Du fährst nach Berlin.",
+        "You drive to Berlin."
+      ],
+      [
+        "Er fährt nach Berlin.",
+        "He drives to Berlin."
+      ],
+      [
+        "Wir fahren nach Berlin.",
+        "We drive to Berlin."
+      ],
+      [
+        "Ihr fahrt nach Berlin.",
+        "You all drive to Berlin."
+      ],
+      [
+        "Sie fahren nach Berlin.",
+        "They drive to Berlin."
+      ]
+    ]
   },
   {
     "de": "die Fahrkarte, -n",
@@ -10497,7 +11043,33 @@
       "partizip2": "gefehlt",
       "hilfsverb": "haben",
       "governs": "dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Mir fehlt die Zeit.",
+        "I am lacking time."
+      ],
+      [
+        "Dir fehlt die Zeit.",
+        "You are lacking time."
+      ],
+      [
+        "Ihr fehlt die Zeit.",
+        "She is lacking time."
+      ],
+      [
+        "Uns fehlt die Zeit.",
+        "We are lacking time."
+      ],
+      [
+        "Euch fehlt die Zeit.",
+        "You all are lacking time."
+      ],
+      [
+        "Ihnen fehlt die Zeit.",
+        "They are lacking time."
+      ]
+    ]
   },
   {
     "de": "der Fehler, -",
@@ -10532,7 +11104,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich feiere meinen Geburtstag.",
+        "I celebrate my birthday."
+      ],
+      [
+        "Du feierst deinen Geburtstag.",
+        "You celebrate your birthday."
+      ],
+      [
+        "Er feiert seinen Geburtstag.",
+        "He celebrates his birthday."
+      ],
+      [
+        "Wir feiern unseren Geburtstag.",
+        "We celebrate our birthday."
+      ],
+      [
+        "Ihr feiert euren Geburtstag.",
+        "You all celebrate your birthday."
+      ],
+      [
+        "Sie feiern ihren Geburtstag.",
+        "They celebrate their birthday."
+      ]
+    ]
   },
   {
     "de": "der Feiertag, -e",
@@ -10600,7 +11198,33 @@
       "hilfsverb": "haben",
       "trennbares_praefix": "fern",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich sehe abends fern.",
+        "I watch TV in the evening."
+      ],
+      [
+        "Du siehst abends fern.",
+        "You watch TV in the evening."
+      ],
+      [
+        "Er sieht abends fern.",
+        "He watches TV in the evening."
+      ],
+      [
+        "Wir sehen abends fern.",
+        "We watch TV in the evening."
+      ],
+      [
+        "Ihr seht abends fern.",
+        "You all watch TV in the evening."
+      ],
+      [
+        "Sie sehen abends fern.",
+        "They watch TV in the evening."
+      ]
+    ]
   },
   {
     "de": "der Fernseher, -",
@@ -10743,7 +11367,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich finde meinen Schlüssel nicht.",
+        "I can't find my key."
+      ],
+      [
+        "Du findest deinen Schlüssel nicht.",
+        "You can't find your key."
+      ],
+      [
+        "Er findet seinen Schlüssel nicht.",
+        "He can't find his key."
+      ],
+      [
+        "Wir finden unseren Schlüssel nicht.",
+        "We can't find our key."
+      ],
+      [
+        "Ihr findet euren Schlüssel nicht.",
+        "You all can't find your key."
+      ],
+      [
+        "Sie finden ihren Schlüssel nicht.",
+        "They can't find their key."
+      ]
+    ]
   },
   {
     "de": "der Finger, -",
@@ -10822,7 +11472,33 @@
       "partizip2": "geflogen",
       "hilfsverb": "sein",
       "governs": "none (or accusative: \"ein Flugzeug fliegen\")"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich fliege nach München.",
+        "I fly to Munich."
+      ],
+      [
+        "Du fliegst nach München.",
+        "You fly to Munich."
+      ],
+      [
+        "Er fliegt nach München.",
+        "He flies to Munich."
+      ],
+      [
+        "Wir fliegen nach München.",
+        "We fly to Munich."
+      ],
+      [
+        "Ihr fliegt nach München.",
+        "You all fly to Munich."
+      ],
+      [
+        "Sie fliegen nach München.",
+        "They fly to Munich."
+      ]
+    ]
   },
   {
     "de": "die Flüchtlinge (Pl.)",
@@ -11052,7 +11728,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (person) + nach + dative (topic, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich frage den Lehrer nach der Hausaufgabe.",
+        "I ask the teacher about the homework."
+      ],
+      [
+        "Du fragst den Lehrer nach der Hausaufgabe.",
+        "You ask the teacher about the homework."
+      ],
+      [
+        "Er fragt den Lehrer nach der Hausaufgabe.",
+        "He asks the teacher about the homework."
+      ],
+      [
+        "Wir fragen den Lehrer nach der Hausaufgabe.",
+        "We ask the teacher about the homework."
+      ],
+      [
+        "Ihr fragt den Lehrer nach der Hausaufgabe.",
+        "You all ask the teacher about the homework."
+      ],
+      [
+        "Sie fragen den Lehrer nach der Hausaufgabe.",
+        "They ask the teacher about the homework."
+      ]
+    ]
   },
   {
     "de": "die Fragmentierung",
@@ -11356,7 +12058,33 @@
       "partizip2": "gefrühstückt",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich frühstücke um sieben Uhr.",
+        "I have breakfast at seven o'clock."
+      ],
+      [
+        "Du frühstückst um sieben Uhr.",
+        "You have breakfast at seven o'clock."
+      ],
+      [
+        "Er frühstückt um sieben Uhr.",
+        "He has breakfast at seven o'clock."
+      ],
+      [
+        "Wir frühstücken um sieben Uhr.",
+        "We have breakfast at seven o'clock."
+      ],
+      [
+        "Ihr frühstückt um sieben Uhr.",
+        "You all have breakfast at seven o'clock."
+      ],
+      [
+        "Sie frühstücken um sieben Uhr.",
+        "They have breakfast at seven o'clock."
+      ]
+    ]
   },
   {
     "de": "fühlen",
@@ -11373,7 +12101,33 @@
       "hilfsverb": "haben",
       "reflexiv": true,
       "governs": "none (+ predicate adjective, e.g. \"sich wohl fühlen\")"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich fühle mich heute gut.",
+        "I feel good today."
+      ],
+      [
+        "Du fühlst dich heute gut.",
+        "You feel good today."
+      ],
+      [
+        "Er fühlt sich heute gut.",
+        "He feels good today."
+      ],
+      [
+        "Wir fühlen uns heute gut.",
+        "We feel good today."
+      ],
+      [
+        "Ihr fühlt euch heute gut.",
+        "You all feel good today."
+      ],
+      [
+        "Sie fühlen sich heute gut.",
+        "They feel good today."
+      ]
+    ]
   },
   {
     "de": "die Führung, -en",
@@ -11725,7 +12479,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich gebe dir das Geld.",
+        "I give you the money."
+      ],
+      [
+        "Du gibst mir das Geld.",
+        "You give me the money."
+      ],
+      [
+        "Er gibt ihr das Geld.",
+        "He gives her the money."
+      ],
+      [
+        "Wir geben euch das Geld.",
+        "We give you all the money."
+      ],
+      [
+        "Ihr gebt uns das Geld.",
+        "You all give us the money."
+      ],
+      [
+        "Sie geben ihm das Geld.",
+        "They give him the money."
+      ]
+    ]
   },
   {
     "de": "gebraucht",
@@ -11827,7 +12607,33 @@
       "partizip2": "gefallen",
       "hilfsverb": "haben",
       "governs": "dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Mir gefällt die Stadt.",
+        "I like the city."
+      ],
+      [
+        "Dir gefällt die Stadt.",
+        "You like the city."
+      ],
+      [
+        "Ihm gefällt die Stadt.",
+        "He likes the city."
+      ],
+      [
+        "Uns gefällt die Stadt.",
+        "We like the city."
+      ],
+      [
+        "Euch gefällt die Stadt.",
+        "You all like the city."
+      ],
+      [
+        "Ihnen gefällt die Stadt.",
+        "They like the city."
+      ]
+    ]
   },
   {
     "de": "das Gefühl, -e",
@@ -11982,7 +12788,33 @@
       "partizip2": "gegangen",
       "hilfsverb": "sein",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich gehe zur Arbeit.",
+        "I go to work."
+      ],
+      [
+        "Du gehst zur Arbeit.",
+        "You go to work."
+      ],
+      [
+        "Er geht zur Arbeit.",
+        "He goes to work."
+      ],
+      [
+        "Wir gehen zur Arbeit.",
+        "We go to work."
+      ],
+      [
+        "Ihr geht zur Arbeit.",
+        "You all go to work."
+      ],
+      [
+        "Sie gehen zur Arbeit.",
+        "They go to work."
+      ]
+    ]
   },
   {
     "de": "geläutert",
@@ -13234,7 +14066,33 @@
         "wir": "Haben wir!"
       },
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich habe ein Auto.",
+        "I have a car."
+      ],
+      [
+        "Du hast ein Auto.",
+        "You have a car."
+      ],
+      [
+        "Er hat ein Auto.",
+        "He has a car."
+      ],
+      [
+        "Wir haben ein Auto.",
+        "We have a car."
+      ],
+      [
+        "Ihr habt ein Auto.",
+        "You all have a car."
+      ],
+      [
+        "Sie haben ein Auto.",
+        "They have a car."
+      ]
+    ]
   },
   {
     "de": "das Hähnchen, -",
@@ -13656,7 +14514,33 @@
       "partizip2": "geheißen",
       "hilfsverb": "haben",
       "governs": "none (+ predicate name)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich heiße Ahmad.",
+        "My name is Ahmad."
+      ],
+      [
+        "Du heißt Ahmad.",
+        "Your name is Ahmad."
+      ],
+      [
+        "Er heißt Ahmad.",
+        "His name is Ahmad."
+      ],
+      [
+        "Wir heißen Ahmad und Sara.",
+        "Our names are Ahmad and Sara."
+      ],
+      [
+        "Ihr heißt Ahmad und Sara.",
+        "Your names are Ahmad and Sara."
+      ],
+      [
+        "Sie heißen Ahmad und Sara.",
+        "Their names are Ahmad and Sara."
+      ]
+    ]
   },
   {
     "de": "die Heizung, -en",
@@ -13708,7 +14592,33 @@
       "partizip2": "geholfen",
       "hilfsverb": "haben",
       "governs": "dative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich helfe dir gern.",
+        "I gladly help you."
+      ],
+      [
+        "Du hilfst mir gern.",
+        "You gladly help me."
+      ],
+      [
+        "Er hilft ihr gern.",
+        "He gladly helps her."
+      ],
+      [
+        "Wir helfen euch gern.",
+        "We gladly help you all."
+      ],
+      [
+        "Ihr helft uns gern.",
+        "You all gladly help us."
+      ],
+      [
+        "Sie helfen ihm gern.",
+        "They gladly help him."
+      ]
+    ]
   },
   {
     "de": "hell",
@@ -15434,7 +16344,33 @@
       "partizip2": "gejoggt",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich jogge im Park.",
+        "I jog in the park."
+      ],
+      [
+        "Du joggst im Park.",
+        "You jog in the park."
+      ],
+      [
+        "Er joggt im Park.",
+        "He jogs in the park."
+      ],
+      [
+        "Wir joggen im Park.",
+        "We jog in the park."
+      ],
+      [
+        "Ihr joggt im Park.",
+        "You all jog in the park."
+      ],
+      [
+        "Sie joggen im Park.",
+        "They jog in the park."
+      ]
+    ]
   },
   {
     "de": "der Journalist, -en",
@@ -15749,7 +16685,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich kaufe ein neues Handy.",
+        "I buy a new phone."
+      ],
+      [
+        "Du kaufst ein neues Handy.",
+        "You buy a new phone."
+      ],
+      [
+        "Er kauft ein neues Handy.",
+        "He buys a new phone."
+      ],
+      [
+        "Wir kaufen ein neues Handy.",
+        "We buy a new phone."
+      ],
+      [
+        "Ihr kauft ein neues Handy.",
+        "You all buy a new phone."
+      ],
+      [
+        "Sie kaufen ein neues Handy.",
+        "They buy a new phone."
+      ]
+    ]
   },
   {
     "de": "das Kaufhaus, -̈er",
@@ -15886,7 +16848,33 @@
         ]
       },
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich kenne diese Stadt gut.",
+        "I know this city well."
+      ],
+      [
+        "Du kennst diese Stadt gut.",
+        "You know this city well."
+      ],
+      [
+        "Er kennt diese Stadt gut.",
+        "He knows this city well."
+      ],
+      [
+        "Wir kennen diese Stadt gut.",
+        "We know this city well."
+      ],
+      [
+        "Ihr kennt diese Stadt gut.",
+        "You all know this city well."
+      ],
+      [
+        "Sie kennen diese Stadt gut.",
+        "They know this city well."
+      ]
+    ]
   },
   {
     "de": "die Kernfusion",
@@ -16377,7 +17365,33 @@
       "partizip2": "geklettert",
       "hilfsverb": "sein",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich klettere auf den Berg.",
+        "I climb the mountain."
+      ],
+      [
+        "Du kletterst auf den Berg.",
+        "You climb the mountain."
+      ],
+      [
+        "Er klettert auf den Berg.",
+        "He climbs the mountain."
+      ],
+      [
+        "Wir klettern auf den Berg.",
+        "We climb the mountain."
+      ],
+      [
+        "Ihr klettert auf den Berg.",
+        "You all climb the mountain."
+      ],
+      [
+        "Sie klettern auf den Berg.",
+        "They climb the mountain."
+      ]
+    ]
   },
   {
     "de": "klicken",
@@ -16605,7 +17619,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich koche das Abendessen.",
+        "I cook dinner."
+      ],
+      [
+        "Du kochst das Abendessen.",
+        "You cook dinner."
+      ],
+      [
+        "Er kocht das Abendessen.",
+        "He cooks dinner."
+      ],
+      [
+        "Wir kochen das Abendessen.",
+        "We cook dinner."
+      ],
+      [
+        "Ihr kocht das Abendessen.",
+        "You all cook dinner."
+      ],
+      [
+        "Sie kochen das Abendessen.",
+        "They cook dinner."
+      ]
+    ]
   },
   {
     "de": "können",
@@ -17010,7 +18050,33 @@
       "partizip2": "gekostet",
       "hilfsverb": "haben",
       "governs": "accusative (amount)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich glaube, das Buch kostet zehn Euro.",
+        "I think the book costs ten euros."
+      ],
+      [
+        "Du sagst, das Buch kostet zehn Euro.",
+        "You say the book costs ten euros."
+      ],
+      [
+        "Er meint, das Buch kostet zehn Euro.",
+        "He thinks the book costs ten euros."
+      ],
+      [
+        "Wir wissen, das Buch kostet zehn Euro.",
+        "We know the book costs ten euros."
+      ],
+      [
+        "Ihr denkt, das Buch kostet zehn Euro.",
+        "You all think the book costs ten euros."
+      ],
+      [
+        "Sie sagen, das Buch kostet zehn Euro.",
+        "They say the book costs ten euros."
+      ]
+    ]
   },
   {
     "de": "kostenlos",
@@ -17639,7 +18705,33 @@
       "partizip2": "gelacht",
       "hilfsverb": "haben",
       "governs": "über + accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich lache über den Witz.",
+        "I laugh at the joke."
+      ],
+      [
+        "Du lachst über den Witz.",
+        "You laugh at the joke."
+      ],
+      [
+        "Er lacht über den Witz.",
+        "He laughs at the joke."
+      ],
+      [
+        "Wir lachen über den Witz.",
+        "We laugh at the joke."
+      ],
+      [
+        "Ihr lacht über den Witz.",
+        "You all laugh at the joke."
+      ],
+      [
+        "Sie lachen über den Witz.",
+        "They laugh at the joke."
+      ]
+    ]
   },
   {
     "de": "das Ladegerät, -e",
@@ -17863,7 +18955,33 @@
       "partizip2": "gelaufen",
       "hilfsverb": "sein",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich laufe jeden Morgen.",
+        "I run every morning."
+      ],
+      [
+        "Du läufst jeden Morgen.",
+        "You run every morning."
+      ],
+      [
+        "Er läuft jeden Morgen.",
+        "He runs every morning."
+      ],
+      [
+        "Wir laufen jeden Morgen.",
+        "We run every morning."
+      ],
+      [
+        "Ihr lauft jeden Morgen.",
+        "You all run every morning."
+      ],
+      [
+        "Sie laufen jeden Morgen.",
+        "They run every morning."
+      ]
+    ]
   },
   {
     "de": "die Laune, -n",
@@ -17923,7 +19041,33 @@
       "partizip2": "gelebt",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich lebe gern in Deutschland.",
+        "I like living in Germany."
+      ],
+      [
+        "Du lebst gern in Deutschland.",
+        "You like living in Germany."
+      ],
+      [
+        "Er lebt gern in Deutschland.",
+        "He likes living in Germany."
+      ],
+      [
+        "Wir leben gern in Deutschland.",
+        "We like living in Germany."
+      ],
+      [
+        "Ihr lebt gern in Deutschland.",
+        "You all like living in Germany."
+      ],
+      [
+        "Sie leben gern in Deutschland.",
+        "They like living in Germany."
+      ]
+    ]
   },
   {
     "de": "die Lebenserwartung",
@@ -18271,7 +19415,33 @@
         ]
       },
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich leihe dir mein Auto.",
+        "I lend you my car."
+      ],
+      [
+        "Du leihst mir dein Auto.",
+        "You lend me your car."
+      ],
+      [
+        "Er leiht ihr sein Auto.",
+        "He lends her his car."
+      ],
+      [
+        "Wir leihen euch unser Auto.",
+        "We lend you all our car."
+      ],
+      [
+        "Ihr leiht uns euer Auto.",
+        "You all lend us your car."
+      ],
+      [
+        "Sie leihen ihm ihr Auto.",
+        "They lend him their car."
+      ]
+    ]
   },
   {
     "de": "leihen",
@@ -18385,7 +19555,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich lerne Deutsch.",
+        "I learn German."
+      ],
+      [
+        "Du lernst Deutsch.",
+        "You learn German."
+      ],
+      [
+        "Er lernt Deutsch.",
+        "He learns German."
+      ],
+      [
+        "Wir lernen Deutsch.",
+        "We learn German."
+      ],
+      [
+        "Ihr lernt Deutsch.",
+        "You all learn German."
+      ],
+      [
+        "Sie lernen Deutsch.",
+        "They learn German."
+      ]
+    ]
   },
   {
     "de": "lesen",
@@ -18403,7 +19599,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich lese ein Buch.",
+        "I read a book."
+      ],
+      [
+        "Du liest ein Buch.",
+        "You read a book."
+      ],
+      [
+        "Er liest ein Buch.",
+        "He reads a book."
+      ],
+      [
+        "Wir lesen ein Buch.",
+        "We read a book."
+      ],
+      [
+        "Ihr lest ein Buch.",
+        "You all read a book."
+      ],
+      [
+        "Sie lesen ein Buch.",
+        "They read a book."
+      ]
+    ]
   },
   {
     "de": "die Leute (Pl.)",
@@ -18464,7 +19686,33 @@
       "partizip2": "gelegen",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich liege im Bett.",
+        "I am lying in bed."
+      ],
+      [
+        "Du liegst im Bett.",
+        "You are lying in bed."
+      ],
+      [
+        "Er liegt im Bett.",
+        "He is lying in bed."
+      ],
+      [
+        "Wir liegen im Bett.",
+        "We are lying in bed."
+      ],
+      [
+        "Ihr liegt im Bett.",
+        "You all are lying in bed."
+      ],
+      [
+        "Sie liegen im Bett.",
+        "They are lying in bed."
+      ]
+    ]
   },
   {
     "de": "das Lineal, -e",
@@ -18728,7 +19976,33 @@
       "transitiv": true,
       "reflexiv": false,
       "governs": "accusative (+ zu + dative, optional: \"etwas zu etwas machen\")"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich mache die Hausaufgaben.",
+        "I do the homework."
+      ],
+      [
+        "Du machst die Hausaufgaben.",
+        "You do the homework."
+      ],
+      [
+        "Er macht die Hausaufgaben.",
+        "He does the homework."
+      ],
+      [
+        "Wir machen die Hausaufgaben.",
+        "We do the homework."
+      ],
+      [
+        "Ihr macht die Hausaufgaben.",
+        "You all do the homework."
+      ],
+      [
+        "Sie machen die Hausaufgaben.",
+        "They do the homework."
+      ]
+    ]
   },
   {
     "de": "die Machtausübung",
@@ -19157,7 +20431,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich meine, das ist richtig.",
+        "I think that is correct."
+      ],
+      [
+        "Du meinst, das ist richtig.",
+        "You think that is correct."
+      ],
+      [
+        "Er meint, das ist richtig.",
+        "He thinks that is correct."
+      ],
+      [
+        "Wir meinen, das ist richtig.",
+        "We think that is correct."
+      ],
+      [
+        "Ihr meint, das ist richtig.",
+        "You all think that is correct."
+      ],
+      [
+        "Sie meinen, das ist richtig.",
+        "They think that is correct."
+      ]
+    ]
   },
   {
     "de": "die Meinungsfreiheit",
@@ -20798,7 +22098,33 @@
       "transitiv": true,
       "reflexiv": false,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich nehme den Bus.",
+        "I take the bus."
+      ],
+      [
+        "Du nimmst den Bus.",
+        "You take the bus."
+      ],
+      [
+        "Er nimmt den Bus.",
+        "He takes the bus."
+      ],
+      [
+        "Wir nehmen den Bus.",
+        "We take the bus."
+      ],
+      [
+        "Ihr nehmt den Bus.",
+        "You all take the bus."
+      ],
+      [
+        "Sie nehmen den Bus.",
+        "They take the bus."
+      ]
+    ]
   },
   {
     "de": "nein",
@@ -21439,7 +22765,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich öffne das Fenster.",
+        "I open the window."
+      ],
+      [
+        "Du öffnest das Fenster.",
+        "You open the window."
+      ],
+      [
+        "Er öffnet das Fenster.",
+        "He opens the window."
+      ],
+      [
+        "Wir öffnen das Fenster.",
+        "We open the window."
+      ],
+      [
+        "Ihr öffnet das Fenster.",
+        "You all open the window."
+      ],
+      [
+        "Sie öffnen das Fenster.",
+        "They open the window."
+      ]
+    ]
   },
   {
     "de": "die Öffnungszeit, -en",
@@ -21847,7 +23199,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich packe meinen Koffer.",
+        "I pack my suitcase."
+      ],
+      [
+        "Du packst deinen Koffer.",
+        "You pack your suitcase."
+      ],
+      [
+        "Er packt seinen Koffer.",
+        "He packs his suitcase."
+      ],
+      [
+        "Wir packen unseren Koffer.",
+        "We pack our suitcase."
+      ],
+      [
+        "Ihr packt euren Koffer.",
+        "You all pack your suitcase."
+      ],
+      [
+        "Sie packen ihren Koffer.",
+        "They pack their suitcase."
+      ]
+    ]
   },
   {
     "de": "das Paket, -e",
@@ -23077,7 +24455,33 @@
       "partizip2": "geraucht",
       "hilfsverb": "haben",
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich rauche nicht.",
+        "I don't smoke."
+      ],
+      [
+        "Du rauchst nicht.",
+        "You don't smoke."
+      ],
+      [
+        "Er raucht nicht.",
+        "He doesn't smoke."
+      ],
+      [
+        "Wir rauchen nicht.",
+        "We don't smoke."
+      ],
+      [
+        "Ihr raucht nicht.",
+        "You all don't smoke."
+      ],
+      [
+        "Sie rauchen nicht.",
+        "They don't smoke."
+      ]
+    ]
   },
   {
     "de": "der Raum, -̈e",
@@ -24290,7 +25694,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (+ dative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich sage dir die Wahrheit.",
+        "I tell you the truth."
+      ],
+      [
+        "Du sagst mir die Wahrheit.",
+        "You tell me the truth."
+      ],
+      [
+        "Er sagt ihr die Wahrheit.",
+        "He tells her the truth."
+      ],
+      [
+        "Wir sagen euch die Wahrheit.",
+        "We tell you all the truth."
+      ],
+      [
+        "Ihr sagt uns die Wahrheit.",
+        "You all tell us the truth."
+      ],
+      [
+        "Sie sagen ihm die Wahrheit.",
+        "They tell him the truth."
+      ]
+    ]
   },
   {
     "de": "die Sahne",
@@ -24454,7 +25884,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schaffe die Prüfung.",
+        "I manage the exam."
+      ],
+      [
+        "Du schaffst die Prüfung.",
+        "You manage the exam."
+      ],
+      [
+        "Er schafft die Prüfung.",
+        "He manages the exam."
+      ],
+      [
+        "Wir schaffen die Prüfung.",
+        "We manage the exam."
+      ],
+      [
+        "Ihr schafft die Prüfung.",
+        "You all manage the exam."
+      ],
+      [
+        "Sie schaffen die Prüfung.",
+        "They manage the exam."
+      ]
+    ]
   },
   {
     "de": "der Schatten",
@@ -24505,7 +25961,33 @@
       "partizip2": "geschaut",
       "hilfsverb": "haben",
       "governs": "auf + accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schaue auf die Uhr.",
+        "I look at the clock."
+      ],
+      [
+        "Du schaust auf die Uhr.",
+        "You look at the clock."
+      ],
+      [
+        "Er schaut auf die Uhr.",
+        "He looks at the clock."
+      ],
+      [
+        "Wir schauen auf die Uhr.",
+        "We look at the clock."
+      ],
+      [
+        "Ihr schaut auf die Uhr.",
+        "You all look at the clock."
+      ],
+      [
+        "Sie schauen auf die Uhr.",
+        "They look at the clock."
+      ]
+    ]
   },
   {
     "de": "die Scheidung, -en",
@@ -24557,7 +26039,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schenke dir ein Buch.",
+        "I give you a book as a gift."
+      ],
+      [
+        "Du schenkst mir ein Buch.",
+        "You give me a book as a gift."
+      ],
+      [
+        "Er schenkt ihr ein Buch.",
+        "He gives her a book as a gift."
+      ],
+      [
+        "Wir schenken euch ein Buch.",
+        "We give you all a book as a gift."
+      ],
+      [
+        "Ihr schenkt uns ein Buch.",
+        "You all give us a book as a gift."
+      ],
+      [
+        "Sie schenken ihm ein Buch.",
+        "They give him a book as a gift."
+      ]
+    ]
   },
   {
     "de": "schicken",
@@ -24574,7 +26082,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schicke dir eine E-Mail.",
+        "I send you an email."
+      ],
+      [
+        "Du schickst mir eine E-Mail.",
+        "You send me an email."
+      ],
+      [
+        "Er schickt ihr eine E-Mail.",
+        "He sends her an email."
+      ],
+      [
+        "Wir schicken euch eine E-Mail.",
+        "We send you all an email."
+      ],
+      [
+        "Ihr schickt uns eine E-Mail.",
+        "You all send us an email."
+      ],
+      [
+        "Sie schicken ihm eine E-Mail.",
+        "They send him an email."
+      ]
+    ]
   },
   {
     "de": "der Schinken, -",
@@ -24600,7 +26134,33 @@
       "partizip2": "geschlafen",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schlafe acht Stunden.",
+        "I sleep eight hours."
+      ],
+      [
+        "Du schläfst acht Stunden.",
+        "You sleep eight hours."
+      ],
+      [
+        "Er schläft acht Stunden.",
+        "He sleeps eight hours."
+      ],
+      [
+        "Wir schlafen acht Stunden.",
+        "We sleep eight hours."
+      ],
+      [
+        "Ihr schlaft acht Stunden.",
+        "You all sleep eight hours."
+      ],
+      [
+        "Sie schlafen acht Stunden.",
+        "They sleep eight hours."
+      ]
+    ]
   },
   {
     "de": "das Schlafzimmer, -",
@@ -24658,7 +26218,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schließe die Tür.",
+        "I close the door."
+      ],
+      [
+        "Du schließt die Tür.",
+        "You close the door."
+      ],
+      [
+        "Er schließt die Tür.",
+        "He closes the door."
+      ],
+      [
+        "Wir schließen die Tür.",
+        "We close the door."
+      ],
+      [
+        "Ihr schließt die Tür.",
+        "You all close the door."
+      ],
+      [
+        "Sie schließen die Tür.",
+        "They close the door."
+      ]
+    ]
   },
   {
     "de": "schlimm",
@@ -24827,7 +26413,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schneide das Brot.",
+        "I cut the bread."
+      ],
+      [
+        "Du schneidest das Brot.",
+        "You cut the bread."
+      ],
+      [
+        "Er schneidet das Brot.",
+        "He cuts the bread."
+      ],
+      [
+        "Wir schneiden das Brot.",
+        "We cut the bread."
+      ],
+      [
+        "Ihr schneidet das Brot.",
+        "You all cut the bread."
+      ],
+      [
+        "Sie schneiden das Brot.",
+        "They cut the bread."
+      ]
+    ]
   },
   {
     "de": "schnell",
@@ -24921,7 +26533,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (+ dative, optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schreibe einen Brief.",
+        "I write a letter."
+      ],
+      [
+        "Du schreibst einen Brief.",
+        "You write a letter."
+      ],
+      [
+        "Er schreibt einen Brief.",
+        "He writes a letter."
+      ],
+      [
+        "Wir schreiben einen Brief.",
+        "We write a letter."
+      ],
+      [
+        "Ihr schreibt einen Brief.",
+        "You all write a letter."
+      ],
+      [
+        "Sie schreiben einen Brief.",
+        "They write a letter."
+      ]
+    ]
   },
   {
     "de": "schüchtern",
@@ -25096,7 +26734,33 @@
       "transitiv": false,
       "reflexiv": false,
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich schwimme im See.",
+        "I swim in the lake."
+      ],
+      [
+        "Du schwimmst im See.",
+        "You swim in the lake."
+      ],
+      [
+        "Er schwimmt im See.",
+        "He swims in the lake."
+      ],
+      [
+        "Wir schwimmen im See.",
+        "We swim in the lake."
+      ],
+      [
+        "Ihr schwimmt im See.",
+        "You all swim in the lake."
+      ],
+      [
+        "Sie schwimmen im See.",
+        "They swim in the lake."
+      ]
+    ]
   },
   {
     "de": "die See",
@@ -25137,7 +26801,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich sehe den Vogel.",
+        "I see the bird."
+      ],
+      [
+        "Du siehst den Vogel.",
+        "You see the bird."
+      ],
+      [
+        "Er sieht den Vogel.",
+        "He sees the bird."
+      ],
+      [
+        "Wir sehen den Vogel.",
+        "We see the bird."
+      ],
+      [
+        "Ihr seht den Vogel.",
+        "You all see the bird."
+      ],
+      [
+        "Sie sehen den Vogel.",
+        "They see the bird."
+      ]
+    ]
   },
   {
     "de": "sehr",
@@ -26944,7 +28634,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich spiele Fußball.",
+        "I play football."
+      ],
+      [
+        "Du spielst Fußball.",
+        "You play football."
+      ],
+      [
+        "Er spielt Fußball.",
+        "He plays football."
+      ],
+      [
+        "Wir spielen Fußball.",
+        "We play football."
+      ],
+      [
+        "Ihr spielt Fußball.",
+        "You all play football."
+      ],
+      [
+        "Sie spielen Fußball.",
+        "They play football."
+      ]
+    ]
   },
   {
     "de": "der Spielplatz, -̈e",
@@ -26988,7 +28704,33 @@
       "partizip2": "gesprochen",
       "hilfsverb": "haben",
       "governs": "mit + dative / über + accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich spreche mit meinem Kollegen.",
+        "I speak with my colleague."
+      ],
+      [
+        "Du sprichst mit deinem Kollegen.",
+        "You speak with your colleague."
+      ],
+      [
+        "Er spricht mit seinem Kollegen.",
+        "He speaks with his colleague."
+      ],
+      [
+        "Wir sprechen mit unserem Kollegen.",
+        "We speak with our colleague."
+      ],
+      [
+        "Ihr sprecht mit eurem Kollegen.",
+        "You all speak with your colleague."
+      ],
+      [
+        "Sie sprechen mit ihrem Kollegen.",
+        "They speak with their colleague."
+      ]
+    ]
   },
   {
     "de": "die Sprechstunde, -n",
@@ -27280,7 +29022,33 @@
       "partizip2": "gestanden",
       "hilfsverb": "haben",
       "governs": "none (to stand) / für + accusative (to represent, \"das Symbol steht für...\")"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich stehe an der Haltestelle.",
+        "I am standing at the bus stop."
+      ],
+      [
+        "Du stehst an der Haltestelle.",
+        "You are standing at the bus stop."
+      ],
+      [
+        "Er steht an der Haltestelle.",
+        "He is standing at the bus stop."
+      ],
+      [
+        "Wir stehen an der Haltestelle.",
+        "We are standing at the bus stop."
+      ],
+      [
+        "Ihr steht an der Haltestelle.",
+        "You all are standing at the bus stop."
+      ],
+      [
+        "Sie stehen an der Haltestelle.",
+        "They are standing at the bus stop."
+      ]
+    ]
   },
   {
     "de": "der Stein, -e",
@@ -27789,7 +29557,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich studiere Informatik.",
+        "I study computer science."
+      ],
+      [
+        "Du studierst Informatik.",
+        "You study computer science."
+      ],
+      [
+        "Er studiert Informatik.",
+        "He studies computer science."
+      ],
+      [
+        "Wir studieren Informatik.",
+        "We study computer science."
+      ],
+      [
+        "Ihr studiert Informatik.",
+        "You all study computer science."
+      ],
+      [
+        "Sie studieren Informatik.",
+        "They study computer science."
+      ]
+    ]
   },
   {
     "de": "das Studium",
@@ -27977,7 +29771,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich suche meinen Schlüssel.",
+        "I am looking for my key."
+      ],
+      [
+        "Du suchst deinen Schlüssel.",
+        "You are looking for your key."
+      ],
+      [
+        "Er sucht seinen Schlüssel.",
+        "He is looking for his key."
+      ],
+      [
+        "Wir suchen unseren Schlüssel.",
+        "We are looking for our key."
+      ],
+      [
+        "Ihr sucht euren Schlüssel.",
+        "You all are looking for your key."
+      ],
+      [
+        "Sie suchen ihren Schlüssel.",
+        "They are looking for their key."
+      ]
+    ]
   },
   {
     "de": "die Suchmaschine, -n",
@@ -28252,7 +30072,33 @@
       "partizip2": "getanzt",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich tanze gern.",
+        "I like to dance."
+      ],
+      [
+        "Du tanzt gern.",
+        "You like to dance."
+      ],
+      [
+        "Er tanzt gern.",
+        "He likes to dance."
+      ],
+      [
+        "Wir tanzen gern.",
+        "We like to dance."
+      ],
+      [
+        "Ihr tanzt gern.",
+        "You all like to dance."
+      ],
+      [
+        "Sie tanzen gern.",
+        "They like to dance."
+      ]
+    ]
   },
   {
     "de": "die Tasche, -n",
@@ -28699,7 +30545,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich trage eine Jacke.",
+        "I am wearing a jacket."
+      ],
+      [
+        "Du trägst eine Jacke.",
+        "You are wearing a jacket."
+      ],
+      [
+        "Er trägt eine Jacke.",
+        "He is wearing a jacket."
+      ],
+      [
+        "Wir tragen eine Jacke.",
+        "We are wearing a jacket."
+      ],
+      [
+        "Ihr tragt eine Jacke.",
+        "You all are wearing a jacket."
+      ],
+      [
+        "Sie tragen eine Jacke.",
+        "They are wearing a jacket."
+      ]
+    ]
   },
   {
     "de": "die Tragweite",
@@ -28819,7 +30691,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich treffe meinen Freund.",
+        "I meet my friend."
+      ],
+      [
+        "Du triffst deinen Freund.",
+        "You meet your friend."
+      ],
+      [
+        "Er trifft seinen Freund.",
+        "He meets his friend."
+      ],
+      [
+        "Wir treffen unseren Freund.",
+        "We meet our friend."
+      ],
+      [
+        "Ihr trefft euren Freund.",
+        "You all meet your friend."
+      ],
+      [
+        "Sie treffen ihren Freund.",
+        "They meet their friend."
+      ]
+    ]
   },
   {
     "de": "sich treffen",
@@ -28966,7 +30864,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich trinke ein Glas Wasser.",
+        "I drink a glass of water."
+      ],
+      [
+        "Du trinkst ein Glas Wasser.",
+        "You drink a glass of water."
+      ],
+      [
+        "Er trinkt ein Glas Wasser.",
+        "He drinks a glass of water."
+      ],
+      [
+        "Wir trinken ein Glas Wasser.",
+        "We drink a glass of water."
+      ],
+      [
+        "Ihr trinkt ein Glas Wasser.",
+        "You all drink a glass of water."
+      ],
+      [
+        "Sie trinken ein Glas Wasser.",
+        "They drink a glass of water."
+      ]
+    ]
   },
   {
     "de": "trocken",
@@ -29137,7 +31061,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich übe jeden Tag Deutsch.",
+        "I practice German every day."
+      ],
+      [
+        "Du übst jeden Tag Deutsch.",
+        "You practice German every day."
+      ],
+      [
+        "Er übt jeden Tag Deutsch.",
+        "He practices German every day."
+      ],
+      [
+        "Wir üben jeden Tag Deutsch.",
+        "We practice German every day."
+      ],
+      [
+        "Ihr übt jeden Tag Deutsch.",
+        "You all practice German every day."
+      ],
+      [
+        "Sie üben jeden Tag Deutsch.",
+        "They practice German every day."
+      ]
+    ]
   },
   {
     "de": "über",
@@ -30834,7 +32784,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verkaufe dir mein Fahrrad.",
+        "I sell you my bicycle."
+      ],
+      [
+        "Du verkaufst mir dein Fahrrad.",
+        "You sell me your bicycle."
+      ],
+      [
+        "Er verkauft ihr sein Fahrrad.",
+        "He sells her his bicycle."
+      ],
+      [
+        "Wir verkaufen euch unser Fahrrad.",
+        "We sell you all our bicycle."
+      ],
+      [
+        "Ihr verkauft uns euer Fahrrad.",
+        "You all sell us your bicycle."
+      ],
+      [
+        "Sie verkaufen ihm ihr Fahrrad.",
+        "They sell him their bicycle."
+      ]
+    ]
   },
   {
     "de": "der Verkehr",
@@ -30913,7 +32889,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verliere meinen Schlüssel.",
+        "I lose my key."
+      ],
+      [
+        "Du verlierst deinen Schlüssel.",
+        "You lose your key."
+      ],
+      [
+        "Er verliert seinen Schlüssel.",
+        "He loses his key."
+      ],
+      [
+        "Wir verlieren unseren Schlüssel.",
+        "We lose our key."
+      ],
+      [
+        "Ihr verliert euren Schlüssel.",
+        "You all lose your key."
+      ],
+      [
+        "Sie verlieren ihren Schlüssel.",
+        "They lose their key."
+      ]
+    ]
   },
   {
     "de": "vermeiden",
@@ -31212,7 +33214,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich verstehe die Frage.",
+        "I understand the question."
+      ],
+      [
+        "Du verstehst die Frage.",
+        "You understand the question."
+      ],
+      [
+        "Er versteht die Frage.",
+        "He understands the question."
+      ],
+      [
+        "Wir verstehen die Frage.",
+        "We understand the question."
+      ],
+      [
+        "Ihr versteht die Frage.",
+        "You all understand the question."
+      ],
+      [
+        "Sie verstehen die Frage.",
+        "They understand the question."
+      ]
+    ]
   },
   {
     "de": "versuchen",
@@ -31229,7 +33257,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich versuche es noch einmal.",
+        "I try it once more."
+      ],
+      [
+        "Du versuchst es noch einmal.",
+        "You try it once more."
+      ],
+      [
+        "Er versucht es noch einmal.",
+        "He tries it once more."
+      ],
+      [
+        "Wir versuchen es noch einmal.",
+        "We try it once more."
+      ],
+      [
+        "Ihr versucht es noch einmal.",
+        "You all try it once more."
+      ],
+      [
+        "Sie versuchen es noch einmal.",
+        "They try it once more."
+      ]
+    ]
   },
   {
     "de": "der Vertrag, -̈e",
@@ -31817,7 +33871,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich wähle das rote Kleid.",
+        "I choose the red dress."
+      ],
+      [
+        "Du wählst das rote Kleid.",
+        "You choose the red dress."
+      ],
+      [
+        "Er wählt das rote Kleid.",
+        "He chooses the red dress."
+      ],
+      [
+        "Wir wählen das rote Kleid.",
+        "We choose the red dress."
+      ],
+      [
+        "Ihr wählt das rote Kleid.",
+        "You all choose the red dress."
+      ],
+      [
+        "Sie wählen das rote Kleid.",
+        "They choose the red dress."
+      ]
+    ]
   },
   {
     "de": "die Waffenruhe",
@@ -32031,7 +34111,33 @@
       "partizip2": "gewartet",
       "hilfsverb": "haben",
       "governs": "auf + accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich warte auf den Bus.",
+        "I wait for the bus."
+      ],
+      [
+        "Du wartest auf den Bus.",
+        "You wait for the bus."
+      ],
+      [
+        "Er wartet auf den Bus.",
+        "He waits for the bus."
+      ],
+      [
+        "Wir warten auf den Bus.",
+        "We wait for the bus."
+      ],
+      [
+        "Ihr wartet auf den Bus.",
+        "You all wait for the bus."
+      ],
+      [
+        "Sie warten auf den Bus.",
+        "They wait for the bus."
+      ]
+    ]
   },
   {
     "de": "warum",
@@ -32067,7 +34173,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich wasche meine Hände.",
+        "I wash my hands."
+      ],
+      [
+        "Du wäschst deine Hände.",
+        "You wash your hands."
+      ],
+      [
+        "Er wäscht seine Hände.",
+        "He washes his hands."
+      ],
+      [
+        "Wir waschen unsere Hände.",
+        "We wash our hands."
+      ],
+      [
+        "Ihr wascht eure Hände.",
+        "You all wash your hands."
+      ],
+      [
+        "Sie waschen ihre Hände.",
+        "They wash their hands."
+      ]
+    ]
   },
   {
     "de": "die Waschmaschine, -n",
@@ -32200,7 +34332,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich wechsle das Geld.",
+        "I exchange the money."
+      ],
+      [
+        "Du wechselst das Geld.",
+        "You exchange the money."
+      ],
+      [
+        "Er wechselt das Geld.",
+        "He exchanges the money."
+      ],
+      [
+        "Wir wechseln das Geld.",
+        "We exchange the money."
+      ],
+      [
+        "Ihr wechselt das Geld.",
+        "You all exchange the money."
+      ],
+      [
+        "Sie wechseln das Geld.",
+        "They exchange the money."
+      ]
+    ]
   },
   {
     "de": "der Weg, -e",
@@ -32958,7 +35116,33 @@
       "transitiv": true,
       "kein_imperativ": true,
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich weiß die Antwort.",
+        "I know the answer."
+      ],
+      [
+        "Du weißt die Antwort.",
+        "You know the answer."
+      ],
+      [
+        "Er weiß die Antwort.",
+        "He knows the answer."
+      ],
+      [
+        "Wir wissen die Antwort.",
+        "We know the answer."
+      ],
+      [
+        "Ihr wisst die Antwort.",
+        "You all know the answer."
+      ],
+      [
+        "Sie wissen die Antwort.",
+        "They know the answer."
+      ]
+    ]
   },
   {
     "de": "die Wissenschaft, -en",
@@ -33056,7 +35240,33 @@
       "partizip2": "gewohnt",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich wohne in Fulda.",
+        "I live in Fulda."
+      ],
+      [
+        "Du wohnst in Fulda.",
+        "You live in Fulda."
+      ],
+      [
+        "Er wohnt in Fulda.",
+        "He lives in Fulda."
+      ],
+      [
+        "Wir wohnen in Fulda.",
+        "We live in Fulda."
+      ],
+      [
+        "Ihr wohnt in Fulda.",
+        "You all live in Fulda."
+      ],
+      [
+        "Sie wohnen in Fulda.",
+        "They live in Fulda."
+      ]
+    ]
   },
   {
     "de": "die Wohngemeinschaft (WG)",
@@ -33232,7 +35442,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich zahle die Rechnung.",
+        "I pay the bill."
+      ],
+      [
+        "Du zahlst die Rechnung.",
+        "You pay the bill."
+      ],
+      [
+        "Er zahlt die Rechnung.",
+        "He pays the bill."
+      ],
+      [
+        "Wir zahlen die Rechnung.",
+        "We pay the bill."
+      ],
+      [
+        "Ihr zahlt die Rechnung.",
+        "You all pay the bill."
+      ],
+      [
+        "Sie zahlen die Rechnung.",
+        "They pay the bill."
+      ]
+    ]
   },
   {
     "de": "die Zahlungsfähigkeit",
@@ -33325,7 +35561,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "dative+accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich zeige dir den Weg.",
+        "I show you the way."
+      ],
+      [
+        "Du zeigst mir den Weg.",
+        "You show me the way."
+      ],
+      [
+        "Er zeigt ihr den Weg.",
+        "He shows her the way."
+      ],
+      [
+        "Wir zeigen euch den Weg.",
+        "We show you all the way."
+      ],
+      [
+        "Ihr zeigt uns den Weg.",
+        "You all show us the way."
+      ],
+      [
+        "Sie zeigen ihm den Weg.",
+        "They show him the way."
+      ]
+    ]
   },
   {
     "de": "die Zeit, -en",
@@ -44974,7 +47236,33 @@
       "hilfsverb": "haben",
       "transitiv": true,
       "governs": "accusative (optional)"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich singe ein Lied.",
+        "I sing a song."
+      ],
+      [
+        "Du singst ein Lied.",
+        "You sing a song."
+      ],
+      [
+        "Er singt ein Lied.",
+        "He sings a song."
+      ],
+      [
+        "Wir singen ein Lied.",
+        "We sing a song."
+      ],
+      [
+        "Ihr singt ein Lied.",
+        "You all sing a song."
+      ],
+      [
+        "Sie singen ein Lied.",
+        "They sing a song."
+      ]
+    ]
   },
   {
     "de": "sitzen",
@@ -44990,7 +47278,33 @@
       "partizip2": "gesessen",
       "hilfsverb": "haben",
       "governs": "none"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich sitze auf dem Stuhl.",
+        "I am sitting on the chair."
+      ],
+      [
+        "Du sitzt auf dem Stuhl.",
+        "You are sitting on the chair."
+      ],
+      [
+        "Er sitzt auf dem Stuhl.",
+        "He is sitting on the chair."
+      ],
+      [
+        "Wir sitzen auf dem Stuhl.",
+        "We are sitting on the chair."
+      ],
+      [
+        "Ihr sitzt auf dem Stuhl.",
+        "You all are sitting on the chair."
+      ],
+      [
+        "Sie sitzen auf dem Stuhl.",
+        "They are sitting on the chair."
+      ]
+    ]
   },
   {
     "de": "brechen",
@@ -62270,7 +64584,33 @@
       "partizip2": "geholt",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich hole die Post.",
+        "I get the mail."
+      ],
+      [
+        "Du holst die Post.",
+        "You get the mail."
+      ],
+      [
+        "Er holt die Post.",
+        "He gets the mail."
+      ],
+      [
+        "Wir holen die Post.",
+        "We get the mail."
+      ],
+      [
+        "Ihr holt die Post.",
+        "You all get the mail."
+      ],
+      [
+        "Sie holen die Post.",
+        "They get the mail."
+      ]
+    ]
   },
   {
     "de": "hundert",
@@ -62317,7 +64657,33 @@
       "partizip2": "gehört",
       "hilfsverb": "haben",
       "governs": "accusative"
-    }
+    },
+    "person_sentences": [
+      [
+        "Ich höre Musik.",
+        "I listen to music."
+      ],
+      [
+        "Du hörst Musik.",
+        "You listen to music."
+      ],
+      [
+        "Er hört Musik.",
+        "He listens to music."
+      ],
+      [
+        "Wir hören Musik.",
+        "We listen to music."
+      ],
+      [
+        "Ihr hört Musik.",
+        "You all listen to music."
+      ],
+      [
+        "Sie hören Musik.",
+        "They listen to music."
+      ]
+    ]
   },
   {
     "de": "ideal",
