@@ -1,7 +1,7 @@
 // Deutsch Learning Hub - Service Worker
 // CACHE_NAME below is auto-updated by build.py on every run — do not edit by hand.
 // AUTO-CACHE-VERSION-START
-const CACHE_NAME = 'deutsch-lernen-v20260725-124929';
+const CACHE_NAME = 'deutsch-lernen-v20260725-125143';
 // AUTO-CACHE-VERSION-END
 const BASE = '/deutsch-lernen-goethe-a1-c2/';
 
