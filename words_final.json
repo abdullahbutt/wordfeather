@@ -51,33 +51,7 @@
       "unerlässliche Voraussetzung",
       "das Entscheidende"
     ],
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag das A und O.",
-        "I like the the be-all and end-all."
-      ],
-      [
-        "Du magst das A und O.",
-        "You like the the be-all and end-all."
-      ],
-      [
-        "Er mag das A und O.",
-        "He likes the the be-all and end-all."
-      ],
-      [
-        "Wir mögen das A und O.",
-        "We like the the be-all and end-all."
-      ],
-      [
-        "Ihr mögt das A und O.",
-        "You all like the the be-all and end-all."
-      ],
-      [
-        "Sie mögen das A und O.",
-        "They like the the be-all and end-all."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "ab",
@@ -343,28 +317,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe den Abflug.",
-        "I see the departure."
+        "Ich checke meinen Abflug ein.",
+        "I check in for my departure."
       ],
       [
-        "Du siehst den Abflug.",
-        "You see the departure."
+        "Du checkst deinen Abflug ein.",
+        "You check in for your departure."
       ],
       [
-        "Er sieht den Abflug.",
-        "He sees the departure."
+        "Er checkt seinen Abflug ein.",
+        "He checks in for his departure."
       ],
       [
-        "Wir sehen den Abflug.",
-        "We see the departure."
+        "Wir checken unseren Abflug ein.",
+        "We check in for our departure."
       ],
       [
-        "Ihr seht den Abflug.",
-        "You all see the departure."
+        "Ihr checkt euren Abflug ein.",
+        "You all check in for your departure."
       ],
       [
-        "Sie sehen den Abflug.",
-        "They see the departure."
+        "Sie checken ihren Abflug ein.",
+        "They check in for their departure."
       ]
     ]
   },
@@ -950,28 +924,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Abteilung.",
-        "I see the department."
+        "Ich arbeite in der Abteilung.",
+        "I work in the department."
       ],
       [
-        "Du siehst die Abteilung.",
-        "You see the department."
+        "Du arbeitest in der Abteilung.",
+        "You work in the department."
       ],
       [
-        "Er sieht die Abteilung.",
-        "He sees the department."
+        "Er arbeitet in der Abteilung.",
+        "He works in the department."
       ],
       [
-        "Wir sehen die Abteilung.",
-        "We see the department."
+        "Wir arbeiten in der Abteilung.",
+        "We work in the department."
       ],
       [
-        "Ihr seht die Abteilung.",
-        "You all see the department."
+        "Ihr arbeitet in der Abteilung.",
+        "You all work in the department."
       ],
       [
-        "Sie sehen die Abteilung.",
-        "They see the department."
+        "Sie arbeiten in der Abteilung.",
+        "They work in the department."
       ]
     ]
   },
@@ -1373,28 +1347,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe eine Aktion.",
-        "I see a promotion."
+        "Ich nutze die Aktion im Supermarkt.",
+        "I take advantage of the promotion at the supermarket."
       ],
       [
-        "Du siehst eine Aktion.",
-        "You see a promotion."
+        "Du nutzt die Aktion im Supermarkt.",
+        "You take advantage of the promotion at the supermarket."
       ],
       [
-        "Er sieht eine Aktion.",
-        "He sees a promotion."
+        "Er nutzt die Aktion im Supermarkt.",
+        "He takes advantage of the promotion at the supermarket."
       ],
       [
-        "Wir sehen eine Aktion.",
-        "We see a promotion."
+        "Wir nutzen die Aktion im Supermarkt.",
+        "We take advantage of the promotion at the supermarket."
       ],
       [
-        "Ihr seht eine Aktion.",
-        "You all see a promotion."
+        "Ihr nutzt die Aktion im Supermarkt.",
+        "You all take advantage of the promotion at the supermarket."
       ],
       [
-        "Sie sehen eine Aktion.",
-        "They see a promotion."
+        "Sie nutzen die Aktion im Supermarkt.",
+        "They take advantage of the promotion at the supermarket."
       ]
     ]
   },
@@ -3246,28 +3220,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mache einen Antrag.",
-        "I am doing an application."
+        "Ich stelle einen Antrag.",
+        "I submit an application."
       ],
       [
-        "Du machst einen Antrag.",
-        "You are doing an application."
+        "Du stellst einen Antrag.",
+        "You submit an application."
       ],
       [
-        "Er macht einen Antrag.",
-        "He is doing an application."
+        "Er stellt einen Antrag.",
+        "He submits an application."
       ],
       [
-        "Wir machen einen Antrag.",
-        "We are doing an application."
+        "Wir stellen einen Antrag.",
+        "We submit an application."
       ],
       [
-        "Ihr macht einen Antrag.",
-        "You all are doing an application."
+        "Ihr stellt einen Antrag.",
+        "You all submit an application."
       ],
       [
-        "Sie machen einen Antrag.",
-        "They are doing an application."
+        "Sie stellen einen Antrag.",
+        "They submit an application."
       ]
     ]
   },
@@ -3286,28 +3260,28 @@
     "register": "formal",
     "person_sentences": [
       [
-        "Ich spreche über den Antrag.",
-        "I talk about the motion."
+        "Ich stelle einen Antrag.",
+        "I submit an application."
       ],
       [
-        "Du sprichst über den Antrag.",
-        "You talk about the motion."
+        "Du stellst einen Antrag.",
+        "You submit an application."
       ],
       [
-        "Er spricht über den Antrag.",
-        "He talks about the motion."
+        "Er stellt einen Antrag.",
+        "He submits an application."
       ],
       [
-        "Wir sprechen über den Antrag.",
-        "We talk about the motion."
+        "Wir stellen einen Antrag.",
+        "We submit an application."
       ],
       [
-        "Ihr sprecht über den Antrag.",
-        "You all talk about the motion."
+        "Ihr stellt einen Antrag.",
+        "You all submit an application."
       ],
       [
-        "Sie sprechen über den Antrag.",
-        "They talk about the motion."
+        "Sie stellen einen Antrag.",
+        "They submit an application."
       ]
     ]
   },
@@ -3484,33 +3458,7 @@
     "level": "C1",
     "example": "Der Apfel fällt nicht weit vom Stamm.",
     "example_en": "The apple doesn't fall far from the tree.",
-    "register": "everyday",
-    "person_sentences": [
-      [
-        "Ich mag den Apfel fällt nicht weit vom Stamm..",
-        "I like the The apple doesn't fall far from the tree.."
-      ],
-      [
-        "Du magst den Apfel fällt nicht weit vom Stamm..",
-        "You like the The apple doesn't fall far from the tree.."
-      ],
-      [
-        "Er mag den Apfel fällt nicht weit vom Stamm..",
-        "He likes the The apple doesn't fall far from the tree.."
-      ],
-      [
-        "Wir mögen den Apfel fällt nicht weit vom Stamm..",
-        "We like the The apple doesn't fall far from the tree.."
-      ],
-      [
-        "Ihr mögt den Apfel fällt nicht weit vom Stamm..",
-        "You all like the The apple doesn't fall far from the tree.."
-      ],
-      [
-        "Sie mögen den Apfel fällt nicht weit vom Stamm..",
-        "They like the The apple doesn't fall far from the tree.."
-      ]
-    ]
+    "register": "everyday"
   },
   {
     "de": "der Apfel, -̈",
@@ -3776,28 +3724,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe einen Arbeitnehmer.",
-        "I see an employee."
+        "Ich bin ein Arbeitnehmer in diesem Betrieb.",
+        "I am an employee at this company."
       ],
       [
-        "Du siehst einen Arbeitnehmer.",
-        "You see an employee."
+        "Du bist ein Arbeitnehmer in diesem Betrieb.",
+        "You are an employee at this company."
       ],
       [
-        "Er sieht einen Arbeitnehmer.",
-        "He sees an employee."
+        "Er ist ein Arbeitnehmer in diesem Betrieb.",
+        "He is an employee at this company."
       ],
       [
-        "Wir sehen einen Arbeitnehmer.",
-        "We see an employee."
+        "Wir sind Arbeitnehmer in diesem Betrieb.",
+        "We are employees at this company."
       ],
       [
-        "Ihr seht einen Arbeitnehmer.",
-        "You all see an employee."
+        "Ihr seid Arbeitnehmer in diesem Betrieb.",
+        "You all are employees at this company."
       ],
       [
-        "Sie sehen einen Arbeitnehmer.",
-        "They see an employee."
+        "Sie sind Arbeitnehmer in diesem Betrieb.",
+        "They are employees at this company."
       ]
     ]
   },
@@ -6869,28 +6817,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe einen Beamten.",
-        "I see a civil servant."
+        "Ich spreche mit einem Beamten.",
+        "I talk to a civil servant."
       ],
       [
-        "Du siehst einen Beamten.",
-        "You see a civil servant."
+        "Du sprichst mit einem Beamten.",
+        "You talk to a civil servant."
       ],
       [
-        "Er sieht einen Beamten.",
-        "He sees a civil servant."
+        "Er spricht mit einem Beamten.",
+        "He talks to a civil servant."
       ],
       [
-        "Wir sehen einen Beamten.",
-        "We see a civil servant."
+        "Wir sprechen mit einem Beamten.",
+        "We talk to a civil servant."
       ],
       [
-        "Ihr seht einen Beamten.",
-        "You all see a civil servant."
+        "Ihr sprecht mit einem Beamten.",
+        "You all talk to a civil servant."
       ],
       [
-        "Sie sehen einen Beamten.",
-        "They see a civil servant."
+        "Sie sprechen mit einem Beamten.",
+        "They talk to a civil servant."
       ]
     ]
   },
@@ -11739,28 +11687,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Bürger.",
-        "I see the citizens."
+        "Ich informiere die Bürger.",
+        "I inform the citizens."
       ],
       [
-        "Du siehst die Bürger.",
-        "You see the citizens."
+        "Du informierst die Bürger.",
+        "You inform the citizens."
       ],
       [
-        "Er sieht die Bürger.",
-        "He sees the citizens."
+        "Er informiert die Bürger.",
+        "He informs the citizens."
       ],
       [
-        "Wir sehen die Bürger.",
-        "We see the citizens."
+        "Wir informieren die Bürger.",
+        "We inform the citizens."
       ],
       [
-        "Ihr seht die Bürger.",
-        "You all see the citizens."
+        "Ihr informiert die Bürger.",
+        "You all inform the citizens."
       ],
       [
-        "Sie sehen die Bürger.",
-        "They see the citizens."
+        "Sie informieren die Bürger.",
+        "They inform the citizens."
       ]
     ]
   },
@@ -12599,27 +12547,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Daten (Pl.).",
+        "Ich mag die Daten.",
         "I like the data."
       ],
       [
-        "Du magst die Daten (Pl.).",
+        "Du magst die Daten.",
         "You like the data."
       ],
       [
-        "Er mag die Daten (Pl.).",
+        "Er mag die Daten.",
         "He likes the data."
       ],
       [
-        "Wir mögen die Daten (Pl.).",
+        "Wir mögen die Daten.",
         "We like the data."
       ],
       [
-        "Ihr mögt die Daten (Pl.).",
+        "Ihr mögt die Daten.",
         "You all like the data."
       ],
       [
-        "Sie mögen die Daten (Pl.).",
+        "Sie mögen die Daten.",
         "They like the data."
       ]
     ]
@@ -14551,28 +14499,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe den Donner.",
-        "I see the thunder."
+        "Ich höre den Donner.",
+        "I hear the thunder."
       ],
       [
-        "Du siehst den Donner.",
-        "You see the thunder."
+        "Du hörst den Donner.",
+        "You hear the thunder."
       ],
       [
-        "Er sieht den Donner.",
-        "He sees the thunder."
+        "Er hört den Donner.",
+        "He hears the thunder."
       ],
       [
-        "Wir sehen den Donner.",
-        "We see the thunder."
+        "Wir hören den Donner.",
+        "We hear the thunder."
       ],
       [
-        "Ihr seht den Donner.",
-        "You all see the thunder."
+        "Ihr hört den Donner.",
+        "You all hear the thunder."
       ],
       [
-        "Sie sehen den Donner.",
-        "They see the thunder."
+        "Sie hören den Donner.",
+        "They hear the thunder."
       ]
     ]
   },
@@ -17026,27 +16974,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Eltern (Pl.).",
+        "Ich mag die Eltern.",
         "I like the parents."
       ],
       [
-        "Du magst die Eltern (Pl.).",
+        "Du magst die Eltern.",
         "You like the parents."
       ],
       [
-        "Er mag die Eltern (Pl.).",
+        "Er mag die Eltern.",
         "He likes the parents."
       ],
       [
-        "Wir mögen die Eltern (Pl.).",
+        "Wir mögen die Eltern.",
         "We like the parents."
       ],
       [
-        "Ihr mögt die Eltern (Pl.).",
+        "Ihr mögt die Eltern.",
         "You all like the parents."
       ],
       [
-        "Sie mögen die Eltern (Pl.).",
+        "Sie mögen die Eltern.",
         "They like the parents."
       ]
     ]
@@ -17702,28 +17650,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Entfernung.",
-        "I see the distance."
+        "Ich messe die Entfernung.",
+        "I measure the distance."
       ],
       [
-        "Du siehst die Entfernung.",
-        "You see the distance."
+        "Du misst die Entfernung.",
+        "You measure the distance."
       ],
       [
-        "Er sieht die Entfernung.",
-        "He sees the distance."
+        "Er misst die Entfernung.",
+        "He measures the distance."
       ],
       [
-        "Wir sehen die Entfernung.",
-        "We see the distance."
+        "Wir messen die Entfernung.",
+        "We measure the distance."
       ],
       [
-        "Ihr seht die Entfernung.",
-        "You all see the distance."
+        "Ihr messt die Entfernung.",
+        "You all measure the distance."
       ],
       [
-        "Sie sehen die Entfernung.",
-        "They see the distance."
+        "Sie messen die Entfernung.",
+        "They measure the distance."
       ]
     ]
   },
@@ -17984,28 +17932,28 @@
     "register": "formal",
     "person_sentences": [
       [
-        "Ich leide an der Epidemie.",
-        "I suffer from the epidemic."
+        "Ich spreche über die Epidemie.",
+        "I talk about the epidemic."
       ],
       [
-        "Du leidest an der Epidemie.",
-        "You suffer from the epidemic."
+        "Du sprichst über die Epidemie.",
+        "You talk about the epidemic."
       ],
       [
-        "Er leidet an der Epidemie.",
-        "He suffers from the epidemic."
+        "Er spricht über die Epidemie.",
+        "He talks about the epidemic."
       ],
       [
-        "Wir leiden an der Epidemie.",
-        "We suffer from the epidemic."
+        "Wir sprechen über die Epidemie.",
+        "We talk about the epidemic."
       ],
       [
-        "Ihr leidet an der Epidemie.",
-        "You all suffer from the epidemic."
+        "Ihr sprecht über die Epidemie.",
+        "You all talk about the epidemic."
       ],
       [
-        "Sie leiden an der Epidemie.",
-        "They suffer from the epidemic."
+        "Sie sprechen über die Epidemie.",
+        "They talk about the epidemic."
       ]
     ]
   },
@@ -18734,28 +18682,28 @@
     },
     "person_sentences": [
       [
-        "Ich erlaube die Pause.",
-        "I am allowing the break."
+        "Ich erlaube dir eine Pause.",
+        "I allow you a break."
       ],
       [
-        "Du erlaubst die Pause.",
-        "You are allowing the break."
+        "Du erlaubst mir eine Pause.",
+        "You allow me a break."
       ],
       [
-        "Er erlaubt die Pause.",
-        "He is allowing the break."
+        "Er erlaubt ihr eine Pause.",
+        "He allows her a break."
       ],
       [
-        "Wir erlauben die Pause.",
-        "We are allowing the break."
+        "Wir erlauben euch eine Pause.",
+        "We allow you all a break."
       ],
       [
-        "Ihr erlaubt die Pause.",
-        "You all are allowing the break."
+        "Ihr erlaubt uns eine Pause.",
+        "You all allow us a break."
       ],
       [
-        "Sie erlauben die Pause.",
-        "They are allowing the break."
+        "Sie erlauben ihm eine Pause.",
+        "They allow him a break."
       ]
     ]
   },
@@ -20545,32 +20493,6 @@
       "Fakten belegen",
       "klare Evidenz",
       "eindeutig belegt"
-    ],
-    "person_sentences": [
-      [
-        "Ich mag die Fakten sprechen eine deutliche Sprache..",
-        "I like the The facts speak for themselves.."
-      ],
-      [
-        "Du magst die Fakten sprechen eine deutliche Sprache..",
-        "You like the The facts speak for themselves.."
-      ],
-      [
-        "Er mag die Fakten sprechen eine deutliche Sprache..",
-        "He likes the The facts speak for themselves.."
-      ],
-      [
-        "Wir mögen die Fakten sprechen eine deutliche Sprache..",
-        "We like the The facts speak for themselves.."
-      ],
-      [
-        "Ihr mögt die Fakten sprechen eine deutliche Sprache..",
-        "You all like the The facts speak for themselves.."
-      ],
-      [
-        "Sie mögen die Fakten sprechen eine deutliche Sprache..",
-        "They like the The facts speak for themselves.."
-      ]
     ]
   },
   {
@@ -21002,27 +20924,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Ferien (Pl.).",
+        "Ich mag die Ferien.",
         "I like the holidays."
       ],
       [
-        "Du magst die Ferien (Pl.).",
+        "Du magst die Ferien.",
         "You like the holidays."
       ],
       [
-        "Er mag die Ferien (Pl.).",
+        "Er mag die Ferien.",
         "He likes the holidays."
       ],
       [
-        "Wir mögen die Ferien (Pl.).",
+        "Wir mögen die Ferien.",
         "We like the holidays."
       ],
       [
-        "Ihr mögt die Ferien (Pl.).",
+        "Ihr mögt die Ferien.",
         "You all like the holidays."
       ],
       [
-        "Sie mögen die Ferien (Pl.).",
+        "Sie mögen die Ferien.",
         "They like the holidays."
       ]
     ]
@@ -22989,27 +22911,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich halte ein die Frist.",
+        "Ich halte die Frist ein.",
         "I meet the deadline."
       ],
       [
-        "Du hältst ein die Frist.",
+        "Du hältst die Frist ein.",
         "You meet the deadline."
       ],
       [
-        "Er hält ein die Frist.",
+        "Er hält die Frist ein.",
         "He meets the deadline."
       ],
       [
-        "Wir halten ein die Frist.",
+        "Wir halten die Frist ein.",
         "We meet the deadline."
       ],
       [
-        "Ihr haltet ein die Frist.",
+        "Ihr haltet die Frist ein.",
         "You all meet the deadline."
       ],
       [
-        "Sie halten ein die Frist.",
+        "Sie halten die Frist ein.",
         "They meet the deadline."
       ]
     ]
@@ -25782,27 +25704,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Geschwister (Pl.).",
+        "Ich mag die Geschwister.",
         "I like the siblings."
       ],
       [
-        "Du magst die Geschwister (Pl.).",
+        "Du magst die Geschwister.",
         "You like the siblings."
       ],
       [
-        "Er mag die Geschwister (Pl.).",
+        "Er mag die Geschwister.",
         "He likes the siblings."
       ],
       [
-        "Wir mögen die Geschwister (Pl.).",
+        "Wir mögen die Geschwister.",
         "We like the siblings."
       ],
       [
-        "Ihr mögt die Geschwister (Pl.).",
+        "Ihr mögt die Geschwister.",
         "You all like the siblings."
       ],
       [
-        "Sie mögen die Geschwister (Pl.).",
+        "Sie mögen die Geschwister.",
         "They like the siblings."
       ]
     ]
@@ -25817,28 +25739,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich habe eine moderne Gesellschaft.",
-        "I have a modern society."
+        "Ich lebe in einer modernen Gesellschaft.",
+        "I live in a modern society."
       ],
       [
-        "Du hast eine moderne Gesellschaft.",
-        "You have a modern society."
+        "Du lebst in einer modernen Gesellschaft.",
+        "You live in a modern society."
       ],
       [
-        "Er hat eine moderne Gesellschaft.",
-        "He has a modern society."
+        "Er lebt in einer modernen Gesellschaft.",
+        "He lives in a modern society."
       ],
       [
-        "Wir haben eine moderne Gesellschaft.",
-        "We have a modern society."
+        "Wir leben in einer modernen Gesellschaft.",
+        "We live in a modern society."
       ],
       [
-        "Ihr habt eine moderne Gesellschaft.",
-        "You all have a modern society."
+        "Ihr lebt in einer modernen Gesellschaft.",
+        "You all live in a modern society."
       ],
       [
-        "Sie haben eine moderne Gesellschaft.",
-        "They have a modern society."
+        "Sie leben in einer modernen Gesellschaft.",
+        "They live in a modern society."
       ]
     ]
   },
@@ -25852,28 +25774,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe das Gesetz.",
-        "I see the law."
+        "Ich befolge das Gesetz.",
+        "I obey the law."
       ],
       [
-        "Du siehst das Gesetz.",
-        "You see the law."
+        "Du befolgst das Gesetz.",
+        "You obey the law."
       ],
       [
-        "Er sieht das Gesetz.",
-        "He sees the law."
+        "Er befolgt das Gesetz.",
+        "He obeys the law."
       ],
       [
-        "Wir sehen das Gesetz.",
-        "We see the law."
+        "Wir befolgen das Gesetz.",
+        "We obey the law."
       ],
       [
-        "Ihr seht das Gesetz.",
-        "You all see the law."
+        "Ihr befolgt das Gesetz.",
+        "You all obey the law."
       ],
       [
-        "Sie sehen das Gesetz.",
-        "They see the law."
+        "Sie befolgen das Gesetz.",
+        "They obey the law."
       ]
     ]
   },
@@ -26973,27 +26895,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Großeltern (Pl.).",
+        "Ich mag die Großeltern.",
         "I like the grandparents."
       ],
       [
-        "Du magst die Großeltern (Pl.).",
+        "Du magst die Großeltern.",
         "You like the grandparents."
       ],
       [
-        "Er mag die Großeltern (Pl.).",
+        "Er mag die Großeltern.",
         "He likes the grandparents."
       ],
       [
-        "Wir mögen die Großeltern (Pl.).",
+        "Wir mögen die Großeltern.",
         "We like the grandparents."
       ],
       [
-        "Ihr mögt die Großeltern (Pl.).",
+        "Ihr mögt die Großeltern.",
         "You all like the grandparents."
       ],
       [
-        "Sie mögen die Großeltern (Pl.).",
+        "Sie mögen die Großeltern.",
         "They like the grandparents."
       ]
     ]
@@ -33048,27 +32970,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag den Journalist.",
+        "Ich mag den Journalisten.",
         "I like the journalist."
       ],
       [
-        "Du magst den Journalist.",
+        "Du magst den Journalisten.",
         "You like the journalist."
       ],
       [
-        "Er mag den Journalist.",
+        "Er mag den Journalisten.",
         "He likes the journalist."
       ],
       [
-        "Wir mögen den Journalist.",
+        "Wir mögen den Journalisten.",
         "We like the journalist."
       ],
       [
-        "Ihr mögt den Journalist.",
+        "Ihr mögt den Journalisten.",
         "You all like the journalist."
       ],
       [
-        "Sie mögen den Journalist.",
+        "Sie mögen den Journalisten.",
         "They like the journalist."
       ]
     ]
@@ -33975,33 +33897,7 @@
     "level": "C2",
     "example": "Die Katze im Sack kaufen.",
     "example_en": "To buy a pig in a poke.",
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag die Katze im Sack kaufen.",
-        "I like the to buy a pig in a poke."
-      ],
-      [
-        "Du magst die Katze im Sack kaufen.",
-        "You like the to buy a pig in a poke."
-      ],
-      [
-        "Er mag die Katze im Sack kaufen.",
-        "He likes the to buy a pig in a poke."
-      ],
-      [
-        "Wir mögen die Katze im Sack kaufen.",
-        "We like the to buy a pig in a poke."
-      ],
-      [
-        "Ihr mögt die Katze im Sack kaufen.",
-        "You all like the to buy a pig in a poke."
-      ],
-      [
-        "Sie mögen die Katze im Sack kaufen.",
-        "They like the to buy a pig in a poke."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "die Katze, -n",
@@ -34421,33 +34317,7 @@
     "level": "C2",
     "example": "Wenn wir das gesamte System reformieren, schütten wir das Kind mit dem Bade aus.",
     "example_en": "If we reform the entire system, we risk throwing the baby out with the bathwater.",
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag das Kind mit dem Bade ausschütten.",
-        "I like the to throw the baby out with the bathwater."
-      ],
-      [
-        "Du magst das Kind mit dem Bade ausschütten.",
-        "You like the to throw the baby out with the bathwater."
-      ],
-      [
-        "Er mag das Kind mit dem Bade ausschütten.",
-        "He likes the to throw the baby out with the bathwater."
-      ],
-      [
-        "Wir mögen das Kind mit dem Bade ausschütten.",
-        "We like the to throw the baby out with the bathwater."
-      ],
-      [
-        "Ihr mögt das Kind mit dem Bade ausschütten.",
-        "You all like the to throw the baby out with the bathwater."
-      ],
-      [
-        "Sie mögen das Kind mit dem Bade ausschütten.",
-        "They like the to throw the baby out with the bathwater."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "das Kind, -er",
@@ -34866,28 +34736,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Klasse.",
-        "I like the class."
+        "Ich unterrichte die Klasse.",
+        "I teach the class."
       ],
       [
-        "Du magst die Klasse.",
-        "You like the class."
+        "Du unterrichtest die Klasse.",
+        "You teach the class."
       ],
       [
-        "Er mag die Klasse.",
-        "He likes the class."
+        "Er unterrichtet die Klasse.",
+        "He teaches the class."
       ],
       [
-        "Wir mögen die Klasse.",
-        "We like the class."
+        "Wir unterrichten die Klasse.",
+        "We teach the class."
       ],
       [
-        "Ihr mögt die Klasse.",
-        "You all like the class."
+        "Ihr unterrichtet die Klasse.",
+        "You all teach the class."
       ],
       [
-        "Sie mögen die Klasse.",
-        "They like the class."
+        "Sie unterrichten die Klasse.",
+        "They teach the class."
       ]
     ]
   },
@@ -34901,28 +34771,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Klasse.",
-        "I see the class."
+        "Ich unterrichte die Klasse.",
+        "I teach the class."
       ],
       [
-        "Du siehst die Klasse.",
-        "You see the class."
+        "Du unterrichtest die Klasse.",
+        "You teach the class."
       ],
       [
-        "Er sieht die Klasse.",
-        "He sees the class."
+        "Er unterrichtet die Klasse.",
+        "He teaches the class."
       ],
       [
-        "Wir sehen die Klasse.",
-        "We see the class."
+        "Wir unterrichten die Klasse.",
+        "We teach the class."
       ],
       [
-        "Ihr seht die Klasse.",
-        "You all see the class."
+        "Ihr unterrichtet die Klasse.",
+        "You all teach the class."
       ],
       [
-        "Sie sehen die Klasse.",
-        "They see the class."
+        "Sie unterrichten die Klasse.",
+        "They teach the class."
       ]
     ]
   },
@@ -35385,28 +35255,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe das Klima.",
-        "I see the climate."
+        "Ich spüre den Klimawandel.",
+        "I notice climate change."
       ],
       [
-        "Du siehst das Klima.",
-        "You see the climate."
+        "Du spürst den Klimawandel.",
+        "You notice climate change."
       ],
       [
-        "Er sieht das Klima.",
-        "He sees the climate."
+        "Er spürt den Klimawandel.",
+        "He notices climate change."
       ],
       [
-        "Wir sehen das Klima.",
-        "We see the climate."
+        "Wir spüren den Klimawandel.",
+        "We notice climate change."
       ],
       [
-        "Ihr seht das Klima.",
-        "You all see the climate."
+        "Ihr spürt den Klimawandel.",
+        "You all notice climate change."
       ],
       [
-        "Sie sehen das Klima.",
-        "They see the climate."
+        "Sie spüren den Klimawandel.",
+        "They notice climate change."
       ]
     ]
   },
@@ -35420,28 +35290,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag das Klima.",
-        "I like the climate."
+        "Ich spüre den Klimawandel.",
+        "I notice climate change."
       ],
       [
-        "Du magst das Klima.",
-        "You like the climate."
+        "Du spürst den Klimawandel.",
+        "You notice climate change."
       ],
       [
-        "Er mag das Klima.",
-        "He likes the climate."
+        "Er spürt den Klimawandel.",
+        "He notices climate change."
       ],
       [
-        "Wir mögen das Klima.",
-        "We like the climate."
+        "Wir spüren den Klimawandel.",
+        "We notice climate change."
       ],
       [
-        "Ihr mögt das Klima.",
-        "You all like the climate."
+        "Ihr spürt den Klimawandel.",
+        "You all notice climate change."
       ],
       [
-        "Sie mögen das Klima.",
-        "They like the climate."
+        "Sie spüren den Klimawandel.",
+        "They notice climate change."
       ]
     ]
   },
@@ -36173,33 +36043,7 @@
       "Nuancen berücksichtigen",
       "differenziert urteilen"
     ],
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag den Komplexität gerecht werden.",
-        "I like the to do justice to the complexity."
-      ],
-      [
-        "Du magst den Komplexität gerecht werden.",
-        "You like the to do justice to the complexity."
-      ],
-      [
-        "Er mag den Komplexität gerecht werden.",
-        "He likes the to do justice to the complexity."
-      ],
-      [
-        "Wir mögen den Komplexität gerecht werden.",
-        "We like the to do justice to the complexity."
-      ],
-      [
-        "Ihr mögt den Komplexität gerecht werden.",
-        "You all like the to do justice to the complexity."
-      ],
-      [
-        "Sie mögen den Komplexität gerecht werden.",
-        "They like the to do justice to the complexity."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "kompliziert",
@@ -38683,28 +38527,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin lang(e).",
-        "I am long."
+        "Ich bin lange wach geblieben.",
+        "I stayed awake for a long time."
       ],
       [
-        "Du bist lang(e).",
-        "You are long."
+        "Du bist lange wach geblieben.",
+        "You stayed awake for a long time."
       ],
       [
-        "Er ist lang(e).",
-        "He is long."
+        "Er ist lange wach geblieben.",
+        "He stayed awake for a long time."
       ],
       [
-        "Wir sind lang(e).",
-        "We are long."
+        "Wir sind lange wach geblieben.",
+        "We stayed awake for a long time."
       ],
       [
-        "Ihr seid lang(e).",
-        "You all are long."
+        "Ihr seid lange wach geblieben.",
+        "You all stayed awake for a long time."
       ],
       [
-        "Sie sind lang(e).",
-        "They are long."
+        "Sie sind lange wach geblieben.",
+        "They stayed awake for a long time."
       ]
     ]
   },
@@ -40047,27 +39891,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Leute (Pl.).",
+        "Ich mag die Leute.",
         "I like the people."
       ],
       [
-        "Du magst die Leute (Pl.).",
+        "Du magst die Leute.",
         "You like the people."
       ],
       [
-        "Er mag die Leute (Pl.).",
+        "Er mag die Leute.",
         "He likes the people."
       ],
       [
-        "Wir mögen die Leute (Pl.).",
+        "Wir mögen die Leute.",
         "We like the people."
       ],
       [
-        "Ihr mögt die Leute (Pl.).",
+        "Ihr mögt die Leute.",
         "You all like the people."
       ],
       [
-        "Sie mögen die Leute (Pl.).",
+        "Sie mögen die Leute.",
         "They like the people."
       ]
     ]
@@ -40152,28 +39996,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin lieber.",
-        "I am rather."
+        "Ich bleibe lieber zu Hause.",
+        "I would rather stay home."
       ],
       [
-        "Du bist lieber.",
-        "You are rather."
+        "Du bleibst lieber zu Hause.",
+        "You would rather stay home."
       ],
       [
-        "Er ist lieber.",
-        "He is rather."
+        "Er bleibt lieber zu Hause.",
+        "He would rather stay home."
       ],
       [
-        "Wir sind lieber.",
-        "We are rather."
+        "Wir bleiben lieber zu Hause.",
+        "We would rather stay home."
       ],
       [
-        "Ihr seid lieber.",
-        "You all are rather."
+        "Ihr bleibt lieber zu Hause.",
+        "You all would rather stay home."
       ],
       [
-        "Sie sind lieber.",
-        "They are rather."
+        "Sie bleiben lieber zu Hause.",
+        "They would rather stay home."
       ]
     ]
   },
@@ -43301,27 +43145,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Möbel (Pl.).",
+        "Ich mag die Möbel.",
         "I like the furniture."
       ],
       [
-        "Du magst die Möbel (Pl.).",
+        "Du magst die Möbel.",
         "You like the furniture."
       ],
       [
-        "Er mag die Möbel (Pl.).",
+        "Er mag die Möbel.",
         "He likes the furniture."
       ],
       [
-        "Wir mögen die Möbel (Pl.).",
+        "Wir mögen die Möbel.",
         "We like the furniture."
       ],
       [
-        "Ihr mögt die Möbel (Pl.).",
+        "Ihr mögt die Möbel.",
         "You all like the furniture."
       ],
       [
-        "Sie mögen die Möbel (Pl.).",
+        "Sie mögen die Möbel.",
         "They like the furniture."
       ]
     ]
@@ -43465,28 +43309,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin möglich.",
-        "I am possible."
+        "Das ist für mich möglich.",
+        "That is possible for me."
       ],
       [
-        "Du bist möglich.",
-        "You are possible."
+        "Das ist für dich möglich.",
+        "That is possible for you."
       ],
       [
-        "Er ist möglich.",
-        "He is possible."
+        "Das ist für ihn möglich.",
+        "That is possible for him."
       ],
       [
-        "Wir sind möglich.",
-        "We are possible."
+        "Das ist für uns möglich.",
+        "That is possible for us."
       ],
       [
-        "Ihr seid möglich.",
-        "You all are possible."
+        "Das ist für euch möglich.",
+        "That is possible for you all."
       ],
       [
-        "Sie sind möglich.",
-        "They are possible."
+        "Das ist für sie möglich.",
+        "That is possible for them."
       ]
     ]
   },
@@ -45208,33 +45052,7 @@
     "level": "C2",
     "example": "Den richtigen Kandidaten unter tausend Bewerbungen zu finden ist wie die Nadel im Heuhaufen suchen.",
     "example_en": "Finding the right candidate among a thousand applications is like looking for a needle in a haystack.",
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag die Nadel im Heuhaufen suchen.",
-        "I like the to look for a needle in a haystack."
-      ],
-      [
-        "Du magst die Nadel im Heuhaufen suchen.",
-        "You like the to look for a needle in a haystack."
-      ],
-      [
-        "Er mag die Nadel im Heuhaufen suchen.",
-        "He likes the to look for a needle in a haystack."
-      ],
-      [
-        "Wir mögen die Nadel im Heuhaufen suchen.",
-        "We like the to look for a needle in a haystack."
-      ],
-      [
-        "Ihr mögt die Nadel im Heuhaufen suchen.",
-        "You all like the to look for a needle in a haystack."
-      ],
-      [
-        "Sie mögen die Nadel im Heuhaufen suchen.",
-        "They like the to look for a needle in a haystack."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "den Nagel auf den Kopf treffen",
@@ -45281,28 +45099,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin nah(e).",
-        "I am near."
+        "Ich bin nah am Bahnhof.",
+        "I am close to the train station."
       ],
       [
-        "Du bist nah(e).",
-        "You are near."
+        "Du bist nah am Bahnhof.",
+        "You are close to the train station."
       ],
       [
-        "Er ist nah(e).",
-        "He is near."
+        "Er ist nah am Bahnhof.",
+        "He is close to the train station."
       ],
       [
-        "Wir sind nah(e).",
-        "We are near."
+        "Wir sind nah am Bahnhof.",
+        "We are close to the train station."
       ],
       [
-        "Ihr seid nah(e).",
-        "You all are near."
+        "Ihr seid nah am Bahnhof.",
+        "You all are close to the train station."
       ],
       [
-        "Sie sind nah(e).",
-        "They are near."
+        "Sie sind nah am Bahnhof.",
+        "They are close to the train station."
       ]
     ]
   },
@@ -46405,28 +46223,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin nie.",
-        "I am never."
+        "Ich bin nie zu spät.",
+        "I am never late."
       ],
       [
-        "Du bist nie.",
-        "You are never."
+        "Du bist nie zu spät.",
+        "You are never late."
       ],
       [
-        "Er ist nie.",
-        "He is never."
+        "Er ist nie zu spät.",
+        "He is never late."
       ],
       [
-        "Wir sind nie.",
-        "We are never."
+        "Wir sind nie zu spät.",
+        "We are never late."
       ],
       [
-        "Ihr seid nie.",
-        "You all are never."
+        "Ihr seid nie zu spät.",
+        "You all are never late."
       ],
       [
-        "Sie sind nie.",
-        "They are never."
+        "Sie sind nie zu spät.",
+        "They are never late."
       ]
     ]
   },
@@ -55470,28 +55288,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin schade.",
-        "I am too bad."
+        "Es ist schade, dass ich nicht kommen kann.",
+        "It's a shame that I can't come."
       ],
       [
-        "Du bist schade.",
-        "You are too bad."
+        "Es ist schade, dass du nicht kommen kannst.",
+        "It's a shame that you can't come."
       ],
       [
-        "Er ist schade.",
-        "He is too bad."
+        "Es ist schade, dass er nicht kommen kann.",
+        "It's a shame that he can't come."
       ],
       [
-        "Wir sind schade.",
-        "We are too bad."
+        "Es ist schade, dass wir nicht kommen können.",
+        "It's a shame that we can't come."
       ],
       [
-        "Ihr seid schade.",
-        "You all are too bad."
+        "Es ist schade, dass ihr nicht kommen könnt.",
+        "It's a shame that you all can't come."
       ],
       [
-        "Sie sind schade.",
-        "They are too bad."
+        "Es ist schade, dass sie nicht kommen können.",
+        "It's a shame that they can't come."
       ]
     ]
   },
@@ -56324,28 +56142,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich habe Schmerz.",
-        "I have pain."
+        "Ich habe Schmerzen im Rücken.",
+        "I have pain in my back."
       ],
       [
-        "Du hast Schmerz.",
-        "You have pain."
+        "Du hast Schmerzen im Rücken.",
+        "You have pain in your back."
       ],
       [
-        "Er hat Schmerz.",
-        "He has pain."
+        "Er hat Schmerzen im Rücken.",
+        "He has pain in his back."
       ],
       [
-        "Wir haben Schmerz.",
-        "We have pain."
+        "Wir haben Schmerzen im Rücken.",
+        "We have pain in our back."
       ],
       [
-        "Ihr habt Schmerz.",
-        "You all have pain."
+        "Ihr habt Schmerzen im Rücken.",
+        "You all have pain in your back."
       ],
       [
-        "Sie haben Schmerz.",
-        "They have pain."
+        "Sie haben Schmerzen im Rücken.",
+        "They have pain in their back."
       ]
     ]
   },
@@ -56722,28 +56540,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich komme schon an.",
-        "I come already."
+        "Ich bin schon da.",
+        "I am already there."
       ],
       [
-        "Du kommst schon an.",
-        "You come already."
+        "Du bist schon da.",
+        "You are already there."
       ],
       [
-        "Er kommt schon an.",
-        "He comes already."
+        "Er ist schon da.",
+        "He is already there."
       ],
       [
-        "Wir kommen schon an.",
-        "We come already."
+        "Wir sind schon da.",
+        "We are already there."
       ],
       [
-        "Ihr kommt schon an.",
-        "You all come already."
+        "Ihr seid schon da.",
+        "You all are already there."
       ],
       [
-        "Sie kommen schon an.",
-        "They come already."
+        "Sie sind schon da.",
+        "They are already there."
       ]
     ]
   },
@@ -63947,28 +63765,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Teilzeitarbeit.",
-        "I see the part-time work."
+        "Ich mache Teilzeitarbeit.",
+        "I do part-time work."
       ],
       [
-        "Du siehst die Teilzeitarbeit.",
-        "You see the part-time work."
+        "Du machst Teilzeitarbeit.",
+        "You do part-time work."
       ],
       [
-        "Er sieht die Teilzeitarbeit.",
-        "He sees the part-time work."
+        "Er macht Teilzeitarbeit.",
+        "He does part-time work."
       ],
       [
-        "Wir sehen die Teilzeitarbeit.",
-        "We see the part-time work."
+        "Wir machen Teilzeitarbeit.",
+        "We do part-time work."
       ],
       [
-        "Ihr seht die Teilzeitarbeit.",
-        "You all see the part-time work."
+        "Ihr macht Teilzeitarbeit.",
+        "You all do part-time work."
       ],
       [
-        "Sie sehen die Teilzeitarbeit.",
-        "They see the part-time work."
+        "Sie machen Teilzeitarbeit.",
+        "They do part-time work."
       ]
     ]
   },
@@ -64829,33 +64647,7 @@
     "level": "C2",
     "example": "Der Ton macht die Musik.",
     "example_en": "It's not what you say, but how you say it.",
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag den Ton macht die Musik..",
-        "I like the It's not what you say."
-      ],
-      [
-        "Du magst den Ton macht die Musik..",
-        "You like the It's not what you say."
-      ],
-      [
-        "Er mag den Ton macht die Musik..",
-        "He likes the It's not what you say."
-      ],
-      [
-        "Wir mögen den Ton macht die Musik..",
-        "We like the It's not what you say."
-      ],
-      [
-        "Ihr mögt den Ton macht die Musik..",
-        "You all like the It's not what you say."
-      ],
-      [
-        "Sie mögen den Ton macht die Musik..",
-        "They like the It's not what you say."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "der Topf, -̈e",
@@ -67173,28 +66965,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe den Umweltschutz.",
-        "I see the environmental protection."
+        "Ich unterstütze den Umweltschutz.",
+        "I support environmental protection."
       ],
       [
-        "Du siehst den Umweltschutz.",
-        "You see the environmental protection."
+        "Du unterstützt den Umweltschutz.",
+        "You support environmental protection."
       ],
       [
-        "Er sieht den Umweltschutz.",
-        "He sees the environmental protection."
+        "Er unterstützt den Umweltschutz.",
+        "He supports environmental protection."
       ],
       [
-        "Wir sehen den Umweltschutz.",
-        "We see the environmental protection."
+        "Wir unterstützen den Umweltschutz.",
+        "We support environmental protection."
       ],
       [
-        "Ihr seht den Umweltschutz.",
-        "You all see the environmental protection."
+        "Ihr unterstützt den Umweltschutz.",
+        "You all support environmental protection."
       ],
       [
-        "Sie sehen den Umweltschutz.",
-        "They see the environmental protection."
+        "Sie unterstützen den Umweltschutz.",
+        "They support environmental protection."
       ]
     ]
   },
@@ -68028,28 +67820,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Untersuchung.",
-        "I see the examination."
+        "Ich habe eine Untersuchung beim Arzt.",
+        "I have an examination at the doctor's."
       ],
       [
-        "Du siehst die Untersuchung.",
-        "You see the examination."
+        "Du hast eine Untersuchung beim Arzt.",
+        "You have an examination at the doctor's."
       ],
       [
-        "Er sieht die Untersuchung.",
-        "He sees the examination."
+        "Er hat eine Untersuchung beim Arzt.",
+        "He has an examination at the doctor's."
       ],
       [
-        "Wir sehen die Untersuchung.",
-        "We see the examination."
+        "Wir haben eine Untersuchung beim Arzt.",
+        "We have an examination at the doctor's."
       ],
       [
-        "Ihr seht die Untersuchung.",
-        "You all see the examination."
+        "Ihr habt eine Untersuchung beim Arzt.",
+        "You all have an examination at the doctor's."
       ],
       [
-        "Sie sehen die Untersuchung.",
-        "They see the examination."
+        "Sie haben eine Untersuchung beim Arzt.",
+        "They have an examination at the doctor's."
       ]
     ]
   },
@@ -68933,28 +68725,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Verbindung.",
-        "I like the connection."
+        "Ich habe eine gute Internetverbindung.",
+        "I have a good internet connection."
       ],
       [
-        "Du magst die Verbindung.",
-        "You like the connection."
+        "Du hast eine gute Internetverbindung.",
+        "You have a good internet connection."
       ],
       [
-        "Er mag die Verbindung.",
-        "He likes the connection."
+        "Er hat eine gute Internetverbindung.",
+        "He has a good internet connection."
       ],
       [
-        "Wir mögen die Verbindung.",
-        "We like the connection."
+        "Wir haben eine gute Internetverbindung.",
+        "We have a good internet connection."
       ],
       [
-        "Ihr mögt die Verbindung.",
-        "You all like the connection."
+        "Ihr habt eine gute Internetverbindung.",
+        "You all have a good internet connection."
       ],
       [
-        "Sie mögen die Verbindung.",
-        "They like the connection."
+        "Sie haben eine gute Internetverbindung.",
+        "They have a good internet connection."
       ]
     ]
   },
@@ -68968,28 +68760,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Verbindung.",
-        "I see the connection."
+        "Ich habe eine gute Internetverbindung.",
+        "I have a good internet connection."
       ],
       [
-        "Du siehst die Verbindung.",
-        "You see the connection."
+        "Du hast eine gute Internetverbindung.",
+        "You have a good internet connection."
       ],
       [
-        "Er sieht die Verbindung.",
-        "He sees the connection."
+        "Er hat eine gute Internetverbindung.",
+        "He has a good internet connection."
       ],
       [
-        "Wir sehen die Verbindung.",
-        "We see the connection."
+        "Wir haben eine gute Internetverbindung.",
+        "We have a good internet connection."
       ],
       [
-        "Ihr seht die Verbindung.",
-        "You all see the connection."
+        "Ihr habt eine gute Internetverbindung.",
+        "You all have a good internet connection."
       ],
       [
-        "Sie sehen die Verbindung.",
-        "They see the connection."
+        "Sie haben eine gute Internetverbindung.",
+        "They have a good internet connection."
       ]
     ]
   },
@@ -70743,28 +70535,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Versicherung.",
-        "I see the insurance."
+        "Ich habe eine gute Versicherung.",
+        "I have good insurance."
       ],
       [
-        "Du siehst die Versicherung.",
-        "You see the insurance."
+        "Du hast eine gute Versicherung.",
+        "You have good insurance."
       ],
       [
-        "Er sieht die Versicherung.",
-        "He sees the insurance."
+        "Er hat eine gute Versicherung.",
+        "He has good insurance."
       ],
       [
-        "Wir sehen die Versicherung.",
-        "We see the insurance."
+        "Wir haben eine gute Versicherung.",
+        "We have good insurance."
       ],
       [
-        "Ihr seht die Versicherung.",
-        "You all see the insurance."
+        "Ihr habt eine gute Versicherung.",
+        "You all have good insurance."
       ],
       [
-        "Sie sehen die Versicherung.",
-        "They see the insurance."
+        "Sie haben eine gute Versicherung.",
+        "They have good insurance."
       ]
     ]
   },
@@ -72158,28 +71950,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe das Vorstellungsgespräch.",
-        "I see the job interview."
+        "Ich habe ein Vorstellungsgespräch.",
+        "I have a job interview."
       ],
       [
-        "Du siehst das Vorstellungsgespräch.",
-        "You see the job interview."
+        "Du hast ein Vorstellungsgespräch.",
+        "You have a job interview."
       ],
       [
-        "Er sieht das Vorstellungsgespräch.",
-        "He sees the job interview."
+        "Er hat ein Vorstellungsgespräch.",
+        "He has a job interview."
       ],
       [
-        "Wir sehen das Vorstellungsgespräch.",
-        "We see the job interview."
+        "Wir haben ein Vorstellungsgespräch.",
+        "We have a job interview."
       ],
       [
-        "Ihr seht das Vorstellungsgespräch.",
-        "You all see the job interview."
+        "Ihr habt ein Vorstellungsgespräch.",
+        "You all have a job interview."
       ],
       [
-        "Sie sehen das Vorstellungsgespräch.",
-        "They see the job interview."
+        "Sie haben ein Vorstellungsgespräch.",
+        "They have a job interview."
       ]
     ]
   },
@@ -76776,33 +76568,7 @@
       "entscheidender Faktor",
       "Zünglein sein"
     ],
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag das Zünglein an der Waage sein.",
-        "I like the to tip the scales."
-      ],
-      [
-        "Du magst das Zünglein an der Waage sein.",
-        "You like the to tip the scales."
-      ],
-      [
-        "Er mag das Zünglein an der Waage sein.",
-        "He likes the to tip the scales."
-      ],
-      [
-        "Wir mögen das Zünglein an der Waage sein.",
-        "We like the to tip the scales."
-      ],
-      [
-        "Ihr mögt das Zünglein an der Waage sein.",
-        "You all like the to tip the scales."
-      ],
-      [
-        "Sie mögen das Zünglein an der Waage sein.",
-        "They like the to tip the scales."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "zufrieden",
@@ -77301,28 +77067,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin zusammen.",
-        "I am together."
+        "Ich bin mit meiner Familie zusammen.",
+        "I am together with my family."
       ],
       [
-        "Du bist zusammen.",
-        "You are together."
+        "Du bist mit deiner Familie zusammen.",
+        "You are together with your family."
       ],
       [
-        "Er ist zusammen.",
-        "He is together."
+        "Er ist mit seiner Familie zusammen.",
+        "He is together with his family."
       ],
       [
-        "Wir sind zusammen.",
-        "We are together."
+        "Wir sind mit unserer Familie zusammen.",
+        "We are together with our family."
       ],
       [
-        "Ihr seid zusammen.",
-        "You all are together."
+        "Ihr seid mit eurer Familie zusammen.",
+        "You all are together with your family."
       ],
       [
-        "Sie sind zusammen.",
-        "They are together."
+        "Sie sind mit ihrer Familie zusammen.",
+        "They are together with their family."
       ]
     ]
   },
@@ -78043,28 +77809,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag das Vorstellungsgespräch.",
-        "I like the job interview."
+        "Ich habe ein Vorstellungsgespräch.",
+        "I have a job interview."
       ],
       [
-        "Du magst das Vorstellungsgespräch.",
-        "You like the job interview."
+        "Du hast ein Vorstellungsgespräch.",
+        "You have a job interview."
       ],
       [
-        "Er mag das Vorstellungsgespräch.",
-        "He likes the job interview."
+        "Er hat ein Vorstellungsgespräch.",
+        "He has a job interview."
       ],
       [
-        "Wir mögen das Vorstellungsgespräch.",
-        "We like the job interview."
+        "Wir haben ein Vorstellungsgespräch.",
+        "We have a job interview."
       ],
       [
-        "Ihr mögt das Vorstellungsgespräch.",
-        "You all like the job interview."
+        "Ihr habt ein Vorstellungsgespräch.",
+        "You all have a job interview."
       ],
       [
-        "Sie mögen das Vorstellungsgespräch.",
-        "They like the job interview."
+        "Sie haben ein Vorstellungsgespräch.",
+        "They have a job interview."
       ]
     ]
   },
@@ -84330,27 +84096,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich halte ein die Kündigungsfrist.",
+        "Ich halte die Kündigungsfrist ein.",
         "I observe the notice period."
       ],
       [
-        "Du hältst ein die Kündigungsfrist.",
+        "Du hältst die Kündigungsfrist ein.",
         "You observe the notice period."
       ],
       [
-        "Er hält ein die Kündigungsfrist.",
+        "Er hält die Kündigungsfrist ein.",
         "He observes the notice period."
       ],
       [
-        "Wir halten ein die Kündigungsfrist.",
+        "Wir halten die Kündigungsfrist ein.",
         "We observe the notice period."
       ],
       [
-        "Ihr haltet ein die Kündigungsfrist.",
+        "Ihr haltet die Kündigungsfrist ein.",
         "You all observe the notice period."
       ],
       [
-        "Sie halten ein die Kündigungsfrist.",
+        "Sie halten die Kündigungsfrist ein.",
         "They observe the notice period."
       ]
     ]
@@ -85770,27 +85536,27 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag den Abonnent.",
+        "Ich mag den Abonnenten.",
         "I like the subscriber."
       ],
       [
-        "Du magst den Abonnent.",
+        "Du magst den Abonnenten.",
         "You like the subscriber."
       ],
       [
-        "Er mag den Abonnent.",
+        "Er mag den Abonnenten.",
         "He likes the subscriber."
       ],
       [
-        "Wir mögen den Abonnent.",
+        "Wir mögen den Abonnenten.",
         "We like the subscriber."
       ],
       [
-        "Ihr mögt den Abonnent.",
+        "Ihr mögt den Abonnenten.",
         "You all like the subscriber."
       ],
       [
-        "Sie mögen den Abonnent.",
+        "Sie mögen den Abonnenten.",
         "They like the subscriber."
       ]
     ]
@@ -92420,28 +92186,28 @@
     "register": "formal",
     "person_sentences": [
       [
-        "Ich zahle die Unternehmensbesteuerung.",
-        "I pay the corporate taxation."
+        "Ich spreche über die Unternehmensbesteuerung.",
+        "I talk about corporate taxation."
       ],
       [
-        "Du zahlst die Unternehmensbesteuerung.",
-        "You pay the corporate taxation."
+        "Du sprichst über die Unternehmensbesteuerung.",
+        "You talk about corporate taxation."
       ],
       [
-        "Er zahlt die Unternehmensbesteuerung.",
-        "He pays the corporate taxation."
+        "Er spricht über die Unternehmensbesteuerung.",
+        "He talks about corporate taxation."
       ],
       [
-        "Wir zahlen die Unternehmensbesteuerung.",
-        "We pay the corporate taxation."
+        "Wir sprechen über die Unternehmensbesteuerung.",
+        "We talk about corporate taxation."
       ],
       [
-        "Ihr zahlt die Unternehmensbesteuerung.",
-        "You all pay the corporate taxation."
+        "Ihr sprecht über die Unternehmensbesteuerung.",
+        "You all talk about corporate taxation."
       ],
       [
-        "Sie zahlen die Unternehmensbesteuerung.",
-        "They pay the corporate taxation."
+        "Sie sprechen über die Unternehmensbesteuerung.",
+        "They talk about corporate taxation."
       ]
     ]
   },
@@ -93500,27 +93266,27 @@
     "register": "formal",
     "person_sentences": [
       [
-        "Ich leide an der psychische Erkrankung.",
+        "Ich leide an der psychischen Erkrankung.",
         "I suffer from the mental illness."
       ],
       [
-        "Du leidest an der psychische Erkrankung.",
+        "Du leidest an der psychischen Erkrankung.",
         "You suffer from the mental illness."
       ],
       [
-        "Er leidet an der psychische Erkrankung.",
+        "Er leidet an der psychischen Erkrankung.",
         "He suffers from the mental illness."
       ],
       [
-        "Wir leiden an der psychische Erkrankung.",
+        "Wir leiden an der psychischen Erkrankung.",
         "We suffer from the mental illness."
       ],
       [
-        "Ihr leidet an der psychische Erkrankung.",
+        "Ihr leidet an der psychischen Erkrankung.",
         "You all suffer from the mental illness."
       ],
       [
-        "Sie leiden an der psychische Erkrankung.",
+        "Sie leiden an der psychischen Erkrankung.",
         "They suffer from the mental illness."
       ]
     ]
@@ -94460,28 +94226,28 @@
     "register": "formal",
     "person_sentences": [
       [
-        "Ich zahle das Steuerrecht.",
-        "I pay the tax law."
+        "Ich studiere das Steuerrecht.",
+        "I study tax law."
       ],
       [
-        "Du zahlst das Steuerrecht.",
-        "You pay the tax law."
+        "Du studierst das Steuerrecht.",
+        "You study tax law."
       ],
       [
-        "Er zahlt das Steuerrecht.",
-        "He pays the tax law."
+        "Er studiert das Steuerrecht.",
+        "He studies tax law."
       ],
       [
-        "Wir zahlen das Steuerrecht.",
-        "We pay the tax law."
+        "Wir studieren das Steuerrecht.",
+        "We study tax law."
       ],
       [
-        "Ihr zahlt das Steuerrecht.",
-        "You all pay the tax law."
+        "Ihr studiert das Steuerrecht.",
+        "You all study tax law."
       ],
       [
-        "Sie zahlen das Steuerrecht.",
-        "They pay the tax law."
+        "Sie studieren das Steuerrecht.",
+        "They study tax law."
       ]
     ]
   },
@@ -94620,28 +94386,28 @@
     "register": "formal",
     "person_sentences": [
       [
-        "Ich zahle die Steueroase.",
-        "I pay the tax haven."
+        "Ich nutze eine Steueroase.",
+        "I use a tax haven."
       ],
       [
-        "Du zahlst die Steueroase.",
-        "You pay the tax haven."
+        "Du nutzt eine Steueroase.",
+        "You use a tax haven."
       ],
       [
-        "Er zahlt die Steueroase.",
-        "He pays the tax haven."
+        "Er nutzt eine Steueroase.",
+        "He uses a tax haven."
       ],
       [
-        "Wir zahlen die Steueroase.",
-        "We pay the tax haven."
+        "Wir nutzen eine Steueroase.",
+        "We use a tax haven."
       ],
       [
-        "Ihr zahlt die Steueroase.",
-        "You all pay the tax haven."
+        "Ihr nutzt eine Steueroase.",
+        "You all use a tax haven."
       ],
       [
-        "Sie zahlen die Steueroase.",
-        "They pay the tax haven."
+        "Sie nutzen eine Steueroase.",
+        "They use a tax haven."
       ]
     ]
   },
@@ -101991,27 +101757,27 @@
     "person_sentences": [
       [
         "Ich spreche über das Groteske.",
-        "I talk about the the grotesque."
+        "I talk about the grotesque."
       ],
       [
         "Du sprichst über das Groteske.",
-        "You talk about the the grotesque."
+        "You talk about the grotesque."
       ],
       [
         "Er spricht über das Groteske.",
-        "He talks about the the grotesque."
+        "He talks about the grotesque."
       ],
       [
         "Wir sprechen über das Groteske.",
-        "We talk about the the grotesque."
+        "We talk about the grotesque."
       ],
       [
         "Ihr sprecht über das Groteske.",
-        "You all talk about the the grotesque."
+        "You all talk about the grotesque."
       ],
       [
         "Sie sprechen über das Groteske.",
-        "They talk about the the grotesque."
+        "They talk about the grotesque."
       ]
     ]
   },
@@ -103763,33 +103529,7 @@
     "example": "Das Bessere ist der Feind des Guten.",
     "example_en": "The perfect is the enemy of the good.",
     "collocations": [],
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag das Bessere ist der Feind des Guten..",
-        "I like the the perfect is the enemy of the good."
-      ],
-      [
-        "Du magst das Bessere ist der Feind des Guten..",
-        "You like the the perfect is the enemy of the good."
-      ],
-      [
-        "Er mag das Bessere ist der Feind des Guten..",
-        "He likes the the perfect is the enemy of the good."
-      ],
-      [
-        "Wir mögen das Bessere ist der Feind des Guten..",
-        "We like the the perfect is the enemy of the good."
-      ],
-      [
-        "Ihr mögt das Bessere ist der Feind des Guten..",
-        "You all like the the perfect is the enemy of the good."
-      ],
-      [
-        "Sie mögen das Bessere ist der Feind des Guten..",
-        "They like the the perfect is the enemy of the good."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "Den letzten beißen die Hunde.",
@@ -103809,33 +103549,7 @@
     "example": "Die Axt im Haus erspart den Zimmermann.",
     "example_en": "Self-help is the best help.",
     "collocations": [],
-    "register": "literary",
-    "person_sentences": [
-      [
-        "Ich mag die Axt im Haus erspart den Zimmermann..",
-        "I like the self-help is the best help."
-      ],
-      [
-        "Du magst die Axt im Haus erspart den Zimmermann..",
-        "You like the self-help is the best help."
-      ],
-      [
-        "Er mag die Axt im Haus erspart den Zimmermann..",
-        "He likes the self-help is the best help."
-      ],
-      [
-        "Wir mögen die Axt im Haus erspart den Zimmermann..",
-        "We like the self-help is the best help."
-      ],
-      [
-        "Ihr mögt die Axt im Haus erspart den Zimmermann..",
-        "You all like the self-help is the best help."
-      ],
-      [
-        "Sie mögen die Axt im Haus erspart den Zimmermann..",
-        "They like the self-help is the best help."
-      ]
-    ]
+    "register": "literary"
   },
   {
     "de": "Durch Schaden wird man klug.",
@@ -105228,28 +104942,28 @@
     },
     "person_sentences": [
       [
-        "Ich sterbe.",
-        "I am dying."
+        "Ich sterbe vor Hunger.",
+        "I am dying of hunger."
       ],
       [
-        "Du stirbst.",
-        "You are dying."
+        "Du stirbst vor Hunger.",
+        "You are dying of hunger."
       ],
       [
-        "Er stirbt.",
-        "He is dying."
+        "Er stirbt vor Hunger.",
+        "He is dying of hunger."
       ],
       [
-        "Wir sterben.",
-        "We are dying."
+        "Wir sterben vor Hunger.",
+        "We are dying of hunger."
       ],
       [
-        "Ihr sterbt.",
-        "You all are dying."
+        "Ihr sterbt vor Hunger.",
+        "You all are dying of hunger."
       ],
       [
-        "Sie sterben.",
-        "They are dying."
+        "Sie sterben vor Hunger.",
+        "They are dying of hunger."
       ]
     ]
   },
@@ -106867,28 +106581,28 @@
     "example_en": "What is the meaning of this word?",
     "person_sentences": [
       [
-        "Ich habe eine wichtige Bedeutung.",
-        "I have an important meaning."
+        "Diese Entscheidung hat eine wichtige Bedeutung für mich.",
+        "This decision has an important meaning for me."
       ],
       [
-        "Du hast eine wichtige Bedeutung.",
-        "You have an important meaning."
+        "Diese Entscheidung hat eine wichtige Bedeutung für dich.",
+        "This decision has an important meaning for you."
       ],
       [
-        "Er hat eine wichtige Bedeutung.",
-        "He has an important meaning."
+        "Diese Entscheidung hat eine wichtige Bedeutung für ihn.",
+        "This decision has an important meaning for him."
       ],
       [
-        "Wir haben eine wichtige Bedeutung.",
-        "We have an important meaning."
+        "Diese Entscheidung hat eine wichtige Bedeutung für uns.",
+        "This decision has an important meaning for us."
       ],
       [
-        "Ihr habt eine wichtige Bedeutung.",
-        "You all have an important meaning."
+        "Diese Entscheidung hat eine wichtige Bedeutung für euch.",
+        "This decision has an important meaning for you all."
       ],
       [
-        "Sie haben eine wichtige Bedeutung.",
-        "They have an important meaning."
+        "Diese Entscheidung hat eine wichtige Bedeutung für sie.",
+        "This decision has an important meaning for them."
       ]
     ]
   },
@@ -107711,28 +107425,28 @@
     "example_en": "I hated geography.",
     "person_sentences": [
       [
-        "Ich habe Geografie.",
-        "I have geography."
+        "Ich lerne Geografie in der Schule.",
+        "I learn geography at school."
       ],
       [
-        "Du hast Geografie.",
-        "You have geography."
+        "Du lernst Geografie in der Schule.",
+        "You learn geography at school."
       ],
       [
-        "Er hat Geografie.",
-        "He has geography."
+        "Er lernt Geografie in der Schule.",
+        "He learns geography at school."
       ],
       [
-        "Wir haben Geografie.",
-        "We have geography."
+        "Wir lernen Geografie in der Schule.",
+        "We learn geography at school."
       ],
       [
-        "Ihr habt Geografie.",
-        "You all have geography."
+        "Ihr lernt Geografie in der Schule.",
+        "You all learn geography at school."
       ],
       [
-        "Sie haben Geografie.",
-        "They have geography."
+        "Sie lernen Geografie in der Schule.",
+        "They learn geography at school."
       ]
     ]
   },
@@ -108040,28 +107754,28 @@
     "example_en": "She studies computer science.",
     "person_sentences": [
       [
-        "Ich habe Informatik.",
-        "I have computer science."
+        "Ich studiere Informatik.",
+        "I study computer science."
       ],
       [
-        "Du hast Informatik.",
-        "You have computer science."
+        "Du studierst Informatik.",
+        "You study computer science."
       ],
       [
-        "Er hat Informatik.",
-        "He has computer science."
+        "Er studiert Informatik.",
+        "He studies computer science."
       ],
       [
-        "Wir haben Informatik.",
-        "We have computer science."
+        "Wir studieren Informatik.",
+        "We study computer science."
       ],
       [
-        "Ihr habt Informatik.",
-        "You all have computer science."
+        "Ihr studiert Informatik.",
+        "You all study computer science."
       ],
       [
-        "Sie haben Informatik.",
-        "They have computer science."
+        "Sie studieren Informatik.",
+        "They study computer science."
       ]
     ]
   },
@@ -108512,28 +108226,28 @@
     "example_en": "This has serious consequences.",
     "person_sentences": [
       [
-        "Ich sehe eine Konsequenz.",
-        "I see a consequence."
+        "Ich ziehe die Konsequenz aus dem Fehler.",
+        "I draw the consequence from the mistake."
       ],
       [
-        "Du siehst eine Konsequenz.",
-        "You see a consequence."
+        "Du ziehst die Konsequenz aus dem Fehler.",
+        "You draw the consequence from the mistake."
       ],
       [
-        "Er sieht eine Konsequenz.",
-        "He sees a consequence."
+        "Er zieht die Konsequenz aus dem Fehler.",
+        "He draws the consequence from the mistake."
       ],
       [
-        "Wir sehen eine Konsequenz.",
-        "We see a consequence."
+        "Wir ziehen die Konsequenz aus dem Fehler.",
+        "We draw the consequence from the mistake."
       ],
       [
-        "Ihr seht eine Konsequenz.",
-        "You all see a consequence."
+        "Ihr zieht die Konsequenz aus dem Fehler.",
+        "You all draw the consequence from the mistake."
       ],
       [
-        "Sie sehen eine Konsequenz.",
-        "They see a consequence."
+        "Sie ziehen die Konsequenz aus dem Fehler.",
+        "They draw the consequence from the mistake."
       ]
     ]
   },
@@ -108737,28 +108451,28 @@
     "example_en": "The hotel offers a lot of luxury.",
     "person_sentences": [
       [
-        "Ich habe Luxus.",
-        "I have luxury."
+        "Ich lebe im Luxus.",
+        "I live in luxury."
       ],
       [
-        "Du hast Luxus.",
-        "You have luxury."
+        "Du lebst im Luxus.",
+        "You live in luxury."
       ],
       [
-        "Er hat Luxus.",
-        "He has luxury."
+        "Er lebt im Luxus.",
+        "He lives in luxury."
       ],
       [
-        "Wir haben Luxus.",
-        "We have luxury."
+        "Wir leben im Luxus.",
+        "We live in luxury."
       ],
       [
-        "Ihr habt Luxus.",
-        "You all have luxury."
+        "Ihr lebt im Luxus.",
+        "You all live in luxury."
       ],
       [
-        "Sie haben Luxus.",
-        "They have luxury."
+        "Sie leben im Luxus.",
+        "They live in luxury."
       ]
     ]
   },
@@ -108839,27 +108553,27 @@
     "example_en": "Math is my favorite subject.",
     "person_sentences": [
       [
-        "Ich mag die Mathe (Sg. ohne Artikel).",
+        "Ich mag die Mathe.",
         "I like the math (informal)."
       ],
       [
-        "Du magst die Mathe (Sg. ohne Artikel).",
+        "Du magst die Mathe.",
         "You like the math (informal)."
       ],
       [
-        "Er mag die Mathe (Sg. ohne Artikel).",
+        "Er mag die Mathe.",
         "He likes the math (informal)."
       ],
       [
-        "Wir mögen die Mathe (Sg. ohne Artikel).",
+        "Wir mögen die Mathe.",
         "We like the math (informal)."
       ],
       [
-        "Ihr mögt die Mathe (Sg. ohne Artikel).",
+        "Ihr mögt die Mathe.",
         "You all like the math (informal)."
       ],
       [
-        "Sie mögen die Mathe (Sg. ohne Artikel).",
+        "Sie mögen die Mathe.",
         "They like the math (informal)."
       ]
     ]
@@ -108873,27 +108587,27 @@
     "example_en": "He studies mathematics at university.",
     "person_sentences": [
       [
-        "Ich mag die Mathematik (Sg. ohne Artikel).",
+        "Ich mag die Mathematik.",
         "I like the mathematics."
       ],
       [
-        "Du magst die Mathematik (Sg. ohne Artikel).",
+        "Du magst die Mathematik.",
         "You like the mathematics."
       ],
       [
-        "Er mag die Mathematik (Sg. ohne Artikel).",
+        "Er mag die Mathematik.",
         "He likes the mathematics."
       ],
       [
-        "Wir mögen die Mathematik (Sg. ohne Artikel).",
+        "Wir mögen die Mathematik.",
         "We like the mathematics."
       ],
       [
-        "Ihr mögt die Mathematik (Sg. ohne Artikel).",
+        "Ihr mögt die Mathematik.",
         "You all like the mathematics."
       ],
       [
-        "Sie mögen die Mathematik (Sg. ohne Artikel).",
+        "Sie mögen die Mathematik.",
         "They like the mathematics."
       ]
     ]
@@ -109077,28 +108791,28 @@
     "example_en": "You could sense her nervousness.",
     "person_sentences": [
       [
-        "Ich habe Nervosität.",
-        "I have nervousness."
+        "Ich spüre meine Nervosität vor der Prüfung.",
+        "I feel my nervousness before the exam."
       ],
       [
-        "Du hast Nervosität.",
-        "You have nervousness."
+        "Du spürst deine Nervosität vor der Prüfung.",
+        "You feel your nervousness before the exam."
       ],
       [
-        "Er hat Nervosität.",
-        "He has nervousness."
+        "Er spürt seine Nervosität vor der Prüfung.",
+        "He feels his nervousness before the exam."
       ],
       [
-        "Wir haben Nervosität.",
-        "We have nervousness."
+        "Wir spüren unsere Nervosität vor der Prüfung.",
+        "We feel our nervousness before the exam."
       ],
       [
-        "Ihr habt Nervosität.",
-        "You all have nervousness."
+        "Ihr spürt eure Nervosität vor der Prüfung.",
+        "You all feel your nervousness before the exam."
       ],
       [
-        "Sie haben Nervosität.",
-        "They have nervousness."
+        "Sie spüren ihre Nervosität vor der Prüfung.",
+        "They feel their nervousness before the exam."
       ]
     ]
   },
@@ -109873,28 +109587,28 @@
     "example_en": "Unfortunately, that is not reality.",
     "person_sentences": [
       [
-        "Ich sehe die Realität.",
-        "I see the reality."
+        "Ich akzeptiere die Realität.",
+        "I accept reality."
       ],
       [
-        "Du siehst die Realität.",
-        "You see the reality."
+        "Du akzeptierst die Realität.",
+        "You accept reality."
       ],
       [
-        "Er sieht die Realität.",
-        "He sees the reality."
+        "Er akzeptiert die Realität.",
+        "He accepts reality."
       ],
       [
-        "Wir sehen die Realität.",
-        "We see the reality."
+        "Wir akzeptieren die Realität.",
+        "We accept reality."
       ],
       [
-        "Ihr seht die Realität.",
-        "You all see the reality."
+        "Ihr akzeptiert die Realität.",
+        "You all accept reality."
       ],
       [
-        "Sie sehen die Realität.",
-        "They see the reality."
+        "Sie akzeptieren die Realität.",
+        "They accept reality."
       ]
     ]
   },
@@ -110712,28 +110426,28 @@
     "example_en": "Describe your occupational activity.",
     "person_sentences": [
       [
-        "Ich sehe die Tätigkeit.",
-        "I see the activity."
+        "Ich übe eine neue Tätigkeit aus.",
+        "I am pursuing a new activity."
       ],
       [
-        "Du siehst die Tätigkeit.",
-        "You see the activity."
+        "Du übst eine neue Tätigkeit aus.",
+        "You are pursuing a new activity."
       ],
       [
-        "Er sieht die Tätigkeit.",
-        "He sees the activity."
+        "Er übt eine neue Tätigkeit aus.",
+        "He is pursuing a new activity."
       ],
       [
-        "Wir sehen die Tätigkeit.",
-        "We see the activity."
+        "Wir üben eine neue Tätigkeit aus.",
+        "We are pursuing a new activity."
       ],
       [
-        "Ihr seht die Tätigkeit.",
-        "You all see the activity."
+        "Ihr übt eine neue Tätigkeit aus.",
+        "You all are pursuing a new activity."
       ],
       [
-        "Sie sehen die Tätigkeit.",
-        "They see the activity."
+        "Sie üben eine neue Tätigkeit aus.",
+        "They are pursuing a new activity."
       ]
     ]
   },
@@ -111500,28 +111214,28 @@
     "example_en": "Excuse me, where can I find the train station?",
     "person_sentences": [
       [
-        "Ich sehe die Verzeihung.",
-        "I see the pardon."
+        "Ich bitte um Verzeihung.",
+        "I ask for forgiveness."
       ],
       [
-        "Du siehst die Verzeihung.",
-        "You see the pardon."
+        "Du bittest um Verzeihung.",
+        "You ask for forgiveness."
       ],
       [
-        "Er sieht die Verzeihung.",
-        "He sees the pardon."
+        "Er bittet um Verzeihung.",
+        "He asks for forgiveness."
       ],
       [
-        "Wir sehen die Verzeihung.",
-        "We see the pardon."
+        "Wir bitten um Verzeihung.",
+        "We ask for forgiveness."
       ],
       [
-        "Ihr seht die Verzeihung.",
-        "You all see the pardon."
+        "Ihr bittet um Verzeihung.",
+        "You all ask for forgiveness."
       ],
       [
-        "Sie sehen die Verzeihung.",
-        "They see the pardon."
+        "Sie bitten um Verzeihung.",
+        "They ask for forgiveness."
       ]
     ]
   },
@@ -111677,28 +111391,28 @@
     "example_en": "Preparation course for the 'naturalization test'",
     "person_sentences": [
       [
-        "Ich sehe die Vorbereitung.",
-        "I see the preparation."
+        "Ich mache die Vorbereitung für die Prüfung.",
+        "I do the preparation for the exam."
       ],
       [
-        "Du siehst die Vorbereitung.",
-        "You see the preparation."
+        "Du machst die Vorbereitung für die Prüfung.",
+        "You do the preparation for the exam."
       ],
       [
-        "Er sieht die Vorbereitung.",
-        "He sees the preparation."
+        "Er macht die Vorbereitung für die Prüfung.",
+        "He does the preparation for the exam."
       ],
       [
-        "Wir sehen die Vorbereitung.",
-        "We see the preparation."
+        "Wir machen die Vorbereitung für die Prüfung.",
+        "We do the preparation for the exam."
       ],
       [
-        "Ihr seht die Vorbereitung.",
-        "You all see the preparation."
+        "Ihr macht die Vorbereitung für die Prüfung.",
+        "You all do the preparation for the exam."
       ],
       [
-        "Sie sehen die Vorbereitung.",
-        "They see the preparation."
+        "Sie machen die Vorbereitung für die Prüfung.",
+        "They do the preparation for the exam."
       ]
     ]
   },
@@ -112259,28 +111973,28 @@
     "example_en": "The car's registration takes a few days.",
     "person_sentences": [
       [
-        "Ich sehe die Zulassung.",
-        "I see the registration."
+        "Ich beantrage die Zulassung.",
+        "I apply for the approval."
       ],
       [
-        "Du siehst die Zulassung.",
-        "You see the registration."
+        "Du beantragst die Zulassung.",
+        "You apply for the approval."
       ],
       [
-        "Er sieht die Zulassung.",
-        "He sees the registration."
+        "Er beantragt die Zulassung.",
+        "He applies for the approval."
       ],
       [
-        "Wir sehen die Zulassung.",
-        "We see the registration."
+        "Wir beantragen die Zulassung.",
+        "We apply for the approval."
       ],
       [
-        "Ihr seht die Zulassung.",
-        "You all see the registration."
+        "Ihr beantragt die Zulassung.",
+        "You all apply for the approval."
       ],
       [
-        "Sie sehen die Zulassung.",
-        "They see the registration."
+        "Sie beantragen die Zulassung.",
+        "They apply for the approval."
       ]
     ]
   },
@@ -122233,27 +121947,27 @@
     "example_en": "Attention! You have to turn off your phone.",
     "person_sentences": [
       [
-        "Ich mag die Achtung (Sg. ohne Artikel).",
+        "Ich mag die Achtung.",
         "I like the attention."
       ],
       [
-        "Du magst die Achtung (Sg. ohne Artikel).",
+        "Du magst die Achtung.",
         "You like the attention."
       ],
       [
-        "Er mag die Achtung (Sg. ohne Artikel).",
+        "Er mag die Achtung.",
         "He likes the attention."
       ],
       [
-        "Wir mögen die Achtung (Sg. ohne Artikel).",
+        "Wir mögen die Achtung.",
         "We like the attention."
       ],
       [
-        "Ihr mögt die Achtung (Sg. ohne Artikel).",
+        "Ihr mögt die Achtung.",
         "You all like the attention."
       ],
       [
-        "Sie mögen die Achtung (Sg. ohne Artikel).",
+        "Sie mögen die Achtung.",
         "They like the attention."
       ]
     ]
@@ -123423,28 +123137,28 @@
     "example_en": "That's a polite request.",
     "person_sentences": [
       [
-        "Ich habe eine Aufforderung.",
-        "I have a request."
+        "Ich bekomme eine Aufforderung.",
+        "I receive a request/prompt."
       ],
       [
-        "Du hast eine Aufforderung.",
-        "You have a request."
+        "Du bekommst eine Aufforderung.",
+        "You receive a request/prompt."
       ],
       [
-        "Er hat eine Aufforderung.",
-        "He has a request."
+        "Er bekommt eine Aufforderung.",
+        "He receives a request/prompt."
       ],
       [
-        "Wir haben eine Aufforderung.",
-        "We have a request."
+        "Wir bekommen eine Aufforderung.",
+        "We receive a request/prompt."
       ],
       [
-        "Ihr habt eine Aufforderung.",
-        "You all have a request."
+        "Ihr bekommt eine Aufforderung.",
+        "You all receive a request/prompt."
       ],
       [
-        "Sie haben eine Aufforderung.",
-        "They have a request."
+        "Sie bekommen eine Aufforderung.",
+        "They receive a request/prompt."
       ]
     ]
   },
@@ -127239,27 +126953,27 @@
     "example_en": "The photographer takes beautiful pictures.",
     "person_sentences": [
       [
-        "Ich mag den Fotograf.",
+        "Ich mag den Fotografen.",
         "I like the photographer (male)."
       ],
       [
-        "Du magst den Fotograf.",
+        "Du magst den Fotografen.",
         "You like the photographer (male)."
       ],
       [
-        "Er mag den Fotograf.",
+        "Er mag den Fotografen.",
         "He likes the photographer (male)."
       ],
       [
-        "Wir mögen den Fotograf.",
+        "Wir mögen den Fotografen.",
         "We like the photographer (male)."
       ],
       [
-        "Ihr mögt den Fotograf.",
+        "Ihr mögt den Fotografen.",
         "You all like the photographer (male)."
       ],
       [
-        "Sie mögen den Fotograf.",
+        "Sie mögen den Fotografen.",
         "They like the photographer (male)."
       ]
     ]
@@ -129185,27 +128899,27 @@
     "example_en": "He's a real individualist.",
     "person_sentences": [
       [
-        "Ich mag den Individualist.",
+        "Ich mag den Individualisten.",
         "I like the individualist (male)."
       ],
       [
-        "Du magst den Individualist.",
+        "Du magst den Individualisten.",
         "You like the individualist (male)."
       ],
       [
-        "Er mag den Individualist.",
+        "Er mag den Individualisten.",
         "He likes the individualist (male)."
       ],
       [
-        "Wir mögen den Individualist.",
+        "Wir mögen den Individualisten.",
         "We like the individualist (male)."
       ],
       [
-        "Ihr mögt den Individualist.",
+        "Ihr mögt den Individualisten.",
         "You all like the individualist (male)."
       ],
       [
-        "Sie mögen den Individualist.",
+        "Sie mögen den Individualisten.",
         "They like the individualist (male)."
       ]
     ]
@@ -129661,27 +129375,27 @@
     "example_en": "The lawyer advises his clients.",
     "person_sentences": [
       [
-        "Ich mag den Jurist.",
+        "Ich mag den Juristen.",
         "I like the lawyer (male)."
       ],
       [
-        "Du magst den Jurist.",
+        "Du magst den Juristen.",
         "You like the lawyer (male)."
       ],
       [
-        "Er mag den Jurist.",
+        "Er mag den Juristen.",
         "He likes the lawyer (male)."
       ],
       [
-        "Wir mögen den Jurist.",
+        "Wir mögen den Juristen.",
         "We like the lawyer (male)."
       ],
       [
-        "Ihr mögt den Jurist.",
+        "Ihr mögt den Juristen.",
         "You all like the lawyer (male)."
       ],
       [
-        "Sie mögen den Jurist.",
+        "Sie mögen den Juristen.",
         "They like the lawyer (male)."
       ]
     ]
@@ -129831,27 +129545,27 @@
     "example_en": "He's been doing karate for years.",
     "person_sentences": [
       [
-        "Ich mag das Karate (Sg. ohne Artikel).",
+        "Ich mag das Karate.",
         "I like the karate."
       ],
       [
-        "Du magst das Karate (Sg. ohne Artikel).",
+        "Du magst das Karate.",
         "You like the karate."
       ],
       [
-        "Er mag das Karate (Sg. ohne Artikel).",
+        "Er mag das Karate.",
         "He likes the karate."
       ],
       [
-        "Wir mögen das Karate (Sg. ohne Artikel).",
+        "Wir mögen das Karate.",
         "We like the karate."
       ],
       [
-        "Ihr mögt das Karate (Sg. ohne Artikel).",
+        "Ihr mögt das Karate.",
         "You all like the karate."
       ],
       [
-        "Sie mögen das Karate (Sg. ohne Artikel).",
+        "Sie mögen das Karate.",
         "They like the karate."
       ]
     ]
@@ -130409,27 +130123,27 @@
     "example_en": "'B' is a consonant.",
     "person_sentences": [
       [
-        "Ich benutze den Konsonant.",
+        "Ich benutze den Konsonanten.",
         "I use the consonant."
       ],
       [
-        "Du benutzt den Konsonant.",
+        "Du benutzt den Konsonanten.",
         "You use the consonant."
       ],
       [
-        "Er benutzt den Konsonant.",
+        "Er benutzt den Konsonanten.",
         "He uses the consonant."
       ],
       [
-        "Wir benutzen den Konsonant.",
+        "Wir benutzen den Konsonanten.",
         "We use the consonant."
       ],
       [
-        "Ihr benutzt den Konsonant.",
+        "Ihr benutzt den Konsonanten.",
         "You all use the consonant."
       ],
       [
-        "Sie benutzen den Konsonant.",
+        "Sie benutzen den Konsonanten.",
         "They use the consonant."
       ]
     ]
@@ -131395,27 +131109,27 @@
     "example_en": "The lab technician tests the samples.",
     "person_sentences": [
       [
-        "Ich mag den Laborant.",
+        "Ich mag den Laboranten.",
         "I like the lab technician (male)."
       ],
       [
-        "Du magst den Laborant.",
+        "Du magst den Laboranten.",
         "You like the lab technician (male)."
       ],
       [
-        "Er mag den Laborant.",
+        "Er mag den Laboranten.",
         "He likes the lab technician (male)."
       ],
       [
-        "Wir mögen den Laborant.",
+        "Wir mögen den Laboranten.",
         "We like the lab technician (male)."
       ],
       [
-        "Ihr mögt den Laborant.",
+        "Ihr mögt den Laboranten.",
         "You all like the lab technician (male)."
       ],
       [
-        "Sie mögen den Laborant.",
+        "Sie mögen den Laboranten.",
         "They like the lab technician (male)."
       ]
     ]
@@ -131940,27 +131654,27 @@
     "person_sentences": [
       [
         "Ich mag die Medien.",
-        "I like the the media."
+        "I like the media."
       ],
       [
         "Du magst die Medien.",
-        "You like the the media."
+        "You like the media."
       ],
       [
         "Er mag die Medien.",
-        "He likes the the media."
+        "He likes the media."
       ],
       [
         "Wir mögen die Medien.",
-        "We like the the media."
+        "We like the media."
       ],
       [
         "Ihr mögt die Medien.",
-        "You all like the the media."
+        "You all like the media."
       ],
       [
         "Sie mögen die Medien.",
-        "They like the the media."
+        "They like the media."
       ]
     ]
   },
@@ -139317,27 +139031,27 @@
     "example_en": "Can you play tennis well?",
     "person_sentences": [
       [
-        "Ich mag das Tennis (Sg. ohne Artikel).",
+        "Ich mag das Tennis.",
         "I like the tennis."
       ],
       [
-        "Du magst das Tennis (Sg. ohne Artikel).",
+        "Du magst das Tennis.",
         "You like the tennis."
       ],
       [
-        "Er mag das Tennis (Sg. ohne Artikel).",
+        "Er mag das Tennis.",
         "He likes the tennis."
       ],
       [
-        "Wir mögen das Tennis (Sg. ohne Artikel).",
+        "Wir mögen das Tennis.",
         "We like the tennis."
       ],
       [
-        "Ihr mögt das Tennis (Sg. ohne Artikel).",
+        "Ihr mögt das Tennis.",
         "You all like the tennis."
       ],
       [
-        "Sie mögen das Tennis (Sg. ohne Artikel).",
+        "Sie mögen das Tennis.",
         "They like the tennis."
       ]
     ]
@@ -140066,27 +139780,27 @@
     "person_sentences": [
       [
         "Ich mag die USA.",
-        "I like the the USA."
+        "I like the USA."
       ],
       [
         "Du magst die USA.",
-        "You like the the USA."
+        "You like the USA."
       ],
       [
         "Er mag die USA.",
-        "He likes the the USA."
+        "He likes the USA."
       ],
       [
         "Wir mögen die USA.",
-        "We like the the USA."
+        "We like the USA."
       ],
       [
         "Ihr mögt die USA.",
-        "You all like the the USA."
+        "You all like the USA."
       ],
       [
         "Sie mögen die USA.",
-        "They like the the USA."
+        "They like the USA."
       ]
     ]
   },
@@ -141663,27 +141377,27 @@
     "example_en": "She does yoga every morning.",
     "person_sentences": [
       [
-        "Ich mag das Yoga (Sg. ohne Artikel).",
+        "Ich mag das Yoga.",
         "I like the yoga."
       ],
       [
-        "Du magst das Yoga (Sg. ohne Artikel).",
+        "Du magst das Yoga.",
         "You like the yoga."
       ],
       [
-        "Er mag das Yoga (Sg. ohne Artikel).",
+        "Er mag das Yoga.",
         "He likes the yoga."
       ],
       [
-        "Wir mögen das Yoga (Sg. ohne Artikel).",
+        "Wir mögen das Yoga.",
         "We like the yoga."
       ],
       [
-        "Ihr mögt das Yoga (Sg. ohne Artikel).",
+        "Ihr mögt das Yoga.",
         "You all like the yoga."
       ],
       [
-        "Sie mögen das Yoga (Sg. ohne Artikel).",
+        "Sie mögen das Yoga.",
         "They like the yoga."
       ]
     ]
@@ -143600,33 +143314,7 @@
     "article": "",
     "level": "A1",
     "example": "Sie kommt aus der Schweiz.",
-    "example_en": "She comes from Switzerland.",
-    "person_sentences": [
-      [
-        "Ich mag den (2).",
-        "I like the the (definite article."
-      ],
-      [
-        "Du magst den (2).",
-        "You like the the (definite article."
-      ],
-      [
-        "Er mag den (2).",
-        "He likes the the (definite article."
-      ],
-      [
-        "Wir mögen den (2).",
-        "We like the the (definite article."
-      ],
-      [
-        "Ihr mögt den (2).",
-        "You all like the the (definite article."
-      ],
-      [
-        "Sie mögen den (2).",
-        "They like the the (definite article."
-      ]
-    ]
+    "example_en": "She comes from Switzerland."
   },
   {
     "de": "deutschsprachig",
@@ -143676,33 +143364,7 @@
     "article": "",
     "level": "A1",
     "example": "Wie heißen die Personen?",
-    "example_en": "What are the people's names?",
-    "person_sentences": [
-      [
-        "Ich mag die (2).",
-        "I like the the (definite article."
-      ],
-      [
-        "Du magst die (2).",
-        "You like the the (definite article."
-      ],
-      [
-        "Er mag die (2).",
-        "He likes the the (definite article."
-      ],
-      [
-        "Wir mögen die (2).",
-        "We like the the (definite article."
-      ],
-      [
-        "Ihr mögt die (2).",
-        "You all like the the (definite article."
-      ],
-      [
-        "Sie mögen die (2).",
-        "They like the the (definite article."
-      ]
-    ]
+    "example_en": "What are the people's names?"
   },
   {
     "de": "diese",
@@ -146998,28 +146660,28 @@
     },
     "person_sentences": [
       [
-        "Ich frage nach der Telefonnummer nach.",
-        "I ask again about the phone number."
+        "Ich frage bei der Firma nach.",
+        "I follow up with the company."
       ],
       [
-        "Du fragst nach der Telefonnummer nach.",
-        "You ask again about the phone number."
+        "Du fragst bei der Firma nach.",
+        "You follow up with the company."
       ],
       [
-        "Er fragt nach der Telefonnummer nach.",
-        "He asks again about the phone number."
+        "Er fragt bei der Firma nach.",
+        "He follows up with the company."
       ],
       [
-        "Wir fragen nach der Telefonnummer nach.",
-        "We ask again about the phone number."
+        "Wir fragen bei der Firma nach.",
+        "We follow up with the company."
       ],
       [
-        "Ihr fragt nach der Telefonnummer nach.",
-        "You all ask again about the phone number."
+        "Ihr fragt bei der Firma nach.",
+        "You all follow up with the company."
       ],
       [
-        "Sie fragen nach der Telefonnummer nach.",
-        "They ask again about the phone number."
+        "Sie fragen bei der Firma nach.",
+        "They follow up with the company."
       ]
     ]
   },
@@ -149494,28 +149156,28 @@
     "example_en": "I train daily.",
     "person_sentences": [
       [
-        "Ich bin täglich.",
-        "I am daily."
+        "Ich trainiere täglich.",
+        "I train daily."
       ],
       [
-        "Du bist täglich.",
-        "You are daily."
+        "Du trainierst täglich.",
+        "You train daily."
       ],
       [
-        "Er ist täglich.",
-        "He is daily."
+        "Er trainiert täglich.",
+        "He trains daily."
       ],
       [
-        "Wir sind täglich.",
-        "We are daily."
+        "Wir trainieren täglich.",
+        "We train daily."
       ],
       [
-        "Ihr seid täglich.",
-        "You all are daily."
+        "Ihr trainiert täglich.",
+        "You all train daily."
       ],
       [
-        "Sie sind täglich.",
-        "They are daily."
+        "Sie trainieren täglich.",
+        "They train daily."
       ]
     ]
   },
@@ -153928,28 +153590,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin vergeblich.",
-        "I am in vain."
+        "Ich warte vergeblich auf eine Antwort.",
+        "I wait in vain for an answer."
       ],
       [
-        "Du bist vergeblich.",
-        "You are in vain."
+        "Du wartest vergeblich auf eine Antwort.",
+        "You wait in vain for an answer."
       ],
       [
-        "Er ist vergeblich.",
-        "He is in vain."
+        "Er wartet vergeblich auf eine Antwort.",
+        "He waits in vain for an answer."
       ],
       [
-        "Wir sind vergeblich.",
-        "We are in vain."
+        "Wir warten vergeblich auf eine Antwort.",
+        "We wait in vain for an answer."
       ],
       [
-        "Ihr seid vergeblich.",
-        "You all are in vain."
+        "Ihr wartet vergeblich auf eine Antwort.",
+        "You all wait in vain for an answer."
       ],
       [
-        "Sie sind vergeblich.",
-        "They are in vain."
+        "Sie warten vergeblich auf eine Antwort.",
+        "They wait in vain for an answer."
       ]
     ]
   },
@@ -156095,27 +155757,27 @@
     "person_sentences": [
       [
         "Ich mag die Medien.",
-        "I like the the media."
+        "I like the media."
       ],
       [
         "Du magst die Medien.",
-        "You like the the media."
+        "You like the media."
       ],
       [
         "Er mag die Medien.",
-        "He likes the the media."
+        "He likes the media."
       ],
       [
         "Wir mögen die Medien.",
-        "We like the the media."
+        "We like the media."
       ],
       [
         "Ihr mögt die Medien.",
-        "You all like the the media."
+        "You all like the media."
       ],
       [
         "Sie mögen die Medien.",
-        "They like the the media."
+        "They like the media."
       ]
     ]
   },
@@ -156452,28 +156114,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin ebenfalls.",
-        "I am likewise."
+        "Ich komme ebenfalls zur Party.",
+        "I am also coming to the party."
       ],
       [
-        "Du bist ebenfalls.",
-        "You are likewise."
+        "Du kommst ebenfalls zur Party.",
+        "You are also coming to the party."
       ],
       [
-        "Er ist ebenfalls.",
-        "He is likewise."
+        "Er kommt ebenfalls zur Party.",
+        "He is also coming to the party."
       ],
       [
-        "Wir sind ebenfalls.",
-        "We are likewise."
+        "Wir kommen ebenfalls zur Party.",
+        "We are also coming to the party."
       ],
       [
-        "Ihr seid ebenfalls.",
-        "You all are likewise."
+        "Ihr kommt ebenfalls zur Party.",
+        "You all are also coming to the party."
       ],
       [
-        "Sie sind ebenfalls.",
-        "They are likewise."
+        "Sie kommen ebenfalls zur Party.",
+        "They are also coming to the party."
       ]
     ]
   },
@@ -164353,28 +164015,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich mag die Aufforderung.",
-        "I like the request."
+        "Ich bekomme eine Aufforderung.",
+        "I receive a request/prompt."
       ],
       [
-        "Du magst die Aufforderung.",
-        "You like the request."
+        "Du bekommst eine Aufforderung.",
+        "You receive a request/prompt."
       ],
       [
-        "Er mag die Aufforderung.",
-        "He likes the request."
+        "Er bekommt eine Aufforderung.",
+        "He receives a request/prompt."
       ],
       [
-        "Wir mögen die Aufforderung.",
-        "We like the request."
+        "Wir bekommen eine Aufforderung.",
+        "We receive a request/prompt."
       ],
       [
-        "Ihr mögt die Aufforderung.",
-        "You all like the request."
+        "Ihr bekommt eine Aufforderung.",
+        "You all receive a request/prompt."
       ],
       [
-        "Sie mögen die Aufforderung.",
-        "They like the request."
+        "Sie bekommen eine Aufforderung.",
+        "They receive a request/prompt."
       ]
     ]
   },
@@ -166561,28 +166223,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin öko(logisch).",
-        "I am eco(logical)."
+        "Ich lebe öko.",
+        "I live eco-friendly."
       ],
       [
-        "Du bist öko(logisch).",
-        "You are eco(logical)."
+        "Du lebst öko.",
+        "You live eco-friendly."
       ],
       [
-        "Er ist öko(logisch).",
-        "He is eco(logical)."
+        "Er lebt öko.",
+        "He lives eco-friendly."
       ],
       [
-        "Wir sind öko(logisch).",
-        "We are eco(logical)."
+        "Wir leben öko.",
+        "We live eco-friendly."
       ],
       [
-        "Ihr seid öko(logisch).",
-        "You all are eco(logical)."
+        "Ihr lebt öko.",
+        "You all live eco-friendly."
       ],
       [
-        "Sie sind öko(logisch).",
-        "They are eco(logical)."
+        "Sie leben öko.",
+        "They live eco-friendly."
       ]
     ]
   },
@@ -169621,28 +169283,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin rückwärts.",
-        "I am backwards."
+        "Ich gehe rückwärts.",
+        "I walk backwards."
       ],
       [
-        "Du bist rückwärts.",
-        "You are backwards."
+        "Du gehst rückwärts.",
+        "You walk backwards."
       ],
       [
-        "Er ist rückwärts.",
-        "He is backwards."
+        "Er geht rückwärts.",
+        "He walks backwards."
       ],
       [
-        "Wir sind rückwärts.",
-        "We are backwards."
+        "Wir gehen rückwärts.",
+        "We walk backwards."
       ],
       [
-        "Ihr seid rückwärts.",
-        "You all are backwards."
+        "Ihr geht rückwärts.",
+        "You all walk backwards."
       ],
       [
-        "Sie sind rückwärts.",
-        "They are backwards."
+        "Sie gehen rückwärts.",
+        "They walk backwards."
       ]
     ]
   },
@@ -171048,28 +170710,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin beruflich.",
-        "I am professionally."
+        "Ich bin beruflich unterwegs.",
+        "I am traveling for work."
       ],
       [
-        "Du bist beruflich.",
-        "You are professionally."
+        "Du bist beruflich unterwegs.",
+        "You are traveling for work."
       ],
       [
-        "Er ist beruflich.",
-        "He is professionally."
+        "Er ist beruflich unterwegs.",
+        "He is traveling for work."
       ],
       [
-        "Wir sind beruflich.",
-        "We are professionally."
+        "Wir sind beruflich unterwegs.",
+        "We are traveling for work."
       ],
       [
-        "Ihr seid beruflich.",
-        "You all are professionally."
+        "Ihr seid beruflich unterwegs.",
+        "You all are traveling for work."
       ],
       [
-        "Sie sind beruflich.",
-        "They are professionally."
+        "Sie sind beruflich unterwegs.",
+        "They are traveling for work."
       ]
     ]
   },
@@ -171468,28 +171130,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin ganztags.",
-        "I am all day."
+        "Ich arbeite ganztags.",
+        "I work full-time (all day)."
       ],
       [
-        "Du bist ganztags.",
-        "You are all day."
+        "Du arbeitest ganztags.",
+        "You work full-time (all day)."
       ],
       [
-        "Er ist ganztags.",
-        "He is all day."
+        "Er arbeitet ganztags.",
+        "He works full-time (all day)."
       ],
       [
-        "Wir sind ganztags.",
-        "We are all day."
+        "Wir arbeiten ganztags.",
+        "We work full-time (all day)."
       ],
       [
-        "Ihr seid ganztags.",
-        "You all are all day."
+        "Ihr arbeitet ganztags.",
+        "You all work full-time (all day)."
       ],
       [
-        "Sie sind ganztags.",
-        "They are all day."
+        "Sie arbeiten ganztags.",
+        "They work full-time (all day)."
       ]
     ]
   },
@@ -171503,28 +171165,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich bin halbtags.",
-        "I am half-day."
+        "Ich arbeite halbtags.",
+        "I work half days."
       ],
       [
-        "Du bist halbtags.",
-        "You are half-day."
+        "Du arbeitest halbtags.",
+        "You work half days."
       ],
       [
-        "Er ist halbtags.",
-        "He is half-day."
+        "Er arbeitet halbtags.",
+        "He works half days."
       ],
       [
-        "Wir sind halbtags.",
-        "We are half-day."
+        "Wir arbeiten halbtags.",
+        "We work half days."
       ],
       [
-        "Ihr seid halbtags.",
-        "You all are half-day."
+        "Ihr arbeitet halbtags.",
+        "You all work half days."
       ],
       [
-        "Sie sind halbtags.",
-        "They are half-day."
+        "Sie arbeiten halbtags.",
+        "They work half days."
       ]
     ]
   },
@@ -171896,27 +171558,27 @@
     "person_sentences": [
       [
         "Ich mag die Europäische Union.",
-        "I like the the European Union."
+        "I like the European Union."
       ],
       [
         "Du magst die Europäische Union.",
-        "You like the the European Union."
+        "You like the European Union."
       ],
       [
         "Er mag die Europäische Union.",
-        "He likes the the European Union."
+        "He likes the European Union."
       ],
       [
         "Wir mögen die Europäische Union.",
-        "We like the the European Union."
+        "We like the European Union."
       ],
       [
         "Ihr mögt die Europäische Union.",
-        "You all like the the European Union."
+        "You all like the European Union."
       ],
       [
         "Sie mögen die Europäische Union.",
-        "They like the the European Union."
+        "They like the European Union."
       ]
     ]
   },
@@ -173046,28 +172708,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe das Verständnis.",
-        "I see the understanding."
+        "Ich habe Verständnis für dich.",
+        "I have understanding for you."
       ],
       [
-        "Du siehst das Verständnis.",
-        "You see the understanding."
+        "Du hast Verständnis für mich.",
+        "You have understanding for me."
       ],
       [
-        "Er sieht das Verständnis.",
-        "He sees the understanding."
+        "Er hat Verständnis für sie.",
+        "He has understanding for her."
       ],
       [
-        "Wir sehen das Verständnis.",
-        "We see the understanding."
+        "Wir haben Verständnis für euch.",
+        "We have understanding for you all."
       ],
       [
-        "Ihr seht das Verständnis.",
-        "You all see the understanding."
+        "Ihr habt Verständnis für uns.",
+        "You all have understanding for us."
       ],
       [
-        "Sie sehen das Verständnis.",
-        "They see the understanding."
+        "Sie haben Verständnis für ihn.",
+        "They have understanding for him."
       ]
     ]
   },
@@ -174252,28 +173914,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Zeitarbeit.",
-        "I see the temporary work."
+        "Ich mache Zeitarbeit.",
+        "I do temp work."
       ],
       [
-        "Du siehst die Zeitarbeit.",
-        "You see the temporary work."
+        "Du machst Zeitarbeit.",
+        "You do temp work."
       ],
       [
-        "Er sieht die Zeitarbeit.",
-        "He sees the temporary work."
+        "Er macht Zeitarbeit.",
+        "He does temp work."
       ],
       [
-        "Wir sehen die Zeitarbeit.",
-        "We see the temporary work."
+        "Wir machen Zeitarbeit.",
+        "We do temp work."
       ],
       [
-        "Ihr seht die Zeitarbeit.",
-        "You all see the temporary work."
+        "Ihr macht Zeitarbeit.",
+        "You all do temp work."
       ],
       [
-        "Sie sehen die Zeitarbeit.",
-        "They see the temporary work."
+        "Sie machen Zeitarbeit.",
+        "They do temp work."
       ]
     ]
   },
@@ -174582,28 +174244,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Entlassung.",
-        "I see the dismissal."
+        "Ich fürchte die Entlassung.",
+        "I fear the dismissal."
       ],
       [
-        "Du siehst die Entlassung.",
-        "You see the dismissal."
+        "Du fürchtest die Entlassung.",
+        "You fear the dismissal."
       ],
       [
-        "Er sieht die Entlassung.",
-        "He sees the dismissal."
+        "Er fürchtet die Entlassung.",
+        "He fears the dismissal."
       ],
       [
-        "Wir sehen die Entlassung.",
-        "We see the dismissal."
+        "Wir fürchten die Entlassung.",
+        "We fear the dismissal."
       ],
       [
-        "Ihr seht die Entlassung.",
-        "You all see the dismissal."
+        "Ihr fürchtet die Entlassung.",
+        "You all fear the dismissal."
       ],
       [
-        "Sie sehen die Entlassung.",
-        "They see the dismissal."
+        "Sie fürchten die Entlassung.",
+        "They fear the dismissal."
       ]
     ]
   },
@@ -174617,28 +174279,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Vorschrift.",
-        "I see the regulation."
+        "Ich befolge die Vorschrift.",
+        "I follow the regulation."
       ],
       [
-        "Du siehst die Vorschrift.",
-        "You see the regulation."
+        "Du befolgst die Vorschrift.",
+        "You follow the regulation."
       ],
       [
-        "Er sieht die Vorschrift.",
-        "He sees the regulation."
+        "Er befolgt die Vorschrift.",
+        "He follows the regulation."
       ],
       [
-        "Wir sehen die Vorschrift.",
-        "We see the regulation."
+        "Wir befolgen die Vorschrift.",
+        "We follow the regulation."
       ],
       [
-        "Ihr seht die Vorschrift.",
-        "You all see the regulation."
+        "Ihr befolgt die Vorschrift.",
+        "You all follow the regulation."
       ],
       [
-        "Sie sehen die Vorschrift.",
-        "They see the regulation."
+        "Sie befolgen die Vorschrift.",
+        "They follow the regulation."
       ]
     ]
   },
@@ -174905,28 +174567,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe den Versuch.",
-        "I see the attempt."
+        "Ich mache einen Versuch.",
+        "I make an attempt."
       ],
       [
-        "Du siehst den Versuch.",
-        "You see the attempt."
+        "Du machst einen Versuch.",
+        "You make an attempt."
       ],
       [
-        "Er sieht den Versuch.",
-        "He sees the attempt."
+        "Er macht einen Versuch.",
+        "He makes an attempt."
       ],
       [
-        "Wir sehen den Versuch.",
-        "We see the attempt."
+        "Wir machen einen Versuch.",
+        "We make an attempt."
       ],
       [
-        "Ihr seht den Versuch.",
-        "You all see the attempt."
+        "Ihr macht einen Versuch.",
+        "You all make an attempt."
       ],
       [
-        "Sie sehen den Versuch.",
-        "They see the attempt."
+        "Sie machen einen Versuch.",
+        "They make an attempt."
       ]
     ]
   },
@@ -177203,28 +176865,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe den Tod.",
-        "I see the death."
+        "Ich denke manchmal über den Tod nach.",
+        "I sometimes think about death."
       ],
       [
-        "Du siehst den Tod.",
-        "You see the death."
+        "Du denkst manchmal über den Tod nach.",
+        "You sometimes think about death."
       ],
       [
-        "Er sieht den Tod.",
-        "He sees the death."
+        "Er denkt manchmal über den Tod nach.",
+        "He sometimes thinks about death."
       ],
       [
-        "Wir sehen den Tod.",
-        "We see the death."
+        "Wir denken manchmal über den Tod nach.",
+        "We sometimes think about death."
       ],
       [
-        "Ihr seht den Tod.",
-        "You all see the death."
+        "Ihr denkt manchmal über den Tod nach.",
+        "You all sometimes think about death."
       ],
       [
-        "Sie sehen den Tod.",
-        "They see the death."
+        "Sie denken manchmal über den Tod nach.",
+        "They sometimes think about death."
       ]
     ]
   },
@@ -177819,28 +177481,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Teilnahme.",
-        "I see the participation."
+        "Ich bestätige meine Teilnahme.",
+        "I confirm my participation."
       ],
       [
-        "Du siehst die Teilnahme.",
-        "You see the participation."
+        "Du bestätigst deine Teilnahme.",
+        "You confirm your participation."
       ],
       [
-        "Er sieht die Teilnahme.",
-        "He sees the participation."
+        "Er bestätigt seine Teilnahme.",
+        "He confirms his participation."
       ],
       [
-        "Wir sehen die Teilnahme.",
-        "We see the participation."
+        "Wir bestätigen unsere Teilnahme.",
+        "We confirm our participation."
       ],
       [
-        "Ihr seht die Teilnahme.",
-        "You all see the participation."
+        "Ihr bestätigt eure Teilnahme.",
+        "You all confirm your participation."
       ],
       [
-        "Sie sehen die Teilnahme.",
-        "They see the participation."
+        "Sie bestätigen ihre Teilnahme.",
+        "They confirm their participation."
       ]
     ]
   },
@@ -178625,28 +178287,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich habe große Liebe.",
-        "I have great love."
+        "Ich habe viel Liebe für meine Familie.",
+        "I have a lot of love for my family."
       ],
       [
-        "Du hast große Liebe.",
-        "You have great love."
+        "Du hast viel Liebe für deine Familie.",
+        "You have a lot of love for your family."
       ],
       [
-        "Er hat große Liebe.",
-        "He has great love."
+        "Er hat viel Liebe für seine Familie.",
+        "He has a lot of love for his family."
       ],
       [
-        "Wir haben große Liebe.",
-        "We have great love."
+        "Wir haben viel Liebe für unsere Familie.",
+        "We have a lot of love for our family."
       ],
       [
-        "Ihr habt große Liebe.",
-        "You all have great love."
+        "Ihr habt viel Liebe für eure Familie.",
+        "You all have a lot of love for your family."
       ],
       [
-        "Sie haben große Liebe.",
-        "They have great love."
+        "Sie haben viel Liebe für ihre Familie.",
+        "They have a lot of love for their family."
       ]
     ]
   },
@@ -181633,28 +181295,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Meine Beispiele ist zahlreich.",
-        "My examples is numerous."
+        "Meine Beispiele sind zahlreich.",
+        "My examples are numerous."
       ],
       [
-        "Deine Beispiele ist zahlreich.",
-        "Your examples is numerous."
+        "Deine Beispiele sind zahlreich.",
+        "Your examples are numerous."
       ],
       [
-        "Seine Beispiele ist zahlreich.",
-        "His examples is numerous."
+        "Seine Beispiele sind zahlreich.",
+        "His examples are numerous."
       ],
       [
-        "Unsere Beispiele ist zahlreich.",
-        "Our examples is numerous."
+        "Unsere Beispiele sind zahlreich.",
+        "Our examples are numerous."
       ],
       [
-        "Eure Beispiele ist zahlreich.",
-        "Your (pl.) examples is numerous."
+        "Eure Beispiele sind zahlreich.",
+        "Your (pl.) examples are numerous."
       ],
       [
-        "Ihre Beispiele ist zahlreich.",
-        "Their examples is numerous."
+        "Ihre Beispiele sind zahlreich.",
+        "Their examples are numerous."
       ]
     ]
   },
@@ -183427,28 +183089,28 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich sehe die Zeitverschwendung.",
-        "I see the waste of time."
+        "Das ist für mich Zeitverschwendung.",
+        "That's a waste of time for me."
       ],
       [
-        "Du siehst die Zeitverschwendung.",
-        "You see the waste of time."
+        "Das ist für dich Zeitverschwendung.",
+        "That's a waste of time for you."
       ],
       [
-        "Er sieht die Zeitverschwendung.",
-        "He sees the waste of time."
+        "Das ist für ihn Zeitverschwendung.",
+        "That's a waste of time for him."
       ],
       [
-        "Wir sehen die Zeitverschwendung.",
-        "We see the waste of time."
+        "Das ist für uns Zeitverschwendung.",
+        "That's a waste of time for us."
       ],
       [
-        "Ihr seht die Zeitverschwendung.",
-        "You all see the waste of time."
+        "Das ist für euch Zeitverschwendung.",
+        "That's a waste of time for you all."
       ],
       [
-        "Sie sehen die Zeitverschwendung.",
-        "They see the waste of time."
+        "Das ist für sie Zeitverschwendung.",
+        "That's a waste of time for them."
       ]
     ]
   },
