@@ -428,6 +428,130 @@ CONJUGATION_WS_SCRIPT = """<script>
 </script>"""
 
 
+PERSON_SENTENCES_SCRIPT = """<script>
+// Person-sentence drill (ich/du/er.../Sie) for dictionary.html —
+// lazy-loaded on first expand, same pattern as the full conjugation
+// table loader elsewhere on this page. Injected automatically by
+// build_dictionary() (idempotent — see inject_person_sentences_script)
+// so a fresh checkout of dictionary.html always has it, without
+// needing a one-off manual edit to the file's static shell.
+(function() {
+    var prefix = window.location.pathname.replace(/\\\\/g, '/').match(/\\/(A1|A2|B1|B2|C1|C2)\\//) ? '../' : '';
+    var dataPromise = null;
+    function loadPersonData() {
+        if (dataPromise) return dataPromise;
+        dataPromise = fetch(prefix + 'person-sentences.json')
+            .then(function(r) { return r.ok ? r.json() : {}; })
+            .catch(function() { return {}; });
+        return dataPromise;
+    }
+
+    var ttsSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+    function addTtsIfAvailable(cell, text, lang) {
+        if (!('speechSynthesis' in window) || !text) return;
+        var b = document.createElement('button');
+        b.className = 'd-tts';
+        b.innerHTML = ttsSvg;
+        b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+        b.onclick = function(e) {
+            e.preventDefault(); e.stopPropagation();
+            var synth = window.speechSynthesis;
+            synth.cancel();
+            var clean = text.replace(/\\s*[,]\\s*-\\w+/g, '').replace(/[—–]/g, '').replace(/\\(.*?\\)/g, '').replace(/\\s+/g, ' ').trim();
+            if (!clean) return;
+            var u = new SpeechSynthesisUtterance(clean);
+            u.lang = lang; u.rate = 0.9;
+            synth.speak(u);
+        };
+        cell.appendChild(b);
+    }
+
+    function renderDrillTable(rows) {
+        var html = '<div style="overflow-x:auto;margin-top:0.4rem;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
+            '<thead><tr><th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
+            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;">English</th></tr></thead><tbody>';
+        rows.forEach(function(pair) {
+            html += '<tr><td>' + pair[0] + '</td><td>' + pair[1] + '</td></tr>';
+        });
+        html += '</tbody></table></div>';
+        return html;
+    }
+
+    document.addEventListener('toggle', function(e) {
+        var details = e.target;
+        if (!details.classList || !details.classList.contains('word-person-drill')) return;
+        if (!details.open) return;
+        if (details.querySelector('table')) return; // already rendered
+
+        var word = details.getAttribute('data-word') || '';
+
+        loadPersonData().then(function(data) {
+            var rows = data[word];
+            if (!rows) return;
+            var wrap = document.createElement('div');
+            wrap.innerHTML = renderDrillTable(rows);
+            details.appendChild(wrap.firstChild);
+            details.querySelectorAll('tbody tr').forEach(function(row) {
+                var cells = row.querySelectorAll('td');
+                if (cells.length < 2) return;
+                addTtsIfAvailable(cells[0], cells[0].textContent.trim(), 'de-DE');
+                addTtsIfAvailable(cells[1], cells[1].textContent.trim(), 'en-US');
+            });
+        });
+    }, true);
+})();
+</script>"""
+
+
+PERSON_DRILL_WS_SCRIPT = """<script>
+// Person-sentence drill (ich/du/er.../Sie) for Wortschatz tables —
+// lazy-loaded on first expand, mirroring CONJUGATION_WS_SCRIPT above.
+// Rows live in person-sentences.json (root-level, one file shared by
+// every level page and dictionary.html) rather than being baked into
+// each word's row, for the same reason the conjugation table is
+// fetched on demand: most drills on a given page are never opened.
+(function() {
+    var prefix = '../';
+    var dataPromise = null;
+    function loadPersonData() {
+        if (dataPromise) return dataPromise;
+        dataPromise = fetch(prefix + 'person-sentences.json')
+            .then(function(r) { return r.ok ? r.json() : {}; })
+            .catch(function() { return {}; });
+        return dataPromise;
+    }
+
+    function renderDrillTable(rows) {
+        var html = '<div style="overflow-x:auto;margin-top:0.3rem;"><table style="width:100%;font-size:0.82rem;border-collapse:collapse;">' +
+            '<thead><tr><th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
+            '<th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;">English</th></tr></thead><tbody>';
+        rows.forEach(function(pair) {
+            html += '<tr><td>' + pair[0] + '</td><td>' + pair[1] + '</td></tr>';
+        });
+        html += '</tbody></table></div>';
+        return html;
+    }
+
+    document.addEventListener('toggle', function(e) {
+        var details = e.target;
+        if (!details.classList || !details.classList.contains('word-person-drill')) return;
+        if (!details.open) return;
+        if (details.querySelector('table')) return; // already rendered
+
+        var word = details.getAttribute('data-word') || '';
+
+        loadPersonData().then(function(data) {
+            var rows = data[word];
+            if (!rows) return;
+            var wrap = document.createElement('div');
+            wrap.innerHTML = renderDrillTable(rows);
+            details.appendChild(wrap.firstChild);
+        });
+    }, true);
+})();
+</script>"""
+
+
 WORTSCHATZ_SEARCH_SCRIPT = """<script>
 // Live search + POS filter for Wortschatz table rows, grouped by topic section
 (function() {
@@ -651,28 +775,24 @@ def make_word_card(w):
                    f'<span class="ex-de">{htmllib.escape(ex)}</span>'
                    f'{en_span}{col_html}</div>')
 
-    # 6-person sentence drill (ich/du/er,sie,es/wir/ihr/sie,Sie) — only
-    # rendered for words that have it; added incrementally, batch by
-    # batch, so absence of this field is completely normal and safe.
+    # 6-person sentence drill (ich/du/er,sie,es/wir/ihr/sie,Sie) — the
+    # actual 6 rows are NOT baked into this HTML. They're written once
+    # to person-sentences.json (by build_person_sentences below) and
+    # fetched + rendered client-side on first expand, the same pattern
+    # already used for the full conjugation tables (conjugations.json /
+    # PERSON_SENTENCES_SCRIPT). Baking all 4,600+ tables inline used to
+    # account for ~54% of dictionary.html's total download size even
+    # though most visitors never expand most drills — this shell is
+    # ~150 bytes regardless of level, vs. ~800-1000 bytes per table.
     person_html = ''
     person_sentences = w.get('person_sentences')
     if person_sentences and len(person_sentences) == 6:
-        rows = ''.join(
-            f'<tr><td>{htmllib.escape(de)}</td><td>{htmllib.escape(en)}</td></tr>'
-            for de, en in person_sentences
-        )
         person_html = (
-            '\n        <details class="word-person-drill" style="margin-top:0.5rem;">'
+            f'\n        <details class="word-person-drill" data-word="{htmllib.escape(de.lower(), quote=True)}|{level}" '
+            'style="margin-top:0.5rem;">'
             '<summary style="cursor:pointer;color:#1d4ed8;font-weight:600;font-size:0.85rem;">'
             'ich/du/er,sie,es/wir/ihr/sie,Sie \u2014 Beispiele</summary>'
-            '<div style="overflow-x:auto;margin-top:0.4rem;">'
-            '<table style="width:100%;font-size:0.85rem;border-collapse:collapse;">'
-            '<thead><tr>'
-            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>'
-            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;">English</th>'
-            '</tr></thead>'
-            f'<tbody>{rows}</tbody>'
-            '</table></div></details>'
+            '</details>'
         )
 
     return (
@@ -771,6 +891,19 @@ def build_jsonld(words):
     )
 
 
+def inject_person_sentences_script(content):
+    """Idempotently ensure PERSON_SENTENCES_SCRIPT is present in
+    dictionary.html's static shell (the part build_dictionary() doesn't
+    otherwise touch). Safe to call on every build: if a previous build
+    already inserted it, the marker comment is found and nothing changes."""
+    if 'build_dictionary() (idempotent' in content:
+        return content
+    marker = '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>'
+    if marker not in content:
+        return content  # shell doesn't match expected shape; leave untouched rather than guess
+    return content.replace(marker, PERSON_SENTENCES_SCRIPT + '\n' + marker, 1)
+
+
 def build_dictionary(words):
     """
     Fully regenerate dictionary.html word-card section from words_final.json.
@@ -846,6 +979,7 @@ def build_dictionary(words):
 
     # Inject app install banner (after filters, before word list — not before <main>)
     content_new = inject_install_banner_dict(content_new)
+    content_new = inject_person_sentences_script(content_new)
     content_new = re.sub(
         r'id="wordCount">\d+ words',
         f'id="wordCount">{total} words',
@@ -1029,27 +1163,18 @@ def build_wortschatz_page(level, level_words):
                         f'📖 Konjugation</button>' if pos == 'verb' else '')
 
             # 6-person sentence drill (ich/du/er,sie,es/wir/ihr/sie,Sie) —
-            # same optional field as dictionary.html; only rendered when
-            # present, so words without it yet are completely unaffected.
+            # same lazy-load pattern as dictionary.html: rows live in
+            # person-sentences.json and are fetched + rendered on first
+            # expand (see PERSON_DRILL_WS_SCRIPT), not baked in per-word.
             person_html = ''
             person_sentences = w.get('person_sentences')
             if person_sentences and len(person_sentences) == 6:
-                p_rows = ''.join(
-                    f'<tr><td>{htmllib.escape(pde)}</td><td>{htmllib.escape(pen)}</td></tr>'
-                    for pde, pen in person_sentences
-                )
                 person_html = (
-                    '<details class="word-person-drill" style="margin-top:0.4rem;">'
+                    f'<details class="word-person-drill" data-word="{htmllib.escape(w["de"].lower(), quote=True)}|{level}" '
+                    'style="margin-top:0.4rem;">'
                     '<summary style="cursor:pointer;color:#1d4ed8;font-weight:600;font-size:0.8rem;">'
                     'ich/du/er,sie,es/wir/ihr/sie,Sie \u2014 Beispiele</summary>'
-                    '<div style="overflow-x:auto;margin-top:0.3rem;">'
-                    '<table style="width:100%;font-size:0.82rem;border-collapse:collapse;">'
-                    '<thead><tr>'
-                    '<th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>'
-                    '<th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;">English</th>'
-                    '</tr></thead>'
-                    f'<tbody>{p_rows}</tbody>'
-                    '</table></div></details>'
+                    '</details>'
                 )
 
             search_blob = htmllib.escape(
@@ -1246,10 +1371,36 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>if('serviceWorker' in navigator){{navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js').then(function(r){{r.update();}}).catch(function(){{}});}}</script>
 {CONJUGATION_WS_SCRIPT}
+{PERSON_DRILL_WS_SCRIPT}
 {WORTSCHATZ_SEARCH_SCRIPT}
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "d435b2572b82459cb083e37f7c734b75"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>'''
+
+
+def build_person_sentences(words):
+    """
+    Generate person-sentences.json — the 6-person drill rows (ich/du/
+    er,sie,es/wir/ihr/sie,Sie) for every entry that has a 6-item
+    'person_sentences' list. Keyed by "lowercased-de|LEVEL" rather than
+    lowercased-de alone: ~115 words (e.g. "der Antrag", "abnehmen")
+    appear at two different CEFR levels with genuinely different
+    example sentences, and a word-only key would silently let one
+    level's entry overwrite the other's — both cards would then show
+    identical drill text even though they're meant to differ. data-word
+    on the <details> shell carries the matching "word|LEVEL" key (see
+    make_word_card and build_wortschatz_page) so the lookup is exact.
+    """
+    result = {}
+    for w in words:
+        ps = w.get('person_sentences')
+        if ps and len(ps) == 6:
+            result[f"{w['de'].lower()}|{w['level']}"] = ps
+    out_path = os.path.join(REPO, 'person-sentences.json')
+    with open(out_path, 'w', encoding='utf-8') as f:
+        json.dump(result, f, ensure_ascii=False, separators=(',', ':'))
+    size_kb = os.path.getsize(out_path) / 1024
+    print(f"  ✅ person-sentences.json — {len(result)} words, {size_kb:.0f} KB")
 
 
 def build_conjugations(words):
@@ -1323,6 +1474,7 @@ def main():
             print(f"  ✅ {level}/01_Wortschatz.html — {len(level_words)} words")
         build_dictionary(words)
         build_conjugations(words)
+        build_person_sentences(words)
         # Inject banner into index.html and all level index pages
         for page_path in (
             [os.path.join(REPO, 'index.html')] +
@@ -1352,6 +1504,7 @@ def main():
     # Rebuild dictionary.html
     if '--dictionary' in args:
         build_dictionary(words)
+        build_person_sentences(words)
     elif '--wortschatz-only' not in args:
         # Default: just update word count in existing dictionary.html
         dict_path = os.path.join(REPO, 'dictionary.html')
