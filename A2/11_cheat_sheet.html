@@ -77,7 +77,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 8rem;
+            scroll-padding-top: 4.5rem;
         }
 
         body {
@@ -166,7 +166,7 @@
         }
 
         .markdown-content h2[id] {
-            scroll-margin-top: 8rem;
+            scroll-margin-top: 4.5rem;
         }
 
         .markdown-content h1,
@@ -359,11 +359,9 @@
            screens and turns vertical there). */
         #quickjump-placeholder {
             position: sticky;
-            top: 3.5rem; /* sits just below the site's own sticky-top navbar */
+            top: 0; /* the site navbar itself isn't sticky, so this bar sticks
+                       directly to the viewport top with no gap above it */
             z-index: 1030;
-        }
-        @media (max-width: 991px) {
-            #quickjump-placeholder { top: 3.2rem; }
         }
         .quickjump-bar {
             background: var(--page-bg);
