@@ -111,6 +111,18 @@
         .d-tts{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:none;background:none;cursor:pointer;opacity:.35;transition:opacity .2s;padding:0;margin-left:3px;vertical-align:middle;border-radius:50%;font-size:13px}
         .d-tts:hover{opacity:.8;background:rgba(29,78,216,.1)}.d-tts.playing{opacity:1;color:#1d4ed8;background:rgba(29,78,216,.15)}
         [data-bs-theme="dark"] .d-tts:hover{background:rgba(99,102,241,.2)}[data-bs-theme="dark"] .d-tts.playing{color:#818cf8;background:rgba(99,102,241,.25)}
+
+        /* Practice mode: masked fill-in answers + eye toggles (same system
+           used on 11_cheat_sheet.html) */
+        .practice-cell{display:inline-flex;align-items:center;gap:.35rem;}
+        .practice-cell .eye-btn{background:none;border:none;padding:0;cursor:pointer;color:#6c757d;flex-shrink:0;line-height:1;}
+        .practice-cell .eye-btn svg{width:14px;height:14px;display:block;}
+        .practice-cell .masked-content{background:#dfe4ea;color:transparent;border-radius:.3rem;padding:.05rem .5rem;user-select:none;display:inline-block;min-width:2rem;}
+        [data-bs-theme="dark"] .practice-cell .masked-content{background:#3a4250;}
+        .practice-cell.revealed .masked-content{background:transparent;color:inherit;padding:0;user-select:text;}
+        .practice-toggle-btn{background:none;border:1px solid #adb5bd;border-radius:999px;padding:.15rem .55rem;cursor:pointer;color:#0d6efd;font-size:.72rem;display:inline-flex;align-items:center;gap:.3rem;margin-left:.5rem;vertical-align:middle;}
+        .practice-toggle-btn svg{width:13px;height:13px;}
+        h3.has-toggle, h2.has-toggle{display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;}
     </style>
 </head>
 <body id="top">
@@ -1621,60 +1633,263 @@
 <tr><td>Sie/sie unterhalten sich mit ihnen.</td><td>They/you (formal) talk with them.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;"> — Dativ (Präposition 'mit' verlangt immer Dativ): Dativpronomen (dir/mir/ihm/ihr/euch/uns/ihnen)</span></td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
+<h2 id="b12-praepositionen-wiederholung-neu-in-wien-adjektivdeklination">B12. Präpositionen (Wiederholung), Neu in Wien &amp; Adjektivdeklination</h2>
+<p class="notice-text"><em>Wiederholung: Präpositionen mit Akkusativ und Dativ, ein Lesetext über eine Umzieherin nach Wien, und die Deklination von Adjektiven nach Artikeln.</em><br>
+<em>Review: accusative and dative prepositions, a reading text about someone who has moved to Vienna, and adjective declension after articles.</em></p>
+
+<h3 id="praepositionen-akkusativ-wiederholung">Präpositionen mit Akkusativ — Wiederholung</h3>
+<p class="notice-text"><em>für, gegen, ohne, durch, entlang + Akkusativ</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>für <em>(for)</em></td><td>for</td></tr>
+<tr><td>Ich bin für das Buch.</td><td>I am for the book. <em>(= I'll take this book / I'm in favour of it)</em></td></tr>
+<tr><td>Das Buch ist für dich.</td><td>The book is for you.</td></tr>
+<tr><td>Ich bin für Shahbaz Sharif.</td><td>I am for (in favour of) Shahbaz Sharif.</td></tr>
+<tr><td>gegen <em>(against)</em></td><td>against</td></tr>
+<tr><td>Ich bin gegen Trump.</td><td>I am against Trump.</td></tr>
+<tr><td>ohne <em>(without)</em></td><td>without</td></tr>
+<tr><td>Ich mache die Arbeit ohne dich.</td><td>I do the work without you.</td></tr>
+<tr><td>durch <em>(through)</em></td><td>through</td></tr>
+<tr><td>Ich gehe durch den Park.</td><td>I am going through the park.</td></tr>
+<tr><td>Ich gehe durch die Stadt.</td><td>I am going through the city.</td></tr>
+<tr><td>entlang <em>(along)</em> — steht nach dem Nomen!</td><td>along — comes after the noun!</td></tr>
+<tr><td>Ich gehe den Fluss entlang.</td><td>I walk along the river.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<h3 id="praepositionen-dativ-wiederholung">Präpositionen mit Dativ</h3>
+<p class="notice-text"><em>mit, bei, zu, nach, seit, von, aus + Dativ</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>mit <em>(with)</em> + Dativ</td><td>with</td></tr>
+<tr><td>Ich gehe mit meinem Onkel.</td><td>I am going with my uncle.</td></tr>
+<tr><td>bei <em>(at/near)</em> + Dativ</td><td>at, near</td></tr>
+<tr><td class="urdu" style="text-align:right;" colspan="2"><span style="font-style:italic;">bei → قریب / پاس</span><br><span style="font-style:italic;font-size:0.85em;">(Qareeb / Paas — "near / close by")</span></td></tr>
+<tr><td>Ich arbeite bei Bosch.</td><td>I work at Bosch.</td></tr>
+<tr><td>Petersberg ist bei Fulda.</td><td>Petersberg is near Fulda.</td></tr>
+<tr><td>Islamabad ist bei Rawalpindi.</td><td>Islamabad is near Rawalpindi.</td></tr>
+<tr><td>nahe <em>(near, similar meaning to "bei")</em></td><td>near</td></tr>
+<tr><td class="urdu" style="text-align:right;" colspan="2"><span style="font-style:italic;">nahe → نیڑے</span><br><span style="font-style:italic;font-size:0.85em;">(Nairay — Punjabi for "nearby")</span></td></tr>
+<tr><td>zu → zur / zum <em>(to)</em> + Dativ</td><td>to</td></tr>
+<tr><td>Ich gehe zur Bank.</td><td>I go to the bank.</td></tr>
+<tr><td>Ich gehe zur Uni.</td><td>I go to the university.</td></tr>
+<tr><td>Ich gehe zum Supermarkt.</td><td>I go to the supermarket.</td></tr>
+<tr><td>Ich gehe zu meinem Freund.</td><td>I go to my friend's place.</td></tr>
+<tr><td>nach <em>(to — cities/countries, no article)</em></td><td>to</td></tr>
+<tr><td>Ich fahre nach Frankfurt.</td><td>I am driving to Frankfurt.</td></tr>
+<tr><td>Ich fliege nach Pakistan.</td><td>I am flying to Pakistan.</td></tr>
+<tr><td>Ich gehe nach Saddar.</td><td>I am going to Saddar.</td></tr>
+<tr><td>seit <em>(since/for — time)</em></td><td>since, for</td></tr>
+<tr><td>Ich wohne seit 2 Jahren in Berlin.</td><td>I have lived in Berlin for 2 years.</td></tr>
+<tr><td>Ich wohne seit 2024 in Berlin.</td><td>I have lived in Berlin since 2024.</td></tr>
+<tr><td>von <em>(from)</em></td><td>from</td></tr>
+<tr><td>Ich komme von der Bank.</td><td>I am coming from the bank.</td></tr>
+<tr><td>Ich komme von Saddar.</td><td>I am coming from Saddar.</td></tr>
+<tr><td>Ich komme von dem Supermarkt.</td><td>I am coming from the supermarket.</td></tr>
+<tr><td>aus <em>(out of — enclosed/closed space)</em></td><td>out of</td></tr>
+<tr><td>Ich komme aus dem Zimmer.</td><td>I am coming out of the room.</td></tr>
+<tr><td>Er kommt aus dem Zimmer.</td><td>He is coming out of the room.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">Merke: Man muss die Person sehen können, die aus einem geschlossenen Ort herauskommt, um "aus" zu benutzen. / Note: you need to be able to see the person coming out of an enclosed/closed space to use "aus".</span></td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<p class="notice-text"><em>Vorstellungsgespräch — nützliche Verben und Wendungen / job-interview related expressions:</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>einen Personalausweis beantragen</td><td>to apply for an ID card</td></tr>
+<tr><td>einen Betrag überweisen</td><td>to transfer an amount</td></tr>
+<tr><td>melden, dass man die Geldbörse verloren hat</td><td>to report that you've lost your wallet</td></tr>
+<tr><td>die Papiere zeigen</td><td>to show the papers</td></tr>
+<tr><td>ein Konto eröffnen</td><td>to open an account</td></tr>
+<tr><td>den Führerschein abholen</td><td>to pick up the driving licence</td></tr>
+<tr><td>einen Kredit beantragen</td><td>to apply for a loan</td></tr>
+<tr><td>einen Vertrag unterschreiben</td><td>to sign a contract</td></tr>
+<tr><td>den Pass verlängern</td><td>to renew the passport</td></tr>
+<tr><td>einen Diebstahl melden</td><td>to report a theft</td></tr>
+<tr><td>Dokumente für die Einbürgerung abgeben</td><td>to submit documents for naturalisation</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<p class="notice-text"><em>mit und ohne — was kann/darf man (nicht) machen?</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Regel / Rule</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>mein Führerschein → nicht Auto fahren</td><td>my driving licence → can't drive</td></tr>
+<tr><td>meine Bankkarte → kein Geld abheben</td><td>my bank card → can't withdraw money</td></tr>
+<tr><td>eine Fahrkarte → U-Bahn fahren</td><td>a ticket → to ride the U-Bahn</td></tr>
+<tr><td>ein Konto → kein Geld überweisen</td><td>an account → can't transfer money</td></tr>
+<tr><td>das Auto → zur Polizei fahren</td><td>the car → to drive to the police</td></tr>
+<tr><td>Ohne meinen Führerschein darf ich nicht Auto fahren.</td><td>Without my driving licence, I am not allowed to drive.</td></tr>
+</tbody></table></div>
+<div class="rule"><strong>Präpositionen:</strong> <strong>ohne</strong> + Akkusativ, <strong>mit</strong> + Dativ<br>
+Ohne Ihren Pass können Sie nicht reisen. · Mit einem Pass dürfen Sie über die Grenze fahren.<br>
+<em>"ohne" (without) takes accusative, "mit" (with) takes dative.</em></div>
+<div class="spacer"></div>
+
+<h3 id="ausdruecke-beim-kennenlernen">Ausdrücke beim Kennenlernen</h3>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Ich drücke dir die Daumen.</td><td>I wish you good luck. <em>(literally: I press my thumbs for you)</em></td></tr>
+<tr><td colspan="2"><em>Wenn 2 Personen sich zum ersten Mal treffen, sind das Ausdrücke: / When 2 people meet each other for the first time, these are expressions:</em></td></tr>
+<tr><td>Freut mich!</td><td>Glad to meet you!</td></tr>
+<tr><td>Schön, Sie/dich kennenzulernen.</td><td>Nice to meet you.</td></tr>
+<tr><td>spontan</td><td>spontaneously</td></tr>
+<tr><td>hat noch nie ...</td><td>has never ...</td></tr>
+<tr><td>bunte Kleidung</td><td>colourful clothing / dress</td></tr>
+<tr><td>tragen</td><td>to wear</td></tr>
+<tr><td>die Bezahlung</td><td>the pay / salary</td></tr>
+<tr><td>bestimmter Artikel</td><td>definite article → der, die, das</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<h3 id="neu-in-wien-lesetext">Neu in Wien — Lesetext</h3>
+<p class="notice-text"><em>Valentinas Blog: Seit wann ist sie in Wien und was will sie dort machen? / Valentina's blog: since when has she been in Vienna, and what does she want to do there?</em></p>
+<div class="rule">
+<strong>Hallo Wien!</strong><br>
+Seit vorgestern bin ich in Wien und alles ist ganz super! Meine Vermieterin ist sehr nett. Sie hat mir schon ganz viel über Wien erzählt. Mein Zimmer ist klein, aber sehr hell und schön. Gestern habe ich mir gleich den Stephansdom angesehen und einen Spaziergang im Zentrum gemacht. Da habe ich auch in ein paar Restaurants und Cafés nach einem Job als Aushilfe gefragt. Ich möchte ja noch vor dem ersten Tag an der Uni mit der Arbeit anfangen. Und stellt euch vor: Ich habe einen Termin für ein Vorstellungsgespräch in einem Restaurant. Das Restaurant ist ganz modern und die Speisekarte hat mir auch gut gefallen. Die Leute waren freundlich und ich hoffe sehr, dass ich dort arbeiten kann. Drückt mir die Daumen, morgen Vormittag um halb zehn! Und danach muss ich dringend ein paar Dinge erledigen, zum Beispiel in der Bank ein Konto für meinen Lohn eröffnen. Ich will ja nicht gleich alles ausgeben. 🙂
+<br><br>
+<em>Translation: Since the day before yesterday I've been in Vienna and everything is great! My landlady is very nice. She has already told me a lot about Vienna. My room is small, but very bright and lovely. Yesterday I went straight to see St. Stephen's Cathedral and took a walk in the city centre. There I also asked at a few restaurants and cafés about a job as a temp/helper. I'd like to start working before my first day at university. And imagine: I have an appointment for a job interview at a restaurant. The restaurant is very modern and I liked the menu too. The people were friendly and I really hope I can work there. Wish me luck, tomorrow morning at half past nine! And after that I urgently need to take care of a few things, for example opening a bank account for my salary at the bank. I don't want to spend everything right away.</em>
+</div>
+
+<p class="notice-text"><em>Was wissen Sie über Valentina? Ergänzen Sie die Sätze. / What do you know about Valentina? Complete the sentences.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Frage → Antwort</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>1. Valentina gefällt es in Wien ...<br>→ <span class="blank-fill">sehr gut</span>.</td><td>Valentina likes it in Vienna very much.</td></tr>
+<tr><td>2. In Wien ist sie seit ...<br>→ <span class="blank-fill">vorgestern</span>.</td><td>She has been in Vienna since the day before yesterday.</td></tr>
+<tr><td>3. Das Zimmer von Valentina ist ...<br>→ <span class="blank-fill">klein, aber sehr hell und schön</span>.</td><td>Valentina's room is small, but very bright and lovely.</td></tr>
+<tr><td>4. Gestern hat sie ...<br>→ <span class="blank-fill">sich den Stephansdom angesehen und einen Spaziergang im Zentrum gemacht</span>.</td><td>Yesterday she looked at St. Stephen's Cathedral and took a walk in the centre.</td></tr>
+<tr><td>5. Sie will in Wien studieren und sucht ...<br>→ <span class="blank-fill">einen Job als Aushilfe</span>.</td><td>She wants to study in Vienna and is looking for a job as a temp/helper.</td></tr>
+<tr><td>6. Morgen hat sie um halb zehn einen Termin in ...<br>→ <span class="blank-fill">einem Restaurant</span>.</td><td>Tomorrow at half past nine she has an appointment at a restaurant.</td></tr>
+<tr><td>7. Danach geht sie ...<br>→ <span class="blank-fill">zur Bank und eröffnet ein Konto</span>.</td><td>After that she goes to the bank and opens an account.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<p class="notice-text"><em>Weitere nützliche Wendungen / more useful phrases: Ich suche eine Arbeit als Aushilfe. · Drückt mir die Daumen. → Wish me good luck. · das Vorstellungsgespräch → job interview</em></p>
+<div class="spacer"></div>
+
+<p class="notice-text"><em>Hören Sie noch einmal. Welche Aussagen sind richtig? Kreuzen Sie an. / Listen again. Which statements are correct?</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Aussage</th><th style="background:#d9e2f3;">richtig / falsch</th></tr></thead>
+<tbody>
+<tr><td>1. Valentina hat noch nie in einem Restaurant gearbeitet.</td><td><span class="blank-fill">falsch</span></td></tr>
+<tr><td>2. An der Bar arbeiten zwei Personen.</td><td><span class="blank-fill">falsch</span></td></tr>
+<tr><td>3. Valentina kann auch spontan arbeiten.</td><td><span class="blank-fill">richtig</span></td></tr>
+<tr><td>4. Valentina arbeitet nächsten Donnerstag im Restaurant.</td><td><span class="blank-fill">falsch</span></td></tr>
+<tr><td>5. Valentina darf bunte Kleidung tragen.</td><td><span class="blank-fill">richtig</span></td></tr>
+<tr><td>6. Valentina findet die Bezahlung okay.</td><td><span class="blank-fill">richtig</span></td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<h3 id="adjektivdeklination">Adjektivdeklination</h3>
+<p class="notice-text"><em>Wie sich Adjektiv-Endungen je nach Artikel (kein Artikel / unbestimmter Artikel / bestimmter Artikel) und Kasus ändern. Die farbigen Endungen zeigen genau, was sich ändert. / How adjective endings change depending on the article (none / indefinite / definite) and case. The coloured endings show exactly what changes.</em></p>
+
+<p><strong>Adjektivdeklination ohne Artikel / without an article</strong></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;"></th><th style="background:#d9e2f3;">Nominativ</th><th style="background:#d9e2f3;">Akkusativ</th><th style="background:#d9e2f3;">Dativ</th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>gut<span style="color:#c00;font-weight:700;">er</span> Kuli</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td>gut<span style="color:#c00;font-weight:700;">em</span> Kuli</td></tr>
+<tr><td>Neutrum</td><td>gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>gut<span style="color:#c00;font-weight:700;">em</span> Buch</td></tr>
+<tr><td>Feminin</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>gut<span style="color:#c00;font-weight:700;">er</span> Uhr</td></tr>
+<tr><td>Plural</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
+</tbody></table></div>
+
+<p><strong>Adjektivdeklination — unbestimmter Artikel / indefinite article</strong></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;"></th><th style="background:#d9e2f3;">Nominativ</th><th style="background:#d9e2f3;">Akkusativ</th><th style="background:#d9e2f3;">Dativ</th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>ein gut<span style="color:#c00;font-weight:700;">er</span> Kuli</td><td>ein<span style="color:#c00;font-weight:700;">en</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td>ein<span style="color:#c00;font-weight:700;">em</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td></tr>
+<tr><td>Neutrum</td><td>ein gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>ein gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>ein<span style="color:#c00;font-weight:700;">em</span> gut<span style="color:#c00;font-weight:700;">en</span> Buch</td></tr>
+<tr><td>Feminin</td><td>eine gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>eine gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>ein<span style="color:#c00;font-weight:700;">er</span> gut<span style="color:#c00;font-weight:700;">en</span> Uhr</td></tr>
+<tr><td>Plural</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
+</tbody></table></div>
+
+<p><strong>Adjektivdeklination — bestimmter Artikel / definite article</strong></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;"></th><th style="background:#d9e2f3;">Nominativ</th><th style="background:#d9e2f3;">Akkusativ</th><th style="background:#d9e2f3;">Dativ</th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>der gut<span style="color:#c00;font-weight:700;">e</span> Kuli</td><td><span style="color:#c00;font-weight:700;">den</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td><span style="color:#c00;font-weight:700;">dem</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td></tr>
+<tr><td>Neutrum</td><td>das gut<span style="color:#c00;font-weight:700;">e</span> Buch</td><td>das gut<span style="color:#c00;font-weight:700;">e</span> Buch</td><td><span style="color:#c00;font-weight:700;">dem</span> gut<span style="color:#c00;font-weight:700;">en</span> Buch</td></tr>
+<tr><td>Feminin</td><td>die gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>die gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td><span style="color:#c00;font-weight:700;">der</span> gut<span style="color:#c00;font-weight:700;">en</span> Uhr</td></tr>
+<tr><td>Plural</td><td>die gut<span style="color:#c00;font-weight:700;">en</span> Bücher</td><td>die gut<span style="color:#c00;font-weight:700;">en</span> Bücher</td><td><span style="color:#c00;font-weight:700;">den</span> gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
+</tbody></table></div>
+<div class="rule"><em>Rote Endungen zeigen, was sich je nach Kasus und Artikel-Typ ändert. Nach dem bestimmten Artikel ändert sich am Adjektiv meistens nur -e/-en; ohne Artikel trägt das Adjektiv selbst die volle Endung des bestimmten Artikels. / Red endings show what changes by case and article type. After a definite article the adjective mostly just takes -e/-en; without any article, the adjective itself carries the full ending the definite article would have had.</em></div>
+<div class="spacer"></div>
+
+<p class="notice-text"><em>Markieren Sie die Adjektive und ergänzen Sie die Tabelle — Beispiel mit schwarzer Rock, weißes T-Shirt, weiße Bluse, bequeme Schuhe:</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;"></th><th style="background:#d9e2f3;">der</th><th style="background:#d9e2f3;">das</th><th style="background:#d9e2f3;">die</th><th style="background:#d9e2f3;">die (Plural)</th></tr></thead>
+<tbody>
+<tr><td>Nominativ</td><td>der schwarz<span style="color:#1d5fae;font-weight:700;">e</span> Rock</td><td>das weiß<span style="color:#1d5fae;font-weight:700;">e</span> T-Shirt</td><td>die weiß<span style="color:#1d5fae;font-weight:700;">e</span> Bluse</td><td>die bequem<span style="color:#1d5fae;font-weight:700;">en</span> Schuhe</td></tr>
+<tr><td>Akkusativ</td><td>den schwarz<span style="color:#1d5fae;font-weight:700;">en</span> Rock</td><td>das weiß<span style="color:#1d5fae;font-weight:700;">e</span> T-Shirt</td><td>die weiß<span style="color:#1d5fae;font-weight:700;">e</span> Bluse</td><td>die bequem<span style="color:#1d5fae;font-weight:700;">en</span> Schuhe</td></tr>
+<tr><td>Dativ</td><td>dem schwarz<span style="color:#1d5fae;font-weight:700;">en</span> Rock</td><td>dem weiß<span style="color:#1d5fae;font-weight:700;">en</span> T-Shirt</td><td>der weiß<span style="color:#1d5fae;font-weight:700;">en</span> Bluse</td><td>den bequem<span style="color:#1d5fae;font-weight:700;">en</span> Schuhe<span style="color:#1d5fae;font-weight:700;">n</span></td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+
+<p class="notice-text"><em>Ergänzen Sie die Nachricht von Valentina — ihr erster Probetag im Restaurant / Complete Valentina's message about her first trial day:</em></p>
+<div class="rule">
+Gestern war mein Probetag. Alles war gut: (1) Die neu<span class="blank-fill">en</span> Kollegen haben mir sehr geholfen und mir alles erklärt. Die Gäste waren auch alle freundlich. Kein Wunder, (2) bei der toll<span class="blank-fill">en</span> Speisekarte. (3) Das lecker<span class="blank-fill">e</span> Essen ist wirklich eine Sensation! (4) Der jung<span class="blank-fill">e</span> Koch ist ein Künstler! Er macht (5) aus den frisch<span class="blank-fill">en</span> Zutaten Delikatessen. Nach der Arbeit durfte ich auch etwas essen! 😋 Und das Beste ist: Ich habe (6) den neu<span class="blank-fill">en</span> Job! Der Chef hat mir heute Bescheid gesagt.
+<br><br>
+<em>Translation: Yesterday was my trial day. Everything was good: (1) the new colleagues helped me a lot and explained everything to me. The guests were all friendly too. No wonder, given (2) the great menu. (3) The delicious food really is a sensation! (4) The young chef is an artist! He makes delicacies (5) from the fresh ingredients. After work I even got to eat something! And the best part is: I got (6) the new job! The boss told me today.</em>
+</div>
+<div class="spacer"></div>
+
 <h2 id="teil-c-hausaufgaben-vom-lehrer-ueberprueft" class="part-heading">Teil C — Hausaufgaben (vom Lehrer überprüft)</h2>
 <p class="notice-text"><em>Checked homework — use this as a self-test: cover the English column and try translating, or cover the German and try producing it yourself before checking.</em></p>
 <h3 id="hausaufgabe-1-04-07-2026-seite-12-anfragen-1-sich-verabreden-etwas-begruenden">Hausaufgabe 1 — 04.07.2026 — Seite 12: Anfragen 1, sich verabreden, etwas begründen</h3>
-<p class="notice-text"><em>Übung d: Korrigieren Sie die Sätze. (Der weil-Satz hatte die falsche Wortstellung — das Verb muss ans Satzende.)</em></p>
+<p class="notice-text"><em>Übung d: Korrigieren Sie die Sätze.</em></p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-top">
-<thead><tr><th style="background:#d9e2f3;">Aufgabe (falsche Wortstellung) → Lösung</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
-<tr><td>1. Ben hat seine Freunde lange nicht gesehen, weil <s>im Urlaub war er</s>.<br>→ Ben hat seine Freunde lange nicht gesehen, weil <strong>er im Urlaub war</strong>.</td><td>Ben hasn't seen his friends in a long time because he was on vacation.</td></tr>
-<tr><td>2. Er war im Allgäu, weil <s>seine Eltern wohnen dort</s>.<br>→ Er war im Allgäu, weil <strong>seine Eltern dort wohnen</strong>.</td><td>He was in the Allgäu because his parents live there.</td></tr>
-<tr><td>3. Marvin muss arbeiten, weil <s>ist krank seine Kollegin</s>.<br>→ Marvin muss arbeiten, weil <strong>seine Kollegin krank ist</strong>.</td><td>Marvin has to work because his colleague is sick.</td></tr>
-<tr><td>4. Felix kommt zu spät, weil <s>ist sein Bus nicht gefahren</s>.<br>→ Felix kommt zu spät, weil <strong>sein Bus nicht gefahren ist</strong>.</td><td>Felix is arriving late because his bus didn't run.</td></tr>
-<tr><td>5. Lea ist müde, weil <s>hat sie gelernt viel</s>.<br>→ Lea ist müde, weil <strong>sie viel gelernt hat</strong>.</td><td>Lea is tired because she studied a lot.</td></tr>
-<tr><td>6. Lea fährt nach Ulm, weil <s>sie will besuchen ihren Vater</s>.<br>→ Lea fährt nach Ulm, weil <strong>sie ihren Vater besuchen will</strong>.</td><td>Lea is going to Ulm because she wants to visit her father.</td></tr>
+<tr><td>1. Ben hat seine Freunde lange nicht gesehen, weil er im Urlaub war.</td><td>Ben hasn't seen his friends in a long time because he was on vacation.</td></tr>
+<tr><td>2. Er war im Allgaeu, weil seine Eltern dort wohnen.</td><td>He was in the Allgaeu because his parents live there.</td></tr>
+<tr><td>3. Marvin muss arbeiten, weil seine Kollegin krank ist.</td><td>Marvin has to work because his colleague is sick.</td></tr>
+<tr><td>4. Felix kommt zu spaet, weil sein Bus nicht gefahren ist.</td><td>Felix is arriving late because his bus didn't run.</td></tr>
+<tr><td>5. Lea ist muede, weil sie viel gelernt hat.</td><td>Lea is tired because she studied a lot.</td></tr>
+<tr><td>6. Lea faehrt nach Ulm, weil sie ihren Vater besuchen will.</td><td>Lea is going to Ulm because she wants to visit her father.</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <p class="notice-text"><em>Übung e: Schreiben Sie Antworten auf die Fragen.</em></p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-top">
-<thead><tr><th style="background:#d9e2f3;">Frage → Antwort (Stichwort)</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<thead><tr><th style="background:#d9e2f3;">Frage / Antwort</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
-<tr><td>1. Warum kommst du nicht zu dem Treffen?<br>→ <strong>Weil ich für die Uni lernen muss.</strong> (für die Uni lernen müssen)</td><td>Why aren't you coming to the meeting?<br>Because I have to study for university.</td></tr>
-<tr><td>2. Warum gehst du nicht mit uns ins Kino?<br>→ <strong>Weil ich keine Lust habe.</strong> (keine Lust haben)</td><td>Why aren't you coming to the cinema with us?<br>Because I don't feel like it.</td></tr>
-<tr><td>3. Warum hast du so viel Kuchen gekauft?<br>→ <strong>Weil ich meine Freunde einladen will.</strong> (meine Freunde einladen wollen)</td><td>Why did you buy so much cake?<br>Because I want to invite my friends.</td></tr>
-<tr><td>4. Warum bist du so müde?<br>→ <strong>Weil ich nicht gut geschlafen habe.</strong> (nicht gut geschlafen haben)</td><td>Why are you so tired?<br>Because I didn't sleep well.</td></tr>
-<tr><td>5. Warum hast du heute keine Zeit?<br>→ <strong>Weil ich eine Präsentation vorbereiten muss.</strong> (eine Präsentation vorbereiten müssen)</td><td>Why don't you have time today?<br>Because I have to prepare a presentation.</td></tr>
+<tr><td>1. Warum kommst du nicht zu dem Treffen?<br>Weil ich fuer die Uni lernen muss.</td><td>Why aren't you coming to the meeting?<br>Because I have to study for university.</td></tr>
+<tr><td>2. Warum gehst du nicht mit uns ins Kino?<br>Weil ich keine Lust habe.</td><td>Why aren't you coming to the cinema with us?<br>Because I don't feel like it.</td></tr>
+<tr><td>3. Warum hast du so viel Kuchen gekauft?<br>Weil ich meine Freunde einladen will.</td><td>Why did you buy so much cake?<br>Because I want to invite my friends.</td></tr>
+<tr><td>4. Warum bist du so muede?<br>Weil ich nicht gut geschlafen habe.</td><td>Why are you so tired?<br>Because I didn't sleep well.</td></tr>
+<tr><td>5. Warum hast du heute keine Zeit?<br>Weil ich eine Praesentation vorbereiten muss.</td><td>Why don't you have time today?<br>Because I have to prepare a presentation.</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <h3 id="hausaufgabe-2-08-07-2026-seite-20-korrigierte-fassung">Hausaufgabe 2 — 08.07.2026 — Seite 20 (korrigierte Fassung)</h3>
 <p class="notice-text"><em>Übung 4a: Welche Form ist richtig? Kreuzen Sie an.</em></p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-top">
-<thead><tr><th style="background:#d9e2f3;">Aufgabe (Modalverb) → Lösung</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
-<tr><td>_____ ihr am Nachmittag in der Schule bleiben? (müssen)<br>Ja, wir hatten bis 17 Uhr Unterricht und dann _____ wir nach Hause gehen. (können)<br>→ <strong>Musstet</strong> ihr am Nachmittag in der Schule bleiben?<br>Ja, wir hatten bis 17 Uhr Unterricht und dann <strong>konnten</strong> wir nach Hause gehen.</td><td>Did you have to stay at school in the afternoon?<br>Yes, we had class until 5pm and then we could go home.</td></tr>
-<tr><td>_____ du in der Schule das Handy benutzen? (dürfen)<br>Nein, das war verboten.<br>→ <strong>Durftest</strong> du in der Schule das Handy benutzen?<br>Nein, das war verboten.</td><td>Were you allowed to use your phone at school?<br>No, that was forbidden.</td></tr>
-<tr><td>Ich _____ zu Fuss zur Schule gehen. Und du? (können)<br>Ich _____ mit dem Fahrrad fahren, aber ich _____ nicht. (wollen / dürfen)<br>Ich _____ mit dem Bus fahren. (müssen)<br>→ Ich <strong>konnte</strong> zu Fuss zur Schule gehen. Und du?<br>Ich <strong>wollte</strong> mit dem Fahrrad fahren, aber ich <strong>durfte</strong> nicht.<br>Ich <strong>musste</strong> mit dem Bus fahren.</td><td>I could walk to school. And you?<br>I wanted to ride my bike, but I wasn't allowed to. I had to take the bus.</td></tr>
-<tr><td>_____ du eine Schuluniform tragen? (müssen)<br>Ja, du auch?<br>→ <strong>Musstest</strong> du eine Schuluniform tragen?<br>Ja, du auch?</td><td>Did you have to wear a school uniform?<br>Yes, you too?</td></tr>
-<tr><td>_____ ihr in der Schule viel am Computer lernen? (können)<br>Wir haben oft mit dem Tablet gearbeitet. Da _____ man viele Übungen machen. (können)<br>→ <strong>Konntet</strong> ihr in der Schule viel am Computer lernen?<br>Wir haben oft mit dem Tablet gearbeitet. Da <strong>konnte</strong> man viele Übungen machen.</td><td>Could you study a lot on the computer at school?<br>We often worked with a tablet. You could do a lot of exercises with it.</td></tr>
+<tr><td>Musstet ihr am Nachmittag in der Schule bleiben?<br>Ja, wir hatten bis 17 Uhr Unterricht und dann konnten wir nach Hause gehen.</td><td>Did you have to stay at school in the afternoon?<br>Yes, we had class until 5pm and then we could go home.</td></tr>
+<tr><td>Durftest du in der Schule das Handy benutzen?<br>Nein, das war verboten.</td><td>Were you allowed to use your phone at school?<br>No, that was forbidden.</td></tr>
+<tr><td>Ich konnte zu Fuss zur Schule gehen. Und du?<br>Ich wollte mit dem Fahrrad fahren, aber ich durfte nicht. Ich musste mit dem Bus fahren.</td><td>I could walk to school. And you?<br>I wanted to ride my bike, but I wasn't allowed to. I had to take the bus.</td></tr>
+<tr><td>Musstest du eine Schuluniform tragen?<br>Ja, du auch?</td><td>Did you have to wear a school uniform?<br>Yes, you too?</td></tr>
+<tr><td>Konntet ihr in der Schule viel am Computer lernen?<br>Wir haben oft mit dem Tablet gearbeitet. Da konnte man viele Uebungen machen.</td><td>Could you study a lot on the computer at school?<br>We often worked with a tablet. You could do a lot of exercises with it.</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <p class="notice-text"><em>Übung 4b: Präsens oder Präteritum? Ergänzen Sie die Modalverben.</em></p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-top">
-<thead><tr><th style="background:#d9e2f3;">Aufgabe (Modalverb) → Lösung</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
-<tr><td>_____ ihr noch Hausaufgaben machen? (müssen)<br>Nein, wir sind fertig. _____ wir jetzt schwimmen gehen? (dürfen)<br>→ <strong>Müsst</strong> ihr noch Hausaufgaben machen?<br>Nein, wir sind fertig. <strong>Dürfen</strong> wir jetzt schwimmen gehen?</td><td>Do you still have to do homework?<br>No, we're done. May we go swimming now?</td></tr>
-<tr><td>Warum _____ du gestern nicht lernen? (können)<br>Ich _____ lernen, aber ich war so müde. (wollen)<br>→ Warum <strong>konntest</strong> du gestern nicht lernen?<br>Ich <strong>wollte</strong> lernen, aber ich war so müde.</td><td>Why couldn't you study yesterday?<br>I wanted to study, but I was so tired.</td></tr>
-<tr><td>Warum waren Sie gestern nicht im Unterricht?<br>Entschuldigung, ich _____ nicht kommen. (können)<br>Ich _____ zum Arzt gehen. Er hat gesagt, ich _____ zu Hause bleiben. (müssen / sollen)<br>→ Warum waren Sie gestern nicht im Unterricht?<br>Entschuldigung, ich <strong>konnte</strong> nicht kommen.<br>Ich <strong>musste</strong> zum Arzt gehen. Er hat gesagt, ich <strong>soll</strong> zu Hause bleiben.</td><td>Why weren't you in class yesterday?<br>Sorry, I couldn't come. I had to go to the doctor. He said I should stay home.</td></tr>
+<tr><td>Muesst ihr noch Hausaufgaben machen?<br>Nein, wir sind fertig. Duerfen wir jetzt schwimmen gehen?</td><td>Do you still have to do homework?<br>No, we're done. May we go swimming now?</td></tr>
+<tr><td>Warum konntest du gestern nicht lernen?<br>Ich wollte lernen, aber ich war so muede.</td><td>Why couldn't you study yesterday?<br>I wanted to study, but I was so tired.</td></tr>
+<tr><td>Warum waren Sie gestern nicht im Unterricht?<br>Entschuldigung, ich konnte nicht kommen. Ich musste zum Arzt gehen. Er hat gesagt, ich soll zu Hause bleiben.</td><td>Why weren't you in class yesterday?<br>Sorry, I couldn't come. I had to go to the doctor. He said I should stay home.</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <p class="notice-text"><em>Übung 4c: Ergänzen Sie die Modalverben im Präteritum.</em></p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-top">
-<thead><tr><th style="background:#d9e2f3;">Aufgabe (Modalverben) → Lösung</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
-<tr><td>können | wollen | wollen<br>_____ du nicht nach dem Abitur Medizin studieren?<br>Nein, ich _____ Sport studieren. Aber dann hatte ich eine Knie-Verletzung und _____ keinen Sport mehr machen.<br>→ <strong>Wolltest</strong> du nicht nach dem Abitur Medizin studieren?<br>Nein, ich <strong>wollte</strong> Sport studieren. Aber dann hatte ich eine Knie-Verletzung und <strong>konnte</strong> keinen Sport mehr machen.</td><td>Didn't you want to study medicine after your Abitur?<br>No, I wanted to study sports. But then I had a knee injury and couldn't do sports anymore.</td></tr>
-<tr><td>dürfen | müssen<br>Wir _____ am Abend immer bis 22 Uhr Hausaufgaben machen.<br>Wirklich? Ich _____ am Abend einen Film sehen oder am Computer spielen.<br>→ Wir <strong>mussten</strong> am Abend immer bis 22 Uhr Hausaufgaben machen.<br>Wirklich? Ich <strong>durfte</strong> am Abend einen Film sehen oder am Computer spielen.</td><td>We always had to do homework until 10pm in the evening.<br>Really? I was allowed to watch a film in the evening or play on the computer.</td></tr>
-<tr><td>wollen | können | sollen<br>Ich _____ immer Sport machen, aber ich _____ lieber lesen. Ich mag Sport nicht.<br>Das ist interessant. Ich _____ nur in der Schule Sport machen. Danach hatte ich keine Zeit, immer lernen, lernen, lernen.<br>→ Ich <strong>sollte</strong> immer Sport machen, aber ich <strong>wollte</strong> lieber lesen. Ich mag Sport nicht.<br>Das ist interessant. Ich <strong>konnte</strong> nur in der Schule Sport machen. Danach hatte ich keine Zeit, immer lernen, lernen, lernen.</td><td>I was always supposed to do sports, but I preferred to read. I don't like sports.<br>That's interesting. I could only do sports at school. After that I had no time, just studying, studying, studying.</td></tr>
+<tr><td>Wolltest du nicht nach dem Abitur Medizin studieren?<br>Nein, ich wollte Sport studieren. Aber dann hatte ich eine Knie-Verletzung und konnte keinen Sport mehr machen.</td><td>Didn't you want to study medicine after your Abitur?<br>No, I wanted to study sports. But then I had a knee injury and couldn't do sports anymore.</td></tr>
+<tr><td>Wir mussten am Abend immer bis 22 Uhr Hausaufgaben machen.<br>Wirklich? Ich durfte am Abend einen Film sehen oder am Computer spielen.</td><td>We always had to do homework until 10pm in the evening.<br>Really? I was allowed to watch a film in the evening or play on the computer.</td></tr>
+<tr><td>Ich sollte immer Sport machen, aber ich wollte lieber lesen. Ich mag Sport nicht.<br>Das ist interessant. Ich konnte nur in der Schule Sport machen. Danach hatte ich keine Zeit, immer lernen, lernen, lernen.</td><td>I was always supposed to do sports, but I preferred to read. I don't like sports.<br>That's interesting. I could only do sports at school. After that I had no time, just studying, studying, studying.</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <h3 id="hausaufgabe-3-24-07-2026-seite-47">Hausaufgabe 3 — 24.07.2026 — Seite 47</h3>
@@ -1748,9 +1963,10 @@
 <tr><td>Ich bin froh, wenn _____.<br>Deine Antwort: <s>ich meine Eltern treffen</s> ❌<br>→ Richtige Antwort: <strong>ich meine Eltern treffe</strong> ✓</td><td>I am glad when I meet my parents.<span style="display:block;font-size:0.78em;color:#c00;margin-top:2px;">Korrektur: Nach "ich" muss das Verb auf -e enden ("treffe"), nicht "treffen" (Infinitiv/Plural-Form).</span></td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
+
 <h2 id="wortschatz-training-konjugation-saetze" class="part-heading">Wortschatz-Training — Konjugation &amp; Sätze</h2>
 <p class="notice-text"><em>Klicken Sie auf ein Wort, um 6 Beispielsätze zu sehen — je einer für ich/du/er,sie,es/wir/ihr/sie,Sie. Click a word to reveal 6 example sentences — one for each grammatical person.</em></p>
-<h3 id="nomen-52">Nomen (74)</h3>
+<h3 id="nomen-52">Nomen (79)</h3>
 <div class="accordion" id="nomenAccordion">
 <div class="accordion-item">
   <h6 class="accordion-header" id="heading-nomenAccordion-0">
@@ -3379,7 +3595,92 @@
   </div>
 </div>
 </div></div>
-<h3 id="verben-52">Verben (76)</h3>
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-nomenAccordion-74">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nomenAccordion-74" aria-expanded="false" aria-controls="collapse-nomenAccordion-74">
+      <span class="badge bg-secondary me-2">Nomen</span><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle me-2">die</span>die Aushilfe
+    </button>
+  </h6>
+  <div id="collapse-nomenAccordion-74" class="accordion-collapse collapse" aria-labelledby="heading-nomenAccordion-74" data-bs-parent="#nomenAccordion">
+    <div class="accordion-body">
+      <p class="small text-muted mb-2">Nomen (feminin) — die Aushilfe</p>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich suche eine Arbeit als Aushilfe.</td><td>I am looking for a job as a temp/helper.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'suchen'): eine Aushilfe → eine Aushilfe (unverändert, feminin)</span></td></tr><tr><td>Du suchst eine Arbeit als Aushilfe.</td><td>You are looking for a job as a temp/helper.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'suchen'): eine Aushilfe → eine Aushilfe (unverändert, feminin)</span></td></tr><tr><td>Er sucht eine Arbeit als Aushilfe.</td><td>He is looking for a job as a temp/helper.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'suchen'): eine Aushilfe → eine Aushilfe (unverändert, feminin)</span></td></tr><tr><td>Wir suchen eine Arbeit als Aushilfe.</td><td>We are looking for a job as a temp/helper.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'suchen'): eine Aushilfe → eine Aushilfe (unverändert, feminin)</span></td></tr><tr><td>Ihr sucht eine Arbeit als Aushilfe.</td><td>You all are looking for a job as a temp/helper.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'suchen'): eine Aushilfe → eine Aushilfe (unverändert, feminin)</span></td></tr><tr><td>Sie suchen eine Arbeit als Aushilfe.</td><td>They are looking for a job as a temp/helper.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'suchen'): eine Aushilfe → eine Aushilfe (unverändert, feminin)</span></td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-nomenAccordion-75">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nomenAccordion-75" aria-expanded="false" aria-controls="collapse-nomenAccordion-75">
+      <span class="badge bg-secondary me-2">Nomen</span><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle me-2">das</span>das Vorstellungsgespräch
+    </button>
+  </h6>
+  <div id="collapse-nomenAccordion-75" class="accordion-collapse collapse" aria-labelledby="heading-nomenAccordion-75" data-bs-parent="#nomenAccordion">
+    <div class="accordion-body">
+      <p class="small text-muted mb-2">Nomen (neutral) — das Vorstellungsgespräch</p>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich habe ein Vorstellungsgespräch.</td><td>I have a job interview.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'haben'): ein Vorstellungsgespräch → ein Vorstellungsgespräch (unverändert, neutral)</span></td></tr><tr><td>Du hast ein Vorstellungsgespräch.</td><td>You have a job interview.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'haben'): ein Vorstellungsgespräch → ein Vorstellungsgespräch (unverändert, neutral)</span></td></tr><tr><td>Er hat ein Vorstellungsgespräch.</td><td>He has a job interview.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'haben'): ein Vorstellungsgespräch → ein Vorstellungsgespräch (unverändert, neutral)</span></td></tr><tr><td>Wir haben ein Vorstellungsgespräch.</td><td>We have a job interview.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'haben'): ein Vorstellungsgespräch → ein Vorstellungsgespräch (unverändert, neutral)</span></td></tr><tr><td>Ihr habt ein Vorstellungsgespräch.</td><td>You all have a job interview.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'haben'): ein Vorstellungsgespräch → ein Vorstellungsgespräch (unverändert, neutral)</span></td></tr><tr><td>Sie haben ein Vorstellungsgespräch.</td><td>They have a job interview.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'haben'): ein Vorstellungsgespräch → ein Vorstellungsgespräch (unverändert, neutral)</span></td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-nomenAccordion-76">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nomenAccordion-76" aria-expanded="false" aria-controls="collapse-nomenAccordion-76">
+      <span class="badge bg-secondary me-2">Nomen</span><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle me-2">die</span>die Bezahlung
+    </button>
+  </h6>
+  <div id="collapse-nomenAccordion-76" class="accordion-collapse collapse" aria-labelledby="heading-nomenAccordion-76" data-bs-parent="#nomenAccordion">
+    <div class="accordion-body">
+      <p class="small text-muted mb-2">Nomen (feminin) — die Bezahlung</p>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich finde die Bezahlung gut.</td><td>I find the pay good.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'finden'): die Bezahlung → die Bezahlung (unverändert, feminin)</span></td></tr><tr><td>Du findest die Bezahlung gut.</td><td>You find the pay good.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'finden'): die Bezahlung → die Bezahlung (unverändert, feminin)</span></td></tr><tr><td>Er findet die Bezahlung gut.</td><td>He finds the pay good.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'finden'): die Bezahlung → die Bezahlung (unverändert, feminin)</span></td></tr><tr><td>Wir finden die Bezahlung gut.</td><td>We find the pay good.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'finden'): die Bezahlung → die Bezahlung (unverändert, feminin)</span></td></tr><tr><td>Ihr findet die Bezahlung gut.</td><td>You all find the pay good.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'finden'): die Bezahlung → die Bezahlung (unverändert, feminin)</span></td></tr><tr><td>Sie finden die Bezahlung gut.</td><td>They find the pay good.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'finden'): die Bezahlung → die Bezahlung (unverändert, feminin)</span></td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-nomenAccordion-77">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nomenAccordion-77" aria-expanded="false" aria-controls="collapse-nomenAccordion-77">
+      <span class="badge bg-secondary me-2">Nomen</span><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle me-2">der</span>der Vertrag
+    </button>
+  </h6>
+  <div id="collapse-nomenAccordion-77" class="accordion-collapse collapse" aria-labelledby="heading-nomenAccordion-77" data-bs-parent="#nomenAccordion">
+    <div class="accordion-body">
+      <p class="small text-muted mb-2">Nomen (maskulin) — der Vertrag</p>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich unterschreibe einen Vertrag.</td><td>I sign a contract.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'unterschreiben'): der Vertrag → einen Vertrag (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Du unterschreibst einen Vertrag.</td><td>You sign a contract.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'unterschreiben'): der Vertrag → einen Vertrag (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Er unterschreibt einen Vertrag.</td><td>He signs a contract.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'unterschreiben'): der Vertrag → einen Vertrag (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Wir unterschreiben einen Vertrag.</td><td>We sign a contract.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'unterschreiben'): der Vertrag → einen Vertrag (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Ihr unterschreibt einen Vertrag.</td><td>You all sign a contract.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'unterschreiben'): der Vertrag → einen Vertrag (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Sie unterschreiben einen Vertrag.</td><td>They sign a contract.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'unterschreiben'): der Vertrag → einen Vertrag (maskulin: der → den / ein → einen)</span></td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-nomenAccordion-78">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nomenAccordion-78" aria-expanded="false" aria-controls="collapse-nomenAccordion-78">
+      <span class="badge bg-secondary me-2">Nomen</span><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle me-2">der</span>der Kredit
+    </button>
+  </h6>
+  <div id="collapse-nomenAccordion-78" class="accordion-collapse collapse" aria-labelledby="heading-nomenAccordion-78" data-bs-parent="#nomenAccordion">
+    <div class="accordion-body">
+      <p class="small text-muted mb-2">Nomen (maskulin) — der Kredit</p>
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich beantrage einen Kredit.</td><td>I apply for a loan.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'beantragen'): der Kredit → einen Kredit (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Du beantragst einen Kredit.</td><td>You apply for a loan.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'beantragen'): der Kredit → einen Kredit (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Er beantragt einen Kredit.</td><td>He applies for a loan.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'beantragen'): der Kredit → einen Kredit (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Wir beantragen einen Kredit.</td><td>We apply for a loan.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'beantragen'): der Kredit → einen Kredit (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Ihr beantragt einen Kredit.</td><td>You all apply for a loan.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'beantragen'): der Kredit → einen Kredit (maskulin: der → den / ein → einen)</span></td></tr><tr><td>Sie beantragen einen Kredit.</td><td>They apply for a loan.<span style="display:block;font-size:0.78em;color:#6c757d;margin-top:2px;">— Akkusativ (direktes Objekt von 'beantragen'): der Kredit → einen Kredit (maskulin: der → den / ein → einen)</span></td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<h3 id="verben-52">Verben (81)</h3>
 <div class="accordion" id="verbenAccordion">
 <div class="accordion-item">
   <h6 class="accordion-header" id="heading-verbenAccordion-0">
@@ -5888,6 +6189,86 @@
   </div>
 </div>
 </div></div>
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-verbenAccordion-76">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-verbenAccordion-76" aria-expanded="false" aria-controls="collapse-verbenAccordion-76">
+      <span class="badge bg-primary me-2">Verb</span>beantragen
+    </button>
+  </h6>
+  <div id="collapse-verbenAccordion-76" class="accordion-collapse collapse" aria-labelledby="heading-verbenAccordion-76" data-bs-parent="#verbenAccordion">
+    <div class="accordion-body">
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich beantrage einen Personalausweis.</td><td>I apply for an ID card.</td></tr><tr><td>Du beantragst einen Personalausweis.</td><td>You apply for an ID card.</td></tr><tr><td>Er beantragt einen Personalausweis.</td><td>He applies for an ID card.</td></tr><tr><td>Wir beantragen einen Personalausweis.</td><td>We apply for an ID card.</td></tr><tr><td>Ihr beantragt einen Personalausweis.</td><td>You all apply for an ID card.</td></tr><tr><td>Sie beantragen einen Personalausweis.</td><td>They apply for an ID card.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-verbenAccordion-77">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-verbenAccordion-77" aria-expanded="false" aria-controls="collapse-verbenAccordion-77">
+      <span class="badge bg-primary me-2">Verb</span>eröffnen
+    </button>
+  </h6>
+  <div id="collapse-verbenAccordion-77" class="accordion-collapse collapse" aria-labelledby="heading-verbenAccordion-77" data-bs-parent="#verbenAccordion">
+    <div class="accordion-body">
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich eröffne ein Konto.</td><td>I open an account.</td></tr><tr><td>Du eröffnest ein Konto.</td><td>You open an account.</td></tr><tr><td>Er eröffnet ein Konto.</td><td>He opens an account.</td></tr><tr><td>Wir eröffnen ein Konto.</td><td>We open an account.</td></tr><tr><td>Ihr eröffnet ein Konto.</td><td>You all open an account.</td></tr><tr><td>Sie eröffnen ein Konto.</td><td>They open an account.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-verbenAccordion-78">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-verbenAccordion-78" aria-expanded="false" aria-controls="collapse-verbenAccordion-78">
+      <span class="badge bg-primary me-2">Verb</span>abholen
+    </button>
+  </h6>
+  <div id="collapse-verbenAccordion-78" class="accordion-collapse collapse" aria-labelledby="heading-verbenAccordion-78" data-bs-parent="#verbenAccordion">
+    <div class="accordion-body">
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich hole den Führerschein ab.</td><td>I pick up the driving licence.</td></tr><tr><td>Du holst den Führerschein ab.</td><td>You pick up the driving licence.</td></tr><tr><td>Er holt den Führerschein ab.</td><td>He picks up the driving licence.</td></tr><tr><td>Wir holen den Führerschein ab.</td><td>We pick up the driving licence.</td></tr><tr><td>Ihr holt den Führerschein ab.</td><td>You all pick up the driving licence.</td></tr><tr><td>Sie holen den Führerschein ab.</td><td>They pick up the driving licence.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-verbenAccordion-79">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-verbenAccordion-79" aria-expanded="false" aria-controls="collapse-verbenAccordion-79">
+      <span class="badge bg-primary me-2">Verb</span>verlängern
+    </button>
+  </h6>
+  <div id="collapse-verbenAccordion-79" class="accordion-collapse collapse" aria-labelledby="heading-verbenAccordion-79" data-bs-parent="#verbenAccordion">
+    <div class="accordion-body">
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich verlängere meinen Pass.</td><td>I renew my passport.</td></tr><tr><td>Du verlängerst meinen Pass.</td><td>You renew my passport.</td></tr><tr><td>Er verlängert meinen Pass.</td><td>He renews my passport.</td></tr><tr><td>Wir verlängern meinen Pass.</td><td>We renew my passport.</td></tr><tr><td>Ihr verlängert meinen Pass.</td><td>You all renew my passport.</td></tr><tr><td>Sie verlängern meinen Pass.</td><td>They renew my passport.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h6 class="accordion-header" id="heading-verbenAccordion-80">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-verbenAccordion-80" aria-expanded="false" aria-controls="collapse-verbenAccordion-80">
+      <span class="badge bg-primary me-2">Verb</span>unterschreiben
+    </button>
+  </h6>
+  <div id="collapse-verbenAccordion-80" class="accordion-collapse collapse" aria-labelledby="heading-verbenAccordion-80" data-bs-parent="#verbenAccordion">
+    <div class="accordion-body">
+      <div class="table-responsive"><table class="table table-sm table-bordered mb-0">
+    <thead><tr><th style="width:32%">Deutsch</th><th>English</th></tr></thead>
+    <tbody><tr><td>Ich unterschreibe einen Vertrag.</td><td>I sign a contract.</td></tr><tr><td>Du unterschreibst einen Vertrag.</td><td>You sign a contract.</td></tr><tr><td>Er unterschreibt einen Vertrag.</td><td>He signs a contract.</td></tr><tr><td>Wir unterschreiben einen Vertrag.</td><td>We sign a contract.</td></tr><tr><td>Ihr unterschreibt einen Vertrag.</td><td>You all sign a contract.</td></tr><tr><td>Sie unterschreiben einen Vertrag.</td><td>They sign a contract.</td></tr></tbody>
+  </table></div>
+    </div>
+  </div>
+</div>
+
 <h2 id="anhang-wortschatz-konjugationen-urdu" class="part-heading">Anhang — Wortschatz, Konjugationen &amp; Urdu</h2>
 <p class="notice-text"><em>Nomen und Verben (mit Konjugation) sind nicht hier, sondern zusammengeführt im Abschnitt „Wortschatz-Training“ oben — dort jedes Wort mit Wortart, Genus/Konjugation und 6 Beispielsätzen. / Nouns and verbs (with conjugation) live in the „Wortschatz-Training“ section above instead of being repeated here — each word there is tagged noun/verb, shows gender or full conjugation, and has 6 example sentences.</em></p>
 <h3 id="adjektive-komparation">Adjektive — Komparation</h3>
@@ -5992,6 +6373,162 @@
     </script>
 
     <script>
+    // Practice mode: masked fill-in answers with per-item, per-table, and
+    // per-section eye-toggles — same interaction pattern as 11_cheat_sheet.html.
+    // Three kinds of content get masked:
+    //   1. <span class="blank-fill"> — explicitly marked answers in the new
+    //      class-notes section (fill-in-the-blank exercises, adjective endings).
+    //   2. <strong> inside a Hausaufgabe table's answer row — the "-> **answer**"
+    //      pattern already used throughout Teil C.
+    // Masking moves the *actual* DOM nodes into the wrapper (not innerHTML
+    // string round-tripping), so any TTS speaker button already attached to
+    // that text keeps working after being masked and revealed again.
+    (function() {
+        var EYE_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+        var EYE_CLOSED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.86 21.86 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a21.86 21.86 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+
+        function maskEl(el) {
+            if (el.closest('.practice-cell')) return; // already masked
+            var wrap = document.createElement('span');
+            wrap.className = 'practice-cell';
+            var masked = document.createElement('span');
+            masked.className = 'masked-content';
+            while (el.firstChild) { masked.appendChild(el.firstChild); }
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'eye-btn';
+            btn.setAttribute('aria-label', 'Antwort anzeigen / show answer');
+            btn.innerHTML = EYE_CLOSED;
+            btn.addEventListener('click', function() {
+                var revealed = wrap.classList.toggle('revealed');
+                btn.innerHTML = revealed ? EYE_OPEN : EYE_CLOSED;
+            });
+            wrap.appendChild(masked);
+            wrap.appendChild(btn);
+            el.appendChild(wrap);
+        }
+
+        function setRevealed(container, revealed) {
+            container.querySelectorAll('.practice-cell').forEach(function(cell) {
+                cell.classList.toggle('revealed', revealed);
+                var eb = cell.querySelector('.eye-btn');
+                if (eb) eb.innerHTML = revealed ? EYE_OPEN : EYE_CLOSED;
+            });
+            container.querySelectorAll('.practice-toggle-btn').forEach(function(btn) {
+                btn.dataset.expanded = revealed ? '1' : '0';
+                var label = btn.dataset.label || 'Antworten';
+                btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                    '<span>' + label + (revealed ? ' verstecken' : ' anzeigen') + '</span>';
+            });
+        }
+
+        function addToggleButton(afterEl, scopeEl, label) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'practice-toggle-btn';
+            btn.dataset.expanded = '0';
+            btn.dataset.label = label;
+            btn.innerHTML = EYE_CLOSED + '<span>' + label + ' anzeigen</span>';
+            btn.addEventListener('click', function() {
+                setRevealed(scopeEl, btn.dataset.expanded !== '1');
+            });
+            afterEl.appendChild(btn);
+            afterEl.classList.add('has-toggle');
+            return btn;
+        }
+
+        function maskBlankFills() {
+            document.querySelectorAll('.blank-fill').forEach(function(el) {
+                if (!el.textContent.trim()) return;
+                maskEl(el);
+            });
+            // Per-table toggle for any table containing blank-fill answers
+            document.querySelectorAll('table').forEach(function(table) {
+                if (table.querySelector('.blank-fill .practice-cell')) {
+                    var prevH = table.previousElementSibling;
+                    // Insert a small toggle button right before the table
+                    var holder = document.createElement('div');
+                    holder.className = 'mb-2';
+                    var btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'practice-toggle-btn';
+                    btn.dataset.expanded = '0';
+                    btn.dataset.label = 'Tabelle';
+                    btn.innerHTML = EYE_CLOSED + '<span>Tabelle anzeigen</span>';
+                    btn.style.marginLeft = '0';
+                    btn.addEventListener('click', function() {
+                        setRevealed(table, btn.dataset.expanded !== '1');
+                    });
+                    holder.appendChild(btn);
+                    table.parentNode.insertBefore(holder, table);
+                }
+            });
+        }
+
+        function maskHausaufgabe() {
+            document.querySelectorAll('h3[id^="hausaufgabe-"]').forEach(function(h3) {
+                var el = h3.nextElementSibling;
+                var sectionTables = [];
+                var tableButtons = [];
+                while (el && el.tagName !== 'H3') {
+                    if (el.tagName === 'TABLE') {
+                        sectionTables.push(el);
+                        el.querySelectorAll('td strong').forEach(function(strong) {
+                            if (!strong.textContent.trim()) return;
+                            maskEl(strong);
+                        });
+                        var holder = document.createElement('div');
+                        holder.className = 'mb-2';
+                        var btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'practice-toggle-btn';
+                        btn.dataset.expanded = '0';
+                        btn.style.marginLeft = '0';
+                        btn.innerHTML = EYE_CLOSED + '<span>Übung anzeigen</span>';
+                        (function(table, btn) {
+                            btn.addEventListener('click', function() {
+                                var revealed = btn.dataset.expanded !== '1';
+                                btn.dataset.expanded = revealed ? '1' : '0';
+                                setRevealed(table, revealed);
+                                btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) + '<span>Übung ' + (revealed ? 'verstecken' : 'anzeigen') + '</span>';
+                            });
+                        })(el, btn);
+                        tableButtons.push(btn);
+                        holder.appendChild(btn);
+                        el.parentNode.insertBefore(holder, el);
+                    }
+                    el = el.nextElementSibling;
+                }
+                if (sectionTables.length) {
+                    var masterBtn = document.createElement('button');
+                    masterBtn.type = 'button';
+                    masterBtn.className = 'practice-toggle-btn';
+                    masterBtn.dataset.expanded = '0';
+                    masterBtn.innerHTML = EYE_CLOSED + '<span>Alle Antworten anzeigen</span>';
+                    masterBtn.addEventListener('click', function() {
+                        var revealed = masterBtn.dataset.expanded !== '1';
+                        masterBtn.dataset.expanded = revealed ? '1' : '0';
+                        sectionTables.forEach(function(t) { setRevealed(t, revealed); });
+                        tableButtons.forEach(function(b) {
+                            b.dataset.expanded = revealed ? '1' : '0';
+                            b.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) + '<span>Übung ' + (revealed ? 'verstecken' : 'anzeigen') + '</span>';
+                        });
+                        masterBtn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) + '<span>Alle Antworten ' + (revealed ? 'verstecken' : 'anzeigen') + '</span>';
+                    });
+                    h3.appendChild(masterBtn);
+                    h3.classList.add('has-toggle');
+                }
+            });
+        }
+
+        window.initPracticeMode = function() {
+            maskBlankFills();
+            maskHausaufgabe();
+        };
+    })();
+    </script>
+
+    <script>
     // TTS — same engine as dictionary.html, adapted for this page's plain
     // Deutsch/English tables instead of .word-card markup. Column language
     // is decided from each table's own header row so it also works on the
@@ -6044,6 +6581,7 @@
                     });
                 });
             });
+            if (window.initPracticeMode) window.initPracticeMode();
         }
         if (synth.getVoices().length > 0) init();
         else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }

@@ -994,13 +994,21 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
     var EYE_CLOSED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.86 21.86 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a21.86 21.86 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
 
     function makeCellToggle(el) {
-        var original = el.innerHTML;
         var wrap = document.createElement('span');
         wrap.className = 'practice-cell';
 
         var masked = document.createElement('span');
         masked.className = 'masked-content';
-        masked.innerHTML = original;
+
+        // Move the *actual* child nodes into the masked wrapper instead of
+        // reading/reassigning innerHTML as a string. innerHTML round-tripping
+        // reparses markup into brand-new elements, which silently drops any
+        // JS event handlers already attached (e.g. the TTS speaker button's
+        // onclick) — that was the cause of the speaker button going dead
+        // once a cell was wrapped for masking.
+        while (el.firstChild) {
+            masked.appendChild(el.firstChild);
+        }
 
         var btn = document.createElement('button');
         btn.type = 'button';
@@ -1015,12 +1023,44 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
 
         wrap.appendChild(masked);
         wrap.appendChild(btn);
-        el.innerHTML = '';
         el.appendChild(wrap);
+    }
+
+    // Shared helper: reveal/hide every .practice-cell inside a container,
+    // and keep any nested table-level toggle buttons in sync so their icon
+    // and label always reflect the true current state (used by both the
+    // per-table button and the per-section master button).
+    function setRevealed(container, revealed) {
+        container.querySelectorAll('.practice-cell').forEach(function(cell) {
+            cell.classList.toggle('revealed', revealed);
+            var eb = cell.querySelector('.eye-btn');
+            if (eb) eb.innerHTML = revealed ? EYE_OPEN : EYE_CLOSED;
+        });
+        container.querySelectorAll('.table-eye-btn').forEach(function(btn) {
+            btn.dataset.expanded = revealed ? '1' : '0';
+            btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                '<span>' + (revealed ? 'Tabelle verstecken' : 'Tabelle anzeigen') + '</span>';
+        });
+    }
+
+    function addTableToggle(table) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'section-eye-btn table-eye-btn';
+        btn.dataset.expanded = '0';
+        btn.innerHTML = EYE_CLOSED + '<span>Tabelle anzeigen</span>';
+        btn.setAttribute('aria-label', 'Antworten in dieser Tabelle anzeigen/verstecken');
+
+        btn.addEventListener('click', function() {
+            setRevealed(table, btn.dataset.expanded !== '1');
+        });
+
+        table.parentNode.insertBefore(btn, table);
     }
 
     function maskTables() {
         document.querySelectorAll('.markdown-content table').forEach(function(table) {
+            var anyMasked = false;
             // Header row (th cells) stays fully visible — it's the prompt labels
             table.querySelectorAll('tbody tr').forEach(function(row) {
                 var cells = Array.prototype.slice.call(row.children);
@@ -1029,8 +1069,13 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
                     // Skip empty cells (some tables have trailing blank <td></td>)
                     if (!td.textContent.trim()) return;
                     makeCellToggle(td);
+                    anyMasked = true;
                 });
             });
+            // Only add a per-table toggle if this table actually has masked
+            // cells — a few tables are single-column reference lists with
+            // nothing to hide.
+            if (anyMasked) addTableToggle(table);
         });
     }
 
@@ -1049,29 +1094,26 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
             var btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'section-eye-btn';
+            btn.dataset.expanded = '0';
             btn.innerHTML = EYE_CLOSED + '<span>Alle anzeigen</span>';
             btn.setAttribute('aria-label', 'Alle Antworten in diesem Abschnitt anzeigen/verstecken');
 
-            var expanded = false;
             btn.addEventListener('click', function() {
-                expanded = !expanded;
+                var revealed = btn.dataset.expanded !== '1';
+                btn.dataset.expanded = revealed ? '1' : '0';
                 var el = h2.nextElementSibling;
                 while (el && el.tagName !== 'H2') {
                     if (el.tagName === 'TABLE' || el.tagName === 'DETAILS') {
                         // DETAILS covers the "Test dich selbst" quiz boxes;
                         // open it too so the now-revealed answers are visible
                         // rather than hidden behind an unopened <details>.
-                        if (el.tagName === 'DETAILS' && expanded) el.open = true;
-                        el.querySelectorAll('.practice-cell').forEach(function(cell) {
-                            cell.classList.toggle('revealed', expanded);
-                            var eb = cell.querySelector('.eye-btn');
-                            if (eb) eb.innerHTML = expanded ? EYE_OPEN : EYE_CLOSED;
-                        });
+                        if (el.tagName === 'DETAILS' && revealed) el.open = true;
+                        setRevealed(el, revealed);
                     }
                     el = el.nextElementSibling;
                 }
-                btn.innerHTML = (expanded ? EYE_OPEN : EYE_CLOSED) +
-                    '<span>' + (expanded ? 'Alle verstecken' : 'Alle anzeigen') + '</span>';
+                btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                    '<span>' + (revealed ? 'Alle verstecken' : 'Alle anzeigen') + '</span>';
             });
 
             h2.appendChild(btn);
