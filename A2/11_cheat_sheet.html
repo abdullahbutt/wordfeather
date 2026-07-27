@@ -381,6 +381,56 @@
             gap: 0.4rem;
             align-items: center;
         }
+
+        /* Practice mode: masked table cells + eye toggles */
+        .practice-cell {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .practice-cell .eye-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            color: #6c757d;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .practice-cell .eye-btn svg { width: 15px; height: 15px; display: block; }
+        .practice-cell .masked-content {
+            background: #dfe4ea;
+            color: transparent;
+            border-radius: 0.3rem;
+            padding: 0.05rem 0.5rem;
+            user-select: none;
+            display: inline-block;
+            min-width: 2.2rem;
+        }
+        [data-bs-theme="dark"] .practice-cell .masked-content {
+            background: #3a4250;
+        }
+        .practice-cell.revealed .masked-content {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            user-select: text;
+        }
+        .section-eye-btn {
+            background: none;
+            border: 1px solid #adb5bd;
+            border-radius: 999px;
+            padding: 0.2rem 0.6rem;
+            cursor: pointer;
+            color: #0d6efd;
+            font-size: 0.78rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-left: 0.6rem;
+            vertical-align: middle;
+        }
+        .section-eye-btn svg { width: 14px; height: 14px; }
     </style>
 </head>
 <body id="top">
@@ -939,6 +989,103 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
 <script>
+(function() {
+    var EYE_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+    var EYE_CLOSED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.86 21.86 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a21.86 21.86 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+
+    function makeCellToggle(el) {
+        var original = el.innerHTML;
+        var wrap = document.createElement('span');
+        wrap.className = 'practice-cell';
+
+        var masked = document.createElement('span');
+        masked.className = 'masked-content';
+        masked.innerHTML = original;
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'eye-btn';
+        btn.setAttribute('aria-label', 'Antwort anzeigen / show answer');
+        btn.innerHTML = EYE_CLOSED;
+
+        btn.addEventListener('click', function() {
+            var revealed = wrap.classList.toggle('revealed');
+            btn.innerHTML = revealed ? EYE_OPEN : EYE_CLOSED;
+        });
+
+        wrap.appendChild(masked);
+        wrap.appendChild(btn);
+        el.innerHTML = '';
+        el.appendChild(wrap);
+    }
+
+    function maskTables() {
+        document.querySelectorAll('.markdown-content table').forEach(function(table) {
+            // Header row (th cells) stays fully visible — it's the prompt labels
+            table.querySelectorAll('tbody tr').forEach(function(row) {
+                var cells = Array.prototype.slice.call(row.children);
+                // First cell in each body row stays visible (row label / prompt)
+                cells.slice(1).forEach(function(td) {
+                    // Skip empty cells (some tables have trailing blank <td></td>)
+                    if (!td.textContent.trim()) return;
+                    makeCellToggle(td);
+                });
+            });
+        });
+    }
+
+    function maskQuizAnswers() {
+        // Questions (.q) stay visible; only the answer (.a) is masked, same
+        // pattern as table cells, so the "Test dich selbst" boxes also work
+        // as individual click-to-reveal flashcards instead of all-at-once.
+        document.querySelectorAll('.quiz-box .a').forEach(function(a) {
+            if (!a.textContent.trim()) return;
+            makeCellToggle(a);
+        });
+    }
+
+    function addSectionToggles() {
+        document.querySelectorAll('.markdown-content h2[id]').forEach(function(h2) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'section-eye-btn';
+            btn.innerHTML = EYE_CLOSED + '<span>Alle anzeigen</span>';
+            btn.setAttribute('aria-label', 'Alle Antworten in diesem Abschnitt anzeigen/verstecken');
+
+            var expanded = false;
+            btn.addEventListener('click', function() {
+                expanded = !expanded;
+                var el = h2.nextElementSibling;
+                while (el && el.tagName !== 'H2') {
+                    if (el.tagName === 'TABLE' || el.tagName === 'DETAILS') {
+                        // DETAILS covers the "Test dich selbst" quiz boxes;
+                        // open it too so the now-revealed answers are visible
+                        // rather than hidden behind an unopened <details>.
+                        if (el.tagName === 'DETAILS' && expanded) el.open = true;
+                        el.querySelectorAll('.practice-cell').forEach(function(cell) {
+                            cell.classList.toggle('revealed', expanded);
+                            var eb = cell.querySelector('.eye-btn');
+                            if (eb) eb.innerHTML = expanded ? EYE_OPEN : EYE_CLOSED;
+                        });
+                    }
+                    el = el.nextElementSibling;
+                }
+                btn.innerHTML = (expanded ? EYE_OPEN : EYE_CLOSED) +
+                    '<span>' + (expanded ? 'Alle verstecken' : 'Alle anzeigen') + '</span>';
+            });
+
+            h2.appendChild(btn);
+        });
+    }
+
+    window.initPracticeMode = function() {
+        maskTables();
+        maskQuizAnswers();
+        addSectionToggles();
+    };
+})();
+</script>
+<script>
 // TTS — same engine as dictionary.html / 10_notes.html, extended to also
 // handle this page's inline pattern: German sentence followed by an
 // <em>(English translation)</em>, used throughout the prose/list sections
@@ -1048,6 +1195,7 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
         initTables();
         initProse();
         initProseFallback();
+        if (window.initPracticeMode) window.initPracticeMode();
     }
     if (synth.getVoices().length > 0) init();
     else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }
