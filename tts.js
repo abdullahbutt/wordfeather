@@ -1,5 +1,5 @@
 /**
- * Deutsch Learning Hub - Text-to-Speech (tts.js)
+ * WordFeather - Text-to-Speech (tts.js)
  * Adds pronunciation buttons to vocabulary tables and sentence lists.
  * Uses the browser's built-in Web Speech API — free, no API keys needed.
  */
