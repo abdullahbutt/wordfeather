@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-build.py — Deutsch Lernen Hub build pipeline
+build.py — WordFeather build pipeline
 ============================================
 Regenerates all six Wortschatz pages and/or dictionary.html
 from the single source of truth: words_final.json
@@ -24,7 +24,7 @@ from english_conjugator import build_english_table
 
 REPO    = os.path.dirname(os.path.abspath(__file__))
 JSON    = os.path.join(REPO, 'words_final.json')
-BASE    = '/deutsch-lernen-goethe-a1-c2'
+BASE    = ''
 SW_JS_PATH = os.path.join(REPO, 'sw.js')
 
 
@@ -827,13 +827,13 @@ def build_jsonld(words):
         "@graph": [
             {
                 "@type": "DefinedTermSet",
-                "@id": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html#termset",
-                "name": "Deutsch Lernen \u2014 Goethe-Zertifikat A1 to C2 Dictionary",
+                "@id": "https://wordfeather.com/dictionary.html#termset",
+                "name": "WordFeather \u2014 Goethe-Zertifikat A1 to C2 Dictionary",
                 "description": (f"Free German\u2013English vocabulary dictionary with {len(words):,} words and "
                                 f"phrases covering CEFR levels A1\u2013C2. Includes example sentences, "
                                 f"collocations and audio pronunciation. Aligned to Goethe-Zertifikat "
                                 f"and telc exam requirements."),
-                "url": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html",
+                "url": "https://wordfeather.com/dictionary.html",
                 "inLanguage": ["de", "en"],
                 "numberOfItems": len(words),
                 "license": "https://creativecommons.org/licenses/by-nc/4.0/",
@@ -854,19 +854,19 @@ def build_jsonld(words):
             },
             {
                 "@type": "Dataset",
-                "@id": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html#dataset",
+                "@id": "https://wordfeather.com/dictionary.html#dataset",
                 "name": "German\u2013English CEFR Vocabulary Dataset (A1\u2013C2)",
                 "description": (f"Structured bilingual German\u2013English vocabulary dataset with "
                                 f"{len(words):,} entries, CEFR level tags (A1\u2013C2), example sentences, "
                                 f"English translations and B2\u2013C2 collocations."),
-                "url": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html",
+                "url": "https://wordfeather.com/dictionary.html",
                 "inLanguage": ["de", "en"],
                 "license": "https://creativecommons.org/licenses/by-nc/4.0/",
                 "creator": {"@type": "Person", "name": "Abdullah Butt"},
                 "distribution": {
                     "@type": "DataDownload",
                     "encodingFormat": "application/json",
-                    "contentUrl": "https://raw.githubusercontent.com/abdullahbutt/deutsch-lernen-goethe-a1-c2/main/words_final.json"
+                    "contentUrl": "https://raw.githubusercontent.com/abdullahbutt/wordfeather/main/words_final.json"
                 },
                 "variableMeasured": [
                     {"@type": "PropertyValue", "name": f"{lv} entries", "value": counts[lv]}
@@ -877,9 +877,9 @@ def build_jsonld(words):
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": "Home",
-                     "item": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/"},
+                     "item": "https://wordfeather.com/"},
                     {"@type": "ListItem", "position": 2, "name": "W\u00f6rterbuch / Dictionary",
-                     "item": "https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/dictionary.html"}
+                     "item": "https://wordfeather.com/dictionary.html"}
                 ]
             }
         ]
@@ -1210,7 +1210,7 @@ def build_wortschatz_page(level, level_words):
     <meta name="theme-color" content="#1d4ed8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Deutsch Lernen">
+    <meta name="apple-mobile-web-app-title" content="WordFeather">
     <title>01 Wortschatz – {level} | {count} Vokabeln</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -1278,7 +1278,7 @@ def build_wortschatz_page(level, level_words):
 <body id="top">
 <div id="header-placeholder"></div>
 <script>
-(function(){{var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-bs-theme',s);var path=window.location.pathname.replace(/\\\\/g,'/');var lm=path.match(/\\/(A1|A2|B1|B2|C1|C2)\\//);var prefix=lm?'../':'';var cl=lm?lm[1]:null;var modules={{A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']}};var labels=['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];var hFb='<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">Deutsch Lernen</a></div></nav>';function renderHeader(html){{html=html.replace(/BASE\\//g,prefix);document.getElementById('header-placeholder').innerHTML=html;if(cl){{document.querySelectorAll('.dropdown-item[data-level]').forEach(function(el){{if(el.getAttribute('data-level')===cl){{el.classList.add('active');el.setAttribute('aria-current','page');}}}}); var mf=modules[cl];var ul='<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"><li><a class="dropdown-item" href="README.html">📖 Overview</a></li><li><hr class="dropdown-divider"></li>';mf.forEach(function(f,i){{ul+='<li><a class="dropdown-item" href="'+f+'">'+labels[i]+'</a></li>';}}); ul+='</ul>';var li=document.createElement('li');li.className='nav-item dropdown';li.innerHTML='<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">'+cl+' Modules</a>'+ul;var nav=document.getElementById('nav-main-links');if(nav)nav.appendChild(li);}}var btn=document.getElementById('themeToggle');if(btn){{function sync(){{var d=document.documentElement.getAttribute('data-bs-theme')==='dark';btn.textContent=d?'☀️ Light':'🌙 Dark';}}sync();btn.addEventListener('click',function(){{var n=document.documentElement.getAttribute('data-bs-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-bs-theme',n);localStorage.setItem('theme',n);sync();}});}}}}
+(function(){{var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-bs-theme',s);var path=window.location.pathname.replace(/\\\\/g,'/');var lm=path.match(/\\/(A1|A2|B1|B2|C1|C2)\\//);var prefix=lm?'../':'';var cl=lm?lm[1]:null;var modules={{A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']}};var labels=['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];var hFb='<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🪶 WordFeather</a></div></nav>';function renderHeader(html){{html=html.replace(/BASE\\//g,prefix);document.getElementById('header-placeholder').innerHTML=html;if(cl){{document.querySelectorAll('.dropdown-item[data-level]').forEach(function(el){{if(el.getAttribute('data-level')===cl){{el.classList.add('active');el.setAttribute('aria-current','page');}}}}); var mf=modules[cl];var ul='<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"><li><a class="dropdown-item" href="README.html">📖 Overview</a></li><li><hr class="dropdown-divider"></li>';mf.forEach(function(f,i){{ul+='<li><a class="dropdown-item" href="'+f+'">'+labels[i]+'</a></li>';}}); ul+='</ul>';var li=document.createElement('li');li.className='nav-item dropdown';li.innerHTML='<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">'+cl+' Modules</a>'+ul;var nav=document.getElementById('nav-main-links');if(nav)nav.appendChild(li);}}var btn=document.getElementById('themeToggle');if(btn){{function sync(){{var d=document.documentElement.getAttribute('data-bs-theme')==='dark';btn.textContent=d?'☀️ Light':'🌙 Dark';}}sync();btn.addEventListener('click',function(){{var n=document.documentElement.getAttribute('data-bs-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-bs-theme',n);localStorage.setItem('theme',n);sync();}});}}}}
 fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.reject();}}).then(renderHeader).catch(function(){{renderHeader(hFb);}});
 }})();
 </script>
@@ -1363,13 +1363,13 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
 (function(){{
     var prefix=window.location.pathname.replace(/\\\\/g,'/').match(/\\/(A1|A2|B1|B2|C1|C2)\\//) ? '../':'';
     window.addEventListener('scroll',function(){{var b=document.getElementById('backToTop');if(b)b.style.display=window.scrollY>300?'inline-flex':'none';}});
-    var fFb='<footer class="site-footer border-top mt-5 py-4"><div class="container text-center"><p class="mb-0">🇩🇪 Deutsch Lernen · <a href="BASE/privacy.html">Datenschutz</a></p></div></footer>';
+    var fFb='<footer class="site-footer border-top mt-5 py-4"><div class="container text-center"><p class="mb-0">🪶 WordFeather · <a href="BASE/privacy.html">Datenschutz</a></p></div></footer>';
     fetch(prefix+'footer.html').then(function(r){{return r.ok?r.text():Promise.reject();}}).then(function(html){{html=html.replace(/BASE\\//g,prefix);document.getElementById('footer-placeholder').innerHTML=html;}}).catch(function(){{document.getElementById('footer-placeholder').innerHTML=fFb.replace(/BASE\\//g,prefix);}});
 }})();
 </script>
 <script src="../tts.js?v=7"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>if('serviceWorker' in navigator){{navigator.serviceWorker.register('/deutsch-lernen-goethe-a1-c2/sw.js').then(function(r){{r.update();}}).catch(function(){{}});}}</script>
+<script>if('serviceWorker' in navigator){{navigator.serviceWorker.register('/sw.js').then(function(r){{r.update();}}).catch(function(){{}});}}</script>
 {CONJUGATION_WS_SCRIPT}
 {PERSON_DRILL_WS_SCRIPT}
 {WORTSCHATZ_SEARCH_SCRIPT}
