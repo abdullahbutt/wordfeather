@@ -1,11 +1,11 @@
 <div align="center">
 
-[![GitHub Stars](https://img.shields.io/github/stars/abdullahbutt/deutsch-lernen-goethe-a1-c2?style=for-the-badge&logo=github&label=Star%20this%20Repo)](https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2)
+[![GitHub Stars](https://img.shields.io/github/stars/abdullahbutt/wordfeather?style=for-the-badge&logo=github&label=Star%20this%20Repo)](https://github.com/abdullahbutt/wordfeather)
 &nbsp;&nbsp;
-[![View Website](https://img.shields.io/badge/🌐_View_as_Website-Click_Here-blue?style=for-the-badge)](https://abdullahbutt.github.io/deutsch-lernen-goethe-a1-c2/)
+[![View Website](https://img.shields.io/badge/🌐_View_as_Website-Click_Here-blue?style=for-the-badge)](https://wordfeather.com/)
 
 </div>
-# 🇩🇪 Deutsch Lernen — Goethe-Zertifikat Vorbereitung
+# 🪶 WordFeather — Deutsch Lernen / Goethe-Zertifikat Vorbereitung
 # 🇩🇪 Learn German — Goethe Certificate Preparation
 
 Umfassende Lernmaterialien für alle CEFR-Niveaustufen (A1–C2) zur Vorbereitung auf die Goethe-Prüfungen.
@@ -133,7 +133,7 @@ Dieses Repo verwendet einen **stufengerechten zweisprachigen Ansatz**.
 ## 📋 Repo-Struktur / Repository Structure
 
 ```
-deutsch_a1_a2_b1_b2_c1_c2/
+wordfeather/
 ├── README.md
 ├── A1/                          ← 🇩🇪+🇬🇧 Bilingual
 │   ├── 01_Wortschatz.md
