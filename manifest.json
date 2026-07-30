@@ -46,14 +46,32 @@
       "purpose": "any"
     },
     {
+      "src": "icons/60.png",
+      "sizes": "60x60",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "icons/64.png",
       "sizes": "64x64",
       "type": "image/png",
       "purpose": "any"
     },
     {
+      "src": "icons/70.png",
+      "sizes": "70x70",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "icons/72.png",
       "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/76.png",
+      "sizes": "76x76",
       "type": "image/png",
       "purpose": "any"
     },
