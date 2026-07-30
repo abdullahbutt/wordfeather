@@ -431,6 +431,14 @@
             vertical-align: middle;
         }
         .section-eye-btn svg { width: 14px; height: 14px; }
+
+        /* Section 5 (Modalverben) has 7 columns; with every conjugated form
+           masked by default the fixed min-width per masked cell can push the
+           table wider than the content column on desktop. Tighten the masked
+           placeholder just for this table so it never needs horizontal scroll. */
+        .wide-table { width: 100%; table-layout: fixed; }
+        .wide-table th, .wide-table td { word-break: break-word; }
+        .wide-table .practice-cell .masked-content { min-width: 1.4rem; padding: 0.05rem 0.3rem; }
     </style>
 </head>
 <body id="top">
@@ -542,7 +550,7 @@
 <h2 id="1-artikel-deklination">1. Artikel &amp; Deklination / Articles &amp; Declension</h2>
 <p><em>The single most important table in German grammar — everything else builds on this.</em></p>
 <table>
-<thead><tr><th>Kasus / Case</th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead>
+<thead><tr><th>Kasus / Case <em>(der, die, das)</em></th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead>
 <tbody>
 <tr><td class="nomC">Nominativ</td><td class="nomC">der</td><td class="nomC">die</td><td class="nomC">das</td><td class="nomC">die</td></tr>
 <tr><td class="akkC">Akkusativ</td><td class="akkC">den</td><td class="akkC">die</td><td class="akkC">das</td><td class="akkC">die</td></tr>
@@ -552,7 +560,7 @@
 <div class="rule"><strong>Merke:</strong> Nur <span class="nomC" style="color:inherit;font-weight:700;">maskulin</span> verändert sich im Akkusativ (der→den). Feminin/Neutrum bleiben in Nominativ &amp; Akkusativ gleich. Der Dativ verändert alle Formen.<br>
 <em>Note: only masculine changes in the accusative (der→den). Feminine/neuter stay the same in nominative &amp; accusative. Dative changes every form.</em></div>
 <table>
-<thead><tr><th>unbestimmt / indefinite</th><th>m</th><th>f</th><th>n</th></tr></thead>
+<thead><tr><th>unbestimmt / indefinite <em>(ein)</em></th><th>m</th><th>f</th><th>n</th></tr></thead>
 <tbody>
 <tr><td class="nomC">Nom.</td><td>ein</td><td>eine</td><td>ein</td></tr>
 <tr><td class="akkC">Akk.</td><td>einen</td><td>eine</td><td>ein</td></tr>
@@ -629,9 +637,9 @@
 <p><strong>machen</strong> <em>(to do/make)</em> — Stamm/stem: mach-</p>
 <table>
 <tbody>
-<tr><td>ich</td><td>mach<strong>e</strong></td><td>wir</td><td>mach<strong>en</strong></td></tr>
-<tr><td>du</td><td>mach<strong>st</strong></td><td>ihr</td><td>mach<strong>t</strong></td></tr>
-<tr><td>er/sie/es</td><td>mach<strong>t</strong></td><td>sie/Sie</td><td>mach<strong>en</strong></td></tr>
+<tr><td>ich</td><td>mach<strong>e</strong></td><td class="no-mask">wir</td><td>mach<strong>en</strong></td></tr>
+<tr><td>du</td><td>mach<strong>st</strong></td><td class="no-mask">ihr</td><td>mach<strong>t</strong></td></tr>
+<tr><td>er/sie/es</td><td>mach<strong>t</strong></td><td class="no-mask">sie/Sie</td><td>mach<strong>en</strong></td></tr>
 </tbody>
 </table>
 <div class="rule"><strong>Achtung!</strong> Verben auf <strong>-t/-d/-n</strong> bekommen ein extra "e": arbeiten → du arbeit<strong>e</strong>st, er arbeit<strong>e</strong>t<br>
@@ -652,15 +660,15 @@
 <table>
 <thead><tr><th>Infinitiv</th><th>du</th><th>er/sie/es</th><th>Englisch</th></tr></thead>
 <tbody>
-<tr><td>fahren</td><td>f<strong>ä</strong>hrst</td><td>f<strong>ä</strong>hrt</td><td>to drive</td></tr>
-<tr><td>schlafen</td><td>schl<strong>ä</strong>fst</td><td>schl<strong>ä</strong>ft</td><td>to sleep</td></tr>
-<tr><td>essen</td><td><strong>i</strong>sst</td><td><strong>i</strong>sst</td><td>to eat</td></tr>
-<tr><td>geben</td><td>g<strong>i</strong>bst</td><td>g<strong>i</strong>bt</td><td>to give</td></tr>
-<tr><td>helfen</td><td>h<strong>i</strong>lfst</td><td>h<strong>i</strong>lft</td><td>to help</td></tr>
-<tr><td>lesen</td><td>l<strong>ie</strong>st</td><td>l<strong>ie</strong>st</td><td>to read</td></tr>
-<tr><td>nehmen</td><td>n<strong>i</strong>mmst</td><td>n<strong>i</strong>mmt</td><td>to take</td></tr>
-<tr><td>sehen</td><td>s<strong>ie</strong>hst</td><td>s<strong>ie</strong>ht</td><td>to see</td></tr>
-<tr><td>sprechen</td><td>spr<strong>i</strong>chst</td><td>spr<strong>i</strong>cht</td><td>to speak</td></tr>
+<tr><td>fahren</td><td>f<strong>ä</strong>hrst</td><td>f<strong>ä</strong>hrt</td><td class="no-mask">to drive</td></tr>
+<tr><td>schlafen</td><td>schl<strong>ä</strong>fst</td><td>schl<strong>ä</strong>ft</td><td class="no-mask">to sleep</td></tr>
+<tr><td>essen</td><td><strong>i</strong>sst</td><td><strong>i</strong>sst</td><td class="no-mask">to eat</td></tr>
+<tr><td>geben</td><td>g<strong>i</strong>bst</td><td>g<strong>i</strong>bt</td><td class="no-mask">to give</td></tr>
+<tr><td>helfen</td><td>h<strong>i</strong>lfst</td><td>h<strong>i</strong>lft</td><td class="no-mask">to help</td></tr>
+<tr><td>lesen</td><td>l<strong>ie</strong>st</td><td>l<strong>ie</strong>st</td><td class="no-mask">to read</td></tr>
+<tr><td>nehmen</td><td>n<strong>i</strong>mmst</td><td>n<strong>i</strong>mmt</td><td class="no-mask">to take</td></tr>
+<tr><td>sehen</td><td>s<strong>ie</strong>hst</td><td>s<strong>ie</strong>ht</td><td class="no-mask">to see</td></tr>
+<tr><td>sprechen</td><td>spr<strong>i</strong>chst</td><td>spr<strong>i</strong>cht</td><td class="no-mask">to speak</td></tr>
 </tbody>
 </table>
 <details class="quiz-box">
@@ -674,7 +682,7 @@
 <hr>
 
 <h2 id="5-modalverben">5. Modalverben / Modal Verbs</h2>
-<table>
+<table class="wide-table">
 <thead><tr><th></th><th>können <em>(can)</em></th><th>müssen <em>(must)</em></th><th>dürfen <em>(may)</em></th><th>wollen <em>(want)</em></th><th>sollen <em>(should)</em></th><th>möchten <em>(would like)</em></th></tr></thead>
 <tbody>
 <tr><td>ich</td><td>kann</td><td>muss</td><td>darf</td><td>will</td><td>soll</td><td>möchte</td></tr>
@@ -702,13 +710,13 @@ Ich <strong>kann</strong> Deutsch <strong>sprechen</strong>. · Du <strong>musst
 <table>
 <thead><tr><th>Verb</th><th>Bedeutung / Meaning</th><th>Beispiel / Example</th></tr></thead>
 <tbody>
-<tr><td>an<strong>fangen</strong></td><td>to begin</td><td>Wir <strong>fangen</strong> um 9 Uhr <strong>an</strong>.</td></tr>
-<tr><td>an<strong>rufen</strong></td><td>to call</td><td>Ich <strong>rufe</strong> dich morgen <strong>an</strong>.</td></tr>
-<tr><td>auf<strong>stehen</strong></td><td>to get up</td><td>Ich <strong>stehe</strong> um 7 Uhr <strong>auf</strong>.</td></tr>
-<tr><td>ein<strong>kaufen</strong></td><td>to shop</td><td>Wir <strong>kaufen</strong> im Supermarkt <strong>ein</strong>.</td></tr>
-<tr><td>fern<strong>sehen</strong></td><td>to watch TV</td><td>Abends <strong>sehe</strong> ich <strong>fern</strong>.</td></tr>
-<tr><td>mit<strong>nehmen</strong></td><td>to take along</td><td><strong>Nimmst</strong> du den Schirm <strong>mit</strong>?</td></tr>
-<tr><td>zurück<strong>kommen</strong></td><td>to come back</td><td>Wann <strong>kommst</strong> du <strong>zurück</strong>?</td></tr>
+<tr><td>an<strong>fangen</strong></td><td class="no-mask">to begin</td><td>Wir <strong>fangen</strong> um 9 Uhr <strong>an</strong>.</td></tr>
+<tr><td>an<strong>rufen</strong></td><td class="no-mask">to call</td><td>Ich <strong>rufe</strong> dich morgen <strong>an</strong>.</td></tr>
+<tr><td>auf<strong>stehen</strong></td><td class="no-mask">to get up</td><td>Ich <strong>stehe</strong> um 7 Uhr <strong>auf</strong>.</td></tr>
+<tr><td>ein<strong>kaufen</strong></td><td class="no-mask">to shop</td><td>Wir <strong>kaufen</strong> im Supermarkt <strong>ein</strong>.</td></tr>
+<tr><td>fern<strong>sehen</strong></td><td class="no-mask">to watch TV</td><td>Abends <strong>sehe</strong> ich <strong>fern</strong>.</td></tr>
+<tr><td>mit<strong>nehmen</strong></td><td class="no-mask">to take along</td><td><strong>Nimmst</strong> du den Schirm <strong>mit</strong>?</td></tr>
+<tr><td>zurück<strong>kommen</strong></td><td class="no-mask">to come back</td><td>Wann <strong>kommst</strong> du <strong>zurück</strong>?</td></tr>
 </tbody>
 </table>
 <div class="rule"><strong>Mit Modalverb</strong> bleibt das Präfix zusammen im Infinitiv: Ich lade meine Freunde ein. → Ich will meine Freunde <strong>einladen</strong>.<br>
@@ -725,9 +733,9 @@ Ich <strong>kann</strong> Deutsch <strong>sprechen</strong>. · Du <strong>musst
 <em>Whatever occupies Position I, the verb always stays in Position II.</em></div>
 <table>
 <tbody>
-<tr><td>Ich</td><td>trinke</td><td>Tee am Nachmittag.</td></tr>
-<tr><td>Am Nachmittag</td><td>trinke</td><td>ich Tee.</td></tr>
-<tr><td>Tee</td><td>trinke</td><td>ich am Nachmittag.</td></tr>
+<tr><td>Ich</td><td class="no-mask">trinke</td><td>Tee am Nachmittag.</td></tr>
+<tr><td>Am Nachmittag</td><td class="no-mask">trinke</td><td>ich Tee.</td></tr>
+<tr><td>Tee</td><td class="no-mask">trinke</td><td>ich am Nachmittag.</td></tr>
 </tbody>
 </table>
 <p><strong>W-Fragen</strong> <em>(Wh-questions)</em>: W-Wort + Verb + Subjekt + Rest</p>
@@ -760,16 +768,16 @@ Ich <strong>kann</strong> Deutsch <strong>sprechen</strong>. · Du <strong>musst
 <div class="rule"><strong>Bildung / Formation:</strong> haben/sein (Position 2) + ... + Partizip II (Ende)</div>
 <table>
 <tbody>
-<tr><td>regelmäßig <em>(regular)</em></td><td>ge- + Stamm + -t</td><td>machen → ge<strong>mach</strong>t · lernen → ge<strong>lern</strong>t</td></tr>
-<tr><td>unregelmäßig <em>(irregular)</em></td><td>ge- + Stamm(geändert) + -en</td><td>essen → ge<strong>gess</strong>en · trinken → ge<strong>trunk</strong>en</td></tr>
-<tr><td>untrennbares Präfix <em>(inseparable)</em></td><td>kein ge-</td><td>verstehen → verstanden · bezahlen → bezahlt</td></tr>
-<tr><td>trennbares Verb <em>(separable)</em></td><td>Präfix+ge+Stamm+t/en</td><td>einkaufen → ein<strong>ge</strong>kauft · anrufen → an<strong>ge</strong>rufen</td></tr>
+<tr><td>regelmäßig <em>(regular)</em></td><td class="no-mask">ge- + Stamm + -t<br><span style="font-size:0.82em;color:#6c757d;">(machen)</span></td><td>machen → ge<strong>mach</strong>t · lernen → ge<strong>lern</strong>t</td></tr>
+<tr><td>unregelmäßig <em>(irregular)</em></td><td class="no-mask">ge- + Stamm(geändert) + -en<br><span style="font-size:0.82em;color:#6c757d;">(essen)</span></td><td>essen → ge<strong>gess</strong>en · trinken → ge<strong>trunk</strong>en</td></tr>
+<tr><td>untrennbares Präfix <em>(inseparable)</em></td><td class="no-mask">kein ge-<br><span style="font-size:0.82em;color:#6c757d;">(verstehen)</span></td><td>verstehen → verstanden · bezahlen → bezahlt</td></tr>
+<tr><td>trennbares Verb <em>(separable)</em></td><td class="no-mask">Präfix+ge+Stamm+t/en<br><span style="font-size:0.82em;color:#6c757d;">(einkaufen)</span></td><td>einkaufen → ein<strong>ge</strong>kauft · anrufen → an<strong>ge</strong>rufen</td></tr>
 </tbody>
 </table>
 <table>
 <thead><tr><th><strong>haben</strong> — die meisten Verben / most verbs</th><th><strong>sein</strong> — Bewegung + Zustandsänderung / movement + change of state</th></tr></thead>
 <tbody>
-<tr><td>Ich habe Deutsch gelernt.<br>Er hat einen Kuchen gegessen.</td><td>Ich bin nach Berlin gefahren.<br>Er ist um 7 Uhr aufgestanden.</td></tr>
+<tr><td>Ich habe Deutsch gelernt.<br>Er hat einen Kuchen gegessen.</td><td class="no-mask">Ich bin nach Berlin gefahren.<br>Er ist um 7 Uhr aufgestanden.</td></tr>
 </tbody>
 </table>
 <div class="rule"><strong>Ausnahme:</strong> <em>bleiben</em> nimmt "sein" trotz keiner Bewegung: Ich <strong>bin</strong> zu Hause <strong>geblieben</strong>.<br>
@@ -840,10 +848,10 @@ Das Buch <span class="datC" style="color:inherit;">liegt</span> auf <span class=
 <h2 id="13-zeitangaben">13. Zeitangaben / Time Expressions</h2>
 <table>
 <tbody>
-<tr><td>8:00</td><td>acht Uhr</td><td><em>eight o'clock</em></td></tr>
-<tr><td>8:15</td><td>Viertel nach acht</td><td><em>quarter past eight</em></td></tr>
-<tr><td>8:30</td><td><strong>halb neun</strong></td><td><em>half past eight — refers to the NEXT hour!</em></td></tr>
-<tr><td>8:45</td><td>Viertel vor neun</td><td><em>quarter to nine</em></td></tr>
+<tr><td>8:00</td><td>acht Uhr</td><td class="no-mask"><em>eight o'clock</em></td></tr>
+<tr><td>8:15</td><td>Viertel nach acht</td><td class="no-mask"><em>quarter past eight</em></td></tr>
+<tr><td>8:30</td><td><strong>halb neun</strong></td><td class="no-mask"><em>half past eight — refers to the NEXT hour!</em></td></tr>
+<tr><td>8:45</td><td>Viertel vor neun</td><td class="no-mask"><em>quarter to nine</em></td></tr>
 </tbody>
 </table>
 <ul>
@@ -893,9 +901,9 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
 <table>
 <thead><tr><th></th><th>Muster / Pattern</th><th>Beispiel / Example</th></tr></thead>
 <tbody>
-<tr><td>Grund geben <em>(giving a reason)</em></td><td><strong>weil</strong> + Subjekt + ... + Verb(Ende)</td><td>Ich bin müde, weil ich Sport mache.</td></tr>
-<tr><td>Aussage/Hoffnung <em>(statement/hope)</em></td><td><strong>dass</strong> + Subjekt + ... + Verb(Ende)</td><td>Ich hoffe, dass ich die Prüfung bestehe.</td></tr>
-<tr><td>Bedingung <em>(condition)</em></td><td><strong>wenn</strong> + Subjekt + ... + Verb(Ende)</td><td>Ich bin froh, wenn ich meine Eltern treffe.</td></tr>
+<tr><td>Grund geben <em>(giving a reason)</em></td><td class="no-mask"><strong>weil</strong> + Subjekt + ... + Verb(Ende)</td><td>Ich bin müde, weil ich Sport mache.</td></tr>
+<tr><td>Aussage/Hoffnung <em>(statement/hope)</em></td><td class="no-mask"><strong>dass</strong> + Subjekt + ... + Verb(Ende)</td><td>Ich hoffe, dass ich die Prüfung bestehe.</td></tr>
+<tr><td>Bedingung <em>(condition)</em></td><td class="no-mask"><strong>wenn</strong> + Subjekt + ... + Verb(Ende)</td><td>Ich bin froh, wenn ich meine Eltern treffe.</td></tr>
 </tbody>
 </table>
 <div class="rule">⚠️ <strong>Häufiger Fehler:</strong> nach "wenn ich" muss das Verb auf <strong>-e</strong> enden: "wenn ich ___<strong>e</strong>" (treffe, nicht treffen; komme, nicht kommen)<br>
@@ -909,9 +917,9 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
 <p><strong>Modalverben im Präteritum</strong> <em>(modal verbs in simple past, from Hausaufgabe 2)</em> — für Geschichten aus der Vergangenheit:</p>
 <table>
 <tbody>
-<tr><td>können → <strong>konnte</strong> <em>(could)</em></td><td>müssen → <strong>musste</strong> <em>(had to)</em></td></tr>
-<tr><td>dürfen → <strong>durfte</strong> <em>(was allowed to)</em></td><td>wollen → <strong>wollte</strong> <em>(wanted to)</em></td></tr>
-<tr><td>sollen → <strong>sollte</strong> <em>(was supposed to)</em></td><td></td></tr>
+<tr><td>können → <span class="mask-target"><strong>konnte</strong> <em>(could)</em></span></td><td>müssen → <span class="mask-target"><strong>musste</strong> <em>(had to)</em></span></td></tr>
+<tr><td>dürfen → <span class="mask-target"><strong>durfte</strong> <em>(was allowed to)</em></span></td><td>wollen → <span class="mask-target"><strong>wollte</strong> <em>(wanted to)</em></span></td></tr>
+<tr><td>sollen → <span class="mask-target"><strong>sollte</strong> <em>(was supposed to)</em></span></td><td></td></tr>
 </tbody>
 </table>
 <ul>
@@ -1064,8 +1072,32 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
             // Header row (th cells) stays fully visible — it's the prompt labels
             table.querySelectorAll('tbody tr').forEach(function(row) {
                 var cells = Array.prototype.slice.call(row.children);
-                // First cell in each body row stays visible (row label / prompt)
-                cells.slice(1).forEach(function(td) {
+                cells.forEach(function(td, idx) {
+                    // A .mask-target span marks the specific answer portion of
+                    // a cell that should be masked, regardless of which column
+                    // it's in — this covers tables where even the first column
+                    // holds a real answer (e.g. "können → konnte (could)" /
+                    // "müssen → musste (had to)"), not just a fixed row label.
+                    var targets = td.querySelectorAll('.mask-target');
+                    if (targets.length) {
+                        targets.forEach(function(t) {
+                            if (!t.textContent.trim()) return;
+                            makeCellToggle(t);
+                            anyMasked = true;
+                        });
+                        return;
+                    }
+
+                    // Without an explicit .mask-target, the first cell in each
+                    // body row is the row label / prompt and stays visible.
+                    if (idx === 0) return;
+
+                    // Cells explicitly marked "no-mask" always stay fully
+                    // visible (e.g. a pronoun-label column, or a value that
+                    // should never be hidden even though it isn't the row's
+                    // first cell).
+                    if (td.classList.contains('no-mask')) return;
+
                     // Skip empty cells (some tables have trailing blank <td></td>)
                     if (!td.textContent.trim()) return;
                     makeCellToggle(td);
