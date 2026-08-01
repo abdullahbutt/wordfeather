@@ -256,10 +256,10 @@
         <!-- Placement test explanation -->
         <div id="placementOptions" class="hidden">
           <div class="alert alert-info">
-            Der Level-Test stellt dir <strong>18 Fragen</strong> — 3 pro Niveau (A1–C2), vom leichtesten zum schwersten.
-            Am Ende zeigen wir dir dein wahrscheinliches aktuelles Niveau. / The level test asks you
-            <strong>18 questions</strong> — 3 per level (A1–C2), easiest to hardest. At the end we'll show you
-            your likely current level.
+            Der Level-Test beginnt bei <strong>A1</strong> mit 18 Fragen. Bestehst du (≥60%), geht es weiter mit
+            A2, dann B1 — bis C2 oder bis du ein Niveau nicht bestehst. / The level test starts at
+            <strong>A1</strong> with 18 questions. If you pass (≥60%), it continues to A2, then B1 — up to C2,
+            or until you fail a level.
           </div>
         </div>
 
@@ -282,7 +282,7 @@
       <div class="card p-4 mb-3">
         <p class="prompt-meta mb-1" id="promptMeta">A1 · Nomen</p>
         <p class="mb-2">
-          <span class="badge" id="promptLangBadge" style="background:#1d4ed8;">🇩🇪 Deutsch</span>
+          <span class="badge d-inline-flex align-items-center" id="promptLangBadge" style="background:#1d4ed8;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 5 3" style="margin-right:4px;border-radius:2px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Deutsch</span>
         </p>
         <p class="prompt-word mb-0" id="promptWord">Haus</p>
       </div>
@@ -319,7 +319,7 @@
         <p class="mb-2" id="placementSummary"></p>
         <div class="table-responsive mb-4">
           <table class="table table-sm">
-            <thead><tr><th>Niveau</th><th>Richtig / Correct</th></tr></thead>
+            <thead><tr><th>Niveau</th><th>Richtig / Correct</th><th>Bestanden? / Passed?</th></tr></thead>
             <tbody id="placementBreakdown"></tbody>
           </table>
         </div>
@@ -327,6 +327,23 @@
           <button class="btn btn-primary" id="practiceThisLevelBtn">Auf diesem Niveau üben →</button>
           <button class="btn btn-outline-secondary" id="placementRetryBtn">Test wiederholen</button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 4b: Level-passed transition ============ -->
+  <section id="placementTransitionScreen" class="hidden">
+    <div class="quiz-card text-center">
+      <div class="card p-4">
+        <div class="mb-2" style="font-size:2.5rem;">🎉</div>
+        <h2 class="h4 mb-2">
+          <span id="transitionPassedLevel">A1</span> bestanden! / passed!
+        </h2>
+        <p class="text-muted mb-3" id="transitionStats">18 / 18 richtig / correct (100%)</p>
+        <p class="mb-4">
+          Weiter geht's mit <strong id="transitionNextLevel">A2</strong> (moving on to this level).
+        </p>
+        <button class="btn btn-primary btn-lg w-100" id="transitionContinueBtn">Weiter → / Continue →</button>
       </div>
     </div>
   </section>
@@ -719,15 +736,33 @@
     return { mode: 'practice', questions: questions, index: 0, correctCount: 0 };
   }
 
+  // Builds one level's worth of placement questions (up to 18, or fewer if
+  // a level's pool genuinely doesn't have that many words).
+  function buildLevelQuestionSet(level) {
+    var pool = wordsByLevel[level] || [];
+    var count = Math.min(18, pool.length);
+    var chosen = shuffle(pool).slice(0, count);
+    return chosen.map(function (w) { return wordToQuestion(w, 'de-en'); });
+  }
+
+  // The placement test is SEQUENTIAL, not one flat mixed-level batch: start
+  // at A1 with 18 questions; only advance to A2 if A1 is passed, then only
+  // to B1 if A2 is passed, and so on. The first level you fail (or C2 if
+  // you clear everything) is where the test stops — this mirrors how real
+  // placement tests actually narrow in on a level, rather than diagnosing
+  // from one mixed sample across all six levels at once.
+  var PLACEMENT_PASS_THRESHOLD = 0.6;
+
   function buildPlacementQuiz() {
-    var questions = [];
-    LEVELS.forEach(function (lvl) {
-      var pool = wordsByLevel[lvl] || [];
-      if (!pool.length) return;
-      var picks = shuffle(pool).slice(0, 3);
-      picks.forEach(function (w) { questions.push(wordToQuestion(w, 'de-en')); });
-    });
-    return { mode: 'placement', questions: questions, index: 0, correctCount: 0, perLevel: {} };
+    return {
+      mode: 'placement',
+      levelIndex: 0,
+      questions: buildLevelQuestionSet(LEVELS[0]),
+      index: 0,
+      correctCount: 0,
+      perLevel: {},
+      highestPassed: null
+    };
   }
 
   // ---------------------------------------------------------------
@@ -749,13 +784,20 @@
     // Explicit language badge on the prompt itself — the direction label in
     // promptMeta alone ("Deutsch → English") was easy to skim past, which is
     // likely why a shown word/answer pair could read as ambiguous about
-    // which language was which at a glance.
+    // which language was which at a glance. Uses real SVG flags rather than
+    // flag emoji — Chrome on Windows renders 🇩🇪/🇬🇧 as plain "DE"/"GB" text
+    // instead of an actual flag on many systems, since Windows historically
+    // lacks the regional-indicator flag glyphs that emoji fonts on
+    // Mac/mobile provide.
+    var FLAG_DE = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 5 3" style="margin-right:4px;border-radius:2px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>';
+    var FLAG_GB = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 60 40" style="margin-right:4px;border-radius:2px" aria-hidden="true"><rect width="60" height="40" fill="#00247d"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#cf142b" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#cf142b" stroke-width="8"/></svg>';
+
     var badge = document.getElementById('promptLangBadge');
     if (q.direction === 'de-en') {
-      badge.textContent = '🇩🇪 Deutsch';
+      badge.innerHTML = FLAG_DE + 'Deutsch';
       badge.style.background = '#1d4ed8';
     } else {
-      badge.textContent = '🇬🇧 English';
+      badge.innerHTML = FLAG_GB + 'English';
       badge.style.background = '#0f766e';
     }
 
@@ -855,7 +897,7 @@
     if (currentQuiz.mode === 'practice') {
       showPracticeResults();
     } else {
-      showPlacementResults();
+      handlePlacementLevelComplete();
     }
   }
 
@@ -874,41 +916,85 @@
     document.getElementById('setupScreen').classList.remove('hidden');
   });
 
-  // Determine likely CEFR level: the highest level where accuracy is still
-  // >= 60%, walking up from A1. If A1 itself is below 60%, we still report
-  // A1 as a starting point rather than leaving the result ambiguous.
-  function computePlacementLevel(perLevel) {
-    var result = 'A1';
-    for (var i = 0; i < LEVELS.length; i++) {
-      var lvl = LEVELS[i];
-      var stats = perLevel[lvl];
-      if (!stats || stats.total === 0) break;
-      var acc = stats.correct / stats.total;
-      if (acc >= 0.6) {
-        result = lvl;
-      } else {
-        break;
-      }
+  // Called after finishing the current level's 18 questions. Decides
+  // whether to advance to the next level (passed, and not already at C2),
+  // or stop the test here (failed this level, or just cleared C2).
+  function handlePlacementLevelComplete() {
+    var level = LEVELS[currentQuiz.levelIndex];
+    var stats = currentQuiz.perLevel[level] || { correct: 0, total: 0 };
+    var accuracy = stats.total ? stats.correct / stats.total : 0;
+    var passed = accuracy >= PLACEMENT_PASS_THRESHOLD;
+
+    if (passed) currentQuiz.highestPassed = level;
+
+    var isLastLevel = currentQuiz.levelIndex >= LEVELS.length - 1;
+
+    if (passed && !isLastLevel) {
+      var nextLevel = LEVELS[currentQuiz.levelIndex + 1];
+      showLevelTransition(level, nextLevel, stats, function () {
+        currentQuiz.levelIndex++;
+        currentQuiz.questions = buildLevelQuestionSet(nextLevel);
+        currentQuiz.index = 0;
+        document.getElementById('quizScreen').classList.remove('hidden');
+        renderQuestion();
+      });
+    } else {
+      showPlacementResults(level, stats, passed, isLastLevel);
     }
-    return result;
   }
 
-  function showPlacementResults() {
-    var level = computePlacementLevel(currentQuiz.perLevel);
+  // Brief "you passed X, moving on to Y" screen between levels — an
+  // explicit button rather than auto-advancing, so the transition doesn't
+  // feel jarring or skip past what was just achieved.
+  function showLevelTransition(passedLevel, nextLevel, stats, onContinue) {
+    var screen = document.getElementById('placementTransitionScreen');
+    document.getElementById('transitionPassedLevel').textContent = passedLevel;
+    document.getElementById('transitionNextLevel').textContent = nextLevel;
+    document.getElementById('transitionStats').textContent =
+      stats.correct + ' / ' + stats.total + ' richtig / correct (' + Math.round((stats.correct / stats.total) * 100) + '%)';
+    screen.classList.remove('hidden');
+
+    var btn = document.getElementById('transitionContinueBtn');
+    // Replace the button to clear any previous click listener rather than
+    // stacking multiple handlers across repeated level transitions.
+    var freshBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(freshBtn, btn);
+    freshBtn.addEventListener('click', function () {
+      screen.classList.add('hidden');
+      onContinue();
+    });
+  }
+
+  function showPlacementResults(finalLevelAttempted, finalStats, passed, isLastLevel) {
+    // The reported level is the highest one actually PASSED — if even A1
+    // was failed, we still report A1 as an honest starting point rather
+    // than leaving the result blank/undefined.
+    var level = currentQuiz.highestPassed || 'A1';
     document.getElementById('placementLevelBadge').textContent = level;
 
-    var totalCorrect = currentQuiz.correctCount;
-    var totalQ = currentQuiz.questions.length;
-    document.getElementById('placementSummary').textContent =
-      'Basierend auf ' + totalCorrect + ' von ' + totalQ + ' richtigen Antworten. / Based on ' + totalCorrect + ' of ' + totalQ + ' correct answers.';
+    var summary;
+    if (isLastLevel && passed) {
+      summary = 'Herzlichen Glückwunsch — du hast alle Niveaus bis C2 bestanden! / Congratulations — you passed every level up to C2!';
+    } else if (!passed) {
+      summary = 'Bei ' + finalLevelAttempted + ' lag deine Genauigkeit bei ' + Math.round((finalStats.correct / finalStats.total) * 100) +
+        '% (' + finalStats.correct + '/' + finalStats.total + ') — unter der 60%-Schwelle zum Bestehen. ' +
+        '/ At ' + finalLevelAttempted + ', your accuracy was ' + Math.round((finalStats.correct / finalStats.total) * 100) +
+        '% (' + finalStats.correct + '/' + finalStats.total + ') — below the 60% pass threshold.';
+    } else {
+      summary = '';
+    }
+    document.getElementById('placementSummary').textContent = summary;
 
     var tbody = document.getElementById('placementBreakdown');
     tbody.innerHTML = '';
     LEVELS.forEach(function (lvl) {
       var stats = currentQuiz.perLevel[lvl];
       if (!stats) return;
+      var acc = Math.round((stats.correct / stats.total) * 100);
+      var passedThisLevel = acc >= PLACEMENT_PASS_THRESHOLD * 100;
       var row = document.createElement('tr');
-      row.innerHTML = '<td>' + lvl + '</td><td>' + stats.correct + ' / ' + stats.total + '</td>';
+      row.innerHTML = '<td>' + lvl + '</td><td>' + stats.correct + ' / ' + stats.total + ' (' + acc + '%)</td>' +
+        '<td>' + (passedThisLevel ? '✓ Bestanden / Passed' : '✗ Nicht bestanden / Not passed') + '</td>';
       tbody.appendChild(row);
     });
 

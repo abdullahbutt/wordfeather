@@ -28,20 +28,23 @@
     border-radius: 2px;
     background: #ffffff;
   }
-  /* Quiz gets its own pill treatment so it stands out from the plain text
-     links next to it — same visual language as the "Buy me a Coffee" /
-     "Leben in Deutschland" footer buttons elsewhere on the site. */
+  /* Quiz stands out from the plain text links via bold weight + a subtle
+     warm accent color — NOT a background pill by default, since a
+     permanently-filled pill reads as "this page is currently open" even
+     when it isn't. The solid pill fill is reserved for .active only,
+     below, so it's an honest signal of the current page. */
   #siteNavbar .nav-link.quiz-highlight {
-    background: rgba(255, 255, 255, 0.16);
-    border-radius: 999px;
-    padding: 0.35rem 0.9rem !important;
-    margin: 0 0.15rem;
+    font-weight: 700;
+    color: #fde68a !important;
   }
   #siteNavbar .nav-link.quiz-highlight:hover {
-    background: rgba(255, 255, 255, 0.26);
+    color: #fef3c7 !important;
   }
   #siteNavbar .nav-link.quiz-highlight.active {
     background: #ffffff;
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem !important;
+    margin: 0 0.15rem;
     color: #1d4ed8 !important;
   }
   #siteNavbar .nav-link.quiz-highlight.active::after {
