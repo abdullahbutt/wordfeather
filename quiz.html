@@ -171,9 +171,18 @@
     var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-bs-theme', saved);
 
-    var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="/index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="/index.html" id="nav-home">Home</a></li><li class="nav-item"><a class="nav-link" href="/dictionary.html">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link active" href="/quiz.html">🧠 Quiz</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+    var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="/index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="/index.html" id="nav-home">Home</a></li><li class="nav-item"><a class="nav-link" href="/dictionary.html">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link active" href="/quiz.html">🎯 Quiz</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
 
     function renderHeader(html) {
+        // header.html's own markup uses "BASE/..." as a placeholder path
+        // (since the same file is fetched from every page, some nested
+        // deeper than others) — every OTHER page on the site replaces this
+        // with the real root-relative "/" before injecting it, but this
+        // step was missing here, so Home/Dictionary/Levels links on this
+        // page were literally pointing at "/BASE/index.html" etc., a URL
+        // that doesn't exist. WordFeather is hosted at the domain root, so
+        // BASE is simply "/" everywhere.
+        html = html.replace(/BASE\//g, '/');
         document.getElementById('header-placeholder').innerHTML = html;
         var btn = document.getElementById('themeToggle');
         if (btn) {
@@ -378,7 +387,7 @@
     var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div></div></div></footer>';
     fetch('/footer.html?v=' + Date.now())
         .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
-        .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+        .then(function(html) { html = html.replace(/BASE\//g, '/'); document.getElementById('footer-placeholder').innerHTML = html; })
         .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
 })();
 </script>
