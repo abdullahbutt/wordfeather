@@ -57,6 +57,40 @@ def update_service_worker_cache_name():
     print(f"  ✅ sw.js — CACHE_NAME updated to {new_cache_name}")
 
 
+FOOTER_HTML_PATH = os.path.join(REPO, 'footer.html')
+
+
+def update_footer_last_updated():
+    """Stamp footer.html's "Last updated" line with today's real date on
+    every build run — same mechanism as update_service_worker_cache_name()
+    above, just applied to a second location. Before this existed, that
+    line was plain hardcoded text with no automation at all, so it silently
+    went stale (stuck on "April 2026") no matter how much real content
+    changed afterward. Only touches the one marked line; safe to call on
+    every build."""
+    if not os.path.exists(FOOTER_HTML_PATH):
+        print(f"  ⚠️  footer.html not found at {FOOTER_HTML_PATH} — last-updated date NOT updated.")
+        return
+
+    with open(FOOTER_HTML_PATH, encoding='utf-8') as f:
+        content = f.read()
+
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+
+    pattern = re.compile(
+        r"(<!-- AUTO-LASTUPDATED-START -->\s*\n\s*<p class=\"mb-0 mt-3 text-center text-secondary small\">Last updated: )[^<]*(</p>\s*\n\s*<!-- AUTO-LASTUPDATED-END -->)"
+    )
+    if not pattern.search(content):
+        print("  ⚠️  footer.html AUTO-LASTUPDATED markers not found — last-updated date NOT updated. "
+              "(Did footer.html get replaced with an older version without the markers?)")
+        return
+
+    new_content = pattern.sub(rf"\g<1>{today}\g<2>", content)
+    with open(FOOTER_HTML_PATH, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print(f"  ✅ footer.html — Last updated date set to {today}")
+
+
 FAVICON_BLOCK = f'''\
     <link rel="icon" type="image/x-icon" href="{BASE}/icons/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="{BASE}/icons/16.png">
@@ -1488,6 +1522,7 @@ def main():
                     f.write(pg)
                 print(f"  ✅ banner → {os.path.relpath(page_path, REPO)}")
         update_service_worker_cache_name()
+        update_footer_last_updated()
         print("\nBuild complete.")
         return
 
@@ -1521,6 +1556,7 @@ def main():
             print(f"  ✅ dictionary.html — word count updated to {total}")
 
     update_service_worker_cache_name()
+    update_footer_last_updated()
     print("\nBuild complete.")
 
 
