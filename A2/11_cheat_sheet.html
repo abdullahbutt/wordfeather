@@ -119,6 +119,14 @@
             backdrop-filter: blur(4px);
         }
 
+        /* Bootstrap's default dropdown z-index (1000) sits below this page's
+           sticky Quick Jump bar (1020) and sticky navbar — without this, the
+           "Levels"/"... Modules" dropdown renders visually underneath the
+           Quick Jump buttons instead of on top of them. */
+        .navbar .dropdown-menu {
+            z-index: 1040;
+        }
+
         .jump-layout {
             display: block;
         }
@@ -415,6 +423,18 @@
             color: inherit;
             padding: 0;
             user-select: text;
+        }
+        /* Some cells contain inline-colored spans (e.g. red adjective endings
+           with style="color:#c00") to highlight grammar. An inline style on a
+           descendant always overrides the inherited "color: transparent" from
+           .masked-content above, so those colored spans stayed visibly
+           readable even while "masked". Force transparency onto every
+           descendant too, but ONLY while not yet revealed — once revealed,
+           no rule targets the descendants here, so their own inline colors
+           (e.g. the red endings) reappear correctly on their own. */
+        .practice-cell:not(.revealed) .masked-content,
+        .practice-cell:not(.revealed) .masked-content * {
+            color: transparent !important;
         }
         .section-eye-btn {
             background: none;
@@ -942,10 +962,10 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
 <table>
 <thead><tr><th></th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th></tr></thead>
 <tbody>
-<tr><td>Maskulin</td><td>gut<span style="color:#c00;font-weight:700;">er</span> Kuli</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td>gut<span style="color:#c00;font-weight:700;">em</span> Kuli</td></tr>
-<tr><td>Neutrum</td><td>gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>gut<span style="color:#c00;font-weight:700;">em</span> Buch</td></tr>
-<tr><td>Feminin</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>gut<span style="color:#c00;font-weight:700;">er</span> Uhr</td></tr>
-<tr><td>Plural</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
+<tr><td>Maskulin <em>(Kuli)</em></td><td>gut<span style="color:#c00;font-weight:700;">er</span> Kuli</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td>gut<span style="color:#c00;font-weight:700;">em</span> Kuli</td></tr>
+<tr><td>Neutrum <em>(Buch)</em></td><td>gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>gut<span style="color:#c00;font-weight:700;">em</span> Buch</td></tr>
+<tr><td>Feminin <em>(Uhr)</em></td><td>gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>gut<span style="color:#c00;font-weight:700;">er</span> Uhr</td></tr>
+<tr><td>Plural <em>(Bücher)</em></td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
 </tbody>
 </table>
 
@@ -953,10 +973,10 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
 <table>
 <thead><tr><th></th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th></tr></thead>
 <tbody>
-<tr><td>Maskulin</td><td>ein gut<span style="color:#c00;font-weight:700;">er</span> Kuli</td><td>ein<span style="color:#c00;font-weight:700;">en</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td>ein<span style="color:#c00;font-weight:700;">em</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td></tr>
-<tr><td>Neutrum</td><td>ein gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>ein gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>ein<span style="color:#c00;font-weight:700;">em</span> gut<span style="color:#c00;font-weight:700;">en</span> Buch</td></tr>
-<tr><td>Feminin</td><td>eine gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>eine gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>ein<span style="color:#c00;font-weight:700;">er</span> gut<span style="color:#c00;font-weight:700;">en</span> Uhr</td></tr>
-<tr><td>Plural</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
+<tr><td>Maskulin <em>(Kuli)</em></td><td>ein gut<span style="color:#c00;font-weight:700;">er</span> Kuli</td><td>ein<span style="color:#c00;font-weight:700;">en</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td>ein<span style="color:#c00;font-weight:700;">em</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td></tr>
+<tr><td>Neutrum <em>(Buch)</em></td><td>ein gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>ein gut<span style="color:#c00;font-weight:700;">es</span> Buch</td><td>ein<span style="color:#c00;font-weight:700;">em</span> gut<span style="color:#c00;font-weight:700;">en</span> Buch</td></tr>
+<tr><td>Feminin <em>(Uhr)</em></td><td>eine gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>eine gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>ein<span style="color:#c00;font-weight:700;">er</span> gut<span style="color:#c00;font-weight:700;">en</span> Uhr</td></tr>
+<tr><td>Plural <em>(Bücher)</em></td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">e</span> Bücher</td><td>gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
 </tbody>
 </table>
 
@@ -964,10 +984,10 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
 <table>
 <thead><tr><th></th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th></tr></thead>
 <tbody>
-<tr><td>Maskulin</td><td>der gut<span style="color:#c00;font-weight:700;">e</span> Kuli</td><td><span style="color:#c00;font-weight:700;">den</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td><span style="color:#c00;font-weight:700;">dem</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td></tr>
-<tr><td>Neutrum</td><td>das gut<span style="color:#c00;font-weight:700;">e</span> Buch</td><td>das gut<span style="color:#c00;font-weight:700;">e</span> Buch</td><td><span style="color:#c00;font-weight:700;">dem</span> gut<span style="color:#c00;font-weight:700;">en</span> Buch</td></tr>
-<tr><td>Feminin</td><td>die gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>die gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td><span style="color:#c00;font-weight:700;">der</span> gut<span style="color:#c00;font-weight:700;">en</span> Uhr</td></tr>
-<tr><td>Plural</td><td>die gut<span style="color:#c00;font-weight:700;">en</span> Bücher</td><td>die gut<span style="color:#c00;font-weight:700;">en</span> Bücher</td><td><span style="color:#c00;font-weight:700;">den</span> gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
+<tr><td>Maskulin <em>(Kuli)</em></td><td>der gut<span style="color:#c00;font-weight:700;">e</span> Kuli</td><td><span style="color:#c00;font-weight:700;">den</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td><td><span style="color:#c00;font-weight:700;">dem</span> gut<span style="color:#c00;font-weight:700;">en</span> Kuli</td></tr>
+<tr><td>Neutrum <em>(Buch)</em></td><td>das gut<span style="color:#c00;font-weight:700;">e</span> Buch</td><td>das gut<span style="color:#c00;font-weight:700;">e</span> Buch</td><td><span style="color:#c00;font-weight:700;">dem</span> gut<span style="color:#c00;font-weight:700;">en</span> Buch</td></tr>
+<tr><td>Feminin <em>(Uhr)</em></td><td>die gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td>die gut<span style="color:#c00;font-weight:700;">e</span> Uhr</td><td><span style="color:#c00;font-weight:700;">der</span> gut<span style="color:#c00;font-weight:700;">en</span> Uhr</td></tr>
+<tr><td>Plural <em>(Bücher)</em></td><td>die gut<span style="color:#c00;font-weight:700;">en</span> Bücher</td><td>die gut<span style="color:#c00;font-weight:700;">en</span> Bücher</td><td><span style="color:#c00;font-weight:700;">den</span> gut<span style="color:#c00;font-weight:700;">en</span> Bücher<span style="color:#c00;font-weight:700;">n</span></td></tr>
 </tbody>
 </table>
 <div class="rule"><em>Rote Endungen zeigen, was sich je nach Kasus und Artikel-Typ ändert. Nach dem bestimmten Artikel ändert sich am Adjektiv meistens nur -e/-en; ohne Artikel trägt das Adjektiv selbst die volle Endung des bestimmten Artikels. / Red endings show what changes by case and article type. After a definite article the adjective mostly just takes -e/-en; without any article, the adjective itself carries the full ending the definite article would have had.</em></div>
@@ -1135,7 +1155,7 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
             var path = window.location.pathname.replace(/\\/g, '/');
             var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
             var prefix = levelMatch ? '../' : '';
-            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/wordfeather" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a><a href="https://leben.wordfeather.com" class="btn btn-sm btn-primary fw-semibold" target="_blank" rel="noopener">🇩🇪 Leben in Deutschland Test →</a><a href="https://www.paypal.com/paypalme/abdullahbuttde" class="btn btn-sm fw-semibold" style="background:#ffdd00;border-color:#ffdd00;color:#1a1a1a;" target="_blank" rel="noopener">☕ Buy me a Coffee</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="BASE/privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div><p class="mb-0 mt-3 text-center text-secondary small">Last updated: April 2026</p></div></footer>';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/wordfeather" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a><a href="https://leben.wordfeather.com" class="btn btn-sm btn-primary fw-semibold" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:4px;border-radius:2px" aria-label="German flag"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland Test →</a><a href="https://www.paypal.com/paypalme/abdullahbuttde" class="btn btn-sm fw-semibold" style="background:#ffdd00;border-color:#ffdd00;color:#1a1a1a;" target="_blank" rel="noopener">☕ Buy me a Coffee</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="BASE/privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div><p class="mb-0 mt-3 text-center text-secondary small">Last updated: April 2026</p></div></footer>';
             fetch(prefix + 'footer.html?v=' + Date.now())
                 .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
                 .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
@@ -1216,6 +1236,21 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
             btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
                 '<span>' + (revealed ? 'Tabelle verstecken' : 'Tabelle anzeigen') + '</span>';
         });
+        // addTableToggle() inserts its button as a preceding SIBLING of the
+        // table, not a descendant — so when this function is called with the
+        // table itself as the container (e.g. from the section-level "Alle
+        // anzeigen" master button), the querySelectorAll above never finds
+        // it. Check for that sibling explicitly so both the per-table click
+        // and the section-wide master toggle keep this button's label and
+        // icon in sync with the table's actual state.
+        if (container.previousElementSibling &&
+            container.previousElementSibling.classList &&
+            container.previousElementSibling.classList.contains('table-eye-btn')) {
+            var sibBtn = container.previousElementSibling;
+            sibBtn.dataset.expanded = revealed ? '1' : '0';
+            sibBtn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                '<span>' + (revealed ? 'Tabelle verstecken' : 'Tabelle anzeigen') + '</span>';
+        }
     }
 
     function addTableToggle(table) {
@@ -1226,8 +1261,17 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
         btn.innerHTML = EYE_CLOSED + '<span>Tabelle anzeigen</span>';
         btn.setAttribute('aria-label', 'Antworten in dieser Tabelle anzeigen/verstecken');
 
+        // This button lives BEFORE the table (a sibling), not inside it — so
+        // setRevealed(table, ...) can't find/update it via its own internal
+        // ".table-eye-btn" lookup (that lookup only searches *inside* the
+        // given container). Manage this button's own label/state directly
+        // here instead of relying on setRevealed to do it.
         btn.addEventListener('click', function() {
-            setRevealed(table, btn.dataset.expanded !== '1');
+            var revealed = btn.dataset.expanded !== '1';
+            btn.dataset.expanded = revealed ? '1' : '0';
+            setRevealed(table, revealed);
+            btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                '<span>' + (revealed ? 'Tabelle verstecken' : 'Tabelle anzeigen') + '</span>';
         });
 
         table.parentNode.insertBefore(btn, table);
