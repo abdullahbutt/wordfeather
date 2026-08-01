@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="de" data-bs-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vokabel-Quiz — WordFeather. Teste dein Deutsch nach Niveau oder finde dein aktuelles CEFR-Level.">
+<meta name="theme-color" content="#1d4ed8">
+<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-title" content="WordFeather">
+<title>Vokabel-Quiz — WordFeather</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  :root {
+    --accent: #1d4ed8;
+    --accent-soft: #eef2ff;
+    --good: #16a34a;
+    --bad: #dc2626;
+  }
+  body { background: #f8fafc; }
+  [data-bs-theme="dark"] body { background: #0f172a; }
+
+  .quiz-card {
+    max-width: 640px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.06);
+  }
+
+  .level-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 0.75rem;
+    border: 2px solid #e2e8f0;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    transition: all .15s ease;
+    background: #fff;
+  }
+  [data-bs-theme="dark"] .level-check { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+  .level-check.active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+  }
+  .level-check input { display: none; }
+  /* The real checkbox is hidden for the custom tile look, so keyboard
+     navigation needs its own visible focus indicator on the label itself —
+     otherwise tabbing through the level tiles shows no focus state at all. */
+  .level-check:has(input:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quiz-progress-bar .progress-bar,
+    .level-check,
+    .btn {
+      transition: none !important;
+    }
+  }
+
+  .direction-toggle .btn-check:checked + label {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .quiz-progress-bar { height: 6px; }
+
+  .prompt-word {
+    font-size: 2.1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  .prompt-meta {
+    text-align: center;
+    color: #64748b;
+    font-size: .85rem;
+  }
+
+  #answerInput {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  .feedback-box {
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    display: none;
+  }
+  .feedback-box.correct { background: #dcfce7; color: #166534; display: block; }
+  .feedback-box.incorrect { background: #fee2e2; color: #991b1b; display: block; }
+  [data-bs-theme="dark"] .feedback-box.correct { background: #052e16; color: #86efac; }
+  [data-bs-theme="dark"] .feedback-box.incorrect { background: #450a0a; color: #fca5a5; }
+
+  .score-ring {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 auto;
+  }
+
+  .level-result-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+<script>
+(function () {
+    var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-bs-theme', saved);
+
+    var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="/index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="/index.html" id="nav-home">Home</a></li><li class="nav-item"><a class="nav-link" href="/dictionary.html">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link active" href="/quiz.html">🧠 Quiz</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+    function renderHeader(html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        var btn = document.getElementById('themeToggle');
+        if (btn) {
+            function syncBtn() {
+                var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+            }
+            syncBtn();
+            btn.addEventListener('click', function () {
+                var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-bs-theme', next);
+                localStorage.setItem('theme', next);
+                syncBtn();
+            });
+        }
+    }
+
+    fetch('/header.html')
+        .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+        .then(function (html) { renderHeader(html); })
+        .catch(function () { renderHeader(headerFallback); });
+})();
+</script>
+
+<main class="container py-4">
+
+  <p class="mb-4"><a href="/index.html">Home</a> <span class="text-muted">/</span> <span class="text-muted">Quiz</span></p>
+
+  <!-- ============ SCREEN 1: Mode & options selection ============ -->
+  <section id="setupScreen">
+    <div class="text-center mb-4">
+      <h1 class="h3">🧠 Vokabel-Quiz</h1>
+      <p class="text-muted">Teste dein Deutsch — wähle ein Niveau oder finde dein aktuelles CEFR-Level.</p>
+    </div>
+
+    <div class="card quiz-card">
+      <div class="card-body p-4">
+
+        <ul class="nav nav-pills nav-fill mb-4" id="modeTabs">
+          <li class="nav-item">
+            <button class="nav-link active" id="tab-practice" data-mode="practice">📚 Nach Niveau üben</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tab-placement" data-mode="placement">🎯 Mein Niveau finden</button>
+          </li>
+        </ul>
+
+        <!-- Practice-by-level options -->
+        <div id="practiceOptions">
+          <label class="form-label fw-semibold">Niveau(s) auswählen / Choose level(s)</label>
+          <div class="d-flex gap-2 flex-wrap mb-4" id="levelChecks">
+            <!-- filled by JS -->
+          </div>
+
+          <label class="form-label fw-semibold">Richtung / Direction</label>
+          <div class="btn-group direction-toggle mb-4 w-100" role="group">
+            <input type="radio" class="btn-check" name="direction" id="dirDeEn" value="de-en" checked>
+            <label class="btn btn-outline-secondary" for="dirDeEn">DE → EN</label>
+            <input type="radio" class="btn-check" name="direction" id="dirEnDe" value="en-de">
+            <label class="btn btn-outline-secondary" for="dirEnDe">EN → DE</label>
+            <input type="radio" class="btn-check" name="direction" id="dirMixed" value="mixed">
+            <label class="btn btn-outline-secondary" for="dirMixed">Gemischt / Mixed</label>
+          </div>
+
+          <label class="form-label fw-semibold">Anzahl Fragen / Number of questions</label>
+          <select class="form-select mb-4" id="questionCount">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+
+        <!-- Placement test explanation -->
+        <div id="placementOptions" class="hidden">
+          <div class="alert alert-info">
+            Der Level-Test stellt dir <strong>18 Fragen</strong> — 3 pro Niveau (A1–C2), vom leichtesten zum schwersten.
+            Am Ende zeigen wir dir dein wahrscheinliches aktuelles Niveau. / The level test asks you
+            <strong>18 questions</strong> — 3 per level (A1–C2), easiest to hardest. At the end we'll show you
+            your likely current level.
+          </div>
+        </div>
+
+        <div id="loadError" class="alert alert-danger hidden"></div>
+
+        <button class="btn btn-primary btn-lg w-100" id="startBtn">Quiz starten →</button>
+        <button class="btn btn-link w-100 mt-2" id="viewProgressBtn">📊 Meinen Fortschritt anzeigen / View my progress</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2: Active quiz ============ -->
+  <section id="quizScreen" class="hidden">
+    <div class="quiz-card">
+      <div class="progress quiz-progress-bar mb-3">
+        <div class="progress-bar bg-primary" id="quizProgressBar" style="width:0%"></div>
+      </div>
+      <p class="text-center text-muted small mb-4" id="quizProgressText">Frage 1 / 20</p>
+
+      <div class="card p-4 mb-3">
+        <p class="prompt-meta mb-1" id="promptMeta">A1 · Nomen</p>
+        <p class="prompt-word mb-0" id="promptWord">Haus</p>
+      </div>
+
+      <form id="answerForm" autocomplete="off">
+        <input type="text" class="form-control mb-3" id="answerInput" placeholder="Deine Antwort..." autofocus>
+        <div class="feedback-box mb-3" id="feedbackBox"></div>
+        <button type="submit" class="btn btn-primary btn-lg w-100" id="submitBtn">Prüfen / Check</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg w-100 mt-2 hidden" id="nextBtn">Weiter / Next →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 3: Results (practice mode) ============ -->
+  <section id="resultsScreen" class="hidden">
+    <div class="quiz-card text-center">
+      <div class="card p-4">
+        <h2 class="h4 mb-4">Ergebnis / Result</h2>
+        <div class="score-ring bg-primary-subtle text-primary mb-3" id="scoreRing">0%</div>
+        <p class="mb-4" id="scoreDetail">0 von 0 richtig</p>
+        <div class="d-flex gap-2 justify-content-center">
+          <button class="btn btn-primary" id="retryBtn">Nochmal üben →</button>
+          <a href="/dictionary.html" class="btn btn-outline-secondary">Zum Wörterbuch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 4: Placement test result ============ -->
+  <section id="placementResultScreen" class="hidden">
+    <div class="quiz-card text-center">
+      <div class="card p-4">
+        <h2 class="h4 mb-3">Dein wahrscheinliches Niveau / Your likely level</h2>
+        <div class="level-result-badge mb-3" id="placementLevelBadge">A1</div>
+        <p class="mb-2" id="placementSummary"></p>
+        <div class="table-responsive mb-4">
+          <table class="table table-sm">
+            <thead><tr><th>Niveau</th><th>Richtig / Correct</th></tr></thead>
+            <tbody id="placementBreakdown"></tbody>
+          </table>
+        </div>
+        <div class="d-flex gap-2 justify-content-center">
+          <button class="btn btn-primary" id="practiceThisLevelBtn">Auf diesem Niveau üben →</button>
+          <button class="btn btn-outline-secondary" id="placementRetryBtn">Test wiederholen</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 5: Progress overview ============ -->
+  <section id="progressScreen" class="hidden">
+    <div class="quiz-card">
+      <div class="card p-4">
+        <h2 class="h4 mb-1">📊 Mein Fortschritt / My progress</h2>
+        <p class="text-muted small mb-4">Gespeichert auf diesem Gerät — nicht mit anderen Geräten synchronisiert. / Saved on this device only — not synced across devices.</p>
+
+        <div class="table-responsive mb-4">
+          <table class="table table-sm align-middle">
+            <thead><tr><th>Niveau</th><th>Gesehen / Seen</th><th>Gemeistert / Mastered</th><th>Fällig / Due now</th></tr></thead>
+            <tbody id="progressBreakdown"></tbody>
+          </table>
+        </div>
+
+        <div class="d-flex gap-2 justify-content-center flex-wrap">
+          <button class="btn btn-primary" id="progressBackBtn">← Zurück / Back</button>
+          <button class="btn btn-outline-danger" id="resetProgressBtn">Fortschritt zurücksetzen / Reset progress</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script>
+(function() {
+    var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div></div></div></footer>';
+    fetch('/footer.html?v=' + Date.now())
+        .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+        .then(function(html) { document.getElementById('footer-placeholder').innerHTML = html; })
+        .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // =================================================================
+  // SESSION 2 — Persistence & spaced repetition (localStorage-based)
+  // =================================================================
+  // Note: this runs on the real deployed site (wordfeather.com), not inside
+  // a Claude artifact preview — so it uses the browser's own localStorage,
+  // not the Claude-only window.storage API.
+  var STORAGE_KEY = 'wf_quiz_progress_v1';
+
+  // Every storage read/write is wrapped in try/catch: localStorage can throw
+  // in private/incognito browsing in some browsers, or if the user has
+  // disabled site storage — in that case the quiz should keep working, just
+  // without persistence, rather than crash outright.
+  function loadProgress() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      console.warn('WordFeather quiz: could not read saved progress', e);
+      return {};
+    }
+  }
+
+  function saveProgress(progress) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      return true;
+    } catch (e) {
+      console.warn('WordFeather quiz: could not save progress', e);
+      return false;
+    }
+  }
+
+  var progressData = loadProgress();
+
+  // A word's dictionary entry has no guaranteed unique ID field, so build a
+  // stable composite key from level + article + de. This keeps two
+  // different-level entries that happen to share the same spelling from
+  // colliding in storage.
+  function wordKey(word) {
+    return (word.level || '?') + '|' + (word.article || '') + '|' + (word.de || '');
+  }
+
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  // Interval ladder in days for each consecutive correct streak level.
+  // A wrong answer resets the streak to 0 and brings the word back due
+  // almost immediately (10 minutes) rather than waiting a full day, so it
+  // resurfaces again within the same study session.
+  var INTERVAL_LADDER_DAYS = [0, 1, 2, 4, 7, 14, 30, 60];
+
+  function recordAnswer(word, correct) {
+    var key = wordKey(word);
+    var entry = progressData[key] || { streak: 0, timesCorrect: 0, timesWrong: 0, lastSeen: 0, nextDue: 0 };
+
+    entry.lastSeen = Date.now();
+    if (correct) {
+      entry.streak = Math.min(entry.streak + 1, INTERVAL_LADDER_DAYS.length - 1);
+      entry.timesCorrect++;
+      var intervalDays = INTERVAL_LADDER_DAYS[entry.streak];
+      entry.nextDue = Date.now() + intervalDays * DAY_MS;
+    } else {
+      entry.streak = 0;
+      entry.timesWrong++;
+      entry.nextDue = Date.now() + 10 * 60 * 1000; // due again in 10 minutes
+    }
+
+    progressData[key] = entry;
+    saveProgress(progressData);
+  }
+
+  function getEntry(word) {
+    return progressData[wordKey(word)] || null;
+  }
+
+  function isDue(word) {
+    var entry = getEntry(word);
+    if (!entry) return true; // never studied = always due
+    return entry.nextDue <= Date.now();
+  }
+
+  // "Mastered" = at least 3 correct answers in a row and not currently
+  // overdue for review — matches the interval ladder's 4-day-plus mark.
+  function isMastered(word) {
+    var entry = getEntry(word);
+    return !!entry && entry.streak >= 3;
+  }
+
+  function computeProgressSummary() {
+    var summary = {};
+    LEVELS.forEach(function (lvl) {
+      summary[lvl] = { total: 0, seen: 0, mastered: 0, due: 0 };
+    });
+    allWords.forEach(function (w) {
+      if (!summary[w.level]) return;
+      summary[w.level].total++;
+      var entry = getEntry(w);
+      if (entry) {
+        summary[w.level].seen++;
+        if (isMastered(w)) summary[w.level].mastered++;
+      }
+      if (isDue(w)) summary[w.level].due++;
+    });
+    return summary;
+  }
+
+  function resetProgress() {
+    progressData = {};
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+  }
+
+
+
+  var LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  var wordsByLevel = {};   // { A1: [...], A2: [...], ... }
+  var allWords = [];
+  var currentQuiz = null;  // { questions: [...], index, correctCount, mode }
+
+  // ---------------------------------------------------------------
+  // 1. Load words_final.json (same file the dictionary page uses)
+  // ---------------------------------------------------------------
+  fetch('/words_final.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      allWords = data;
+      LEVELS.forEach(function (lvl) { wordsByLevel[lvl] = []; });
+      data.forEach(function (w) {
+        if (wordsByLevel[w.level]) wordsByLevel[w.level].push(w);
+      });
+
+      // Safety-net diagnostic: since this was built without being able to
+      // test against the live words_final.json, surface a clear on-page
+      // warning (rather than silently producing empty quizzes) if the data
+      // doesn't look like the expected shape — e.g. if field names differ,
+      // or level values don't match "A1".."C2" exactly.
+      var totalBucketed = LEVELS.reduce(function (sum, lvl) { return sum + wordsByLevel[lvl].length; }, 0);
+      var box = document.getElementById('loadError');
+      if (!Array.isArray(data) || data.length === 0) {
+        box.classList.remove('hidden');
+        box.textContent = 'words_final.json wurde geladen, enthält aber keine Einträge. / words_final.json loaded but contains no entries.';
+        document.getElementById('startBtn').disabled = true;
+        return;
+      }
+      if (totalBucketed === 0) {
+        box.classList.remove('hidden');
+        box.innerHTML = 'Wörter geladen (' + data.length + '), aber keinem Niveau A1–C2 zugeordnet. ' +
+          'Das "level"-Feld in words_final.json stimmt vermutlich nicht mit "A1".."C2" überein — ' +
+          'erstes Beispiel: <code>' + JSON.stringify(data[0]).slice(0, 200) + '</code><br>' +
+          '/ Words loaded (' + data.length + ') but none matched any A1–C2 level bucket — the "level" field ' +
+          'in words_final.json likely doesn\'t match "A1".."C2" exactly.';
+        document.getElementById('startBtn').disabled = true;
+        return;
+      }
+      var missingFieldsSample = data.slice(0, 20).find(function (w) { return !w.de || !w.en; });
+      if (missingFieldsSample) {
+        box.classList.remove('hidden');
+        box.innerHTML = 'Einige Einträge scheinen kein "de"- oder "en"-Feld zu haben — Beispiel: ' +
+          '<code>' + JSON.stringify(missingFieldsSample).slice(0, 200) + '</code><br>' +
+          '/ Some entries appear to be missing a "de" or "en" field — the quiz may show blank prompts for these.';
+        // Not fatal — only warn, since most entries may still be fine.
+      }
+
+      buildLevelChecks();
+    })
+    .catch(function (err) {
+      var box = document.getElementById('loadError');
+      box.classList.remove('hidden');
+      box.textContent = 'Wörterbuch konnte nicht geladen werden (words_final.json). / Could not load the dictionary data. (' + err.message + ')';
+      document.getElementById('startBtn').disabled = true;
+    });
+
+  // ---------------------------------------------------------------
+  // 2. Fuzzy matching — tolerant of umlaut spelling variants (ae/oe/ue/ss)
+  //    and small typos (edit distance 1, only for words 4+ chars so short
+  //    words like "im"/"in" require an exact match rather than allowing a
+  //    1-letter typo to accidentally match a different real word).
+  // ---------------------------------------------------------------
+  function normalize(str) {
+    return str
+      .toLowerCase()
+      .trim()
+      .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+      .replace(/[.,!?;:()"']/g, '')
+      .replace(/\s+/g, ' ');
+  }
+
+  function levenshtein(a, b) {
+    var m = a.length, n = b.length;
+    if (Math.abs(m - n) > 2) return 99; // early exit, definitely too different
+    var dp = [];
+    for (var i = 0; i <= m; i++) dp.push([i]);
+    for (var j = 0; j <= n; j++) dp[0][j] = j;
+    for (i = 1; i <= m; i++) {
+      for (j = 1; j <= n; j++) {
+        dp[i][j] = a[i - 1] === b[j - 1]
+          ? dp[i - 1][j - 1]
+          : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+      }
+    }
+    return dp[m][n];
+  }
+
+  // A dictionary "de" field sometimes carries extra notation beyond the
+  // bare word itself — a plural-ending marker ("Abend, -e"), an umlaut-change
+  // marker ("Mutter, ¨-"), or a parenthetical usage note ("kaufen (regelmäßig)").
+  // That notation is useful to SHOW, but a learner shouldn't be required to
+  // type it to get the answer marked correct — strip it before comparing,
+  // and use the cleaned form as what's actually required to type.
+  function cleanGermanAnswer(field) {
+    if (!field) return field;
+    return field
+      .replace(/,\s*[¨\-][^,()]*$/, '')   // trailing ", -e" / ", ¨-e" style plural/umlaut markers
+      .replace(/\s*\([^)]*\)\s*$/, '')     // trailing parenthetical note, e.g. "(regelmäßig)"
+      .trim();
+  }
+
+  // Split alternatives happens BEFORE cleaning (comma often also separates
+  // genuinely distinct translations, e.g. "to drive, to go" — not just a
+  // plural marker) — cleanGermanAnswer only strips a plural/umlaut marker
+  // when the trailing segment actually looks like one (starts with - or ¨),
+  // so "to drive, to go" is untouched by it.
+  function splitAlternatives(field) {
+    return field.split(/[,/]/).map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+
+  function isCorrect(userInput, correctField) {
+    var userNorm = normalize(userInput);
+    if (!userNorm) return false;
+    var alts = splitAlternatives(correctField);
+    for (var i = 0; i < alts.length; i++) {
+      var altNorm = normalize(alts[i]);
+      if (userNorm === altNorm) return true;
+      // Only allow a fuzzy (1-typo) match for reasonably long answers —
+      // short words are too likely to collide with a different real word.
+      if (altNorm.length >= 4 && levenshtein(userNorm, altNorm) <= 1) return true;
+    }
+    return false;
+  }
+
+  // ---------------------------------------------------------------
+  // 3. UI: level checkboxes
+  // ---------------------------------------------------------------
+  function buildLevelChecks() {
+    var container = document.getElementById('levelChecks');
+    container.innerHTML = '';
+    LEVELS.forEach(function (lvl, i) {
+      var label = document.createElement('label');
+      label.className = 'level-check' + (i === 0 ? ' active' : '');
+      label.innerHTML = '<input type="checkbox" value="' + lvl + '"' + (i === 0 ? ' checked' : '') + '>' + lvl;
+      label.addEventListener('click', function (e) {
+        // let the click toggle naturally, then sync visual state on next tick
+        setTimeout(function () {
+          label.classList.toggle('active', label.querySelector('input').checked);
+        }, 0);
+      });
+      container.appendChild(label);
+    });
+  }
+
+  function getSelectedLevels() {
+    return Array.prototype.slice.call(document.querySelectorAll('#levelChecks input:checked')).map(function (cb) { return cb.value; });
+  }
+
+  // ---------------------------------------------------------------
+  // 4. Mode tabs
+  // ---------------------------------------------------------------
+  var currentMode = 'practice';
+  document.getElementById('tab-practice').addEventListener('click', function () { switchMode('practice'); });
+  document.getElementById('tab-placement').addEventListener('click', function () { switchMode('placement'); });
+
+  function switchMode(mode) {
+    currentMode = mode;
+    document.getElementById('tab-practice').classList.toggle('active', mode === 'practice');
+    document.getElementById('tab-placement').classList.toggle('active', mode === 'placement');
+    document.getElementById('practiceOptions').classList.toggle('hidden', mode !== 'practice');
+    document.getElementById('placementOptions').classList.toggle('hidden', mode !== 'placement');
+  }
+
+  // ---------------------------------------------------------------
+  // 5. Building a question set
+  // ---------------------------------------------------------------
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function pickDirection(preference) {
+    if (preference === 'mixed') return Math.random() < 0.5 ? 'de-en' : 'en-de';
+    return preference;
+  }
+
+  function wordToQuestion(word, directionPref) {
+    var direction = pickDirection(directionPref);
+    // Prompt keeps the RAW "de" field (plural marker etc. included) when it's
+    // shown as the thing to translate FROM — that extra notation is useful
+    // context there. But when the German side is what must be TYPED (en-de
+    // direction), the required answer is the cleaned form, so the learner
+    // isn't forced to type notation like ", -e" to be marked correct.
+    var rawDe = word.article ? word.article + ' ' + word.de : word.de;
+    var cleanedDe = word.article ? word.article + ' ' + cleanGermanAnswer(word.de) : cleanGermanAnswer(word.de);
+
+    var promptField = direction === 'de-en' ? rawDe : word.en;
+    var answerField = direction === 'de-en' ? word.en : cleanedDe;
+    return {
+      word: word,
+      direction: direction,
+      prompt: promptField,
+      answerField: answerField
+    };
+  }
+
+  function buildPracticeQuiz() {
+    var levels = getSelectedLevels();
+    if (!levels.length) { alert('Bitte mindestens ein Niveau auswählen. / Please select at least one level.'); return null; }
+    var pool = [];
+    levels.forEach(function (lvl) { pool = pool.concat(wordsByLevel[lvl] || []); });
+    if (!pool.length) { alert('Keine Wörter für dieses Niveau gefunden. / No words found for this level.'); return null; }
+
+    var count = Math.min(parseInt(document.getElementById('questionCount').value, 10), pool.length);
+    var directionPref = document.querySelector('input[name="direction"]:checked').value;
+
+    // Spaced-repetition priority: words that are due for review (or never
+    // studied) go first, so a study session actually reinforces what's due
+    // rather than just sampling the whole pool uniformly at random. Once
+    // due/new words run out, backfill with already-mastered words so the
+    // requested question count is still met.
+    var due = shuffle(pool.filter(isDue));
+    var notDue = shuffle(pool.filter(function (w) { return !isDue(w); }));
+    var chosen = due.concat(notDue).slice(0, count);
+
+    var questions = chosen.map(function (w) { return wordToQuestion(w, directionPref); });
+    return { mode: 'practice', questions: questions, index: 0, correctCount: 0 };
+  }
+
+  function buildPlacementQuiz() {
+    var questions = [];
+    LEVELS.forEach(function (lvl) {
+      var pool = wordsByLevel[lvl] || [];
+      if (!pool.length) return;
+      var picks = shuffle(pool).slice(0, 3);
+      picks.forEach(function (w) { questions.push(wordToQuestion(w, 'de-en')); });
+    });
+    return { mode: 'placement', questions: questions, index: 0, correctCount: 0, perLevel: {} };
+  }
+
+  // ---------------------------------------------------------------
+  // 6. Running the quiz
+  // ---------------------------------------------------------------
+  document.getElementById('startBtn').addEventListener('click', function () {
+    currentQuiz = currentMode === 'practice' ? buildPracticeQuiz() : buildPlacementQuiz();
+    if (!currentQuiz) return;
+    document.getElementById('setupScreen').classList.add('hidden');
+    document.getElementById('quizScreen').classList.remove('hidden');
+    renderQuestion();
+  });
+
+  function renderQuestion() {
+    var q = currentQuiz.questions[currentQuiz.index];
+    document.getElementById('promptMeta').textContent =
+      q.word.level + (q.word.register ? ' · ' + q.word.register : '') + ' · ' + (q.direction === 'de-en' ? 'Deutsch → English' : 'English → Deutsch');
+    document.getElementById('promptWord').textContent = q.prompt;
+
+    var pct = Math.round((currentQuiz.index / currentQuiz.questions.length) * 100);
+    document.getElementById('quizProgressBar').style.width = pct + '%';
+    document.getElementById('quizProgressText').textContent =
+      'Frage ' + (currentQuiz.index + 1) + ' / ' + currentQuiz.questions.length;
+
+    document.getElementById('answerInput').value = '';
+    document.getElementById('answerInput').disabled = false;
+    document.getElementById('answerInput').focus();
+    document.getElementById('feedbackBox').className = 'feedback-box mb-3';
+    document.getElementById('feedbackBox').textContent = '';
+    document.getElementById('submitBtn').classList.remove('hidden');
+    document.getElementById('nextBtn').classList.add('hidden');
+  }
+
+  document.getElementById('answerForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var submitBtn = document.getElementById('submitBtn');
+    if (submitBtn.classList.contains('hidden')) return; // already answered, ignore stray enter
+
+    var q = currentQuiz.questions[currentQuiz.index];
+    var input = document.getElementById('answerInput').value;
+    var correct = isCorrect(input, q.answerField);
+
+    var box = document.getElementById('feedbackBox');
+    if (correct) {
+      currentQuiz.correctCount++;
+      box.className = 'feedback-box correct';
+      box.textContent = '✓ Richtig! / Correct!';
+    } else {
+      box.className = 'feedback-box incorrect';
+      box.textContent = '✗ Richtige Antwort / Correct answer: ' + q.answerField;
+    }
+
+    if (currentQuiz.mode === 'placement') {
+      var lvl = q.word.level;
+      if (!currentQuiz.perLevel[lvl]) currentQuiz.perLevel[lvl] = { correct: 0, total: 0 };
+      currentQuiz.perLevel[lvl].total++;
+      if (correct) currentQuiz.perLevel[lvl].correct++;
+    } else {
+      // Placement-test answers deliberately do NOT feed into the
+      // spaced-repetition schedule — that test is a one-off diagnostic
+      // sampling 3 words per level, not a representative study session, and
+      // recording it would create a lopsided nextDue schedule (18 words
+      // suddenly "seen" while thousands of others remain untouched).
+      recordAnswer(q.word, correct);
+    }
+
+    document.getElementById('answerInput').disabled = true;
+    submitBtn.classList.add('hidden');
+    var nextBtn = document.getElementById('nextBtn');
+    var isLastQuestion = currentQuiz.index + 1 >= currentQuiz.questions.length;
+    nextBtn.textContent = isLastQuestion ? 'Ergebnis anzeigen / Show results →' : 'Weiter / Next →';
+    nextBtn.classList.remove('hidden');
+    nextBtn.focus();
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', function () {
+    currentQuiz.index++;
+    if (currentQuiz.index >= currentQuiz.questions.length) {
+      finishQuiz();
+    } else {
+      renderQuestion();
+    }
+  });
+
+  // ---------------------------------------------------------------
+  // 7. Results
+  // ---------------------------------------------------------------
+  function finishQuiz() {
+    document.getElementById('quizScreen').classList.add('hidden');
+    if (currentQuiz.mode === 'practice') {
+      showPracticeResults();
+    } else {
+      showPlacementResults();
+    }
+  }
+
+  function showPracticeResults() {
+    var total = currentQuiz.questions.length;
+    var correct = currentQuiz.correctCount;
+    var pct = Math.round((correct / total) * 100);
+
+    document.getElementById('scoreRing').textContent = pct + '%';
+    document.getElementById('scoreDetail').textContent = correct + ' von ' + total + ' richtig / ' + correct + ' of ' + total + ' correct';
+    document.getElementById('resultsScreen').classList.remove('hidden');
+  }
+
+  document.getElementById('retryBtn').addEventListener('click', function () {
+    document.getElementById('resultsScreen').classList.add('hidden');
+    document.getElementById('setupScreen').classList.remove('hidden');
+  });
+
+  // Determine likely CEFR level: the highest level where accuracy is still
+  // >= 60%, walking up from A1. If A1 itself is below 60%, we still report
+  // A1 as a starting point rather than leaving the result ambiguous.
+  function computePlacementLevel(perLevel) {
+    var result = 'A1';
+    for (var i = 0; i < LEVELS.length; i++) {
+      var lvl = LEVELS[i];
+      var stats = perLevel[lvl];
+      if (!stats || stats.total === 0) break;
+      var acc = stats.correct / stats.total;
+      if (acc >= 0.6) {
+        result = lvl;
+      } else {
+        break;
+      }
+    }
+    return result;
+  }
+
+  function showPlacementResults() {
+    var level = computePlacementLevel(currentQuiz.perLevel);
+    document.getElementById('placementLevelBadge').textContent = level;
+
+    var totalCorrect = currentQuiz.correctCount;
+    var totalQ = currentQuiz.questions.length;
+    document.getElementById('placementSummary').textContent =
+      'Basierend auf ' + totalCorrect + ' von ' + totalQ + ' richtigen Antworten. / Based on ' + totalCorrect + ' of ' + totalQ + ' correct answers.';
+
+    var tbody = document.getElementById('placementBreakdown');
+    tbody.innerHTML = '';
+    LEVELS.forEach(function (lvl) {
+      var stats = currentQuiz.perLevel[lvl];
+      if (!stats) return;
+      var row = document.createElement('tr');
+      row.innerHTML = '<td>' + lvl + '</td><td>' + stats.correct + ' / ' + stats.total + '</td>';
+      tbody.appendChild(row);
+    });
+
+    document.getElementById('practiceThisLevelBtn').dataset.level = level;
+    document.getElementById('placementResultScreen').classList.remove('hidden');
+  }
+
+  document.getElementById('practiceThisLevelBtn').addEventListener('click', function () {
+    var level = this.dataset.level;
+    document.getElementById('placementResultScreen').classList.add('hidden');
+    document.getElementById('setupScreen').classList.remove('hidden');
+    switchMode('practice');
+    document.querySelectorAll('#levelChecks input').forEach(function (cb) {
+      cb.checked = (cb.value === level);
+      cb.closest('.level-check').classList.toggle('active', cb.checked);
+    });
+  });
+
+  document.getElementById('placementRetryBtn').addEventListener('click', function () {
+    document.getElementById('placementResultScreen').classList.add('hidden');
+    document.getElementById('setupScreen').classList.remove('hidden');
+  });
+
+  // ---------------------------------------------------------------
+  // 8. Progress overview screen
+  // ---------------------------------------------------------------
+  document.getElementById('viewProgressBtn').addEventListener('click', function () {
+    var summary = computeProgressSummary();
+    var tbody = document.getElementById('progressBreakdown');
+    tbody.innerHTML = '';
+    LEVELS.forEach(function (lvl) {
+      var s = summary[lvl];
+      var row = document.createElement('tr');
+      row.innerHTML = '<td>' + lvl + '</td><td>' + s.seen + ' / ' + s.total + '</td><td>' + s.mastered + '</td><td>' + s.due + '</td>';
+      tbody.appendChild(row);
+    });
+    document.getElementById('setupScreen').classList.add('hidden');
+    document.getElementById('progressScreen').classList.remove('hidden');
+  });
+
+  document.getElementById('progressBackBtn').addEventListener('click', function () {
+    document.getElementById('progressScreen').classList.add('hidden');
+    document.getElementById('setupScreen').classList.remove('hidden');
+  });
+
+  document.getElementById('resetProgressBtn').addEventListener('click', function () {
+    var confirmed = window.confirm(
+      'Wirklich deinen gesamten Quiz-Fortschritt löschen? Das kann nicht rückgängig gemacht werden.\n\n' +
+      'Really delete all your quiz progress? This cannot be undone.'
+    );
+    if (!confirmed) return;
+    resetProgress();
+    document.getElementById('viewProgressBtn').click(); // refresh the table to show all-zero state
+  });
+
+})();
+</script>
+
+</body>
+</html>
