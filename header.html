@@ -1,3 +1,53 @@
+<style>
+  /* Bootstrap's .navbar-dark .nav-link defaults to 55% opacity white unless
+     hovered/active — on a solid blue background that reads as faint/blurry
+     rather than crisp. Override to fully opaque for legibility. */
+  #siteNavbar .nav-link {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+  }
+  #siteNavbar .nav-link:hover,
+  #siteNavbar .nav-link:focus {
+    color: #ffffff;
+  }
+  /* Highlights whichever nav item matches the current page (added by the
+     script at the bottom of this file, since header.html is injected
+     fragment-only and has no page-load hook of its own). */
+  #siteNavbar .nav-link.active {
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+  }
+  #siteNavbar .nav-item > .nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: -2px;
+    height: 3px;
+    border-radius: 2px;
+    background: #ffffff;
+  }
+  /* Quiz gets its own pill treatment so it stands out from the plain text
+     links next to it — same visual language as the "Buy me a Coffee" /
+     "Leben in Deutschland" footer buttons elsewhere on the site. */
+  #siteNavbar .nav-link.quiz-highlight {
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem !important;
+    margin: 0 0.15rem;
+  }
+  #siteNavbar .nav-link.quiz-highlight:hover {
+    background: rgba(255, 255, 255, 0.26);
+  }
+  #siteNavbar .nav-link.quiz-highlight.active {
+    background: #ffffff;
+    color: #1d4ed8 !important;
+  }
+  #siteNavbar .nav-link.quiz-highlight.active::after {
+    display: none; /* the pill fill itself is the active indicator here */
+  }
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
     <div class="container">
         <a class="navbar-brand" href="BASE/index.html"><span aria-hidden="true">🪶</span> WordFeather</a>
@@ -13,7 +63,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Levels</a>
+                       data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="BASE/A1/index.html" data-level="A1">A1 – Beginner</a></li>
                         <li><a class="dropdown-item" href="BASE/A2/index.html" data-level="A2">A2 – Elementary</a></li>
@@ -27,10 +77,10 @@
                 </li>
                 <!-- level-modules-placeholder -->
                 <li class="nav-item">
-                    <a class="nav-link" href="BASE/dictionary.html">📖 Dictionary</a>
+                    <a class="nav-link" href="BASE/dictionary.html" id="nav-dictionary">📖 Dictionary</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="BASE/quiz.html">🧠 Quiz</a>
+                    <a class="nav-link quiz-highlight" href="BASE/quiz.html" id="nav-quiz">🎯 Quiz</a>
                 </li>
             </ul>
             <div class="d-flex ms-lg-3 mt-2 mt-lg-0">
@@ -40,3 +90,32 @@
         </div>
     </div>
 </nav>
+<script>
+(function () {
+    // header.html is injected via innerHTML into a placeholder on every
+    // page, so it has no "page load" of its own to hook into — this runs
+    // immediately once the fragment is inserted, comparing the CURRENT
+    // page's path against each nav link's own path to decide which one(s)
+    // to mark active. Handles both root-level pages (dictionary.html,
+    // quiz.html) and level pages (/A1/..., /B1/..., etc.).
+    var path = window.location.pathname;
+
+    function markActive(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.add('active');
+    }
+
+    if (path === '/' || path === '/index.html') {
+        markActive('nav-home');
+    } else if (path.indexOf('/dictionary.html') !== -1) {
+        markActive('nav-dictionary');
+    } else if (path.indexOf('/quiz.html') !== -1) {
+        markActive('nav-quiz');
+    } else if (/^\/[ABC][12]\//.test(path)) {
+        // Any page inside /A1/, /A2/, /B1/, /B2/, /C1/, /C2/ — highlight the
+        // "Levels" dropdown toggle itself, since there's no single matching
+        // top-level link for level sub-pages.
+        markActive('nav-levels');
+    }
+})();
+</script>

@@ -87,11 +87,43 @@
     font-size: .85rem;
   }
 
-  #answerInput {
-    font-size: 1.3rem;
-    text-align: center;
-    padding: 0.75rem;
+  .option-btn {
+    text-align: left;
+    padding: 0.85rem 1.1rem;
+    border-radius: 0.65rem;
+    border: 2px solid #e2e8f0;
+    background: #fff;
+    font-size: 1.05rem;
+    transition: all .12s ease;
   }
+  [data-bs-theme="dark"] .option-btn { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+  .option-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+  [data-bs-theme="dark"] .option-btn:hover:not(:disabled) { background: #1e3a5f; }
+  .option-btn:disabled { cursor: default; }
+  .option-btn.correct-choice { border-color: var(--good); background: #dcfce7; color: #166534; font-weight: 600; }
+  .option-btn.incorrect-choice { border-color: var(--bad); background: #fee2e2; color: #991b1b; font-weight: 600; }
+  [data-bs-theme="dark"] .option-btn.correct-choice { background: #052e16; color: #86efac; }
+  [data-bs-theme="dark"] .option-btn.incorrect-choice { background: #450a0a; color: #fca5a5; }
+  .option-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: #f1f5f9;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-right: 0.6rem;
+  }
+  [data-bs-theme="dark"] .option-letter { background: #334155; }
+
+  /* Mode-tab subtitles (English translation under the German label): needs
+     to stay legible against BOTH the plain-card background (inactive tab)
+     and the solid blue fill (active tab) — a single "text-muted" grey looks
+     fine on white but goes low-contrast on blue. */
+  #modeTabs .nav-link .small { color: #64748b; }
+  #modeTabs .nav-link.active .small { color: rgba(255, 255, 255, 0.85); }
 
   .feedback-box {
     border-radius: 0.75rem;
@@ -182,10 +214,16 @@
 
         <ul class="nav nav-pills nav-fill mb-4" id="modeTabs">
           <li class="nav-item">
-            <button class="nav-link active" id="tab-practice" data-mode="practice">📚 Nach Niveau üben</button>
+            <button class="nav-link active" id="tab-practice" data-mode="practice">
+              <span class="d-block">📚 Nach Niveau üben</span>
+              <span class="d-block small" style="font-weight:400;">Practice by level</span>
+            </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" id="tab-placement" data-mode="placement">🎯 Mein Niveau finden</button>
+            <button class="nav-link" id="tab-placement" data-mode="placement">
+              <span class="d-block">🎯 Mein Niveau finden</span>
+              <span class="d-block small" style="font-weight:400;">Find my level</span>
+            </button>
           </li>
         </ul>
 
@@ -250,9 +288,8 @@
       </div>
 
       <form id="answerForm" autocomplete="off">
-        <input type="text" class="form-control mb-3" id="answerInput" placeholder="Deine Antwort..." autofocus>
+        <div id="optionsContainer" class="d-grid gap-2 mb-3"></div>
         <div class="feedback-box mb-3" id="feedbackBox"></div>
-        <button type="submit" class="btn btn-primary btn-lg w-100" id="submitBtn">Prüfen / Check</button>
         <button type="button" class="btn btn-outline-secondary btn-lg w-100 mt-2 hidden" id="nextBtn">Weiter / Next →</button>
       </form>
     </div>
@@ -507,82 +544,28 @@
     });
 
   // ---------------------------------------------------------------
-  // 2. Fuzzy matching — tolerant of umlaut spelling variants (ae/oe/ue/ss)
-  //    and small typos (edit distance 1, only for words 4+ chars so short
-  //    words like "im"/"in" require an exact match rather than allowing a
-  //    1-letter typo to accidentally match a different real word).
+  // 2. Text normalization — still used to de-duplicate multiple-choice
+  //    options (so a distractor never accidentally repeats the correct
+  //    answer under a different capitalization/umlaut spelling) and for
+  //    display cleanup. Free-text typo/synonym matching is no longer
+  //    needed now that answers are multiple-choice rather than typed —
+  //    see the note further down on why that switch was made.
   // ---------------------------------------------------------------
-  // Common British/American spelling pairs. Since the dictionary's English
-  // field uses one specific spelling (e.g. "liter"), a learner typing the
-  // other regionally-correct spelling (e.g. "litre") should still be marked
-  // correct — that's not a mistake, just a different standard variety of
-  // English. Applied as a straightforward substitution over common patterns
-  // rather than a giant lookup table of every possible word pair.
-  var BRITISH_AMERICAN_PATTERNS = [
-    [/\bcolour/g, 'color'], [/\bfavour/g, 'favor'], [/\bhonour/g, 'honor'],
-    [/\bneighbour/g, 'neighbor'], [/\blabour/g, 'labor'], [/\bbehaviour/g, 'behavior'],
-    [/\bcentre\b/g, 'center'], [/\blitre/g, 'liter'], [/\bmetre\b/g, 'meter'],
-    [/\btheatre\b/g, 'theater'], [/\bfibre\b/g, 'fiber'],
-    [/\borganis/g, 'organiz'], [/\brealis/g, 'realiz'], [/\brecognis/g, 'recogniz'],
-    [/\banalyse\b/g, 'analyze'], [/\bapologis/g, 'apologiz'],
-    [/\btravelled\b/g, 'traveled'], [/\btravelling\b/g, 'traveling'],
-    [/\bdefence\b/g, 'defense'], [/\blicence\b/g, 'license'], [/\bpractise\b/g, 'practice']
-  ];
-
-  function normalizeSpellingVariant(str) {
-    var out = str;
-    BRITISH_AMERICAN_PATTERNS.forEach(function (pair) {
-      out = out.replace(pair[0], pair[1]);
-    });
-    return out;
-  }
-
   function normalize(str) {
-    return normalizeSpellingVariant(
-      str
-        .toLowerCase()
-        .trim()
-        .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
-        .replace(/[.,!?;:()"']/g, '')
-        .replace(/\s+/g, ' ')
-    );
-  }
-
-  // Damerau-Levenshtein: like standard edit distance, but also treats
-  // swapping two ADJACENT letters as a single edit (not two). This matters
-  // for genuine typos like "hasu" for "haus", or spelling variants that
-  // differ only by a letter swap — without this, such cases require an edit
-  // distance of 2 under plain Levenshtein and get rejected by the "<=1"
-  // threshold below, even though a human would clearly read them as the
-  // same word with one slipped keystroke.
-  function levenshtein(a, b) {
-    var m = a.length, n = b.length;
-    if (Math.abs(m - n) > 2) return 99; // early exit, definitely too different
-    var dp = [];
-    for (var i = 0; i <= m; i++) dp.push([i]);
-    for (var j = 0; j <= n; j++) dp[0][j] = j;
-    for (i = 1; i <= m; i++) {
-      for (j = 1; j <= n; j++) {
-        var cost = a[i - 1] === b[j - 1] ? 0 : 1;
-        dp[i][j] = Math.min(
-          dp[i - 1][j] + 1,      // deletion
-          dp[i][j - 1] + 1,      // insertion
-          dp[i - 1][j - 1] + cost // substitution
-        );
-        if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
-          dp[i][j] = Math.min(dp[i][j], dp[i - 2][j - 2] + 1); // transposition
-        }
-      }
-    }
-    return dp[m][n];
+    return str
+      .toLowerCase()
+      .trim()
+      .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+      .replace(/[.,!?;:()"']/g, '')
+      .replace(/\s+/g, ' ');
   }
 
   // A dictionary "de" field sometimes carries extra notation beyond the
   // bare word itself — a plural-ending marker ("Abend, -e"), an umlaut-change
   // marker ("Mutter, ¨-"), or a parenthetical usage note ("kaufen (regelmäßig)").
-  // That notation is useful to SHOW, but a learner shouldn't be required to
-  // type it to get the answer marked correct — strip it before comparing,
-  // and use the cleaned form as what's actually required to type.
+  // That notation is useful to SHOW as the question's German prompt, but
+  // shouldn't appear duplicated/mismatched across multiple-choice options —
+  // strip it for the option text itself.
   function cleanGermanAnswer(field) {
     if (!field) return field;
     return field
@@ -591,28 +574,19 @@
       .trim();
   }
 
-  // Split alternatives happens BEFORE cleaning (comma often also separates
-  // genuinely distinct translations, e.g. "to drive, to go" — not just a
-  // plural marker) — cleanGermanAnswer only strips a plural/umlaut marker
-  // when the trailing segment actually looks like one (starts with - or ¨),
-  // so "to drive, to go" is untouched by it.
-  function splitAlternatives(field) {
-    return field.split(/[,/]/).map(function (s) { return s.trim(); }).filter(Boolean);
-  }
-
-  function isCorrect(userInput, correctField) {
-    var userNorm = normalize(userInput);
-    if (!userNorm) return false;
-    var alts = splitAlternatives(correctField);
-    for (var i = 0; i < alts.length; i++) {
-      var altNorm = normalize(alts[i]);
-      if (userNorm === altNorm) return true;
-      // Only allow a fuzzy (1-typo) match for reasonably long answers —
-      // short words are too likely to collide with a different real word.
-      if (altNorm.length >= 4 && levenshtein(userNorm, altNorm) <= 1) return true;
-    }
-    return false;
-  }
+  // NOTE ON WHY THIS IS MULTIPLE-CHOICE, NOT TYPED FREE-TEXT:
+  // An earlier version of this quiz accepted typed answers, matched via
+  // exact/fuzzy string comparison. That works fine for spelling variants and
+  // typos, but fails for the much more common real case: a semantically
+  // correct SYNONYM that isn't the exact word the dictionary happens to use
+  // (e.g. typing "prohibited" for "verboten" when the dictionary's field is
+  // "forbidden" — both are correct German→English translations, but no
+  // string-similarity check can reliably tell "close typo" apart from
+  // "different but valid word" without understanding meaning, which isn't
+  // something we can do reliably in client-side JS). Multiple-choice sidesteps
+  // this entirely — the "correct" option is unambiguous because we chose it
+  // ourselves as one of the four choices, so no fuzzy interpretation is
+  // needed at all.
 
   // ---------------------------------------------------------------
   // 3. UI: level checkboxes
@@ -670,25 +644,55 @@
     return preference;
   }
 
+  // Builds the 3 wrong options for a multiple-choice question. Distractors
+  // are pulled from the SAME level first (keeps question difficulty
+  // consistent — a C2 word's options shouldn't be trivially easy A1 words),
+  // falling back to the full word pool only if a level doesn't have enough
+  // other words to draw 3 unique distractors from.
+  function pickDistractors(correctWord, direction, count) {
+    var sameLevelPool = allWords.filter(function (w) { return w.level === correctWord.level && w !== correctWord; });
+    var candidates = shuffle(sameLevelPool);
+    if (candidates.length < count) {
+      candidates = shuffle(allWords.filter(function (w) { return w !== correctWord; }));
+    }
+
+    var correctAnswerNorm = normalize(direction === 'de-en' ? correctWord.en : cleanGermanAnswer(correctWord.de));
+    var seen = {};
+    seen[correctAnswerNorm] = true;
+    var distractors = [];
+
+    for (var i = 0; i < candidates.length && distractors.length < count; i++) {
+      var raw = direction === 'de-en' ? candidates[i].en : cleanGermanAnswer(candidates[i].de);
+      if (!raw) continue;
+      var norm = normalize(raw);
+      if (seen[norm]) continue; // skip accidental duplicates of the correct answer or of each other
+      seen[norm] = true;
+      distractors.push(raw);
+    }
+    return distractors;
+  }
+
   function wordToQuestion(word, directionPref) {
     var direction = pickDirection(directionPref);
     // IMPORTANT: word.de already contains its article fully written out
     // ("der Liter, -", "die Literatur") — word.article is a separate GENDER
     // CODE ("m."/"f."/"n."), not the actual article word, and must never be
-    // concatenated onto word.de. An earlier version of this file wrongly
-    // assumed word.article was "der"/"die"/"das" and prepended it, which
-    // corrupted almost every noun's prompt/answer (e.g. produced
-    // "m. der Liter, -" instead of "der Liter"). word.de is used as-is.
+    // concatenated onto word.de.
     var rawDe = word.de;
     var cleanedDe = cleanGermanAnswer(word.de);
 
     var promptField = direction === 'de-en' ? rawDe : word.en;
-    var answerField = direction === 'de-en' ? word.en : cleanedDe;
+    var correctAnswer = direction === 'de-en' ? word.en : cleanedDe;
+
+    var distractors = pickDistractors(word, direction, 3);
+    var options = shuffle(distractors.concat([correctAnswer]));
+
     return {
       word: word,
       direction: direction,
       prompt: promptField,
-      answerField: answerField
+      answerField: correctAnswer,
+      options: options
     };
   }
 
@@ -756,44 +760,61 @@
     }
 
     document.getElementById('promptWord').textContent = q.prompt;
-    document.getElementById('answerInput').placeholder =
-      q.direction === 'de-en' ? 'Deine Antwort auf Englisch... / Your answer in English...' : 'Deine Antwort auf Deutsch... / Your answer in German...';
 
     var pct = Math.round((currentQuiz.index / currentQuiz.questions.length) * 100);
     document.getElementById('quizProgressBar').style.width = pct + '%';
     document.getElementById('quizProgressText').textContent =
       'Frage ' + (currentQuiz.index + 1) + ' / ' + currentQuiz.questions.length;
 
-    document.getElementById('answerInput').value = '';
-    document.getElementById('answerInput').disabled = false;
-    document.getElementById('answerInput').focus();
+    // Build the 4 option buttons fresh for each question — lettered A–D,
+    // each holding one candidate answer (exactly one of which is correct).
+    var container = document.getElementById('optionsContainer');
+    container.innerHTML = '';
+    var letters = ['A', 'B', 'C', 'D'];
+    q.options.forEach(function (optionText, i) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'option-btn';
+      btn.dataset.answer = optionText;
+      btn.innerHTML = '<span class="option-letter">' + letters[i] + '</span>' + optionText;
+      btn.addEventListener('click', function () { handleOptionClick(btn, q); });
+      container.appendChild(btn);
+    });
+
     document.getElementById('feedbackBox').className = 'feedback-box mb-3';
     document.getElementById('feedbackBox').innerHTML = '';
-    document.getElementById('submitBtn').classList.remove('hidden');
     document.getElementById('nextBtn').classList.add('hidden');
   }
 
-  document.getElementById('answerForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var submitBtn = document.getElementById('submitBtn');
-    if (submitBtn.classList.contains('hidden')) return; // already answered, ignore stray enter
+  function handleOptionClick(clickedBtn, q) {
+    // Ignore further clicks once this question has already been answered —
+    // all option buttons get disabled below, but guard here too in case a
+    // click event is already mid-flight.
+    if (clickedBtn.disabled) return;
 
-    var q = currentQuiz.questions[currentQuiz.index];
-    var input = document.getElementById('answerInput').value;
-    var correct = isCorrect(input, q.answerField);
+    var correct = clickedBtn.dataset.answer === q.answerField;
+
+    // Disable all options and visually mark the correct one (and the
+    // incorrect one the learner picked, if different) so the right answer
+    // is always visible regardless of what was clicked.
+    var allBtns = document.querySelectorAll('#optionsContainer .option-btn');
+    allBtns.forEach(function (btn) {
+      btn.disabled = true;
+      if (btn.dataset.answer === q.answerField) {
+        btn.classList.add('correct-choice');
+      } else if (btn === clickedBtn) {
+        btn.classList.add('incorrect-choice');
+      }
+    });
 
     var box = document.getElementById('feedbackBox');
-    var answerLangLabel = q.direction === 'de-en' ? '🇬🇧 English' : '🇩🇪 Deutsch';
     if (correct) {
       currentQuiz.correctCount++;
       box.className = 'feedback-box correct';
-      box.innerHTML = '<div class="fw-bold mb-1">✓ Richtig! / Correct!</div>' +
-        '<div><span class="badge bg-secondary me-2">' + answerLangLabel + '</span>' + q.answerField + '</div>';
+      box.innerHTML = '<div class="fw-bold">✓ Richtig! / Correct!</div>';
     } else {
       box.className = 'feedback-box incorrect';
-      box.innerHTML = '<div class="fw-bold mb-1">✗ Leider falsch / Incorrect</div>' +
-        '<div class="small mb-1">Richtige Antwort / Correct answer:</div>' +
-        '<div><span class="badge bg-secondary me-2">' + answerLangLabel + '</span><strong>' + q.answerField + '</strong></div>';
+      box.innerHTML = '<div class="fw-bold">✗ Leider falsch / Incorrect</div>';
     }
 
     if (currentQuiz.mode === 'placement') {
@@ -810,14 +831,12 @@
       recordAnswer(q.word, correct);
     }
 
-    document.getElementById('answerInput').disabled = true;
-    submitBtn.classList.add('hidden');
     var nextBtn = document.getElementById('nextBtn');
     var isLastQuestion = currentQuiz.index + 1 >= currentQuiz.questions.length;
     nextBtn.textContent = isLastQuestion ? 'Ergebnis anzeigen / Show results →' : 'Weiter / Next →';
     nextBtn.classList.remove('hidden');
     nextBtn.focus();
-  });
+  }
 
   document.getElementById('nextBtn').addEventListener('click', function () {
     currentQuiz.index++;
