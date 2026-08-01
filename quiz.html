@@ -243,6 +243,9 @@
 
       <div class="card p-4 mb-3">
         <p class="prompt-meta mb-1" id="promptMeta">A1 · Nomen</p>
+        <p class="mb-2">
+          <span class="badge" id="promptLangBadge" style="background:#1d4ed8;">🇩🇪 Deutsch</span>
+        </p>
         <p class="prompt-word mb-0" id="promptWord">Haus</p>
       </div>
 
@@ -509,15 +512,49 @@
   //    words like "im"/"in" require an exact match rather than allowing a
   //    1-letter typo to accidentally match a different real word).
   // ---------------------------------------------------------------
-  function normalize(str) {
-    return str
-      .toLowerCase()
-      .trim()
-      .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
-      .replace(/[.,!?;:()"']/g, '')
-      .replace(/\s+/g, ' ');
+  // Common British/American spelling pairs. Since the dictionary's English
+  // field uses one specific spelling (e.g. "liter"), a learner typing the
+  // other regionally-correct spelling (e.g. "litre") should still be marked
+  // correct — that's not a mistake, just a different standard variety of
+  // English. Applied as a straightforward substitution over common patterns
+  // rather than a giant lookup table of every possible word pair.
+  var BRITISH_AMERICAN_PATTERNS = [
+    [/\bcolour/g, 'color'], [/\bfavour/g, 'favor'], [/\bhonour/g, 'honor'],
+    [/\bneighbour/g, 'neighbor'], [/\blabour/g, 'labor'], [/\bbehaviour/g, 'behavior'],
+    [/\bcentre\b/g, 'center'], [/\blitre/g, 'liter'], [/\bmetre\b/g, 'meter'],
+    [/\btheatre\b/g, 'theater'], [/\bfibre\b/g, 'fiber'],
+    [/\borganis/g, 'organiz'], [/\brealis/g, 'realiz'], [/\brecognis/g, 'recogniz'],
+    [/\banalyse\b/g, 'analyze'], [/\bapologis/g, 'apologiz'],
+    [/\btravelled\b/g, 'traveled'], [/\btravelling\b/g, 'traveling'],
+    [/\bdefence\b/g, 'defense'], [/\blicence\b/g, 'license'], [/\bpractise\b/g, 'practice']
+  ];
+
+  function normalizeSpellingVariant(str) {
+    var out = str;
+    BRITISH_AMERICAN_PATTERNS.forEach(function (pair) {
+      out = out.replace(pair[0], pair[1]);
+    });
+    return out;
   }
 
+  function normalize(str) {
+    return normalizeSpellingVariant(
+      str
+        .toLowerCase()
+        .trim()
+        .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+        .replace(/[.,!?;:()"']/g, '')
+        .replace(/\s+/g, ' ')
+    );
+  }
+
+  // Damerau-Levenshtein: like standard edit distance, but also treats
+  // swapping two ADJACENT letters as a single edit (not two). This matters
+  // for genuine typos like "hasu" for "haus", or spelling variants that
+  // differ only by a letter swap — without this, such cases require an edit
+  // distance of 2 under plain Levenshtein and get rejected by the "<=1"
+  // threshold below, even though a human would clearly read them as the
+  // same word with one slipped keystroke.
   function levenshtein(a, b) {
     var m = a.length, n = b.length;
     if (Math.abs(m - n) > 2) return 99; // early exit, definitely too different
@@ -526,9 +563,15 @@
     for (var j = 0; j <= n; j++) dp[0][j] = j;
     for (i = 1; i <= m; i++) {
       for (j = 1; j <= n; j++) {
-        dp[i][j] = a[i - 1] === b[j - 1]
-          ? dp[i - 1][j - 1]
-          : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+        var cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        dp[i][j] = Math.min(
+          dp[i - 1][j] + 1,      // deletion
+          dp[i][j - 1] + 1,      // insertion
+          dp[i - 1][j - 1] + cost // substitution
+        );
+        if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+          dp[i][j] = Math.min(dp[i][j], dp[i - 2][j - 2] + 1); // transposition
+        }
       }
     }
     return dp[m][n];
@@ -629,13 +672,15 @@
 
   function wordToQuestion(word, directionPref) {
     var direction = pickDirection(directionPref);
-    // Prompt keeps the RAW "de" field (plural marker etc. included) when it's
-    // shown as the thing to translate FROM — that extra notation is useful
-    // context there. But when the German side is what must be TYPED (en-de
-    // direction), the required answer is the cleaned form, so the learner
-    // isn't forced to type notation like ", -e" to be marked correct.
-    var rawDe = word.article ? word.article + ' ' + word.de : word.de;
-    var cleanedDe = word.article ? word.article + ' ' + cleanGermanAnswer(word.de) : cleanGermanAnswer(word.de);
+    // IMPORTANT: word.de already contains its article fully written out
+    // ("der Liter, -", "die Literatur") — word.article is a separate GENDER
+    // CODE ("m."/"f."/"n."), not the actual article word, and must never be
+    // concatenated onto word.de. An earlier version of this file wrongly
+    // assumed word.article was "der"/"die"/"das" and prepended it, which
+    // corrupted almost every noun's prompt/answer (e.g. produced
+    // "m. der Liter, -" instead of "der Liter"). word.de is used as-is.
+    var rawDe = word.de;
+    var cleanedDe = cleanGermanAnswer(word.de);
 
     var promptField = direction === 'de-en' ? rawDe : word.en;
     var answerField = direction === 'de-en' ? word.en : cleanedDe;
@@ -695,8 +740,24 @@
   function renderQuestion() {
     var q = currentQuiz.questions[currentQuiz.index];
     document.getElementById('promptMeta').textContent =
-      q.word.level + (q.word.register ? ' · ' + q.word.register : '') + ' · ' + (q.direction === 'de-en' ? 'Deutsch → English' : 'English → Deutsch');
+      q.word.level + (q.word.register ? ' · ' + q.word.register : '');
+
+    // Explicit language badge on the prompt itself — the direction label in
+    // promptMeta alone ("Deutsch → English") was easy to skim past, which is
+    // likely why a shown word/answer pair could read as ambiguous about
+    // which language was which at a glance.
+    var badge = document.getElementById('promptLangBadge');
+    if (q.direction === 'de-en') {
+      badge.textContent = '🇩🇪 Deutsch';
+      badge.style.background = '#1d4ed8';
+    } else {
+      badge.textContent = '🇬🇧 English';
+      badge.style.background = '#0f766e';
+    }
+
     document.getElementById('promptWord').textContent = q.prompt;
+    document.getElementById('answerInput').placeholder =
+      q.direction === 'de-en' ? 'Deine Antwort auf Englisch... / Your answer in English...' : 'Deine Antwort auf Deutsch... / Your answer in German...';
 
     var pct = Math.round((currentQuiz.index / currentQuiz.questions.length) * 100);
     document.getElementById('quizProgressBar').style.width = pct + '%';
@@ -707,7 +768,7 @@
     document.getElementById('answerInput').disabled = false;
     document.getElementById('answerInput').focus();
     document.getElementById('feedbackBox').className = 'feedback-box mb-3';
-    document.getElementById('feedbackBox').textContent = '';
+    document.getElementById('feedbackBox').innerHTML = '';
     document.getElementById('submitBtn').classList.remove('hidden');
     document.getElementById('nextBtn').classList.add('hidden');
   }
@@ -722,13 +783,17 @@
     var correct = isCorrect(input, q.answerField);
 
     var box = document.getElementById('feedbackBox');
+    var answerLangLabel = q.direction === 'de-en' ? '🇬🇧 English' : '🇩🇪 Deutsch';
     if (correct) {
       currentQuiz.correctCount++;
       box.className = 'feedback-box correct';
-      box.textContent = '✓ Richtig! / Correct!';
+      box.innerHTML = '<div class="fw-bold mb-1">✓ Richtig! / Correct!</div>' +
+        '<div><span class="badge bg-secondary me-2">' + answerLangLabel + '</span>' + q.answerField + '</div>';
     } else {
       box.className = 'feedback-box incorrect';
-      box.textContent = '✗ Richtige Antwort / Correct answer: ' + q.answerField;
+      box.innerHTML = '<div class="fw-bold mb-1">✗ Leider falsch / Incorrect</div>' +
+        '<div class="small mb-1">Richtige Antwort / Correct answer:</div>' +
+        '<div><span class="badge bg-secondary me-2">' + answerLangLabel + '</span><strong>' + q.answerField + '</strong></div>';
     }
 
     if (currentQuiz.mode === 'placement') {
