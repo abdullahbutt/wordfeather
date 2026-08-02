@@ -87,6 +87,26 @@
     font-size: .85rem;
   }
 
+  .passage-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: .85rem;
+    padding: 1.1rem 1.3rem; max-height: 300px; overflow-y: auto; line-height: 1.6;
+  }
+  [data-bs-theme="dark"] .passage-card { background: #1e293b; border-color: #334155; }
+  .passage-card p { margin-bottom: .65rem; }
+
+  .play-btn {
+    width: 5rem; height: 5rem; border-radius: 50%;
+    border: none; background: var(--accent); color: #fff;
+    font-size: 2rem; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto; cursor: pointer; transition: all .15s ease;
+    box-shadow: 0 4px 14px rgba(29,78,216,.35);
+  }
+  .play-btn:hover:not(:disabled) { transform: scale(1.05); }
+  .play-btn:disabled { background: #94a3b8; box-shadow: none; cursor: not-allowed; }
+  .play-btn.playing { animation: placementPulse 1s infinite; }
+  @keyframes placementPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(29,78,216,.4); } 50% { box-shadow: 0 0 0 14px rgba(29,78,216,0); } }
+  .play-status { text-align: center; font-size: .85rem; color: #64748b; }
+
   .option-btn {
     text-align: left;
     padding: 0.85rem 1.1rem;
@@ -221,11 +241,23 @@
     <div class="card quiz-card">
       <div class="card-body p-4">
 
-        <ul class="nav nav-pills nav-fill mb-4" id="modeTabs">
+        <ul class="nav nav-pills nav-fill mb-4 flex-wrap" id="modeTabs">
           <li class="nav-item">
             <button class="nav-link active" id="tab-practice" data-mode="practice">
-              <span class="d-block">📚 Nach Niveau üben</span>
-              <span class="d-block small" style="font-weight:400;">Practice by level</span>
+              <span class="d-block">📚 Wortschatz üben</span>
+              <span class="d-block small" style="font-weight:400;">Vocabulary</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tab-hoeren" data-mode="hoeren">
+              <span class="d-block">🎧 Hören üben</span>
+              <span class="d-block small" style="font-weight:400;">Listening</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tab-lesen" data-mode="lesen">
+              <span class="d-block">📰 Lesen üben</span>
+              <span class="d-block small" style="font-weight:400;">Reading</span>
             </button>
           </li>
           <li class="nav-item">
@@ -236,7 +268,7 @@
           </li>
         </ul>
 
-        <!-- Practice-by-level options -->
+        <!-- Practice-by-level options (vocab) -->
         <div id="practiceOptions">
           <label class="form-label fw-semibold">Niveau(s) auswählen / Choose level(s)</label>
           <div class="d-flex gap-2 flex-wrap mb-4" id="levelChecks">
@@ -262,13 +294,30 @@
           </select>
         </div>
 
+        <!-- Hören practice options -->
+        <div id="hoerenOptions" class="hidden">
+          <label class="form-label fw-semibold">Niveau auswählen / Choose a level</label>
+          <div class="d-flex gap-2 flex-wrap mb-3" id="hoerenLevelChecks"></div>
+          <div class="alert alert-info small" id="hoerenLevelInfo"></div>
+          <p class="text-muted small">Jeder Text wird nur <strong>einmal</strong> vorgelesen — genau wie in der echten Prüfung. / Each text plays only <strong>once</strong> — matching real exam conditions.</p>
+        </div>
+
+        <!-- Lesen practice options -->
+        <div id="lesenOptions" class="hidden">
+          <label class="form-label fw-semibold">Niveau auswählen / Choose a level</label>
+          <div class="d-flex gap-2 flex-wrap mb-3" id="lesenLevelChecks"></div>
+          <div class="alert alert-info small" id="lesenLevelInfo"></div>
+          <p class="text-muted small">Der Text bleibt sichtbar — Sie können jederzeit nachlesen. / The text stays visible — reread it anytime.</p>
+        </div>
+
         <!-- Placement test explanation -->
         <div id="placementOptions" class="hidden">
           <div class="alert alert-info">
-            Der Level-Test beginnt bei <strong>A1</strong> mit 18 Fragen. Bestehst du (≥60%), geht es weiter mit
-            A2, dann B1 — bis C2 oder bis du ein Niveau nicht bestehst. / The level test starts at
-            <strong>A1</strong> with 18 questions. If you pass (≥60%), it continues to A2, then B1 — up to C2,
-            or until you fail a level.
+            Der Level-Test beginnt bei <strong>A1</strong> mit Wortschatz (18 Fragen), Leseverstehen und
+            Hörverstehen. Bestehst du das gesamte Niveau (≥60%), geht es weiter mit A2, dann B1 — bis C2 oder
+            bis du ein Niveau nicht bestehst. / The level test starts at <strong>A1</strong> with vocabulary
+            (18 questions), reading, and listening. If you pass the whole level (≥60%), it continues to A2,
+            then B1 — up to C2, or until you fail a level.
           </div>
         </div>
 
@@ -288,12 +337,34 @@
       </div>
       <p class="text-center text-muted small mb-4" id="quizProgressText">Frage 1 / 20</p>
 
-      <div class="card p-4 mb-3">
+      <!-- Vocab (Wortschatz) card — shown for kind='vocab' -->
+      <div class="card p-4 mb-3" id="vocabPromptCard">
         <p class="prompt-meta mb-1" id="promptMeta">A1 · Nomen</p>
         <p class="mb-2">
           <span class="badge d-inline-flex align-items-center" id="promptLangBadge" style="background:#1d4ed8;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 5 3" style="margin-right:4px;border-radius:2px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Deutsch</span>
         </p>
         <p class="prompt-word mb-0" id="promptWord">Haus</p>
+      </div>
+
+      <!-- Lesen passage — shown for kind='lesen'; stays visible the whole
+           time (no lock), matching real Lesen exam conditions. -->
+      <div id="lesenPanel" class="hidden">
+        <p class="prompt-meta mb-1 text-center" id="lesenMeta">A1 · Leseverstehen</p>
+        <p class="text-center fw-semibold mb-2" id="lesenTitle">Nachricht</p>
+        <div class="passage-card mb-3" id="lesenPassageCard"></div>
+        <p class="prompt-word mb-0 text-center" id="lesenQuestionText" style="font-size:1.25rem;">Frage?</p>
+      </div>
+
+      <!-- Hören play button — shown for kind='hoeren'; one-shot playback,
+           locked the instant it's clicked, matching real Hören conditions. -->
+      <div id="hoerenPanel" class="hidden">
+        <div class="card p-4 mb-3 text-center">
+          <p class="prompt-meta mb-1" id="hoerenMeta">A1 · Hörverstehen</p>
+          <p class="fw-semibold mb-3" id="hoerenTitle">Dialog</p>
+          <button class="play-btn" id="placementPlayBtn" type="button" aria-label="Text anhören">🔊</button>
+          <p class="play-status mt-2 mb-0" id="hoerenPlayStatus">Klicken Sie, um den Text einmal zu hören / Click to hear the text once</p>
+        </div>
+        <p class="prompt-word mb-0 text-center" id="hoerenQuestionText" style="font-size:1.25rem;">Frage?</p>
       </div>
 
       <form id="answerForm" autocomplete="off">
@@ -509,6 +580,652 @@
 
 
   var LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  var synth = window.speechSynthesis; // used by the Hören placement phase below
+
+  // ---------------------------------------------------------------
+  // Lesen & Hören data for the placement test — one representative item
+  // per level, reused directly from lesen.html / hoeren.html (same
+  // original, copyright-safe content — not copied from any real Goethe/
+  // telc exam). Only ONE item per skill per level here (rather than the
+  // full set from those standalone pages) to keep the combined placement
+  // test a reasonable length — vocab + a reading + a listening sample
+  // per level, not the full practice-length battery.
+  // ---------------------------------------------------------------
+  var LESEN_DATA = {
+    A1: {
+      title: 'Nachricht von Peter', tag: 'Kurze Mitteilung',
+      passage: ['Liebe Susanne, ich komme morgen um 15:30 Uhr am Hauptbahnhof an. Kannst du mich abholen? Mein Zug kommt auf Gleis 7. Viele Grüße, Peter'],
+      questions: [
+        { text: 'Wann kommt Peter an?', options: ['Um 15:30 Uhr', 'Um 13:30 Uhr', 'Um 17:30 Uhr', 'Um 15:00 Uhr'], answerIndex: 0 },
+        { text: 'Wo kommt er an?', options: ['Am Hauptbahnhof, Gleis 7', 'Am Flughafen', 'Am Busbahnhof', 'Am Hauptbahnhof, Gleis 3'], answerIndex: 0 },
+        { text: 'Was soll Susanne machen?', options: ['Peter abholen', 'Peter anrufen', 'Eine SMS schreiben', 'Zum Flughafen fahren'], answerIndex: 0 }
+      ]
+    },
+    A2: {
+      title: 'Stadtfest Heidelberg', tag: 'Informationstext',
+      passage: ['Stadtfest Heidelberg. Samstag, 15. Juli — Sonntag, 16. Juli. Altstadt, rund um den Marktplatz. Samstag: 11:00–23:00 Uhr | Sonntag: 11:00–20:00 Uhr. Eintritt frei! Programm: Live-Musik, Kinderprogramm, internationales Essen, Kunsthandwerk.'],
+      questions: [
+        { text: 'Das Stadtfest dauert drei Tage.', options: ['Richtig', 'Falsch'], answerIndex: 1 },
+        { text: 'Am Sonntag endet das Fest früher als am Samstag.', options: ['Richtig', 'Falsch'], answerIndex: 0 },
+        { text: 'Man muss Eintritt bezahlen.', options: ['Richtig', 'Falsch'], answerIndex: 1 }
+      ]
+    },
+    B1: {
+      title: 'Homeoffice in Deutschland', tag: 'Zeitungsbericht',
+      passage: ['Immer mehr Deutsche arbeiten im Homeoffice. 40 Prozent der Beschäftigten arbeiten regelmäßig von zu Hause. Die Vorteile: Man spart Zeit, kann sich die Zeit flexibler einteilen und hat oft eine bessere Work-Life-Balance. Allerdings gibt es auch Nachteile: Einsamkeit und fehlender Kontakt zu Kollegen. Experten empfehlen feste Arbeitszeiten und regelmäßige Pausen.'],
+      questions: [
+        { text: 'Wie viel Prozent arbeiten im Homeoffice?', options: ['40%', '25%', '60%', '15%'], answerIndex: 0 },
+        { text: 'Was ist ein Vorteil?', options: ['Man spart Zeit und hat mehr Flexibilität', 'Höheres Gehalt', 'Mehr Kollegenkontakt', 'Kürzere Arbeitszeiten'], answerIndex: 0 },
+        { text: 'Was empfehlen Experten?', options: ['Feste Arbeitszeiten einhalten', 'Nachts arbeiten', 'Keine Pausen machen', 'Immer erreichbar sein'], answerIndex: 0 }
+      ]
+    },
+    B2: {
+      title: 'Kommentar: Tempolimit auf Autobahnen', tag: 'Meinungstext',
+      passage: ['Deutschland ist eines der wenigen Länder weltweit, in denen es auf Autobahnen kein generelles Tempolimit gibt. Befürworter argumentieren mit der Verkehrssicherheit: Bei niedrigerer Geschwindigkeit seien Unfälle weniger schwer. Ein Tempolimit von 130 km/h würde den CO2-Ausstoß reduzieren. Gegner sehen in der freien Fahrt ein Stück deutsche Identität. Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist.'],
+      questions: [
+        { text: 'Was argumentieren Befürworter?', options: ['Verkehrssicherheit und CO2-Reduktion', 'Höhere Steuereinnahmen', 'Bessere Straßen', 'Weniger Staus'], answerIndex: 0 },
+        { text: 'Was befürchten Gegner?', options: ['Negative Auswirkungen auf die Autoindustrie', 'Höhere Unfallzahlen', 'Weniger Tourismus', 'Höhere Benzinpreise'], answerIndex: 0 },
+        { text: 'Welche Position vertritt der Autor?', options: ['Er ist für ein Tempolimit', 'Er ist dagegen', 'Er ist neutral', 'Er äußert keine Meinung'], answerIndex: 0 }
+      ]
+    },
+    C1: {
+      title: 'Die Grenzen der künstlichen Intelligenz', tag: 'Sachtext',
+      passage: ['Die Fortschritte im Bereich der künstlichen Intelligenz haben in den letzten Jahren für erhebliches Aufsehen gesorgt. Dennoch wäre es verfehlt, daraus zu schließen, dass Maschinen in absehbarer Zeit das menschliche Denken ersetzen könnten. Was KI-Systeme leisten, ist eine hocheffiziente Mustererkennung. Was ihnen fehlt, ist ein genuines Verständnis dessen, was sie tun. Hinzu kommt das Problem der sogenannten Halluzinationen: KI-Systeme generieren mitunter Inhalte, die plausibel klingen, aber faktisch falsch sind. Dies ist ein fundamentales Defizit.'],
+      questions: [
+        { text: 'Was können KI-Systeme laut Text besonders gut?', options: ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], answerIndex: 0 },
+        { text: 'Was fehlt KI-Systemen laut Autor?', options: ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], answerIndex: 0 },
+        { text: 'Wie bewertet der Autor das Problem der Halluzinationen?', options: ['Als fundamentales Defizit', 'Als marginales technisches Problem', 'Als bereits gelöst', 'Als übertrieben dargestellt'], answerIndex: 0 }
+      ]
+    },
+    C2: {
+      title: 'Die Paradoxie des Fortschritts', tag: 'Komplexer Sachtext',
+      passage: ['Es gehört zu den bemerkenswerten Paradoxien unserer Zeit, dass technologischer Fortschritt zunehmend zum Gegenstand fundamentaler Skepsis geworden ist. Die Verheißungen der Digitalisierung haben sich zwar in mancherlei Hinsicht erfüllt, doch gleichzeitig haben sie neue Probleme hervorgebracht. Während der Zugang zu Wissen nie einfacher war, fällt es den Menschen paradoxerweise immer schwerer, zwischen gesicherten Erkenntnissen und Desinformation zu unterscheiden. Die Algorithmen der sozialen Medien haben sich als mächtige Instrumente der Manipulation erwiesen.'],
+      questions: [
+        { text: 'Worin besteht die "Paradoxie des Fortschritts" laut Autor?', options: ['Fortschritt löst Probleme, schafft aber gleichzeitig neue', 'Fortschritt war schon immer problematisch', 'Fortschritt hat nie Verheißungen erfüllt', 'Menschen lehnen Fortschritt ab'], answerIndex: 0 },
+        { text: 'Was kritisiert der Autor an den Algorithmen sozialer Medien?', options: ['Sie tragen zur Polarisierung bei und schaffen Filterblasen', 'Sie funktionieren nicht', 'Sie sind zu langsam', 'Sie verhindern den Zugang zu Information'], answerIndex: 0 }
+      ]
+    }
+  };
+
+  var HOEREN_DATA = {
+    A1: {
+      title: 'Dialog: Am Telefon',
+      script: 'Praxis Doktor Klein, guten Tag! Guten Tag, hier ist Frau Yilmaz. Ich möchte einen Termin machen. Ja, gerne. Wie wäre es am Donnerstag um 10 Uhr? Donnerstag geht leider nicht. Geht es auch am Freitag? Am Freitag um 11 Uhr? Ja, das passt. Vielen Dank!',
+      questions: [
+        { text: 'Frau Yilmaz ruft beim Arzt an.', options: ['Richtig', 'Falsch'], answerIndex: 0 },
+        { text: 'Sie bekommt einen Termin am Donnerstag.', options: ['Richtig', 'Falsch'], answerIndex: 1 },
+        { text: 'Der Termin ist am Freitag um 11 Uhr.', options: ['Richtig', 'Falsch'], answerIndex: 0 }
+      ]
+    },
+    A2: {
+      title: 'Zahnarzt (Anrufbeantworter)',
+      script: 'Guten Tag, hier ist die Zahnarztpraxis Doktor Hoffmann. Leider müssen wir Ihren Termin am Dienstag um 14 Uhr absagen, weil Herr Doktor Hoffmann erkrankt ist. Wir bieten Ihnen als neuen Termin Donnerstag um 10 Uhr an.',
+      questions: [
+        { text: 'Warum wird der Termin abgesagt?', options: ['Dr. Hoffmann ist krank', 'Die Praxis ist geschlossen', 'Der Patient hat abgesagt', 'Es gibt einen Notfall'], answerIndex: 0 },
+        { text: 'Wann ist der neue Termin?', options: ['Donnerstag um 10 Uhr', 'Dienstag um 14 Uhr', 'Freitag um 10 Uhr', 'Donnerstag um 14 Uhr'], answerIndex: 0 }
+      ]
+    },
+    B1: {
+      title: 'Dialog: Berufliche Veränderung',
+      script: 'Ich habe mich entschieden, meinen Job zu kündigen. Was? Aber du arbeitest erst seit zwei Jahren dort! Die Arbeit ist langweilig und mein Chef ist schwierig. Ich mache eine Weiterbildung in Webdesign. Hast du genug gespart? Ja, und die Weiterbildung dauert nur sechs Monate.',
+      questions: [
+        { text: 'Warum kündigt die Person?', options: ['Langweilige Arbeit und schwieriger Chef', 'Zu wenig Gehalt', 'Zu weiter Arbeitsweg', 'Gesundheitliche Probleme'], answerIndex: 0 },
+        { text: 'Was hat die Person vor?', options: ['Weiterbildung in Webdesign', 'Studium beginnen', 'Ins Ausland gehen', 'Ein eigenes Geschäft eröffnen'], answerIndex: 0 },
+        { text: 'Wie lange dauert die Weiterbildung?', options: ['Sechs Monate', 'Drei Monate', 'Ein Jahr', 'Zwölf Monate'], answerIndex: 0 }
+      ]
+    },
+    B2: {
+      title: 'Interview: Ehrenamt',
+      script: 'Frau Doktor Becker, was hat sich beim ehrenamtlichen Engagement verändert? Die Art des Engagements hat sich stark gewandelt. Früher haben sich Menschen langfristig an einen Verein gebunden. Heute sehen wir einen Trend zum projektbezogenen Engagement. Ein Problem für Organisationen: die fehlende Planungssicherheit.',
+      questions: [
+        { text: 'Was hat sich verändert?', options: ['Vom langfristigen zum projektbezogenen Engagement', 'Ehrenamt ist komplett verschwunden', 'Nur ältere Menschen engagieren sich noch', 'Es gibt keine Vereine mehr'], answerIndex: 0 },
+        { text: 'Was ist ein Problem für Organisationen?', options: ['Fehlende Planungssicherheit', 'Zu viele Freiwillige', 'Zu hohe Kosten', 'Mangelnde staatliche Unterstützung'], answerIndex: 0 }
+      ]
+    },
+    C1: {
+      title: 'Dialog: Karrierewechsel',
+      script: 'Sag mal, stimmt es, dass du deinen Job an der Uni aufgibst? Ja, die akademische Laufbahn hat mich zunehmend frustriert. Der Druck, ständig zu publizieren, die befristeten Verträge, die Unsicherheit — das will ich mir nicht mehr antun. Ich fange nächsten Monat bei einer Unternehmensberatung an.',
+      questions: [
+        { text: 'Warum gibt die Person die akademische Karriere auf?', options: ['Frustration über Publikationsdruck, befristete Verträge, Unsicherheit', 'Zu niedriges Gehalt', 'Konflikt mit dem Professor', 'Umzug in eine andere Stadt'], answerIndex: 0 },
+        { text: 'Was beginnt die Person nächsten Monat?', options: ['Stelle bei einer Unternehmensberatung', 'Ein neues Studium', 'Eine eigene Firma', 'Eine Stelle an einer anderen Uni'], answerIndex: 0 }
+      ]
+    },
+    C2: {
+      title: 'Vortrag: Spracherwerb und kognitive Entwicklung',
+      script: 'Ich möchte heute über den Zusammenhang zwischen Spracherwerb und kognitiver Entwicklung sprechen. Es ist ein weit verbreiteter Irrtum, dass Sprache lediglich ein Kommunikationsinstrument ist. Sprache formt unser Denken. Bilinguale Menschen zeigen in zahlreichen Studien eine erhöhte kognitive Flexibilität. Allerdings handelt es sich um Korrelationen, nicht um nachgewiesene Kausalitäten.',
+      questions: [
+        { text: 'Die Sapir-Whorf-Hypothese gilt in ihrer radikalen Form als bestätigt.', options: ['Richtig', 'Falsch'], answerIndex: 1 },
+        { text: 'Bilingualismus zeigt Zusammenhänge mit kognitiver Flexibilität.', options: ['Richtig', 'Falsch'], answerIndex: 0 },
+        { text: 'Der Sprecher warnt vor voreiligen Kausalschlüssen.', options: ['Richtig', 'Falsch'], answerIndex: 0 }
+      ]
+    }
+  };
+
+
+  // ---------------------------------------------------------------
+  // Full Hören & Lesen PRACTICE datasets (all items per level, not just
+  // the single placement-sample above) — reused verbatim from the
+  // standalone hoeren.html / lesen.html pages, now folded into Quiz as
+  // two additional practice tabs so there's one single practice hub
+  // instead of scattering skills across separate top-level pages.
+  // ---------------------------------------------------------------
+  function tf(text, answer) {
+    return { type: 'mc', text: text, options: ['Richtig', 'Falsch'], answerIndex: answer ? 0 : 1 };
+  }
+  function mc(text, options, answerIndex) {
+    return { type: 'mc', text: text, options: options, answerIndex: answerIndex };
+  }
+
+var HOEREN_PRACTICE_DATA = {
+    A1: [
+      {
+        title: 'Dialog 1: Am Telefon', part: 'Teil 1',
+        script: 'Praxis Doktor Klein, guten Tag! Guten Tag, hier ist Frau Yilmaz. Ich möchte einen Termin machen. Ja, gerne. Wie wäre es am Donnerstag um 10 Uhr? Donnerstag geht leider nicht. Geht es auch am Freitag? Am Freitag um 11 Uhr? Ja, das passt. Vielen Dank!',
+        questions: [
+          tf('Frau Yilmaz ruft beim Arzt an.', true),
+          tf('Sie bekommt einen Termin am Donnerstag.', false),
+          tf('Der Termin ist am Freitag um 11 Uhr.', true)
+        ]
+      },
+      {
+        title: 'Dialog 2: Am Bahnhof', part: 'Teil 1',
+        script: 'Entschuldigung, wann fährt der nächste Zug nach Hamburg? Der nächste Zug fährt um 14:35 Uhr von Gleis 8. Und wann kommt er in Hamburg an? Um 16:50 Uhr. Was kostet eine Fahrkarte? Einfach oder hin und zurück? Einfach, bitte. Das macht 45 Euro.',
+        questions: [
+          mc('Wohin will die Person fahren?', ['Nach Hamburg', 'Nach Berlin', 'Nach München', 'Nach Köln'], 0),
+          mc('Um wie viel Uhr fährt der Zug?', ['14:35 Uhr', '13:35 Uhr', '15:35 Uhr', '16:50 Uhr'], 0),
+          mc('Von welchem Gleis?', ['Gleis 8', 'Gleis 3', 'Gleis 5', 'Gleis 10'], 0),
+          mc('Wie viel kostet die Fahrkarte?', ['45 Euro', '35 Euro', '55 Euro', '40 Euro'], 0)
+        ]
+      },
+      {
+        title: 'Hörtext 1: Telefonansage', part: 'Teil 2',
+        script: 'Sie haben die Arztpraxis Doktor Müller erreicht. Die Praxis ist von Montag bis Freitag von 8 bis 12 Uhr und von 14 bis 17 Uhr geöffnet. Am Mittwochnachmittag ist die Praxis geschlossen. In dringenden Fällen rufen Sie bitte die Notfallnummer 112 an.',
+        questions: [
+          mc('Wann ist die Praxis morgens geöffnet?', ['Von 8 bis 12 Uhr', 'Von 9 bis 13 Uhr', 'Von 7 bis 11 Uhr', 'Von 8 bis 13 Uhr'], 0),
+          mc('Wann ist die Praxis nachmittags geschlossen?', ['Am Mittwochnachmittag', 'Am Montagnachmittag', 'Am Freitagnachmittag', 'Am Dienstagnachmittag'], 0),
+          mc('Welche Nummer ruft man im Notfall an?', ['112', '110', '911', '115'], 0)
+        ]
+      },
+      {
+        title: 'Hörtext 2: Wetterbericht', part: 'Teil 2',
+        script: 'Der Wetterbericht für heute: Am Vormittag scheint die Sonne bei Temperaturen um 15 Grad. Am Nachmittag wird es bewölkt und am Abend kann es regnen. Morgen wird es den ganzen Tag sonnig und warm.',
+        questions: [
+          tf('Am Vormittag scheint die Sonne.', true),
+          tf('Es wird den ganzen Tag sonnig.', false),
+          tf('Morgen regnet es.', false)
+        ]
+      },
+      {
+        title: 'Durchsage 1: Am Bahnhof', part: 'Teil 3',
+        script: 'Achtung auf Gleis 3: Der ICE 574 nach München über Nürnberg hat eine Verspätung von 15 Minuten. Voraussichtliche Abfahrt: 10:45 Uhr.',
+        questions: [
+          mc('Welcher Zug hat Verspätung?', ['ICE 574', 'ICE 475', 'ICE 754', 'RE 574'], 0),
+          mc('Wie viel Verspätung hat er?', ['15 Minuten', '5 Minuten', '30 Minuten', '45 Minuten'], 0),
+          mc('Von welchem Gleis fährt der Zug?', ['Gleis 3', 'Gleis 8', 'Gleis 1', 'Gleis 5'], 0)
+        ]
+      },
+      {
+        title: 'Durchsage 2: Im Kaufhaus', part: 'Teil 3',
+        script: 'Liebe Kunden, heute haben wir ein Sonderangebot: Alle Winterjacken sind um 30 Prozent reduziert. Sie finden die Winterjacken in der 2. Etage. Das Angebot gilt nur heute.',
+        questions: [
+          mc('Was ist im Sonderangebot?', ['Winterjacken', 'Sommerkleider', 'Schuhe', 'Handschuhe'], 0),
+          mc('Wie viel Prozent Rabatt gibt es?', ['30%', '20%', '50%', '15%'], 0),
+          mc('In welcher Etage?', ['2. Etage', '1. Etage', '3. Etage', 'Erdgeschoss'], 0),
+          mc('Wie lange gilt das Angebot?', ['Nur heute', 'Diese Woche', 'Bis Samstag', 'Den ganzen Monat'], 0)
+        ]
+      }
+    ],
+    A2: [
+      {
+        title: 'Hörtext 1: Zahnarzt (Anrufbeantworter)', part: 'Teil 1',
+        script: 'Guten Tag, hier ist die Zahnarztpraxis Doktor Hoffmann. Leider müssen wir Ihren Termin am Dienstag um 14 Uhr absagen, weil Herr Doktor Hoffmann erkrankt ist. Wir bieten Ihnen als neuen Termin Donnerstag um 10 Uhr an. Bitte rufen Sie zurück.',
+        questions: [
+          mc('Warum wird der Termin abgesagt?', ['Dr. Hoffmann ist krank', 'Die Praxis ist geschlossen', 'Der Patient hat abgesagt', 'Es gibt einen Notfall'], 0),
+          mc('Wann ist der neue Termin?', ['Donnerstag um 10 Uhr', 'Dienstag um 14 Uhr', 'Freitag um 10 Uhr', 'Donnerstag um 14 Uhr'], 0)
+        ]
+      },
+      {
+        title: 'Hörtext 3: Supermarkt (Durchsage)', part: 'Teil 2',
+        script: 'Liebe Kunden, heute haben wir besondere Angebote: Frische Erdbeeren, 500 Gramm nur 1,99 Euro. Außerdem alle Joghurts 20 Prozent günstiger. Die Angebote gelten bis Samstag.',
+        questions: [
+          tf('Die Erdbeeren kosten 1,99 Euro pro Kilo.', false),
+          tf('Joghurts sind diese Woche billiger.', true),
+          tf('Die Angebote gelten nur heute.', false)
+        ]
+      },
+      {
+        title: 'Dialog 1: Wohnung mieten', part: 'Teil 3',
+        script: 'Guten Tag, ich rufe wegen der Wohnungsanzeige an. Ja, die Wohnung ist noch frei. 2 Zimmer mit Balkon, 55 Quadratmeter im 3. Stock mit Einbauküche. Was kostet sie? 520 Euro kalt plus 150 Euro Nebenkosten. Kann ich besichtigen? Mittwoch um 16 Uhr? Ja, gerne. Bis dann!',
+        questions: [
+          mc('Wie viele Zimmer?', ['2 Zimmer', '1 Zimmer', '3 Zimmer', '4 Zimmer'], 0),
+          mc('Gesamtkosten?', ['670 Euro', '520 Euro', '150 Euro', '700 Euro'], 0),
+          mc('Wann ist die Besichtigung?', ['Mittwoch um 16 Uhr', 'Dienstag um 16 Uhr', 'Mittwoch um 14 Uhr', 'Donnerstag um 16 Uhr'], 0)
+        ]
+      }
+    ],
+    B1: [
+      {
+        title: 'Dialog: Ernährung', part: 'Teil 1',
+        script: 'Seit ich mich vegetarisch ernähre, fühle ich mich viel besser. Wie lange machst du das schon? Seit ungefähr drei Monaten. Am Anfang war es schwer. Und jetzt vermisst du nichts? Nein, gar nicht. Und ich habe sogar abgenommen.',
+        questions: [
+          tf('Sie ernährt sich seit einem Jahr vegetarisch.', false),
+          tf('Am Anfang war es einfach.', false),
+          tf('Sie fühlt sich jetzt besser.', true)
+        ]
+      },
+      {
+        title: 'Dialog: Berufliche Veränderung', part: 'Teil 3',
+        script: 'Ich habe mich entschieden, meinen Job zu kündigen. Was? Aber du arbeitest erst seit zwei Jahren dort! Die Arbeit ist langweilig und mein Chef ist schwierig. Ich mache eine Weiterbildung in Webdesign. Hast du genug gespart? Ja, und die Weiterbildung dauert nur sechs Monate. Viel Erfolg! Ich drücke dir die Daumen.',
+        questions: [
+          mc('Warum kündigt die Person?', ['Langweilige Arbeit und schwieriger Chef', 'Zu wenig Gehalt', 'Zu weiter Arbeitsweg', 'Gesundheitliche Probleme'], 0),
+          mc('Was hat die Person vor?', ['Weiterbildung in Webdesign', 'Studium beginnen', 'Ins Ausland gehen', 'Ein eigenes Geschäft eröffnen'], 0),
+          mc('Wie lange dauert die Weiterbildung?', ['Sechs Monate', 'Drei Monate', 'Ein Jahr', 'Zwölf Monate'], 0)
+        ]
+      },
+      {
+        title: 'Vortrag: Ehrenamtliches Engagement', part: 'Teil 4',
+        script: 'In Deutschland engagieren sich rund 30 Millionen Menschen ehrenamtlich — etwa 40 Prozent der Bevölkerung über 14 Jahre. Die meisten sind im Sportbereich aktiv. Gründe: etwas für die Gesellschaft tun, neue Leute kennenlernen, Erfahrungen sammeln. Problem: Es wird schwieriger, Freiwillige zu finden.',
+        questions: [
+          tf('40 Prozent der Deutschen über 14 sind ehrenamtlich aktiv.', true),
+          tf('Am meisten engagieren sich Menschen im Bereich Musik.', false),
+          tf('Es wird leichter, Freiwillige zu finden.', false)
+        ]
+      }
+    ],
+    B2: [
+      {
+        title: 'Interview: Ehrenamt (Dr. Becker)', part: 'Teil 1',
+        script: 'Frau Doktor Becker, Sie forschen seit Jahren zum Thema ehrenamtliches Engagement. Was hat sich in den letzten Jahren verändert? Die Art des Engagements hat sich stark gewandelt. Früher haben sich Menschen langfristig an einen Verein gebunden. Heute sehen wir einen Trend zum projektbezogenen Engagement. Junge Menschen möchten sich zwar einbringen, aber nicht jahrelang an eine Organisation gebunden sein. Welche Folgen hat das? Einerseits ist die Flexibilität ein Vorteil — mehr Menschen beteiligen sich. Andererseits fehlt den Organisationen die Planungssicherheit. Was müsste sich ändern? Organisationen müssen sich anpassen. Sie sollten flexiblere Möglichkeiten anbieten, sich zu engagieren. Auch digitale Formate könnten helfen.',
+        questions: [
+          mc('Was hat sich verändert?', ['Vom langfristigen zum projektbezogenen Engagement', 'Ehrenamt ist komplett verschwunden', 'Nur ältere Menschen engagieren sich noch', 'Es gibt keine Vereine mehr'], 0),
+          mc('Was ist ein Problem für Organisationen?', ['Fehlende Planungssicherheit', 'Zu viele Freiwillige', 'Zu hohe Kosten', 'Mangelnde staatliche Unterstützung'], 0),
+          mc('Was empfiehlt Dr. Becker?', ['Flexiblere Möglichkeiten und digitale Formate', 'Höhere Mitgliedsbeiträge', 'Strengere Regeln für Freiwillige', 'Weniger Vereine gründen'], 0)
+        ]
+      },
+      {
+        title: 'Diskussion: Bedingungsloses Grundeinkommen', part: 'Teil 4',
+        script: 'Person A sagt: Ich bin fest davon überzeugt, dass ein bedingungsloses Grundeinkommen die richtige Antwort auf die Herausforderungen der Digitalisierung ist. Wenn Maschinen immer mehr Arbeit übernehmen, brauchen die Menschen ein Sicherheitsnetz. Person B sagt: Das klingt ja schön, aber wer soll das bezahlen? Die Steuerlast wäre enorm. Außerdem befürchte ich, dass viele Menschen dann gar nicht mehr arbeiten würden. Person C sagt: Ich sehe das differenzierter. Ein Grundeinkommen für alle halte ich für unrealistisch, aber ein Modell, das besonders gefährdete Gruppen unterstützt, könnte sinnvoll sein.',
+        questions: [
+          mc('Wie steht Person A zum Grundeinkommen?', ['Eindeutig dafür', 'Eindeutig dagegen', 'Neutral', 'Unentschieden'], 0),
+          mc('Wie steht Person B?', ['Eindeutig dagegen', 'Eindeutig dafür', 'Neutral', 'Unentschieden'], 0),
+          mc('Wie steht Person C?', ['Teilweise dafür, differenziert', 'Eindeutig dagegen', 'Komplett neutral', 'Eindeutig dafür ohne Einschränkung'], 0)
+        ]
+      }
+    ],
+    C1: [
+      {
+        title: 'Dialog: Karrierewechsel', part: 'Teil 1',
+        script: 'Sag mal, stimmt es, dass du deinen Job an der Uni aufgibst? Ja, ich habe lange darüber nachgedacht. Die akademische Laufbahn hat mich zunehmend frustriert. Der Druck, ständig zu publizieren, die befristeten Verträge, die Unsicherheit — das will ich mir nicht mehr antun. Aber du hast doch gerade erst deine Habilitation abgeschlossen! Wirfst du das nicht alles weg? So sehe ich das nicht. Die Kompetenzen, die ich mir angeeignet habe, sind auch außerhalb der Universität gefragt. Ich fange nächsten Monat bei einer Unternehmensberatung an. Und du hast kein schlechtes Gewissen? Anfangs schon. Aber letztlich muss jeder für sich selbst entscheiden, wo er seine Stärken am besten einsetzen kann.',
+        questions: [
+          mc('Warum gibt die Person die akademische Karriere auf?', ['Frustration über Publikationsdruck, befristete Verträge, Unsicherheit', 'Zu niedriges Gehalt', 'Konflikt mit dem Professor', 'Umzug in eine andere Stadt'], 0),
+          mc('Was beginnt die Person nächsten Monat?', ['Stelle bei einer Unternehmensberatung', 'Ein neues Studium', 'Eine eigene Firma', 'Eine Stelle an einer anderen Uni'], 0),
+          mc('Hatte die Person anfangs Bedenken?', ['Ja, ein schlechtes Gewissen', 'Nein, gar keine', 'Ja, finanzielle Sorgen', 'Ja, Angst vor dem Scheitern'], 0)
+        ]
+      },
+      {
+        title: 'Podiumsdiskussion: Grundeinkommen', part: 'Teil 3',
+        script: 'Person A sagt: Es gibt keinerlei empirische Evidenz für die Finanzierbarkeit. Person B sagt: Unter bestimmten Bedingungen könnte ein modifiziertes Modell funktionieren. Person C sagt: Die Würde des Menschen erfordert materielle Absicherung.',
+        questions: [
+          mc('Wer sagt: "Die Würde des Menschen erfordert materielle Absicherung"?', ['Person C', 'Person A', 'Person B', 'Der Moderator'], 0),
+          mc('Wer sagt: "Es gibt keinerlei empirische Evidenz für die Finanzierbarkeit"?', ['Person A', 'Person B', 'Person C', 'Der Moderator'], 0),
+          mc('Wer vertritt eine differenzierte, bedingte Position?', ['Person B', 'Person A', 'Person C', 'Keiner'], 0)
+        ]
+      }
+    ],
+    C2: [
+      {
+        title: 'Vortrag: Spracherwerb und kognitive Entwicklung', part: 'Teil 1',
+        script: 'Meine sehr verehrten Damen und Herren, ich möchte heute über den Zusammenhang zwischen Spracherwerb und kognitiver Entwicklung sprechen. Es ist ein weit verbreiteter Irrtum, dass Sprache lediglich ein Kommunikationsinstrument ist. Sprache formt unser Denken — diese These, bekannt als Sapir-Whorf-Hypothese, mag in ihrer deterministischen Variante überholt sein, doch in ihrer relativistischen Ausprägung wird sie durch zahlreiche Studien gestützt. Sprecher von Sprachen mit einem differenzierten Farbvokabular können feine Farbunterschiede nachweislich schneller identifizieren. Das Russische etwa unterscheidet lexikalisch zwischen Hellblau und Dunkelblau. Bilinguale Menschen zeigen in zahlreichen Studien eine erhöhte kognitive Flexibilität und eine verzögerte Manifestation altersbedingter kognitiver Einschränkungen. Allerdings handelt es sich um Korrelationen, nicht um nachgewiesene Kausalitäten. Es wäre unwissenschaftlich, daraus voreilige Schlüsse zu ziehen.',
+        questions: [
+          tf('Die Sapir-Whorf-Hypothese gilt in ihrer radikalen Form als bestätigt.', false),
+          tf('Russische Muttersprachler unterscheiden Blautöne schneller.', true),
+          tf('Bilingualismus kann altersbedingte kognitive Einschränkungen komplett verhindern.', false),
+          tf('Der Sprecher warnt vor voreiligen Kausalschlüssen.', true)
+        ]
+      },
+      {
+        title: 'Podiumsdiskussion: Staatliche Kunstförderung', part: 'Teil 2',
+        script: 'Unser Thema heute: Staatliche Kunstförderung — notwendige Investition oder Verschwendung von Steuergeldern? Professor Richter sagt: Die Frage müsste lauten: Können wir es uns leisten, Kunst nicht zu fördern? Kunst ist ein Grundpfeiler einer offenen Gesellschaft. Frau Becker sagt: Grundsätzlich stimme ich zu, allerdings muss man auch fragen, was gefördert wird und wessen Kunst. Die staatliche Förderung bevorzugt etablierte Institutionen und vernachlässigt innovative Projekte. Herr Wagner sagt: Ich sehe das pragmatischer. Warum sollte der Steuerzahler für eine Oper bezahlen, die nur von einer kleinen Elite besucht wird? Wenn Kunst relevant ist, wird sie ihren Markt finden. Professor Richter antwortet: Das ist ein gefährlicher Trugschluss. Der Markt ist kein geeignetes Instrument, um den Wert von Kunst zu bemessen.',
+        questions: [
+          mc('Wer sagt "Kunstförderung ist unverzichtbar für die Demokratie"?', ['Prof. Richter', 'Frau Becker', 'Herr Wagner', 'Der Moderator'], 0),
+          mc('Wer sagt "Die Förderung muss gerechter verteilt werden"?', ['Frau Becker', 'Prof. Richter', 'Herr Wagner', 'Der Moderator'], 0),
+          mc('Wer meint "Der Markt sollte über den Wert von Kunst entscheiden"?', ['Herr Wagner', 'Prof. Richter', 'Frau Becker', 'Der Moderator'], 0),
+          mc('Wer hält Marktlogik für Kunst ungeeignet?', ['Prof. Richter', 'Herr Wagner', 'Frau Becker', 'Der Moderator'], 0)
+        ]
+      }
+    ]
+  }
+
+var LESEN_PRACTICE_DATA = {
+
+    A1: [
+      {
+        title: 'Schild: Bibliothek', part: 'Teil 1', tag: 'Schild / Sign',
+        passage: ['Bibliothek\nMo–Fr: 9:00–18:00\nSa: 10:00–14:00\nSo: geschlossen'],
+        questions: [
+          tf('Die Bibliothek ist am Sonntag geöffnet.', false),
+          tf('Am Samstag ist die Bibliothek von 10 bis 14 Uhr offen.', true),
+          tf('Von Montag bis Freitag kann man um 8 Uhr kommen.', false)
+        ]
+      },
+      {
+        title: 'Schild: Museum', part: 'Teil 1', tag: 'Schild / Sign',
+        passage: ['Achtung! Eingang nur mit Ticket. Kinder unter 6 Jahren: frei. Erwachsene: 8 Euro.'],
+        questions: [
+          tf('Kinder bezahlen 8 Euro.', false),
+          tf('Man braucht ein Ticket.', true)
+        ]
+      },
+      {
+        title: 'Nachricht von Peter', part: 'Teil 2', tag: 'Kurze Mitteilung / Short Message',
+        passage: ['Liebe Susanne, ich komme morgen um 15:30 Uhr am Hauptbahnhof an. Kannst du mich abholen? Mein Zug kommt auf Gleis 7. Viele Grüße, Peter'],
+        questions: [
+          mc('Wann kommt Peter an?', ['Um 15:30 Uhr', 'Um 13:30 Uhr', 'Um 17:30 Uhr', 'Um 15:00 Uhr'], 0),
+          mc('Wo kommt er an?', ['Am Hauptbahnhof, Gleis 7', 'Am Flughafen', 'Am Busbahnhof', 'Am Hauptbahnhof, Gleis 3'], 0),
+          mc('Was soll Susanne machen?', ['Peter abholen', 'Peter anrufen', 'Eine SMS schreiben', 'Zum Flughafen fahren'], 0)
+        ]
+      },
+      {
+        title: 'Nachricht von Maria', part: 'Teil 2', tag: 'Kurze Mitteilung / Short Message',
+        passage: ['Hallo Thomas, heute Abend mache ich eine kleine Party. Kannst du kommen? Wir fangen um 19 Uhr an. Bring bitte Getränke mit! Bis dann, Maria'],
+        questions: [
+          mc('Was macht Maria heute Abend?', ['Eine Party', 'Einen Kurs', 'Eine Reise', 'Eine Prüfung'], 0),
+          mc('Wann fängt die Party an?', ['Um 19 Uhr', 'Um 17 Uhr', 'Um 20 Uhr', 'Um 21 Uhr'], 0),
+          mc('Was soll Thomas mitbringen?', ['Getränke', 'Essen', 'Musik', 'Stühle'], 0)
+        ]
+      },
+      {
+        title: 'Kleinanzeigen', part: 'Teil 3', tag: 'Kleinanzeigen / Classifieds',
+        passage: [
+          'A: Verkaufe Fahrrad, 2 Jahre alt, blau, guter Zustand. 80 Euro.',
+          'B: Suche 2-Zimmer-Wohnung in Stadtmitte. Bis 500 Euro warm.',
+          'C: Deutschkurs A1, Mo und Mi, 18–20 Uhr. Start: 5. September. VHS Berlin.',
+          'D: Babysitter gesucht! 2x pro Woche, nachmittags. Für 2 Kinder (3 und 5 Jahre).',
+          'E: Restaurant „Zur Sonne" — Koch/Köchin gesucht. Di–Sa, 10–18 Uhr.'
+        ],
+        questions: [
+          mc('Maria sucht eine Wohnung. Welche Anzeige passt?', ['B', 'A', 'C', 'D'], 0),
+          mc('Tom will Deutsch lernen. Welche Anzeige passt?', ['C', 'A', 'B', 'E'], 0),
+          mc('Lisa sucht Arbeit in der Küche. Welche Anzeige passt?', ['E', 'A', 'B', 'D'], 0),
+          mc('Jan möchte ein Fahrrad kaufen. Welche Anzeige passt?', ['A', 'B', 'C', 'D'], 0),
+          mc('Sara möchte auf Kinder aufpassen. Welche Anzeige passt?', ['D', 'A', 'B', 'C'], 0)
+        ]
+      },
+      {
+        title: 'Mein Tag (Yuki)', part: 'Leseverstehen', tag: 'Text',
+        passage: ['Ich heiße Yuki und komme aus Japan. Ich wohne seit drei Monaten in München. Jeden Morgen stehe ich um 7 Uhr auf. Ich frühstücke um 7:30 Uhr. Dann fahre ich mit der U-Bahn zur Sprachschule. Der Deutschkurs beginnt um 9 Uhr und dauert bis 13 Uhr. Nach dem Kurs esse ich in der Mensa zu Mittag. Am Nachmittag mache ich Hausaufgaben oder gehe spazieren. Abends koche ich und sehe ein bisschen fern. Um 23 Uhr gehe ich ins Bett.'],
+        questions: [
+          mc('Woher kommt Yuki?', ['Aus Japan', 'Aus China', 'Aus Korea', 'Aus Thailand'], 0),
+          mc('Wo wohnt sie jetzt?', ['In München', 'In Berlin', 'In Hamburg', 'In Köln'], 0),
+          mc('Wie fährt sie zur Schule?', ['Mit der U-Bahn', 'Mit dem Bus', 'Mit dem Fahrrad', 'Zu Fuß'], 0),
+          mc('Wann beginnt ihr Deutschkurs?', ['Um 9 Uhr', 'Um 8 Uhr', 'Um 10 Uhr', 'Um 7:30 Uhr'], 0),
+          mc('Was macht sie am Nachmittag?', ['Hausaufgaben machen oder spazieren gehen', 'Arbeiten', 'Schlafen', 'Einkaufen'], 0)
+        ]
+      }
+    ],
+
+    A2: [
+      {
+        title: 'Stadtfest Heidelberg', part: 'Teil 1', tag: 'Informationstext',
+        passage: ['Stadtfest Heidelberg. Samstag, 15. Juli — Sonntag, 16. Juli. Altstadt, rund um den Marktplatz. Samstag: 11:00–23:00 Uhr | Sonntag: 11:00–20:00 Uhr. Eintritt frei! Programm: Live-Musik, Kinderprogramm, internationales Essen, Kunsthandwerk. Bei Regen findet das Fest in der Stadthalle statt.'],
+        questions: [
+          tf('Das Stadtfest dauert drei Tage.', false),
+          tf('Am Sonntag endet das Fest früher als am Samstag.', true),
+          tf('Man muss Eintritt bezahlen.', false),
+          tf('Es gibt ein Programm für Kinder.', true)
+        ]
+      },
+      {
+        title: 'Kleinanzeigen', part: 'Teil 3', tag: 'Kleinanzeigen / Classifieds',
+        passage: [
+          'A: Suche zuverlässige Putzfrau, 1x pro Woche. 15 Euro/Stunde.',
+          'B: Biete Nachhilfe in Mathematik für Klassen 5–10. 20 Euro/Stunde.',
+          'C: Suche Mitfahrgelegenheit Stuttgart–München, jeden Freitag.',
+          'D: Gitarre zu verkaufen, akustisch, sehr guter Zustand. 150 Euro.',
+          'E: Suche nette Leute für wöchentliche Wandergruppe, samstags.'
+        ],
+        questions: [
+          mc('Laura sucht Hilfe bei Mathe-Hausaufgaben. Welche Anzeige passt?', ['B', 'A', 'C', 'D'], 0),
+          mc('Thomas möchte ein Instrument kaufen. Welche Anzeige passt?', ['D', 'A', 'B', 'E'], 0),
+          mc('Petra möchte am Wochenende in der Natur sein. Welche Anzeige passt?', ['E', 'A', 'B', 'C'], 0),
+          mc('Hans fährt jede Woche nach München. Welche Anzeige passt?', ['C', 'A', 'D', 'E'], 0),
+          mc('Familie Schmidt braucht Hilfe im Haushalt. Welche Anzeige passt?', ['A', 'B', 'C', 'D'], 0)
+        ]
+      },
+      {
+        title: 'Forum: Leben im Ausland', part: 'Teil 4', tag: 'Forumsbeiträge',
+        passage: [
+          'MariaK: Ich lebe seit zwei Jahren in Berlin und finde es toll! Am Anfang war alles fremd. Aber jetzt habe ich viele Freunde. Mein Tipp: Geht in einen Sportverein!',
+          'TomB: Ich bin seit sechs Monaten in Wien und vermisse meine Familie sehr. Aber die Arbeit ist gut und meine Kollegen sind freundlich.',
+          'SarahL: Ich kann MariaK nur zustimmen! Sport ist der beste Weg, um Kontakte zu knüpfen.'
+        ],
+        questions: [
+          mc('Was empfiehlt MariaK?', ['Einem Sportverein beitreten', 'Einen Sprachkurs machen', 'Viel reisen', 'Online-Freunde suchen'], 0),
+          mc('Was findet TomB positiv?', ['Die Arbeit und die freundlichen Kollegen', 'Das Wetter', 'Die Wohnung', 'Die Freizeit'], 0),
+          mc('Was hilft SarahL gegen Heimweh?', ['Sport', 'Musik', 'Kochen', 'Lesen'], 0)
+        ]
+      }
+    ],
+
+    B1: [
+      {
+        title: 'Homeoffice in Deutschland', part: 'Teil 2', tag: 'Zeitungsbericht',
+        passage: ['Immer mehr Deutsche arbeiten im Homeoffice. Die Arbeitswelt hat sich stark verändert. 40 Prozent der Beschäftigten arbeiten regelmäßig von zu Hause. Die Vorteile: Man spart Zeit, kann sich die Zeit flexibler einteilen und hat oft eine bessere Work-Life-Balance. Allerdings gibt es auch Nachteile: Einsamkeit und fehlender Kontakt zu Kollegen. Experten empfehlen feste Arbeitszeiten und regelmäßige Pausen.'],
+        questions: [
+          mc('Wie viel Prozent arbeiten im Homeoffice?', ['40%', '25%', '60%', '15%'], 0),
+          mc('Was ist ein Vorteil?', ['Man spart Zeit und hat mehr Flexibilität', 'Höheres Gehalt', 'Mehr Kollegenkontakt', 'Kürzere Arbeitszeiten'], 0),
+          mc('Was empfehlen Experten?', ['Feste Arbeitszeiten einhalten', 'Nachts arbeiten', 'Keine Pausen machen', 'Immer erreichbar sein'], 0)
+        ]
+      },
+      {
+        title: 'Leserbriefe: Plastiktüten verbieten?', part: 'Teil 4', tag: 'Leserbriefe / Meinungen',
+        passage: [
+          'Leser A: Ich bin absolut dafür. Jedes Jahr gelangen Millionen Tonnen Plastik in die Meere. Eine Stofftasche mitzunehmen ist nicht schwer.',
+          'Leser B: Ein Verbot ist übertrieben. Man sollte lieber auf besseres Recycling setzen.',
+          'Leser C: Ich verstehe beide Seiten, aber ein Verbot ist der richtige Schritt. In vielen Ländern hat es funktioniert.'
+        ],
+        questions: [
+          mc('Wie steht Leser A zum Verbot?', ['Dafür', 'Dagegen', 'Neutral', 'Unentschieden'], 0),
+          mc('Wie steht Leser B zum Verbot?', ['Dagegen', 'Dafür', 'Neutral', 'Unentschieden'], 0),
+          mc('Wie steht Leser C zum Verbot?', ['Dafür (differenziert)', 'Dagegen', 'Komplett neutral', 'Unentschieden'], 0)
+        ]
+      }
+    ],
+
+    B2: [
+      {
+        title: 'Digitalisierung der Arbeitswelt', part: 'Teil 1', tag: 'Sachtext',
+        passage: [
+          'Absatz 1: Die Arbeitswelt befindet sich im Wandel. Automatisierung und künstliche Intelligenz verändern Berufe und schaffen neue Anforderungen an Arbeitnehmer. Laut einer Studie des Weltwirtschaftsforums könnten bis 2030 rund 85 Millionen Arbeitsplätze durch Automatisierung wegfallen — gleichzeitig werden aber 97 Millionen neue entstehen.',
+          'Absatz 2: Das bedeutet: Nicht die Arbeit geht aus, sondern sie verändert sich. Berufe, die repetitive Aufgaben umfassen, sind besonders gefährdet. Gleichzeitig steigt die Nachfrage nach Fachkräften in den Bereichen Datenanalyse, IT-Sicherheit und Softwareentwicklung. Lebenslanges Lernen wird zur Notwendigkeit.',
+          'Absatz 3: Kritiker warnen jedoch davor, die sozialen Auswirkungen zu unterschätzen. Nicht alle Arbeitnehmer können sich leicht umschulen lassen. Besonders ältere Beschäftigte und Geringqualifizierte könnten auf der Strecke bleiben. Es bedarf daher gezielter politischer Maßnahmen, um den Übergang sozial gerecht zu gestalten.'
+        ],
+        questions: [
+          mc('Welche Überschrift passt zu Absatz 1?', ['Die Arbeitswelt im Umbruch', 'Wandel der Berufsbilder', 'Risiken und soziale Folgen', 'Politische Maßnahmen'], 0),
+          mc('Welche Überschrift passt zu Absatz 2?', ['Wandel der Berufsbilder', 'Die Arbeitswelt im Umbruch', 'Risiken und soziale Folgen', 'Globale Studien'], 0),
+          mc('Welche Überschrift passt zu Absatz 3?', ['Risiken und soziale Folgen', 'Die Arbeitswelt im Umbruch', 'Wandel der Berufsbilder', 'Neue Technologien'], 0)
+        ]
+      },
+      {
+        title: 'Kommentar: Tempolimit auf Autobahnen', part: 'Teil 2', tag: 'Meinungstext',
+        passage: [
+          'Deutschland ist eines der wenigen Länder weltweit, in denen es auf Autobahnen kein generelles Tempolimit gibt. Die Debatte darüber wird seit Jahren kontrovers geführt.',
+          'Befürworter eines Tempolimits argumentieren mit der Verkehrssicherheit: Bei niedrigerer Geschwindigkeit seien Unfälle weniger schwer. Zudem würde ein Tempolimit von 130 km/h den CO2-Ausstoß um mehrere Millionen Tonnen pro Jahr reduzieren.',
+          'Gegner hingegen sehen in der freien Fahrt ein Stück deutsche Identität und verweisen auf die bereits niedrige Unfallrate auf Autobahnen. Sie argumentieren, dass die Autoindustrie unter einem Tempolimit leiden würde.',
+          'Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist. Die Argumente der Verkehrssicherheit und des Klimaschutzes wiegen schwerer als wirtschaftliche Interessen einzelner Hersteller.'
+        ],
+        questions: [
+          mc('Was argumentieren Befürworter?', ['Verkehrssicherheit und CO2-Reduktion', 'Höhere Steuereinnahmen', 'Bessere Straßen', 'Weniger Staus'], 0),
+          mc('Was befürchten Gegner?', ['Negative Auswirkungen auf die Autoindustrie', 'Höhere Unfallzahlen', 'Weniger Tourismus', 'Höhere Benzinpreise'], 0),
+          mc('Welche Position vertritt der Autor?', ['Er ist für ein Tempolimit', 'Er ist dagegen', 'Er ist neutral', 'Er äußert keine Meinung'], 0)
+        ]
+      },
+      {
+        title: 'Lückentext: Fremdsprachenkenntnisse', part: 'Teil 4', tag: 'Grammatik im Kontext',
+        passage: ['Die Bedeutung (1) Fremdsprachenkenntnisse wird in der globalisierten Welt immer größer. Nicht nur im Beruf, (2) auch im privaten Leben sind Sprachkenntnisse von Vorteil. (3) der steigenden Mobilität kommen immer mehr Menschen mit anderen Kulturen in Kontakt. (4) man eine Fremdsprache beherrscht, eröffnen sich neue Perspektiven.'],
+        questions: [
+          mc('Lücke (1):', ['der', 'die', 'den', 'des'], 0),
+          mc('Lücke (2):', ['sondern', 'aber', 'denn', 'oder'], 0),
+          mc('Lücke (3):', ['Aufgrund', 'Trotz', 'Wegen', 'Statt'], 0),
+          mc('Lücke (4):', ['Wenn', 'Falls', 'Ob', 'Weil'], 0)
+        ]
+      }
+    ],
+
+    C1: [
+      {
+        title: 'Die Grenzen der künstlichen Intelligenz', part: 'Teil 1', tag: 'Sachtext',
+        passage: [
+          'Die Fortschritte im Bereich der künstlichen Intelligenz haben in den letzten Jahren für erhebliches Aufsehen gesorgt. Sprachmodelle können Texte verfassen, die von menschlich geschriebenen kaum zu unterscheiden sind, und Bilderkennungssysteme übertreffen menschliche Experten in bestimmten Diagnosen.',
+          'Dennoch wäre es verfehlt, daraus zu schließen, dass Maschinen in absehbarer Zeit das menschliche Denken ersetzen könnten. Was KI-Systeme leisten, ist eine hocheffiziente Mustererkennung auf der Grundlage enormer Datenmengen. Was ihnen fehlt, ist ein genuines Verständnis dessen, was sie tun. Ein Sprachmodell "versteht" Sprache nicht; es prognostiziert statistische Wahrscheinlichkeiten.',
+          'Hinzu kommt das Problem der sogenannten Halluzinationen: KI-Systeme generieren mitunter Inhalte, die plausibel klingen, aber faktisch falsch sind. Dies ist kein marginales technisches Problem, sondern ein fundamentales Defizit.',
+          'Die eigentliche Frage lautet daher nicht, ob KI das menschliche Denken ersetzen wird, sondern wie wir sie als Werkzeug sinnvoll einsetzen können, ohne ihre Grenzen aus dem Blick zu verlieren.'
+        ],
+        questions: [
+          mc('Was können KI-Systeme laut Text besonders gut?', ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], 0),
+          mc('Was fehlt KI-Systemen laut Autor?', ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], 0),
+          mc('Was sind "Halluzinationen" im KI-Kontext?', ['Plausibel klingende, aber faktisch falsche Inhalte', 'Absichtliche Falschinformationen', 'Systemabstürze', 'Grafikfehler'], 0),
+          mc('Wie bewertet der Autor das Problem der Halluzinationen?', ['Als fundamentales Defizit', 'Als marginales technisches Problem', 'Als bereits gelöst', 'Als übertrieben dargestellt'], 0),
+          mc('Was fordert der Autor im Schlussteil?', ['Sinnvollen Einsatz als Werkzeug plus gesellschaftliche Debatte', 'Ein komplettes Verbot von KI', 'Mehr staatliche Kontrolle', 'Schnellere Entwicklung'], 0)
+        ]
+      },
+      {
+        title: 'Lückentext: Interkulturelle Kompetenz', part: 'Teil 2', tag: 'Grammatik + Wortschatz',
+        passage: ['Die Bedeutung (1) interkultureller Kompetenz hat in den letzten Jahrzehnten erheblich (2). Dies ist nicht zuletzt (3) die zunehmende Globalisierung zurückzuführen, die dazu (4) hat, dass Menschen unterschiedlicher kultureller Hintergründe vermehrt miteinander in Kontakt treten. (5) es dabei nicht selten zu Missverständnissen kommt, (6) auf der Hand.'],
+        questions: [
+          mc('Lücke (1):', ['von', 'der', 'für', 'an'], 0),
+          mc('Lücke (2):', ['zugenommen', 'genommen', 'abgenommen', 'gekommen'], 0),
+          mc('Lücke (3):', ['auf', 'an', 'in', 'zu'], 0),
+          mc('Lücke (4):', ['geführt', 'gebracht', 'gemacht', 'gegeben'], 0),
+          mc('Lücke (5):', ['Dass', 'Ob', 'Wenn', 'Weil'], 0),
+          mc('Lücke (6):', ['liegt', 'steht', 'geht', 'kommt'], 0)
+        ]
+      },
+      {
+        title: 'Meinungstexte: Zukunft der Arbeit', part: 'Teil 4', tag: 'Standpunkte zuordnen',
+        passage: [
+          'Vier Experten äußern sich zur Zukunft der Arbeit.',
+          'Person A: "KI wird bestimmte Berufe obsolet machen."',
+          'Person B: "Lebenslanges Lernen wird zur Pflicht."',
+          'Person C: "Die Politik muss den Wandel aktiv gestalten."',
+          'Person D: "Kreativität bleibt menschliche Domäne."'
+        ],
+        questions: [
+          mc('Wer sagt: "KI wird bestimmte Berufe obsolet machen"?', ['Person A', 'Person B', 'Person C', 'Person D'], 0),
+          mc('Wer sagt: "Lebenslanges Lernen wird zur Pflicht"?', ['Person B', 'Person A', 'Person C', 'Person D'], 0),
+          mc('Wer sagt: "Die Politik muss den Wandel aktiv gestalten"?', ['Person C', 'Person A', 'Person B', 'Person D'], 0),
+          mc('Wer sagt: "Kreativität bleibt menschliche Domäne"?', ['Person D', 'Person A', 'Person B', 'Person C'], 0)
+        ]
+      }
+    ],
+
+    C2: [
+      {
+        title: 'Die Paradoxie des Fortschritts', part: 'Teil 1', tag: 'Komplexer Sachtext',
+        passage: [
+          'Es gehört zu den bemerkenswerten Paradoxien unserer Zeit, dass technologischer Fortschritt, der einst als Garant für ein besseres Leben galt, zunehmend zum Gegenstand fundamentaler Skepsis geworden ist. Die Verheißungen der Digitalisierung haben sich zwar in mancherlei Hinsicht erfüllt, doch gleichzeitig haben sie neue Probleme hervorgebracht, die in ihrer Komplexität die alten mitunter noch übersteigen.',
+          'Man denke nur an das Phänomen der Informationsüberflutung: Während der Zugang zu Wissen nie einfacher war, fällt es den Menschen paradoxerweise immer schwerer, zwischen gesicherten Erkenntnissen und Desinformation zu unterscheiden. Die Algorithmen der sozialen Medien haben sich als mächtige Instrumente der Manipulation erwiesen, die zur Entstehung sogenannter Filterblasen beitragen.',
+          'Hinzu kommt die Frage der ökologischen Kosten des technologischen Fortschritts. Die Herstellung von Smartphones, Computern und Servern verschlingt gewaltige Mengen an seltenen Erden und Energie. Es wäre indes verfehlt, daraus den Schluss zu ziehen, man müsse den technologischen Fortschritt per se ablehnen.',
+          'Die eigentliche Herausforderung besteht demnach nicht darin, den Fortschritt aufzuhalten, sondern ihn so zu gestalten, dass er dem Gemeinwohl dient, ohne die Lebensgrundlagen künftiger Generationen zu gefährden.'
+        ],
+        questions: [
+          mc('Worin besteht die "Paradoxie des Fortschritts" laut Autor?', ['Fortschritt löst Probleme, schafft aber gleichzeitig neue', 'Fortschritt war schon immer problematisch', 'Fortschritt hat nie Verheißungen erfüllt', 'Menschen lehnen Fortschritt ab'], 0),
+          mc('Was kritisiert der Autor an den Algorithmen sozialer Medien?', ['Sie tragen zur Polarisierung bei und schaffen Filterblasen', 'Sie funktionieren nicht', 'Sie sind zu langsam', 'Sie verhindern den Zugang zu Information'], 0),
+          mc('Wie bewertet der Autor die ökologischen Kosten der Digitalisierung?', ['Erheblich, aber kein Grund für grundsätzliche Ablehnung', 'Vernachlässigbar', 'Sie übersteigen die der traditionellen Industrie', 'Sie werden übertrieben dargestellt'], 0),
+          mc('Was fordert der Autor als Konsequenz?', ['Einen differenzierten gesellschaftlichen Diskurs', 'Den Fortschritt aufzuhalten', 'Rückkehr zur vorindustriellen Gesellschaft', 'Mehr technokratische Kosten-Nutzen-Analysen'], 0)
+        ]
+      },
+      {
+        title: 'Lückentext: Urbanisierung', part: 'Teil 2', tag: 'Grammatik + Wortschatz',
+        passage: ['Die zunehmende Urbanisierung stellt die Stadtplanung (1) grundlegend neue Herausforderungen. Während die Städte (2), geraten die bestehenden Infrastrukturen an ihre (3). Es (4) innovativer Konzepte, die sowohl den Bedürfnissen der wachsenden Bevölkerung (5) werden als auch ökologische Aspekte (6). (7) die Smart-City-Bewegung vielversprechende Ansätze bietet, (8) die Frage, ob Technologie allein die Lösung sein kann.'],
+        questions: [
+          mc('Lücke (1):', ['vor', 'an', 'auf', 'zu'], 0),
+          mc('Lücke (2):', ['wachsen', 'wuchsen', 'gewachsen', 'wachsend'], 0),
+          mc('Lücke (3):', ['Grenzen', 'Enden', 'Ziele', 'Anfänge'], 0),
+          mc('Lücke (4):', ['bedarf', 'braucht', 'fehlt', 'gibt'], 0),
+          mc('Lücke (5):', ['gerecht', 'passend', 'richtig', 'genug'], 0),
+          mc('Lücke (6):', ['berücksichtigen', 'vergessen', 'ignorieren', 'ändern'], 0),
+          mc('Lücke (7):', ['Obwohl', 'Weil', 'Da', 'Wenn'], 0),
+          mc('Lücke (8):', ['bleibt', 'geht', 'kommt', 'endet'], 0)
+        ]
+      },
+      {
+        title: 'Literarischer Text: Am Fenster', part: 'Teil 3', tag: 'Literatur + Interpretation',
+        passage: ['Er stand am Fenster und sah in den Regen. Die Tropfen liefen in scheinbar willkürlichen Bahnen über die Scheibe — und doch, so schien es ihm, folgten sie einer verborgenen Ordnung, einem Muster, das sich dem flüchtigen Blick entzog. Wie das Leben selbst, dachte er. Man meint, dem Zufall ausgeliefert zu sein, und erkennt erst im Nachhinein die Fäden, die alles zusammenhalten. Oder man bildet sich ein, sie zu erkennen, und das ist womöglich das Gefährlichste von allem.'],
+        questions: [
+          mc('Welche Metapher verwendet der Autor?', ['Die Regentropfen als Metapher für das Leben', 'Das Fenster als Metapher für Freiheit', 'Der Regen als Metapher für Trauer', 'Die Scheibe als Metapher für Isolation'], 0),
+          mc('Wie ist der letzte Satz zu verstehen?', ['Das Erkennen von Mustern kann auch Selbsttäuschung sein', 'Man sollte immer nach Mustern suchen', 'Zufall existiert nicht wirklich', 'Der Regen zeigt die wahre Ordnung des Lebens'], 0)
+        ]
+      },
+      {
+        title: 'Textvergleich: Wert der Hochkultur', part: 'Teil 4', tag: 'Zwei Meinungstexte vergleichen',
+        passage: [
+          'Autor A argumentiert, Hochkultur sei ein essenzieller Pfeiler der Gesellschaft, dessen Förderung staatliche Aufgabe bleiben müsse.',
+          'Autor B hält die Unterscheidung zwischen "Hoch-" und "Populärkultur" für einen elitären Anachronismus.'
+        ],
+        questions: [
+          mc('Worin stimmen die Autoren überein?', ['Beide halten Kultur für gesellschaftlich relevant', 'Beide lehnen staatliche Förderung ab', 'Beide befürworten nur Hochkultur', 'Beide sehen keine Unterschiede zwischen den Kulturformen'], 0),
+          mc('Worin unterscheiden sie sich grundlegend?', ['A verteidigt die Hierarchie der Kulturformen, B lehnt sie ab', 'A lehnt Kultur ab, B befürwortet sie', 'Beide haben identische Positionen', 'A ist für Populärkultur, B für Hochkultur'], 0)
+        ]
+      }
+    ]
+
+  }
+
+  function buildLesenPracticeQuestions(level) {
+    var items = LESEN_PRACTICE_DATA[level] || [];
+    var out = [];
+    items.forEach(function (item) {
+      item.questions.forEach(function (q) {
+        out.push({
+          kind: 'lesen', level: level,
+          itemTitle: item.title + (item.tag ? ' — ' + item.tag : ''), passage: item.passage,
+          prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex]
+        });
+      });
+    });
+    return out;
+  }
+
+  function buildHoerenPracticeQuestions(level) {
+    var items = HOEREN_PRACTICE_DATA[level] || [];
+    var out = [];
+    items.forEach(function (item) {
+      item.questions.forEach(function (q) {
+        out.push({
+          kind: 'hoeren', level: level,
+          itemTitle: item.title, script: item.script,
+          prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex]
+        });
+      });
+    });
+    return out;
+  }
+
+  function buildLesenQuestions(level) {
+    var item = LESEN_DATA[level];
+    if (!item) return [];
+    return item.questions.map(function (q) {
+      return {
+        kind: 'lesen', level: level,
+        itemTitle: item.title, itemTag: item.tag, passage: item.passage,
+        prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex]
+      };
+    });
+  }
+
+  function buildHoerenQuestions(level) {
+    var item = HOEREN_DATA[level];
+    if (!item) return [];
+    return item.questions.map(function (q) {
+      return {
+        kind: 'hoeren', level: level,
+        itemTitle: item.title, script: item.script,
+        prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex]
+      };
+    });
+  }
+
   var wordsByLevel = {};   // { A1: [...], A2: [...], ... }
   var allWords = [];
   var currentQuiz = null;  // { questions: [...], index, correctCount, mode }
@@ -617,39 +1334,79 @@
   // ---------------------------------------------------------------
   // 3. UI: level checkboxes
   // ---------------------------------------------------------------
-  function buildLevelChecks() {
-    var container = document.getElementById('levelChecks');
+  // Generic level-tile builder — used for vocab, Hören, and Lesen level
+  // pickers alike, each with its own container/selection state so picking
+  // a level in one tab doesn't affect the others.
+  function buildLevelTiles(containerId, onSelect) {
+    var container = document.getElementById(containerId);
     container.innerHTML = '';
     LEVELS.forEach(function (lvl, i) {
       var label = document.createElement('label');
       label.className = 'level-check' + (i === 0 ? ' active' : '');
-      label.innerHTML = '<input type="checkbox" value="' + lvl + '"' + (i === 0 ? ' checked' : '') + '>' + lvl;
-      label.addEventListener('click', function (e) {
-        // let the click toggle naturally, then sync visual state on next tick
+      label.innerHTML = '<input type="' + (containerId === 'levelChecks' ? 'checkbox' : 'radio') +
+        '" name="' + containerId + '-radio" value="' + lvl + '"' + (i === 0 ? ' checked' : '') + '>' + lvl;
+      label.addEventListener('click', function () {
         setTimeout(function () {
+          if (containerId !== 'levelChecks') {
+            // single-select tabs (Hören/Lesen): clear all, mark this one
+            container.querySelectorAll('.level-check').forEach(function (l) { l.classList.remove('active'); });
+          }
           label.classList.toggle('active', label.querySelector('input').checked);
+          if (onSelect) onSelect(lvl);
         }, 0);
       });
       container.appendChild(label);
     });
   }
 
+  function buildLevelChecks() {
+    buildLevelTiles('levelChecks');
+  }
+
   function getSelectedLevels() {
     return Array.prototype.slice.call(document.querySelectorAll('#levelChecks input:checked')).map(function (cb) { return cb.value; });
   }
+
+  var selectedHoerenLevel = 'A1';
+  var selectedLesenLevel = 'A1';
+
+  var HOEREN_LEVEL_INFO = {
+    A1: '6 Hörtexte', A2: '3 Hörtexte', B1: '3 Hörtexte', B2: '2 Hörtexte', C1: '2 Hörtexte', C2: '2 Hörtexte'
+  };
+  var LESEN_LEVEL_INFO = {
+    A1: '6 Texte', A2: '3 Texte', B1: '2 Texte', B2: '3 Texte', C1: '3 Texte', C2: '4 Texte'
+  };
+
+  function updateHoerenLevelInfo() {
+    document.getElementById('hoerenLevelInfo').textContent = (HOEREN_LEVEL_INFO[selectedHoerenLevel] || '') + ' · Jeder Text wird einmal gespielt.';
+  }
+  function updateLesenLevelInfo() {
+    document.getElementById('lesenLevelInfo').textContent = (LESEN_LEVEL_INFO[selectedLesenLevel] || '') + ' · Text bleibt sichtbar.';
+  }
+
+  buildLevelTiles('hoerenLevelChecks', function (lvl) { selectedHoerenLevel = lvl; updateHoerenLevelInfo(); });
+  buildLevelTiles('lesenLevelChecks', function (lvl) { selectedLesenLevel = lvl; updateLesenLevelInfo(); });
+  updateHoerenLevelInfo();
+  updateLesenLevelInfo();
 
   // ---------------------------------------------------------------
   // 4. Mode tabs
   // ---------------------------------------------------------------
   var currentMode = 'practice';
   document.getElementById('tab-practice').addEventListener('click', function () { switchMode('practice'); });
+  document.getElementById('tab-hoeren').addEventListener('click', function () { switchMode('hoeren'); });
+  document.getElementById('tab-lesen').addEventListener('click', function () { switchMode('lesen'); });
   document.getElementById('tab-placement').addEventListener('click', function () { switchMode('placement'); });
 
   function switchMode(mode) {
     currentMode = mode;
     document.getElementById('tab-practice').classList.toggle('active', mode === 'practice');
+    document.getElementById('tab-hoeren').classList.toggle('active', mode === 'hoeren');
+    document.getElementById('tab-lesen').classList.toggle('active', mode === 'lesen');
     document.getElementById('tab-placement').classList.toggle('active', mode === 'placement');
     document.getElementById('practiceOptions').classList.toggle('hidden', mode !== 'practice');
+    document.getElementById('hoerenOptions').classList.toggle('hidden', mode !== 'hoeren');
+    document.getElementById('lesenOptions').classList.toggle('hidden', mode !== 'lesen');
     document.getElementById('placementOptions').classList.toggle('hidden', mode !== 'placement');
   }
 
@@ -714,6 +1471,8 @@
     var options = shuffle(distractors.concat([correctAnswer]));
 
     return {
+      kind: 'vocab',
+      level: word.level,
       word: word,
       direction: direction,
       prompt: promptField,
@@ -766,11 +1525,13 @@
     return {
       mode: 'placement',
       levelIndex: 0,
+      phase: 'vocab', // 'vocab' -> 'lesen' -> 'hoeren' -> level pass/fail evaluated
       questions: buildLevelQuestionSet(LEVELS[0]),
       index: 0,
       correctCount: 0,
       perLevel: {},
-      highestPassed: null
+      highestPassed: null,
+      hoerenPlayedItemTitle: null
     };
   }
 
@@ -778,46 +1539,140 @@
   // 6. Running the quiz
   // ---------------------------------------------------------------
   document.getElementById('startBtn').addEventListener('click', function () {
-    currentQuiz = currentMode === 'practice' ? buildPracticeQuiz() : buildPlacementQuiz();
+    if (currentMode === 'practice') {
+      currentQuiz = buildPracticeQuiz();
+    } else if (currentMode === 'hoeren') {
+      currentQuiz = buildHoerenPracticeQuiz();
+    } else if (currentMode === 'lesen') {
+      currentQuiz = buildLesenPracticeQuiz();
+    } else {
+      currentQuiz = buildPlacementQuiz();
+    }
     if (!currentQuiz) return;
     document.getElementById('setupScreen').classList.add('hidden');
     document.getElementById('quizScreen').classList.remove('hidden');
     renderQuestion();
   });
 
+  function buildHoerenPracticeQuiz() {
+    var questions = buildHoerenPracticeQuestions(selectedHoerenLevel);
+    if (!questions.length) { alert('Keine Hörtexte für dieses Niveau gefunden. / No listening texts found for this level.'); return null; }
+    return { mode: 'hoeren-practice', questions: questions, index: 0, correctCount: 0, hoerenPlayedItemTitle: null };
+  }
+
+  function buildLesenPracticeQuiz() {
+    var questions = buildLesenPracticeQuestions(selectedLesenLevel);
+    if (!questions.length) { alert('Keine Lesetexte für dieses Niveau gefunden. / No reading texts found for this level.'); return null; }
+    return { mode: 'lesen-practice', questions: questions, index: 0, correctCount: 0 };
+  }
+
   function renderQuestion() {
     var q = currentQuiz.questions[currentQuiz.index];
-    document.getElementById('promptMeta').textContent =
-      q.word.level + (q.word.register ? ' · ' + q.word.register : '');
-
-    // Explicit language badge on the prompt itself — the direction label in
-    // promptMeta alone ("Deutsch → English") was easy to skim past, which is
-    // likely why a shown word/answer pair could read as ambiguous about
-    // which language was which at a glance. Uses real SVG flags rather than
-    // flag emoji — Chrome on Windows renders 🇩🇪/🇬🇧 as plain "DE"/"GB" text
-    // instead of an actual flag on many systems, since Windows historically
-    // lacks the regional-indicator flag glyphs that emoji fonts on
-    // Mac/mobile provide.
-    var FLAG_DE = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 5 3" style="margin-right:4px;border-radius:2px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>';
-    var FLAG_GB = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 60 40" style="margin-right:4px;border-radius:2px" aria-hidden="true"><rect width="60" height="40" fill="#00247d"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#cf142b" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#cf142b" stroke-width="8"/></svg>';
-
-    var badge = document.getElementById('promptLangBadge');
-    if (q.direction === 'de-en') {
-      badge.innerHTML = FLAG_DE + 'Deutsch';
-      badge.style.background = '#1d4ed8';
-    } else {
-      badge.innerHTML = FLAG_GB + 'English';
-      badge.style.background = '#0f766e';
-    }
-
-    document.getElementById('promptWord').textContent = q.prompt;
 
     var pct = Math.round((currentQuiz.index / currentQuiz.questions.length) * 100);
     document.getElementById('quizProgressBar').style.width = pct + '%';
     document.getElementById('quizProgressText').textContent =
       'Frage ' + (currentQuiz.index + 1) + ' / ' + currentQuiz.questions.length;
 
-    // Build the 4 option buttons fresh for each question — lettered A–D,
+    var vocabCard = document.getElementById('vocabPromptCard');
+    var lesenPanel = document.getElementById('lesenPanel');
+    var hoerenPanel = document.getElementById('hoerenPanel');
+    vocabCard.classList.add('hidden');
+    lesenPanel.classList.add('hidden');
+    hoerenPanel.classList.add('hidden');
+
+    var optionsLocked = false; // set true only for a fresh, unplayed Hören item
+
+    if (q.kind === 'lesen') {
+      lesenPanel.classList.remove('hidden');
+      document.getElementById('lesenMeta').textContent = q.level + ' · Leseverstehen';
+      document.getElementById('lesenTitle').textContent = q.itemTitle + (q.itemTag ? ' — ' + q.itemTag : '');
+      var passageEl = document.getElementById('lesenPassageCard');
+      passageEl.innerHTML = '';
+      q.passage.forEach(function (para) {
+        var p = document.createElement('p');
+        p.textContent = para;
+        passageEl.appendChild(p);
+      });
+      document.getElementById('lesenQuestionText').textContent = q.prompt;
+
+    } else if (q.kind === 'hoeren') {
+      hoerenPanel.classList.remove('hidden');
+      document.getElementById('hoerenMeta').textContent = q.level + ' · Hörverstehen';
+      document.getElementById('hoerenTitle').textContent = q.itemTitle;
+      document.getElementById('hoerenQuestionText').textContent = q.prompt;
+
+      var playBtn = document.getElementById('placementPlayBtn');
+      // Track "played" per ITEM (by title), not per level — a full practice
+      // session moves through several different listening texts in
+      // sequence, and each one needs its own fresh one-shot lock. The
+      // placement test's single-item-per-level case still works correctly
+      // here too, since it just never changes itemTitle within a level.
+      var isFirstQuestionOfItem = currentQuiz.hoerenPlayedItemTitle !== q.itemTitle;
+
+      if (isFirstQuestionOfItem) {
+        optionsLocked = true;
+        playBtn.disabled = false;
+        playBtn.classList.remove('playing');
+        playBtn.innerHTML = '🔊';
+        document.getElementById('hoerenPlayStatus').textContent = 'Klicken Sie, um den Text einmal zu hören / Click to hear the text once';
+        playBtn.onclick = function () {
+          if (playBtn.disabled) return;
+          playBtn.disabled = true;
+          playBtn.classList.add('playing');
+          document.getElementById('hoerenPlayStatus').textContent = '▶️ Wird abgespielt... / Playing...';
+
+          function unlock() {
+            currentQuiz.hoerenPlayedItemTitle = q.itemTitle;
+            playBtn.classList.remove('playing');
+            playBtn.innerHTML = '✅';
+            document.getElementById('hoerenPlayStatus').textContent = 'Text wurde vorgelesen. Beantworten Sie jetzt die Fragen. / Now answer the questions.';
+            document.querySelectorAll('#optionsContainer .option-btn').forEach(function (b) { b.disabled = false; });
+          }
+
+          if (!synth) { unlock(); return; }
+          synth.cancel();
+          var utter = new SpeechSynthesisUtterance(q.script);
+          utter.lang = 'de-DE';
+          utter.rate = 0.95;
+          var voices = synth.getVoices();
+          for (var i = 0; i < voices.length; i++) {
+            if (voices[i].lang.indexOf('de') === 0) { utter.voice = voices[i]; break; }
+          }
+          utter.onend = unlock;
+          utter.onerror = unlock;
+          synth.speak(utter);
+        };
+      } else {
+        // Same Hören item, a later sub-question — the audio was already
+        // played once for this item, so options start unlocked directly.
+        playBtn.disabled = true;
+        playBtn.innerHTML = '✅';
+        document.getElementById('hoerenPlayStatus').textContent = 'Text wurde bereits vorgelesen. / Text was already played.';
+      }
+
+    } else {
+      // vocab (default)
+      vocabCard.classList.remove('hidden');
+      document.getElementById('promptMeta').textContent =
+        q.level + (q.word && q.word.register ? ' · ' + q.word.register : '');
+
+      // Explicit language badge — real SVG flags, not emoji (Chrome/Windows
+      // renders 🇩🇪/🇬🇧 as plain "DE"/"GB" text on many systems).
+      var FLAG_DE = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 5 3" style="margin-right:4px;border-radius:2px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>';
+      var FLAG_GB = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 60 40" style="margin-right:4px;border-radius:2px" aria-hidden="true"><rect width="60" height="40" fill="#00247d"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#cf142b" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#cf142b" stroke-width="8"/></svg>';
+      var badge = document.getElementById('promptLangBadge');
+      if (q.direction === 'de-en') {
+        badge.innerHTML = FLAG_DE + 'Deutsch';
+        badge.style.background = '#1d4ed8';
+      } else {
+        badge.innerHTML = FLAG_GB + 'English';
+        badge.style.background = '#0f766e';
+      }
+      document.getElementById('promptWord').textContent = q.prompt;
+    }
+
+    // Build the option buttons fresh for each question — lettered A–D,
     // each holding one candidate answer (exactly one of which is correct).
     var container = document.getElementById('optionsContainer');
     container.innerHTML = '';
@@ -827,6 +1682,7 @@
       btn.type = 'button';
       btn.className = 'option-btn';
       btn.dataset.answer = optionText;
+      btn.disabled = optionsLocked;
       btn.innerHTML = '<span class="option-letter">' + letters[i] + '</span>' + optionText;
       btn.addEventListener('click', function () { handleOptionClick(btn, q); });
       container.appendChild(btn);
@@ -869,16 +1725,15 @@
     }
 
     if (currentQuiz.mode === 'placement') {
-      var lvl = q.word.level;
+      // q.level works uniformly across vocab/lesen/hoeren questions now —
+      // combines all three skills into the SAME per-level pass/fail stats.
+      var lvl = q.level;
       if (!currentQuiz.perLevel[lvl]) currentQuiz.perLevel[lvl] = { correct: 0, total: 0 };
       currentQuiz.perLevel[lvl].total++;
       if (correct) currentQuiz.perLevel[lvl].correct++;
-    } else {
+    } else if (q.kind === 'vocab') {
       // Placement-test answers deliberately do NOT feed into the
-      // spaced-repetition schedule — that test is a one-off diagnostic
-      // sampling 3 words per level, not a representative study session, and
-      // recording it would create a lopsided nextDue schedule (18 words
-      // suddenly "seen" while thousands of others remain untouched).
+      // spaced-repetition schedule — see note at buildPracticeQuiz/handlePlacementLevelComplete.
       recordAnswer(q.word, correct);
     }
 
@@ -891,11 +1746,48 @@
 
   document.getElementById('nextBtn').addEventListener('click', function () {
     currentQuiz.index++;
-    if (currentQuiz.index >= currentQuiz.questions.length) {
-      finishQuiz();
-    } else {
+    if (currentQuiz.index < currentQuiz.questions.length) {
       renderQuestion();
+      return;
     }
+
+    if (currentQuiz.mode === 'practice' || currentQuiz.mode === 'hoeren-practice' || currentQuiz.mode === 'lesen-practice') {
+      finishQuiz();
+      return;
+    }
+
+    // Placement mode: current phase's questions are done — advance through
+    // vocab -> lesen -> hoeren before evaluating this level's pass/fail.
+    // A level not having Lesen/Hören content (shouldn't happen given all 6
+    // levels are populated, but guarded anyway) just skips that phase.
+    if (currentQuiz.phase === 'vocab') {
+      var level = LEVELS[currentQuiz.levelIndex];
+      var lesenQs = buildLesenQuestions(level);
+      if (lesenQs.length) {
+        currentQuiz.phase = 'lesen';
+        currentQuiz.questions = lesenQs;
+        currentQuiz.index = 0;
+        renderQuestion();
+        return;
+      }
+      currentQuiz.phase = 'lesen'; // fall through to hoeren check below
+    }
+    if (currentQuiz.phase === 'lesen') {
+      var level2 = LEVELS[currentQuiz.levelIndex];
+      var hoerenQs = buildHoerenQuestions(level2);
+      if (hoerenQs.length) {
+        currentQuiz.phase = 'hoeren';
+        currentQuiz.questions = hoerenQs;
+        currentQuiz.index = 0;
+        currentQuiz.hoerenPlayedItemTitle = null;
+        renderQuestion();
+        return;
+      }
+      currentQuiz.phase = 'hoeren'; // fall through to evaluation below
+    }
+    // phase === 'hoeren' (or fell through with no content) — this level's
+    // full vocab+lesen+hoeren battery is complete, evaluate pass/fail.
+    finishQuiz();
   });
 
   // ---------------------------------------------------------------
@@ -903,10 +1795,12 @@
   // ---------------------------------------------------------------
   function finishQuiz() {
     document.getElementById('quizScreen').classList.add('hidden');
-    if (currentQuiz.mode === 'practice') {
-      showPracticeResults();
-    } else {
+    if (currentQuiz.mode === 'placement') {
       handlePlacementLevelComplete();
+    } else {
+      // practice / hoeren-practice / lesen-practice all share the same
+      // simple linear results screen — no level-advance machinery.
+      showPracticeResults();
     }
   }
 
@@ -925,9 +1819,10 @@
     document.getElementById('setupScreen').classList.remove('hidden');
   });
 
-  // Called after finishing the current level's 18 questions. Decides
-  // whether to advance to the next level (passed, and not already at C2),
-  // or stop the test here (failed this level, or just cleared C2).
+  // Called after finishing the current level's FULL battery — vocab, then
+  // Lesen, then Hören. Decides whether to advance to the next level (passed,
+  // and not already at C2), or stop the test here (failed this level, or
+  // just cleared C2).
   function handlePlacementLevelComplete() {
     var level = LEVELS[currentQuiz.levelIndex];
     var stats = currentQuiz.perLevel[level] || { correct: 0, total: 0 };
@@ -942,8 +1837,10 @@
       var nextLevel = LEVELS[currentQuiz.levelIndex + 1];
       showLevelTransition(level, nextLevel, stats, function () {
         currentQuiz.levelIndex++;
+        currentQuiz.phase = 'vocab';
         currentQuiz.questions = buildLevelQuestionSet(nextLevel);
         currentQuiz.index = 0;
+        currentQuiz.hoerenPlayedItemTitle = null;
         document.getElementById('quizScreen').classList.remove('hidden');
         renderQuestion();
       });

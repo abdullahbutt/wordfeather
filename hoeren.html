@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="de" data-bs-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hörverstehen-Übungen — WordFeather. Original-Übungen im Goethe-Prüfungsformat für A1 bis C2.">
+<meta name="theme-color" content="#1d4ed8">
+<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-title" content="WordFeather">
+<title>Hörverstehen — WordFeather</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  :root { --accent: #1d4ed8; --accent-soft: #eef2ff; --good: #16a34a; --bad: #dc2626; }
+  body { background: #f8fafc; }
+  [data-bs-theme="dark"] body { background: #0f172a; }
+
+  .level-check {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 3.2rem; height: 3.2rem; border-radius: 0.75rem;
+    border: 2px solid #e2e8f0; font-weight: 700; cursor: pointer;
+    user-select: none; transition: all .15s ease; background: #fff;
+  }
+  [data-bs-theme="dark"] .level-check { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+  .level-check.active { border-color: var(--accent); background: var(--accent); color: #fff; }
+
+  .quiz-card { max-width: 720px; margin: 0 auto; }
+
+  .play-btn {
+    width: 5rem; height: 5rem; border-radius: 50%;
+    border: none; background: var(--accent); color: #fff;
+    font-size: 2rem; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto; cursor: pointer; transition: all .15s ease;
+    box-shadow: 0 4px 14px rgba(29,78,216,.35);
+  }
+  .play-btn:hover:not(:disabled) { transform: scale(1.05); }
+  .play-btn:disabled { background: #94a3b8; box-shadow: none; cursor: not-allowed; }
+  .play-btn.playing { animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(29,78,216,.4); } 50% { box-shadow: 0 0 0 14px rgba(29,78,216,0); } }
+
+  .play-status { text-align: center; font-size: .85rem; color: #64748b; margin-top: .6rem; }
+
+  .option-btn {
+    text-align: left; padding: .85rem 1.1rem; border-radius: .65rem;
+    border: 2px solid #e2e8f0; background: #fff; font-size: 1.02rem;
+    transition: all .12s ease; width: 100%;
+  }
+  [data-bs-theme="dark"] .option-btn { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+  .option-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+  [data-bs-theme="dark"] .option-btn:hover:not(:disabled) { background: #1e3a5f; }
+  .option-btn:disabled { cursor: not-allowed; opacity: .55; }
+  .option-btn.correct-choice { border-color: var(--good); background: #dcfce7; color: #166534; font-weight: 600; opacity: 1; }
+  .option-btn.incorrect-choice { border-color: var(--bad); background: #fee2e2; color: #991b1b; font-weight: 600; opacity: 1; }
+  [data-bs-theme="dark"] .option-btn.correct-choice { background: #052e16; color: #86efac; }
+  [data-bs-theme="dark"] .option-btn.incorrect-choice { background: #450a0a; color: #fca5a5; }
+
+  .locked-note {
+    text-align: center; font-size: .85rem; color: #94a3b8;
+    border: 1px dashed #cbd5e1; border-radius: .5rem; padding: .6rem;
+  }
+
+  .score-ring {
+    width: 140px; height: 140px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; font-weight: 800; margin: 0 auto;
+  }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+<script>
+(function () {
+    var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-bs-theme', saved);
+
+    var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="/index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="/index.html" id="nav-home">Home</a></li><li class="nav-item"><a class="nav-link" href="/dictionary.html">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link" href="/quiz.html">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link active" href="/hoeren.html">🎧 Hören</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+    function renderHeader(html) {
+        html = html.replace(/BASE\//g, '/');
+        document.getElementById('header-placeholder').innerHTML = html;
+        var btn = document.getElementById('themeToggle');
+        if (btn) {
+            function syncBtn() {
+                var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+            }
+            syncBtn();
+            btn.addEventListener('click', function () {
+                var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-bs-theme', next);
+                localStorage.setItem('theme', next);
+                syncBtn();
+            });
+        }
+    }
+
+    fetch('/header.html')
+        .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+        .then(function (html) { renderHeader(html); })
+        .catch(function () { renderHeader(headerFallback); });
+})();
+</script>
+
+<main class="container py-4">
+
+  <p class="mb-4"><a href="/index.html">Home</a> <span class="text-muted">/</span> <span class="text-muted">Hören</span></p>
+
+  <!-- ============ SCREEN 1: Level selection ============ -->
+  <section id="setupScreen">
+    <div class="text-center mb-4">
+      <h1 class="h3">🎧 Hörverstehen</h1>
+      <p class="text-muted">Original-Übungen im Goethe-Prüfungsformat. Jeder Text wird nur <strong>einmal</strong> vorgelesen — genau wie in der echten Prüfung.</p>
+    </div>
+
+    <div class="card quiz-card">
+      <div class="card-body p-4">
+        <label class="form-label fw-semibold">Niveau auswählen / Choose a level</label>
+        <div class="d-flex gap-2 flex-wrap mb-4" id="levelChecks"></div>
+        <div id="levelInfo" class="alert alert-info small"></div>
+        <button class="btn btn-primary btn-lg w-100" id="startBtn">Hörverstehen starten →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2: Active listening item ============ -->
+  <section id="itemScreen" class="hidden">
+    <div class="quiz-card">
+      <div class="progress mb-3" style="height:6px;">
+        <div class="progress-bar bg-primary" id="itemProgressBar" style="width:0%"></div>
+      </div>
+      <p class="text-center text-muted small mb-4" id="itemProgressText">Text 1 / 6</p>
+
+      <div class="card p-4 mb-3 text-center">
+        <p class="text-muted small mb-1" id="itemMeta">A1 · Teil 1</p>
+        <h2 class="h5 mb-3" id="itemTitle">Dialog 1: Am Telefon</h2>
+        <button class="play-btn" id="playBtn" aria-label="Text anhören">🔊</button>
+        <p class="play-status" id="playStatus">Klicken Sie, um den Text einmal zu hören / Click to hear the text once</p>
+      </div>
+
+      <div id="questionsContainer"></div>
+
+      <button class="btn btn-primary btn-lg w-100 mt-2 hidden" id="nextItemBtn">Weiter / Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 3: Results ============ -->
+  <section id="resultsScreen" class="hidden">
+    <div class="quiz-card text-center">
+      <div class="card p-4">
+        <h2 class="h4 mb-4">Ergebnis / Result</h2>
+        <div class="score-ring bg-primary-subtle text-primary mb-3" id="scoreRing">0%</div>
+        <p class="mb-4" id="scoreDetail">0 von 0 richtig</p>
+        <div class="d-flex gap-2 justify-content-center flex-wrap">
+          <button class="btn btn-primary" id="retryBtn">Nochmal üben →</button>
+          <a href="/quiz.html" class="btn btn-outline-secondary">Zum Vokabel-Quiz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script>
+(function() {
+    var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div></div></div></footer>';
+    fetch('/footer.html?v=' + Date.now())
+        .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+        .then(function(html) { html = html.replace(/BASE\//g, '/'); document.getElementById('footer-placeholder').innerHTML = html; })
+        .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // =================================================================
+  // DATA — original exercises written in Goethe exam FORMAT (task
+  // types, timing, difficulty curve). None of this is copied from any
+  // actual Goethe-Institut or telc exam paper — those are copyrighted
+  // and were deliberately NOT used. This is WordFeather's own content,
+  // modeled on the publicly-documented exam structure only.
+  // =================================================================
+  var LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+  var LEVEL_INFO = {
+    'A1': '6 Hörtexte · Teil 1–3 · Jeder Text wird einmal gespielt.',
+    'A2': '3 Hörtexte · Alltagssituationen · Jeder Text wird einmal gespielt.',
+    'B1': '3 Hörtexte · Gespräche & Vortrag · Jeder Text wird einmal gespielt.',
+    'B2': '2 Hörtexte · Interview & Diskussion · Jeder Text wird einmal gespielt.',
+    'C1': '2 Hörtexte · Dialog & Podiumsdiskussion · Jeder Text wird einmal gespielt.',
+    'C2': '2 Hörtexte · Vortrag & Debatte · Jeder Text wird einmal gespielt.'
+  };
+
+  function tf(text, answer) {
+    return { type: 'mc', text: text, options: ['Richtig', 'Falsch'], answerIndex: answer ? 0 : 1 };
+  }
+  function mc(text, options, answerIndex) {
+    return { type: 'mc', text: text, options: options, answerIndex: answerIndex };
+  }
+
+  var DATA = {
+    A1: [
+      {
+        title: 'Dialog 1: Am Telefon', part: 'Teil 1',
+        script: 'Praxis Doktor Klein, guten Tag! Guten Tag, hier ist Frau Yilmaz. Ich möchte einen Termin machen. Ja, gerne. Wie wäre es am Donnerstag um 10 Uhr? Donnerstag geht leider nicht. Geht es auch am Freitag? Am Freitag um 11 Uhr? Ja, das passt. Vielen Dank!',
+        questions: [
+          tf('Frau Yilmaz ruft beim Arzt an.', true),
+          tf('Sie bekommt einen Termin am Donnerstag.', false),
+          tf('Der Termin ist am Freitag um 11 Uhr.', true)
+        ]
+      },
+      {
+        title: 'Dialog 2: Am Bahnhof', part: 'Teil 1',
+        script: 'Entschuldigung, wann fährt der nächste Zug nach Hamburg? Der nächste Zug fährt um 14:35 Uhr von Gleis 8. Und wann kommt er in Hamburg an? Um 16:50 Uhr. Was kostet eine Fahrkarte? Einfach oder hin und zurück? Einfach, bitte. Das macht 45 Euro.',
+        questions: [
+          mc('Wohin will die Person fahren?', ['Nach Hamburg', 'Nach Berlin', 'Nach München', 'Nach Köln'], 0),
+          mc('Um wie viel Uhr fährt der Zug?', ['14:35 Uhr', '13:35 Uhr', '15:35 Uhr', '16:50 Uhr'], 0),
+          mc('Von welchem Gleis?', ['Gleis 8', 'Gleis 3', 'Gleis 5', 'Gleis 10'], 0),
+          mc('Wie viel kostet die Fahrkarte?', ['45 Euro', '35 Euro', '55 Euro', '40 Euro'], 0)
+        ]
+      },
+      {
+        title: 'Hörtext 1: Telefonansage', part: 'Teil 2',
+        script: 'Sie haben die Arztpraxis Doktor Müller erreicht. Die Praxis ist von Montag bis Freitag von 8 bis 12 Uhr und von 14 bis 17 Uhr geöffnet. Am Mittwochnachmittag ist die Praxis geschlossen. In dringenden Fällen rufen Sie bitte die Notfallnummer 112 an.',
+        questions: [
+          mc('Wann ist die Praxis morgens geöffnet?', ['Von 8 bis 12 Uhr', 'Von 9 bis 13 Uhr', 'Von 7 bis 11 Uhr', 'Von 8 bis 13 Uhr'], 0),
+          mc('Wann ist die Praxis nachmittags geschlossen?', ['Am Mittwochnachmittag', 'Am Montagnachmittag', 'Am Freitagnachmittag', 'Am Dienstagnachmittag'], 0),
+          mc('Welche Nummer ruft man im Notfall an?', ['112', '110', '911', '115'], 0)
+        ]
+      },
+      {
+        title: 'Hörtext 2: Wetterbericht', part: 'Teil 2',
+        script: 'Der Wetterbericht für heute: Am Vormittag scheint die Sonne bei Temperaturen um 15 Grad. Am Nachmittag wird es bewölkt und am Abend kann es regnen. Morgen wird es den ganzen Tag sonnig und warm.',
+        questions: [
+          tf('Am Vormittag scheint die Sonne.', true),
+          tf('Es wird den ganzen Tag sonnig.', false),
+          tf('Morgen regnet es.', false)
+        ]
+      },
+      {
+        title: 'Durchsage 1: Am Bahnhof', part: 'Teil 3',
+        script: 'Achtung auf Gleis 3: Der ICE 574 nach München über Nürnberg hat eine Verspätung von 15 Minuten. Voraussichtliche Abfahrt: 10:45 Uhr.',
+        questions: [
+          mc('Welcher Zug hat Verspätung?', ['ICE 574', 'ICE 475', 'ICE 754', 'RE 574'], 0),
+          mc('Wie viel Verspätung hat er?', ['15 Minuten', '5 Minuten', '30 Minuten', '45 Minuten'], 0),
+          mc('Von welchem Gleis fährt der Zug?', ['Gleis 3', 'Gleis 8', 'Gleis 1', 'Gleis 5'], 0)
+        ]
+      },
+      {
+        title: 'Durchsage 2: Im Kaufhaus', part: 'Teil 3',
+        script: 'Liebe Kunden, heute haben wir ein Sonderangebot: Alle Winterjacken sind um 30 Prozent reduziert. Sie finden die Winterjacken in der 2. Etage. Das Angebot gilt nur heute.',
+        questions: [
+          mc('Was ist im Sonderangebot?', ['Winterjacken', 'Sommerkleider', 'Schuhe', 'Handschuhe'], 0),
+          mc('Wie viel Prozent Rabatt gibt es?', ['30%', '20%', '50%', '15%'], 0),
+          mc('In welcher Etage?', ['2. Etage', '1. Etage', '3. Etage', 'Erdgeschoss'], 0),
+          mc('Wie lange gilt das Angebot?', ['Nur heute', 'Diese Woche', 'Bis Samstag', 'Den ganzen Monat'], 0)
+        ]
+      }
+    ],
+    A2: [
+      {
+        title: 'Hörtext 1: Zahnarzt (Anrufbeantworter)', part: 'Teil 1',
+        script: 'Guten Tag, hier ist die Zahnarztpraxis Doktor Hoffmann. Leider müssen wir Ihren Termin am Dienstag um 14 Uhr absagen, weil Herr Doktor Hoffmann erkrankt ist. Wir bieten Ihnen als neuen Termin Donnerstag um 10 Uhr an. Bitte rufen Sie zurück.',
+        questions: [
+          mc('Warum wird der Termin abgesagt?', ['Dr. Hoffmann ist krank', 'Die Praxis ist geschlossen', 'Der Patient hat abgesagt', 'Es gibt einen Notfall'], 0),
+          mc('Wann ist der neue Termin?', ['Donnerstag um 10 Uhr', 'Dienstag um 14 Uhr', 'Freitag um 10 Uhr', 'Donnerstag um 14 Uhr'], 0)
+        ]
+      },
+      {
+        title: 'Hörtext 3: Supermarkt (Durchsage)', part: 'Teil 2',
+        script: 'Liebe Kunden, heute haben wir besondere Angebote: Frische Erdbeeren, 500 Gramm nur 1,99 Euro. Außerdem alle Joghurts 20 Prozent günstiger. Die Angebote gelten bis Samstag.',
+        questions: [
+          tf('Die Erdbeeren kosten 1,99 Euro pro Kilo.', false),
+          tf('Joghurts sind diese Woche billiger.', true),
+          tf('Die Angebote gelten nur heute.', false)
+        ]
+      },
+      {
+        title: 'Dialog 1: Wohnung mieten', part: 'Teil 3',
+        script: 'Guten Tag, ich rufe wegen der Wohnungsanzeige an. Ja, die Wohnung ist noch frei. 2 Zimmer mit Balkon, 55 Quadratmeter im 3. Stock mit Einbauküche. Was kostet sie? 520 Euro kalt plus 150 Euro Nebenkosten. Kann ich besichtigen? Mittwoch um 16 Uhr? Ja, gerne. Bis dann!',
+        questions: [
+          mc('Wie viele Zimmer?', ['2 Zimmer', '1 Zimmer', '3 Zimmer', '4 Zimmer'], 0),
+          mc('Gesamtkosten?', ['670 Euro', '520 Euro', '150 Euro', '700 Euro'], 0),
+          mc('Wann ist die Besichtigung?', ['Mittwoch um 16 Uhr', 'Dienstag um 16 Uhr', 'Mittwoch um 14 Uhr', 'Donnerstag um 16 Uhr'], 0)
+        ]
+      }
+    ],
+    B1: [
+      {
+        title: 'Dialog: Ernährung', part: 'Teil 1',
+        script: 'Seit ich mich vegetarisch ernähre, fühle ich mich viel besser. Wie lange machst du das schon? Seit ungefähr drei Monaten. Am Anfang war es schwer. Und jetzt vermisst du nichts? Nein, gar nicht. Und ich habe sogar abgenommen.',
+        questions: [
+          tf('Sie ernährt sich seit einem Jahr vegetarisch.', false),
+          tf('Am Anfang war es einfach.', false),
+          tf('Sie fühlt sich jetzt besser.', true)
+        ]
+      },
+      {
+        title: 'Dialog: Berufliche Veränderung', part: 'Teil 3',
+        script: 'Ich habe mich entschieden, meinen Job zu kündigen. Was? Aber du arbeitest erst seit zwei Jahren dort! Die Arbeit ist langweilig und mein Chef ist schwierig. Ich mache eine Weiterbildung in Webdesign. Hast du genug gespart? Ja, und die Weiterbildung dauert nur sechs Monate. Viel Erfolg! Ich drücke dir die Daumen.',
+        questions: [
+          mc('Warum kündigt die Person?', ['Langweilige Arbeit und schwieriger Chef', 'Zu wenig Gehalt', 'Zu weiter Arbeitsweg', 'Gesundheitliche Probleme'], 0),
+          mc('Was hat die Person vor?', ['Weiterbildung in Webdesign', 'Studium beginnen', 'Ins Ausland gehen', 'Ein eigenes Geschäft eröffnen'], 0),
+          mc('Wie lange dauert die Weiterbildung?', ['Sechs Monate', 'Drei Monate', 'Ein Jahr', 'Zwölf Monate'], 0)
+        ]
+      },
+      {
+        title: 'Vortrag: Ehrenamtliches Engagement', part: 'Teil 4',
+        script: 'In Deutschland engagieren sich rund 30 Millionen Menschen ehrenamtlich — etwa 40 Prozent der Bevölkerung über 14 Jahre. Die meisten sind im Sportbereich aktiv. Gründe: etwas für die Gesellschaft tun, neue Leute kennenlernen, Erfahrungen sammeln. Problem: Es wird schwieriger, Freiwillige zu finden.',
+        questions: [
+          tf('40 Prozent der Deutschen über 14 sind ehrenamtlich aktiv.', true),
+          tf('Am meisten engagieren sich Menschen im Bereich Musik.', false),
+          tf('Es wird leichter, Freiwillige zu finden.', false)
+        ]
+      }
+    ],
+    B2: [
+      {
+        title: 'Interview: Ehrenamt (Dr. Becker)', part: 'Teil 1',
+        script: 'Frau Doktor Becker, Sie forschen seit Jahren zum Thema ehrenamtliches Engagement. Was hat sich in den letzten Jahren verändert? Die Art des Engagements hat sich stark gewandelt. Früher haben sich Menschen langfristig an einen Verein gebunden. Heute sehen wir einen Trend zum projektbezogenen Engagement. Junge Menschen möchten sich zwar einbringen, aber nicht jahrelang an eine Organisation gebunden sein. Welche Folgen hat das? Einerseits ist die Flexibilität ein Vorteil — mehr Menschen beteiligen sich. Andererseits fehlt den Organisationen die Planungssicherheit. Was müsste sich ändern? Organisationen müssen sich anpassen. Sie sollten flexiblere Möglichkeiten anbieten, sich zu engagieren. Auch digitale Formate könnten helfen.',
+        questions: [
+          mc('Was hat sich verändert?', ['Vom langfristigen zum projektbezogenen Engagement', 'Ehrenamt ist komplett verschwunden', 'Nur ältere Menschen engagieren sich noch', 'Es gibt keine Vereine mehr'], 0),
+          mc('Was ist ein Problem für Organisationen?', ['Fehlende Planungssicherheit', 'Zu viele Freiwillige', 'Zu hohe Kosten', 'Mangelnde staatliche Unterstützung'], 0),
+          mc('Was empfiehlt Dr. Becker?', ['Flexiblere Möglichkeiten und digitale Formate', 'Höhere Mitgliedsbeiträge', 'Strengere Regeln für Freiwillige', 'Weniger Vereine gründen'], 0)
+        ]
+      },
+      {
+        title: 'Diskussion: Bedingungsloses Grundeinkommen', part: 'Teil 4',
+        script: 'Person A sagt: Ich bin fest davon überzeugt, dass ein bedingungsloses Grundeinkommen die richtige Antwort auf die Herausforderungen der Digitalisierung ist. Wenn Maschinen immer mehr Arbeit übernehmen, brauchen die Menschen ein Sicherheitsnetz. Person B sagt: Das klingt ja schön, aber wer soll das bezahlen? Die Steuerlast wäre enorm. Außerdem befürchte ich, dass viele Menschen dann gar nicht mehr arbeiten würden. Person C sagt: Ich sehe das differenzierter. Ein Grundeinkommen für alle halte ich für unrealistisch, aber ein Modell, das besonders gefährdete Gruppen unterstützt, könnte sinnvoll sein.',
+        questions: [
+          mc('Wie steht Person A zum Grundeinkommen?', ['Eindeutig dafür', 'Eindeutig dagegen', 'Neutral', 'Unentschieden'], 0),
+          mc('Wie steht Person B?', ['Eindeutig dagegen', 'Eindeutig dafür', 'Neutral', 'Unentschieden'], 0),
+          mc('Wie steht Person C?', ['Teilweise dafür, differenziert', 'Eindeutig dagegen', 'Komplett neutral', 'Eindeutig dafür ohne Einschränkung'], 0)
+        ]
+      }
+    ],
+    C1: [
+      {
+        title: 'Dialog: Karrierewechsel', part: 'Teil 1',
+        script: 'Sag mal, stimmt es, dass du deinen Job an der Uni aufgibst? Ja, ich habe lange darüber nachgedacht. Die akademische Laufbahn hat mich zunehmend frustriert. Der Druck, ständig zu publizieren, die befristeten Verträge, die Unsicherheit — das will ich mir nicht mehr antun. Aber du hast doch gerade erst deine Habilitation abgeschlossen! Wirfst du das nicht alles weg? So sehe ich das nicht. Die Kompetenzen, die ich mir angeeignet habe, sind auch außerhalb der Universität gefragt. Ich fange nächsten Monat bei einer Unternehmensberatung an. Und du hast kein schlechtes Gewissen? Anfangs schon. Aber letztlich muss jeder für sich selbst entscheiden, wo er seine Stärken am besten einsetzen kann.',
+        questions: [
+          mc('Warum gibt die Person die akademische Karriere auf?', ['Frustration über Publikationsdruck, befristete Verträge, Unsicherheit', 'Zu niedriges Gehalt', 'Konflikt mit dem Professor', 'Umzug in eine andere Stadt'], 0),
+          mc('Was beginnt die Person nächsten Monat?', ['Stelle bei einer Unternehmensberatung', 'Ein neues Studium', 'Eine eigene Firma', 'Eine Stelle an einer anderen Uni'], 0),
+          mc('Hatte die Person anfangs Bedenken?', ['Ja, ein schlechtes Gewissen', 'Nein, gar keine', 'Ja, finanzielle Sorgen', 'Ja, Angst vor dem Scheitern'], 0)
+        ]
+      },
+      {
+        title: 'Podiumsdiskussion: Grundeinkommen', part: 'Teil 3',
+        script: 'Person A sagt: Es gibt keinerlei empirische Evidenz für die Finanzierbarkeit. Person B sagt: Unter bestimmten Bedingungen könnte ein modifiziertes Modell funktionieren. Person C sagt: Die Würde des Menschen erfordert materielle Absicherung.',
+        questions: [
+          mc('Wer sagt: "Die Würde des Menschen erfordert materielle Absicherung"?', ['Person C', 'Person A', 'Person B', 'Der Moderator'], 0),
+          mc('Wer sagt: "Es gibt keinerlei empirische Evidenz für die Finanzierbarkeit"?', ['Person A', 'Person B', 'Person C', 'Der Moderator'], 0),
+          mc('Wer vertritt eine differenzierte, bedingte Position?', ['Person B', 'Person A', 'Person C', 'Keiner'], 0)
+        ]
+      }
+    ],
+    C2: [
+      {
+        title: 'Vortrag: Spracherwerb und kognitive Entwicklung', part: 'Teil 1',
+        script: 'Meine sehr verehrten Damen und Herren, ich möchte heute über den Zusammenhang zwischen Spracherwerb und kognitiver Entwicklung sprechen. Es ist ein weit verbreiteter Irrtum, dass Sprache lediglich ein Kommunikationsinstrument ist. Sprache formt unser Denken — diese These, bekannt als Sapir-Whorf-Hypothese, mag in ihrer deterministischen Variante überholt sein, doch in ihrer relativistischen Ausprägung wird sie durch zahlreiche Studien gestützt. Sprecher von Sprachen mit einem differenzierten Farbvokabular können feine Farbunterschiede nachweislich schneller identifizieren. Das Russische etwa unterscheidet lexikalisch zwischen Hellblau und Dunkelblau. Bilinguale Menschen zeigen in zahlreichen Studien eine erhöhte kognitive Flexibilität und eine verzögerte Manifestation altersbedingter kognitiver Einschränkungen. Allerdings handelt es sich um Korrelationen, nicht um nachgewiesene Kausalitäten. Es wäre unwissenschaftlich, daraus voreilige Schlüsse zu ziehen.',
+        questions: [
+          tf('Die Sapir-Whorf-Hypothese gilt in ihrer radikalen Form als bestätigt.', false),
+          tf('Russische Muttersprachler unterscheiden Blautöne schneller.', true),
+          tf('Bilingualismus kann altersbedingte kognitive Einschränkungen komplett verhindern.', false),
+          tf('Der Sprecher warnt vor voreiligen Kausalschlüssen.', true)
+        ]
+      },
+      {
+        title: 'Podiumsdiskussion: Staatliche Kunstförderung', part: 'Teil 2',
+        script: 'Unser Thema heute: Staatliche Kunstförderung — notwendige Investition oder Verschwendung von Steuergeldern? Professor Richter sagt: Die Frage müsste lauten: Können wir es uns leisten, Kunst nicht zu fördern? Kunst ist ein Grundpfeiler einer offenen Gesellschaft. Frau Becker sagt: Grundsätzlich stimme ich zu, allerdings muss man auch fragen, was gefördert wird und wessen Kunst. Die staatliche Förderung bevorzugt etablierte Institutionen und vernachlässigt innovative Projekte. Herr Wagner sagt: Ich sehe das pragmatischer. Warum sollte der Steuerzahler für eine Oper bezahlen, die nur von einer kleinen Elite besucht wird? Wenn Kunst relevant ist, wird sie ihren Markt finden. Professor Richter antwortet: Das ist ein gefährlicher Trugschluss. Der Markt ist kein geeignetes Instrument, um den Wert von Kunst zu bemessen.',
+        questions: [
+          mc('Wer sagt "Kunstförderung ist unverzichtbar für die Demokratie"?', ['Prof. Richter', 'Frau Becker', 'Herr Wagner', 'Der Moderator'], 0),
+          mc('Wer sagt "Die Förderung muss gerechter verteilt werden"?', ['Frau Becker', 'Prof. Richter', 'Herr Wagner', 'Der Moderator'], 0),
+          mc('Wer meint "Der Markt sollte über den Wert von Kunst entscheiden"?', ['Herr Wagner', 'Prof. Richter', 'Frau Becker', 'Der Moderator'], 0),
+          mc('Wer hält Marktlogik für Kunst ungeeignet?', ['Prof. Richter', 'Herr Wagner', 'Frau Becker', 'Der Moderator'], 0)
+        ]
+      }
+    ]
+  };
+
+  // ---------------------------------------------------------------
+  // Level tiles
+  // ---------------------------------------------------------------
+  var levelContainer = document.getElementById('levelChecks');
+  var selectedLevel = 'A1';
+
+  LEVELS.forEach(function (lvl, i) {
+    var tile = document.createElement('div');
+    tile.className = 'level-check' + (i === 0 ? ' active' : '');
+    tile.textContent = lvl;
+    tile.dataset.level = lvl;
+    tile.addEventListener('click', function () {
+      document.querySelectorAll('.level-check').forEach(function (t) { t.classList.remove('active'); });
+      tile.classList.add('active');
+      selectedLevel = lvl;
+      updateLevelInfo();
+    });
+    levelContainer.appendChild(tile);
+  });
+
+  function updateLevelInfo() {
+    document.getElementById('levelInfo').textContent = LEVEL_INFO[selectedLevel];
+  }
+  updateLevelInfo();
+
+  // ---------------------------------------------------------------
+  // Quiz state
+  // ---------------------------------------------------------------
+  var session = null; // { items, index, correctCount, answeredQuestions, totalQuestions }
+
+  document.getElementById('startBtn').addEventListener('click', function () {
+    var items = DATA[selectedLevel];
+    session = { items: items, index: 0, correctCount: 0, totalQuestions: 0 };
+    items.forEach(function (it) { session.totalQuestions += it.questions.length; });
+    document.getElementById('setupScreen').classList.add('hidden');
+    document.getElementById('itemScreen').classList.remove('hidden');
+    renderItem();
+  });
+
+  var synth = window.speechSynthesis;
+
+  function renderItem() {
+    var item = session.items[session.index];
+    document.getElementById('itemMeta').textContent = selectedLevel + ' · ' + item.part;
+    document.getElementById('itemTitle').textContent = item.title;
+
+    var pct = Math.round((session.index / session.items.length) * 100);
+    document.getElementById('itemProgressBar').style.width = pct + '%';
+    document.getElementById('itemProgressText').textContent = 'Text ' + (session.index + 1) + ' / ' + session.items.length;
+
+    var playBtn = document.getElementById('playBtn');
+    playBtn.disabled = false;
+    playBtn.classList.remove('playing');
+    playBtn.innerHTML = '🔊';
+    document.getElementById('playStatus').textContent = 'Klicken Sie, um den Text einmal zu hören / Click to hear the text once';
+
+    // Questions are visible immediately (as in the real exam — you read the
+    // questions before listening) but locked until playback finishes, and
+    // the play button itself becomes permanently disabled after one play so
+    // there is no way to hear the text a second time — matching real
+    // Hörverstehen exam conditions.
+    var qContainer = document.getElementById('questionsContainer');
+    qContainer.innerHTML = '';
+    item.questions.forEach(function (q, qi) {
+      var card = document.createElement('div');
+      card.className = 'card p-3 mb-3';
+      card.dataset.qIndex = qi;
+
+      var qText = document.createElement('p');
+      qText.className = 'fw-semibold mb-3';
+      qText.textContent = (qi + 1) + '. ' + q.text;
+      card.appendChild(qText);
+
+      var optWrap = document.createElement('div');
+      optWrap.className = 'd-grid gap-2 options-wrap';
+      q.options.forEach(function (optText, oi) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'option-btn';
+        btn.disabled = true;
+        btn.textContent = optText;
+        btn.addEventListener('click', function () { handleAnswerClick(btn, card, q, qi); });
+        optWrap.appendChild(btn);
+      });
+      card.appendChild(optWrap);
+
+      var lockNote = document.createElement('p');
+      lockNote.className = 'locked-note mb-0 mt-2 lock-note';
+      lockNote.textContent = '🔒 Erst anhören, dann antworten / Listen first, then answer';
+      card.appendChild(lockNote);
+
+      qContainer.appendChild(card);
+    });
+
+    document.getElementById('nextItemBtn').classList.add('hidden');
+
+    playBtn.onclick = function () {
+      if (playBtn.disabled) return;
+      playBtn.disabled = true; // one-shot: locked the instant it's clicked, no interrupting/replaying
+      playBtn.classList.add('playing');
+      document.getElementById('playStatus').textContent = '▶️ Wird abgespielt... / Playing...';
+
+      if (!synth) {
+        // Browser has no speech synthesis support — unlock questions anyway
+        // rather than permanently blocking the exercise.
+        unlockQuestions();
+        document.getElementById('playStatus').textContent = '⚠️ Sprachausgabe nicht verfügbar — Fragen freigeschaltet. / Speech not supported — questions unlocked.';
+        return;
+      }
+
+      synth.cancel();
+      var utter = new SpeechSynthesisUtterance(item.script);
+      utter.lang = 'de-DE';
+      utter.rate = 0.95;
+      var voices = synth.getVoices();
+      for (var i = 0; i < voices.length; i++) {
+        if (voices[i].lang.indexOf('de') === 0) { utter.voice = voices[i]; break; }
+      }
+      utter.onend = function () {
+        playBtn.classList.remove('playing');
+        playBtn.innerHTML = '✅';
+        document.getElementById('playStatus').textContent = 'Text wurde vorgelesen. Beantworten Sie jetzt die Fragen. / Text has been read. Now answer the questions.';
+        unlockQuestions();
+      };
+      utter.onerror = function () {
+        playBtn.classList.remove('playing');
+        document.getElementById('playStatus').textContent = '⚠️ Fehler bei der Sprachausgabe — Fragen freigeschaltet. / Playback error — questions unlocked.';
+        unlockQuestions();
+      };
+      synth.speak(utter);
+    };
+  }
+
+  function unlockQuestions() {
+    document.querySelectorAll('#questionsContainer .option-btn').forEach(function (b) { b.disabled = false; });
+    document.querySelectorAll('#questionsContainer .lock-note').forEach(function (n) { n.classList.add('hidden'); });
+  }
+
+  var answeredCount = 0;
+
+  function handleAnswerClick(clickedBtn, card, q, qi) {
+    if (clickedBtn.disabled) return;
+    var correct = clickedBtn.textContent === q.options[q.answerIndex];
+
+    var allBtns = card.querySelectorAll('.option-btn');
+    allBtns.forEach(function (b) {
+      b.disabled = true;
+      if (b.textContent === q.options[q.answerIndex]) {
+        b.classList.add('correct-choice');
+      } else if (b === clickedBtn) {
+        b.classList.add('incorrect-choice');
+      }
+    });
+
+    if (correct) session.correctCount++;
+    answeredCount++;
+
+    var item = session.items[session.index];
+    var totalInItem = item.questions.length;
+    var answeredInItem = card.parentElement.querySelectorAll('.option-btn:disabled').length ? null : null;
+    // Simpler: check how many question-cards in this item are fully answered
+    var cards = document.querySelectorAll('#questionsContainer .card');
+    var allAnswered = Array.prototype.every.call(cards, function (c) {
+      return c.querySelector('.option-btn:not(:disabled)') === null;
+    });
+
+    if (allAnswered) {
+      var isLast = session.index + 1 >= session.items.length;
+      var nextBtn = document.getElementById('nextItemBtn');
+      nextBtn.textContent = isLast ? 'Ergebnis anzeigen / Show results →' : 'Nächster Text / Next text →';
+      nextBtn.classList.remove('hidden');
+    }
+  }
+
+  document.getElementById('nextItemBtn').addEventListener('click', function () {
+    session.index++;
+    if (session.index >= session.items.length) {
+      finishSession();
+    } else {
+      renderItem();
+    }
+  });
+
+  function finishSession() {
+    document.getElementById('itemScreen').classList.add('hidden');
+    var pct = Math.round((session.correctCount / session.totalQuestions) * 100);
+    document.getElementById('scoreRing').textContent = pct + '%';
+    document.getElementById('scoreDetail').textContent = session.correctCount + ' von ' + session.totalQuestions + ' richtig / ' + session.correctCount + ' of ' + session.totalQuestions + ' correct';
+    document.getElementById('resultsScreen').classList.remove('hidden');
+  }
+
+  document.getElementById('retryBtn').addEventListener('click', function () {
+    document.getElementById('resultsScreen').classList.add('hidden');
+    document.getElementById('setupScreen').classList.remove('hidden');
+  });
+
+})();
+</script>
+
+</body>
+</html>

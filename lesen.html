@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="de" data-bs-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leseverstehen-Übungen — WordFeather. Original-Übungen im Goethe-Prüfungsformat für A1 bis C2.">
+<meta name="theme-color" content="#1d4ed8">
+<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-title" content="WordFeather">
+<title>Leseverstehen — WordFeather</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  :root { --accent: #1d4ed8; --accent-soft: #eef2ff; --good: #16a34a; --bad: #dc2626; }
+  body { background: #f8fafc; }
+  [data-bs-theme="dark"] body { background: #0f172a; }
+
+  .level-check {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 3.2rem; height: 3.2rem; border-radius: 0.75rem;
+    border: 2px solid #e2e8f0; font-weight: 700; cursor: pointer;
+    user-select: none; transition: all .15s ease; background: #fff;
+  }
+  [data-bs-theme="dark"] .level-check { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+  .level-check.active { border-color: var(--accent); background: var(--accent); color: #fff; }
+
+  .quiz-card { max-width: 760px; margin: 0 auto; }
+
+  .passage-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: .85rem;
+    padding: 1.25rem 1.4rem; margin-bottom: 1.25rem;
+    max-height: 340px; overflow-y: auto; line-height: 1.65;
+    position: sticky; top: 4.5rem; z-index: 5;
+  }
+  [data-bs-theme="dark"] .passage-card { background: #1e293b; border-color: #334155; }
+  .passage-card p { margin-bottom: .75rem; }
+  .passage-source-tag {
+    display: inline-block; font-size: .72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .04em; color: var(--accent);
+    background: var(--accent-soft); padding: .15rem .55rem; border-radius: 999px;
+    margin-bottom: .6rem;
+  }
+
+  .option-btn {
+    text-align: left; padding: .85rem 1.1rem; border-radius: .65rem;
+    border: 2px solid #e2e8f0; background: #fff; font-size: 1.02rem;
+    transition: all .12s ease; width: 100%;
+  }
+  [data-bs-theme="dark"] .option-btn { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+  .option-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+  [data-bs-theme="dark"] .option-btn:hover:not(:disabled) { background: #1e3a5f; }
+  .option-btn:disabled { cursor: not-allowed; }
+  .option-btn.correct-choice { border-color: var(--good); background: #dcfce7; color: #166534; font-weight: 600; opacity: 1; }
+  .option-btn.incorrect-choice { border-color: var(--bad); background: #fee2e2; color: #991b1b; font-weight: 600; opacity: 1; }
+  [data-bs-theme="dark"] .option-btn.correct-choice { background: #052e16; color: #86efac; }
+  [data-bs-theme="dark"] .option-btn.incorrect-choice { background: #450a0a; color: #fca5a5; }
+
+  .score-ring {
+    width: 140px; height: 140px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; font-weight: 800; margin: 0 auto;
+  }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 767px) {
+    .passage-card { position: static; max-height: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+<script>
+(function () {
+    var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-bs-theme', saved);
+
+    var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="/index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="/index.html" id="nav-home">Home</a></li><li class="nav-item"><a class="nav-link" href="/dictionary.html">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link" href="/quiz.html">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link" href="/hoeren.html">🎧 Hören</a></li><li class="nav-item"><a class="nav-link active" href="/lesen.html">📰 Lesen</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+    function renderHeader(html) {
+        html = html.replace(/BASE\//g, '/');
+        document.getElementById('header-placeholder').innerHTML = html;
+        var btn = document.getElementById('themeToggle');
+        if (btn) {
+            function syncBtn() {
+                var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+            }
+            syncBtn();
+            btn.addEventListener('click', function () {
+                var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-bs-theme', next);
+                localStorage.setItem('theme', next);
+                syncBtn();
+            });
+        }
+    }
+
+    fetch('/header.html')
+        .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+        .then(function (html) { renderHeader(html); })
+        .catch(function () { renderHeader(headerFallback); });
+})();
+</script>
+
+<main class="container py-4">
+
+  <p class="mb-4"><a href="/index.html">Home</a> <span class="text-muted">/</span> <span class="text-muted">Lesen</span></p>
+
+  <!-- ============ SCREEN 1: Level selection ============ -->
+  <section id="setupScreen">
+    <div class="text-center mb-4">
+      <h1 class="h3">📰 Leseverstehen</h1>
+      <p class="text-muted">Original-Übungen im Goethe-Prüfungsformat. Der Text bleibt sichtbar — Sie können jederzeit nachlesen.</p>
+    </div>
+
+    <div class="card quiz-card">
+      <div class="card-body p-4">
+        <label class="form-label fw-semibold">Niveau auswählen / Choose a level</label>
+        <div class="d-flex gap-2 flex-wrap mb-4" id="levelChecks"></div>
+        <div id="levelInfo" class="alert alert-info small"></div>
+        <button class="btn btn-primary btn-lg w-100" id="startBtn">Leseverstehen starten →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2: Active reading item ============ -->
+  <section id="itemScreen" class="hidden">
+    <div class="quiz-card">
+      <div class="progress mb-3" style="height:6px;">
+        <div class="progress-bar bg-primary" id="itemProgressBar" style="width:0%"></div>
+      </div>
+      <p class="text-center text-muted small mb-3" id="itemProgressText">Text 1 / 6</p>
+
+      <p class="text-muted small mb-1" id="itemMeta">A1 · Teil 1</p>
+      <h2 class="h5 mb-3" id="itemTitle">Text 1</h2>
+
+      <div class="passage-card" id="passageCard"></div>
+
+      <div id="questionsContainer"></div>
+
+      <button class="btn btn-primary btn-lg w-100 mt-2 hidden" id="nextItemBtn">Weiter / Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 3: Results ============ -->
+  <section id="resultsScreen" class="hidden">
+    <div class="quiz-card text-center">
+      <div class="card p-4">
+        <h2 class="h4 mb-4">Ergebnis / Result</h2>
+        <div class="score-ring bg-primary-subtle text-primary mb-3" id="scoreRing">0%</div>
+        <p class="mb-4" id="scoreDetail">0 von 0 richtig</p>
+        <div class="d-flex gap-2 justify-content-center flex-wrap">
+          <button class="btn btn-primary" id="retryBtn">Nochmal üben →</button>
+          <a href="/hoeren.html" class="btn btn-outline-secondary">Zum Hörverstehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script>
+(function() {
+    var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div></div></div></footer>';
+    fetch('/footer.html?v=' + Date.now())
+        .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+        .then(function(html) { html = html.replace(/BASE\//g, '/'); document.getElementById('footer-placeholder').innerHTML = html; })
+        .catch(function() { document.getElementById('footer-placeholder').innerHTML = footerFallback; });
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // =================================================================
+  // DATA — original exercises written in Goethe exam FORMAT (task
+  // types, timing, difficulty curve). None of this is copied from any
+  // actual Goethe-Institut or telc exam paper — this is WordFeather's
+  // own content, modeled on the publicly-documented exam structure.
+  // Passages support simple paragraph arrays for multi-paragraph texts.
+  // =================================================================
+  var LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+  var LEVEL_INFO = {
+    'A1': '6 Texte · Schilder, Mitteilungen, Kleinanzeigen · Text bleibt sichtbar.',
+    'A2': '3 Texte · Infotexte, Kleinanzeigen, Forum · Text bleibt sichtbar.',
+    'B1': '2 Texte · Zeitungsbericht & Leserbriefe · Text bleibt sichtbar.',
+    'B2': '3 Texte · Sachtext, Meinungstext, Lückentext · Text bleibt sichtbar.',
+    'C1': '3 Texte · Sachtext, Lückentext, Meinungstexte · Text bleibt sichtbar.',
+    'C2': '4 Texte · Komplexer Sachtext, Lückentext, Literatur, Vergleich · Text bleibt sichtbar.'
+  };
+
+  function mc(text, options, answerIndex) {
+    return { type: 'mc', text: text, options: options, answerIndex: answerIndex };
+  }
+  function tf(text, answer) {
+    return { type: 'mc', text: text, options: ['Richtig', 'Falsch'], answerIndex: answer ? 0 : 1 };
+  }
+
+  var DATA = {
+
+    A1: [
+      {
+        title: 'Schild: Bibliothek', part: 'Teil 1', tag: 'Schild / Sign',
+        passage: ['Bibliothek\nMo–Fr: 9:00–18:00\nSa: 10:00–14:00\nSo: geschlossen'],
+        questions: [
+          tf('Die Bibliothek ist am Sonntag geöffnet.', false),
+          tf('Am Samstag ist die Bibliothek von 10 bis 14 Uhr offen.', true),
+          tf('Von Montag bis Freitag kann man um 8 Uhr kommen.', false)
+        ]
+      },
+      {
+        title: 'Schild: Museum', part: 'Teil 1', tag: 'Schild / Sign',
+        passage: ['Achtung! Eingang nur mit Ticket. Kinder unter 6 Jahren: frei. Erwachsene: 8 Euro.'],
+        questions: [
+          tf('Kinder bezahlen 8 Euro.', false),
+          tf('Man braucht ein Ticket.', true)
+        ]
+      },
+      {
+        title: 'Nachricht von Peter', part: 'Teil 2', tag: 'Kurze Mitteilung / Short Message',
+        passage: ['Liebe Susanne, ich komme morgen um 15:30 Uhr am Hauptbahnhof an. Kannst du mich abholen? Mein Zug kommt auf Gleis 7. Viele Grüße, Peter'],
+        questions: [
+          mc('Wann kommt Peter an?', ['Um 15:30 Uhr', 'Um 13:30 Uhr', 'Um 17:30 Uhr', 'Um 15:00 Uhr'], 0),
+          mc('Wo kommt er an?', ['Am Hauptbahnhof, Gleis 7', 'Am Flughafen', 'Am Busbahnhof', 'Am Hauptbahnhof, Gleis 3'], 0),
+          mc('Was soll Susanne machen?', ['Peter abholen', 'Peter anrufen', 'Eine SMS schreiben', 'Zum Flughafen fahren'], 0)
+        ]
+      },
+      {
+        title: 'Nachricht von Maria', part: 'Teil 2', tag: 'Kurze Mitteilung / Short Message',
+        passage: ['Hallo Thomas, heute Abend mache ich eine kleine Party. Kannst du kommen? Wir fangen um 19 Uhr an. Bring bitte Getränke mit! Bis dann, Maria'],
+        questions: [
+          mc('Was macht Maria heute Abend?', ['Eine Party', 'Einen Kurs', 'Eine Reise', 'Eine Prüfung'], 0),
+          mc('Wann fängt die Party an?', ['Um 19 Uhr', 'Um 17 Uhr', 'Um 20 Uhr', 'Um 21 Uhr'], 0),
+          mc('Was soll Thomas mitbringen?', ['Getränke', 'Essen', 'Musik', 'Stühle'], 0)
+        ]
+      },
+      {
+        title: 'Kleinanzeigen', part: 'Teil 3', tag: 'Kleinanzeigen / Classifieds',
+        passage: [
+          'A: Verkaufe Fahrrad, 2 Jahre alt, blau, guter Zustand. 80 Euro.',
+          'B: Suche 2-Zimmer-Wohnung in Stadtmitte. Bis 500 Euro warm.',
+          'C: Deutschkurs A1, Mo und Mi, 18–20 Uhr. Start: 5. September. VHS Berlin.',
+          'D: Babysitter gesucht! 2x pro Woche, nachmittags. Für 2 Kinder (3 und 5 Jahre).',
+          'E: Restaurant „Zur Sonne" — Koch/Köchin gesucht. Di–Sa, 10–18 Uhr.'
+        ],
+        questions: [
+          mc('Maria sucht eine Wohnung. Welche Anzeige passt?', ['B', 'A', 'C', 'D'], 0),
+          mc('Tom will Deutsch lernen. Welche Anzeige passt?', ['C', 'A', 'B', 'E'], 0),
+          mc('Lisa sucht Arbeit in der Küche. Welche Anzeige passt?', ['E', 'A', 'B', 'D'], 0),
+          mc('Jan möchte ein Fahrrad kaufen. Welche Anzeige passt?', ['A', 'B', 'C', 'D'], 0),
+          mc('Sara möchte auf Kinder aufpassen. Welche Anzeige passt?', ['D', 'A', 'B', 'C'], 0)
+        ]
+      },
+      {
+        title: 'Mein Tag (Yuki)', part: 'Leseverstehen', tag: 'Text',
+        passage: ['Ich heiße Yuki und komme aus Japan. Ich wohne seit drei Monaten in München. Jeden Morgen stehe ich um 7 Uhr auf. Ich frühstücke um 7:30 Uhr. Dann fahre ich mit der U-Bahn zur Sprachschule. Der Deutschkurs beginnt um 9 Uhr und dauert bis 13 Uhr. Nach dem Kurs esse ich in der Mensa zu Mittag. Am Nachmittag mache ich Hausaufgaben oder gehe spazieren. Abends koche ich und sehe ein bisschen fern. Um 23 Uhr gehe ich ins Bett.'],
+        questions: [
+          mc('Woher kommt Yuki?', ['Aus Japan', 'Aus China', 'Aus Korea', 'Aus Thailand'], 0),
+          mc('Wo wohnt sie jetzt?', ['In München', 'In Berlin', 'In Hamburg', 'In Köln'], 0),
+          mc('Wie fährt sie zur Schule?', ['Mit der U-Bahn', 'Mit dem Bus', 'Mit dem Fahrrad', 'Zu Fuß'], 0),
+          mc('Wann beginnt ihr Deutschkurs?', ['Um 9 Uhr', 'Um 8 Uhr', 'Um 10 Uhr', 'Um 7:30 Uhr'], 0),
+          mc('Was macht sie am Nachmittag?', ['Hausaufgaben machen oder spazieren gehen', 'Arbeiten', 'Schlafen', 'Einkaufen'], 0)
+        ]
+      }
+    ],
+
+    A2: [
+      {
+        title: 'Stadtfest Heidelberg', part: 'Teil 1', tag: 'Informationstext',
+        passage: ['Stadtfest Heidelberg. Samstag, 15. Juli — Sonntag, 16. Juli. Altstadt, rund um den Marktplatz. Samstag: 11:00–23:00 Uhr | Sonntag: 11:00–20:00 Uhr. Eintritt frei! Programm: Live-Musik, Kinderprogramm, internationales Essen, Kunsthandwerk. Bei Regen findet das Fest in der Stadthalle statt.'],
+        questions: [
+          tf('Das Stadtfest dauert drei Tage.', false),
+          tf('Am Sonntag endet das Fest früher als am Samstag.', true),
+          tf('Man muss Eintritt bezahlen.', false),
+          tf('Es gibt ein Programm für Kinder.', true)
+        ]
+      },
+      {
+        title: 'Kleinanzeigen', part: 'Teil 3', tag: 'Kleinanzeigen / Classifieds',
+        passage: [
+          'A: Suche zuverlässige Putzfrau, 1x pro Woche. 15 Euro/Stunde.',
+          'B: Biete Nachhilfe in Mathematik für Klassen 5–10. 20 Euro/Stunde.',
+          'C: Suche Mitfahrgelegenheit Stuttgart–München, jeden Freitag.',
+          'D: Gitarre zu verkaufen, akustisch, sehr guter Zustand. 150 Euro.',
+          'E: Suche nette Leute für wöchentliche Wandergruppe, samstags.'
+        ],
+        questions: [
+          mc('Laura sucht Hilfe bei Mathe-Hausaufgaben. Welche Anzeige passt?', ['B', 'A', 'C', 'D'], 0),
+          mc('Thomas möchte ein Instrument kaufen. Welche Anzeige passt?', ['D', 'A', 'B', 'E'], 0),
+          mc('Petra möchte am Wochenende in der Natur sein. Welche Anzeige passt?', ['E', 'A', 'B', 'C'], 0),
+          mc('Hans fährt jede Woche nach München. Welche Anzeige passt?', ['C', 'A', 'D', 'E'], 0),
+          mc('Familie Schmidt braucht Hilfe im Haushalt. Welche Anzeige passt?', ['A', 'B', 'C', 'D'], 0)
+        ]
+      },
+      {
+        title: 'Forum: Leben im Ausland', part: 'Teil 4', tag: 'Forumsbeiträge',
+        passage: [
+          'MariaK: Ich lebe seit zwei Jahren in Berlin und finde es toll! Am Anfang war alles fremd. Aber jetzt habe ich viele Freunde. Mein Tipp: Geht in einen Sportverein!',
+          'TomB: Ich bin seit sechs Monaten in Wien und vermisse meine Familie sehr. Aber die Arbeit ist gut und meine Kollegen sind freundlich.',
+          'SarahL: Ich kann MariaK nur zustimmen! Sport ist der beste Weg, um Kontakte zu knüpfen.'
+        ],
+        questions: [
+          mc('Was empfiehlt MariaK?', ['Einem Sportverein beitreten', 'Einen Sprachkurs machen', 'Viel reisen', 'Online-Freunde suchen'], 0),
+          mc('Was findet TomB positiv?', ['Die Arbeit und die freundlichen Kollegen', 'Das Wetter', 'Die Wohnung', 'Die Freizeit'], 0),
+          mc('Was hilft SarahL gegen Heimweh?', ['Sport', 'Musik', 'Kochen', 'Lesen'], 0)
+        ]
+      }
+    ],
+
+    B1: [
+      {
+        title: 'Homeoffice in Deutschland', part: 'Teil 2', tag: 'Zeitungsbericht',
+        passage: ['Immer mehr Deutsche arbeiten im Homeoffice. Die Arbeitswelt hat sich stark verändert. 40 Prozent der Beschäftigten arbeiten regelmäßig von zu Hause. Die Vorteile: Man spart Zeit, kann sich die Zeit flexibler einteilen und hat oft eine bessere Work-Life-Balance. Allerdings gibt es auch Nachteile: Einsamkeit und fehlender Kontakt zu Kollegen. Experten empfehlen feste Arbeitszeiten und regelmäßige Pausen.'],
+        questions: [
+          mc('Wie viel Prozent arbeiten im Homeoffice?', ['40%', '25%', '60%', '15%'], 0),
+          mc('Was ist ein Vorteil?', ['Man spart Zeit und hat mehr Flexibilität', 'Höheres Gehalt', 'Mehr Kollegenkontakt', 'Kürzere Arbeitszeiten'], 0),
+          mc('Was empfehlen Experten?', ['Feste Arbeitszeiten einhalten', 'Nachts arbeiten', 'Keine Pausen machen', 'Immer erreichbar sein'], 0)
+        ]
+      },
+      {
+        title: 'Leserbriefe: Plastiktüten verbieten?', part: 'Teil 4', tag: 'Leserbriefe / Meinungen',
+        passage: [
+          'Leser A: Ich bin absolut dafür. Jedes Jahr gelangen Millionen Tonnen Plastik in die Meere. Eine Stofftasche mitzunehmen ist nicht schwer.',
+          'Leser B: Ein Verbot ist übertrieben. Man sollte lieber auf besseres Recycling setzen.',
+          'Leser C: Ich verstehe beide Seiten, aber ein Verbot ist der richtige Schritt. In vielen Ländern hat es funktioniert.'
+        ],
+        questions: [
+          mc('Wie steht Leser A zum Verbot?', ['Dafür', 'Dagegen', 'Neutral', 'Unentschieden'], 0),
+          mc('Wie steht Leser B zum Verbot?', ['Dagegen', 'Dafür', 'Neutral', 'Unentschieden'], 0),
+          mc('Wie steht Leser C zum Verbot?', ['Dafür (differenziert)', 'Dagegen', 'Komplett neutral', 'Unentschieden'], 0)
+        ]
+      }
+    ],
+
+    B2: [
+      {
+        title: 'Digitalisierung der Arbeitswelt', part: 'Teil 1', tag: 'Sachtext',
+        passage: [
+          'Absatz 1: Die Arbeitswelt befindet sich im Wandel. Automatisierung und künstliche Intelligenz verändern Berufe und schaffen neue Anforderungen an Arbeitnehmer. Laut einer Studie des Weltwirtschaftsforums könnten bis 2030 rund 85 Millionen Arbeitsplätze durch Automatisierung wegfallen — gleichzeitig werden aber 97 Millionen neue entstehen.',
+          'Absatz 2: Das bedeutet: Nicht die Arbeit geht aus, sondern sie verändert sich. Berufe, die repetitive Aufgaben umfassen, sind besonders gefährdet. Gleichzeitig steigt die Nachfrage nach Fachkräften in den Bereichen Datenanalyse, IT-Sicherheit und Softwareentwicklung. Lebenslanges Lernen wird zur Notwendigkeit.',
+          'Absatz 3: Kritiker warnen jedoch davor, die sozialen Auswirkungen zu unterschätzen. Nicht alle Arbeitnehmer können sich leicht umschulen lassen. Besonders ältere Beschäftigte und Geringqualifizierte könnten auf der Strecke bleiben. Es bedarf daher gezielter politischer Maßnahmen, um den Übergang sozial gerecht zu gestalten.'
+        ],
+        questions: [
+          mc('Welche Überschrift passt zu Absatz 1?', ['Die Arbeitswelt im Umbruch', 'Wandel der Berufsbilder', 'Risiken und soziale Folgen', 'Politische Maßnahmen'], 0),
+          mc('Welche Überschrift passt zu Absatz 2?', ['Wandel der Berufsbilder', 'Die Arbeitswelt im Umbruch', 'Risiken und soziale Folgen', 'Globale Studien'], 0),
+          mc('Welche Überschrift passt zu Absatz 3?', ['Risiken und soziale Folgen', 'Die Arbeitswelt im Umbruch', 'Wandel der Berufsbilder', 'Neue Technologien'], 0)
+        ]
+      },
+      {
+        title: 'Kommentar: Tempolimit auf Autobahnen', part: 'Teil 2', tag: 'Meinungstext',
+        passage: [
+          'Deutschland ist eines der wenigen Länder weltweit, in denen es auf Autobahnen kein generelles Tempolimit gibt. Die Debatte darüber wird seit Jahren kontrovers geführt.',
+          'Befürworter eines Tempolimits argumentieren mit der Verkehrssicherheit: Bei niedrigerer Geschwindigkeit seien Unfälle weniger schwer. Zudem würde ein Tempolimit von 130 km/h den CO2-Ausstoß um mehrere Millionen Tonnen pro Jahr reduzieren.',
+          'Gegner hingegen sehen in der freien Fahrt ein Stück deutsche Identität und verweisen auf die bereits niedrige Unfallrate auf Autobahnen. Sie argumentieren, dass die Autoindustrie unter einem Tempolimit leiden würde.',
+          'Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist. Die Argumente der Verkehrssicherheit und des Klimaschutzes wiegen schwerer als wirtschaftliche Interessen einzelner Hersteller.'
+        ],
+        questions: [
+          mc('Was argumentieren Befürworter?', ['Verkehrssicherheit und CO2-Reduktion', 'Höhere Steuereinnahmen', 'Bessere Straßen', 'Weniger Staus'], 0),
+          mc('Was befürchten Gegner?', ['Negative Auswirkungen auf die Autoindustrie', 'Höhere Unfallzahlen', 'Weniger Tourismus', 'Höhere Benzinpreise'], 0),
+          mc('Welche Position vertritt der Autor?', ['Er ist für ein Tempolimit', 'Er ist dagegen', 'Er ist neutral', 'Er äußert keine Meinung'], 0)
+        ]
+      },
+      {
+        title: 'Lückentext: Fremdsprachenkenntnisse', part: 'Teil 4', tag: 'Grammatik im Kontext',
+        passage: ['Die Bedeutung (1) Fremdsprachenkenntnisse wird in der globalisierten Welt immer größer. Nicht nur im Beruf, (2) auch im privaten Leben sind Sprachkenntnisse von Vorteil. (3) der steigenden Mobilität kommen immer mehr Menschen mit anderen Kulturen in Kontakt. (4) man eine Fremdsprache beherrscht, eröffnen sich neue Perspektiven.'],
+        questions: [
+          mc('Lücke (1):', ['der', 'die', 'den', 'des'], 0),
+          mc('Lücke (2):', ['sondern', 'aber', 'denn', 'oder'], 0),
+          mc('Lücke (3):', ['Aufgrund', 'Trotz', 'Wegen', 'Statt'], 0),
+          mc('Lücke (4):', ['Wenn', 'Falls', 'Ob', 'Weil'], 0)
+        ]
+      }
+    ],
+
+    C1: [
+      {
+        title: 'Die Grenzen der künstlichen Intelligenz', part: 'Teil 1', tag: 'Sachtext',
+        passage: [
+          'Die Fortschritte im Bereich der künstlichen Intelligenz haben in den letzten Jahren für erhebliches Aufsehen gesorgt. Sprachmodelle können Texte verfassen, die von menschlich geschriebenen kaum zu unterscheiden sind, und Bilderkennungssysteme übertreffen menschliche Experten in bestimmten Diagnosen.',
+          'Dennoch wäre es verfehlt, daraus zu schließen, dass Maschinen in absehbarer Zeit das menschliche Denken ersetzen könnten. Was KI-Systeme leisten, ist eine hocheffiziente Mustererkennung auf der Grundlage enormer Datenmengen. Was ihnen fehlt, ist ein genuines Verständnis dessen, was sie tun. Ein Sprachmodell "versteht" Sprache nicht; es prognostiziert statistische Wahrscheinlichkeiten.',
+          'Hinzu kommt das Problem der sogenannten Halluzinationen: KI-Systeme generieren mitunter Inhalte, die plausibel klingen, aber faktisch falsch sind. Dies ist kein marginales technisches Problem, sondern ein fundamentales Defizit.',
+          'Die eigentliche Frage lautet daher nicht, ob KI das menschliche Denken ersetzen wird, sondern wie wir sie als Werkzeug sinnvoll einsetzen können, ohne ihre Grenzen aus dem Blick zu verlieren.'
+        ],
+        questions: [
+          mc('Was können KI-Systeme laut Text besonders gut?', ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], 0),
+          mc('Was fehlt KI-Systemen laut Autor?', ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], 0),
+          mc('Was sind "Halluzinationen" im KI-Kontext?', ['Plausibel klingende, aber faktisch falsche Inhalte', 'Absichtliche Falschinformationen', 'Systemabstürze', 'Grafikfehler'], 0),
+          mc('Wie bewertet der Autor das Problem der Halluzinationen?', ['Als fundamentales Defizit', 'Als marginales technisches Problem', 'Als bereits gelöst', 'Als übertrieben dargestellt'], 0),
+          mc('Was fordert der Autor im Schlussteil?', ['Sinnvollen Einsatz als Werkzeug plus gesellschaftliche Debatte', 'Ein komplettes Verbot von KI', 'Mehr staatliche Kontrolle', 'Schnellere Entwicklung'], 0)
+        ]
+      },
+      {
+        title: 'Lückentext: Interkulturelle Kompetenz', part: 'Teil 2', tag: 'Grammatik + Wortschatz',
+        passage: ['Die Bedeutung (1) interkultureller Kompetenz hat in den letzten Jahrzehnten erheblich (2). Dies ist nicht zuletzt (3) die zunehmende Globalisierung zurückzuführen, die dazu (4) hat, dass Menschen unterschiedlicher kultureller Hintergründe vermehrt miteinander in Kontakt treten. (5) es dabei nicht selten zu Missverständnissen kommt, (6) auf der Hand.'],
+        questions: [
+          mc('Lücke (1):', ['von', 'der', 'für', 'an'], 0),
+          mc('Lücke (2):', ['zugenommen', 'genommen', 'abgenommen', 'gekommen'], 0),
+          mc('Lücke (3):', ['auf', 'an', 'in', 'zu'], 0),
+          mc('Lücke (4):', ['geführt', 'gebracht', 'gemacht', 'gegeben'], 0),
+          mc('Lücke (5):', ['Dass', 'Ob', 'Wenn', 'Weil'], 0),
+          mc('Lücke (6):', ['liegt', 'steht', 'geht', 'kommt'], 0)
+        ]
+      },
+      {
+        title: 'Meinungstexte: Zukunft der Arbeit', part: 'Teil 4', tag: 'Standpunkte zuordnen',
+        passage: [
+          'Vier Experten äußern sich zur Zukunft der Arbeit.',
+          'Person A: "KI wird bestimmte Berufe obsolet machen."',
+          'Person B: "Lebenslanges Lernen wird zur Pflicht."',
+          'Person C: "Die Politik muss den Wandel aktiv gestalten."',
+          'Person D: "Kreativität bleibt menschliche Domäne."'
+        ],
+        questions: [
+          mc('Wer sagt: "KI wird bestimmte Berufe obsolet machen"?', ['Person A', 'Person B', 'Person C', 'Person D'], 0),
+          mc('Wer sagt: "Lebenslanges Lernen wird zur Pflicht"?', ['Person B', 'Person A', 'Person C', 'Person D'], 0),
+          mc('Wer sagt: "Die Politik muss den Wandel aktiv gestalten"?', ['Person C', 'Person A', 'Person B', 'Person D'], 0),
+          mc('Wer sagt: "Kreativität bleibt menschliche Domäne"?', ['Person D', 'Person A', 'Person B', 'Person C'], 0)
+        ]
+      }
+    ],
+
+    C2: [
+      {
+        title: 'Die Paradoxie des Fortschritts', part: 'Teil 1', tag: 'Komplexer Sachtext',
+        passage: [
+          'Es gehört zu den bemerkenswerten Paradoxien unserer Zeit, dass technologischer Fortschritt, der einst als Garant für ein besseres Leben galt, zunehmend zum Gegenstand fundamentaler Skepsis geworden ist. Die Verheißungen der Digitalisierung haben sich zwar in mancherlei Hinsicht erfüllt, doch gleichzeitig haben sie neue Probleme hervorgebracht, die in ihrer Komplexität die alten mitunter noch übersteigen.',
+          'Man denke nur an das Phänomen der Informationsüberflutung: Während der Zugang zu Wissen nie einfacher war, fällt es den Menschen paradoxerweise immer schwerer, zwischen gesicherten Erkenntnissen und Desinformation zu unterscheiden. Die Algorithmen der sozialen Medien haben sich als mächtige Instrumente der Manipulation erwiesen, die zur Entstehung sogenannter Filterblasen beitragen.',
+          'Hinzu kommt die Frage der ökologischen Kosten des technologischen Fortschritts. Die Herstellung von Smartphones, Computern und Servern verschlingt gewaltige Mengen an seltenen Erden und Energie. Es wäre indes verfehlt, daraus den Schluss zu ziehen, man müsse den technologischen Fortschritt per se ablehnen.',
+          'Die eigentliche Herausforderung besteht demnach nicht darin, den Fortschritt aufzuhalten, sondern ihn so zu gestalten, dass er dem Gemeinwohl dient, ohne die Lebensgrundlagen künftiger Generationen zu gefährden.'
+        ],
+        questions: [
+          mc('Worin besteht die "Paradoxie des Fortschritts" laut Autor?', ['Fortschritt löst Probleme, schafft aber gleichzeitig neue', 'Fortschritt war schon immer problematisch', 'Fortschritt hat nie Verheißungen erfüllt', 'Menschen lehnen Fortschritt ab'], 0),
+          mc('Was kritisiert der Autor an den Algorithmen sozialer Medien?', ['Sie tragen zur Polarisierung bei und schaffen Filterblasen', 'Sie funktionieren nicht', 'Sie sind zu langsam', 'Sie verhindern den Zugang zu Information'], 0),
+          mc('Wie bewertet der Autor die ökologischen Kosten der Digitalisierung?', ['Erheblich, aber kein Grund für grundsätzliche Ablehnung', 'Vernachlässigbar', 'Sie übersteigen die der traditionellen Industrie', 'Sie werden übertrieben dargestellt'], 0),
+          mc('Was fordert der Autor als Konsequenz?', ['Einen differenzierten gesellschaftlichen Diskurs', 'Den Fortschritt aufzuhalten', 'Rückkehr zur vorindustriellen Gesellschaft', 'Mehr technokratische Kosten-Nutzen-Analysen'], 0)
+        ]
+      },
+      {
+        title: 'Lückentext: Urbanisierung', part: 'Teil 2', tag: 'Grammatik + Wortschatz',
+        passage: ['Die zunehmende Urbanisierung stellt die Stadtplanung (1) grundlegend neue Herausforderungen. Während die Städte (2), geraten die bestehenden Infrastrukturen an ihre (3). Es (4) innovativer Konzepte, die sowohl den Bedürfnissen der wachsenden Bevölkerung (5) werden als auch ökologische Aspekte (6). (7) die Smart-City-Bewegung vielversprechende Ansätze bietet, (8) die Frage, ob Technologie allein die Lösung sein kann.'],
+        questions: [
+          mc('Lücke (1):', ['vor', 'an', 'auf', 'zu'], 0),
+          mc('Lücke (2):', ['wachsen', 'wuchsen', 'gewachsen', 'wachsend'], 0),
+          mc('Lücke (3):', ['Grenzen', 'Enden', 'Ziele', 'Anfänge'], 0),
+          mc('Lücke (4):', ['bedarf', 'braucht', 'fehlt', 'gibt'], 0),
+          mc('Lücke (5):', ['gerecht', 'passend', 'richtig', 'genug'], 0),
+          mc('Lücke (6):', ['berücksichtigen', 'vergessen', 'ignorieren', 'ändern'], 0),
+          mc('Lücke (7):', ['Obwohl', 'Weil', 'Da', 'Wenn'], 0),
+          mc('Lücke (8):', ['bleibt', 'geht', 'kommt', 'endet'], 0)
+        ]
+      },
+      {
+        title: 'Literarischer Text: Am Fenster', part: 'Teil 3', tag: 'Literatur + Interpretation',
+        passage: ['Er stand am Fenster und sah in den Regen. Die Tropfen liefen in scheinbar willkürlichen Bahnen über die Scheibe — und doch, so schien es ihm, folgten sie einer verborgenen Ordnung, einem Muster, das sich dem flüchtigen Blick entzog. Wie das Leben selbst, dachte er. Man meint, dem Zufall ausgeliefert zu sein, und erkennt erst im Nachhinein die Fäden, die alles zusammenhalten. Oder man bildet sich ein, sie zu erkennen, und das ist womöglich das Gefährlichste von allem.'],
+        questions: [
+          mc('Welche Metapher verwendet der Autor?', ['Die Regentropfen als Metapher für das Leben', 'Das Fenster als Metapher für Freiheit', 'Der Regen als Metapher für Trauer', 'Die Scheibe als Metapher für Isolation'], 0),
+          mc('Wie ist der letzte Satz zu verstehen?', ['Das Erkennen von Mustern kann auch Selbsttäuschung sein', 'Man sollte immer nach Mustern suchen', 'Zufall existiert nicht wirklich', 'Der Regen zeigt die wahre Ordnung des Lebens'], 0)
+        ]
+      },
+      {
+        title: 'Textvergleich: Wert der Hochkultur', part: 'Teil 4', tag: 'Zwei Meinungstexte vergleichen',
+        passage: [
+          'Autor A argumentiert, Hochkultur sei ein essenzieller Pfeiler der Gesellschaft, dessen Förderung staatliche Aufgabe bleiben müsse.',
+          'Autor B hält die Unterscheidung zwischen "Hoch-" und "Populärkultur" für einen elitären Anachronismus.'
+        ],
+        questions: [
+          mc('Worin stimmen die Autoren überein?', ['Beide halten Kultur für gesellschaftlich relevant', 'Beide lehnen staatliche Förderung ab', 'Beide befürworten nur Hochkultur', 'Beide sehen keine Unterschiede zwischen den Kulturformen'], 0),
+          mc('Worin unterscheiden sie sich grundlegend?', ['A verteidigt die Hierarchie der Kulturformen, B lehnt sie ab', 'A lehnt Kultur ab, B befürwortet sie', 'Beide haben identische Positionen', 'A ist für Populärkultur, B für Hochkultur'], 0)
+        ]
+      }
+    ]
+
+  };
+
+  // ---------------------------------------------------------------
+  // Level tiles
+  // ---------------------------------------------------------------
+  var levelContainer = document.getElementById('levelChecks');
+  var selectedLevel = 'A1';
+
+  LEVELS.forEach(function (lvl, i) {
+    var tile = document.createElement('div');
+    tile.className = 'level-check' + (i === 0 ? ' active' : '');
+    tile.textContent = lvl;
+    tile.addEventListener('click', function () {
+      document.querySelectorAll('.level-check').forEach(function (t) { t.classList.remove('active'); });
+      tile.classList.add('active');
+      selectedLevel = lvl;
+      updateLevelInfo();
+    });
+    levelContainer.appendChild(tile);
+  });
+
+  function updateLevelInfo() {
+    document.getElementById('levelInfo').textContent = LEVEL_INFO[selectedLevel];
+  }
+  updateLevelInfo();
+
+  // ---------------------------------------------------------------
+  // Session state
+  // ---------------------------------------------------------------
+  var session = null;
+
+  document.getElementById('startBtn').addEventListener('click', function () {
+    var items = DATA[selectedLevel];
+    session = { items: items, index: 0, correctCount: 0, totalQuestions: 0 };
+    items.forEach(function (it) { session.totalQuestions += it.questions.length; });
+    document.getElementById('setupScreen').classList.add('hidden');
+    document.getElementById('itemScreen').classList.remove('hidden');
+    renderItem();
+  });
+
+  function renderItem() {
+    var item = session.items[session.index];
+    document.getElementById('itemMeta').textContent = selectedLevel + ' · ' + item.part;
+    document.getElementById('itemTitle').textContent = item.title;
+
+    var pct = Math.round((session.index / session.items.length) * 100);
+    document.getElementById('itemProgressBar').style.width = pct + '%';
+    document.getElementById('itemProgressText').textContent = 'Text ' + (session.index + 1) + ' / ' + session.items.length;
+
+    // Passage stays fully visible and scrollable the whole time — no
+    // locking, no reveal restriction — matching real Lesen exam
+    // conditions, unlike the one-shot Hören audio.
+    var passageEl = document.getElementById('passageCard');
+    passageEl.innerHTML = '<span class="passage-source-tag">' + item.tag + '</span>';
+    item.passage.forEach(function (para) {
+      var p = document.createElement('p');
+      p.textContent = para;
+      passageEl.appendChild(p);
+    });
+    passageEl.scrollTop = 0;
+
+    var qContainer = document.getElementById('questionsContainer');
+    qContainer.innerHTML = '';
+    item.questions.forEach(function (q, qi) {
+      var card = document.createElement('div');
+      card.className = 'card p-3 mb-3';
+
+      var qText = document.createElement('p');
+      qText.className = 'fw-semibold mb-3';
+      qText.textContent = (qi + 1) + '. ' + q.text;
+      card.appendChild(qText);
+
+      var optWrap = document.createElement('div');
+      optWrap.className = 'd-grid gap-2';
+      q.options.forEach(function (optText) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'option-btn';
+        btn.textContent = optText;
+        btn.addEventListener('click', function () { handleAnswerClick(btn, card, q); });
+        optWrap.appendChild(btn);
+      });
+      card.appendChild(optWrap);
+
+      qContainer.appendChild(card);
+    });
+
+    document.getElementById('nextItemBtn').classList.add('hidden');
+  }
+
+  function handleAnswerClick(clickedBtn, card, q) {
+    if (clickedBtn.disabled) return;
+    var correct = clickedBtn.textContent === q.options[q.answerIndex];
+
+    card.querySelectorAll('.option-btn').forEach(function (b) {
+      b.disabled = true;
+      if (b.textContent === q.options[q.answerIndex]) {
+        b.classList.add('correct-choice');
+      } else if (b === clickedBtn) {
+        b.classList.add('incorrect-choice');
+      }
+    });
+
+    if (correct) session.correctCount++;
+
+    var cards = document.querySelectorAll('#questionsContainer .card');
+    var allAnswered = Array.prototype.every.call(cards, function (c) {
+      return c.querySelector('.option-btn:not(:disabled)') === null;
+    });
+
+    if (allAnswered) {
+      var isLast = session.index + 1 >= session.items.length;
+      var nextBtn = document.getElementById('nextItemBtn');
+      nextBtn.textContent = isLast ? 'Ergebnis anzeigen / Show results →' : 'Nächster Text / Next text →';
+      nextBtn.classList.remove('hidden');
+    }
+  }
+
+  document.getElementById('nextItemBtn').addEventListener('click', function () {
+    session.index++;
+    if (session.index >= session.items.length) {
+      finishSession();
+    } else {
+      renderItem();
+    }
+  });
+
+  function finishSession() {
+    document.getElementById('itemScreen').classList.add('hidden');
+    var pct = Math.round((session.correctCount / session.totalQuestions) * 100);
+    document.getElementById('scoreRing').textContent = pct + '%';
+    document.getElementById('scoreDetail').textContent = session.correctCount + ' von ' + session.totalQuestions + ' richtig / ' + session.correctCount + ' of ' + session.totalQuestions + ' correct';
+    document.getElementById('resultsScreen').classList.remove('hidden');
+  }
+
+  document.getElementById('retryBtn').addEventListener('click', function () {
+    document.getElementById('resultsScreen').classList.add('hidden');
+    document.getElementById('setupScreen').classList.remove('hidden');
+  });
+
+})();
+</script>
+
+</body>
+</html>
