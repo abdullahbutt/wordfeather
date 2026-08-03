@@ -456,8 +456,18 @@
            masked by default the fixed min-width per masked cell can push the
            table wider than the content column on desktop. Tighten the masked
            placeholder just for this table so it never needs horizontal scroll. */
-        .wide-table { width: 100%; table-layout: auto; font-size: 0.92rem; }
-        .wide-table th, .wide-table td { white-space: nowrap; }
+        /* table-layout:auto (the previous approach) doesn't wrap columns
+           evenly — it tries to keep everything on one line first, and only
+           wraps the MINIMUM number of cells needed to fit, in a
+           browser-dependent order. That's why only one header wrapped while
+           others (e.g. "möchten (would like)") stayed unbroken and still
+           overflowed. table-layout:fixed forces every column to share the
+           SAME width up front, so every header cell wraps consistently
+           rather than leaving it to unpredictable per-browser squeezing. */
+        .wide-table { width: 100%; table-layout: fixed; font-size: 0.92rem; }
+        .wide-table th:first-child, .wide-table td:first-child { width: 12%; }
+        .wide-table td { white-space: nowrap; }
+        .wide-table th { white-space: normal; word-break: normal; overflow-wrap: break-word; }
         .wide-table .practice-cell .masked-content { min-width: 1.4rem; padding: 0.05rem 0.3rem; }
     </style>
 </head>
