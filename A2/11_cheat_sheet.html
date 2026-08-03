@@ -1142,8 +1142,10 @@ Ich kaufe <span class="datC" style="color:inherit;">dir</span> <span class="akkC
                     document.querySelectorAll('h2[id]').forEach(function (h) {
                         var m = h.id.match(/^(\d+)-/);
                         if (!m) return;
-                        // Full readable label (before the " / " English half), not just the digit
-                        var label = h.textContent.replace(/^\d+\.\s*/, '').split(' / ')[0].trim();
+                        // Full readable label INCLUDING the section number, matching
+                        // how the heading itself appears in the body (before the
+                        // " / " English half).
+                        var label = m[1] + '. ' + h.textContent.replace(/^\d+\.\s*/, '').split(' / ')[0].trim();
                         buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-primary">' + label + '</a>';
                     });
                     document.getElementById('quickjump-placeholder').innerHTML =
