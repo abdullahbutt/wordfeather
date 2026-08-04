@@ -1482,9 +1482,28 @@ var LESEN_PRACTICE_DATA = {
   // consistent — a C2 word's options shouldn't be trivially easy A1 words),
   // falling back to the full word pool only if a level doesn't have enough
   // other words to draw 3 unique distractors from.
+  // The dictionary has no dedicated part-of-speech field, but word.article
+  // gives a reliable proxy: non-empty ("m."/"f."/"n."/etc.) means it's a
+  // noun, empty means it's something else (verb, adjective, adverb,
+  // preposition...). Without this check, a noun question could get a verb
+  // or adjective as a wrong option — which gives the answer away on grammar
+  // alone, before the learner even needs to know the vocabulary. This is a
+  // real, checkable signal using data that already exists, as opposed to
+  // true semantic similarity (Haus vs. Wohnung vs. Gebäude), which would
+  // need synonym/category data the dictionary doesn't have.
+  function isNoun(w) {
+    return !!(w.article && w.article.trim());
+  }
+
   function pickDistractors(correctWord, direction, count) {
     var sameLevelPool = allWords.filter(function (w) { return w.level === correctWord.level && w !== correctWord; });
-    var candidates = shuffle(sameLevelPool);
+
+    // Prefer distractors matching the correct word's noun/non-noun status,
+    // within the same level — this is the primary pool now.
+    var correctIsNoun = isNoun(correctWord);
+    var samePosPool = sameLevelPool.filter(function (w) { return isNoun(w) === correctIsNoun; });
+
+    var candidates = shuffle(samePosPool.length >= count ? samePosPool : sameLevelPool);
     if (candidates.length < count) {
       candidates = shuffle(allWords.filter(function (w) { return w !== correctWord; }));
     }
