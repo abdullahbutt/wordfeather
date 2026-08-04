@@ -152,6 +152,7 @@
   }
   .feedback-box.correct { background: #dcfce7; color: #166534; display: block; }
   .feedback-box.incorrect { background: #fee2e2; color: #991b1b; display: block; }
+  .answer-explanation { border-top-color: currentColor !important; opacity: 0.85; font-size: 0.95rem; }
   [data-bs-theme="dark"] .feedback-box.correct { background: #052e16; color: #86efac; }
   [data-bs-theme="dark"] .feedback-box.incorrect { background: #450a0a; color: #fca5a5; }
 
@@ -266,6 +267,12 @@
               <span class="d-block small" style="font-weight:400;">Find my level</span>
             </button>
           </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tab-mistakes" data-mode="mistakes">
+              <span class="d-block">❌ Meine Fehler</span>
+              <span class="d-block small" style="font-weight:400;">My mistakes</span>
+            </button>
+          </li>
         </ul>
 
         <!-- Practice-by-level options (vocab) -->
@@ -322,6 +329,14 @@
         </div>
 
         <div id="loadError" class="alert alert-danger hidden"></div>
+
+        <!-- Mistake Notebook options -->
+        <div id="mistakesOptions" class="hidden">
+          <div class="alert alert-info" id="mistakesInfo">
+            Lade Fehler... / Loading mistakes...
+          </div>
+          <p class="text-muted small">Diese Wörter hast du zuletzt falsch beantwortet. Sobald du sie richtig beantwortest, verschwinden sie automatisch aus dieser Liste. / These are words you most recently got wrong. Once you answer them correctly, they automatically leave this list.</p>
+        </div>
 
         <button class="btn btn-primary btn-lg w-100" id="startBtn">Quiz starten →</button>
         <button class="btn btn-link w-100 mt-2" id="viewProgressBtn">📊 Meinen Fortschritt anzeigen / View my progress</button>
@@ -575,6 +590,23 @@
   function resetProgress() {
     progressData = {};
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+  }
+
+  // Mistake Notebook: a word counts as a "current mistake" if its last
+  // recorded attempt was wrong (streak reset to 0 by recordAnswer) and it
+  // has been gotten wrong at least once. This naturally shrinks on its own
+  // as the learner answers correctly in normal practice — no separate
+  // "clear mistake" action needed, since a correct answer already resets
+  // the streak upward and removes it from this list.
+  function getMistakeWords() {
+    var mistakes = [];
+    allWords.forEach(function (w) {
+      var entry = getEntry(w);
+      if (entry && entry.streak === 0 && entry.timesWrong > 0) {
+        mistakes.push(w);
+      }
+    });
+    return mistakes;
   }
 
 
@@ -1397,6 +1429,7 @@ var LESEN_PRACTICE_DATA = {
   document.getElementById('tab-hoeren').addEventListener('click', function () { switchMode('hoeren'); });
   document.getElementById('tab-lesen').addEventListener('click', function () { switchMode('lesen'); });
   document.getElementById('tab-placement').addEventListener('click', function () { switchMode('placement'); });
+  document.getElementById('tab-mistakes').addEventListener('click', function () { switchMode('mistakes'); });
 
   function switchMode(mode) {
     currentMode = mode;
@@ -1404,10 +1437,27 @@ var LESEN_PRACTICE_DATA = {
     document.getElementById('tab-hoeren').classList.toggle('active', mode === 'hoeren');
     document.getElementById('tab-lesen').classList.toggle('active', mode === 'lesen');
     document.getElementById('tab-placement').classList.toggle('active', mode === 'placement');
+    document.getElementById('tab-mistakes').classList.toggle('active', mode === 'mistakes');
     document.getElementById('practiceOptions').classList.toggle('hidden', mode !== 'practice');
     document.getElementById('hoerenOptions').classList.toggle('hidden', mode !== 'hoeren');
     document.getElementById('lesenOptions').classList.toggle('hidden', mode !== 'lesen');
     document.getElementById('placementOptions').classList.toggle('hidden', mode !== 'placement');
+    document.getElementById('mistakesOptions').classList.toggle('hidden', mode !== 'mistakes');
+
+    if (mode === 'mistakes') {
+      var count = getMistakeWords().length;
+      var infoEl = document.getElementById('mistakesInfo');
+      var startBtn = document.getElementById('startBtn');
+      if (count === 0) {
+        infoEl.textContent = 'Keine aktuellen Fehler — gut gemacht! Übe weiter, damit hier Wörter erscheinen, die du üben solltest. / No current mistakes — well done! Keep practising and words you should review will appear here.';
+        startBtn.disabled = true;
+      } else {
+        infoEl.textContent = count + ' Wort/Wörter zum Wiederholen. / ' + count + ' word(s) to review.';
+        startBtn.disabled = false;
+      }
+    } else {
+      document.getElementById('startBtn').disabled = false;
+    }
   }
 
   // ---------------------------------------------------------------
@@ -1545,6 +1595,8 @@ var LESEN_PRACTICE_DATA = {
       currentQuiz = buildHoerenPracticeQuiz();
     } else if (currentMode === 'lesen') {
       currentQuiz = buildLesenPracticeQuiz();
+    } else if (currentMode === 'mistakes') {
+      currentQuiz = buildMistakesQuiz();
     } else {
       currentQuiz = buildPlacementQuiz();
     }
@@ -1564,6 +1616,17 @@ var LESEN_PRACTICE_DATA = {
     var questions = buildLesenPracticeQuestions(selectedLesenLevel);
     if (!questions.length) { alert('Keine Lesetexte für dieses Niveau gefunden. / No reading texts found for this level.'); return null; }
     return { mode: 'lesen-practice', questions: questions, index: 0, correctCount: 0 };
+  }
+
+  function buildMistakesQuiz() {
+    var mistakeWords = getMistakeWords();
+    if (!mistakeWords.length) return null; // guarded by disabled startBtn already, but safe here too
+    // Mixed direction — since these are specifically words the learner has
+    // struggled with, testing both DE->EN and EN->DE gives a fuller signal
+    // of whether the word is actually mastered, not just recognized one way.
+    var questions = mistakeWords.map(function (w) { return wordToQuestion(w, 'mixed'); });
+    questions = shuffle(questions);
+    return { mode: 'mistakes-practice', questions: questions, index: 0, correctCount: 0 };
   }
 
   function renderQuestion() {
@@ -1715,13 +1778,33 @@ var LESEN_PRACTICE_DATA = {
     });
 
     var box = document.getElementById('feedbackBox');
+    var resultLine = correct
+      ? '<div class="fw-bold">✓ Richtig! / Correct!</div>'
+      : '<div class="fw-bold">✗ Leider falsch / Incorrect</div>';
+
+    // Show the word's real example sentence as context after every answer —
+    // right or wrong — since seeing the word actually used in a sentence
+    // reinforces retention far more than a bare correct/incorrect verdict.
+    // Only vocab questions carry a .word object with example/example_en;
+    // Lesen/Hören questions don't, so this is skipped there (their own
+    // passage/script already IS the contextual example).
+    var explanationHtml = '';
+    if (q.kind === 'vocab' && q.word && q.word.example) {
+      explanationHtml =
+        '<div class="answer-explanation mt-2 pt-2 border-top">' +
+        '<span class="small text-muted">Beispiel / Example:</span><br>' +
+        '<span class="fw-semibold">' + q.word.example + '</span>' +
+        (q.word.example_en ? '<br><span class="text-muted">' + q.word.example_en + '</span>' : '') +
+        '</div>';
+    }
+
     if (correct) {
       currentQuiz.correctCount++;
       box.className = 'feedback-box correct';
-      box.innerHTML = '<div class="fw-bold">✓ Richtig! / Correct!</div>';
+      box.innerHTML = resultLine + explanationHtml;
     } else {
       box.className = 'feedback-box incorrect';
-      box.innerHTML = '<div class="fw-bold">✗ Leider falsch / Incorrect</div>';
+      box.innerHTML = resultLine + explanationHtml;
     }
 
     if (currentQuiz.mode === 'placement') {
@@ -1751,7 +1834,7 @@ var LESEN_PRACTICE_DATA = {
       return;
     }
 
-    if (currentQuiz.mode === 'practice' || currentQuiz.mode === 'hoeren-practice' || currentQuiz.mode === 'lesen-practice') {
+    if (currentQuiz.mode === 'practice' || currentQuiz.mode === 'hoeren-practice' || currentQuiz.mode === 'lesen-practice' || currentQuiz.mode === 'mistakes-practice') {
       finishQuiz();
       return;
     }
