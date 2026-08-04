@@ -361,15 +361,17 @@
             background: rgba(25, 135, 84, 0.25);
         }
 
-        /* Persistent quick-jump bar — stays pinned under the navbar at all
-           times and on all screen sizes (unlike the site's default sidebar
-           behavior for .alphabet-nav, which only applies on wide desktop
-           screens and turns vertical there). */
+        /* Quick-jump bar sits inline with the page content and scrolls away
+           normally — matching how the equivalent nav behaves on other pages
+           like 10_notes.html (.alphabet-nav, no sticky positioning). It was
+           previously pinned to the viewport top at all times, but with 21
+           sections now wrapping across many rows, that made the bar consume
+           almost the entire mobile viewport, leaving barely any room for
+           actual content. The existing "back to top" floating button
+           already provides a way back up to this bar, so pinning it here
+           too was redundant as well as the actual cause of the mobile bug. */
         #quickjump-placeholder {
-            position: sticky;
-            top: 0; /* the site navbar itself isn't sticky, so this bar sticks
-                       directly to the viewport top with no gap above it */
-            z-index: 1030;
+            /* intentionally static — no position/top/z-index */
         }
         .quickjump-bar {
             background: var(--page-bg);
