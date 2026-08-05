@@ -194,7 +194,13 @@
                 li.className = 'nav-item dropdown';
                 li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
                 var nav = document.getElementById('nav-main-links');
-                if (nav) nav.appendChild(li);
+                var lvLi = document.getElementById('nav-levels');
+                lvLi = lvLi ? lvLi.closest('li') : null;
+                if (lvLi && lvLi.nextSibling) {
+                    lvLi.parentNode.insertBefore(li, lvLi.nextSibling);
+                } else if (nav) {
+                    nav.appendChild(li);
+                }
             } else {
                 var h = document.getElementById('nav-home');
                 if (h) {
