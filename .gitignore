@@ -14,6 +14,7 @@ lib/
 lib64/
 parts/
 sdist/
+.idea/
 md_to_html_converter.py
 requirements.txt
 setup_Version2.sh
