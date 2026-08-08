@@ -691,7 +691,7 @@ _KNOWN_ADV = {
     'immer','bereits','fast','ganz','kaum','doch','halt','eben','wohl',
     'schließlich','allerdings','freilich','gleichwohl','nichtsdestotrotz',
     'nichtsdestoweniger','somit','demnach','ergo','mithin','zumal','indessen',
-    'überdies','hierbei','insofern','ebendies','indes',
+    'überdies','hierbei','insofern','ebendies','indes','infolgedessen',
 }
 _KNOWN_CONJ = {
     'aber','als','bevor','denn','dass','damit','ehe','entweder','falls',
@@ -751,12 +751,16 @@ def detect_pos(w):
     if dl in _KNOWN_CONJ and ' ' not in de: return 'conjunction'
     if dl.startswith('sich ') and dl.endswith('en'): return 'verb'
     if w.get('conjugation'): return 'verb'  # authoritative — has principal parts, so it's a verb regardless of -eln/-ern suffix
+    # Known-word lookups take priority over the "-en" verb-shape guess below —
+    # several prepositions/adverbs (gegen, neben, wegen, zwischen, infolgedessen...)
+    # also happen to end in "-en" and were being misclassified as verbs because
+    # _VERB_RE used to run before these lookups.
+    if dl in _KNOWN_ADV: return 'adverb'
+    if dl in _KNOWN_PREP and ' ' not in de: return 'preposition'
     if _VERB_RE.match(dl): return 'verb'
     if ' ' in de and not re.match(r'^(der|die|das)\s+', de, re.I):
         if dl.split()[-1].endswith('en'): return 'phrase'
     if re.match(r'^(der|die|das)\s+', de, re.I) and ',' not in de: return 'noun'
-    if dl in _KNOWN_ADV: return 'adverb'
-    if dl in _KNOWN_PREP and ' ' not in de: return 'preposition'
     if dl.endswith(_ADJ_SUFFIXES) and ' ' not in de: return 'adjective'
     if ' ' in de: return 'phrase'
     if len(de) > 2 and dl[0].islower(): return 'adjective'
