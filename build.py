@@ -799,7 +799,14 @@ def make_word_card(w):
             parts.append(f'<strong>Präteritum:</strong> {htmllib.escape(conj["praeteritum"])}')
         if conj.get('perfekt'):
             parts.append(f'<strong>Perfekt:</strong> {htmllib.escape(conj["perfekt"])}')
-        if conj.get('governs'):
+        # A "governs" value of bare "none" (or "none (modal + infinitive)",
+        # which conveys nothing beyond what the auxiliary/POS tag already
+        # shows) is pure filler and shouldn't render. Any OTHER "none (...)"
+        # value carries real grammatical nuance (e.g. "none (copula)",
+        # "none (impersonal: \"es regnet\")", or multi-sense entries like
+        # "none (to come) / auf + accusative (...)") and must still render.
+        governs = str(conj.get('governs', '')).strip()
+        if governs and governs.lower() not in ('none', 'none (modal + infinitive)'):
             parts.append(f'<strong>+</strong> {htmllib.escape(conj["governs"])}')
         if parts:
             conj_html = (f'\n        <div class="word-conjugation">'
