@@ -311,6 +311,41 @@
             box-shadow: 0 0.3rem 0.8rem rgba(29,78,216,0.12);
         }
 
+        .extras-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            padding: 0.6rem 0.85rem;
+            margin-bottom: 1.1rem;
+            background: var(--info-bg);
+            border: 1px dashed var(--info-border);
+            border-radius: 0.6rem;
+            font-size: 0.85rem;
+        }
+
+        .extras-label {
+            font-weight: 600;
+            color: var(--muted-text);
+        }
+
+        .extras-link {
+            padding: 0.3rem 0.7rem;
+            background: var(--card-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 1rem;
+            text-decoration: none;
+            color: var(--tab-active-bg);
+            font-weight: 500;
+            font-size: 0.82rem;
+            transition: background 0.15s, transform 0.12s;
+        }
+
+        .extras-link:hover {
+            background: var(--tab-inactive-bg);
+            transform: translateY(-1px);
+        }
+
         .topic-icon {
             font-size: 1.1rem;
             flex-shrink: 0;
@@ -570,7 +605,7 @@
                     </div>
                     <div class="topic-grid">
                         <a href="A1/01_Wortschatz.html"    class="topic-link"><span class="topic-icon">📖</span> Wortschatz</a>
-                        <a href="A1/02_Grammatik.html"     class="topic-link"><span class="topic-icon">📐</span> Grammatik</a>
+                        <a href="A1/02_Grammatik_neu.html" class="topic-link"><span class="topic-icon">📐</span> Grammatik</a>
                         <a href="A1/03_Saetze.html"        class="topic-link"><span class="topic-icon">💬</span> Sätze</a>
                         <a href="A1/04_Lesen.html"         class="topic-link"><span class="topic-icon">📄</span> Lesen</a>
                         <a href="A1/05_Hoeren.html"        class="topic-link"><span class="topic-icon">🎧</span> Hören</a>
@@ -601,6 +636,11 @@
                         <a href="A2/07_Schreiben.html"     class="topic-link"><span class="topic-icon">✍️</span> Schreiben</a>
                         <a href="A2/08_Musterpruefung.html" class="topic-link"><span class="topic-icon">📝</span> Goethe Prüfung</a>
                         <a href="A2/09_telc_Pruefungsformat.html" class="topic-link"><span class="topic-icon">🎯</span> telc Format</a>
+                    </div>
+                    <div class="extras-row">
+                        <span class="extras-label">📝 Extras:</span>
+                        <a href="A2/10_notes.html" class="extras-link">Class Notes</a>
+                        <a href="A2/11_cheat_sheet.html" class="extras-link">Cheat Sheet</a>
                     </div>
                     <a href="A2/index.html" class="btn btn-primary open-level-btn">Open A2 Overview →</a>
                 </div>
