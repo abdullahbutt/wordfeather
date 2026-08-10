@@ -918,7 +918,7 @@ def build_jsonld(words):
                 "creator": {
                     "@type": "Person",
                     "name": "Abdullah Butt",
-                    "url": "https://github.com/abdullahbutt"
+                    "url": "https://abdullahbutt.github.io/"
                 },
                 "about": [
                     {"@type": "Thing", "name": "German language"},
