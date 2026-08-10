@@ -58,6 +58,39 @@ def update_service_worker_cache_name():
 
 
 FOOTER_HTML_PATH = os.path.join(REPO, 'footer.html')
+PROJECT_START_YEAR = 2026  # WordFeather's actual start year — never changes
+
+
+def update_footer_copyright():
+    """Stamp footer.html's "©" line with the correct year range on every
+    build run — same mechanism as update_footer_last_updated() below, just
+    applied to the copyright line. Shows "© 2026" while the current year
+    equals PROJECT_START_YEAR, and automatically becomes "© 2026–2027",
+    "© 2026–2028", etc. in later years, with no manual editing needed.
+    Only touches the one marked span; safe to call on every build."""
+    if not os.path.exists(FOOTER_HTML_PATH):
+        print(f"  ⚠️  footer.html not found at {FOOTER_HTML_PATH} — copyright year NOT updated.")
+        return
+
+    with open(FOOTER_HTML_PATH, encoding='utf-8') as f:
+        content = f.read()
+
+    current_year = datetime.now(timezone.utc).year
+    year_text = (str(PROJECT_START_YEAR) if current_year <= PROJECT_START_YEAR
+                 else f"{PROJECT_START_YEAR}–{current_year}")
+
+    pattern = re.compile(
+        r"(<!-- AUTO-COPYRIGHT-START -->© )[^<]*(<!-- AUTO-COPYRIGHT-END -->)"
+    )
+    if not pattern.search(content):
+        print("  ⚠️  footer.html AUTO-COPYRIGHT markers not found — copyright year NOT updated. "
+              "(Did footer.html get replaced with an older version without the markers?)")
+        return
+
+    new_content = pattern.sub(rf"\g<1>{year_text}\g<2>", content)
+    with open(FOOTER_HTML_PATH, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print(f"  ✅ footer.html — Copyright year set to {year_text}")
 
 
 def update_footer_last_updated():
@@ -1534,6 +1567,7 @@ def main():
                 print(f"  ✅ banner → {os.path.relpath(page_path, REPO)}")
         update_service_worker_cache_name()
         update_footer_last_updated()
+        update_footer_copyright()
         print("\nBuild complete.")
         return
 
@@ -1568,6 +1602,7 @@ def main():
 
     update_service_worker_cache_name()
     update_footer_last_updated()
+    update_footer_copyright()
     print("\nBuild complete.")
 
 
