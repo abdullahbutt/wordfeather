@@ -242,33 +242,33 @@
     <div class="card quiz-card">
       <div class="card-body p-4">
 
-        <ul class="nav nav-pills nav-fill mb-4 flex-wrap" id="modeTabs">
-          <li class="nav-item">
-            <button class="nav-link active" id="tab-practice" data-mode="practice">
+        <ul class="nav nav-pills nav-fill mb-4 flex-wrap" id="modeTabs" role="tablist" aria-label="Quiz-Modus wählen / Choose quiz mode">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-practice" data-mode="practice" role="tab" aria-selected="true" aria-controls="practiceOptions">
               <span class="d-block">📚 Wortschatz üben</span>
               <span class="d-block small" style="font-weight:400;">Vocabulary</span>
             </button>
           </li>
-          <li class="nav-item">
-            <button class="nav-link" id="tab-hoeren" data-mode="hoeren">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-hoeren" data-mode="hoeren" role="tab" aria-selected="false" aria-controls="hoerenOptions">
               <span class="d-block">🎧 Hören üben</span>
               <span class="d-block small" style="font-weight:400;">Listening</span>
             </button>
           </li>
-          <li class="nav-item">
-            <button class="nav-link" id="tab-lesen" data-mode="lesen">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-lesen" data-mode="lesen" role="tab" aria-selected="false" aria-controls="lesenOptions">
               <span class="d-block">📰 Lesen üben</span>
               <span class="d-block small" style="font-weight:400;">Reading</span>
             </button>
           </li>
-          <li class="nav-item">
-            <button class="nav-link" id="tab-placement" data-mode="placement">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-placement" data-mode="placement" role="tab" aria-selected="false" aria-controls="placementOptions">
               <span class="d-block">🎯 Mein Niveau finden</span>
               <span class="d-block small" style="font-weight:400;">Find my level</span>
             </button>
           </li>
-          <li class="nav-item">
-            <button class="nav-link" id="tab-mistakes" data-mode="mistakes">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-mistakes" data-mode="mistakes" role="tab" aria-selected="false" aria-controls="mistakesOptions">
               <span class="d-block">❌ Meine Fehler</span>
               <span class="d-block small" style="font-weight:400;">My mistakes</span>
             </button>
@@ -276,7 +276,7 @@
         </ul>
 
         <!-- Practice-by-level options (vocab) -->
-        <div id="practiceOptions">
+        <div id="practiceOptions" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
           <label class="form-label fw-semibold">Niveau(s) auswählen / Choose level(s)</label>
           <div class="d-flex gap-2 flex-wrap mb-4" id="levelChecks">
             <!-- filled by JS -->
@@ -302,7 +302,7 @@
         </div>
 
         <!-- Hören practice options -->
-        <div id="hoerenOptions" class="hidden">
+        <div id="hoerenOptions" class="hidden" role="tabpanel" aria-labelledby="tab-hoeren" tabindex="0">
           <label class="form-label fw-semibold">Niveau auswählen / Choose a level</label>
           <div class="d-flex gap-2 flex-wrap mb-3" id="hoerenLevelChecks"></div>
           <div class="alert alert-info small" id="hoerenLevelInfo"></div>
@@ -310,7 +310,7 @@
         </div>
 
         <!-- Lesen practice options -->
-        <div id="lesenOptions" class="hidden">
+        <div id="lesenOptions" class="hidden" role="tabpanel" aria-labelledby="tab-lesen" tabindex="0">
           <label class="form-label fw-semibold">Niveau auswählen / Choose a level</label>
           <div class="d-flex gap-2 flex-wrap mb-3" id="lesenLevelChecks"></div>
           <div class="alert alert-info small" id="lesenLevelInfo"></div>
@@ -318,7 +318,7 @@
         </div>
 
         <!-- Placement test explanation -->
-        <div id="placementOptions" class="hidden">
+        <div id="placementOptions" class="hidden" role="tabpanel" aria-labelledby="tab-placement" tabindex="0">
           <div class="alert alert-info">
             Der Level-Test beginnt bei <strong>A1</strong> mit Wortschatz (18 Fragen), Leseverstehen und
             Hörverstehen. Bestehst du das gesamte Niveau (≥70%), geht es weiter mit A2, dann B1 — bis C2 oder
@@ -331,7 +331,7 @@
         <div id="loadError" class="alert alert-danger hidden"></div>
 
         <!-- Mistake Notebook options -->
-        <div id="mistakesOptions" class="hidden">
+        <div id="mistakesOptions" class="hidden" role="tabpanel" aria-labelledby="tab-mistakes" tabindex="0">
           <div class="alert alert-info" id="mistakesInfo">
             Lade Fehler... / Loading mistakes...
           </div>
@@ -412,9 +412,13 @@
         <h2 class="h4 mb-3">Dein wahrscheinliches Niveau / Your likely level</h2>
         <div class="level-result-badge mb-3" id="placementLevelBadge">A1</div>
         <p class="mb-2" id="placementSummary"></p>
+        <p class="text-muted small mb-4">
+          Der Test gibt dir eine ungefähre Einschätzung deines aktuellen Niveaus. Er ersetzt keine offizielle Sprachprüfung.<br>
+          This test gives you an approximate estimate of your current level. It does not replace an official language exam.
+        </p>
         <div class="table-responsive mb-4">
           <table class="table table-sm">
-            <thead><tr><th>Niveau</th><th>Richtig / Correct</th><th>Bestanden? / Passed?</th></tr></thead>
+            <thead><tr><th>Niveau</th><th>Richtig / Correct</th><th>Erreicht? / Reached?</th></tr></thead>
             <tbody id="placementBreakdown"></tbody>
           </table>
         </div>
@@ -432,7 +436,7 @@
       <div class="card p-4">
         <div class="mb-2" style="font-size:2.5rem;">🎉</div>
         <h2 class="h4 mb-2">
-          <span id="transitionPassedLevel">A1</span> bestanden! / passed!
+          <span id="transitionPassedLevel">A1</span>-Niveau erreicht! / level reached!
         </h2>
         <p class="text-muted mb-3" id="transitionStats">18 / 18 richtig / correct (100%)</p>
         <p class="mb-4">
@@ -525,6 +529,17 @@
     return (word.level || '?') + '|' + (word.article || '') + '|' + (word.de || '');
   }
 
+  // Lesen/Hören practice questions have no word-like identity (no .de/.article),
+  // so reusing wordKey() for them would collide every question at the same level
+  // into a single key. Build a key from what actually identifies them instead —
+  // the question's own text is already unique within its reading/listening item.
+  function questionKey(item) {
+    if (item.kind === 'lesen' || item.kind === 'hoeren') {
+      return item.kind + '|' + item.level + '|' + (item.itemTitle || '') + '|' + item.prompt;
+    }
+    return wordKey(item);
+  }
+
   var DAY_MS = 24 * 60 * 60 * 1000;
   // Interval ladder in days for each consecutive correct streak level.
   // A wrong answer resets the streak to 0 and brings the word back due
@@ -533,7 +548,7 @@
   var INTERVAL_LADDER_DAYS = [0, 1, 2, 4, 7, 14, 30, 60];
 
   function recordAnswer(word, correct) {
-    var key = wordKey(word);
+    var key = questionKey(word);
     var entry = progressData[key] || { streak: 0, timesCorrect: 0, timesWrong: 0, lastSeen: 0, nextDue: 0 };
 
     entry.lastSeen = Date.now();
@@ -553,7 +568,7 @@
   }
 
   function getEntry(word) {
-    return progressData[wordKey(word)] || null;
+    return progressData[questionKey(word)] || null;
   }
 
   function isDue(word) {
@@ -562,8 +577,11 @@
     return entry.nextDue <= Date.now();
   }
 
-  // "Mastered" = at least 3 correct answers in a row and not currently
-  // overdue for review — matches the interval ladder's 4-day-plus mark.
+  // "Mastered" = at least 3 correct answers in a row (streak >= 3),
+  // regardless of whether it's currently due for review again. "Due" is a
+  // separate, independent concept — see isDue() — so a word can be both
+  // "mastered" and "due" at the same time (e.g. a well-known word whose
+  // scheduled review has simply come around again).
   function isMastered(word) {
     var entry = getEntry(word);
     return !!entry && entry.streak >= 3;
@@ -592,12 +610,18 @@
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
   }
 
-  // Mistake Notebook: a word counts as a "current mistake" if its last
+  // Mistake Notebook: an item counts as a "current mistake" if its last
   // recorded attempt was wrong (streak reset to 0 by recordAnswer) and it
   // has been gotten wrong at least once. This naturally shrinks on its own
   // as the learner answers correctly in normal practice — no separate
   // "clear mistake" action needed, since a correct answer already resets
   // the streak upward and removes it from this list.
+  //
+  // Covers all three practice kinds — vocab words plus Lesen/Hören practice
+  // questions — since all three are now recorded via recordAnswer(). Lesen/
+  // Hören questions come only from the *practice* builders (not the
+  // placement ones), matching the same practice-only rule vocab already
+  // follows.
   function getMistakeWords() {
     var mistakes = [];
     allWords.forEach(function (w) {
@@ -605,6 +629,15 @@
       if (entry && entry.streak === 0 && entry.timesWrong > 0) {
         mistakes.push(w);
       }
+    });
+    LEVELS.forEach(function (lvl) {
+      var nonVocab = buildLesenPracticeQuestions(lvl).concat(buildHoerenPracticeQuestions(lvl));
+      nonVocab.forEach(function (q) {
+        var entry = getEntry(q);
+        if (entry && entry.streak === 0 && entry.timesWrong > 0) {
+          mistakes.push(q);
+        }
+      });
     });
     return mistakes;
   }
@@ -653,7 +686,7 @@
     },
     B2: {
       title: 'Kommentar: Tempolimit auf Autobahnen', tag: 'Meinungstext',
-      passage: ['Deutschland ist eines der wenigen Länder weltweit, in denen es auf Autobahnen kein generelles Tempolimit gibt. Befürworter argumentieren mit der Verkehrssicherheit: Bei niedrigerer Geschwindigkeit seien Unfälle weniger schwer. Ein Tempolimit von 130 km/h würde den CO2-Ausstoß reduzieren. Gegner sehen in der freien Fahrt ein Stück deutsche Identität. Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist.'],
+      passage: ['Deutschland ist eines der wenigen Länder weltweit, in denen es auf Autobahnen kein generelles Tempolimit gibt. Befürworter argumentieren mit der Verkehrssicherheit: Bei niedrigerer Geschwindigkeit seien Unfälle weniger schwer. Ein Tempolimit von 130 km/h würde den CO2-Ausstoß reduzieren. Gegner sehen in der freien Fahrt ein Stück deutsche Identität und befürchten negative Auswirkungen auf die Autoindustrie. Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist.'],
       questions: [
         { text: 'Was argumentieren Befürworter?', options: ['Verkehrssicherheit und CO2-Reduktion', 'Höhere Steuereinnahmen', 'Bessere Straßen', 'Weniger Staus'], answerIndex: 0 },
         { text: 'Was befürchten Gegner?', options: ['Negative Auswirkungen auf die Autoindustrie', 'Höhere Unfallzahlen', 'Weniger Tourismus', 'Höhere Benzinpreise'], answerIndex: 0 },
@@ -662,7 +695,7 @@
     },
     C1: {
       title: 'Die Grenzen der künstlichen Intelligenz', tag: 'Sachtext',
-      passage: ['Die Fortschritte im Bereich der künstlichen Intelligenz haben in den letzten Jahren für erhebliches Aufsehen gesorgt. Dennoch wäre es verfehlt, daraus zu schließen, dass Maschinen in absehbarer Zeit das menschliche Denken ersetzen könnten. Was KI-Systeme leisten, ist eine hocheffiziente Mustererkennung. Was ihnen fehlt, ist ein genuines Verständnis dessen, was sie tun. Hinzu kommt das Problem der sogenannten Halluzinationen: KI-Systeme generieren mitunter Inhalte, die plausibel klingen, aber faktisch falsch sind. Dies ist ein fundamentales Defizit.'],
+      passage: ['Die Fortschritte im Bereich der künstlichen Intelligenz haben in den letzten Jahren für erhebliches Aufsehen gesorgt. Dennoch wäre es verfehlt, daraus zu schließen, dass Maschinen in absehbarer Zeit das menschliche Denken ersetzen könnten. Was KI-Systeme leisten, ist eine hocheffiziente Mustererkennung auf der Grundlage großer Datenmengen. Was ihnen fehlt, ist ein genuines Verständnis dessen, was sie tun. Hinzu kommt das Problem der sogenannten Halluzinationen: KI-Systeme generieren mitunter Inhalte, die plausibel klingen, aber faktisch falsch sind. Dies ist ein fundamentales Defizit.'],
       questions: [
         { text: 'Was können KI-Systeme laut Text besonders gut?', options: ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], answerIndex: 0 },
         { text: 'Was fehlt KI-Systemen laut Autor?', options: ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], answerIndex: 0 },
@@ -671,7 +704,7 @@
     },
     C2: {
       title: 'Die Paradoxie des Fortschritts', tag: 'Komplexer Sachtext',
-      passage: ['Es gehört zu den bemerkenswerten Paradoxien unserer Zeit, dass technologischer Fortschritt zunehmend zum Gegenstand fundamentaler Skepsis geworden ist. Die Verheißungen der Digitalisierung haben sich zwar in mancherlei Hinsicht erfüllt, doch gleichzeitig haben sie neue Probleme hervorgebracht. Während der Zugang zu Wissen nie einfacher war, fällt es den Menschen paradoxerweise immer schwerer, zwischen gesicherten Erkenntnissen und Desinformation zu unterscheiden. Die Algorithmen der sozialen Medien haben sich als mächtige Instrumente der Manipulation erwiesen.'],
+      passage: ['Es gehört zu den bemerkenswerten Paradoxien unserer Zeit, dass technologischer Fortschritt zunehmend zum Gegenstand fundamentaler Skepsis geworden ist. Die Verheißungen der Digitalisierung haben sich zwar in mancherlei Hinsicht erfüllt, doch gleichzeitig haben sie neue Probleme hervorgebracht. Während der Zugang zu Wissen nie einfacher war, fällt es den Menschen paradoxerweise immer schwerer, zwischen gesicherten Erkenntnissen und Desinformation zu unterscheiden. Die Algorithmen der sozialen Medien haben sich als mächtige Instrumente der Manipulation erwiesen, die zur Entstehung sogenannter Filterblasen beitragen.'],
       questions: [
         { text: 'Worin besteht die "Paradoxie des Fortschritts" laut Autor?', options: ['Fortschritt löst Probleme, schafft aber gleichzeitig neue', 'Fortschritt war schon immer problematisch', 'Fortschritt hat nie Verheißungen erfüllt', 'Menschen lehnen Fortschritt ab'], answerIndex: 0 },
         { text: 'Was kritisiert der Autor an den Algorithmen sozialer Medien?', options: ['Sie tragen zur Polarisierung bei und schaffen Filterblasen', 'Sie funktionieren nicht', 'Sie sind zu langsam', 'Sie verhindern den Zugang zu Information'], answerIndex: 0 }
@@ -724,7 +757,7 @@
     },
     C2: {
       title: 'Vortrag: Spracherwerb und kognitive Entwicklung',
-      script: 'Ich möchte heute über den Zusammenhang zwischen Spracherwerb und kognitiver Entwicklung sprechen. Es ist ein weit verbreiteter Irrtum, dass Sprache lediglich ein Kommunikationsinstrument ist. Sprache formt unser Denken. Bilinguale Menschen zeigen in zahlreichen Studien eine erhöhte kognitive Flexibilität. Allerdings handelt es sich um Korrelationen, nicht um nachgewiesene Kausalitäten.',
+      script: 'Ich möchte heute über den Zusammenhang zwischen Spracherwerb und kognitiver Entwicklung sprechen. Es ist ein weit verbreiteter Irrtum, dass Sprache lediglich ein Kommunikationsinstrument ist. Sprache formt unser Denken — diese als Sapir-Whorf-Hypothese bekannte These gilt in ihrer radikalen, deterministischen Form heute als überholt. Bilinguale Menschen zeigen in zahlreichen Studien eine erhöhte kognitive Flexibilität. Allerdings handelt es sich um Korrelationen, nicht um nachgewiesene Kausalitäten.',
       questions: [
         { text: 'Die Sapir-Whorf-Hypothese gilt in ihrer radikalen Form als bestätigt.', options: ['Richtig', 'Falsch'], answerIndex: 1 },
         { text: 'Bilingualismus zeigt Zusammenhänge mit kognitiver Flexibilität.', options: ['Richtig', 'Falsch'], answerIndex: 0 },
@@ -1116,7 +1149,7 @@ var LESEN_PRACTICE_DATA = {
         questions: [
           mc('Was können KI-Systeme laut Text besonders gut?', ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], 0),
           mc('Was fehlt KI-Systemen laut Autor?', ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], 0),
-          mc('Was sind "Halluzinationen" im KI-Kontext?', ['Plausibel klingende, aber faktisch falsche Inhalte', 'Absichtliche Falschinformationen', 'Systemabstürze', 'Grafikfehler'], 0),
+          mc('Welche Eigenschaft kennzeichnet die im Text beschriebenen "Halluzinationen"?', ['Sie wirken glaubwürdig, entsprechen aber nicht der Realität', 'Sie werden vom System bewusst erzeugt, um zu täuschen', 'Sie entstehen durch technische Störungen der Hardware', 'Sie betreffen nur die visuelle Darstellung von Daten'], 0),
           mc('Wie bewertet der Autor das Problem der Halluzinationen?', ['Als fundamentales Defizit', 'Als marginales technisches Problem', 'Als bereits gelöst', 'Als übertrieben dargestellt'], 0),
           mc('Was fordert der Autor im Schlussteil?', ['Sinnvollen Einsatz als Werkzeug plus gesellschaftliche Debatte', 'Ein komplettes Verbot von KI', 'Mehr staatliche Kontrolle', 'Schnellere Entwicklung'], 0)
         ]
@@ -1131,6 +1164,20 @@ var LESEN_PRACTICE_DATA = {
           mc('Lücke (4):', ['geführt', 'gebracht', 'gemacht', 'gegeben'], 0),
           mc('Lücke (5):', ['Dass', 'Ob', 'Wenn', 'Weil'], 0),
           mc('Lücke (6):', ['liegt', 'steht', 'geht', 'kommt'], 0)
+        ]
+      },
+      {
+        title: 'Lückentext: Wandel des Journalismus', part: 'Teil 3', tag: 'Grammatik + Konnektoren',
+        // Deliberately tests a spread of C1 subordinating connectors
+        // (während/indem/obwohl/zumal/wenngleich) rather than reusing "dass"
+        // repeatedly — the earlier cloze above only exercises one connector.
+        passage: ['Der digitale Wandel hat die Medienlandschaft grundlegend verändert. (1) traditionelle Zeitungen früher als unangefochtene Informationsquelle galten, verlieren sie heute zunehmend an Bedeutung. Viele Verlage reagieren darauf, (2) sie verstärkt auf digitale Angebote setzen. (3) die Digitalisierung neue Chancen eröffnet, bringt sie auch erhebliche Herausforderungen mit sich, (4) die Werbeeinnahmen der klassischen Presse stetig sinken. (5) man diesen Wandel oft kritisch betrachtet, eröffnet er zugleich die Möglichkeit, Journalismus partizipativer zu gestalten.'],
+        questions: [
+          mc('Lücke (1):', ['Während', 'Trotzdem', 'Deshalb', 'Außerdem'], 0),
+          mc('Lücke (2):', ['indem', 'obwohl', 'weil', 'damit'], 0),
+          mc('Lücke (3):', ['Obwohl', 'Weil', 'Da', 'Wenn'], 0),
+          mc('Lücke (4):', ['zumal', 'obwohl', 'damit', 'als ob'], 0),
+          mc('Lücke (5):', ['Wenngleich', 'Weil', 'Damit', 'Sodass'], 0)
         ]
       },
       {
@@ -1431,6 +1478,29 @@ var LESEN_PRACTICE_DATA = {
   document.getElementById('tab-placement').addEventListener('click', function () { switchMode('placement'); });
   document.getElementById('tab-mistakes').addEventListener('click', function () { switchMode('mistakes'); });
 
+  // ARIA tab pattern: Left/Right (and Home/End) move keyboard focus between
+  // tabs; the user still presses Enter/Space (native <button> behaviour) or
+  // clicks to actually switch mode ("manual activation"). Automatic
+  // activation-on-focus was deliberately avoided here, since switching mode
+  // can discard an in-progress quiz — arrow-key browsing shouldn't do that
+  // as a side effect.
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('#modeTabs [role="tab"]'));
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('keydown', function (e) {
+        var newIndex = null;
+        if (e.key === 'ArrowRight') newIndex = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') newIndex = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') newIndex = 0;
+        else if (e.key === 'End') newIndex = tabs.length - 1;
+        if (newIndex !== null) {
+          e.preventDefault();
+          tabs[newIndex].focus();
+        }
+      });
+    });
+  })();
+
   function switchMode(mode) {
     currentMode = mode;
     document.getElementById('tab-practice').classList.toggle('active', mode === 'practice');
@@ -1438,6 +1508,11 @@ var LESEN_PRACTICE_DATA = {
     document.getElementById('tab-lesen').classList.toggle('active', mode === 'lesen');
     document.getElementById('tab-placement').classList.toggle('active', mode === 'placement');
     document.getElementById('tab-mistakes').classList.toggle('active', mode === 'mistakes');
+    document.getElementById('tab-practice').setAttribute('aria-selected', mode === 'practice');
+    document.getElementById('tab-hoeren').setAttribute('aria-selected', mode === 'hoeren');
+    document.getElementById('tab-lesen').setAttribute('aria-selected', mode === 'lesen');
+    document.getElementById('tab-placement').setAttribute('aria-selected', mode === 'placement');
+    document.getElementById('tab-mistakes').setAttribute('aria-selected', mode === 'mistakes');
     document.getElementById('practiceOptions').classList.toggle('hidden', mode !== 'practice');
     document.getElementById('hoerenOptions').classList.toggle('hidden', mode !== 'hoeren');
     document.getElementById('lesenOptions').classList.toggle('hidden', mode !== 'lesen');
@@ -1449,10 +1524,10 @@ var LESEN_PRACTICE_DATA = {
       var infoEl = document.getElementById('mistakesInfo');
       var startBtn = document.getElementById('startBtn');
       if (count === 0) {
-        infoEl.textContent = 'Keine aktuellen Fehler — gut gemacht! Übe weiter, damit hier Wörter erscheinen, die du üben solltest. / No current mistakes — well done! Keep practising and words you should review will appear here.';
+        infoEl.textContent = 'Keine aktuellen Fehler — gut gemacht! Übe weiter (Wortschatz, Hören, Lesen), damit hier Fragen erscheinen, die du wiederholen solltest. / No current mistakes — well done! Keep practising (Vocabulary, Listening, Reading) and questions you should review will appear here.';
         startBtn.disabled = true;
       } else {
-        infoEl.textContent = count + ' Wort/Wörter zum Wiederholen. / ' + count + ' word(s) to review.';
+        infoEl.textContent = count + ' zu wiederholen (Wortschatz, Hören und Lesen). Du hast diese schon einmal falsch beantwortet und noch nicht wieder richtig. / ' + count + ' to review (Vocabulary, Listening, and Reading). You answered these incorrectly before and haven\'t answered them correctly again yet.';
         startBtn.disabled = false;
       }
     } else {
@@ -1638,14 +1713,19 @@ var LESEN_PRACTICE_DATA = {
   }
 
   function buildMistakesQuiz() {
-    var mistakeWords = getMistakeWords();
-    if (!mistakeWords.length) return null; // guarded by disabled startBtn already, but safe here too
-    // Mixed direction — since these are specifically words the learner has
-    // struggled with, testing both DE->EN and EN->DE gives a fuller signal
-    // of whether the word is actually mastered, not just recognized one way.
-    var questions = mistakeWords.map(function (w) { return wordToQuestion(w, 'mixed'); });
+    var mistakeItems = getMistakeWords();
+    if (!mistakeItems.length) return null; // guarded by disabled startBtn already, but safe here too
+    // Lesen/Hören mistakes are already fully-formed question objects (built
+    // by buildLesenPracticeQuestions/buildHoerenPracticeQuestions earlier);
+    // only vocab words need converting into a question via wordToQuestion.
+    // Mixed direction for vocab — since these are specifically words the
+    // learner has struggled with, testing both DE->EN and EN->DE gives a
+    // fuller signal of whether the word is actually mastered.
+    var questions = mistakeItems.map(function (item) {
+      return (item.kind === 'lesen' || item.kind === 'hoeren') ? item : wordToQuestion(item, 'mixed');
+    });
     questions = shuffle(questions);
-    return { mode: 'mistakes-practice', questions: questions, index: 0, correctCount: 0 };
+    return { mode: 'mistakes-practice', questions: questions, index: 0, correctCount: 0, hoerenPlayedItemTitle: null };
   }
 
   function renderQuestion() {
@@ -1837,6 +1917,13 @@ var LESEN_PRACTICE_DATA = {
       // Placement-test answers deliberately do NOT feed into the
       // spaced-repetition schedule — see note at buildPracticeQuiz/handlePlacementLevelComplete.
       recordAnswer(q.word, correct);
+    } else if (q.kind === 'lesen' || q.kind === 'hoeren') {
+      // Same rule as vocab: only PRACTICE-mode answers are recorded (this
+      // branch is only reached when mode !== 'placement', since that's
+      // handled in the branch above). Previously these answers were never
+      // recorded at all, so Lesen/Hören mistakes never appeared in the
+      // mistake notebook and never affected the progress dashboard.
+      recordAnswer(q, correct);
     }
 
     var nextBtn = document.getElementById('nextBtn');
@@ -1982,12 +2069,17 @@ var LESEN_PRACTICE_DATA = {
 
     var summary;
     if (isLastLevel && passed) {
-      summary = 'Herzlichen Glückwunsch — du hast alle Niveaus bis C2 bestanden! / Congratulations — you passed every level up to C2!';
+      summary = 'Herzlichen Glückwunsch — du hast alle Niveaus bis C2 erreicht! / Congratulations — you\'ve reached every level up to C2!';
     } else if (!passed) {
+      // Computed from the actual PLACEMENT_PASS_THRESHOLD constant rather
+      // than a hardcoded number, so this text can never drift out of sync
+      // with the real pass/fail logic again (it previously said "60%" here
+      // while the real threshold — and the intro text — was 70%).
+      var thresholdPct = Math.round(PLACEMENT_PASS_THRESHOLD * 100);
       summary = 'Bei ' + finalLevelAttempted + ' lag deine Genauigkeit bei ' + Math.round((finalStats.correct / finalStats.total) * 100) +
-        '% (' + finalStats.correct + '/' + finalStats.total + ') — unter der 60%-Schwelle zum Bestehen. ' +
+        '% (' + finalStats.correct + '/' + finalStats.total + ') — unter der ' + thresholdPct + '%-Schwelle zum Bestehen. ' +
         '/ At ' + finalLevelAttempted + ', your accuracy was ' + Math.round((finalStats.correct / finalStats.total) * 100) +
-        '% (' + finalStats.correct + '/' + finalStats.total + ') — below the 60% pass threshold.';
+        '% (' + finalStats.correct + '/' + finalStats.total + ') — below the ' + thresholdPct + '% pass threshold.';
     } else {
       summary = '';
     }
@@ -2002,7 +2094,7 @@ var LESEN_PRACTICE_DATA = {
       var passedThisLevel = acc >= PLACEMENT_PASS_THRESHOLD * 100;
       var row = document.createElement('tr');
       row.innerHTML = '<td>' + lvl + '</td><td>' + stats.correct + ' / ' + stats.total + ' (' + acc + '%)</td>' +
-        '<td>' + (passedThisLevel ? '✓ Bestanden / Passed' : '✗ Nicht bestanden / Not passed') + '</td>';
+        '<td>' + (passedThisLevel ? '✓ Erreicht / Reached' : '✗ Nicht erreicht / Not reached') + '</td>';
       tbody.appendChild(row);
     });
 
