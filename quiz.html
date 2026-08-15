@@ -661,53 +661,53 @@
       title: 'Nachricht von Peter', tag: 'Kurze Mitteilung',
       passage: ['Liebe Susanne, ich komme morgen um 15:30 Uhr am Hauptbahnhof an. Kannst du mich abholen? Mein Zug kommt auf Gleis 7. Viele Grüße, Peter'],
       questions: [
-        { text: 'Wann kommt Peter an?', options: ['Um 15:30 Uhr', 'Um 13:30 Uhr', 'Um 17:30 Uhr', 'Um 15:00 Uhr'], answerIndex: 0 },
-        { text: 'Wo kommt er an?', options: ['Am Hauptbahnhof, Gleis 7', 'Am Flughafen', 'Am Busbahnhof', 'Am Hauptbahnhof, Gleis 3'], answerIndex: 0 },
-        { text: 'Was soll Susanne machen?', options: ['Peter abholen', 'Peter anrufen', 'Eine SMS schreiben', 'Zum Flughafen fahren'], answerIndex: 0 }
+        { text: 'Wann kommt Peter an?', options: ['Um 15:30 Uhr', 'Um 13:30 Uhr', 'Um 17:30 Uhr', 'Um 15:00 Uhr'], answerIndex: 0, explanation: 'Im Text steht: „ich komme morgen um 15:30 Uhr am Hauptbahnhof an.“' },
+        { text: 'Wo kommt er an?', options: ['Am Hauptbahnhof, Gleis 7', 'Am Flughafen', 'Am Busbahnhof', 'Am Hauptbahnhof, Gleis 3'], answerIndex: 0, explanation: 'Peter schreibt: „Mein Zug kommt auf Gleis 7“ — also am Hauptbahnhof, Gleis 7.' },
+        { text: 'Was soll Susanne machen?', options: ['Peter abholen', 'Peter anrufen', 'Eine SMS schreiben', 'Zum Flughafen fahren'], answerIndex: 0, explanation: 'Peter fragt direkt: „Kannst du mich abholen?“' }
       ]
     },
     A2: {
       title: 'Stadtfest Heidelberg', tag: 'Informationstext',
       passage: ['Stadtfest Heidelberg. Samstag, 15. Juli — Sonntag, 16. Juli. Altstadt, rund um den Marktplatz. Samstag: 11:00–23:00 Uhr | Sonntag: 11:00–20:00 Uhr. Eintritt frei! Programm: Live-Musik, Kinderprogramm, internationales Essen, Kunsthandwerk.'],
       questions: [
-        { text: 'Das Stadtfest dauert drei Tage.', options: ['Richtig', 'Falsch'], answerIndex: 1 },
-        { text: 'Am Sonntag endet das Fest früher als am Samstag.', options: ['Richtig', 'Falsch'], answerIndex: 0 },
-        { text: 'Man muss Eintritt bezahlen.', options: ['Richtig', 'Falsch'], answerIndex: 1 }
+        { text: 'Das Stadtfest dauert drei Tage.', options: ['Richtig', 'Falsch'], answerIndex: 1, explanation: 'Das Fest dauert nur zwei Tage — Samstag und Sonntag —, nicht drei.' },
+        { text: 'Am Sonntag endet das Fest früher als am Samstag.', options: ['Richtig', 'Falsch'], answerIndex: 0, explanation: 'Samstag endet das Fest um 23:00 Uhr, Sonntag schon um 20:00 Uhr — also früher.' },
+        { text: 'Man muss Eintritt bezahlen.', options: ['Richtig', 'Falsch'], answerIndex: 1, explanation: 'Im Text steht ausdrücklich: „Eintritt frei!“' }
       ]
     },
     B1: {
       title: 'Homeoffice in Deutschland', tag: 'Zeitungsbericht',
       passage: ['Immer mehr Deutsche arbeiten im Homeoffice. 40 Prozent der Beschäftigten arbeiten regelmäßig von zu Hause. Die Vorteile: Man spart Zeit, kann sich die Zeit flexibler einteilen und hat oft eine bessere Work-Life-Balance. Allerdings gibt es auch Nachteile: Einsamkeit und fehlender Kontakt zu Kollegen. Experten empfehlen feste Arbeitszeiten und regelmäßige Pausen.'],
       questions: [
-        { text: 'Wie viel Prozent arbeiten im Homeoffice?', options: ['40%', '25%', '60%', '15%'], answerIndex: 0 },
-        { text: 'Was ist ein Vorteil?', options: ['Man spart Zeit und hat mehr Flexibilität', 'Höheres Gehalt', 'Mehr Kollegenkontakt', 'Kürzere Arbeitszeiten'], answerIndex: 0 },
-        { text: 'Was empfehlen Experten?', options: ['Feste Arbeitszeiten einhalten', 'Nachts arbeiten', 'Keine Pausen machen', 'Immer erreichbar sein'], answerIndex: 0 }
+        { text: 'Wie viel Prozent arbeiten im Homeoffice?', options: ['40%', '25%', '60%', '15%'], answerIndex: 0, explanation: 'Der Text nennt die Zahl direkt: „40 Prozent der Beschäftigten arbeiten regelmäßig von zu Hause.“' },
+        { text: 'Was ist ein Vorteil?', options: ['Man spart Zeit und hat mehr Flexibilität', 'Höheres Gehalt', 'Mehr Kollegenkontakt', 'Kürzere Arbeitszeiten'], answerIndex: 0, explanation: 'Der Text nennt als Vorteile: „Man spart Zeit, kann sich die Zeit flexibler einteilen.“' },
+        { text: 'Was empfehlen Experten?', options: ['Feste Arbeitszeiten einhalten', 'Nachts arbeiten', 'Keine Pausen machen', 'Immer erreichbar sein'], answerIndex: 0, explanation: 'Der letzte Satz lautet: „Experten empfehlen feste Arbeitszeiten und regelmäßige Pausen.“' }
       ]
     },
     B2: {
       title: 'Kommentar: Tempolimit auf Autobahnen', tag: 'Meinungstext',
       passage: ['Deutschland ist eines der wenigen Länder weltweit, in denen es auf Autobahnen kein generelles Tempolimit gibt. Befürworter argumentieren mit der Verkehrssicherheit: Bei niedrigerer Geschwindigkeit seien Unfälle weniger schwer. Ein Tempolimit von 130 km/h würde den CO2-Ausstoß reduzieren. Gegner sehen in der freien Fahrt ein Stück deutsche Identität und befürchten negative Auswirkungen auf die Autoindustrie. Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist.'],
       questions: [
-        { text: 'Was argumentieren Befürworter?', options: ['Verkehrssicherheit und CO2-Reduktion', 'Höhere Steuereinnahmen', 'Bessere Straßen', 'Weniger Staus'], answerIndex: 0 },
-        { text: 'Was befürchten Gegner?', options: ['Negative Auswirkungen auf die Autoindustrie', 'Höhere Unfallzahlen', 'Weniger Tourismus', 'Höhere Benzinpreise'], answerIndex: 0 },
-        { text: 'Welche Position vertritt der Autor?', options: ['Er ist für ein Tempolimit', 'Er ist dagegen', 'Er ist neutral', 'Er äußert keine Meinung'], answerIndex: 0 }
+        { text: 'Was argumentieren Befürworter?', options: ['Verkehrssicherheit und CO2-Reduktion', 'Höhere Steuereinnahmen', 'Bessere Straßen', 'Weniger Staus'], answerIndex: 0, explanation: 'Befürworter nennen zwei Argumente: geringere Unfallschwere bei niedrigerer Geschwindigkeit und CO2-Reduktion durch ein Tempolimit von 130 km/h.' },
+        { text: 'Was befürchten Gegner?', options: ['Negative Auswirkungen auf die Autoindustrie', 'Höhere Unfallzahlen', 'Weniger Tourismus', 'Höhere Benzinpreise'], answerIndex: 0, explanation: 'Der Text sagt: Gegner „…befürchten negative Auswirkungen auf die Autoindustrie.“' },
+        { text: 'Welche Position vertritt der Autor?', options: ['Er ist für ein Tempolimit', 'Er ist dagegen', 'Er ist neutral', 'Er äußert keine Meinung'], answerIndex: 0, explanation: 'Der Autor schreibt direkt: „Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist.“' }
       ]
     },
     C1: {
       title: 'Die Grenzen der künstlichen Intelligenz', tag: 'Sachtext',
       passage: ['Die Fortschritte im Bereich der künstlichen Intelligenz haben in den letzten Jahren für erhebliches Aufsehen gesorgt. Dennoch wäre es verfehlt, daraus zu schließen, dass Maschinen in absehbarer Zeit das menschliche Denken ersetzen könnten. Was KI-Systeme leisten, ist eine hocheffiziente Mustererkennung auf der Grundlage großer Datenmengen. Was ihnen fehlt, ist ein genuines Verständnis dessen, was sie tun. Hinzu kommt das Problem der sogenannten Halluzinationen: KI-Systeme generieren mitunter Inhalte, die plausibel klingen, aber faktisch falsch sind. Dies ist ein fundamentales Defizit.'],
       questions: [
-        { text: 'Was können KI-Systeme laut Text besonders gut?', options: ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], answerIndex: 0 },
-        { text: 'Was fehlt KI-Systemen laut Autor?', options: ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], answerIndex: 0 },
-        { text: 'Wie bewertet der Autor das Problem der Halluzinationen?', options: ['Als fundamentales Defizit', 'Als marginales technisches Problem', 'Als bereits gelöst', 'Als übertrieben dargestellt'], answerIndex: 0 }
+        { text: 'Was können KI-Systeme laut Text besonders gut?', options: ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], answerIndex: 0, explanation: 'Der Text sagt: KI-Systeme leisten „eine hocheffiziente Mustererkennung auf der Grundlage großer Datenmengen.“' },
+        { text: 'Was fehlt KI-Systemen laut Autor?', options: ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], answerIndex: 0, explanation: 'Der Autor schreibt: KI-Systemen fehlt „ein genuines Verständnis dessen, was sie tun.“' },
+        { text: 'Wie bewertet der Autor das Problem der Halluzinationen?', options: ['Als fundamentales Defizit', 'Als marginales technisches Problem', 'Als bereits gelöst', 'Als übertrieben dargestellt'], answerIndex: 0, explanation: 'Der letzte Satz des Textes lautet: „Dies ist ein fundamentales Defizit.“' }
       ]
     },
     C2: {
       title: 'Die Paradoxie des Fortschritts', tag: 'Komplexer Sachtext',
       passage: ['Es gehört zu den bemerkenswerten Paradoxien unserer Zeit, dass technologischer Fortschritt zunehmend zum Gegenstand fundamentaler Skepsis geworden ist. Die Verheißungen der Digitalisierung haben sich zwar in mancherlei Hinsicht erfüllt, doch gleichzeitig haben sie neue Probleme hervorgebracht. Während der Zugang zu Wissen nie einfacher war, fällt es den Menschen paradoxerweise immer schwerer, zwischen gesicherten Erkenntnissen und Desinformation zu unterscheiden. Die Algorithmen der sozialen Medien haben sich als mächtige Instrumente der Manipulation erwiesen, die zur Entstehung sogenannter Filterblasen beitragen.'],
       questions: [
-        { text: 'Worin besteht die "Paradoxie des Fortschritts" laut Autor?', options: ['Fortschritt löst Probleme, schafft aber gleichzeitig neue', 'Fortschritt war schon immer problematisch', 'Fortschritt hat nie Verheißungen erfüllt', 'Menschen lehnen Fortschritt ab'], answerIndex: 0 },
-        { text: 'Was kritisiert der Autor an den Algorithmen sozialer Medien?', options: ['Sie tragen zur Polarisierung bei und schaffen Filterblasen', 'Sie funktionieren nicht', 'Sie sind zu langsam', 'Sie verhindern den Zugang zu Information'], answerIndex: 0 }
+        { text: 'Worin besteht die "Paradoxie des Fortschritts" laut Autor?', options: ['Fortschritt löst Probleme, schafft aber gleichzeitig neue', 'Fortschritt war schon immer problematisch', 'Fortschritt hat nie Verheißungen erfüllt', 'Menschen lehnen Fortschritt ab'], answerIndex: 0, explanation: 'Der Text sagt, die Verheißungen der Digitalisierung hätten sich zwar erfüllt, „doch gleichzeitig haben sie neue Probleme hervorgebracht.“' },
+        { text: 'Was kritisiert der Autor an den Algorithmen sozialer Medien?', options: ['Sie tragen zur Polarisierung bei und schaffen Filterblasen', 'Sie funktionieren nicht', 'Sie sind zu langsam', 'Sie verhindern den Zugang zu Information'], answerIndex: 0, explanation: 'Der Text sagt, die Algorithmen seien „mächtige Instrumente der Manipulation…, die zur Entstehung sogenannter Filterblasen beitragen.“' }
       ]
     }
   };
@@ -717,51 +717,51 @@
       title: 'Dialog: Am Telefon',
       script: 'Praxis Doktor Klein, guten Tag! Guten Tag, hier ist Frau Yilmaz. Ich möchte einen Termin machen. Ja, gerne. Wie wäre es am Donnerstag um 10 Uhr? Donnerstag geht leider nicht. Geht es auch am Freitag? Am Freitag um 11 Uhr? Ja, das passt. Vielen Dank!',
       questions: [
-        { text: 'Frau Yilmaz ruft beim Arzt an.', options: ['Richtig', 'Falsch'], answerIndex: 0 },
-        { text: 'Sie bekommt einen Termin am Donnerstag.', options: ['Richtig', 'Falsch'], answerIndex: 1 },
-        { text: 'Der Termin ist am Freitag um 11 Uhr.', options: ['Richtig', 'Falsch'], answerIndex: 0 }
+        { text: 'Frau Yilmaz ruft beim Arzt an.', options: ['Richtig', 'Falsch'], answerIndex: 0, explanation: 'Der Anruf beginnt mit „Praxis Doktor Klein“ — Frau Yilmaz spricht also mit einer Arztpraxis.' },
+        { text: 'Sie bekommt einen Termin am Donnerstag.', options: ['Richtig', 'Falsch'], answerIndex: 1, explanation: 'Donnerstag wird zuerst vorgeschlagen, aber sie sagt: „Donnerstag geht leider nicht.“ Der Termin wird auf Freitag verlegt.' },
+        { text: 'Der Termin ist am Freitag um 11 Uhr.', options: ['Richtig', 'Falsch'], answerIndex: 0, explanation: 'Am Ende bestätigt sie: „Am Freitag um 11 Uhr? – Ja, das passt.“' }
       ]
     },
     A2: {
       title: 'Zahnarzt (Anrufbeantworter)',
       script: 'Guten Tag, hier ist die Zahnarztpraxis Doktor Hoffmann. Leider müssen wir Ihren Termin am Dienstag um 14 Uhr absagen, weil Herr Doktor Hoffmann erkrankt ist. Wir bieten Ihnen als neuen Termin Donnerstag um 10 Uhr an.',
       questions: [
-        { text: 'Warum wird der Termin abgesagt?', options: ['Dr. Hoffmann ist krank', 'Die Praxis ist geschlossen', 'Der Patient hat abgesagt', 'Es gibt einen Notfall'], answerIndex: 0 },
-        { text: 'Wann ist der neue Termin?', options: ['Donnerstag um 10 Uhr', 'Dienstag um 14 Uhr', 'Freitag um 10 Uhr', 'Donnerstag um 14 Uhr'], answerIndex: 0 }
+        { text: 'Warum wird der Termin abgesagt?', options: ['Dr. Hoffmann ist krank', 'Die Praxis ist geschlossen', 'Der Patient hat abgesagt', 'Es gibt einen Notfall'], answerIndex: 0, explanation: 'Die Nachricht sagt: „…weil Herr Doktor Hoffmann erkrankt ist.“' },
+        { text: 'Wann ist der neue Termin?', options: ['Donnerstag um 10 Uhr', 'Dienstag um 14 Uhr', 'Freitag um 10 Uhr', 'Donnerstag um 14 Uhr'], answerIndex: 0, explanation: 'Die Praxis bietet an: „…Donnerstag um 10 Uhr an.“ Dienstag 14 Uhr war der ALTE, abgesagte Termin.' }
       ]
     },
     B1: {
       title: 'Dialog: Berufliche Veränderung',
       script: 'Ich habe mich entschieden, meinen Job zu kündigen. Was? Aber du arbeitest erst seit zwei Jahren dort! Die Arbeit ist langweilig und mein Chef ist schwierig. Ich mache eine Weiterbildung in Webdesign. Hast du genug gespart? Ja, und die Weiterbildung dauert nur sechs Monate.',
       questions: [
-        { text: 'Warum kündigt die Person?', options: ['Langweilige Arbeit und schwieriger Chef', 'Zu wenig Gehalt', 'Zu weiter Arbeitsweg', 'Gesundheitliche Probleme'], answerIndex: 0 },
-        { text: 'Was hat die Person vor?', options: ['Weiterbildung in Webdesign', 'Studium beginnen', 'Ins Ausland gehen', 'Ein eigenes Geschäft eröffnen'], answerIndex: 0 },
-        { text: 'Wie lange dauert die Weiterbildung?', options: ['Sechs Monate', 'Drei Monate', 'Ein Jahr', 'Zwölf Monate'], answerIndex: 0 }
+        { text: 'Warum kündigt die Person?', options: ['Langweilige Arbeit und schwieriger Chef', 'Zu wenig Gehalt', 'Zu weiter Arbeitsweg', 'Gesundheitliche Probleme'], answerIndex: 0, explanation: 'Sie sagt: „Die Arbeit ist langweilig und mein Chef ist schwierig.“' },
+        { text: 'Was hat die Person vor?', options: ['Weiterbildung in Webdesign', 'Studium beginnen', 'Ins Ausland gehen', 'Ein eigenes Geschäft eröffnen'], answerIndex: 0, explanation: 'Sie sagt: „Ich mache eine Weiterbildung in Webdesign.“' },
+        { text: 'Wie lange dauert die Weiterbildung?', options: ['Sechs Monate', 'Drei Monate', 'Ein Jahr', 'Zwölf Monate'], answerIndex: 0, explanation: 'Am Ende heißt es: „die Weiterbildung dauert nur sechs Monate.“' }
       ]
     },
     B2: {
       title: 'Interview: Ehrenamt',
       script: 'Frau Doktor Becker, was hat sich beim ehrenamtlichen Engagement verändert? Die Art des Engagements hat sich stark gewandelt. Früher haben sich Menschen langfristig an einen Verein gebunden. Heute sehen wir einen Trend zum projektbezogenen Engagement. Ein Problem für Organisationen: die fehlende Planungssicherheit.',
       questions: [
-        { text: 'Was hat sich verändert?', options: ['Vom langfristigen zum projektbezogenen Engagement', 'Ehrenamt ist komplett verschwunden', 'Nur ältere Menschen engagieren sich noch', 'Es gibt keine Vereine mehr'], answerIndex: 0 },
-        { text: 'Was ist ein Problem für Organisationen?', options: ['Fehlende Planungssicherheit', 'Zu viele Freiwillige', 'Zu hohe Kosten', 'Mangelnde staatliche Unterstützung'], answerIndex: 0 }
+        { text: 'Was hat sich verändert?', options: ['Vom langfristigen zum projektbezogenen Engagement', 'Ehrenamt ist komplett verschwunden', 'Nur ältere Menschen engagieren sich noch', 'Es gibt keine Vereine mehr'], answerIndex: 0, explanation: 'Frau Dr. Becker sagt: früher langfristige Vereinsbindung, heute „ein Trend zum projektbezogenen Engagement.“' },
+        { text: 'Was ist ein Problem für Organisationen?', options: ['Fehlende Planungssicherheit', 'Zu viele Freiwillige', 'Zu hohe Kosten', 'Mangelnde staatliche Unterstützung'], answerIndex: 0, explanation: 'Sie nennt direkt: „Ein Problem für Organisationen: die fehlende Planungssicherheit.“' }
       ]
     },
     C1: {
       title: 'Dialog: Karrierewechsel',
       script: 'Sag mal, stimmt es, dass du deinen Job an der Uni aufgibst? Ja, die akademische Laufbahn hat mich zunehmend frustriert. Der Druck, ständig zu publizieren, die befristeten Verträge, die Unsicherheit — das will ich mir nicht mehr antun. Ich fange nächsten Monat bei einer Unternehmensberatung an.',
       questions: [
-        { text: 'Warum gibt die Person die akademische Karriere auf?', options: ['Frustration über Publikationsdruck, befristete Verträge, Unsicherheit', 'Zu niedriges Gehalt', 'Konflikt mit dem Professor', 'Umzug in eine andere Stadt'], answerIndex: 0 },
-        { text: 'Was beginnt die Person nächsten Monat?', options: ['Stelle bei einer Unternehmensberatung', 'Ein neues Studium', 'Eine eigene Firma', 'Eine Stelle an einer anderen Uni'], answerIndex: 0 }
+        { text: 'Warum gibt die Person die akademische Karriere auf?', options: ['Frustration über Publikationsdruck, befristete Verträge, Unsicherheit', 'Zu niedriges Gehalt', 'Konflikt mit dem Professor', 'Umzug in eine andere Stadt'], answerIndex: 0, explanation: 'Genannt werden: „Der Druck, ständig zu publizieren, die befristeten Verträge, die Unsicherheit.“' },
+        { text: 'Was beginnt die Person nächsten Monat?', options: ['Stelle bei einer Unternehmensberatung', 'Ein neues Studium', 'Eine eigene Firma', 'Eine Stelle an einer anderen Uni'], answerIndex: 0, explanation: 'Sie sagt: „Ich fange nächsten Monat bei einer Unternehmensberatung an.“' }
       ]
     },
     C2: {
       title: 'Vortrag: Spracherwerb und kognitive Entwicklung',
       script: 'Ich möchte heute über den Zusammenhang zwischen Spracherwerb und kognitiver Entwicklung sprechen. Es ist ein weit verbreiteter Irrtum, dass Sprache lediglich ein Kommunikationsinstrument ist. Sprache formt unser Denken — diese als Sapir-Whorf-Hypothese bekannte These gilt in ihrer radikalen, deterministischen Form heute als überholt. Bilinguale Menschen zeigen in zahlreichen Studien eine erhöhte kognitive Flexibilität. Allerdings handelt es sich um Korrelationen, nicht um nachgewiesene Kausalitäten.',
       questions: [
-        { text: 'Die Sapir-Whorf-Hypothese gilt in ihrer radikalen Form als bestätigt.', options: ['Richtig', 'Falsch'], answerIndex: 1 },
-        { text: 'Bilingualismus zeigt Zusammenhänge mit kognitiver Flexibilität.', options: ['Richtig', 'Falsch'], answerIndex: 0 },
-        { text: 'Der Sprecher warnt vor voreiligen Kausalschlüssen.', options: ['Richtig', 'Falsch'], answerIndex: 0 }
+        { text: 'Die Sapir-Whorf-Hypothese gilt in ihrer radikalen Form als bestätigt.', options: ['Richtig', 'Falsch'], answerIndex: 1, explanation: 'Der Vortrag sagt das Gegenteil: die These „gilt in ihrer radikalen, deterministischen Form heute als überholt.“' },
+        { text: 'Bilingualismus zeigt Zusammenhänge mit kognitiver Flexibilität.', options: ['Richtig', 'Falsch'], answerIndex: 0, explanation: 'Der Vortrag sagt: „Bilinguale Menschen zeigen in zahlreichen Studien eine erhöhte kognitive Flexibilität.“' },
+        { text: 'Der Sprecher warnt vor voreiligen Kausalschlüssen.', options: ['Richtig', 'Falsch'], answerIndex: 0, explanation: 'Der letzte Satz lautet: „Allerdings handelt es sich um Korrelationen, nicht um nachgewiesene Kausalitäten.“' }
       ]
     }
   };
@@ -774,11 +774,11 @@
   // two additional practice tabs so there's one single practice hub
   // instead of scattering skills across separate top-level pages.
   // ---------------------------------------------------------------
-  function tf(text, answer) {
-    return { type: 'mc', text: text, options: ['Richtig', 'Falsch'], answerIndex: answer ? 0 : 1 };
+  function tf(text, answer, explanation) {
+    return { type: 'mc', text: text, options: ['Richtig', 'Falsch'], answerIndex: answer ? 0 : 1, explanation: explanation };
   }
-  function mc(text, options, answerIndex) {
-    return { type: 'mc', text: text, options: options, answerIndex: answerIndex };
+  function mc(text, options, answerIndex, explanation) {
+    return { type: 'mc', text: text, options: options, answerIndex: answerIndex, explanation: explanation };
   }
 
 var HOEREN_PRACTICE_DATA = {
@@ -787,56 +787,56 @@ var HOEREN_PRACTICE_DATA = {
         title: 'Dialog 1: Am Telefon', part: 'Teil 1',
         script: 'Praxis Doktor Klein, guten Tag! Guten Tag, hier ist Frau Yilmaz. Ich möchte einen Termin machen. Ja, gerne. Wie wäre es am Donnerstag um 10 Uhr? Donnerstag geht leider nicht. Geht es auch am Freitag? Am Freitag um 11 Uhr? Ja, das passt. Vielen Dank!',
         questions: [
-          tf('Frau Yilmaz ruft beim Arzt an.', true),
-          tf('Sie bekommt einen Termin am Donnerstag.', false),
-          tf('Der Termin ist am Freitag um 11 Uhr.', true)
+          tf('Frau Yilmaz ruft beim Arzt an.', true, 'Der Anruf beginnt mit „Praxis Doktor Klein“ — Frau Yilmaz ruft also bei einer Arztpraxis an.'),
+          tf('Sie bekommt einen Termin am Donnerstag.', false, 'Donnerstag wird vorgeschlagen, aber sie sagt: „Donnerstag geht leider nicht.“'),
+          tf('Der Termin ist am Freitag um 11 Uhr.', true, 'Am Ende bestätigt sie: „Am Freitag um 11 Uhr? – Ja, das passt.“')
         ]
       },
       {
         title: 'Dialog 2: Am Bahnhof', part: 'Teil 1',
         script: 'Entschuldigung, wann fährt der nächste Zug nach Hamburg? Der nächste Zug fährt um 14:35 Uhr von Gleis 8. Und wann kommt er in Hamburg an? Um 16:50 Uhr. Was kostet eine Fahrkarte? Einfach oder hin und zurück? Einfach, bitte. Das macht 45 Euro.',
         questions: [
-          mc('Wohin will die Person fahren?', ['Nach Hamburg', 'Nach Berlin', 'Nach München', 'Nach Köln'], 0),
-          mc('Um wie viel Uhr fährt der Zug?', ['14:35 Uhr', '13:35 Uhr', '15:35 Uhr', '16:50 Uhr'], 0),
-          mc('Von welchem Gleis?', ['Gleis 8', 'Gleis 3', 'Gleis 5', 'Gleis 10'], 0),
-          mc('Wie viel kostet die Fahrkarte?', ['45 Euro', '35 Euro', '55 Euro', '40 Euro'], 0)
+          mc('Wohin will die Person fahren?', ['Nach Hamburg', 'Nach Berlin', 'Nach München', 'Nach Köln'], 0, 'Die Frage lautet direkt: „wann fährt der nächste Zug nach Hamburg?“'),
+          mc('Um wie viel Uhr fährt der Zug?', ['14:35 Uhr', '13:35 Uhr', '15:35 Uhr', '16:50 Uhr'], 0, 'Die Antwort ist: „Der nächste Zug fährt um 14:35 Uhr.“'),
+          mc('Von welchem Gleis?', ['Gleis 8', 'Gleis 3', 'Gleis 5', 'Gleis 10'], 0, 'Der Zug fährt „…von Gleis 8.“'),
+          mc('Wie viel kostet die Fahrkarte?', ['45 Euro', '35 Euro', '55 Euro', '40 Euro'], 0, 'Am Ende heißt es: „Das macht 45 Euro.“')
         ]
       },
       {
         title: 'Hörtext 1: Telefonansage', part: 'Teil 2',
         script: 'Sie haben die Arztpraxis Doktor Müller erreicht. Die Praxis ist von Montag bis Freitag von 8 bis 12 Uhr und von 14 bis 17 Uhr geöffnet. Am Mittwochnachmittag ist die Praxis geschlossen. In dringenden Fällen rufen Sie bitte die Notfallnummer 112 an.',
         questions: [
-          mc('Wann ist die Praxis morgens geöffnet?', ['Von 8 bis 12 Uhr', 'Von 9 bis 13 Uhr', 'Von 7 bis 11 Uhr', 'Von 8 bis 13 Uhr'], 0),
-          mc('Wann ist die Praxis nachmittags geschlossen?', ['Am Mittwochnachmittag', 'Am Montagnachmittag', 'Am Freitagnachmittag', 'Am Dienstagnachmittag'], 0),
-          mc('Welche Nummer ruft man im Notfall an?', ['112', '110', '911', '115'], 0)
+          mc('Wann ist die Praxis morgens geöffnet?', ['Von 8 bis 12 Uhr', 'Von 9 bis 13 Uhr', 'Von 7 bis 11 Uhr', 'Von 8 bis 13 Uhr'], 0, 'Die Ansage sagt: „von 8 bis 12 Uhr und von 14 bis 17 Uhr geöffnet.“'),
+          mc('Wann ist die Praxis nachmittags geschlossen?', ['Am Mittwochnachmittag', 'Am Montagnachmittag', 'Am Freitagnachmittag', 'Am Dienstagnachmittag'], 0, 'Die Ansage sagt: „Am Mittwochnachmittag ist die Praxis geschlossen.“'),
+          mc('Welche Nummer ruft man im Notfall an?', ['112', '110', '911', '115'], 0, 'Die Ansage nennt: „die Notfallnummer 112.“')
         ]
       },
       {
         title: 'Hörtext 2: Wetterbericht', part: 'Teil 2',
         script: 'Der Wetterbericht für heute: Am Vormittag scheint die Sonne bei Temperaturen um 15 Grad. Am Nachmittag wird es bewölkt und am Abend kann es regnen. Morgen wird es den ganzen Tag sonnig und warm.',
         questions: [
-          tf('Am Vormittag scheint die Sonne.', true),
-          tf('Es wird den ganzen Tag sonnig.', false),
-          tf('Morgen regnet es.', false)
+          tf('Am Vormittag scheint die Sonne.', true, 'Der Bericht sagt: „Am Vormittag scheint die Sonne.“'),
+          tf('Es wird den ganzen Tag sonnig.', false, 'Nur am Vormittag ist es sonnig; am Nachmittag wird es bewölkt, am Abend kann es regnen.'),
+          tf('Morgen regnet es.', false, 'Der Bericht sagt: „Morgen wird es den ganzen Tag sonnig und warm“ — kein Regen.')
         ]
       },
       {
         title: 'Durchsage 1: Am Bahnhof', part: 'Teil 3',
         script: 'Achtung auf Gleis 3: Der ICE 574 nach München über Nürnberg hat eine Verspätung von 15 Minuten. Voraussichtliche Abfahrt: 10:45 Uhr.',
         questions: [
-          mc('Welcher Zug hat Verspätung?', ['ICE 574', 'ICE 475', 'ICE 754', 'RE 574'], 0),
-          mc('Wie viel Verspätung hat er?', ['15 Minuten', '5 Minuten', '30 Minuten', '45 Minuten'], 0),
-          mc('Von welchem Gleis fährt der Zug?', ['Gleis 3', 'Gleis 8', 'Gleis 1', 'Gleis 5'], 0)
+          mc('Welcher Zug hat Verspätung?', ['ICE 574', 'ICE 475', 'ICE 754', 'RE 574'], 0, 'Die Durchsage nennt: „Der ICE 574 nach München.“'),
+          mc('Wie viel Verspätung hat er?', ['15 Minuten', '5 Minuten', '30 Minuten', '45 Minuten'], 0, 'Die Durchsage sagt: „eine Verspätung von 15 Minuten.“'),
+          mc('Von welchem Gleis fährt der Zug?', ['Gleis 3', 'Gleis 8', 'Gleis 1', 'Gleis 5'], 0, 'Die Durchsage beginnt: „Achtung auf Gleis 3.“')
         ]
       },
       {
         title: 'Durchsage 2: Im Kaufhaus', part: 'Teil 3',
         script: 'Liebe Kunden, heute haben wir ein Sonderangebot: Alle Winterjacken sind um 30 Prozent reduziert. Sie finden die Winterjacken in der 2. Etage. Das Angebot gilt nur heute.',
         questions: [
-          mc('Was ist im Sonderangebot?', ['Winterjacken', 'Sommerkleider', 'Schuhe', 'Handschuhe'], 0),
-          mc('Wie viel Prozent Rabatt gibt es?', ['30%', '20%', '50%', '15%'], 0),
-          mc('In welcher Etage?', ['2. Etage', '1. Etage', '3. Etage', 'Erdgeschoss'], 0),
-          mc('Wie lange gilt das Angebot?', ['Nur heute', 'Diese Woche', 'Bis Samstag', 'Den ganzen Monat'], 0)
+          mc('Was ist im Sonderangebot?', ['Winterjacken', 'Sommerkleider', 'Schuhe', 'Handschuhe'], 0, 'Die Durchsage sagt: „Alle Winterjacken sind um 30 Prozent reduziert.“'),
+          mc('Wie viel Prozent Rabatt gibt es?', ['30%', '20%', '50%', '15%'], 0, 'Die Durchsage nennt: „um 30 Prozent reduziert.“'),
+          mc('In welcher Etage?', ['2. Etage', '1. Etage', '3. Etage', 'Erdgeschoss'], 0, 'Die Durchsage sagt: „Sie finden die Winterjacken in der 2. Etage.“'),
+          mc('Wie lange gilt das Angebot?', ['Nur heute', 'Diese Woche', 'Bis Samstag', 'Den ganzen Monat'], 0, 'Die Durchsage sagt: „Das Angebot gilt nur heute.“')
         ]
       }
     ],
@@ -845,26 +845,26 @@ var HOEREN_PRACTICE_DATA = {
         title: 'Hörtext 1: Zahnarzt (Anrufbeantworter)', part: 'Teil 1',
         script: 'Guten Tag, hier ist die Zahnarztpraxis Doktor Hoffmann. Leider müssen wir Ihren Termin am Dienstag um 14 Uhr absagen, weil Herr Doktor Hoffmann erkrankt ist. Wir bieten Ihnen als neuen Termin Donnerstag um 10 Uhr an. Bitte rufen Sie zurück.',
         questions: [
-          mc('Warum wird der Termin abgesagt?', ['Dr. Hoffmann ist krank', 'Die Praxis ist geschlossen', 'Der Patient hat abgesagt', 'Es gibt einen Notfall'], 0),
-          mc('Wann ist der neue Termin?', ['Donnerstag um 10 Uhr', 'Dienstag um 14 Uhr', 'Freitag um 10 Uhr', 'Donnerstag um 14 Uhr'], 0)
+          mc('Warum wird der Termin abgesagt?', ['Dr. Hoffmann ist krank', 'Die Praxis ist geschlossen', 'Der Patient hat abgesagt', 'Es gibt einen Notfall'], 0, 'Die Nachricht sagt: „…weil Herr Doktor Hoffmann erkrankt ist.“'),
+          mc('Wann ist der neue Termin?', ['Donnerstag um 10 Uhr', 'Dienstag um 14 Uhr', 'Freitag um 10 Uhr', 'Donnerstag um 14 Uhr'], 0, 'Die Praxis bietet an: „Donnerstag um 10 Uhr.“')
         ]
       },
       {
         title: 'Hörtext 3: Supermarkt (Durchsage)', part: 'Teil 2',
         script: 'Liebe Kunden, heute haben wir besondere Angebote: Frische Erdbeeren, 500 Gramm nur 1,99 Euro. Außerdem alle Joghurts 20 Prozent günstiger. Die Angebote gelten bis Samstag.',
         questions: [
-          tf('Die Erdbeeren kosten 1,99 Euro pro Kilo.', false),
-          tf('Joghurts sind diese Woche billiger.', true),
-          tf('Die Angebote gelten nur heute.', false)
+          tf('Die Erdbeeren kosten 1,99 Euro pro Kilo.', false, 'Die Durchsage sagt „500 Gramm nur 1,99 Euro“ — das ist ein halbes Kilo, nicht ein ganzes.'),
+          tf('Joghurts sind diese Woche billiger.', true, 'Die Durchsage sagt: „alle Joghurts 20 Prozent günstiger.“'),
+          tf('Die Angebote gelten nur heute.', false, 'Die Durchsage sagt: „Die Angebote gelten bis Samstag“ — nicht nur heute.')
         ]
       },
       {
         title: 'Dialog 1: Wohnung mieten', part: 'Teil 3',
         script: 'Guten Tag, ich rufe wegen der Wohnungsanzeige an. Ja, die Wohnung ist noch frei. 2 Zimmer mit Balkon, 55 Quadratmeter im 3. Stock mit Einbauküche. Was kostet sie? 520 Euro kalt plus 150 Euro Nebenkosten. Kann ich besichtigen? Mittwoch um 16 Uhr? Ja, gerne. Bis dann!',
         questions: [
-          mc('Wie viele Zimmer?', ['2 Zimmer', '1 Zimmer', '3 Zimmer', '4 Zimmer'], 0),
-          mc('Gesamtkosten?', ['670 Euro', '520 Euro', '150 Euro', '700 Euro'], 0),
-          mc('Wann ist die Besichtigung?', ['Mittwoch um 16 Uhr', 'Dienstag um 16 Uhr', 'Mittwoch um 14 Uhr', 'Donnerstag um 16 Uhr'], 0)
+          mc('Wie viele Zimmer?', ['2 Zimmer', '1 Zimmer', '3 Zimmer', '4 Zimmer'], 0, 'Die Antwort ist: „2 Zimmer mit Balkon.“'),
+          mc('Gesamtkosten?', ['670 Euro', '520 Euro', '150 Euro', '700 Euro'], 0, '520 Euro kalt plus 150 Euro Nebenkosten ergibt 670 Euro.'),
+          mc('Wann ist die Besichtigung?', ['Mittwoch um 16 Uhr', 'Dienstag um 16 Uhr', 'Mittwoch um 14 Uhr', 'Donnerstag um 16 Uhr'], 0, 'Am Ende wird vereinbart: „Mittwoch um 16 Uhr? – Ja, gerne.“')
         ]
       }
     ],
@@ -873,27 +873,27 @@ var HOEREN_PRACTICE_DATA = {
         title: 'Dialog: Ernährung', part: 'Teil 1',
         script: 'Seit ich mich vegetarisch ernähre, fühle ich mich viel besser. Wie lange machst du das schon? Seit ungefähr drei Monaten. Am Anfang war es schwer. Und jetzt vermisst du nichts? Nein, gar nicht. Und ich habe sogar abgenommen.',
         questions: [
-          tf('Sie ernährt sich seit einem Jahr vegetarisch.', false),
-          tf('Am Anfang war es einfach.', false),
-          tf('Sie fühlt sich jetzt besser.', true)
+          tf('Sie ernährt sich seit einem Jahr vegetarisch.', false, 'Sie sagt: „Seit ungefähr drei Monaten“ — nicht seit einem Jahr.'),
+          tf('Am Anfang war es einfach.', false, 'Sie sagt: „Am Anfang war es schwer“ — nicht einfach.'),
+          tf('Sie fühlt sich jetzt besser.', true, 'Sie sagt zu Beginn: „fühle ich mich viel besser.“')
         ]
       },
       {
         title: 'Dialog: Berufliche Veränderung', part: 'Teil 3',
         script: 'Ich habe mich entschieden, meinen Job zu kündigen. Was? Aber du arbeitest erst seit zwei Jahren dort! Die Arbeit ist langweilig und mein Chef ist schwierig. Ich mache eine Weiterbildung in Webdesign. Hast du genug gespart? Ja, und die Weiterbildung dauert nur sechs Monate. Viel Erfolg! Ich drücke dir die Daumen.',
         questions: [
-          mc('Warum kündigt die Person?', ['Langweilige Arbeit und schwieriger Chef', 'Zu wenig Gehalt', 'Zu weiter Arbeitsweg', 'Gesundheitliche Probleme'], 0),
-          mc('Was hat die Person vor?', ['Weiterbildung in Webdesign', 'Studium beginnen', 'Ins Ausland gehen', 'Ein eigenes Geschäft eröffnen'], 0),
-          mc('Wie lange dauert die Weiterbildung?', ['Sechs Monate', 'Drei Monate', 'Ein Jahr', 'Zwölf Monate'], 0)
+          mc('Warum kündigt die Person?', ['Langweilige Arbeit und schwieriger Chef', 'Zu wenig Gehalt', 'Zu weiter Arbeitsweg', 'Gesundheitliche Probleme'], 0, 'Sie sagt: „Die Arbeit ist langweilig und mein Chef ist schwierig.“'),
+          mc('Was hat die Person vor?', ['Weiterbildung in Webdesign', 'Studium beginnen', 'Ins Ausland gehen', 'Ein eigenes Geschäft eröffnen'], 0, 'Sie sagt: „Ich mache eine Weiterbildung in Webdesign.“'),
+          mc('Wie lange dauert die Weiterbildung?', ['Sechs Monate', 'Drei Monate', 'Ein Jahr', 'Zwölf Monate'], 0, 'Sie sagt: „die Weiterbildung dauert nur sechs Monate.“')
         ]
       },
       {
         title: 'Vortrag: Ehrenamtliches Engagement', part: 'Teil 4',
         script: 'In Deutschland engagieren sich rund 30 Millionen Menschen ehrenamtlich — etwa 40 Prozent der Bevölkerung über 14 Jahre. Die meisten sind im Sportbereich aktiv. Gründe: etwas für die Gesellschaft tun, neue Leute kennenlernen, Erfahrungen sammeln. Problem: Es wird schwieriger, Freiwillige zu finden.',
         questions: [
-          tf('40 Prozent der Deutschen über 14 sind ehrenamtlich aktiv.', true),
-          tf('Am meisten engagieren sich Menschen im Bereich Musik.', false),
-          tf('Es wird leichter, Freiwillige zu finden.', false)
+          tf('40 Prozent der Deutschen über 14 sind ehrenamtlich aktiv.', true, 'Der Vortrag sagt: „30 Millionen Menschen ehrenamtlich — etwa 40 Prozent der Bevölkerung über 14 Jahre.“'),
+          tf('Am meisten engagieren sich Menschen im Bereich Musik.', false, 'Der Vortrag sagt: „Die meisten sind im Sportbereich aktiv“ — nicht Musik.'),
+          tf('Es wird leichter, Freiwillige zu finden.', false, 'Der Vortrag sagt das Gegenteil: „Es wird schwieriger, Freiwillige zu finden.“')
         ]
       }
     ],
@@ -902,18 +902,18 @@ var HOEREN_PRACTICE_DATA = {
         title: 'Interview: Ehrenamt (Dr. Becker)', part: 'Teil 1',
         script: 'Frau Doktor Becker, Sie forschen seit Jahren zum Thema ehrenamtliches Engagement. Was hat sich in den letzten Jahren verändert? Die Art des Engagements hat sich stark gewandelt. Früher haben sich Menschen langfristig an einen Verein gebunden. Heute sehen wir einen Trend zum projektbezogenen Engagement. Junge Menschen möchten sich zwar einbringen, aber nicht jahrelang an eine Organisation gebunden sein. Welche Folgen hat das? Einerseits ist die Flexibilität ein Vorteil — mehr Menschen beteiligen sich. Andererseits fehlt den Organisationen die Planungssicherheit. Was müsste sich ändern? Organisationen müssen sich anpassen. Sie sollten flexiblere Möglichkeiten anbieten, sich zu engagieren. Auch digitale Formate könnten helfen.',
         questions: [
-          mc('Was hat sich verändert?', ['Vom langfristigen zum projektbezogenen Engagement', 'Ehrenamt ist komplett verschwunden', 'Nur ältere Menschen engagieren sich noch', 'Es gibt keine Vereine mehr'], 0),
-          mc('Was ist ein Problem für Organisationen?', ['Fehlende Planungssicherheit', 'Zu viele Freiwillige', 'Zu hohe Kosten', 'Mangelnde staatliche Unterstützung'], 0),
-          mc('Was empfiehlt Dr. Becker?', ['Flexiblere Möglichkeiten und digitale Formate', 'Höhere Mitgliedsbeiträge', 'Strengere Regeln für Freiwillige', 'Weniger Vereine gründen'], 0)
+          mc('Was hat sich verändert?', ['Vom langfristigen zum projektbezogenen Engagement', 'Ehrenamt ist komplett verschwunden', 'Nur ältere Menschen engagieren sich noch', 'Es gibt keine Vereine mehr'], 0, 'Dr. Becker sagt: früher langfristige Vereinsbindung, heute „ein Trend zum projektbezogenen Engagement.“'),
+          mc('Was ist ein Problem für Organisationen?', ['Fehlende Planungssicherheit', 'Zu viele Freiwillige', 'Zu hohe Kosten', 'Mangelnde staatliche Unterstützung'], 0, 'Sie sagt: „…fehlt den Organisationen die Planungssicherheit.“'),
+          mc('Was empfiehlt Dr. Becker?', ['Flexiblere Möglichkeiten und digitale Formate', 'Höhere Mitgliedsbeiträge', 'Strengere Regeln für Freiwillige', 'Weniger Vereine gründen'], 0, 'Sie sagt: „Sie sollten flexiblere Möglichkeiten anbieten… Auch digitale Formate könnten helfen.“')
         ]
       },
       {
         title: 'Diskussion: Bedingungsloses Grundeinkommen', part: 'Teil 4',
         script: 'Person A sagt: Ich bin fest davon überzeugt, dass ein bedingungsloses Grundeinkommen die richtige Antwort auf die Herausforderungen der Digitalisierung ist. Wenn Maschinen immer mehr Arbeit übernehmen, brauchen die Menschen ein Sicherheitsnetz. Person B sagt: Das klingt ja schön, aber wer soll das bezahlen? Die Steuerlast wäre enorm. Außerdem befürchte ich, dass viele Menschen dann gar nicht mehr arbeiten würden. Person C sagt: Ich sehe das differenzierter. Ein Grundeinkommen für alle halte ich für unrealistisch, aber ein Modell, das besonders gefährdete Gruppen unterstützt, könnte sinnvoll sein.',
         questions: [
-          mc('Wie steht Person A zum Grundeinkommen?', ['Eindeutig dafür', 'Eindeutig dagegen', 'Neutral', 'Unentschieden'], 0),
-          mc('Wie steht Person B?', ['Eindeutig dagegen', 'Eindeutig dafür', 'Neutral', 'Unentschieden'], 0),
-          mc('Wie steht Person C?', ['Teilweise dafür, differenziert', 'Eindeutig dagegen', 'Komplett neutral', 'Eindeutig dafür ohne Einschränkung'], 0)
+          mc('Wie steht Person A zum Grundeinkommen?', ['Eindeutig dafür', 'Eindeutig dagegen', 'Neutral', 'Unentschieden'], 0, 'Person A sagt: „Ich bin fest davon überzeugt, dass ein bedingungsloses Grundeinkommen die richtige Antwort ist.“'),
+          mc('Wie steht Person B?', ['Eindeutig dagegen', 'Eindeutig dafür', 'Neutral', 'Unentschieden'], 0, 'Person B fragt kritisch „wer soll das bezahlen?“ und äußert nur Bedenken, keine Zustimmung.'),
+          mc('Wie steht Person C?', ['Teilweise dafür, differenziert', 'Eindeutig dagegen', 'Komplett neutral', 'Eindeutig dafür ohne Einschränkung'], 0, 'Person C sagt: „Ich sehe das differenzierter… könnte sinnvoll sein“ — weder klare Zustimmung noch Ablehnung.')
         ]
       }
     ],
@@ -922,18 +922,18 @@ var HOEREN_PRACTICE_DATA = {
         title: 'Dialog: Karrierewechsel', part: 'Teil 1',
         script: 'Sag mal, stimmt es, dass du deinen Job an der Uni aufgibst? Ja, ich habe lange darüber nachgedacht. Die akademische Laufbahn hat mich zunehmend frustriert. Der Druck, ständig zu publizieren, die befristeten Verträge, die Unsicherheit — das will ich mir nicht mehr antun. Aber du hast doch gerade erst deine Habilitation abgeschlossen! Wirfst du das nicht alles weg? So sehe ich das nicht. Die Kompetenzen, die ich mir angeeignet habe, sind auch außerhalb der Universität gefragt. Ich fange nächsten Monat bei einer Unternehmensberatung an. Und du hast kein schlechtes Gewissen? Anfangs schon. Aber letztlich muss jeder für sich selbst entscheiden, wo er seine Stärken am besten einsetzen kann.',
         questions: [
-          mc('Warum gibt die Person die akademische Karriere auf?', ['Frustration über Publikationsdruck, befristete Verträge, Unsicherheit', 'Zu niedriges Gehalt', 'Konflikt mit dem Professor', 'Umzug in eine andere Stadt'], 0),
-          mc('Was beginnt die Person nächsten Monat?', ['Stelle bei einer Unternehmensberatung', 'Ein neues Studium', 'Eine eigene Firma', 'Eine Stelle an einer anderen Uni'], 0),
-          mc('Hatte die Person anfangs Bedenken?', ['Ja, ein schlechtes Gewissen', 'Nein, gar keine', 'Ja, finanzielle Sorgen', 'Ja, Angst vor dem Scheitern'], 0)
+          mc('Warum gibt die Person die akademische Karriere auf?', ['Frustration über Publikationsdruck, befristete Verträge, Unsicherheit', 'Zu niedriges Gehalt', 'Konflikt mit dem Professor', 'Umzug in eine andere Stadt'], 0, 'Sie nennt: „Der Druck, ständig zu publizieren, die befristeten Verträge, die Unsicherheit.“'),
+          mc('Was beginnt die Person nächsten Monat?', ['Stelle bei einer Unternehmensberatung', 'Ein neues Studium', 'Eine eigene Firma', 'Eine Stelle an einer anderen Uni'], 0, 'Sie sagt: „Ich fange nächsten Monat bei einer Unternehmensberatung an.“'),
+          mc('Hatte die Person anfangs Bedenken?', ['Ja, ein schlechtes Gewissen', 'Nein, gar keine', 'Ja, finanzielle Sorgen', 'Ja, Angst vor dem Scheitern'], 0, 'Auf die Frage nach dem Gewissen antwortet sie: „Anfangs schon.“')
         ]
       },
       {
         title: 'Podiumsdiskussion: Grundeinkommen', part: 'Teil 3',
         script: 'Person A sagt: Es gibt keinerlei empirische Evidenz für die Finanzierbarkeit. Person B sagt: Unter bestimmten Bedingungen könnte ein modifiziertes Modell funktionieren. Person C sagt: Die Würde des Menschen erfordert materielle Absicherung.',
         questions: [
-          mc('Wer sagt: "Die Würde des Menschen erfordert materielle Absicherung"?', ['Person C', 'Person A', 'Person B', 'Der Moderator'], 0),
-          mc('Wer sagt: "Es gibt keinerlei empirische Evidenz für die Finanzierbarkeit"?', ['Person A', 'Person B', 'Person C', 'Der Moderator'], 0),
-          mc('Wer vertritt eine differenzierte, bedingte Position?', ['Person B', 'Person A', 'Person C', 'Keiner'], 0)
+          mc('Wer sagt: "Die Würde des Menschen erfordert materielle Absicherung"?', ['Person C', 'Person A', 'Person B', 'Der Moderator'], 0, 'Person C sagt genau diesen Satz.'),
+          mc('Wer sagt: "Es gibt keinerlei empirische Evidenz für die Finanzierbarkeit"?', ['Person A', 'Person B', 'Person C', 'Der Moderator'], 0, 'Person A sagt genau diesen Satz.'),
+          mc('Wer vertritt eine differenzierte, bedingte Position?', ['Person B', 'Person A', 'Person C', 'Keiner'], 0, 'Person B sagt: „Unter bestimmten Bedingungen könnte ein modifiziertes Modell funktionieren“ — eine bedingte, abgestufte Position.')
         ]
       }
     ],
@@ -942,20 +942,20 @@ var HOEREN_PRACTICE_DATA = {
         title: 'Vortrag: Spracherwerb und kognitive Entwicklung', part: 'Teil 1',
         script: 'Meine sehr verehrten Damen und Herren, ich möchte heute über den Zusammenhang zwischen Spracherwerb und kognitiver Entwicklung sprechen. Es ist ein weit verbreiteter Irrtum, dass Sprache lediglich ein Kommunikationsinstrument ist. Sprache formt unser Denken — diese These, bekannt als Sapir-Whorf-Hypothese, mag in ihrer deterministischen Variante überholt sein, doch in ihrer relativistischen Ausprägung wird sie durch zahlreiche Studien gestützt. Sprecher von Sprachen mit einem differenzierten Farbvokabular können feine Farbunterschiede nachweislich schneller identifizieren. Das Russische etwa unterscheidet lexikalisch zwischen Hellblau und Dunkelblau. Bilinguale Menschen zeigen in zahlreichen Studien eine erhöhte kognitive Flexibilität und eine verzögerte Manifestation altersbedingter kognitiver Einschränkungen. Allerdings handelt es sich um Korrelationen, nicht um nachgewiesene Kausalitäten. Es wäre unwissenschaftlich, daraus voreilige Schlüsse zu ziehen.',
         questions: [
-          tf('Die Sapir-Whorf-Hypothese gilt in ihrer radikalen Form als bestätigt.', false),
-          tf('Russische Muttersprachler unterscheiden Blautöne schneller.', true),
-          tf('Bilingualismus kann altersbedingte kognitive Einschränkungen komplett verhindern.', false),
-          tf('Der Sprecher warnt vor voreiligen Kausalschlüssen.', true)
+          tf('Die Sapir-Whorf-Hypothese gilt in ihrer radikalen Form als bestätigt.', false, 'Der Vortrag sagt das Gegenteil: die deterministische Variante „mag… überholt sein.“'),
+          tf('Russische Muttersprachler unterscheiden Blautöne schneller.', true, 'Der Vortrag sagt: „Das Russische… unterscheidet lexikalisch zwischen Hellblau und Dunkelblau“, und Sprecher mit differenziertem Farbvokabular identifizieren Farbunterschiede nachweislich schneller.'),
+          tf('Bilingualismus kann altersbedingte kognitive Einschränkungen komplett verhindern.', false, 'Der Vortrag spricht nur von einer „verzögerten Manifestation“, nicht von vollständiger Verhinderung.'),
+          tf('Der Sprecher warnt vor voreiligen Kausalschlüssen.', true, 'Der Vortrag endet: „Es wäre unwissenschaftlich, daraus voreilige Schlüsse zu ziehen.“')
         ]
       },
       {
         title: 'Podiumsdiskussion: Staatliche Kunstförderung', part: 'Teil 2',
         script: 'Unser Thema heute: Staatliche Kunstförderung — notwendige Investition oder Verschwendung von Steuergeldern? Professor Richter sagt: Die Frage müsste lauten: Können wir es uns leisten, Kunst nicht zu fördern? Kunst ist ein Grundpfeiler einer offenen Gesellschaft. Frau Becker sagt: Grundsätzlich stimme ich zu, allerdings muss man auch fragen, was gefördert wird und wessen Kunst. Die staatliche Förderung bevorzugt etablierte Institutionen und vernachlässigt innovative Projekte. Herr Wagner sagt: Ich sehe das pragmatischer. Warum sollte der Steuerzahler für eine Oper bezahlen, die nur von einer kleinen Elite besucht wird? Wenn Kunst relevant ist, wird sie ihren Markt finden. Professor Richter antwortet: Das ist ein gefährlicher Trugschluss. Der Markt ist kein geeignetes Instrument, um den Wert von Kunst zu bemessen.',
         questions: [
-          mc('Wer sagt "Kunstförderung ist unverzichtbar für die Demokratie"?', ['Prof. Richter', 'Frau Becker', 'Herr Wagner', 'Der Moderator'], 0),
-          mc('Wer sagt "Die Förderung muss gerechter verteilt werden"?', ['Frau Becker', 'Prof. Richter', 'Herr Wagner', 'Der Moderator'], 0),
-          mc('Wer meint "Der Markt sollte über den Wert von Kunst entscheiden"?', ['Herr Wagner', 'Prof. Richter', 'Frau Becker', 'Der Moderator'], 0),
-          mc('Wer hält Marktlogik für Kunst ungeeignet?', ['Prof. Richter', 'Herr Wagner', 'Frau Becker', 'Der Moderator'], 0)
+          mc('Wer sagt "Kunstförderung ist unverzichtbar für die Demokratie"?', ['Prof. Richter', 'Frau Becker', 'Herr Wagner', 'Der Moderator'], 0, 'Er fragt: „Können wir es uns leisten, Kunst nicht zu fördern?“ und nennt Kunst einen „Grundpfeiler einer offenen Gesellschaft.“'),
+          mc('Wer sagt "Die Förderung muss gerechter verteilt werden"?', ['Frau Becker', 'Prof. Richter', 'Herr Wagner', 'Der Moderator'], 0, 'Sie sagt: „die staatliche Förderung bevorzugt etablierte Institutionen und vernachlässigt innovative Projekte.“'),
+          mc('Wer meint "Der Markt sollte über den Wert von Kunst entscheiden"?', ['Herr Wagner', 'Prof. Richter', 'Frau Becker', 'Der Moderator'], 0, 'Er sagt: „Wenn Kunst relevant ist, wird sie ihren Markt finden.“'),
+          mc('Wer hält Marktlogik für Kunst ungeeignet?', ['Prof. Richter', 'Herr Wagner', 'Frau Becker', 'Der Moderator'], 0, 'Er antwortet: „Der Markt ist kein geeignetes Instrument, um den Wert von Kunst zu bemessen.“')
         ]
       }
     ]
@@ -968,35 +968,35 @@ var LESEN_PRACTICE_DATA = {
         title: 'Schild: Bibliothek', part: 'Teil 1', tag: 'Schild / Sign',
         passage: ['Bibliothek\nMo–Fr: 9:00–18:00\nSa: 10:00–14:00\nSo: geschlossen'],
         questions: [
-          tf('Die Bibliothek ist am Sonntag geöffnet.', false),
-          tf('Am Samstag ist die Bibliothek von 10 bis 14 Uhr offen.', true),
-          tf('Von Montag bis Freitag kann man um 8 Uhr kommen.', false)
+          tf('Die Bibliothek ist am Sonntag geöffnet.', false, 'Das Schild sagt: „So: geschlossen“ — am Sonntag ist geschlossen.'),
+          tf('Am Samstag ist die Bibliothek von 10 bis 14 Uhr offen.', true, 'Das Schild sagt: „Sa: 10:00–14:00.“'),
+          tf('Von Montag bis Freitag kann man um 8 Uhr kommen.', false, 'Das Schild sagt: „Mo–Fr: 9:00–18:00“ — die Bibliothek öffnet erst um 9 Uhr, nicht um 8.')
         ]
       },
       {
         title: 'Schild: Museum', part: 'Teil 1', tag: 'Schild / Sign',
         passage: ['Achtung! Eingang nur mit Ticket. Kinder unter 6 Jahren: frei. Erwachsene: 8 Euro.'],
         questions: [
-          tf('Kinder bezahlen 8 Euro.', false),
-          tf('Man braucht ein Ticket.', true)
+          tf('Kinder bezahlen 8 Euro.', false, 'Das Schild sagt: „Kinder unter 6 Jahren: frei“ — Erwachsene zahlen 8 Euro, nicht Kinder.'),
+          tf('Man braucht ein Ticket.', true, 'Das Schild sagt: „Eingang nur mit Ticket.“')
         ]
       },
       {
         title: 'Nachricht von Peter', part: 'Teil 2', tag: 'Kurze Mitteilung / Short Message',
         passage: ['Liebe Susanne, ich komme morgen um 15:30 Uhr am Hauptbahnhof an. Kannst du mich abholen? Mein Zug kommt auf Gleis 7. Viele Grüße, Peter'],
         questions: [
-          mc('Wann kommt Peter an?', ['Um 15:30 Uhr', 'Um 13:30 Uhr', 'Um 17:30 Uhr', 'Um 15:00 Uhr'], 0),
-          mc('Wo kommt er an?', ['Am Hauptbahnhof, Gleis 7', 'Am Flughafen', 'Am Busbahnhof', 'Am Hauptbahnhof, Gleis 3'], 0),
-          mc('Was soll Susanne machen?', ['Peter abholen', 'Peter anrufen', 'Eine SMS schreiben', 'Zum Flughafen fahren'], 0)
+          mc('Wann kommt Peter an?', ['Um 15:30 Uhr', 'Um 13:30 Uhr', 'Um 17:30 Uhr', 'Um 15:00 Uhr'], 0, 'Peter schreibt: „ich komme morgen um 15:30 Uhr am Hauptbahnhof an.“'),
+          mc('Wo kommt er an?', ['Am Hauptbahnhof, Gleis 7', 'Am Flughafen', 'Am Busbahnhof', 'Am Hauptbahnhof, Gleis 3'], 0, 'Peter schreibt: „Mein Zug kommt auf Gleis 7“ am Hauptbahnhof.'),
+          mc('Was soll Susanne machen?', ['Peter abholen', 'Peter anrufen', 'Eine SMS schreiben', 'Zum Flughafen fahren'], 0, 'Peter fragt: „Kannst du mich abholen?“')
         ]
       },
       {
         title: 'Nachricht von Maria', part: 'Teil 2', tag: 'Kurze Mitteilung / Short Message',
         passage: ['Hallo Thomas, heute Abend mache ich eine kleine Party. Kannst du kommen? Wir fangen um 19 Uhr an. Bring bitte Getränke mit! Bis dann, Maria'],
         questions: [
-          mc('Was macht Maria heute Abend?', ['Eine Party', 'Einen Kurs', 'Eine Reise', 'Eine Prüfung'], 0),
-          mc('Wann fängt die Party an?', ['Um 19 Uhr', 'Um 17 Uhr', 'Um 20 Uhr', 'Um 21 Uhr'], 0),
-          mc('Was soll Thomas mitbringen?', ['Getränke', 'Essen', 'Musik', 'Stühle'], 0)
+          mc('Was macht Maria heute Abend?', ['Eine Party', 'Einen Kurs', 'Eine Reise', 'Eine Prüfung'], 0, 'Maria schreibt: „heute Abend mache ich eine kleine Party.“'),
+          mc('Wann fängt die Party an?', ['Um 19 Uhr', 'Um 17 Uhr', 'Um 20 Uhr', 'Um 21 Uhr'], 0, 'Sie schreibt: „Wir fangen um 19 Uhr an.“'),
+          mc('Was soll Thomas mitbringen?', ['Getränke', 'Essen', 'Musik', 'Stühle'], 0, 'Sie schreibt: „Bring bitte Getränke mit!“')
         ]
       },
       {
@@ -1009,22 +1009,22 @@ var LESEN_PRACTICE_DATA = {
           'E: Restaurant „Zur Sonne" — Koch/Köchin gesucht. Di–Sa, 10–18 Uhr.'
         ],
         questions: [
-          mc('Maria sucht eine Wohnung. Welche Anzeige passt?', ['B', 'A', 'C', 'D'], 0),
-          mc('Tom will Deutsch lernen. Welche Anzeige passt?', ['C', 'A', 'B', 'E'], 0),
-          mc('Lisa sucht Arbeit in der Küche. Welche Anzeige passt?', ['E', 'A', 'B', 'D'], 0),
-          mc('Jan möchte ein Fahrrad kaufen. Welche Anzeige passt?', ['A', 'B', 'C', 'D'], 0),
-          mc('Sara möchte auf Kinder aufpassen. Welche Anzeige passt?', ['D', 'A', 'B', 'C'], 0)
+          mc('Maria sucht eine Wohnung. Welche Anzeige passt?', ['B', 'A', 'C', 'D'], 0, 'Anzeige B sucht eine „2-Zimmer-Wohnung in Stadtmitte.“'),
+          mc('Tom will Deutsch lernen. Welche Anzeige passt?', ['C', 'A', 'B', 'E'], 0, 'Anzeige C ist ein „Deutschkurs A1.“'),
+          mc('Lisa sucht Arbeit in der Küche. Welche Anzeige passt?', ['E', 'A', 'B', 'D'], 0, 'Anzeige E sucht einen „Koch/Köchin.“'),
+          mc('Jan möchte ein Fahrrad kaufen. Welche Anzeige passt?', ['A', 'B', 'C', 'D'], 0, 'Anzeige A verkauft ein „Fahrrad.“'),
+          mc('Sara möchte auf Kinder aufpassen. Welche Anzeige passt?', ['D', 'A', 'B', 'C'], 0, 'Anzeige D sucht einen „Babysitter.“')
         ]
       },
       {
         title: 'Mein Tag (Yuki)', part: 'Leseverstehen', tag: 'Text',
         passage: ['Ich heiße Yuki und komme aus Japan. Ich wohne seit drei Monaten in München. Jeden Morgen stehe ich um 7 Uhr auf. Ich frühstücke um 7:30 Uhr. Dann fahre ich mit der U-Bahn zur Sprachschule. Der Deutschkurs beginnt um 9 Uhr und dauert bis 13 Uhr. Nach dem Kurs esse ich in der Mensa zu Mittag. Am Nachmittag mache ich Hausaufgaben oder gehe spazieren. Abends koche ich und sehe ein bisschen fern. Um 23 Uhr gehe ich ins Bett.'],
         questions: [
-          mc('Woher kommt Yuki?', ['Aus Japan', 'Aus China', 'Aus Korea', 'Aus Thailand'], 0),
-          mc('Wo wohnt sie jetzt?', ['In München', 'In Berlin', 'In Hamburg', 'In Köln'], 0),
-          mc('Wie fährt sie zur Schule?', ['Mit der U-Bahn', 'Mit dem Bus', 'Mit dem Fahrrad', 'Zu Fuß'], 0),
-          mc('Wann beginnt ihr Deutschkurs?', ['Um 9 Uhr', 'Um 8 Uhr', 'Um 10 Uhr', 'Um 7:30 Uhr'], 0),
-          mc('Was macht sie am Nachmittag?', ['Hausaufgaben machen oder spazieren gehen', 'Arbeiten', 'Schlafen', 'Einkaufen'], 0)
+          mc('Woher kommt Yuki?', ['Aus Japan', 'Aus China', 'Aus Korea', 'Aus Thailand'], 0, 'Der Text beginnt: „Ich heiße Yuki und komme aus Japan.“'),
+          mc('Wo wohnt sie jetzt?', ['In München', 'In Berlin', 'In Hamburg', 'In Köln'], 0, 'Der Text sagt: „Ich wohne seit drei Monaten in München.“'),
+          mc('Wie fährt sie zur Schule?', ['Mit der U-Bahn', 'Mit dem Bus', 'Mit dem Fahrrad', 'Zu Fuß'], 0, 'Der Text sagt: „fahre ich mit der U-Bahn zur Sprachschule.“'),
+          mc('Wann beginnt ihr Deutschkurs?', ['Um 9 Uhr', 'Um 8 Uhr', 'Um 10 Uhr', 'Um 7:30 Uhr'], 0, 'Der Text sagt: „Der Deutschkurs beginnt um 9 Uhr.“'),
+          mc('Was macht sie am Nachmittag?', ['Hausaufgaben machen oder spazieren gehen', 'Arbeiten', 'Schlafen', 'Einkaufen'], 0, 'Der Text sagt: „Am Nachmittag mache ich Hausaufgaben oder gehe spazieren.“')
         ]
       }
     ],
@@ -1034,10 +1034,10 @@ var LESEN_PRACTICE_DATA = {
         title: 'Stadtfest Heidelberg', part: 'Teil 1', tag: 'Informationstext',
         passage: ['Stadtfest Heidelberg. Samstag, 15. Juli — Sonntag, 16. Juli. Altstadt, rund um den Marktplatz. Samstag: 11:00–23:00 Uhr | Sonntag: 11:00–20:00 Uhr. Eintritt frei! Programm: Live-Musik, Kinderprogramm, internationales Essen, Kunsthandwerk. Bei Regen findet das Fest in der Stadthalle statt.'],
         questions: [
-          tf('Das Stadtfest dauert drei Tage.', false),
-          tf('Am Sonntag endet das Fest früher als am Samstag.', true),
-          tf('Man muss Eintritt bezahlen.', false),
-          tf('Es gibt ein Programm für Kinder.', true)
+          tf('Das Stadtfest dauert drei Tage.', false, 'Das Fest dauert nur zwei Tage: Samstag und Sonntag.'),
+          tf('Am Sonntag endet das Fest früher als am Samstag.', true, 'Samstag endet das Fest um 23:00 Uhr, Sonntag schon um 20:00 Uhr — also früher.'),
+          tf('Man muss Eintritt bezahlen.', false, 'Der Text sagt: „Eintritt frei!“'),
+          tf('Es gibt ein Programm für Kinder.', true, 'Der Text nennt im Programm: „Kinderprogramm.“')
         ]
       },
       {
@@ -1050,11 +1050,11 @@ var LESEN_PRACTICE_DATA = {
           'E: Suche nette Leute für wöchentliche Wandergruppe, samstags.'
         ],
         questions: [
-          mc('Laura sucht Hilfe bei Mathe-Hausaufgaben. Welche Anzeige passt?', ['B', 'A', 'C', 'D'], 0),
-          mc('Thomas möchte ein Instrument kaufen. Welche Anzeige passt?', ['D', 'A', 'B', 'E'], 0),
-          mc('Petra möchte am Wochenende in der Natur sein. Welche Anzeige passt?', ['E', 'A', 'B', 'C'], 0),
-          mc('Hans fährt jede Woche nach München. Welche Anzeige passt?', ['C', 'A', 'D', 'E'], 0),
-          mc('Familie Schmidt braucht Hilfe im Haushalt. Welche Anzeige passt?', ['A', 'B', 'C', 'D'], 0)
+          mc('Laura sucht Hilfe bei Mathe-Hausaufgaben. Welche Anzeige passt?', ['B', 'A', 'C', 'D'], 0, 'Anzeige B bietet „Nachhilfe in Mathematik.“'),
+          mc('Thomas möchte ein Instrument kaufen. Welche Anzeige passt?', ['D', 'A', 'B', 'E'], 0, 'Anzeige D verkauft eine „Gitarre.“'),
+          mc('Petra möchte am Wochenende in der Natur sein. Welche Anzeige passt?', ['E', 'A', 'B', 'C'], 0, 'Anzeige E sucht Leute für eine „Wandergruppe, samstags.“'),
+          mc('Hans fährt jede Woche nach München. Welche Anzeige passt?', ['C', 'A', 'D', 'E'], 0, 'Anzeige C sucht eine „Mitfahrgelegenheit Stuttgart–München, jeden Freitag.“'),
+          mc('Familie Schmidt braucht Hilfe im Haushalt. Welche Anzeige passt?', ['A', 'B', 'C', 'D'], 0, 'Anzeige A sucht eine „Putzfrau.“')
         ]
       },
       {
@@ -1065,9 +1065,9 @@ var LESEN_PRACTICE_DATA = {
           'SarahL: Ich kann MariaK nur zustimmen! Sport ist der beste Weg, um Kontakte zu knüpfen.'
         ],
         questions: [
-          mc('Was empfiehlt MariaK?', ['Einem Sportverein beitreten', 'Einen Sprachkurs machen', 'Viel reisen', 'Online-Freunde suchen'], 0),
-          mc('Was findet TomB positiv?', ['Die Arbeit und die freundlichen Kollegen', 'Das Wetter', 'Die Wohnung', 'Die Freizeit'], 0),
-          mc('Was hilft SarahL gegen Heimweh?', ['Sport', 'Musik', 'Kochen', 'Lesen'], 0)
+          mc('Was empfiehlt MariaK?', ['Einem Sportverein beitreten', 'Einen Sprachkurs machen', 'Viel reisen', 'Online-Freunde suchen'], 0, 'MariaK schreibt: „Geht in einen Sportverein!“'),
+          mc('Was findet TomB positiv?', ['Die Arbeit und die freundlichen Kollegen', 'Das Wetter', 'Die Wohnung', 'Die Freizeit'], 0, 'TomB schreibt: „die Arbeit ist gut und meine Kollegen sind freundlich.“'),
+          mc('Was hilft SarahL gegen Heimweh?', ['Sport', 'Musik', 'Kochen', 'Lesen'], 0, 'SarahL schreibt: „Sport ist der beste Weg, um Kontakte zu knüpfen.“')
         ]
       }
     ],
@@ -1077,9 +1077,9 @@ var LESEN_PRACTICE_DATA = {
         title: 'Homeoffice in Deutschland', part: 'Teil 2', tag: 'Zeitungsbericht',
         passage: ['Immer mehr Deutsche arbeiten im Homeoffice. Die Arbeitswelt hat sich stark verändert. 40 Prozent der Beschäftigten arbeiten regelmäßig von zu Hause. Die Vorteile: Man spart Zeit, kann sich die Zeit flexibler einteilen und hat oft eine bessere Work-Life-Balance. Allerdings gibt es auch Nachteile: Einsamkeit und fehlender Kontakt zu Kollegen. Experten empfehlen feste Arbeitszeiten und regelmäßige Pausen.'],
         questions: [
-          mc('Wie viel Prozent arbeiten im Homeoffice?', ['40%', '25%', '60%', '15%'], 0),
-          mc('Was ist ein Vorteil?', ['Man spart Zeit und hat mehr Flexibilität', 'Höheres Gehalt', 'Mehr Kollegenkontakt', 'Kürzere Arbeitszeiten'], 0),
-          mc('Was empfehlen Experten?', ['Feste Arbeitszeiten einhalten', 'Nachts arbeiten', 'Keine Pausen machen', 'Immer erreichbar sein'], 0)
+          mc('Wie viel Prozent arbeiten im Homeoffice?', ['40%', '25%', '60%', '15%'], 0, 'Der Text nennt: „40 Prozent der Beschäftigten arbeiten regelmäßig von zu Hause.“'),
+          mc('Was ist ein Vorteil?', ['Man spart Zeit und hat mehr Flexibilität', 'Höheres Gehalt', 'Mehr Kollegenkontakt', 'Kürzere Arbeitszeiten'], 0, 'Der Text nennt: „Man spart Zeit, kann sich die Zeit flexibler einteilen.“'),
+          mc('Was empfehlen Experten?', ['Feste Arbeitszeiten einhalten', 'Nachts arbeiten', 'Keine Pausen machen', 'Immer erreichbar sein'], 0, 'Der letzte Satz lautet: „Experten empfehlen feste Arbeitszeiten und regelmäßige Pausen.“')
         ]
       },
       {
@@ -1090,9 +1090,9 @@ var LESEN_PRACTICE_DATA = {
           'Leser C: Ich verstehe beide Seiten, aber ein Verbot ist der richtige Schritt. In vielen Ländern hat es funktioniert.'
         ],
         questions: [
-          mc('Wie steht Leser A zum Verbot?', ['Dafür', 'Dagegen', 'Neutral', 'Unentschieden'], 0),
-          mc('Wie steht Leser B zum Verbot?', ['Dagegen', 'Dafür', 'Neutral', 'Unentschieden'], 0),
-          mc('Wie steht Leser C zum Verbot?', ['Dafür (differenziert)', 'Dagegen', 'Komplett neutral', 'Unentschieden'], 0)
+          mc('Wie steht Leser A zum Verbot?', ['Dafür', 'Dagegen', 'Neutral', 'Unentschieden'], 0, 'Leser A schreibt: „Ich bin absolut dafür.“'),
+          mc('Wie steht Leser B zum Verbot?', ['Dagegen', 'Dafür', 'Neutral', 'Unentschieden'], 0, 'Leser B schreibt: „Ein Verbot ist übertrieben.“'),
+          mc('Wie steht Leser C zum Verbot?', ['Dafür (differenziert)', 'Dagegen', 'Komplett neutral', 'Unentschieden'], 0, 'Leser C schreibt: „Ich verstehe beide Seiten, aber ein Verbot ist der richtige Schritt.“')
         ]
       }
     ],
@@ -1106,9 +1106,9 @@ var LESEN_PRACTICE_DATA = {
           'Absatz 3: Kritiker warnen jedoch davor, die sozialen Auswirkungen zu unterschätzen. Nicht alle Arbeitnehmer können sich leicht umschulen lassen. Besonders ältere Beschäftigte und Geringqualifizierte könnten auf der Strecke bleiben. Es bedarf daher gezielter politischer Maßnahmen, um den Übergang sozial gerecht zu gestalten.'
         ],
         questions: [
-          mc('Welche Überschrift passt zu Absatz 1?', ['Die Arbeitswelt im Umbruch', 'Wandel der Berufsbilder', 'Risiken und soziale Folgen', 'Politische Maßnahmen'], 0),
-          mc('Welche Überschrift passt zu Absatz 2?', ['Wandel der Berufsbilder', 'Die Arbeitswelt im Umbruch', 'Risiken und soziale Folgen', 'Globale Studien'], 0),
-          mc('Welche Überschrift passt zu Absatz 3?', ['Risiken und soziale Folgen', 'Die Arbeitswelt im Umbruch', 'Wandel der Berufsbilder', 'Neue Technologien'], 0)
+          mc('Welche Überschrift passt zu Absatz 1?', ['Die Arbeitswelt im Umbruch', 'Wandel der Berufsbilder', 'Risiken und soziale Folgen', 'Politische Maßnahmen'], 0, 'Absatz 1 beschreibt allgemein: „Die Arbeitswelt befindet sich im Wandel“ — ein Umbruch.'),
+          mc('Welche Überschrift passt zu Absatz 2?', ['Wandel der Berufsbilder', 'Die Arbeitswelt im Umbruch', 'Risiken und soziale Folgen', 'Globale Studien'], 0, 'Absatz 2 beschreibt konkret, welche Berufe sich verändern und welche neuen entstehen.'),
+          mc('Welche Überschrift passt zu Absatz 3?', ['Risiken und soziale Folgen', 'Die Arbeitswelt im Umbruch', 'Wandel der Berufsbilder', 'Neue Technologien'], 0, 'Absatz 3 warnt vor sozialen Auswirkungen und Risiken für bestimmte Gruppen.')
         ]
       },
       {
@@ -1120,19 +1120,19 @@ var LESEN_PRACTICE_DATA = {
           'Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist. Die Argumente der Verkehrssicherheit und des Klimaschutzes wiegen schwerer als wirtschaftliche Interessen einzelner Hersteller.'
         ],
         questions: [
-          mc('Was argumentieren Befürworter?', ['Verkehrssicherheit und CO2-Reduktion', 'Höhere Steuereinnahmen', 'Bessere Straßen', 'Weniger Staus'], 0),
-          mc('Was befürchten Gegner?', ['Negative Auswirkungen auf die Autoindustrie', 'Höhere Unfallzahlen', 'Weniger Tourismus', 'Höhere Benzinpreise'], 0),
-          mc('Welche Position vertritt der Autor?', ['Er ist für ein Tempolimit', 'Er ist dagegen', 'Er ist neutral', 'Er äußert keine Meinung'], 0)
+          mc('Was argumentieren Befürworter?', ['Verkehrssicherheit und CO2-Reduktion', 'Höhere Steuereinnahmen', 'Bessere Straßen', 'Weniger Staus'], 0, 'Befürworter nennen zwei Argumente: geringere Unfallschwere und CO2-Reduktion durch ein Tempolimit von 130 km/h.'),
+          mc('Was befürchten Gegner?', ['Negative Auswirkungen auf die Autoindustrie', 'Höhere Unfallzahlen', 'Weniger Tourismus', 'Höhere Benzinpreise'], 0, 'Der Text sagt: Gegner „argumentieren, dass die Autoindustrie unter einem Tempolimit leiden würde.“'),
+          mc('Welche Position vertritt der Autor?', ['Er ist für ein Tempolimit', 'Er ist dagegen', 'Er ist neutral', 'Er äußert keine Meinung'], 0, 'Der Autor schreibt: „Ich persönlich bin der Meinung, dass ein Tempolimit längst überfällig ist.“')
         ]
       },
       {
         title: 'Lückentext: Fremdsprachenkenntnisse', part: 'Teil 4', tag: 'Grammatik im Kontext',
         passage: ['Die Bedeutung (1) Fremdsprachenkenntnisse wird in der globalisierten Welt immer größer. Nicht nur im Beruf, (2) auch im privaten Leben sind Sprachkenntnisse von Vorteil. (3) der steigenden Mobilität kommen immer mehr Menschen mit anderen Kulturen in Kontakt. (4) man eine Fremdsprache beherrscht, eröffnen sich neue Perspektiven.'],
         questions: [
-          mc('Lücke (1):', ['der', 'die', 'den', 'des'], 0),
-          mc('Lücke (2):', ['sondern', 'aber', 'denn', 'oder'], 0),
-          mc('Lücke (3):', ['Aufgrund', 'Trotz', 'Wegen', 'Statt'], 0),
-          mc('Lücke (4):', ['Wenn', 'Falls', 'Ob', 'Weil'], 0)
+          mc('Lücke (1):', ['der', 'die', 'den', 'des'], 0, 'Nach „die Bedeutung“ folgt ein Genitiv Plural: „die Bedeutung der Fremdsprachenkenntnisse.“'),
+          mc('Lücke (2):', ['sondern', 'aber', 'denn', 'oder'], 0, '„Nicht nur…, sondern auch…“ ist eine feste Konnektor-Kombination.'),
+          mc('Lücke (3):', ['Aufgrund', 'Trotz', 'Wegen', 'Statt'], 0, '„Aufgrund“ + Genitiv drückt einen Grund aus: „Aufgrund der steigenden Mobilität.“'),
+          mc('Lücke (4):', ['Wenn', 'Falls', 'Ob', 'Weil'], 0, '„Wenn man eine Fremdsprache beherrscht“ leitet einen Konditionalsatz ein (unter dieser Bedingung…).')
         ]
       }
     ],
@@ -1147,23 +1147,23 @@ var LESEN_PRACTICE_DATA = {
           'Die eigentliche Frage lautet daher nicht, ob KI das menschliche Denken ersetzen wird, sondern wie wir sie als Werkzeug sinnvoll einsetzen können, ohne ihre Grenzen aus dem Blick zu verlieren.'
         ],
         questions: [
-          mc('Was können KI-Systeme laut Text besonders gut?', ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], 0),
-          mc('Was fehlt KI-Systemen laut Autor?', ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], 0),
-          mc('Welche Eigenschaft kennzeichnet die im Text beschriebenen "Halluzinationen"?', ['Sie wirken glaubwürdig, entsprechen aber nicht der Realität', 'Sie werden vom System bewusst erzeugt, um zu täuschen', 'Sie entstehen durch technische Störungen der Hardware', 'Sie betreffen nur die visuelle Darstellung von Daten'], 0),
-          mc('Wie bewertet der Autor das Problem der Halluzinationen?', ['Als fundamentales Defizit', 'Als marginales technisches Problem', 'Als bereits gelöst', 'Als übertrieben dargestellt'], 0),
-          mc('Was fordert der Autor im Schlussteil?', ['Sinnvollen Einsatz als Werkzeug plus gesellschaftliche Debatte', 'Ein komplettes Verbot von KI', 'Mehr staatliche Kontrolle', 'Schnellere Entwicklung'], 0)
+          mc('Was können KI-Systeme laut Text besonders gut?', ['Mustererkennung auf Basis großer Datenmengen', 'Eigenständig neue Ideen entwickeln', 'Menschliche Gefühle verstehen', 'Ethische Entscheidungen treffen'], 0, 'Der Text sagt: KI-Systeme leisten „eine hocheffiziente Mustererkennung auf der Grundlage enormer Datenmengen.“'),
+          mc('Was fehlt KI-Systemen laut Autor?', ['Echtes Verständnis dessen, was sie tun', 'Ausreichend Rechenleistung', 'Genug Trainingsdaten', 'Schnelligkeit'], 0, 'Der Autor schreibt: KI-Systemen fehlt „ein genuines Verständnis dessen, was sie tun.“'),
+          mc('Welche Eigenschaft kennzeichnet die im Text beschriebenen "Halluzinationen"?', ['Sie wirken glaubwürdig, entsprechen aber nicht der Realität', 'Sie werden vom System bewusst erzeugt, um zu täuschen', 'Sie entstehen durch technische Störungen der Hardware', 'Sie betreffen nur die visuelle Darstellung von Daten'], 0, 'Der Text sagt: KI-Systeme generieren „Inhalte, die plausibel klingen, aber faktisch falsch sind.“'),
+          mc('Wie bewertet der Autor das Problem der Halluzinationen?', ['Als fundamentales Defizit', 'Als marginales technisches Problem', 'Als bereits gelöst', 'Als übertrieben dargestellt'], 0, 'Der Text sagt: „Dies ist kein marginales technisches Problem, sondern ein fundamentales Defizit.“'),
+          mc('Was fordert der Autor im Schlussteil?', ['Sinnvollen Einsatz als Werkzeug plus gesellschaftliche Debatte', 'Ein komplettes Verbot von KI', 'Mehr staatliche Kontrolle', 'Schnellere Entwicklung'], 0, 'Der letzte Satz fragt, „wie wir sie als Werkzeug sinnvoll einsetzen können, ohne ihre Grenzen aus dem Blick zu verlieren.“')
         ]
       },
       {
         title: 'Lückentext: Interkulturelle Kompetenz', part: 'Teil 2', tag: 'Grammatik + Wortschatz',
         passage: ['Die Bedeutung (1) interkultureller Kompetenz hat in den letzten Jahrzehnten erheblich (2). Dies ist nicht zuletzt (3) die zunehmende Globalisierung zurückzuführen, die dazu (4) hat, dass Menschen unterschiedlicher kultureller Hintergründe vermehrt miteinander in Kontakt treten. (5) es dabei nicht selten zu Missverständnissen kommt, (6) auf der Hand.'],
         questions: [
-          mc('Lücke (1):', ['von', 'der', 'für', 'an'], 0),
-          mc('Lücke (2):', ['zugenommen', 'genommen', 'abgenommen', 'gekommen'], 0),
-          mc('Lücke (3):', ['auf', 'an', 'in', 'zu'], 0),
-          mc('Lücke (4):', ['geführt', 'gebracht', 'gemacht', 'gegeben'], 0),
-          mc('Lücke (5):', ['Dass', 'Ob', 'Wenn', 'Weil'], 0),
-          mc('Lücke (6):', ['liegt', 'steht', 'geht', 'kommt'], 0)
+          mc('Lücke (1):', ['von', 'der', 'für', 'an'], 0, '„Die Bedeutung von etwas“ ist die feste Präposition nach „Bedeutung.“'),
+          mc('Lücke (2):', ['zugenommen', 'genommen', 'abgenommen', 'gekommen'], 0, '„Erheblich zugenommen“ (Perfekt von „zunehmen“) passt zur Bedeutung „ist größer geworden.“'),
+          mc('Lücke (3):', ['auf', 'an', 'in', 'zu'], 0, '„Zurückzuführen auf“ ist eine feste Verbindung: etwas auf etwas zurückführen.'),
+          mc('Lücke (4):', ['geführt', 'gebracht', 'gemacht', 'gegeben'], 0, '„Dazu führen, dass…“ ist eine feste Wendung für eine Folge/Konsequenz.'),
+          mc('Lücke (5):', ['Dass', 'Ob', 'Wenn', 'Weil'], 0, 'Der Nebensatz ist ein Subjektsatz: „Dass es dazu kommt, liegt auf der Hand“ (dass + Verb am Satzende).'),
+          mc('Lücke (6):', ['liegt', 'steht', 'geht', 'kommt'], 0, '„Auf der Hand liegen“ ist eine feste Redewendung für „offensichtlich sein.“')
         ]
       },
       {
@@ -1173,11 +1173,11 @@ var LESEN_PRACTICE_DATA = {
         // repeatedly — the earlier cloze above only exercises one connector.
         passage: ['Der digitale Wandel hat die Medienlandschaft grundlegend verändert. (1) traditionelle Zeitungen früher als unangefochtene Informationsquelle galten, verlieren sie heute zunehmend an Bedeutung. Viele Verlage reagieren darauf, (2) sie verstärkt auf digitale Angebote setzen. (3) die Digitalisierung neue Chancen eröffnet, bringt sie auch erhebliche Herausforderungen mit sich, (4) die Werbeeinnahmen der klassischen Presse stetig sinken. (5) man diesen Wandel oft kritisch betrachtet, eröffnet er zugleich die Möglichkeit, Journalismus partizipativer zu gestalten.'],
         questions: [
-          mc('Lücke (1):', ['Während', 'Trotzdem', 'Deshalb', 'Außerdem'], 0),
-          mc('Lücke (2):', ['indem', 'obwohl', 'weil', 'damit'], 0),
-          mc('Lücke (3):', ['Obwohl', 'Weil', 'Da', 'Wenn'], 0),
-          mc('Lücke (4):', ['zumal', 'obwohl', 'damit', 'als ob'], 0),
-          mc('Lücke (5):', ['Wenngleich', 'Weil', 'Damit', 'Sodass'], 0)
+          mc('Lücke (1):', ['Während', 'Trotzdem', 'Deshalb', 'Außerdem'], 0, '„Während“ drückt hier einen Kontrast zwischen früher und heute aus (temporal-kontrastiv).'),
+          mc('Lücke (2):', ['indem', 'obwohl', 'weil', 'damit'], 0, '„Indem“ leitet einen Modalsatz ein: die Verlage reagieren, INDEM sie auf digitale Angebote setzen (das Mittel).'),
+          mc('Lücke (3):', ['Obwohl', 'Weil', 'Da', 'Wenn'], 0, '„Obwohl“ leitet einen Konzessivsatz ein: neue Chancen — und trotzdem Herausforderungen.'),
+          mc('Lücke (4):', ['zumal', 'obwohl', 'damit', 'als ob'], 0, '„Zumal“ liefert einen zusätzlichen Grund (besonders weil): die Herausforderungen sind größer, ZUMAL die Einnahmen sinken.'),
+          mc('Lücke (5):', ['Wenngleich', 'Weil', 'Damit', 'Sodass'], 0, '„Wenngleich“ (= obwohl) leitet einen weiteren Konzessivsatz ein: kritische Sicht — und trotzdem eine Chance.')
         ]
       },
       {
@@ -1190,10 +1190,10 @@ var LESEN_PRACTICE_DATA = {
           'Person D: "Kreativität bleibt menschliche Domäne."'
         ],
         questions: [
-          mc('Wer sagt: "KI wird bestimmte Berufe obsolet machen"?', ['Person A', 'Person B', 'Person C', 'Person D'], 0),
-          mc('Wer sagt: "Lebenslanges Lernen wird zur Pflicht"?', ['Person B', 'Person A', 'Person C', 'Person D'], 0),
-          mc('Wer sagt: "Die Politik muss den Wandel aktiv gestalten"?', ['Person C', 'Person A', 'Person B', 'Person D'], 0),
-          mc('Wer sagt: "Kreativität bleibt menschliche Domäne"?', ['Person D', 'Person A', 'Person B', 'Person C'], 0)
+          mc('Wer sagt: "KI wird bestimmte Berufe obsolet machen"?', ['Person A', 'Person B', 'Person C', 'Person D'], 0, 'Person A sagt genau diesen Satz.'),
+          mc('Wer sagt: "Lebenslanges Lernen wird zur Pflicht"?', ['Person B', 'Person A', 'Person C', 'Person D'], 0, 'Person B sagt genau diesen Satz.'),
+          mc('Wer sagt: "Die Politik muss den Wandel aktiv gestalten"?', ['Person C', 'Person A', 'Person B', 'Person D'], 0, 'Person C sagt genau diesen Satz.'),
+          mc('Wer sagt: "Kreativität bleibt menschliche Domäne"?', ['Person D', 'Person A', 'Person B', 'Person C'], 0, 'Person D sagt genau diesen Satz.')
         ]
       }
     ],
@@ -1208,32 +1208,32 @@ var LESEN_PRACTICE_DATA = {
           'Die eigentliche Herausforderung besteht demnach nicht darin, den Fortschritt aufzuhalten, sondern ihn so zu gestalten, dass er dem Gemeinwohl dient, ohne die Lebensgrundlagen künftiger Generationen zu gefährden.'
         ],
         questions: [
-          mc('Worin besteht die "Paradoxie des Fortschritts" laut Autor?', ['Fortschritt löst Probleme, schafft aber gleichzeitig neue', 'Fortschritt war schon immer problematisch', 'Fortschritt hat nie Verheißungen erfüllt', 'Menschen lehnen Fortschritt ab'], 0),
-          mc('Was kritisiert der Autor an den Algorithmen sozialer Medien?', ['Sie tragen zur Polarisierung bei und schaffen Filterblasen', 'Sie funktionieren nicht', 'Sie sind zu langsam', 'Sie verhindern den Zugang zu Information'], 0),
-          mc('Wie bewertet der Autor die ökologischen Kosten der Digitalisierung?', ['Erheblich, aber kein Grund für grundsätzliche Ablehnung', 'Vernachlässigbar', 'Sie übersteigen die der traditionellen Industrie', 'Sie werden übertrieben dargestellt'], 0),
-          mc('Was fordert der Autor als Konsequenz?', ['Einen differenzierten gesellschaftlichen Diskurs', 'Den Fortschritt aufzuhalten', 'Rückkehr zur vorindustriellen Gesellschaft', 'Mehr technokratische Kosten-Nutzen-Analysen'], 0)
+          mc('Worin besteht die "Paradoxie des Fortschritts" laut Autor?', ['Fortschritt löst Probleme, schafft aber gleichzeitig neue', 'Fortschritt war schon immer problematisch', 'Fortschritt hat nie Verheißungen erfüllt', 'Menschen lehnen Fortschritt ab'], 0, 'Der Text sagt, die Verheißungen hätten sich erfüllt, „doch gleichzeitig haben sie neue Probleme hervorgebracht.“'),
+          mc('Was kritisiert der Autor an den Algorithmen sozialer Medien?', ['Sie tragen zur Polarisierung bei und schaffen Filterblasen', 'Sie funktionieren nicht', 'Sie sind zu langsam', 'Sie verhindern den Zugang zu Information'], 0, 'Der Text sagt, die Algorithmen seien „mächtige Instrumente der Manipulation…, die zur Entstehung sogenannter Filterblasen beitragen.“'),
+          mc('Wie bewertet der Autor die ökologischen Kosten der Digitalisierung?', ['Erheblich, aber kein Grund für grundsätzliche Ablehnung', 'Vernachlässigbar', 'Sie übersteigen die der traditionellen Industrie', 'Sie werden übertrieben dargestellt'], 0, 'Der Text nennt die Kosten deutlich, sagt aber: „Es wäre indes verfehlt, daraus den Schluss zu ziehen, man müsse den technologischen Fortschritt per se ablehnen.“'),
+          mc('Was fordert der Autor als Konsequenz?', ['Einen differenzierten gesellschaftlichen Diskurs', 'Den Fortschritt aufzuhalten', 'Rückkehr zur vorindustriellen Gesellschaft', 'Mehr technokratische Kosten-Nutzen-Analysen'], 0, 'Der letzte Absatz fordert, den Fortschritt so zu gestalten, „dass er dem Gemeinwohl dient“ — ein gestaltender Ansatz statt einfacher Ablehnung.')
         ]
       },
       {
         title: 'Lückentext: Urbanisierung', part: 'Teil 2', tag: 'Grammatik + Wortschatz',
         passage: ['Die zunehmende Urbanisierung stellt die Stadtplanung (1) grundlegend neue Herausforderungen. Während die Städte (2), geraten die bestehenden Infrastrukturen an ihre (3). Es (4) innovativer Konzepte, die sowohl den Bedürfnissen der wachsenden Bevölkerung (5) werden als auch ökologische Aspekte (6). (7) die Smart-City-Bewegung vielversprechende Ansätze bietet, (8) die Frage, ob Technologie allein die Lösung sein kann.'],
         questions: [
-          mc('Lücke (1):', ['vor', 'an', 'auf', 'zu'], 0),
-          mc('Lücke (2):', ['wachsen', 'wuchsen', 'gewachsen', 'wachsend'], 0),
-          mc('Lücke (3):', ['Grenzen', 'Enden', 'Ziele', 'Anfänge'], 0),
-          mc('Lücke (4):', ['bedarf', 'braucht', 'fehlt', 'gibt'], 0),
-          mc('Lücke (5):', ['gerecht', 'passend', 'richtig', 'genug'], 0),
-          mc('Lücke (6):', ['berücksichtigen', 'vergessen', 'ignorieren', 'ändern'], 0),
-          mc('Lücke (7):', ['Obwohl', 'Weil', 'Da', 'Wenn'], 0),
-          mc('Lücke (8):', ['bleibt', 'geht', 'kommt', 'endet'], 0)
+          mc('Lücke (1):', ['vor', 'an', 'auf', 'zu'], 0, '„Vor Herausforderungen stellen“ ist eine feste Verbindung: jemanden/etwas vor eine Herausforderung stellen.'),
+          mc('Lücke (2):', ['wachsen', 'wuchsen', 'gewachsen', 'wachsend'], 0, 'Nach „Während die Städte“ folgt ein Verb im Präsens: „wachsen“ (Gegenwart, passend zum Hauptsatz).'),
+          mc('Lücke (3):', ['Grenzen', 'Enden', 'Ziele', 'Anfänge'], 0, '„An ihre Grenzen geraten“ ist eine feste Wendung für „die Kapazität erreichen.“'),
+          mc('Lücke (4):', ['bedarf', 'braucht', 'fehlt', 'gibt'], 0, '„Es bedarf“ + Genitiv bedeutet „es braucht“: „Es bedarf innovativer Konzepte.“'),
+          mc('Lücke (5):', ['gerecht', 'passend', 'richtig', 'genug'], 0, '„Einer Sache gerecht werden“ ist eine feste Wendung für „etwas angemessen erfüllen.“'),
+          mc('Lücke (6):', ['berücksichtigen', 'vergessen', 'ignorieren', 'ändern'], 0, 'Parallel zu „gerecht werden“ braucht der Satz ein zweites Verb, das zu „ökologische Aspekte“ passt: „berücksichtigen“ (beachten).'),
+          mc('Lücke (7):', ['Obwohl', 'Weil', 'Da', 'Wenn'], 0, '„Obwohl“ leitet einen Konzessivsatz ein: vielversprechende Ansätze — und trotzdem eine offene Frage.'),
+          mc('Lücke (8):', ['bleibt', 'geht', 'kommt', 'endet'], 0, '„Die Frage bleibt“ bedeutet, dass sie weiterhin offen/ungeklärt ist.')
         ]
       },
       {
         title: 'Literarischer Text: Am Fenster', part: 'Teil 3', tag: 'Literatur + Interpretation',
         passage: ['Er stand am Fenster und sah in den Regen. Die Tropfen liefen in scheinbar willkürlichen Bahnen über die Scheibe — und doch, so schien es ihm, folgten sie einer verborgenen Ordnung, einem Muster, das sich dem flüchtigen Blick entzog. Wie das Leben selbst, dachte er. Man meint, dem Zufall ausgeliefert zu sein, und erkennt erst im Nachhinein die Fäden, die alles zusammenhalten. Oder man bildet sich ein, sie zu erkennen, und das ist womöglich das Gefährlichste von allem.'],
         questions: [
-          mc('Welche Metapher verwendet der Autor?', ['Die Regentropfen als Metapher für das Leben', 'Das Fenster als Metapher für Freiheit', 'Der Regen als Metapher für Trauer', 'Die Scheibe als Metapher für Isolation'], 0),
-          mc('Wie ist der letzte Satz zu verstehen?', ['Das Erkennen von Mustern kann auch Selbsttäuschung sein', 'Man sollte immer nach Mustern suchen', 'Zufall existiert nicht wirklich', 'Der Regen zeigt die wahre Ordnung des Lebens'], 0)
+          mc('Welche Metapher verwendet der Autor?', ['Die Regentropfen als Metapher für das Leben', 'Das Fenster als Metapher für Freiheit', 'Der Regen als Metapher für Trauer', 'Die Scheibe als Metapher für Isolation'], 0, 'Der Text vergleicht direkt: „Wie das Leben selbst, dachte er“ — die Regentropfen stehen für das Leben.'),
+          mc('Wie ist der letzte Satz zu verstehen?', ['Das Erkennen von Mustern kann auch Selbsttäuschung sein', 'Man sollte immer nach Mustern suchen', 'Zufall existiert nicht wirklich', 'Der Regen zeigt die wahre Ordnung des Lebens'], 0, 'Der letzte Satz warnt: sich Muster nur einzubilden, „ist womöglich das Gefährlichste von allem.“')
         ]
       },
       {
@@ -1243,8 +1243,8 @@ var LESEN_PRACTICE_DATA = {
           'Autor B hält die Unterscheidung zwischen "Hoch-" und "Populärkultur" für einen elitären Anachronismus.'
         ],
         questions: [
-          mc('Worin stimmen die Autoren überein?', ['Beide halten Kultur für gesellschaftlich relevant', 'Beide lehnen staatliche Förderung ab', 'Beide befürworten nur Hochkultur', 'Beide sehen keine Unterschiede zwischen den Kulturformen'], 0),
-          mc('Worin unterscheiden sie sich grundlegend?', ['A verteidigt die Hierarchie der Kulturformen, B lehnt sie ab', 'A lehnt Kultur ab, B befürwortet sie', 'Beide haben identische Positionen', 'A ist für Populärkultur, B für Hochkultur'], 0)
+          mc('Worin stimmen die Autoren überein?', ['Beide halten Kultur für gesellschaftlich relevant', 'Beide lehnen staatliche Förderung ab', 'Beide befürworten nur Hochkultur', 'Beide sehen keine Unterschiede zwischen den Kulturformen'], 0, 'Beide Autoren diskutieren den Wert von Kultur ernsthaft — nur ihre Bewertung der Hierarchie zwischen Hoch- und Populärkultur unterscheidet sich.'),
+          mc('Worin unterscheiden sie sich grundlegend?', ['A verteidigt die Hierarchie der Kulturformen, B lehnt sie ab', 'A lehnt Kultur ab, B befürwortet sie', 'Beide haben identische Positionen', 'A ist für Populärkultur, B für Hochkultur'], 0, 'Autor A verteidigt Hochkultur als „essenziellen Pfeiler“, Autor B nennt die Unterscheidung Hoch-/Populärkultur einen „elitären Anachronismus.“')
         ]
       }
     ]
@@ -1259,7 +1259,8 @@ var LESEN_PRACTICE_DATA = {
         out.push({
           kind: 'lesen', level: level,
           itemTitle: item.title + (item.tag ? ' — ' + item.tag : ''), passage: item.passage,
-          prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex]
+          prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex],
+          explanation: q.explanation
         });
       });
     });
@@ -1274,7 +1275,8 @@ var LESEN_PRACTICE_DATA = {
         out.push({
           kind: 'hoeren', level: level,
           itemTitle: item.title, script: item.script,
-          prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex]
+          prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex],
+          explanation: q.explanation
         });
       });
     });
@@ -1288,7 +1290,8 @@ var LESEN_PRACTICE_DATA = {
       return {
         kind: 'lesen', level: level,
         itemTitle: item.title, itemTag: item.tag, passage: item.passage,
-        prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex]
+        prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex],
+        explanation: q.explanation
       };
     });
   }
@@ -1300,7 +1303,8 @@ var LESEN_PRACTICE_DATA = {
       return {
         kind: 'hoeren', level: level,
         itemTitle: item.title, script: item.script,
-        prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex]
+        prompt: q.text, options: q.options.slice(), answerField: q.options[q.answerIndex],
+        explanation: q.explanation
       };
     });
   }
@@ -1894,6 +1898,20 @@ var LESEN_PRACTICE_DATA = {
         '<span class="small text-muted">Beispiel / Example:</span><br>' +
         '<span class="fw-semibold">' + q.word.example + '</span>' +
         (q.word.example_en ? '<br><span class="text-muted">' + q.word.example_en + '</span>' : '') +
+        '</div>';
+    }
+
+    // "Warum ist das richtig?" — a short justification for the correct
+    // answer, shown regardless of whether the learner got it right or
+    // wrong (knowing WHY matters more after a mistake, but confirms
+    // understanding after a correct guess too). Only Lesen/Hören/cloze
+    // questions carry a .explanation string; vocab relies on the example
+    // sentence above instead, so this block is simply absent there.
+    if (q.explanation) {
+      explanationHtml +=
+        '<div class="answer-explanation mt-2 pt-2 border-top">' +
+        '<span class="small text-muted">Warum ist das richtig? / Why is this correct?</span><br>' +
+        '<span>' + q.explanation + '</span>' +
         '</div>';
     }
 
