@@ -10528,44 +10528,14 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
         return html ? '<div class="conj-mood-grid-ws">' + html + '</div>' : '';
     }
 
+    // A1 scope: only the present tense (Präsens) — ich/du/er,sie,es/wir/ihr/
+    // Sie — with no English gloss line, no other tenses, and no Konjunktiv/
+    // Passiv. Those belong to later levels; showing them here overwhelms an
+    // A1 learner with grammar far beyond their level.
     function renderTable(table) {
         var html = '<div class="conj-table-wrap-ws">';
-        var en = table.english || null;
-
-        html += '<div class="conj-en-toggle-wrap-ws">' +
-                '<label class="conj-en-toggle-ws">' +
-                '<input type="checkbox" class="conj-en-toggle-input">' +
-                '<span class="conj-en-toggle-slider-ws"></span>' +
-                '</label>' +
-                '<span>Englische Übersetzung anzeigen</span>' +
-                '</div>';
-
-        html += '<div class="conj-mood-title-ws">Weitere Formen</div><div class="conj-imperativ-row-ws">' +
-                '<span>Infinitiv: ' + table.infinitiv + '</span>' +
-                '<span>Partizip Präsens: ' + table.partizip1 + '</span>' +
-                '<span>Partizip Perfekt: ' + table.partizip2 + '</span>' +
-                '<span>zu + Infinitiv: ' + table.zu_infinitiv + '</span></div>';
-
-        html += '<div class="conj-mood-title-ws">Indikativ</div>';
-        html += renderMoodGridWs(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ, en);
-
-        html += '<div class="conj-mood-title-ws">Konjunktiv I</div>';
-        html += renderMoodGridWs(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
-
-        html += '<div class="conj-mood-title-ws">Konjunktiv II</div>';
-        html += renderMoodGridWs(['praeteritum','plusquamperfekt','futur1','futur2'], table.konjunktiv2);
-
-        if (table.imperativ) {
-            html += '<div class="conj-mood-title-ws">Imperativ</div><div class="conj-imperativ-row-ws">';
-            ['du','ihr','Sie','wir'].forEach(function(p) {
-                if (table.imperativ[p]) html += '<span>' + p + ': ' + table.imperativ[p] + '</span>';
-            });
-            html += '</div>';
-        }
-        if (table.passiv) {
-            html += '<div class="conj-mood-title-ws">Passiv</div>';
-            html += renderMoodGridWs(['praesens','praeteritum','perfekt','plusquamperfekt','futur1'], table.passiv);
-        }
+        html += '<div class="conj-mood-title-ws">Präsens</div>';
+        html += renderMoodGridWs(['praesens'], table.indikativ, null);
         html += '</div>';
         return html;
     }

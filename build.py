@@ -495,6 +495,142 @@ CONJUGATION_WS_SCRIPT = """<script>
 </script>"""
 
 
+# A1-specific variant: shows Präsens only (see item 1 of the A1 quality
+# review from Prof. Manzar — full-Bahnhof grammar tables overwhelm a
+# learner who hasn't covered Konjunktiv/Passiv/Plusquamperfekt yet).
+CONJUGATION_WS_SCRIPT_A1 = """<script>
+// Full verb conjugation table for Wortschatz tables — lazy-loaded, click-to-expand
+(function() {
+    var conjData = null;
+    var conjPromise = null;
+    var prefix = '../';
+
+    function loadConjugations() {
+        if (conjPromise) return conjPromise;
+        conjPromise = fetch(prefix + 'conjugations.json')
+            .then(function(r) { return r.ok ? r.json() : {}; })
+            .then(function(json) {
+                conjData = {};
+                Object.keys(json).forEach(function(k) { conjData[k.toLowerCase()] = json[k]; });
+                return conjData;
+            })
+            .catch(function() { conjData = {}; return conjData; });
+        return conjPromise;
+    }
+
+    var TENSE_LABELS = {
+        praesens: 'Präsens', praeteritum: 'Präteritum', perfekt: 'Perfekt',
+        plusquamperfekt: 'Plusquamperfekt', futur1: 'Futur I', futur2: 'Futur II'
+    };
+    var PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'Sie'];
+    var PERSONS_EN = ['I', 'you', 'he/she/it', 'we', 'you', 'they'];
+    var EN_ELIGIBLE_TENSES = ['praesens', 'praeteritum', 'perfekt'];
+
+    function renderTenseBlock(tenseKey, forms, englishForms) {
+        var rows = '';
+        var showEn = englishForms && EN_ELIGIBLE_TENSES.indexOf(tenseKey) > -1;
+        for (var i = 0; i < 6; i++) {
+            var enLine = showEn
+                ? '<div class="conj-en-line-ws">(' + PERSONS_EN[i] + ' ' + englishForms[i] + ')</div>'
+                : '';
+            rows += '<div class="conj-row-ws"><span class="conj-person-ws">' + PERSONS[i] + '</span>' +
+                    forms[i] + enLine + '</div>';
+        }
+        return '<div class="conj-tense-block-ws">' +
+               '<div class="conj-tense-label-ws">' + (TENSE_LABELS[tenseKey] || tenseKey) + '</div>' +
+               rows + '</div>';
+    }
+
+    function renderMoodGridWs(tenses, source, english) {
+        var html = '';
+        tenses.forEach(function(t) {
+            if (source && source[t]) html += renderTenseBlock(t, source[t], english && english[t]);
+        });
+        return html ? '<div class="conj-mood-grid-ws">' + html + '</div>' : '';
+    }
+
+    // A1 scope: only the present tense (Präsens) — ich/du/er,sie,es/wir/ihr/
+    // Sie — with no English gloss line, no other tenses, and no Konjunktiv/
+    // Passiv. Those belong to later levels; showing them here overwhelms an
+    // A1 learner with grammar far beyond their level.
+    function renderTable(table) {
+        var html = '<div class="conj-table-wrap-ws">';
+        html += '<div class="conj-mood-title-ws">Präsens</div>';
+        html += renderMoodGridWs(['praesens'], table.indikativ, null);
+        html += '</div>';
+        return html;
+    }
+
+    // Event delegation instead of per-button listeners: tts.js rebuilds
+    // the 'Deutsch' column cells (innerHTML wipe + replace) to inject
+    // its own speaker buttons, which destroys any directly-attached
+    // listeners on this button. Delegating to document survives that,
+    // since it relies on event bubbling + selector matching at click
+    // time, not on the specific DOM node still existing.
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.conj-toggle-ws');
+        if (!btn) return;
+        e.preventDefault(); e.stopPropagation();
+
+        var row = btn.closest('tr');
+        var nextRow = row.nextElementSibling;
+        var isOpen = nextRow && nextRow.classList.contains('conj-row-container-ws');
+        if (isOpen) {
+            nextRow.remove();
+            btn.textContent = '📖 Konjugation';
+            return;
+        }
+
+        var de = btn.getAttribute('data-de-lower');
+        loadConjugations().then(function(data) {
+            var table = data[de];
+            if (!table) {
+                btn.textContent = '(noch nicht verfügbar)';
+                btn.disabled = true;
+                return;
+            }
+            var colCount = row.children.length;
+            var newRow = document.createElement('tr');
+            newRow.className = 'conj-row-container-ws';
+            var td = document.createElement('td');
+            td.colSpan = colCount;
+            td.innerHTML = renderTable(table);
+            var enToggleInput = td.querySelector('.conj-en-toggle-input');
+            if (enToggleInput) {
+                enToggleInput.checked = localStorage.getItem('showEnglishConj') === 'true';
+            }
+            newRow.appendChild(td);
+            row.parentNode.insertBefore(newRow, row.nextSibling);
+            btn.textContent = '✕ Ausblenden';
+        });
+    });
+
+    // English translation toggle — same event-delegation pattern as
+    // the conjugation button itself, for the same reason: each toggle
+    // switch is created fresh whenever a table is rendered.
+    if (localStorage.getItem('showEnglishConj') === 'true') {
+        document.body.classList.add('show-english');
+    }
+    document.addEventListener('change', function(e) {
+        var toggle = e.target.closest('.conj-en-toggle-input');
+        if (!toggle) return;
+        document.body.classList.toggle('show-english', toggle.checked);
+        localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+        document.querySelectorAll('.conj-en-toggle-input').forEach(function(t) {
+            t.checked = toggle.checked;
+        });
+    });
+})();
+</script>"""
+
+
+def conjugation_ws_script(level):
+    """Return the right conjugation-popup script for this level.
+    A1 gets Präsens-only; A2-C2 get the full mood/tense grid."""
+    return CONJUGATION_WS_SCRIPT_A1 if level == 'A1' else CONJUGATION_WS_SCRIPT
+
+
+
 PERSON_SENTENCES_SCRIPT = """<script>
 // Person-sentence drill (ich/du/er.../Sie) for dictionary.html —
 // lazy-loaded on first expand, same pattern as the full conjugation
@@ -1448,7 +1584,7 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
 <script src="../tts.js?v=7"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>if('serviceWorker' in navigator){{navigator.serviceWorker.register('/sw.js').then(function(r){{r.update();}}).catch(function(){{}});}}</script>
-{CONJUGATION_WS_SCRIPT}
+{conjugation_ws_script(level)}
 {PERSON_DRILL_WS_SCRIPT}
 {WORTSCHATZ_SEARCH_SCRIPT}
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "d435b2572b82459cb083e37f7c734b75"}}'></script><!-- End Cloudflare Web Analytics -->
