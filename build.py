@@ -998,9 +998,15 @@ def make_word_card(w):
     # account for ~54% of dictionary.html's total download size even
     # though most visitors never expand most drills — this shell is
     # ~150 bytes regardless of level, vs. ~800-1000 bytes per table.
+    # This drill shows full example sentences with English translations for
+    # all 6 persons — fundamentally different from the bare Präsens table
+    # (see CONJUGATION_WS_SCRIPT_A1) and not something that can be
+    # "simplified," only hidden. Per the A1 review (item 1: no full
+    # sentences, no translation needed), A1 words don't get this at all —
+    # the Konjugation button already covers what's appropriate at this level.
     person_html = ''
     person_sentences = w.get('person_sentences')
-    if person_sentences and len(person_sentences) == 6:
+    if level != 'A1' and person_sentences and len(person_sentences) == 6:
         person_html = (
             f'\n        <details class="word-person-drill" data-word="{htmllib.escape(de.lower(), quote=True)}|{level}" '
             'style="margin-top:0.5rem;">'
@@ -1380,9 +1386,11 @@ def build_wortschatz_page(level, level_words):
             # same lazy-load pattern as dictionary.html: rows live in
             # person-sentences.json and are fetched + rendered on first
             # expand (see PERSON_DRILL_WS_SCRIPT), not baked in per-word.
+            # Same A1 exception as make_word_card() above: no full-sentence
+            # drill with English translation at A1 — see that comment.
             person_html = ''
             person_sentences = w.get('person_sentences')
-            if person_sentences and len(person_sentences) == 6:
+            if level != 'A1' and person_sentences and len(person_sentences) == 6:
                 person_html = (
                     f'<details class="word-person-drill" data-word="{htmllib.escape(w["de"].lower(), quote=True)}|{level}" '
                     'style="margin-top:0.4rem;">'
