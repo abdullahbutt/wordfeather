@@ -1125,6 +1125,214 @@ def inject_person_sentences_script(content):
     return content.replace(marker, PERSON_SENTENCES_SCRIPT + '\n' + marker, 1)
 
 
+# Full verb conjugation toggle — dictionary.html's "📖 Konjugation (alle
+# Formen)" button + expandable table (Indikativ/Konjunktiv/Imperativ/Passiv,
+# with an English-translation toggle for the tenses learners actually use).
+# This used to exist ONLY as static HTML already sitting in dictionary.html
+# — build_dictionary() never touched it, so it worked purely by accident of
+# never being overwritten (build_dictionary() only rewrites #wordList).
+# That meant if dictionary.html's outer shell were ever lost, corrupted, or
+# rebuilt from a fresh template, this entire feature would silently vanish
+# with no code anywhere to regenerate it. Making it a maintained constant +
+# injection function (inject_conjugation_dict_script, called from
+# build_dictionary() below) fixes that: the feature is now guaranteed to
+# exist after every rebuild, not just preserved by luck.
+#
+# NOTE: this only re-creates the <script> block. The associated CSS
+# (.conj-toggle, .conj-table-wrap, etc.) is tightly interleaved with
+# dictionary.html's other unrelated page styles in the same <style> block,
+# so it is NOT extracted/regenerated here — if that CSS is ever lost, the
+# fix is a manual re-edit of the stylesheet, same as for any other visual
+# styling on the page.
+CONJUGATION_DICT_SCRIPT = r"""    <script>
+    // Full verb conjugation table — lazy-loaded, click-to-expand
+    (function() {
+        var conjData = null;
+        var conjPromise = null;
+        var prefix = window.location.pathname.replace(/\\/g, '/').match(/\/(A1|A2|B1|B2|C1|C2)\//) ? '../' : '';
+
+        function loadConjugations() {
+            if (conjPromise) return conjPromise;
+            conjPromise = fetch(prefix + 'conjugations.json')
+                .then(function(r) { return r.ok ? r.json() : {}; })
+                .then(function(json) {
+                    conjData = {};
+                    Object.keys(json).forEach(function(k) {
+                        conjData[k.toLowerCase()] = json[k];
+                    });
+                    return conjData;
+                })
+                .catch(function() { conjData = {}; return conjData; });
+            return conjPromise;
+        }
+
+        var TENSE_LABELS = {
+            praesens: 'Präsens', praeteritum: 'Präteritum', perfekt: 'Perfekt',
+            plusquamperfekt: 'Plusquamperfekt', futur1: 'Futur I', futur2: 'Futur II'
+        };
+        var PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'Sie'];
+        var PERSONS_EN = ['I', 'you', 'he/she/it', 'we', 'you', 'they'];
+        // English translations are only shown for the tenses a learner
+        // actually uses day-to-day — Konjunktiv/Futur II/Passiv are
+        // skipped since a rule-derived English rendering for those is
+        // often misleading rather than merely absent.
+        var EN_ELIGIBLE_TENSES = ['praesens', 'praeteritum', 'perfekt'];
+
+        function renderTenseBlock(tenseKey, forms, englishForms) {
+            var rows = '';
+            var showEn = englishForms && EN_ELIGIBLE_TENSES.indexOf(tenseKey) > -1;
+            for (var i = 0; i < 6; i++) {
+                var enLine = showEn
+                    ? '<div class="conj-en-line">(' + PERSONS_EN[i] + ' ' + englishForms[i] + ')</div>'
+                    : '';
+                rows += '<div class="conj-row"><span class="conj-person">' + PERSONS[i] + '</span>' +
+                        forms[i] + enLine + '</div>';
+            }
+            return '<div class="conj-tense-block">' +
+                   '<div class="conj-tense-label">' + (TENSE_LABELS[tenseKey] || tenseKey) + '</div>' +
+                   rows + '</div>';
+        }
+
+        function renderMoodGrid(tenses, source, english) {
+            var html = '';
+            tenses.forEach(function(t) {
+                if (source && source[t]) html += renderTenseBlock(t, source[t], english && english[t]);
+            });
+            return html ? '<div class="conj-mood-grid">' + html + '</div>' : '';
+        }
+
+        function renderTable(table) {
+            var html = '<div class="conj-table-wrap">';
+            var en = table.english || null;
+
+            html += '<div class="conj-en-toggle-wrap">' +
+                    '<label class="conj-en-toggle">' +
+                    '<input type="checkbox" class="conj-en-toggle-input">' +
+                    '<span class="conj-en-toggle-slider"></span>' +
+                    '</label>' +
+                    '<span>Englische Übersetzung anzeigen</span>' +
+                    '</div>';
+
+            html += '<div class="conj-mood-title">Weitere Formen</div><div class="conj-imperativ-row">' +
+                    '<span>Infinitiv: ' + table.infinitiv + '</span>' +
+                    '<span>Partizip Präsens: ' + table.partizip1 + '</span>' +
+                    '<span>Partizip Perfekt: ' + table.partizip2 + '</span>' +
+                    '<span>zu + Infinitiv: ' + table.zu_infinitiv + '</span>' +
+                    '</div>';
+
+            html += '<div class="conj-mood-title">Indikativ</div>';
+            html += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ, en);
+
+            html += '<div class="conj-mood-title">Konjunktiv I</div>';
+            html += renderMoodGrid(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
+
+            html += '<div class="conj-mood-title">Konjunktiv II</div>';
+            html += renderMoodGrid(['praeteritum','plusquamperfekt','futur1','futur2'], table.konjunktiv2);
+
+            if (table.imperativ) {
+                html += '<div class="conj-mood-title">Imperativ</div><div class="conj-imperativ-row">';
+                ['du','ihr','Sie','wir'].forEach(function(p) {
+                    if (table.imperativ[p]) html += '<span>' + p + ': ' + table.imperativ[p] + '</span>';
+                });
+                html += '</div>';
+            }
+
+            if (table.passiv) {
+                html += '<div class="conj-mood-title">Passiv</div>';
+                html += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1'], table.passiv);
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function addToggle(card) {
+            if (card.getAttribute('data-pos') !== 'verb') return;
+            if (card.querySelector('.conj-toggle')) return;
+            var btn = document.createElement('button');
+            btn.className = 'conj-toggle';
+            btn.type = 'button';
+            btn.textContent = '📖 Konjugation (alle Formen)';
+            btn.setAttribute('aria-expanded', 'false');
+            var mainDiv = card.querySelector('.word-main');
+            mainDiv.appendChild(btn);
+        }
+
+        document.querySelectorAll('.word-card').forEach(addToggle);
+
+        // Event delegation: robust against any future DOM rebuilding of
+        // .word-card content, not just direct listener attachment.
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.conj-toggle');
+            if (!btn) return;
+            e.preventDefault(); e.stopPropagation();
+
+            var card = btn.closest('.word-card');
+            var de = card.getAttribute('data-de');
+            var existing = card.querySelector('.conj-table-wrap');
+            if (existing) {
+                existing.remove();
+                btn.textContent = '📖 Konjugation (alle Formen)';
+                btn.setAttribute('aria-expanded', 'false');
+                return;
+            }
+
+            loadConjugations().then(function(data) {
+                var table = data[de];
+                if (!table) {
+                    btn.textContent = '(noch keine vollständige Konjugation verfügbar)';
+                    btn.disabled = true;
+                    btn.setAttribute('aria-expanded', 'false');
+                    return;
+                }
+                var div = document.createElement('div');
+                div.innerHTML = renderTable(table);
+                var wrap = div.firstChild;
+                var enToggleInput = wrap.querySelector('.conj-en-toggle-input');
+                if (enToggleInput) {
+                    enToggleInput.checked = localStorage.getItem('showEnglishConj') === 'true';
+                }
+                card.querySelector('.word-main').appendChild(wrap);
+                btn.textContent = '✕ Konjugation ausblenden';
+                btn.setAttribute('aria-expanded', 'true');
+            });
+        });
+
+        // English translation toggle — event delegation since each
+        // toggle switch is created fresh whenever a conjugation table
+        // is rendered (same lesson as the tts.js conflict: attaching a
+        // listener directly to a dynamically-created node is fragile).
+        if (localStorage.getItem('showEnglishConj') === 'true') {
+            document.body.classList.add('show-english');
+        }
+        document.addEventListener('change', function(e) {
+            var toggle = e.target.closest('.conj-en-toggle-input');
+            if (!toggle) return;
+            document.body.classList.toggle('show-english', toggle.checked);
+            localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+            // keep every other already-rendered toggle switch in sync
+            document.querySelectorAll('.conj-en-toggle-input').forEach(function(t) {
+                t.checked = toggle.checked;
+            });
+        });
+    })();
+    </script>"""
+
+def inject_conjugation_dict_script(content):
+    """
+    Ensures dictionary.html's full-conjugation-table toggle script is
+    present, inserting it just before </body> if missing. Idempotent —
+    checks for the script's own signature comment before adding, so
+    re-running this never duplicates it.
+    """
+    marker = "Full verb conjugation table — lazy-loaded, click-to-expand"
+    if marker in content:
+        return content
+    if "</body>" not in content:
+        print("  ⚠️  </body> not found — cannot inject conjugation script")
+        return content
+    return content.replace("</body>", CONJUGATION_DICT_SCRIPT + "\n</body>", 1)
+
 def build_dictionary(words):
     """
     Fully regenerate dictionary.html word-card section from words_final.json.
@@ -1201,6 +1409,7 @@ def build_dictionary(words):
     # Inject app install banner (after filters, before word list — not before <main>)
     content_new = inject_install_banner_dict(content_new)
     content_new = inject_person_sentences_script(content_new)
+    content_new = inject_conjugation_dict_script(content_new)
     content_new = re.sub(
         r'id="wordCount">\d+ words',
         f'id="wordCount">{total} words',

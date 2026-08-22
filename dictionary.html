@@ -61901,7 +61901,83 @@ window.addEventListener('load', function () {
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
+
     <script>
+// Person-sentence drill (ich/du/er.../Sie) for dictionary.html —
+// lazy-loaded on first expand, same pattern as the full conjugation
+// table loader elsewhere on this page. Injected automatically by
+// build_dictionary() (idempotent — see inject_person_sentences_script)
+// so a fresh checkout of dictionary.html always has it, without
+// needing a one-off manual edit to the file's static shell.
+(function() {
+    var prefix = window.location.pathname.replace(/\\/g, '/').match(/\/(A1|A2|B1|B2|C1|C2)\//) ? '../' : '';
+    var dataPromise = null;
+    function loadPersonData() {
+        if (dataPromise) return dataPromise;
+        dataPromise = fetch(prefix + 'person-sentences.json')
+            .then(function(r) { return r.ok ? r.json() : {}; })
+            .catch(function() { return {}; });
+        return dataPromise;
+    }
+
+    var ttsSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+    function addTtsIfAvailable(cell, text, lang) {
+        if (!('speechSynthesis' in window) || !text) return;
+        var b = document.createElement('button');
+        b.className = 'd-tts';
+        b.innerHTML = ttsSvg;
+        b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+        b.setAttribute('aria-label', lang === 'de-DE' ? 'German pronunciation' : 'English pronunciation');
+        b.onclick = function(e) {
+            e.preventDefault(); e.stopPropagation();
+            var synth = window.speechSynthesis;
+            synth.cancel();
+            var clean = text.replace(/\s*[,]\s*-\w+/g, '').replace(/[—–]/g, '').replace(/\(.*?\)/g, '').replace(/\s+/g, ' ').trim();
+            if (!clean) return;
+            var u = new SpeechSynthesisUtterance(clean);
+            u.lang = lang; u.rate = 0.9;
+            synth.speak(u);
+        };
+        cell.appendChild(b);
+    }
+
+    function renderDrillTable(rows) {
+        var html = '<div style="overflow-x:auto;margin-top:0.4rem;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
+            '<thead><tr><th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
+            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;">English</th></tr></thead><tbody>';
+        rows.forEach(function(pair) {
+            html += '<tr><td>' + pair[0] + '</td><td>' + pair[1] + '</td></tr>';
+        });
+        html += '</tbody></table></div>';
+        return html;
+    }
+
+    document.addEventListener('toggle', function(e) {
+        var details = e.target;
+        if (!details.classList || !details.classList.contains('word-person-drill')) return;
+        if (!details.open) return;
+        if (details.querySelector('table')) return; // already rendered
+
+        var word = details.getAttribute('data-word') || '';
+
+        loadPersonData().then(function(data) {
+            var rows = data[word];
+            if (!rows) return;
+            var wrap = document.createElement('div');
+            wrap.innerHTML = renderDrillTable(rows);
+            details.appendChild(wrap.firstChild);
+            details.querySelectorAll('tbody tr').forEach(function(row) {
+                var cells = row.querySelectorAll('td');
+                if (cells.length < 2) return;
+                addTtsIfAvailable(cells[0], cells[0].textContent.trim(), 'de-DE');
+                addTtsIfAvailable(cells[1], cells[1].textContent.trim(), 'en-US');
+            });
+        });
+    }, true);
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script>    <script>
     // Full verb conjugation table — lazy-loaded, click-to-expand
     (function() {
         var conjData = null;
@@ -62074,80 +62150,5 @@ window.addEventListener('load', function () {
         });
     })();
     </script>
-    <script>
-// Person-sentence drill (ich/du/er.../Sie) for dictionary.html —
-// lazy-loaded on first expand, same pattern as the full conjugation
-// table loader elsewhere on this page. Injected automatically by
-// build_dictionary() (idempotent — see inject_person_sentences_script)
-// so a fresh checkout of dictionary.html always has it, without
-// needing a one-off manual edit to the file's static shell.
-(function() {
-    var prefix = window.location.pathname.replace(/\\/g, '/').match(/\/(A1|A2|B1|B2|C1|C2)\//) ? '../' : '';
-    var dataPromise = null;
-    function loadPersonData() {
-        if (dataPromise) return dataPromise;
-        dataPromise = fetch(prefix + 'person-sentences.json')
-            .then(function(r) { return r.ok ? r.json() : {}; })
-            .catch(function() { return {}; });
-        return dataPromise;
-    }
-
-    var ttsSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
-    function addTtsIfAvailable(cell, text, lang) {
-        if (!('speechSynthesis' in window) || !text) return;
-        var b = document.createElement('button');
-        b.className = 'd-tts';
-        b.innerHTML = ttsSvg;
-        b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
-        b.setAttribute('aria-label', lang === 'de-DE' ? 'German pronunciation' : 'English pronunciation');
-        b.onclick = function(e) {
-            e.preventDefault(); e.stopPropagation();
-            var synth = window.speechSynthesis;
-            synth.cancel();
-            var clean = text.replace(/\s*[,]\s*-\w+/g, '').replace(/[—–]/g, '').replace(/\(.*?\)/g, '').replace(/\s+/g, ' ').trim();
-            if (!clean) return;
-            var u = new SpeechSynthesisUtterance(clean);
-            u.lang = lang; u.rate = 0.9;
-            synth.speak(u);
-        };
-        cell.appendChild(b);
-    }
-
-    function renderDrillTable(rows) {
-        var html = '<div style="overflow-x:auto;margin-top:0.4rem;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
-            '<thead><tr><th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
-            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;">English</th></tr></thead><tbody>';
-        rows.forEach(function(pair) {
-            html += '<tr><td>' + pair[0] + '</td><td>' + pair[1] + '</td></tr>';
-        });
-        html += '</tbody></table></div>';
-        return html;
-    }
-
-    document.addEventListener('toggle', function(e) {
-        var details = e.target;
-        if (!details.classList || !details.classList.contains('word-person-drill')) return;
-        if (!details.open) return;
-        if (details.querySelector('table')) return; // already rendered
-
-        var word = details.getAttribute('data-word') || '';
-
-        loadPersonData().then(function(data) {
-            var rows = data[word];
-            if (!rows) return;
-            var wrap = document.createElement('div');
-            wrap.innerHTML = renderDrillTable(rows);
-            details.appendChild(wrap.firstChild);
-            details.querySelectorAll('tbody tr').forEach(function(row) {
-                var cells = row.querySelectorAll('td');
-                if (cells.length < 2) return;
-                addTtsIfAvailable(cells[0], cells[0].textContent.trim(), 'de-DE');
-                addTtsIfAvailable(cells[1], cells[1].textContent.trim(), 'en-US');
-            });
-        });
-    }, true);
-})();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script></body>
+</body>
 </html>
