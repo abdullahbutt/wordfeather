@@ -158,6 +158,18 @@
         #pageLoadingOverlay{position:fixed;inset:0;z-index:9999;background:#f8fafc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
         [data-bs-theme="dark"] #pageLoadingOverlay{background:#0f172a}
         [data-bs-theme="dark"] #pageLoadingOverlay p{color:#94a3b8}
+        /* Covers the whole viewport (not just the word-list area) so it's
+           unmistakably visible and genuinely blocks clicks anywhere on the
+           page during a filter recompute — pointer-events:auto plus a high
+           z-index means clicks on filter buttons underneath don't register
+           until this is hidden again, preventing rapid repeat-clicks from
+           queueing up multiple overlapping filter passes. Semi-transparent
+           rather than opaque, and display:none by default (toggled by
+           runFilterWords()), so it never appears at initial page load —
+           that's pageLoadingOverlay's job, not this one's. */
+        #filterLoadingOverlay{display:none;position:fixed;inset:0;z-index:9998;background:rgba(248,250,252,.85);pointer-events:auto;flex-direction:column;align-items:center;justify-content:center;gap:.75rem}
+        [data-bs-theme="dark"] #filterLoadingOverlay{background:rgba(15,23,42,.85)}
+        [data-bs-theme="dark"] #filterLoadingOverlay p{color:#94a3b8}
         @keyframes pageLoadSpin{to{transform:rotate(360deg)}}
     </style>
     <script>
@@ -285,6 +297,10 @@
 <div id="pageLoadingOverlay">
     <div style="width:48px;height:48px;border:4px solid #dbeafe;border-top-color:#1d4ed8;border-radius:50%;animation:pageLoadSpin .8s linear infinite;"></div>
     <p style="color:#64748b;font-size:.95rem;font-weight:600;margin:0;">Wörterbuch wird geladen… / Loading dictionary…</p>
+</div>
+<div id="filterLoadingOverlay">
+    <div style="width:40px;height:40px;border:4px solid #dbeafe;border-top-color:#1d4ed8;border-radius:50%;animation:pageLoadSpin .8s linear infinite;"></div>
+    <p style="color:#64748b;font-size:.9rem;font-weight:600;margin:0;">Filtern… / Filtering…</p>
 </div>
 <noscript><style>#pageLoadingOverlay{display:none}</style></noscript>
 <script>
@@ -61689,18 +61705,28 @@ window.addEventListener('load', function () {
         // filterWords() synchronously loops over all ~5,224 cards — long
         // enough on a slower device/browser to feel like the page has
         // hung, especially with nothing on screen indicating work is
-        // happening. runFilterWords() shows a small "Filtering…" indicator
-        // FIRST, then defers the actual heavy filterWords() call by one
-        // tick (setTimeout) so the browser gets a chance to paint that
-        // indicator before the blocking loop runs — otherwise the browser
-        // could do both in the same paint frame and the indicator would
-        // never actually become visible before the freeze.
+        // happening. runFilterWords() shows a full-page overlay FIRST,
+        // then defers the actual heavy filterWords() call by one tick
+        // (setTimeout) so the browser gets a chance to paint that overlay
+        // before the blocking loop runs — otherwise the browser could do
+        // both in the same paint frame and the overlay would never
+        // actually become visible before the freeze. The overlay's high
+        // z-index + pointer-events also mean a rapid double-click on a
+        // filter button can't queue up two overlapping filter passes —
+        // the second click just hits the overlay instead of another
+        // button, harmlessly, until the first pass finishes.
         var filterBusy = document.getElementById('filterBusy');
+        var filterOverlay = document.getElementById('filterLoadingOverlay');
         function runFilterWords() {
             if (filterBusy) filterBusy.style.display = '';
+            if (filterOverlay) filterOverlay.style.display = 'flex';
             setTimeout(function () {
-                filterWords();
-                if (filterBusy) filterBusy.style.display = 'none';
+                try {
+                    filterWords();
+                } finally {
+                    if (filterBusy) filterBusy.style.display = 'none';
+                    if (filterOverlay) filterOverlay.style.display = 'none';
+                }
             }, 10);
         }
 
