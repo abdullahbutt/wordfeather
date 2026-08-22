@@ -1566,10 +1566,11 @@ var LESEN_PRACTICE_DATA = {
   // noun, empty means it's something else (verb, adjective, adverb,
   // preposition...). Without this check, a noun question could get a verb
   // or adjective as a wrong option — which gives the answer away on grammar
-  // alone, before the learner even needs to know the vocabulary. This is a
-  // real, checkable signal using data that already exists, as opposed to
-  // true semantic similarity (Haus vs. Wohnung vs. Gebäude), which would
-  // need synonym/category data the dictionary doesn't have.
+  // alone, before the learner even needs to know the vocabulary.
+  // Beyond part-of-speech, word.category (a topic-domain tag such as
+  // "Essen & Trinken" or "Verkehr & Reisen", covering all 5,224 words) lets
+  // pickDistractors() prefer same-topic wrong answers over merely
+  // same-level-and-POS ones — see the category-preference tier below.
   function isNoun(w) {
     return !!(w.article && w.article.trim());
   }
@@ -1578,11 +1579,35 @@ var LESEN_PRACTICE_DATA = {
     var sameLevelPool = allWords.filter(function (w) { return w.level === correctWord.level && w !== correctWord; });
 
     // Prefer distractors matching the correct word's noun/non-noun status,
-    // within the same level — this is the primary pool now.
+    // within the same level.
     var correctIsNoun = isNoun(correctWord);
     var samePosPool = sameLevelPool.filter(function (w) { return isNoun(w) === correctIsNoun; });
 
-    var candidates = shuffle(samePosPool.length >= count ? samePosPool : sameLevelPool);
+    // Semantic-domain tagging (word.category, e.g. "Essen & Trinken",
+    // "Verkehr & Reisen") lets us go one step further than part-of-speech:
+    // within the same level + same POS, prefer distractors from the SAME
+    // topic domain as the correct word first. This is what makes a wrong
+    // answer for "der Apfel" (apple) something plausible like "die Banane"
+    // instead of an unrelated "das Auto" — a same-domain distractor tests
+    // real vocabulary knowledge instead of letting the learner win by
+    // elimination on topic alone. "Allgemein" (general/function words) is
+    // deliberately excluded from this preference tier: it's a catch-all
+    // bucket, not a real topic, so treating it as a shared domain would
+    // just cluster grammar words together for no pedagogical reason —
+    // those fall through to the plain samePosPool tier below instead.
+    var sameCategoryPool = [];
+    if (correctWord.category && correctWord.category !== 'Allgemein') {
+      sameCategoryPool = samePosPool.filter(function (w) { return w.category === correctWord.category; });
+    }
+
+    var candidates;
+    if (sameCategoryPool.length >= count) {
+      candidates = shuffle(sameCategoryPool);
+    } else if (samePosPool.length >= count) {
+      candidates = shuffle(samePosPool);
+    } else {
+      candidates = shuffle(sameLevelPool);
+    }
     if (candidates.length < count) {
       candidates = shuffle(allWords.filter(function (w) { return w !== correctWord; }));
     }
@@ -1600,6 +1625,22 @@ var LESEN_PRACTICE_DATA = {
       seen[norm] = true;
       distractors.push(raw);
     }
+
+    // If the same-category tier didn't fully fill count (e.g. only 2 of 3
+    // needed distractors found there), top up from the broader samePosPool
+    // without ever duplicating an already-chosen answer.
+    if (distractors.length < count && candidates !== samePosPool) {
+      var topUp = shuffle(samePosPool);
+      for (var j = 0; j < topUp.length && distractors.length < count; j++) {
+        var raw2 = direction === 'de-en' ? topUp[j].en : cleanGermanAnswer(topUp[j].de);
+        if (!raw2) continue;
+        var norm2 = normalize(raw2);
+        if (seen[norm2]) continue;
+        seen[norm2] = true;
+        distractors.push(raw2);
+      }
+    }
+
     return distractors;
   }
 
