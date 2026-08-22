@@ -403,6 +403,7 @@ window.addEventListener('load', function () {
                             <button data-level="C2" aria-pressed="false">C2</button>
                         </div>
                         <span class="stats" id="wordCount">5224 words</span>
+                        <span id="filterBusy" style="display:none;font-size:.8rem;color:#1d4ed8;font-weight:600;">⏳ Filtern… / Filtering…</span>
                     </div>
                     <div class="d-flex align-items-center gap-2 flex-wrap">
                         <span class="filter-label">Wortart:</span>
@@ -455,6 +456,7 @@ window.addEventListener('load', function () {
                             <option value="Sprache &amp; Literatur">Sprache &amp; Literatur</option>
                             <option value="Allgemein">Allgemein</option>
                         </select>
+                        <span id="categoryEnLabel" style="display:none;font-size:.85rem;color:#64748b;font-style:italic;"></span>
                     </div>
                 </div>
                 <div class="dict-layout">
@@ -61684,6 +61686,24 @@ window.addEventListener('load', function () {
             wordCount.textContent = visible + ' word' + (visible !== 1 ? 's' : '');
         }
 
+        // filterWords() synchronously loops over all ~5,224 cards — long
+        // enough on a slower device/browser to feel like the page has
+        // hung, especially with nothing on screen indicating work is
+        // happening. runFilterWords() shows a small "Filtering…" indicator
+        // FIRST, then defers the actual heavy filterWords() call by one
+        // tick (setTimeout) so the browser gets a chance to paint that
+        // indicator before the blocking loop runs — otherwise the browser
+        // could do both in the same paint frame and the indicator would
+        // never actually become visible before the freeze.
+        var filterBusy = document.getElementById('filterBusy');
+        function runFilterWords() {
+            if (filterBusy) filterBusy.style.display = '';
+            setTimeout(function () {
+                filterWords();
+                if (filterBusy) filterBusy.style.display = 'none';
+            }, 10);
+        }
+
         input.addEventListener('input', filterWords);
         document.querySelectorAll('.level-filter button').forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -61691,7 +61711,7 @@ window.addEventListener('load', function () {
                 btn.classList.add('active');
                 btn.setAttribute('aria-pressed', 'true');
                 activeLevel = btn.getAttribute('data-level');
-                filterWords();
+                runFilterWords();
             });
         });
 
@@ -61701,15 +61721,67 @@ window.addEventListener('load', function () {
                 btn.classList.add('active');
                 btn.setAttribute('aria-pressed', 'true');
                 activePOS = btn.getAttribute('data-pos');
-                filterWords();
+                runFilterWords();
             });
         });
 
         var categorySelect = document.getElementById('categoryFilter');
+        var categoryEnLabel = document.getElementById('categoryEnLabel');
+        // English translations for each German topic-category name — a
+        // learner picking a Thema from the dropdown may not yet know what
+        // e.g. "Aemter & Buerokratie" means, so showing the English
+        // translation right next to the selector removes that guesswork.
+        var CATEGORY_EN = {
+            'Wohnen & Haushalt': 'Housing & Household',
+            'Wohnungssuche & Umzug': 'Apartment Hunting & Moving',
+            'Essen & Trinken': 'Food & Drink',
+            'Familie & Menschen': 'Family & People',
+            'Beziehungsleben & Liebe': 'Relationships & Love',
+            'Koerper & Gesundheit': 'Body & Health',
+            'Kleidung & Aussehen': 'Clothing & Appearance',
+            'Farben & Formen': 'Colors & Shapes',
+            'Verkehr & Reisen': 'Transportation & Travel',
+            'Arbeit & Beruf': 'Work & Profession',
+            'Schule & Bildung': 'School & Education',
+            'Einkaufen & Geld': 'Shopping & Money',
+            'Zahlen & Mengen': 'Numbers & Quantities',
+            'Natur & Wetter': 'Nature & Weather',
+            'Tiere & Pflanzen': 'Animals & Plants',
+            'Freizeit & Sport': 'Leisure & Sports',
+            'Kunst & Unterhaltung': 'Art & Entertainment',
+            'Feste & Traditionen': 'Festivals & Traditions',
+            'Zeit & Alltag': 'Time & Daily Life',
+            'Technik & Medien': 'Technology & Media',
+            'Stadt & Orte': 'City & Places',
+            'Gefuehle & Charakter': 'Feelings & Character',
+            'Kommunikation & Sprache': 'Communication & Language',
+            'Gesellschaft & Umwelt': 'Society & Environment',
+            'Aemter & Buerokratie': 'Offices & Bureaucracy',
+            'Sicherheit & Notfaelle': 'Safety & Emergencies',
+            'Philosophie & Erkenntnistheorie': 'Philosophy & Epistemology',
+            'Recht & Politik': 'Law & Politics',
+            'Wirtschaft & Finanzen': 'Economy & Finance',
+            'Wissenschaft & Medizin': 'Science & Medicine',
+            'Gesellschaft & Kultur': 'Society & Culture',
+            'Sprache & Literatur': 'Language & Literature',
+            'Allgemein': 'General'
+        };
+        function updateCategoryEnLabel() {
+            if (!categoryEnLabel || !categorySelect) return;
+            var val = categorySelect.value;
+            if (val === 'ALL' || !CATEGORY_EN[val]) {
+                categoryEnLabel.style.display = 'none';
+                categoryEnLabel.textContent = '';
+            } else {
+                categoryEnLabel.textContent = '(' + CATEGORY_EN[val] + ')';
+                categoryEnLabel.style.display = '';
+            }
+        }
         if (categorySelect) {
             categorySelect.addEventListener('change', function() {
                 activeCategory = categorySelect.value;
-                filterWords();
+                updateCategoryEnLabel();
+                runFilterWords();
             });
         }
 

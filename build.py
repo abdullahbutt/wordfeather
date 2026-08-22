@@ -1336,6 +1336,47 @@ CATEGORY_ORDER = [
     "Allgemein",
 ]
 
+# English translations for each category name, used to show learners what
+# a German topic-section heading actually means (e.g. on the Wortschatz
+# pages) — the German category names themselves are specialized/compound
+# vocabulary a learner may not know yet, which defeats the purpose of a
+# heading meant to orient them.
+CATEGORY_EN = {
+    "Wohnen & Haushalt": "Housing & Household",
+    "Wohnungssuche & Umzug": "Apartment Hunting & Moving",
+    "Essen & Trinken": "Food & Drink",
+    "Familie & Menschen": "Family & People",
+    "Beziehungsleben & Liebe": "Relationships & Love",
+    "Koerper & Gesundheit": "Body & Health",
+    "Kleidung & Aussehen": "Clothing & Appearance",
+    "Farben & Formen": "Colors & Shapes",
+    "Verkehr & Reisen": "Transportation & Travel",
+    "Arbeit & Beruf": "Work & Profession",
+    "Schule & Bildung": "School & Education",
+    "Einkaufen & Geld": "Shopping & Money",
+    "Zahlen & Mengen": "Numbers & Quantities",
+    "Natur & Wetter": "Nature & Weather",
+    "Tiere & Pflanzen": "Animals & Plants",
+    "Freizeit & Sport": "Leisure & Sports",
+    "Kunst & Unterhaltung": "Art & Entertainment",
+    "Feste & Traditionen": "Festivals & Traditions",
+    "Zeit & Alltag": "Time & Daily Life",
+    "Technik & Medien": "Technology & Media",
+    "Stadt & Orte": "City & Places",
+    "Gefuehle & Charakter": "Feelings & Character",
+    "Kommunikation & Sprache": "Communication & Language",
+    "Gesellschaft & Umwelt": "Society & Environment",
+    "Aemter & Buerokratie": "Offices & Bureaucracy",
+    "Sicherheit & Notfaelle": "Safety & Emergencies",
+    "Philosophie & Erkenntnistheorie": "Philosophy & Epistemology",
+    "Recht & Politik": "Law & Politics",
+    "Wirtschaft & Finanzen": "Economy & Finance",
+    "Wissenschaft & Medizin": "Science & Medicine",
+    "Gesellschaft & Kultur": "Society & Culture",
+    "Sprache & Literatur": "Language & Literature",
+    "Allgemein": "General",
+}
+
 def get_topic(w, level):
     # Uses the word's pre-computed 'category' field (from the domain-
     # tagging project) instead of this file's own per-level keyword
@@ -1370,7 +1411,8 @@ def build_wortschatz_page(level, level_words):
         topic_nav.append((topic, slug, len(ws)))
 
     jump_html = '\n'.join(
-        f'<a href="#{sl}" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start">'
+        f'<a href="#{sl}" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" '
+        f'title="{htmllib.escape(CATEGORY_EN.get(tp, tp), quote=True)}">'
         f'{tp[:22]}{"…" if len(tp)>22 else ""} '
         f'<span class="badge ms-1" style="background:{color};font-size:.65rem">{n}</span></a>'
         for tp, sl, n in topic_nav
@@ -1382,9 +1424,11 @@ def build_wortschatz_page(level, level_words):
         if not ws:
             continue
         slug = re.sub(r'[^a-z0-9]+', '-', topic.lower()).strip('-')
+        topic_en = CATEGORY_EN.get(topic, topic)
         sections += f'<div class="topic-section" data-topic-section="{slug}">\n'
         sections += (f'<h2 id="{slug}" class="mt-4 mb-3" style="color:{color}">'
                      f'{htmllib.escape(topic)} '
+                     f'<span class="fs-6 fw-normal text-muted">({htmllib.escape(topic_en)})</span> '
                      f'<small class="text-muted fs-6">({len(ws)} Wörter)</small></h2>\n')
         sections += '<div class="table-responsive">\n'
         sections += ('<table class="table table-bordered table-hover vocab-table mb-4">\n'
