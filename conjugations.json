@@ -146868,6 +146868,404 @@
    ]
   }
  },
+ "posten": {
+  "infinitiv": "posten",
+  "partizip1": "postend",
+  "partizip2": "gepostet",
+  "zu_infinitiv": "zu posten",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "poste",
+    "postest",
+    "postet",
+    "posten",
+    "postet",
+    "posten"
+   ],
+   "praeteritum": [
+    "postete",
+    "postetest",
+    "postete",
+    "posteten",
+    "postetet",
+    "posteten"
+   ],
+   "perfekt": [
+    "habe gepostet",
+    "hast gepostet",
+    "hat gepostet",
+    "haben gepostet",
+    "habt gepostet",
+    "haben gepostet"
+   ],
+   "plusquamperfekt": [
+    "hatte gepostet",
+    "hattest gepostet",
+    "hatte gepostet",
+    "hatten gepostet",
+    "hattet gepostet",
+    "hatten gepostet"
+   ],
+   "futur1": [
+    "werde posten",
+    "wirst posten",
+    "wird posten",
+    "werden posten",
+    "werdet posten",
+    "werden posten"
+   ],
+   "futur2": [
+    "werde gepostet haben",
+    "wirst gepostet haben",
+    "wird gepostet haben",
+    "werden gepostet haben",
+    "werdet gepostet haben",
+    "werden gepostet haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "poste",
+    "postest",
+    "poste",
+    "posten",
+    "postet",
+    "posten"
+   ],
+   "perfekt": [
+    "habe gepostet",
+    "habest gepostet",
+    "habe gepostet",
+    "haben gepostet",
+    "habet gepostet",
+    "haben gepostet"
+   ],
+   "futur1": [
+    "werde posten",
+    "werdest posten",
+    "werde posten",
+    "werden posten",
+    "werdet posten",
+    "werden posten"
+   ],
+   "futur2": [
+    "werde gepostet haben",
+    "werdest gepostet haben",
+    "werde gepostet haben",
+    "werden gepostet haben",
+    "werdet gepostet haben",
+    "werden gepostet haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde posten",
+    "würdest posten",
+    "würde posten",
+    "würden posten",
+    "würdet posten",
+    "würden posten"
+   ],
+   "plusquamperfekt": [
+    "hätte gepostet",
+    "hättest gepostet",
+    "hätte gepostet",
+    "hätten gepostet",
+    "hättet gepostet",
+    "hätten gepostet"
+   ],
+   "futur1": [
+    "würde posten",
+    "würdest posten",
+    "würde posten",
+    "würden posten",
+    "würdet posten",
+    "würden posten"
+   ],
+   "futur2": [
+    "würde gepostet haben",
+    "würdest gepostet haben",
+    "würde gepostet haben",
+    "würden gepostet haben",
+    "würdet gepostet haben",
+    "würden gepostet haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Poste!",
+   "ihr": "Postet!",
+   "Sie": "Posten Sie!",
+   "wir": "Posten wir!"
+  },
+  "passiv": {
+   "praesens": [
+    "werde gepostet",
+    "wirst gepostet",
+    "wird gepostet",
+    "werden gepostet",
+    "werdet gepostet",
+    "werden gepostet"
+   ],
+   "praeteritum": [
+    "wurde gepostet",
+    "wurdest gepostet",
+    "wurde gepostet",
+    "wurden gepostet",
+    "wurdet gepostet",
+    "wurden gepostet"
+   ],
+   "perfekt": [
+    "bin gepostet worden",
+    "bist gepostet worden",
+    "ist gepostet worden",
+    "sind gepostet worden",
+    "seid gepostet worden",
+    "sind gepostet worden"
+   ],
+   "plusquamperfekt": [
+    "war gepostet worden",
+    "warst gepostet worden",
+    "war gepostet worden",
+    "waren gepostet worden",
+    "wart gepostet worden",
+    "waren gepostet worden"
+   ],
+   "futur1": [
+    "werde gepostet werden",
+    "wirst gepostet werden",
+    "wird gepostet werden",
+    "werden gepostet werden",
+    "werdet gepostet werden",
+    "werden gepostet werden"
+   ]
+  },
+  "english": {
+   "praesens": [
+    "post",
+    "post",
+    "posts",
+    "post",
+    "post",
+    "post"
+   ],
+   "praeteritum": [
+    "posted",
+    "posted",
+    "posted",
+    "posted",
+    "posted",
+    "posted"
+   ],
+   "perfekt": [
+    "have posted",
+    "have posted",
+    "has posted",
+    "have posted",
+    "have posted",
+    "have posted"
+   ]
+  }
+ },
+ "interessieren": {
+  "infinitiv": "interessieren",
+  "partizip1": "interessierend",
+  "partizip2": "interessiert",
+  "zu_infinitiv": "zu interessieren",
+  "hilfsverb": "haben",
+  "indikativ": {
+   "praesens": [
+    "interessiere",
+    "interessierst",
+    "interessiert",
+    "interessieren",
+    "interessiert",
+    "interessieren"
+   ],
+   "praeteritum": [
+    "interessierte",
+    "interessiertest",
+    "interessierte",
+    "interessierten",
+    "interessiertet",
+    "interessierten"
+   ],
+   "perfekt": [
+    "habe interessiert",
+    "hast interessiert",
+    "hat interessiert",
+    "haben interessiert",
+    "habt interessiert",
+    "haben interessiert"
+   ],
+   "plusquamperfekt": [
+    "hatte interessiert",
+    "hattest interessiert",
+    "hatte interessiert",
+    "hatten interessiert",
+    "hattet interessiert",
+    "hatten interessiert"
+   ],
+   "futur1": [
+    "werde interessieren",
+    "wirst interessieren",
+    "wird interessieren",
+    "werden interessieren",
+    "werdet interessieren",
+    "werden interessieren"
+   ],
+   "futur2": [
+    "werde interessiert haben",
+    "wirst interessiert haben",
+    "wird interessiert haben",
+    "werden interessiert haben",
+    "werdet interessiert haben",
+    "werden interessiert haben"
+   ]
+  },
+  "konjunktiv1": {
+   "praesens": [
+    "interessiere",
+    "interessierest",
+    "interessiere",
+    "interessieren",
+    "interessieret",
+    "interessieren"
+   ],
+   "perfekt": [
+    "habe interessiert",
+    "habest interessiert",
+    "habe interessiert",
+    "haben interessiert",
+    "habet interessiert",
+    "haben interessiert"
+   ],
+   "futur1": [
+    "werde interessieren",
+    "werdest interessieren",
+    "werde interessieren",
+    "werden interessieren",
+    "werdet interessieren",
+    "werden interessieren"
+   ],
+   "futur2": [
+    "werde interessiert haben",
+    "werdest interessiert haben",
+    "werde interessiert haben",
+    "werden interessiert haben",
+    "werdet interessiert haben",
+    "werden interessiert haben"
+   ]
+  },
+  "konjunktiv2": {
+   "praeteritum": [
+    "würde interessieren",
+    "würdest interessieren",
+    "würde interessieren",
+    "würden interessieren",
+    "würdet interessieren",
+    "würden interessieren"
+   ],
+   "plusquamperfekt": [
+    "hätte interessiert",
+    "hättest interessiert",
+    "hätte interessiert",
+    "hätten interessiert",
+    "hättet interessiert",
+    "hätten interessiert"
+   ],
+   "futur1": [
+    "würde interessieren",
+    "würdest interessieren",
+    "würde interessieren",
+    "würden interessieren",
+    "würdet interessieren",
+    "würden interessieren"
+   ],
+   "futur2": [
+    "würde interessiert haben",
+    "würdest interessiert haben",
+    "würde interessiert haben",
+    "würden interessiert haben",
+    "würdet interessiert haben",
+    "würden interessiert haben"
+   ]
+  },
+  "imperativ": {
+   "du": "Interessier!",
+   "ihr": "Interessiert!",
+   "Sie": "Interessieren Sie!",
+   "wir": "Interessieren wir!"
+  },
+  "passiv": {
+   "praesens": [
+    "werde interessiert",
+    "wirst interessiert",
+    "wird interessiert",
+    "werden interessiert",
+    "werdet interessiert",
+    "werden interessiert"
+   ],
+   "praeteritum": [
+    "wurde interessiert",
+    "wurdest interessiert",
+    "wurde interessiert",
+    "wurden interessiert",
+    "wurdet interessiert",
+    "wurden interessiert"
+   ],
+   "perfekt": [
+    "bin interessiert worden",
+    "bist interessiert worden",
+    "ist interessiert worden",
+    "sind interessiert worden",
+    "seid interessiert worden",
+    "sind interessiert worden"
+   ],
+   "plusquamperfekt": [
+    "war interessiert worden",
+    "warst interessiert worden",
+    "war interessiert worden",
+    "waren interessiert worden",
+    "wart interessiert worden",
+    "waren interessiert worden"
+   ],
+   "futur1": [
+    "werde interessiert werden",
+    "wirst interessiert werden",
+    "wird interessiert werden",
+    "werden interessiert werden",
+    "werdet interessiert werden",
+    "werden interessiert werden"
+   ]
+  },
+  "english": {
+   "praesens": [
+    "interest (someone)",
+    "interest (someone)",
+    "interests (someone)",
+    "interest (someone)",
+    "interest (someone)",
+    "interest (someone)"
+   ],
+   "praeteritum": [
+    "interested (someone)",
+    "interested (someone)",
+    "interested (someone)",
+    "interested (someone)",
+    "interested (someone)",
+    "interested (someone)"
+   ],
+   "perfekt": [
+    "have interested (someone)",
+    "have interested (someone)",
+    "has interested (someone)",
+    "have interested (someone)",
+    "have interested (someone)",
+    "have interested (someone)"
+   ]
+  }
+ },
  "beschützen": {
   "infinitiv": "beschützen",
   "partizip1": "beschützend",

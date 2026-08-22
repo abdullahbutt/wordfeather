@@ -188682,7 +188682,15 @@
         "They are posting a photo."
       ]
     ],
-    "category": "Allgemein"
+    "category": "Allgemein",
+    "conjugation": {
+      "infinitiv": "posten",
+      "praeteritum_stamm": "postete",
+      "partizip2": "gepostet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "interessieren",
@@ -188719,7 +188727,15 @@
         "That interests them little."
       ]
     ],
-    "category": "Allgemein"
+    "category": "Allgemein",
+    "conjugation": {
+      "infinitiv": "interessieren",
+      "praeteritum_stamm": "interessierte",
+      "partizip2": "interessiert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "die Straßenreinigung",
