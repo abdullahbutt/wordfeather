@@ -861,6 +861,13 @@ _KNOWN_ADV = {
     'schließlich','allerdings','freilich','gleichwohl','nichtsdestotrotz',
     'nichtsdestoweniger','somit','demnach','ergo','mithin','zumal','indessen',
     'überdies','hierbei','insofern','ebendies','indes','infolgedessen',
+    # Added after auditing dictionary.html's Konjugation-button coverage:
+    # these all end in "-en" and were falling through to the verb-shape
+    # guess (_VERB_RE) purely by coincidence of spelling, with no actual
+    # conjugation data — giving them a "Konjugation" button that could
+    # only ever show "not available."
+    'hinten','daneben','dagegen','deswegen','meinetwegen','mitten','innen',
+    'inzwischen','zuweilen','unumwunden','übermorgen',
 }
 _KNOWN_CONJ = {
     'aber','als','bevor','denn','dass','damit','ehe','entweder','falls',
@@ -877,6 +884,29 @@ _KNOWN_PREP = {
 _KNOWN_PRON = {
     'ich','du','er','sie','es','wir','ihr','man','sich','dieser','jener',
     'wer','was','jemand','niemand','etwas','nichts','beide',
+    # den/wen/ihnen also happen to end in a verb-shape-looking string
+    # (well, "ihnen" does; den/wen just needed a home) and were never
+    # in this list at all — same false-verb-tag issue as the adverbs above.
+    'den','wen','ihnen',
+}
+_KNOWN_PROPER_NOUN = {
+    # Country names ending in "-en" (Algerien, Italien, Polen, Spanien)
+    # were falling through to the verb-shape guess with no article and
+    # no other classification catching them first.
+    'algerien','italien','polen','spanien',
+}
+_KNOWN_ADJ = {
+    # Simple/participial adjectives ending in "-en" that don't match any
+    # of the _ADJ_SUFFIXES patterns (offen, geschlossen, zufrieden, etc.)
+    # — mostly past participles used adjectivally, which is exactly why
+    # they end in "-en" like a verb infinitive but aren't one; none of
+    # these carry conjugation data, so detect_pos() was wrongly handing
+    # them a "Konjugation" button that could only ever show "not available."
+    'offen','geschlossen','zufrieden','verboten','trocken','eigen',
+    'verschieden','betrunken','umstritten','unumstritten','erschrocken',
+    'bescheiden','verlegen','einverstanden','willkommen','ausgewogen',
+    'verworren','angemessen','geschieden','geboren',
+    'sieben',  # the number, not a verb — same false-verb-tag issue
 }
 _DETERMINER = {
     'dies-','ein/eine','gern(e)','jeder/jede/jedes','kein/keine',
@@ -918,13 +948,29 @@ def detect_pos(w):
     if dl in _DETERMINER: return 'determiner'
     if dl in _KNOWN_PRON: return 'pronoun'
     if dl in _KNOWN_CONJ and ' ' not in de: return 'conjunction'
-    if dl.startswith('sich ') and dl.endswith('en'): return 'verb'
+    # Proper nouns (country names etc.) that happen to end in "-en" and
+    # carry no article — checked before the reflexive-verb and _VERB_RE
+    # guesses below so they don't get mistaken for verbs.
+    if dl in _KNOWN_PROPER_NOUN: return 'noun'
+    # The "sich ... en" reflexive-verb guess only holds for genuinely
+    # short reflexive verbs ("sich interessieren (für + A.)" — 2 core
+    # words before any parenthetical). Longer idiomatic phrases that
+    # happen to start with "sich" and end in a verb ("sich auf dünnem
+    # Eis bewegen", "sich einer Prüfung unterziehen") are multi-word
+    # expressions, not single conjugatable verbs, and were being force-
+    # classified as bare "verb" with no conjugation data to back it up —
+    # letting them fall through here means the later phrase-detection
+    # rule (line ~971 below) correctly catches them instead.
+    core_wordcount = len(re.sub(r'\s*\(.*$', '', dl).split())
+    if dl.startswith('sich ') and dl.endswith('en') and core_wordcount == 2:
+        return 'verb'
     if w.get('conjugation'): return 'verb'  # authoritative — has principal parts, so it's a verb regardless of -eln/-ern suffix
     # Known-word lookups take priority over the "-en" verb-shape guess below —
     # several prepositions/adverbs (gegen, neben, wegen, zwischen, infolgedessen...)
     # also happen to end in "-en" and were being misclassified as verbs because
     # _VERB_RE used to run before these lookups.
     if dl in _KNOWN_ADV: return 'adverb'
+    if dl in _KNOWN_ADJ and ' ' not in de: return 'adjective'
     if dl in _KNOWN_PREP and ' ' not in de: return 'preposition'
     if _VERB_RE.match(dl): return 'verb'
     if ' ' in de and not re.match(r'^(der|die|das)\s+', de, re.I):
