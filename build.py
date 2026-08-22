@@ -1244,6 +1244,12 @@ def build_dictionary(words):
 
 # ── Wortschatz page builder ────────────────────────────────────────────────────
 TOPIC_KEYWORDS = {
+    # DEPRECATED — no longer used by get_topic() as of the domain-tagging
+    # project. Wortschatz page grouping now uses each word's 'category'
+    # field (see CATEGORY_ORDER / get_topic() below) instead of this
+    # per-level keyword matching. Kept here only as historical reference
+    # in case the old per-level topic names are ever wanted again; safe
+    # to delete entirely once that's confirmed unneeded.
     'A1': [
         ('Begrüßung & Alltag',  ['guten','hallo','danke','bitte','auf wiedersehen','tschüss']),
         ('Familie',             ['mutter','vater','kind','mann','frau','bruder','schwester','oma','opa','eltern']),
@@ -1306,14 +1312,37 @@ TOPIC_KEYWORDS = {
     ],
 }
 
+# CATEGORY_ORDER defines the display order of topic sections on each
+# Wortschatz page. It mirrors the unified 27-category everyday tier +
+# 6-category specialized tier used by the quiz's semantic-distractor
+# system (classify_shared.py from the domain-tagging project), so the
+# SAME verified categories now drive both features instead of two
+# independent, differently-sized taxonomies. "Allgemein" (general/
+# function words with no specific topic) is always last, matching the
+# old "Sonstige X-Wörter" catch-all's role.
+CATEGORY_ORDER = [
+    "Wohnen & Haushalt", "Wohnungssuche & Umzug", "Essen & Trinken",
+    "Familie & Menschen", "Beziehungsleben & Liebe", "Koerper & Gesundheit",
+    "Kleidung & Aussehen", "Farben & Formen", "Verkehr & Reisen",
+    "Arbeit & Beruf", "Schule & Bildung", "Einkaufen & Geld",
+    "Zahlen & Mengen", "Natur & Wetter", "Tiere & Pflanzen",
+    "Freizeit & Sport", "Kunst & Unterhaltung", "Feste & Traditionen",
+    "Zeit & Alltag", "Technik & Medien", "Stadt & Orte",
+    "Gefuehle & Charakter", "Kommunikation & Sprache", "Gesellschaft & Umwelt",
+    "Aemter & Buerokratie", "Sicherheit & Notfaelle",
+    "Philosophie & Erkenntnistheorie", "Recht & Politik", "Wirtschaft & Finanzen",
+    "Wissenschaft & Medizin", "Gesellschaft & Kultur", "Sprache & Literatur",
+    "Allgemein",
+]
+
 def get_topic(w, level):
-    de_lower = w['de'].lower()
-    for topic, kws in TOPIC_KEYWORDS.get(level, []):
-        if not kws:
-            continue
-        if any(kw in de_lower for kw in kws):
-            return topic
-    return TOPIC_KEYWORDS[level][-1][0]
+    # Uses the word's pre-computed 'category' field (from the domain-
+    # tagging project) instead of this file's own per-level keyword
+    # matching. 'level' is kept as a parameter for call-site compatibility
+    # but no longer affects the result — category is level-independent.
+    # Falls back to 'Allgemein' only as a defensive default; every word
+    # in words_final.json is expected to already carry a category.
+    return w.get('category') or 'Allgemein'
 
 def build_wortschatz_page(level, level_words):
     color  = META[level]['color']
@@ -1326,7 +1355,7 @@ def build_wortschatz_page(level, level_words):
     for w in sorted(level_words, key=lambda x: x['de'].lower()):
         by_topic[get_topic(w, level)].append(w)
 
-    ordered = [t[0] for t in TOPIC_KEYWORDS.get(level, [])]
+    ordered = list(CATEGORY_ORDER)
     for t in by_topic:
         if t not in ordered:
             ordered.append(t)
