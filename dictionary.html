@@ -150,6 +150,15 @@
         [data-bs-theme="dark"] .pos-filter button{background:#1e293b;border-color:#374151;color:#e2e8f0}
         [data-bs-theme="dark"] .pos-filter button:hover{background:#334155}
         [data-bs-theme="dark"] .pos-filter button.active{background:#7c3aed;border-color:#7c3aed;color:#fff}
+        #categoryFilter{border:1.5px solid #0d9488;border-radius:999px;font-weight:600;font-size:.85rem;color:#0d9488;padding:.3rem .9rem;background:#fff;cursor:pointer;transition:all .15s}
+        #categoryFilter:hover{background:#f0fdfa}
+        #categoryFilter:focus{outline:2px solid #0d9488;outline-offset:1px}
+        [data-bs-theme="dark"] #categoryFilter{background:#1e293b;border-color:#0d9488;color:#5eead4}
+        [data-bs-theme="dark"] #categoryFilter:hover{background:#164e4a}
+        #pageLoadingOverlay{position:fixed;inset:0;z-index:9999;background:#f8fafc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+        [data-bs-theme="dark"] #pageLoadingOverlay{background:#0f172a}
+        [data-bs-theme="dark"] #pageLoadingOverlay p{color:#94a3b8}
+        @keyframes pageLoadSpin{to{transform:rotate(360deg)}}
     </style>
     <script>
         // Apply theme immediately to prevent flash
@@ -273,6 +282,26 @@
 </script>
 </head>
 <body>
+<div id="pageLoadingOverlay">
+    <div style="width:48px;height:48px;border:4px solid #dbeafe;border-top-color:#1d4ed8;border-radius:50%;animation:pageLoadSpin .8s linear infinite;"></div>
+    <p style="color:#64748b;font-size:.95rem;font-weight:600;margin:0;">Wörterbuch wird geladen… / Loading dictionary…</p>
+</div>
+<noscript><style>#pageLoadingOverlay{display:none}</style></noscript>
+<script>
+// Fail-safe removal, independent of the filter-wiring script further down:
+// if anything else on the page throws an error before that script reaches
+// its own overlay-removal line, this still guarantees the overlay comes
+// down once the browser fires 'load' — a permanently stuck full-screen
+// overlay would be a far worse outcome than the brief "looks broken"
+// issue this feature exists to fix.
+window.addEventListener('load', function () {
+    var el = document.getElementById('pageLoadingOverlay');
+    if (!el) return;
+    el.style.transition = 'opacity .25s ease';
+    el.style.opacity = '0';
+    setTimeout(function () { if (el && el.parentNode) el.remove(); }, 300);
+});
+</script>
     <div id="header-placeholder"></div>
 
 <main>
@@ -390,7 +419,7 @@
                     </div>
                     <div class="d-flex align-items-center gap-2 flex-wrap mt-2">
                         <span class="filter-label">Thema:</span>
-                        <select id="categoryFilter" class="form-select form-select-sm" style="width:auto;display:inline-block;">
+                        <select id="categoryFilter" style="width:auto;display:inline-block;">
                             <option value="ALL">Alle Themen</option>
                             <option value="Wohnen &amp; Haushalt">Wohnen &amp; Haushalt</option>
                             <option value="Wohnungssuche &amp; Umzug">Wohnungssuche &amp; Umzug</option>
@@ -61682,6 +61711,18 @@
                 activeCategory = categorySelect.value;
                 filterWords();
             });
+        }
+
+        // Remove the loading overlay only once filters are actually wired
+        // up and clickable — this is the point where the page stops
+        // "looking broken" if someone clicks before it's ready, since the
+        // 5+ MB of word cards need to fully download/parse before this
+        // script block is even reached.
+        var loadingOverlay = document.getElementById('pageLoadingOverlay');
+        if (loadingOverlay) {
+            loadingOverlay.style.transition = 'opacity .25s ease';
+            loadingOverlay.style.opacity = '0';
+            setTimeout(function() { loadingOverlay.remove(); }, 250);
         }
     })();
     </script>
