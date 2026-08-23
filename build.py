@@ -1723,7 +1723,7 @@ TOPIC_KEYWORDS = {
 CATEGORY_ORDER = [
     "Wohnen & Haushalt", "Moebel", "Wohnungssuche & Umzug", "Essen & Trinken",
     "Familie & Menschen", "Beziehungsleben & Liebe", "Koerper & Gesundheit",
-    "Kleidung & Aussehen", "Farben & Formen", "Verkehr & Reisen",
+    "Kleidung & Aussehen", "Farben", "Farben & Formen", "Verkehr & Reisen",
     "Arbeit & Beruf", "Schule & Bildung", "Einkaufen & Geld",
     "Zahlen & Mengen", "Zahlen & Zeit", "Natur & Wetter", "Tiere & Pflanzen",
     "Freizeit & Sport", "Kunst & Unterhaltung", "Feste & Traditionen",
@@ -1771,6 +1771,7 @@ CATEGORY_EN = {
     "Koerper & Gesundheit": "Body & Health",
     "Kleidung & Aussehen": "Clothing & Appearance",
     "Farben & Formen": "Colors & Shapes",
+    "Farben": "Colors",
     "Verkehr & Reisen": "Transportation & Travel",
     "Arbeit & Beruf": "Work & Profession",
     "Schule & Bildung": "School & Education",
