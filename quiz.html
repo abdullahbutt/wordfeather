@@ -242,7 +242,7 @@
     <div class="card quiz-card">
       <div class="card-body p-4">
 
-        <ul class="nav nav-pills nav-fill mb-4 flex-wrap" id="modeTabs" role="tablist" aria-label="Quiz-Modus wählen / Choose quiz mode">
+        <ul class="nav nav-pills nav-fill mb-3 flex-wrap" id="modeTabs" role="tablist" aria-label="Quiz-Modus wählen / Choose quiz mode">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="tab-practice" data-mode="practice" role="tab" aria-selected="true" aria-controls="practiceOptions">
               <span class="d-block">📚 Wortschatz üben</span>
@@ -262,10 +262,10 @@
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-placement" data-mode="placement" role="tab" aria-selected="false" aria-controls="placementOptions">
-              <span class="d-block">🎯 Mein Niveau finden</span>
-              <span class="d-block small" style="font-weight:400;">Find my level</span>
-            </button>
+            <a class="nav-link" href="grammar-quiz.html" title="Öffnet den Grammatik-Test / Opens the grammar test">
+              <span class="d-block">🔤 Grammatik-Test ↗</span>
+              <span class="d-block small" style="font-weight:400;">Grammar practice</span>
+            </a>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="tab-mistakes" data-mode="mistakes" role="tab" aria-selected="false" aria-controls="mistakesOptions">
@@ -274,6 +274,26 @@
             </button>
           </li>
         </ul>
+
+        <!-- Placement/level tests — kept in their own small group, deliberately
+             separate from the practice-mode tablist above. These two always
+             render side by side regardless of viewport width, since it's a
+             fixed 2-item flex row rather than part of the larger nav-fill bar
+             (which redistributes items per row based on available width and
+             would otherwise split this pair apart unpredictably). -->
+        <div class="mb-4">
+          <p class="small text-muted fw-semibold mb-2">Einstufungstests / Level tests</p>
+          <div class="d-flex gap-2 flex-wrap nav nav-pills">
+            <button class="nav-link border rounded flex-fill" id="tab-placement" data-mode="placement" style="min-width:200px;">
+              <span class="d-block">🎯 Niveau (Wortschatz)</span>
+              <span class="d-block small" style="font-weight:400;">Level test — vocabulary</span>
+            </button>
+            <a class="nav-link border rounded flex-fill" href="placement-test.html" title="Öffnet den Grammatik-Einstufungstest / Opens the grammar placement test" style="min-width:200px;">
+              <span class="d-block">🎯 Niveau (Grammatik) ↗</span>
+              <span class="d-block small" style="font-weight:400;">Level test — grammar</span>
+            </a>
+          </div>
+        </div>
 
         <!-- Practice-by-level options (vocab) -->
         <div id="practiceOptions" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">

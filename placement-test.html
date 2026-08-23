@@ -20,7 +20,7 @@
     .pt-wo-chunk{padding:.4rem .8rem;border-radius:.4rem;background:#1d4ed8;color:#fff;cursor:pointer;font-size:.95rem;user-select:none}
     .pt-progress{max-width:640px;margin:0 auto 1rem}
     .pt-band-track{display:flex;gap:.4rem;justify-content:center;margin-bottom:1.5rem}
-    .pt-band-dot{width:2.2rem;height:2.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;background:var(--card-bg);border:2px solid var(--card-border);color:var(--muted)}
+    .pt-band-dot{padding:.35rem .75rem;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;background:var(--card-bg);border:2px solid var(--card-border);color:var(--muted)}
     .pt-band-dot.active{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
     .pt-band-dot.done{background:#16a34a;border-color:#16a34a;color:#fff}
     .pt-result-badge{display:inline-block;font-size:2.5rem;font-weight:800;color:#1d4ed8;margin:1rem 0}
@@ -30,7 +30,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
     <div class="container">
         <a class="navbar-brand" href="index.html">🪶 WordFeather</a>
-        <a href="grammar-quiz.html" class="text-white text-decoration-none">Grammatik-Test →</a>
+        <div class="d-flex gap-3">
+            <a href="quiz.html" class="text-white text-decoration-none">← Zurück zum Quiz</a>
+            <a href="grammar-quiz.html" class="text-white text-decoration-none">Grammatik-Test →</a>
+        </div>
     </div>
 </nav>
 
@@ -294,6 +297,5 @@
     document.documentElement.setAttribute('data-bs-theme', saved);
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
