@@ -61929,7 +61929,6 @@ window.addEventListener('load', function () {
         b.className = 'd-tts';
         b.innerHTML = ttsSvg;
         b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
-        b.setAttribute('aria-label', lang === 'de-DE' ? 'German pronunciation' : 'English pronunciation');
         b.onclick = function(e) {
             e.preventDefault(); e.stopPropagation();
             var synth = window.speechSynthesis;
@@ -61944,13 +61943,23 @@ window.addEventListener('load', function () {
     }
 
     function renderDrillTable(rows) {
-        var html = '<div style="overflow-x:auto;margin-top:0.4rem;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
+        // Shares the same 'showEnglishConj' localStorage key as the
+        // conjugation-table English toggle, so there's one unified
+        // "show English" preference across both features on the page,
+        // not two independently-remembered settings.
+        var showEn = localStorage.getItem('showEnglishConj') === 'true';
+        var html = '<div style="margin-top:0.4rem;">' +
+            '<label style="display:inline-flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.8rem;margin-bottom:0.3rem;">' +
+            '<input type="checkbox" class="person-en-toggle-input"' + (showEn ? ' checked' : '') + '>' +
+            '<span>Englische Übersetzung anzeigen / Show English</span>' +
+            '</label>' +
+            '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
             '<thead><tr><th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
-            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;">English</th></tr></thead><tbody>';
+            '<th class="person-en-col" style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;' + (showEn ? '' : 'display:none;') + '">English</th></tr></thead><tbody>';
         rows.forEach(function(pair) {
-            html += '<tr><td>' + pair[0] + '</td><td>' + pair[1] + '</td></tr>';
+            html += '<tr><td>' + pair[0] + '</td><td class="person-en-col" style="' + (showEn ? '' : 'display:none;') + '">' + pair[1] + '</td></tr>';
         });
-        html += '</tbody></table></div>';
+        html += '</tbody></table></div></div>';
         return html;
     }
 
@@ -61976,6 +61985,25 @@ window.addEventListener('load', function () {
             });
         });
     }, true);
+
+    // English toggle for the person-drill — event delegation since each
+    // switch is created fresh whenever a drill table is rendered (same
+    // reasoning as the conjugation table's own English toggle elsewhere
+    // on this page). Shares the 'showEnglishConj' key, so turning this
+    // on/off also updates the conjugation table's toggle state and vice
+    // versa — one consistent preference, not two separate ones.
+    document.addEventListener('change', function(e) {
+        var toggle = e.target.closest('.person-en-toggle-input');
+        if (!toggle) return;
+        localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+        document.querySelectorAll('.person-en-toggle-input, .conj-en-toggle-input').forEach(function(t) {
+            t.checked = toggle.checked;
+        });
+        document.querySelectorAll('.person-en-col').forEach(function(el) {
+            el.style.display = toggle.checked ? '' : 'none';
+        });
+        document.body.classList.toggle('show-english', toggle.checked);
+    });
 })();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
