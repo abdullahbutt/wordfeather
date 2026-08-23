@@ -146243,44 +146243,45 @@
     "category": "Allgemein"
   },
   {
-    "de": "ausdrücken",
-    "en": "to express",
+    "de": "sich ausdrücken",
+    "en": "to express oneself",
     "article": "",
     "level": "A1",
-    "example": "Wie kann ich das ausdrücken?",
-    "example_en": "How can I express that?",
+    "example": "Sie kann sich gut auf Deutsch ausdrücken.",
+    "example_en": "She can express herself well in German.",
     "conjugation": {
       "infinitiv": "ausdrücken",
       "praeteritum_stamm": "drückte",
       "partizip2": "ausgedrückt",
       "hilfsverb": "haben",
       "trennbares_praefix": "aus",
-      "governs": "accusative"
+      "governs": "accusative",
+      "reflexiv": true
     },
     "person_sentences": [
       [
-        "Ich drücke meine Meinung aus.",
-        "I express my opinion."
+        "Ich drücke mich gut aus.",
+        "I express myself well."
       ],
       [
-        "Du drückst deine Meinung aus.",
-        "You express your opinion."
+        "Du drückst dich gut aus.",
+        "You express yourself well."
       ],
       [
-        "Er drückt seine Meinung aus.",
-        "He expresses his opinion."
+        "Er drückt sich gut aus.",
+        "He expresses himself well."
       ],
       [
-        "Wir drücken unsere Meinung aus.",
-        "We express our opinion."
+        "Wir drücken uns gut aus.",
+        "We express ourselves well."
       ],
       [
-        "Ihr drückt eure Meinung aus.",
-        "You all express your opinion."
+        "Ihr drückt euch gut aus.",
+        "You all express yourselves well."
       ],
       [
-        "Sie drücken ihre Meinung aus.",
-        "They express their opinion."
+        "Sie drücken sich gut aus.",
+        "They express themselves well."
       ]
     ],
     "category": "Allgemein"
@@ -149112,7 +149113,7 @@
     "level": "A1",
     "example": "Guten Tag.",
     "example_en": "Good day.",
-    "category": "Allgemein"
+    "category": "Zeit & Alltag"
   },
   {
     "de": "her",
