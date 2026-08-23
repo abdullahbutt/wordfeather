@@ -625,9 +625,17 @@ CONJUGATION_WS_SCRIPT_A1 = """<script>
 
 
 def conjugation_ws_script(level):
-    """Return the right conjugation-popup script for this level.
-    A1 gets Präsens-only; A2-C2 get the full mood/tense grid."""
-    return CONJUGATION_WS_SCRIPT_A1 if level == 'A1' else CONJUGATION_WS_SCRIPT
+    """Return the conjugation-popup script for this level.
+    A1 used to get a stripped-down Präsens-only version here, back when
+    the Präsens table was ONLY reachable via this toggle. Now that A1
+    verb cards show a compact Präsens table inline by default (see
+    make_word_card()/build_wortschatz_page() above — Manzar's feedback:
+    A1 shouldn't need a click just to see the present tense), the toggle
+    button's job is the same at every level: reveal the deeper grammar
+    (Präteritum, Perfekt, Konjunktiv I/II, Imperativ, Passiv) for anyone
+    who wants to go further — so A1 now gets the same full script as
+    every other level, not a separate scoped-down one."""
+    return CONJUGATION_WS_SCRIPT
 
 
 
@@ -1027,8 +1035,30 @@ def make_word_card(w):
             conj_html = (f'\n        <div class="word-conjugation">'
                          f'{" · ".join(parts)}</div>')
 
+    # Manzar's feedback: A1 is a true-beginner introduction to German — a
+    # full example sentence (with its own English translation) for every
+    # verb is unnecessary and even patronizing at this level, since the
+    # infinitive's meaning is already given once, right above, in the
+    # word's own en field. What A1 students actually need is the bare
+    # present-tense conjugation (ich/du/er,sie,es/wir/ihr/sie,Sie), with
+    # no per-person translation — a learner who knows "danken = to thank"
+    # doesn't need "ich danke" individually translated back to English.
+    bare_conj_html = ''
+    if level == 'A1' and pos == 'verb' and conj:
+        table = conjugate(conj)
+        praesens = table.get('indikativ', {}).get('praesens')
+        if praesens and len(praesens) == 6:
+            pronouns = ['ich', 'du', 'er, sie, es', 'wir', 'ihr', 'sie, Sie']
+            rows = ''.join(
+                f'<div class="conj-basic-row"><strong>{p}</strong> {htmllib.escape(f)}</div>'
+                for p, f in zip(pronouns, praesens)
+            )
+            bare_conj_html = f'\n        <div class="word-conjugation-basic">{rows}{col_html}</div>'
+
     ex_html = ''
-    if ex:
+    if bare_conj_html:
+        ex_html = bare_conj_html
+    elif ex:
         en_span = (f'<br><span class="ex-en">{htmllib.escape(ex_en)}</span>'
                    if ex_en else '')
         ex_html = (f'\n        <div class="word-example">'
@@ -1046,10 +1076,12 @@ def make_word_card(w):
     # ~150 bytes regardless of level, vs. ~800-1000 bytes per table.
     # This drill shows full example sentences with English translations for
     # all 6 persons — fundamentally different from the bare Präsens table
-    # (see CONJUGATION_WS_SCRIPT_A1) and not something that can be
-    # "simplified," only hidden. Per the A1 review (item 1: no full
-    # sentences, no translation needed), A1 words don't get this at all —
-    # the Konjugation button already covers what's appropriate at this level.
+    # now shown inline by default for A1 verbs (see make_word_card() above)
+    # and not something that can be "simplified," only hidden. Per the A1
+    # review (item 1: no full sentences, no translation needed), A1 words
+    # don't get this drill at all — the inline Präsens table covers the
+    # basics, and the Konjugation toggle (now the same full version used
+    # at every level) covers anything deeper a curious A1 learner wants.
     person_html = ''
     person_sentences = w.get('person_sentences')
     if level != 'A1' and person_sentences and len(person_sentences) == 6:
@@ -1707,6 +1739,22 @@ def build_wortschatz_page(level, level_words):
                     for c in cols[:3])
                 col_html = f'<div class="mt-1">{pills}</div>'
             exe_row = (f'<span class="ex-en d-block text-muted small">{exe}</span>' if exe else '')
+
+            # Same A1 exception as make_word_card() above: replace the
+            # example sentence + translation with a bare present-tense
+            # conjugation table for A1 verbs — see that comment for the
+            # full reasoning (Manzar's feedback).
+            bare_conj_html = ''
+            if level == 'A1' and pos == 'verb' and w.get('conjugation'):
+                table = conjugate(w['conjugation'])
+                praesens = table.get('indikativ', {}).get('praesens')
+                if praesens and len(praesens) == 6:
+                    pronouns = ['ich', 'du', 'er, sie, es', 'wir', 'ihr', 'sie, Sie']
+                    bare_conj_html = ''.join(
+                        f'<div class="conj-basic-row">{p} <strong>{htmllib.escape(f)}</strong></div>'
+                        for p, f in zip(pronouns, praesens)
+                    )
+
             conj_btn = (f'<br><button type="button" class="conj-toggle-ws" '
                         f'data-de-lower="{htmllib.escape(w["de"].lower())}">'
                         f'📖 Konjugation</button>' if pos == 'verb' else '')
@@ -1733,12 +1781,13 @@ def build_wortschatz_page(level, level_words):
                 quote=True)
             is_irregular = pos == 'verb' and is_irregular_verb(w.get('conjugation'))
             is_reflexive = pos == 'verb' and bool(w.get('conjugation', {}).get('reflexiv'))
+            example_or_conj_html = bare_conj_html if bare_conj_html else f'<span class="ex-de d-block">{exd}</span>{exe_row}'
             sections += (
                 f'<tr data-pos="{pos}" data-irregular="{"true" if is_irregular else "false"}" '
                 f'data-reflexive="{"true" if is_reflexive else "false"}" data-search="{search_blob}">\n'
                 f'  <td class="fw-semibold de-word">{de}{conj_btn}</td>\n'
                 f'  <td class="text-muted">{en}</td>\n'
-                f'  <td><span class="ex-de d-block">{exd}</span>{exe_row}{col_html}{person_html}</td>\n'
+                f'  <td>{example_or_conj_html}{col_html}{person_html}</td>\n'
                 f'</tr>\n'
             )
         sections += '</tbody>\n</table>\n</div>\n</div>\n'
