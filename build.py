@@ -1750,6 +1750,10 @@ WORTSCHATZ_ORDER_OVERRIDES = {
     "guten tag": 2,
     "guten abend": 3,
     "gute nacht": 4,
+    "der vater, -̈": 1,
+    "die mutter, -̈": 2,
+    "der sohn, -̈e": 3,
+    "die tochter, -̈": 4,
 }
 
 # English translations for each category name, used to show learners what
