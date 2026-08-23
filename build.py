@@ -720,13 +720,23 @@ PERSON_SENTENCES_SCRIPT = """<script>
     }
 
     function renderDrillTable(rows) {
-        var html = '<div style="overflow-x:auto;margin-top:0.4rem;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
+        // Shares the same 'showEnglishConj' localStorage key as the
+        // conjugation-table English toggle, so there's one unified
+        // "show English" preference across both features on the page,
+        // not two independently-remembered settings.
+        var showEn = localStorage.getItem('showEnglishConj') === 'true';
+        var html = '<div style="margin-top:0.4rem;">' +
+            '<label style="display:inline-flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.8rem;margin-bottom:0.3rem;">' +
+            '<input type="checkbox" class="person-en-toggle-input"' + (showEn ? ' checked' : '') + '>' +
+            '<span>Englische Übersetzung anzeigen / Show English</span>' +
+            '</label>' +
+            '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
             '<thead><tr><th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
-            '<th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;">English</th></tr></thead><tbody>';
+            '<th class="person-en-col" style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;' + (showEn ? '' : 'display:none;') + '">English</th></tr></thead><tbody>';
         rows.forEach(function(pair) {
-            html += '<tr><td>' + pair[0] + '</td><td>' + pair[1] + '</td></tr>';
+            html += '<tr><td>' + pair[0] + '</td><td class="person-en-col" style="' + (showEn ? '' : 'display:none;') + '">' + pair[1] + '</td></tr>';
         });
-        html += '</tbody></table></div>';
+        html += '</tbody></table></div></div>';
         return html;
     }
 
@@ -752,6 +762,25 @@ PERSON_SENTENCES_SCRIPT = """<script>
             });
         });
     }, true);
+
+    // English toggle for the person-drill — event delegation since each
+    // switch is created fresh whenever a drill table is rendered (same
+    // reasoning as the conjugation table's own English toggle elsewhere
+    // on this page). Shares the 'showEnglishConj' key, so turning this
+    // on/off also updates the conjugation table's toggle state and vice
+    // versa — one consistent preference, not two separate ones.
+    document.addEventListener('change', function(e) {
+        var toggle = e.target.closest('.person-en-toggle-input');
+        if (!toggle) return;
+        localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+        document.querySelectorAll('.person-en-toggle-input, .conj-en-toggle-input').forEach(function(t) {
+            t.checked = toggle.checked;
+        });
+        document.querySelectorAll('.person-en-col').forEach(function(el) {
+            el.style.display = toggle.checked ? '' : 'none';
+        });
+        document.body.classList.toggle('show-english', toggle.checked);
+    });
 })();
 </script>"""
 
@@ -775,13 +804,19 @@ PERSON_DRILL_WS_SCRIPT = """<script>
     }
 
     function renderDrillTable(rows) {
-        var html = '<div style="overflow-x:auto;margin-top:0.3rem;"><table style="width:100%;font-size:0.82rem;border-collapse:collapse;">' +
+        var showEn = localStorage.getItem('showEnglishConj') === 'true';
+        var html = '<div style="margin-top:0.3rem;">' +
+            '<label style="display:inline-flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.78rem;margin-bottom:0.25rem;">' +
+            '<input type="checkbox" class="person-en-toggle-input"' + (showEn ? ' checked' : '') + '>' +
+            '<span>Englische Übersetzung anzeigen / Show English</span>' +
+            '</label>' +
+            '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.82rem;border-collapse:collapse;">' +
             '<thead><tr><th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
-            '<th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;">English</th></tr></thead><tbody>';
+            '<th class="person-en-col" style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;' + (showEn ? '' : 'display:none;') + '">English</th></tr></thead><tbody>';
         rows.forEach(function(pair) {
-            html += '<tr><td>' + pair[0] + '</td><td>' + pair[1] + '</td></tr>';
+            html += '<tr><td>' + pair[0] + '</td><td class="person-en-col" style="' + (showEn ? '' : 'display:none;') + '">' + pair[1] + '</td></tr>';
         });
-        html += '</tbody></table></div>';
+        html += '</tbody></table></div></div>';
         return html;
     }
 
@@ -801,6 +836,19 @@ PERSON_DRILL_WS_SCRIPT = """<script>
             details.appendChild(wrap.firstChild);
         });
     }, true);
+
+    document.addEventListener('change', function(e) {
+        var toggle = e.target.closest('.person-en-toggle-input');
+        if (!toggle) return;
+        localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+        document.querySelectorAll('.person-en-toggle-input, .conj-en-toggle-input').forEach(function(t) {
+            t.checked = toggle.checked;
+        });
+        document.querySelectorAll('.person-en-col').forEach(function(el) {
+            el.style.display = toggle.checked ? '' : 'none';
+        });
+        document.body.classList.toggle('show-english', toggle.checked);
+    });
 })();
 </script>"""
 
@@ -1218,16 +1266,26 @@ def build_jsonld(words):
 
 
 def inject_person_sentences_script(content):
-    """Idempotently ensure PERSON_SENTENCES_SCRIPT is present in
-    dictionary.html's static shell (the part build_dictionary() doesn't
-    otherwise touch). Safe to call on every build: if a previous build
-    already inserted it, the marker comment is found and nothing changes."""
-    if 'build_dictionary() (idempotent' in content:
+    """Ensures PERSON_SENTENCES_SCRIPT is present in dictionary.html's
+    static shell AND up to date — replaces any existing version with
+    this marker rather than skipping just because one already exists,
+    for the same reason as inject_conjugation_dict_script() above: a
+    presence-only check would let future edits to PERSON_SENTENCES_SCRIPT
+    silently never take effect on rebuild."""
+    marker = 'build_dictionary() (idempotent'
+    marker_idx = content.find(marker)
+    if marker_idx != -1:
+        script_start = content.rfind('<script>', 0, marker_idx)
+        script_end = content.find('</script>', marker_idx)
+        if script_start != -1 and script_end != -1:
+            script_end += len('</script>')
+            return content[:script_start] + PERSON_SENTENCES_SCRIPT.strip() + content[script_end:]
+        print("  ⚠️  found person-sentences script marker but couldn't locate its boundaries — leaving untouched")
         return content
-    marker = '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>'
-    if marker not in content:
+    marker2 = '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>'
+    if marker2 not in content:
         return content  # shell doesn't match expected shape; leave untouched rather than guess
-    return content.replace(marker, PERSON_SENTENCES_SCRIPT + '\n' + marker, 1)
+    return content.replace(marker2, PERSON_SENTENCES_SCRIPT + '\n' + marker2, 1)
 
 
 # Full verb conjugation toggle — dictionary.html's "📖 Konjugation (alle

@@ -5135,13 +5135,19 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
     }
 
     function renderDrillTable(rows) {
-        var html = '<div style="overflow-x:auto;margin-top:0.3rem;"><table style="width:100%;font-size:0.82rem;border-collapse:collapse;">' +
+        var showEn = localStorage.getItem('showEnglishConj') === 'true';
+        var html = '<div style="margin-top:0.3rem;">' +
+            '<label style="display:inline-flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.78rem;margin-bottom:0.25rem;">' +
+            '<input type="checkbox" class="person-en-toggle-input"' + (showEn ? ' checked' : '') + '>' +
+            '<span>Englische Übersetzung anzeigen / Show English</span>' +
+            '</label>' +
+            '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.82rem;border-collapse:collapse;">' +
             '<thead><tr><th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
-            '<th style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;">English</th></tr></thead><tbody>';
+            '<th class="person-en-col" style="text-align:left;padding:0.2rem 0.4rem;border-bottom:1px solid #e5e7eb;' + (showEn ? '' : 'display:none;') + '">English</th></tr></thead><tbody>';
         rows.forEach(function(pair) {
-            html += '<tr><td>' + pair[0] + '</td><td>' + pair[1] + '</td></tr>';
+            html += '<tr><td>' + pair[0] + '</td><td class="person-en-col" style="' + (showEn ? '' : 'display:none;') + '">' + pair[1] + '</td></tr>';
         });
-        html += '</tbody></table></div>';
+        html += '</tbody></table></div></div>';
         return html;
     }
 
@@ -5161,6 +5167,19 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
             details.appendChild(wrap.firstChild);
         });
     }, true);
+
+    document.addEventListener('change', function(e) {
+        var toggle = e.target.closest('.person-en-toggle-input');
+        if (!toggle) return;
+        localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+        document.querySelectorAll('.person-en-toggle-input, .conj-en-toggle-input').forEach(function(t) {
+            t.checked = toggle.checked;
+        });
+        document.querySelectorAll('.person-en-col').forEach(function(el) {
+            el.style.display = toggle.checked ? '' : 'none';
+        });
+        document.body.classList.toggle('show-english', toggle.checked);
+    });
 })();
 </script>
 <script>
