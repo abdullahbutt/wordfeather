@@ -549,14 +549,58 @@ CONJUGATION_WS_SCRIPT_A1 = """<script>
         return html ? '<div class="conj-mood-grid-ws">' + html + '</div>' : '';
     }
 
-    // A1 scope: only the present tense (Präsens) — ich/du/er,sie,es/wir/ihr/
-    // Sie — with no English gloss line, no other tenses, and no Konjunktiv/
-    // Passiv. Those belong to later levels; showing them here overwhelms an
-    // A1 learner with grammar far beyond their level.
+    // A1 scope: show Präsens immediately (the toggle button already had
+    // to be clicked once to get here, so this is the "basic" reveal).
+    // Everything beyond that — Präteritum, Perfekt, Konjunktiv, Imperativ,
+    // Passiv — is real data an advanced learner may want to double-check,
+    // so it's NOT deleted, just nested behind its own second toggle
+    // (a <details> needs no extra JS to expand/collapse), collapsed by
+    // default so a true beginner isn't confronted with grammar far
+    // beyond A1 the moment they click "📖 Konjugation".
     function renderTable(table) {
         var html = '<div class="conj-table-wrap-ws">';
         html += '<div class="conj-mood-title-ws">Präsens</div>';
         html += renderMoodGridWs(['praesens'], table.indikativ, null);
+
+        html += '<details class="conj-more-details-ws"><summary class="conj-more-summary-ws">' +
+                'Weitere Formen anzeigen (fortgeschritten) / Show more forms (advanced)</summary>';
+
+        var en = table.english || null;
+        html += '<div class="conj-en-toggle-wrap-ws">' +
+                '<label class="conj-en-toggle-ws">' +
+                '<input type="checkbox" class="conj-en-toggle-input">' +
+                '<span class="conj-en-toggle-slider-ws"></span>' +
+                '</label>' +
+                '<span>Englische Übersetzung anzeigen</span>' +
+                '</div>';
+
+        html += '<div class="conj-mood-title-ws">Weitere Formen</div><div class="conj-imperativ-row-ws">' +
+                '<span>Infinitiv: ' + table.infinitiv + '</span>' +
+                '<span>Partizip Präsens: ' + table.partizip1 + '</span>' +
+                '<span>Partizip Perfekt: ' + table.partizip2 + '</span>' +
+                '<span>zu + Infinitiv: ' + table.zu_infinitiv + '</span></div>';
+
+        html += '<div class="conj-mood-title-ws">Indikativ</div>';
+        html += renderMoodGridWs(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ, en);
+
+        html += '<div class="conj-mood-title-ws">Konjunktiv I</div>';
+        html += renderMoodGridWs(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
+
+        html += '<div class="conj-mood-title-ws">Konjunktiv II</div>';
+        html += renderMoodGridWs(['praeteritum','plusquamperfekt','futur1','futur2'], table.konjunktiv2);
+
+        if (table.imperativ) {
+            html += '<div class="conj-mood-title-ws">Imperativ</div><div class="conj-imperativ-row-ws">';
+            ['du','ihr','Sie','wir'].forEach(function(p) {
+                if (table.imperativ[p]) html += '<span>' + p + ': ' + table.imperativ[p] + '</span>';
+            });
+            html += '</div>';
+        }
+        if (table.passiv) {
+            html += '<div class="conj-mood-title-ws">Passiv</div>';
+            html += renderMoodGridWs(['praesens','praeteritum','perfekt','plusquamperfekt','futur1'], table.passiv);
+        }
+        html += '</details>';
         html += '</div>';
         return html;
     }
@@ -626,16 +670,14 @@ CONJUGATION_WS_SCRIPT_A1 = """<script>
 
 def conjugation_ws_script(level):
     """Return the conjugation-popup script for this level.
-    A1 used to get a stripped-down Präsens-only version here, back when
-    the Präsens table was ONLY reachable via this toggle. Now that A1
-    verb cards show a compact Präsens table inline by default (see
-    make_word_card()/build_wortschatz_page() above — Manzar's feedback:
-    A1 shouldn't need a click just to see the present tense), the toggle
-    button's job is the same at every level: reveal the deeper grammar
-    (Präteritum, Perfekt, Konjunktiv I/II, Imperativ, Passiv) for anyone
-    who wants to go further — so A1 now gets the same full script as
-    every other level, not a separate scoped-down one."""
-    return CONJUGATION_WS_SCRIPT
+    A1 gets the two-tier version: clicking "📖 Konjugation" shows Präsens
+    immediately, with a nested (collapsed-by-default) toggle underneath
+    for anyone who wants the fuller grammar — Präteritum, Perfekt,
+    Konjunktiv I/II, Imperativ, Passiv. Nothing is deleted, it's just not
+    the first thing an A1 beginner sees. A2-C2 get the same full grid
+    directly, no nested toggle, since that's already appropriate for
+    those levels."""
+    return CONJUGATION_WS_SCRIPT_A1 if level == 'A1' else CONJUGATION_WS_SCRIPT
 
 
 
@@ -1035,30 +1077,15 @@ def make_word_card(w):
             conj_html = (f'\n        <div class="word-conjugation">'
                          f'{" · ".join(parts)}</div>')
 
-    # Manzar's feedback: A1 is a true-beginner introduction to German — a
-    # full example sentence (with its own English translation) for every
-    # verb is unnecessary and even patronizing at this level, since the
-    # infinitive's meaning is already given once, right above, in the
-    # word's own en field. What A1 students actually need is the bare
-    # present-tense conjugation (ich/du/er,sie,es/wir/ihr/sie,Sie), with
-    # no per-person translation — a learner who knows "danken = to thank"
-    # doesn't need "ich danke" individually translated back to English.
-    bare_conj_html = ''
-    if level == 'A1' and pos == 'verb' and conj:
-        table = conjugate(conj)
-        praesens = table.get('indikativ', {}).get('praesens')
-        if praesens and len(praesens) == 6:
-            pronouns = ['ich', 'du', 'er, sie, es', 'wir', 'ihr', 'sie, Sie']
-            rows = ''.join(
-                f'<div class="conj-basic-row"><strong>{p}</strong> {htmllib.escape(f)}</div>'
-                for p, f in zip(pronouns, praesens)
-            )
-            bare_conj_html = f'\n        <div class="word-conjugation-basic">{rows}{col_html}</div>'
-
+    # Manzar clarified (after seeing a live screenshot): the Beispielsatz
+    # should stay a normal full example sentence + translation for every
+    # level, A1 included — the "replace it with a bare table" idea was a
+    # misread of his actual request. What he wants instead lives in the
+    # Konjugation toggle button below (see conjugation_ws_script /
+    # CONJUGATION_DICT_SCRIPT): default to Präsens-only there, with a
+    # second nested toggle for anyone who wants the fuller grammar.
     ex_html = ''
-    if bare_conj_html:
-        ex_html = bare_conj_html
-    elif ex:
+    if ex:
         en_span = (f'<br><span class="ex-en">{htmllib.escape(ex_en)}</span>'
                    if ex_en else '')
         ex_html = (f'\n        <div class="word-example">'
@@ -1279,11 +1306,15 @@ CONJUGATION_DICT_SCRIPT = r"""    <script>
             return html ? '<div class="conj-mood-grid">' + html + '</div>' : '';
         }
 
-        function renderTable(table) {
+        function renderTable(table, isA1) {
             var html = '<div class="conj-table-wrap">';
             var en = table.english || null;
 
-            html += '<div class="conj-en-toggle-wrap">' +
+            html += '<div class="conj-mood-title">Präsens</div>';
+            html += renderMoodGrid(['praesens'], table.indikativ, null);
+
+            var restHtml = '';
+            restHtml += '<div class="conj-en-toggle-wrap">' +
                     '<label class="conj-en-toggle">' +
                     '<input type="checkbox" class="conj-en-toggle-input">' +
                     '<span class="conj-en-toggle-slider"></span>' +
@@ -1291,33 +1322,46 @@ CONJUGATION_DICT_SCRIPT = r"""    <script>
                     '<span>Englische Übersetzung anzeigen</span>' +
                     '</div>';
 
-            html += '<div class="conj-mood-title">Weitere Formen</div><div class="conj-imperativ-row">' +
+            restHtml += '<div class="conj-mood-title">Weitere Formen</div><div class="conj-imperativ-row">' +
                     '<span>Infinitiv: ' + table.infinitiv + '</span>' +
                     '<span>Partizip Präsens: ' + table.partizip1 + '</span>' +
                     '<span>Partizip Perfekt: ' + table.partizip2 + '</span>' +
                     '<span>zu + Infinitiv: ' + table.zu_infinitiv + '</span>' +
                     '</div>';
 
-            html += '<div class="conj-mood-title">Indikativ</div>';
-            html += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ, en);
+            restHtml += '<div class="conj-mood-title">Indikativ</div>';
+            restHtml += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ, en);
 
-            html += '<div class="conj-mood-title">Konjunktiv I</div>';
-            html += renderMoodGrid(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
+            restHtml += '<div class="conj-mood-title">Konjunktiv I</div>';
+            restHtml += renderMoodGrid(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
 
-            html += '<div class="conj-mood-title">Konjunktiv II</div>';
-            html += renderMoodGrid(['praeteritum','plusquamperfekt','futur1','futur2'], table.konjunktiv2);
+            restHtml += '<div class="conj-mood-title">Konjunktiv II</div>';
+            restHtml += renderMoodGrid(['praeteritum','plusquamperfekt','futur1','futur2'], table.konjunktiv2);
 
             if (table.imperativ) {
-                html += '<div class="conj-mood-title">Imperativ</div><div class="conj-imperativ-row">';
+                restHtml += '<div class="conj-mood-title">Imperativ</div><div class="conj-imperativ-row">';
                 ['du','ihr','Sie','wir'].forEach(function(p) {
-                    if (table.imperativ[p]) html += '<span>' + p + ': ' + table.imperativ[p] + '</span>';
+                    if (table.imperativ[p]) restHtml += '<span>' + p + ': ' + table.imperativ[p] + '</span>';
                 });
-                html += '</div>';
+                restHtml += '</div>';
             }
 
             if (table.passiv) {
-                html += '<div class="conj-mood-title">Passiv</div>';
-                html += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1'], table.passiv);
+                restHtml += '<div class="conj-mood-title">Passiv</div>';
+                restHtml += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1'], table.passiv);
+            }
+
+            // A1: everything past Präsens is real data, not deleted — just
+            // nested behind its own collapsed-by-default toggle, so a true
+            // beginner isn't confronted with grammar far beyond A1 the
+            // moment they click "📖 Konjugation". A2-C2 show it directly,
+            // same as before.
+            if (isA1) {
+                html += '<details class="conj-more-details"><summary class="conj-more-summary">' +
+                        'Weitere Formen anzeigen (fortgeschritten) / Show more forms (advanced)</summary>' +
+                        restHtml + '</details>';
+            } else {
+                html += restHtml;
             }
 
             html += '</div>';
@@ -1364,7 +1408,7 @@ CONJUGATION_DICT_SCRIPT = r"""    <script>
                     return;
                 }
                 var div = document.createElement('div');
-                div.innerHTML = renderTable(table);
+                div.innerHTML = renderTable(table, card.getAttribute('data-level') === 'A1');
                 var wrap = div.firstChild;
                 var enToggleInput = wrap.querySelector('.conj-en-toggle-input');
                 if (enToggleInput) {
@@ -1399,12 +1443,22 @@ CONJUGATION_DICT_SCRIPT = r"""    <script>
 def inject_conjugation_dict_script(content):
     """
     Ensures dictionary.html's full-conjugation-table toggle script is
-    present, inserting it just before </body> if missing. Idempotent —
-    checks for the script's own signature comment before adding, so
-    re-running this never duplicates it.
+    present AND up to date. Finds and REPLACES any existing script with
+    this signature comment, rather than just checking presence and
+    skipping — a presence-only check meant future edits to
+    CONJUGATION_DICT_SCRIPT would silently never take effect on rebuild,
+    since an old (possibly outdated) script's mere existence looked
+    like "already done." Falls back to a fresh insert if none exists yet.
     """
     marker = "Full verb conjugation table — lazy-loaded, click-to-expand"
-    if marker in content:
+    marker_idx = content.find(marker)
+    if marker_idx != -1:
+        script_start = content.rfind("<script>", 0, marker_idx)
+        script_end = content.find("</script>", marker_idx)
+        if script_start != -1 and script_end != -1:
+            script_end += len("</script>")
+            return content[:script_start] + CONJUGATION_DICT_SCRIPT.strip() + content[script_end:]
+        print("  ⚠️  found conjugation script marker but couldn't locate its boundaries — leaving untouched")
         return content
     if "</body>" not in content:
         print("  ⚠️  </body> not found — cannot inject conjugation script")
@@ -1740,21 +1794,6 @@ def build_wortschatz_page(level, level_words):
                 col_html = f'<div class="mt-1">{pills}</div>'
             exe_row = (f'<span class="ex-en d-block text-muted small">{exe}</span>' if exe else '')
 
-            # Same A1 exception as make_word_card() above: replace the
-            # example sentence + translation with a bare present-tense
-            # conjugation table for A1 verbs — see that comment for the
-            # full reasoning (Manzar's feedback).
-            bare_conj_html = ''
-            if level == 'A1' and pos == 'verb' and w.get('conjugation'):
-                table = conjugate(w['conjugation'])
-                praesens = table.get('indikativ', {}).get('praesens')
-                if praesens and len(praesens) == 6:
-                    pronouns = ['ich', 'du', 'er, sie, es', 'wir', 'ihr', 'sie, Sie']
-                    bare_conj_html = ''.join(
-                        f'<div class="conj-basic-row">{p} <strong>{htmllib.escape(f)}</strong></div>'
-                        for p, f in zip(pronouns, praesens)
-                    )
-
             conj_btn = (f'<br><button type="button" class="conj-toggle-ws" '
                         f'data-de-lower="{htmllib.escape(w["de"].lower())}">'
                         f'📖 Konjugation</button>' if pos == 'verb' else '')
@@ -1781,7 +1820,7 @@ def build_wortschatz_page(level, level_words):
                 quote=True)
             is_irregular = pos == 'verb' and is_irregular_verb(w.get('conjugation'))
             is_reflexive = pos == 'verb' and bool(w.get('conjugation', {}).get('reflexiv'))
-            example_or_conj_html = bare_conj_html if bare_conj_html else f'<span class="ex-de d-block">{exd}</span>{exe_row}'
+            example_or_conj_html = f'<span class="ex-de d-block">{exd}</span>{exe_row}'
             sections += (
                 f'<tr data-pos="{pos}" data-irregular="{"true" if is_irregular else "false"}" '
                 f'data-reflexive="{"true" if is_reflexive else "false"}" data-search="{search_blob}">\n'
