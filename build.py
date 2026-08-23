@@ -1735,6 +1735,23 @@ CATEGORY_ORDER = [
     "Allgemein",
 ]
 
+# Manual ordering overrides for small, tightly-bound word clusters where
+# a natural sequence matters more than alphabetical lookup — currently
+# just the daily greetings (Morgen -> Tag -> Abend -> Nacht), which
+# alphabetical sorting scrambles into Abend/Morgen/Nacht/Tag. Keys are
+# lowercased 'de' values; used by build_wortschatz_page()'s sort_key().
+# Anything not listed here is unaffected and sorts alphabetically as
+# always. NOTE: this only affects the topic-grouped Wortschatz pages —
+# dictionary.html's flat A-Z index is intentionally left alone, since
+# forcing curated order into a reference/lookup tool would work against
+# its actual purpose (finding a specific word fast), not help it.
+WORTSCHATZ_ORDER_OVERRIDES = {
+    "guten morgen": 1,
+    "guten tag": 2,
+    "guten abend": 3,
+    "gute nacht": 4,
+}
+
 # English translations for each category name, used to show learners what
 # a German topic-section heading actually means (e.g. on the Wortschatz
 # pages) — the German category names themselves are specialized/compound
@@ -1792,8 +1809,22 @@ def build_wortschatz_page(level, level_words):
     prev   = {'A1':None,'A2':'A1','B1':'A2','B2':'B1','C1':'B2','C2':'C1'}[level]
     nxt    = {'A1':'A2','A2':'B1','B1':'B2','B2':'C1','C1':'C2','C2':None}[level]
 
+    # Words within each topic section are alphabetical by default — the
+    # right choice for almost everything, since a learner scanning a
+    # long list wants predictable A-Z lookup, not a curated sequence.
+    # A handful of small, tightly-bound word clusters are exceptions,
+    # though: greetings genuinely have a natural time-of-day order
+    # (Morgen -> Tag -> Abend -> Nacht) that alphabetical sorting
+    # scrambles (Abend, Morgen, Nacht, Tag) — pedagogically confusing
+    # for exactly the small set of words where order IS the point.
+    # WORTSCHATZ_ORDER_OVERRIDES keys are lowercased 'de' values; any
+    # word not listed here sorts alphabetically as before, unaffected.
+    def sort_key(w):
+        override = WORTSCHATZ_ORDER_OVERRIDES.get(w['de'].lower())
+        return (0, override) if override is not None else (1, w['de'].lower())
+
     by_topic = defaultdict(list)
-    for w in sorted(level_words, key=lambda x: x['de'].lower()):
+    for w in sorted(level_words, key=sort_key):
         by_topic[get_topic(w, level)].append(w)
 
     ordered = list(CATEGORY_ORDER)
