@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammatik-Test / Grammar Test — WordFeather</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    :root{--page-bg:#f8fafc;--page-text:#1e293b;--muted:#64748b;--card-bg:#ffffff;--card-border:#e2e8f0}
+    [data-bs-theme="dark"]{--page-bg:#0f172a;--page-text:#e2e8f0;--muted:#94a3b8;--card-bg:#1e293b;--card-border:#334155}
+    body{background:var(--page-bg);color:var(--page-text)}
+    .gq-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:.75rem;padding:1.5rem;max-width:640px;margin:0 auto}
+    .gq-topic{font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+    .gq-prompt{font-size:1.25rem;font-weight:600;margin:.6rem 0 1.2rem}
+    .gq-blank-input{font-size:1.1rem;padding:.4rem .7rem;border-radius:.4rem;border:1.5px solid var(--card-border);background:var(--page-bg);color:var(--page-text);width:100%;max-width:220px}
+    .gq-mc-options{display:flex;flex-direction:column;gap:.5rem}
+    .gq-mc-btn{text-align:left;padding:.6rem 1rem;border-radius:.5rem;border:1.5px solid var(--card-border);background:var(--card-bg);color:var(--page-text);cursor:pointer;font-size:1rem;transition:all .15s}
+    .gq-mc-btn:hover{background:var(--page-bg)}
+    .gq-mc-btn.correct{background:#dcfce7;border-color:#16a34a;color:#166534}
+    .gq-mc-btn.incorrect{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+    [data-bs-theme="dark"] .gq-mc-btn.correct{background:rgba(74,222,128,.15);color:#4ade80}
+    [data-bs-theme="dark"] .gq-mc-btn.incorrect{background:rgba(248,113,113,.15);color:#f87171}
+    .gq-wo-pool,.gq-wo-answer{display:flex;flex-wrap:wrap;gap:.5rem;min-height:2.6rem;padding:.5rem;border-radius:.5rem;border:1.5px dashed var(--card-border)}
+    .gq-wo-chunk{padding:.4rem .8rem;border-radius:.4rem;background:#1d4ed8;color:#fff;cursor:pointer;font-size:.95rem;user-select:none}
+    .gq-wo-chunk:hover{background:#1e40af}
+    .gq-feedback{margin-top:1rem;padding:.75rem 1rem;border-radius:.5rem;font-size:.9rem}
+    .gq-feedback.correct{background:#dcfce7;color:#166534}
+    .gq-feedback.incorrect{background:#fee2e2;color:#991b1b}
+    [data-bs-theme="dark"] .gq-feedback.correct{background:rgba(74,222,128,.12);color:#4ade80}
+    [data-bs-theme="dark"] .gq-feedback.incorrect{background:rgba(248,113,113,.12);color:#f87171}
+    .gq-en-hint{color:var(--muted);font-style:italic;font-size:.85rem;margin-top:.3rem}
+    .gq-progress{max-width:640px;margin:0 auto 1rem}
+    .gq-level-btn{border-radius:999px;padding:.3rem .9rem;border:1.5px solid var(--card-border);background:var(--card-bg);color:var(--page-text);cursor:pointer;font-weight:600}
+    .gq-level-btn.active{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">🪶 WordFeather</a>
+        <a href="quiz.html" class="text-white text-decoration-none">← Zurück zum Quiz</a>
+    </div>
+</nav>
+
+<main class="container py-4 py-lg-5">
+    <h1 class="h2 text-center mb-1">📐 Grammatik-Test</h1>
+    <p class="text-center text-muted mb-4">Teste dein Sprachgefühl — Kasus, Verbformen, Satzstellung / Test your grammar — cases, verb forms, word order</p>
+
+    <div class="d-flex justify-content-center gap-2 flex-wrap mb-4" id="levelPicker">
+        <button class="gq-level-btn active" data-level="A1">A1</button>
+        <button class="gq-level-btn" data-level="A2">A2</button>
+        <button class="gq-level-btn" data-level="B1">B1</button>
+        <button class="gq-level-btn" data-level="B2">B2</button>
+        <button class="gq-level-btn" data-level="C1">C1</button>
+        <button class="gq-level-btn" data-level="C2">C2</button>
+    </div>
+
+    <div class="gq-progress d-flex justify-content-between align-items-center">
+        <span id="gqProgress" class="text-muted small"></span>
+        <span id="gqScore" class="fw-bold"></span>
+    </div>
+
+    <div id="gqCard" class="gq-card"></div>
+
+    <div class="text-center mt-4" id="gqNextWrap" style="display:none">
+        <button class="btn btn-primary" id="gqNextBtn">Weiter / Next →</button>
+    </div>
+
+    <div id="gqSummary" class="gq-card text-center" style="display:none">
+        <h2 class="mb-3">Fertig! / Done!</h2>
+        <p id="gqSummaryText" class="fs-5"></p>
+        <button class="btn btn-primary mt-2" id="gqRestartBtn">Nochmal / Restart</button>
+    </div>
+</main>
+
+<script>
+(function () {
+    var state = {
+        level: 'A1',
+        questions: [],
+        index: 0,
+        score: 0,
+        answered: false
+    };
+
+    function foldGerman(s) {
+        return (s || '').toLowerCase()
+            .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+            .trim();
+    }
+
+    function shuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+        }
+        return a;
+    }
+
+    function loadLevel(level) {
+        state.level = level;
+        var file = 'grammar_' + level.toLowerCase() + '.json';
+        fetch(file)
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)); })
+            .then(function (data) {
+                state.questions = shuffle(data);
+                state.index = 0;
+                state.score = 0;
+                document.getElementById('gqSummary').style.display = 'none';
+                document.getElementById('gqCard').style.display = '';
+                renderQuestion();
+            })
+            .catch(function (err) {
+                document.getElementById('gqCard').innerHTML =
+                    '<p class="text-danger">Fehler beim Laden von ' + file + ': ' + err.message + '</p>';
+            });
+    }
+
+    function updateProgress() {
+        document.getElementById('gqProgress').textContent =
+            'Frage ' + (state.index + 1) + ' / ' + state.questions.length;
+        document.getElementById('gqScore').textContent =
+            '✅ ' + state.score + ' / ' + state.index + (state.answered ? '' : '');
+    }
+
+    function renderQuestion() {
+        state.answered = false;
+        document.getElementById('gqNextWrap').style.display = 'none';
+        updateProgress();
+        var q = state.questions[state.index];
+        var card = document.getElementById('gqCard');
+        var html = '<div class="gq-topic">' + q.topic + ' · ' + q.level + '</div>';
+        html += '<div class="gq-prompt">' + q.prompt_de.replace('___', '<u>____</u>') + '</div>';
+        html += '<div class="gq-en-hint">' + q.prompt_en + '</div>';
+
+        if (q.type === 'fill_blank') {
+            html += '<div class="mt-3"><input type="text" id="gqInput" class="gq-blank-input" autocomplete="off" autocapitalize="off" placeholder="…"></div>';
+            html += '<button class="btn btn-primary mt-3" id="gqSubmitBtn">Prüfen / Check</button>';
+        } else if (q.type === 'mc') {
+            html += '<div class="gq-mc-options mt-2">';
+            q.options.forEach(function (opt, i) {
+                html += '<button type="button" class="gq-mc-btn" data-opt="' + i + '">' + opt + '</button>';
+            });
+            html += '</div>';
+        } else if (q.type === 'word_order') {
+            html += '<p class="text-muted small mt-2">Klicke die Wörter in der richtigen Reihenfolge / Click the words in the correct order</p>';
+            html += '<div class="gq-wo-answer mb-2" id="gqWoAnswer"></div>';
+            html += '<div class="gq-wo-pool" id="gqWoPool"></div>';
+            html += '<button class="btn btn-primary mt-3" id="gqSubmitBtn" disabled>Prüfen / Check</button>';
+        }
+
+        html += '<div id="gqFeedback"></div>';
+        card.innerHTML = html;
+        wireQuestionEvents(q);
+    }
+
+    function showFeedback(isCorrect, q) {
+        state.answered = true;
+        if (isCorrect) state.score++;
+        updateProgress();
+        var fb = document.getElementById('gqFeedback');
+        fb.innerHTML =
+            '<div class="gq-feedback ' + (isCorrect ? 'correct' : 'incorrect') + '">' +
+            (isCorrect ? '✅ Richtig! / Correct!' : '❌ Nicht ganz. / Not quite.') +
+            '<div class="mt-1">' + q.explanation_de + '</div>' +
+            '<div class="gq-en-hint">' + q.explanation_en + '</div>' +
+            '</div>';
+        document.getElementById('gqNextWrap').style.display = '';
+    }
+
+    function wireQuestionEvents(q) {
+        if (q.type === 'fill_blank') {
+            var input = document.getElementById('gqInput');
+            var submit = document.getElementById('gqSubmitBtn');
+            function check() {
+                if (state.answered) return;
+                var isCorrect = foldGerman(input.value) === foldGerman(q.correct);
+                input.disabled = true;
+                submit.disabled = true;
+                showFeedback(isCorrect, q);
+            }
+            submit.addEventListener('click', check);
+            input.addEventListener('keydown', function (e) { if (e.key === 'Enter') check(); });
+            input.focus();
+        } else if (q.type === 'mc') {
+            document.querySelectorAll('.gq-mc-btn').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    if (state.answered) return;
+                    var chosen = q.options[parseInt(btn.getAttribute('data-opt'), 10)];
+                    var isCorrect = chosen === q.correct;
+                    document.querySelectorAll('.gq-mc-btn').forEach(function (b) {
+                        b.disabled = true;
+                        if (b.textContent === q.correct) b.classList.add('correct');
+                        else if (b === btn) b.classList.add('incorrect');
+                    });
+                    showFeedback(isCorrect, q);
+                });
+            });
+        } else if (q.type === 'word_order') {
+            var pool = document.getElementById('gqWoPool');
+            var answer = document.getElementById('gqWoAnswer');
+            var submit = document.getElementById('gqSubmitBtn');
+            var chunks = shuffle(q.options);
+            var chosen = [];
+
+            function renderChunks() {
+                pool.innerHTML = '';
+                chunks.forEach(function (chunk, i) {
+                    var el = document.createElement('span');
+                    el.className = 'gq-wo-chunk';
+                    el.textContent = chunk;
+                    el.addEventListener('click', function () {
+                        if (state.answered) return;
+                        chosen.push(chunk);
+                        chunks.splice(i, 1);
+                        renderChunks();
+                        renderAnswer();
+                    });
+                    pool.appendChild(el);
+                });
+            }
+            function renderAnswer() {
+                answer.innerHTML = '';
+                chosen.forEach(function (chunk, i) {
+                    var el = document.createElement('span');
+                    el.className = 'gq-wo-chunk';
+                    el.style.background = '#16a34a';
+                    el.textContent = chunk;
+                    el.addEventListener('click', function () {
+                        if (state.answered) return;
+                        chosen.splice(i, 1);
+                        chunks.push(chunk);
+                        renderChunks();
+                        renderAnswer();
+                    });
+                    answer.appendChild(el);
+                });
+                submit.disabled = chosen.length !== q.correct.length;
+            }
+            submit.addEventListener('click', function () {
+                if (state.answered) return;
+                var isCorrect = JSON.stringify(chosen) === JSON.stringify(q.correct);
+                submit.disabled = true;
+                showFeedback(isCorrect, q);
+            });
+            renderChunks();
+            renderAnswer();
+        }
+    }
+
+    document.getElementById('gqNextBtn').addEventListener('click', function () {
+        state.index++;
+        if (state.index >= state.questions.length) {
+            document.getElementById('gqCard').style.display = 'none';
+            document.getElementById('gqNextWrap').style.display = 'none';
+            document.getElementById('gqProgress').textContent = '';
+            document.getElementById('gqSummary').style.display = '';
+            document.getElementById('gqSummaryText').textContent =
+                'Du hast ' + state.score + ' von ' + state.questions.length + ' richtig beantwortet. / ' +
+                'You answered ' + state.score + ' out of ' + state.questions.length + ' correctly.';
+        } else {
+            renderQuestion();
+        }
+    });
+
+    document.getElementById('gqRestartBtn').addEventListener('click', function () {
+        loadLevel(state.level);
+    });
+
+    document.querySelectorAll('#levelPicker button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            if (btn.disabled) return;
+            document.querySelectorAll('#levelPicker button').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            loadLevel(btn.getAttribute('data-level'));
+        });
+    });
+
+    var saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-bs-theme', saved);
+
+    // Support linking directly into a specific level from an external page
+    // (e.g. "grammar-quiz.html?level=B1" from B1/02_Grammatik.html), so a
+    // "Test what you just learned" link lands the user on the relevant
+    // content instead of always defaulting to A1 regardless of referrer.
+    var VALID_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    var urlLevel = new URLSearchParams(window.location.search).get('level');
+    var startLevel = VALID_LEVELS.indexOf((urlLevel || '').toUpperCase()) > -1
+        ? urlLevel.toUpperCase() : 'A1';
+
+    document.querySelectorAll('#levelPicker button').forEach(function (btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-level') === startLevel);
+    });
+    loadLevel(startLevel);
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,88 @@
+[
+  {"id":"c1-konj-001","level":"C1","topic":"Konjunktiv I: Ausweichen auf Konjunktiv II","type":"fill_blank",
+   "prompt_de":"Sie sagten, sie ___ (haben) keine Ahnung.","prompt_en":"They said they had no idea.",
+   "correct":"hätten","explanation_de":"Konjunktiv I Plural von 'haben' (haben) ist mit dem Indikativ identisch; deshalb weicht man auf Konjunktiv II (hätten) aus.","explanation_en":"The Konjunktiv I plural of 'haben' (haben) is identical to the indicative, so Konjunktiv II (hätten) is used instead."},
+
+  {"id":"c1-konj-002","level":"C1","topic":"Konjunktiv I: müsse","type":"fill_blank",
+   "prompt_de":"Er erklärte, man ___ (müssen) die Regeln befolgen.","prompt_en":"He explained that one must follow the rules.",
+   "correct":"müsse","explanation_de":"Konjunktiv I von 'müssen', 3. Person Singular: müsse.","explanation_en":"Konjunktiv I of 'müssen', 3rd person singular: müsse."},
+
+  {"id":"c1-konj-003","level":"C1","topic":"Konjunktiv I: wolle","type":"fill_blank",
+   "prompt_de":"Sie behauptete, sie ___ (wollen) das Projekt beenden.","prompt_en":"She claimed she wanted to finish the project.",
+   "correct":"wolle","explanation_de":"Konjunktiv I von 'wollen', 3. Person Singular: wolle.","explanation_en":"Konjunktiv I of 'wollen', 3rd person singular: wolle."},
+
+  {"id":"c1-konj-004","level":"C1","topic":"Konjunktiv I: dürfe","type":"mc",
+   "prompt_de":"Der Minister erklärte, niemand ___ das Gebäude betreten.","prompt_en":"The minister explained that no one was allowed to enter the building.",
+   "options":["dürfe","darf","durfte"],"correct":"dürfe",
+   "explanation_de":"Konjunktiv I von 'dürfen', 3. Person Singular: dürfe (unterscheidet sich vom Indikativ 'darf').","explanation_en":"Konjunktiv I of 'dürfen', 3rd person singular: dürfe (distinct from the indicative 'darf')."},
+
+  {"id":"c1-konj-005","level":"C1","topic":"Konjunktiv I: indirekter Imperativ mit möge","type":"fill_blank",
+   "prompt_de":"Er sagte, sie ___ (mögen) doch bitte pünktlich kommen.","prompt_en":"He said she should please come on time.",
+   "correct":"möge","explanation_de":"Konjunktiv I 'möge' wird für indirekt wiedergegebene Aufforderungen/Wünsche verwendet.","explanation_en":"The Konjunktiv I form 'möge' is used for indirectly reported requests/wishes."},
+
+  {"id":"c1-part-001","level":"C1","topic":"Partizip I als Adjektiv","type":"fill_blank",
+   "prompt_de":"Der ___ (lachen) Mann winkte uns zu.","prompt_en":"The laughing man waved to us.",
+   "correct":"lachende","explanation_de":"Partizip I (Präsenspartizip) als attributives Adjektiv + Adjektivendung: lachende.","explanation_en":"Partizip I (present participle) as an attributive adjective + adjective ending: lachende."},
+
+  {"id":"c1-part-002","level":"C1","topic":"Partizip II als Adjektiv","type":"fill_blank",
+   "prompt_de":"Das ___ (schreiben) Buch liegt auf dem Tisch.","prompt_en":"The written book is on the table.",
+   "correct":"geschriebene","explanation_de":"Partizip II als attributives Adjektiv + Adjektivendung: geschriebene.","explanation_en":"Partizip II as an attributive adjective + adjective ending: geschriebene."},
+
+  {"id":"c1-part-003","level":"C1","topic":"Erweiterte Partizipialkonstruktion","type":"mc",
+   "prompt_de":"Der ___ Brief liegt auf dem Tisch.","prompt_en":"The letter written by me is on the table.",
+   "options":["von mir geschriebene","von mir schreibende","von mir geschriebte"],"correct":"von mir geschriebene",
+   "explanation_de":"Erweiterte Partizipialkonstruktion ersetzt einen Relativsatz: der Brief, der von mir geschrieben wurde.","explanation_en":"An extended participial construction replaces a relative clause: der Brief, der von mir geschrieben wurde."},
+
+  {"id":"c1-part-004","level":"C1","topic":"Erweiterte Partizipialkonstruktion","type":"fill_blank",
+   "prompt_de":"Die ___ (schnell laufen) Kinder erreichten das Ziel zuerst.","prompt_en":"The fast-running children reached the goal first.",
+   "correct":"schnell laufenden","explanation_de":"Erweitertes Partizip I (mit Adverb) + Adjektivendung: schnell laufenden.","explanation_en":"Extended Partizip I (with adverb) + adjective ending: schnell laufenden."},
+
+  {"id":"c1-neben-001","level":"C1","topic":"Komplexe Nebensätze: sodass","type":"fill_blank",
+   "prompt_de":"Er arbeitete hart, ___ er die Prüfung bestand.","prompt_en":"He worked hard, so that he passed the exam.",
+   "correct":"sodass","explanation_de":"'sodass' leitet einen Konsekutivsatz ein (Folge/Ergebnis).","explanation_en":"'sodass' introduces a consecutive clause (result/consequence)."},
+
+  {"id":"c1-neben-002","level":"C1","topic":"Komplexe Nebensätze: indem","type":"fill_blank",
+   "prompt_de":"Sie verbesserte ihr Deutsch, ___ sie viel las.","prompt_en":"She improved her German by reading a lot.",
+   "correct":"indem","explanation_de":"'indem' leitet einen Modalsatz ein (Art und Weise, wie etwas geschieht).","explanation_en":"'indem' introduces a clause of manner (how something is done)."},
+
+  {"id":"c1-neben-003","level":"C1","topic":"Komplexe Nebensätze: obschon","type":"mc",
+   "prompt_de":"___ er müde war, arbeitete er weiter.","prompt_en":"Although he was tired, he kept working.",
+   "options":["Obschon","Sodass","Indem"],"correct":"Obschon",
+   "explanation_de":"'obschon' (= obwohl) leitet einen Konzessivsatz ein.","explanation_en":"'obschon' (= obwohl, 'although') introduces a concessive clause."},
+
+  {"id":"c1-korrel-001","level":"C1","topic":"Je... desto...","type":"fill_blank",
+   "prompt_de":"Je mehr er übt, ___ besser wird er.","prompt_en":"The more he practices, the better he gets.",
+   "correct":"desto","explanation_de":"Korrelative Konstruktion: je + Komparativ ..., desto + Komparativ ...","explanation_en":"Correlative construction: je + comparative ..., desto + comparative ..."},
+
+  {"id":"c1-korrel-002","level":"C1","topic":"Je... desto...: Wortstellung","type":"word_order",
+   "prompt_de":"Ordne die Wörter für den desto-Satz: (desto / mehr / gibt / er / aus)","prompt_en":"Arrange the 'desto' clause: (the more / gives / he / out) — from 'Je mehr Geld er verdient, ...'",
+   "options":["gibt","aus","desto","er","mehr"],
+   "correct":["desto","mehr","gibt","er","aus"],
+   "explanation_de":"Der desto-Satz hat Verb-Zweit-Stellung wie ein normaler Hauptsatz: desto + Vergleichsform, Verb, Subjekt, Rest.","explanation_en":"The 'desto' clause has verb-second word order like a normal main clause: desto + comparative, verb, subject, rest."},
+
+  {"id":"c1-ger-001","level":"C1","topic":"Gerundivum (zu + Partizip I)","type":"fill_blank",
+   "prompt_de":"Die zu ___ (lösen) Aufgabe ist schwierig.","prompt_en":"The task to be solved is difficult.",
+   "correct":"lösende","explanation_de":"Gerundivum: zu + Partizip I + Adjektivendung drückt Notwendigkeit aus: die zu lösende Aufgabe = die Aufgabe, die gelöst werden muss.","explanation_en":"Gerundive: zu + Partizip I + adjective ending expresses necessity: die zu lösende Aufgabe = the task that must be solved."},
+
+  {"id":"c1-ger-002","level":"C1","topic":"Gerundivum (zu + Partizip I)","type":"mc",
+   "prompt_de":"Das ___ Problem muss sofort behandelt werden.","prompt_en":"The problem to be dealt with must be addressed immediately.",
+   "options":["zu behandelnde","behandelnde","zu behandeln"],"correct":"zu behandelnde",
+   "explanation_de":"Gerundivum: zu + Partizip I (behandelnd) + Adjektivendung: zu behandelnde.","explanation_en":"Gerundive: zu + Partizip I (behandelnd) + adjective ending: zu behandelnde."},
+
+  {"id":"c1-neben-004","level":"C1","topic":"Komplexe Nebensätze: anstatt dass","type":"fill_blank",
+   "prompt_de":"___ er half, ging er einfach weg.","prompt_en":"Instead of helping, he just walked away.",
+   "correct":"Anstatt dass","explanation_de":"'Anstatt dass' leitet einen Kontrastsatz ein (etwas Erwartetes geschieht nicht).","explanation_en":"'Anstatt dass' introduces a contrastive clause (an expected action doesn't happen)."},
+
+  {"id":"c1-konj-006","level":"C1","topic":"Konjunktiv I in Berichten","type":"fill_blank",
+   "prompt_de":"Die Zeitung berichtete, die Regierung ___ (planen) neue Steuergesetze.","prompt_en":"The newspaper reported that the government was planning new tax laws.",
+   "correct":"plane","explanation_de":"Konjunktiv I von 'planen', 3. Person Singular: plane.","explanation_en":"Konjunktiv I of 'planen', 3rd person singular: plane."},
+
+  {"id":"c1-konj-007","level":"C1","topic":"Konjunktiv I Plural: eigenständige Form","type":"fill_blank",
+   "prompt_de":"Sie sagten, sie ___ (sein) zufrieden.","prompt_en":"They said they were satisfied.",
+   "correct":"seien","explanation_de":"Konjunktiv I Plural von 'sein' ist 'seien' — unterscheidet sich vom Indikativ 'sind', daher hier korrekt (im Gegensatz zu 'haben').","explanation_en":"Konjunktiv I plural of 'sein' is 'seien' — distinct from the indicative 'sind', so it's used directly here (unlike 'haben')."},
+
+  {"id":"c1-korrel-003","level":"C1","topic":"Je... desto...","type":"mc",
+   "prompt_de":"Je länger die Besprechung dauerte, ___ ungeduldiger wurden die Mitarbeiter.","prompt_en":"The longer the meeting lasted, the more impatient the employees became.",
+   "options":["desto","je","sodass"],"correct":"desto",
+   "explanation_de":"Der zweite Teil der Korrelation beginnt immer mit 'desto'.","explanation_en":"The second part of the correlation always begins with 'desto'."}
+]
