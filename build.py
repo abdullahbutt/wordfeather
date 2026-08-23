@@ -1721,7 +1721,7 @@ TOPIC_KEYWORDS = {
 # function words with no specific topic) is always last, matching the
 # old "Sonstige X-Wörter" catch-all's role.
 CATEGORY_ORDER = [
-    "Wohnen & Haushalt", "Wohnungssuche & Umzug", "Essen & Trinken",
+    "Wohnen & Haushalt", "Moebel", "Wohnungssuche & Umzug", "Essen & Trinken",
     "Familie & Menschen", "Beziehungsleben & Liebe", "Koerper & Gesundheit",
     "Kleidung & Aussehen", "Farben & Formen", "Verkehr & Reisen",
     "Arbeit & Beruf", "Schule & Bildung", "Einkaufen & Geld",
@@ -1763,6 +1763,7 @@ WORTSCHATZ_ORDER_OVERRIDES = {
 # heading meant to orient them.
 CATEGORY_EN = {
     "Wohnen & Haushalt": "Housing & Household",
+    "Moebel": "Furniture",
     "Wohnungssuche & Umzug": "Apartment Hunting & Moving",
     "Essen & Trinken": "Food & Drink",
     "Familie & Menschen": "Family & People",
