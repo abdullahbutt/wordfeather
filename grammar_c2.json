@@ -1,0 +1,88 @@
+[
+  {"id":"c2-konj-001","level":"C2","topic":"Konjunktiv II: als ob","type":"fill_blank",
+   "prompt_de":"Er tut, als ob er nichts ___ (wissen).","prompt_en":"He acts as if he knew nothing.",
+   "correct":"wüsste","explanation_de":"Nach 'als ob' steht der Konjunktiv II: wüsste.","explanation_en":"Konjunktiv II follows 'als ob': wüsste."},
+
+  {"id":"c2-konj-002","level":"C2","topic":"Konjunktiv II: als ob (Vergangenheit)","type":"fill_blank",
+   "prompt_de":"Sie sah aus, als ob sie geweint ___ (haben).","prompt_en":"She looked as if she had been crying.",
+   "correct":"hätte","explanation_de":"Konjunktiv II Vergangenheit nach 'als ob': hätte geweint.","explanation_en":"Past subjunctive after 'als ob': hätte geweint."},
+
+  {"id":"c2-konj-003","level":"C2","topic":"Konjunktiv II: Wunschsatz","type":"fill_blank",
+   "prompt_de":"___ (sein) es doch schon Freitag!","prompt_en":"If only it were already Friday!",
+   "correct":"Wäre","explanation_de":"Wunschsatz mit Konjunktiv II und Verbspitzenstellung: Wäre es doch...!","explanation_en":"Wish clause with Konjunktiv II and verb-first word order: Wäre es doch...!"},
+
+  {"id":"c2-gen-001","level":"C2","topic":"Genitivverben: gedenken","type":"fill_blank",
+   "prompt_de":"Die Familie gedachte ___ (die Opfer) der Katastrophe.","prompt_en":"The family commemorated the victims of the disaster.",
+   "correct":"der Opfer","explanation_de":"'gedenken' verlangt Genitiv; Genitiv Plural: der Opfer.","explanation_en":"'gedenken' takes the genitive case; genitive plural: der Opfer."},
+
+  {"id":"c2-gen-002","level":"C2","topic":"Genitivverben: sich bewusst sein","type":"fill_blank",
+   "prompt_de":"Er ist sich ___ (die Gefahr) durchaus bewusst.","prompt_en":"He is well aware of the danger.",
+   "correct":"der Gefahr","explanation_de":"'sich bewusst sein' verlangt Genitiv; Genitiv feminin: der Gefahr.","explanation_en":"'sich bewusst sein' takes the genitive; genitive feminine: der Gefahr."},
+
+  {"id":"c2-gen-003","level":"C2","topic":"Genitivpräpositionen: trotz","type":"fill_blank",
+   "prompt_de":"Trotz ___ (das schlechte Wetter) fuhren wir los.","prompt_en":"Despite the bad weather, we set off.",
+   "correct":"des schlechten Wetters","explanation_de":"'trotz' verlangt Genitiv; Genitiv neutrum: des schlechten Wetters.","explanation_en":"'trotz' takes the genitive; genitive neuter: des schlechten Wetters."},
+
+  {"id":"c2-gen-004","level":"C2","topic":"Genitivpräpositionen: wegen","type":"mc",
+   "prompt_de":"___ des Sturms blieben die Schiffe im Hafen.","prompt_en":"Because of the storm, the ships stayed in the harbor.",
+   "options":["Wegen","Trotzdem","Obwohl"],"correct":"Wegen",
+   "explanation_de":"'wegen' ist eine Genitivpräposition (+ Nomen), kein Nebensatz-Konnektor wie 'obwohl'.","explanation_en":"'wegen' is a genitive preposition (+ noun), not a subordinating conjunction like 'obwohl'."},
+
+  {"id":"c2-gen-005","level":"C2","topic":"Genitivpräpositionen: innerhalb","type":"fill_blank",
+   "prompt_de":"Innerhalb ___ (eine Woche) muss die Arbeit fertig sein.","prompt_en":"Within a week, the work must be finished.",
+   "correct":"einer Woche","explanation_de":"'innerhalb' verlangt Genitiv; Genitiv feminin: einer Woche.","explanation_en":"'innerhalb' takes the genitive; genitive feminine: einer Woche."},
+
+  {"id":"c2-passersatz-001","level":"C2","topic":"Passiv-Ersatz: sein + zu + Infinitiv","type":"fill_blank",
+   "prompt_de":"Das Problem ist leicht zu ___ (lösen).","prompt_en":"The problem is easy to solve.",
+   "correct":"lösen","explanation_de":"'sein + zu + Infinitiv' ist eine Passiv-Ersatzform: ist zu lösen = kann gelöst werden.","explanation_en":"'sein + zu + infinitive' is a passive-alternative construction: ist zu lösen = kann gelöst werden."},
+
+  {"id":"c2-passersatz-002","level":"C2","topic":"Passiv-Ersatz: sich lassen + Infinitiv","type":"fill_blank",
+   "prompt_de":"Diese Frage ___ (lassen) sich leicht beantworten.","prompt_en":"This question can easily be answered.",
+   "correct":"lässt","explanation_de":"'sich lassen + Infinitiv' ist eine weitere Passiv-Ersatzform: lässt sich beantworten = kann beantwortet werden.","explanation_en":"'sich lassen + infinitive' is another passive-alternative construction: lässt sich beantworten = kann beantwortet werden."},
+
+  {"id":"c2-stil-001","level":"C2","topic":"Nominalstil","type":"mc",
+   "prompt_de":"Nach ___ rief er an. (Nominalstil für: nachdem er angekommen war)","prompt_en":"After his arrival, he called.",
+   "options":["seiner Ankunft","sein Ankunft","seine Ankunft"],"correct":"seiner Ankunft",
+   "explanation_de":"Nominalstil: Nebensatz wird zur Präposition + Nominalisierung; 'die Ankunft' ist feminin, nach 'nach' (Dativ): seiner Ankunft.","explanation_en":"Nominal style: a subordinate clause becomes preposition + nominalization; 'die Ankunft' is feminine, after 'nach' (dative): seiner Ankunft."},
+
+  {"id":"c2-stil-002","level":"C2","topic":"Stilistische Inversion nach Negationswort","type":"word_order",
+   "prompt_de":"Ordne die Wörter: (Nie / habe / ich / so / etwas / gesehen)","prompt_en":"Arrange: (Never / have / I / something like this / seen)",
+   "options":["habe","Nie","gesehen","so","ich","etwas"],
+   "correct":["Nie","habe","ich","so","etwas","gesehen"],
+   "explanation_de":"Bei vorangestelltem Negationswort (nie, kaum...) bleibt die Verb-Zweit-Stellung erhalten: Nie habe ich...","explanation_en":"When a negation word (nie, kaum...) is fronted, verb-second word order is preserved: Nie habe ich..."},
+
+  {"id":"c2-konj-004","level":"C2","topic":"Konjunktiv I: formeller/juristischer Kontext","type":"fill_blank",
+   "prompt_de":"Das Gericht entschied, der Angeklagte ___ (sein) unschuldig.","prompt_en":"The court ruled that the defendant was innocent.",
+   "correct":"sei","explanation_de":"Konjunktiv I ist im formellen/juristischen Kontext für indirekte Rede Standard: sei.","explanation_en":"Konjunktiv I is standard for indirect speech in formal/legal contexts: sei."},
+
+  {"id":"c2-konj-005","level":"C2","topic":"Konjunktiv II: vorsichtige Vermutung","type":"fill_blank",
+   "prompt_de":"Das ___ (dürfen) das größte Problem sein.","prompt_en":"That is probably the biggest problem.",
+   "correct":"dürfte","explanation_de":"'dürfte' (Konjunktiv II von 'dürfen') drückt hier eine vorsichtige Vermutung aus, nicht Erlaubnis.","explanation_en":"'dürfte' (Konjunktiv II of 'dürfen') expresses a cautious assumption here, not permission."},
+
+  {"id":"c2-gen-006","level":"C2","topic":"Genitivverben: bedürfen","type":"fill_blank",
+   "prompt_de":"Dieses Problem bedarf ___ (eine gründliche Analyse).","prompt_en":"This problem requires a thorough analysis.",
+   "correct":"einer gründlichen Analyse","explanation_de":"'bedürfen' verlangt Genitiv; Genitiv feminin: einer gründlichen Analyse.","explanation_en":"'bedürfen' takes the genitive; genitive feminine: einer gründlichen Analyse."},
+
+  {"id":"c2-konj-006","level":"C2","topic":"Konzessiv: mag","type":"fill_blank",
+   "prompt_de":"Er ___ (mögen) noch so klug sein, er irrt sich manchmal.","prompt_en":"However clever he may be, he is sometimes wrong.",
+   "correct":"mag","explanation_de":"'mag' + noch so + Adjektiv drückt in konzessiver Verwendung ein Zugeständnis aus.","explanation_en":"'mag' + noch so + adjective, used concessively, expresses a concession."},
+
+  {"id":"c2-passersatz-003","level":"C2","topic":"Passiv-Ersatz: sein + zu + Infinitiv (trennbar)","type":"mc",
+   "prompt_de":"Die Vorschriften sind strikt ___.","prompt_en":"The regulations must be strictly observed.",
+   "options":["einzuhalten","zu einhalten","einhaltend"],"correct":"einzuhalten",
+   "explanation_de":"Bei trennbaren Verben steht 'zu' zwischen Präfix und Stamm: ein-zu-halten.","explanation_en":"With separable verbs, 'zu' goes between the prefix and the stem: ein-zu-halten."},
+
+  {"id":"c2-gen-007","level":"C2","topic":"Genitiv nach 'sicher sein' (gehoben)","type":"fill_blank",
+   "prompt_de":"Sie ist sich ___ (der Erfolg) sicher.","prompt_en":"She is sure of success.",
+   "correct":"des Erfolgs","explanation_de":"In gehobenem Stil kann 'sich sicher sein' mit Genitiv stehen; Genitiv maskulin: des Erfolgs.","explanation_en":"In elevated style, 'sich sicher sein' can take the genitive; genitive masculine: des Erfolgs."},
+
+  {"id":"c2-neben-001","level":"C2","topic":"Konzessiv: wie auch immer","type":"mc",
+   "prompt_de":"___ die Entscheidung ausfällt, wir akzeptieren sie.","prompt_en":"However the decision turns out, we will accept it.",
+   "options":["Wie auch immer","Obwohl","Damit"],"correct":"Wie auch immer",
+   "explanation_de":"'Wie auch immer' leitet einen Konzessivsatz ein, unabhängig vom Ausgang.","explanation_en":"'Wie auch immer' introduces a concessive clause, independent of the outcome."},
+
+  {"id":"c2-gen-008","level":"C2","topic":"Genitivpräpositionen: mangels","type":"mc",
+   "prompt_de":"___ eindeutiger Beweise wurde der Fall eingestellt.","prompt_en":"For lack of clear evidence, the case was dropped.",
+   "options":["Mangels","Wegen des","Trotz der"],"correct":"Mangels",
+   "explanation_de":"'mangels' ist eine gehobene Genitivpräposition (= 'aus Mangel an').","explanation_en":"'mangels' is an elevated-register genitive preposition (= 'for lack of')."}
+]

@@ -1,0 +1,91 @@
+[
+  {"id":"b1-neben-001","level":"B1","topic":"Nebensätze: weil","type":"fill_blank",
+   "prompt_de":"Ich bleibe im Bett, weil ich krank ___ (sein).","prompt_en":"I stay in bed because I am sick.",
+   "correct":"bin","explanation_de":"Im Nebensatz steht das konjugierte Verb am Ende: ...krank bin.","explanation_en":"In a subordinate clause, the conjugated verb goes to the end: ...krank bin."},
+
+  {"id":"b1-neben-002","level":"B1","topic":"Nebensätze: dass","type":"word_order",
+   "prompt_de":"Ordne die Wörter: (dass / er / morgen / kommt)","prompt_en":"Arrange: (that / he / tomorrow / is coming)",
+   "options":["kommt","dass","morgen","er"],
+   "correct":["dass","er","morgen","kommt"],
+   "explanation_de":"Nebensatz-Wortstellung: Konjunktion, Subjekt, weitere Angaben, Verb am Ende.","explanation_en":"Subordinate clause word order: conjunction, subject, other elements, verb at the end."},
+
+  {"id":"b1-neben-003","level":"B1","topic":"Nebensätze: Verbposition im Hauptsatz","type":"fill_blank",
+   "prompt_de":"Wenn es regnet, ___ (bleiben) ich zu Hause.","prompt_en":"If it rains, I stay home.",
+   "correct":"bleibe","explanation_de":"Nach einem vorangestellten Nebensatz steht das Verb im Hauptsatz auf Position 2: Wenn es regnet, bleibe ich...","explanation_en":"After a fronted subordinate clause, the verb in the main clause stays in position 2: Wenn es regnet, bleibe ich..."},
+
+  {"id":"b1-neben-004","level":"B1","topic":"Nebensätze: obwohl","type":"word_order",
+   "prompt_de":"Ordne die Wörter: (obwohl / es / regnet)","prompt_en":"Arrange: (although / it / is raining)",
+   "options":["regnet","obwohl","es"],
+   "correct":["obwohl","es","regnet"],
+   "explanation_de":"Nebensatz: Konjunktion 'obwohl', Subjekt 'es', Verb 'regnet' am Ende.","explanation_en":"Subordinate clause: conjunction 'obwohl', subject 'es', verb 'regnet' at the end."},
+
+  {"id":"b1-neben-005","level":"B1","topic":"Nebensätze: Konjunktionen","type":"mc",
+   "prompt_de":"Ich glaube, ___ das stimmt.","prompt_en":"I believe that this is correct.",
+   "options":["dass","weil","wenn"],"correct":"dass",
+   "explanation_de":"'glauben, dass...' — 'dass' leitet einen Nebensatz ohne Grund-/Bedingungsbedeutung ein.","explanation_en":"'glauben, dass...' — 'dass' introduces a subordinate clause with no reason/condition meaning."},
+
+  {"id":"b1-gen-001","level":"B1","topic":"Kasus: Genitiv","type":"fill_blank",
+   "prompt_de":"Das ist das Auto ___ Mannes.","prompt_en":"That is the man's car.",
+   "correct":"des","explanation_de":"Genitiv maskulin: der → des; das Nomen bekommt zusätzlich -es.","explanation_en":"Genitive masculine: der → des; the noun also gets an -es ending."},
+
+  {"id":"b1-gen-002","level":"B1","topic":"Kasus: Genitiv","type":"mc",
+   "prompt_de":"Die Farbe ___ (das Auto) ist rot.","prompt_en":"The color of the car is red.",
+   "options":["des Autos","dem Auto","das Auto"],"correct":"des Autos",
+   "explanation_de":"Genitiv neutrum: das → des; das Nomen bekommt zusätzlich -s.","explanation_en":"Genitive neuter: das → des; the noun also gets an -s ending."},
+
+  {"id":"b1-gen-003","level":"B1","topic":"Kasus: Genitiv (feminin)","type":"fill_blank",
+   "prompt_de":"Die Tasche ___ Frau ist teuer.","prompt_en":"The woman's bag is expensive.",
+   "correct":"der","explanation_de":"Genitiv feminin: die → der; feminine Nomen bekommen KEINE zusätzliche Endung.","explanation_en":"Genitive feminine: die → der; feminine nouns get NO extra ending."},
+
+  {"id":"b1-rel-001","level":"B1","topic":"Relativsätze: Nominativ","type":"fill_blank",
+   "prompt_de":"Der Mann, ___ dort steht, ist mein Lehrer.","prompt_en":"The man who is standing there is my teacher.",
+   "correct":"der","explanation_de":"Relativpronomen Nominativ maskulin: der (Subjekt des Relativsatzes).","explanation_en":"Relative pronoun, nominative masculine: der (subject of the relative clause)."},
+
+  {"id":"b1-rel-002","level":"B1","topic":"Relativsätze: Akkusativ","type":"mc",
+   "prompt_de":"Die Frau, ___ ich gestern getroffen habe, ist Ärztin.","prompt_en":"The woman whom I met yesterday is a doctor.",
+   "options":["die","der","den"],"correct":"die",
+   "explanation_de":"'treffen' verlangt Akkusativ; Akkusativ feminin sieht wie Nominativ aus: die.","explanation_en":"'treffen' takes the accusative; feminine accusative looks the same as nominative: die."},
+
+  {"id":"b1-rel-003","level":"B1","topic":"Relativsätze: Dativ","type":"fill_blank",
+   "prompt_de":"Das Kind, ___ ich geholfen habe, ist glücklich.","prompt_en":"The child whom I helped is happy.",
+   "correct":"dem","explanation_de":"'helfen' verlangt Dativ; Dativ Neutrum: dem.","explanation_en":"'helfen' takes the dative; dative neuter: dem."},
+
+  {"id":"b1-rel-004","level":"B1","topic":"Relativsätze: Plural","type":"mc",
+   "prompt_de":"Die Kinder, ___ dort spielen, sind laut.","prompt_en":"The children who are playing there are loud.",
+   "options":["die","der","denen"],"correct":"die",
+   "explanation_de":"Relativpronomen Nominativ Plural (alle Genera): die.","explanation_en":"Relative pronoun, nominative plural (all genders): die."},
+
+  {"id":"b1-pass-001","level":"B1","topic":"Passiv: Präsens","type":"fill_blank",
+   "prompt_de":"Das Fenster ___ (werden) geöffnet.","prompt_en":"The window is (being) opened.",
+   "correct":"wird","explanation_de":"Passiv Präsens: werden (konjugiert) + Partizip II; 3. Person Singular: wird.","explanation_en":"Present passive: werden (conjugated) + past participle; 3rd person singular: wird."},
+
+  {"id":"b1-pass-002","level":"B1","topic":"Passiv: Partizip II","type":"fill_blank",
+   "prompt_de":"Der Brief wird von ihr ___ (schreiben).","prompt_en":"The letter is being written by her.",
+   "correct":"geschrieben","explanation_de":"Partizip II von 'schreiben' (unregelmäßig): geschrieben.","explanation_en":"Past participle of 'schreiben' (irregular): geschrieben."},
+
+  {"id":"b1-pass-003","level":"B1","topic":"Passiv: Präteritum","type":"mc",
+   "prompt_de":"Das Haus ___ 1990 gebaut.","prompt_en":"The house was built in 1990.",
+   "options":["wurde","wird","ist"],"correct":"wurde",
+   "explanation_de":"Passiv Präteritum: wurde + Partizip II.","explanation_en":"Passive Präteritum: wurde + past participle."},
+
+  {"id":"b1-pass-004","level":"B1","topic":"Passiv mit Modalverb","type":"fill_blank",
+   "prompt_de":"Die Arbeit muss heute ___ (machen).","prompt_en":"The work must be done today.",
+   "correct":"gemacht werden","explanation_de":"Passiv mit Modalverb: Modalverb (muss) + Partizip II + werden (Infinitiv Passiv) am Satzende.","explanation_en":"Passive with a modal verb: modal (muss) + past participle + werden (passive infinitive) at the end of the clause."},
+
+  {"id":"b1-konj-001","level":"B1","topic":"Konjunktiv II: würde","type":"fill_blank",
+   "prompt_de":"Wenn ich Geld hätte, ___ ich ein neues Auto kaufen.","prompt_en":"If I had money, I would buy a new car.",
+   "correct":"würde","explanation_de":"Konjunktiv II mit würde + Infinitiv (kaufen steht am Satzende).","explanation_en":"Konjunktiv II with würde + infinitive (kaufen goes to the end of the clause)."},
+
+  {"id":"b1-konj-002","level":"B1","topic":"Konjunktiv II: wäre","type":"fill_blank",
+   "prompt_de":"Wenn ich reich ___ (sein), würde ich ein Haus kaufen.","prompt_en":"If I were rich, I would buy a house.",
+   "correct":"wäre","explanation_de":"Konjunktiv II von 'sein' ist unregelmäßig: wäre (nicht 'würde sein').","explanation_en":"Konjunktiv II of 'sein' is irregular: wäre (not 'würde sein')."},
+
+  {"id":"b1-konj-003","level":"B1","topic":"Konjunktiv II: hätte","type":"mc",
+   "prompt_de":"Ich ___ gern mehr Zeit.","prompt_en":"I would like to have more time.",
+   "options":["hätte","habe","hatte"],"correct":"hätte",
+   "explanation_de":"Konjunktiv II von 'haben' ist unregelmäßig: hätte (Wunschform).","explanation_en":"Konjunktiv II of 'haben' is irregular: hätte (used for wishes)."},
+
+  {"id":"b1-konj-004","level":"B1","topic":"Konjunktiv II: könnte","type":"fill_blank",
+   "prompt_de":"Wenn du lauter sprichst, ___ (können) ich dich besser verstehen.","prompt_en":"If you spoke louder, I could understand you better.",
+   "correct":"könnte","explanation_de":"Konjunktiv II von 'können' ist unregelmäßig: könnte.","explanation_en":"Konjunktiv II of 'können' is irregular: könnte."}
+]

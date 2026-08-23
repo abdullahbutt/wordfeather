@@ -1,0 +1,95 @@
+[
+  {"id":"a1-kasus-001","level":"A1","topic":"Kasus: Akkusativ","type":"fill_blank",
+   "prompt_de":"Ich sehe ___ Mann.","prompt_en":"I see the man.",
+   "correct":"den","explanation_de":"Akkusativ maskulin: der → den.","explanation_en":"Accusative masculine: der → den."},
+
+  {"id":"a1-kasus-002","level":"A1","topic":"Kasus: Akkusativ","type":"mc",
+   "prompt_de":"Er kauft ___ Apfel.","prompt_en":"He buys the apple.",
+   "options":["der","den","dem"],"correct":"den",
+   "explanation_de":"'der Apfel' ist maskulin; im Akkusativ wird 'der' zu 'den'.","explanation_en":"'der Apfel' is masculine; in the accusative, 'der' becomes 'den'."},
+
+  {"id":"a1-kasus-003","level":"A1","topic":"Kasus: Nominativ vs. Akkusativ","type":"mc",
+   "prompt_de":"___ Frau liest ein Buch.","prompt_en":"The woman is reading a book.",
+   "options":["Die","Den","Der"],"correct":"Die",
+   "explanation_de":"'Frau' ist das Subjekt (Nominativ), feminin: die.","explanation_en":"'Frau' is the subject (nominative), feminine: die."},
+
+  {"id":"a1-kasus-004","level":"A1","topic":"Kasus: Akkusativ (unbestimmt)","type":"fill_blank",
+   "prompt_de":"Ich habe ___ Bruder.","prompt_en":"I have a brother.",
+   "correct":"einen","explanation_de":"Akkusativ maskulin, unbestimmter Artikel: ein → einen.","explanation_en":"Accusative masculine, indefinite article: ein → einen."},
+
+  {"id":"a1-praesens-001","level":"A1","topic":"Verben im Präsens","type":"fill_blank",
+   "prompt_de":"Du ___ (spielen) Fußball.","prompt_en":"You play football.",
+   "correct":"spielst","explanation_de":"Regelmäßiges Verb, 2. Person Singular: -st Endung.","explanation_en":"Regular verb, 2nd person singular: -st ending."},
+
+  {"id":"a1-praesens-002","level":"A1","topic":"Verben im Präsens (unregelmäßig)","type":"fill_blank",
+   "prompt_de":"Er ___ (fahren) nach Berlin.","prompt_en":"He is traveling to Berlin.",
+   "correct":"fährt","explanation_de":"'fahren' hat Vokalwechsel a→ä in der 3. Person Singular.","explanation_en":"'fahren' has a vowel change a→ä in the 3rd person singular."},
+
+  {"id":"a1-praesens-003","level":"A1","topic":"Verben im Präsens (unregelmäßig)","type":"mc",
+   "prompt_de":"Ich ___ Deutsch.","prompt_en":"I speak German.",
+   "options":["spreche","sprichst","spricht"],"correct":"spreche",
+   "explanation_de":"1. Person Singular von 'sprechen': ich spreche.","explanation_en":"1st person singular of 'sprechen': ich spreche."},
+
+  {"id":"a1-modal-001","level":"A1","topic":"Modalverben","type":"fill_blank",
+   "prompt_de":"Ich ___ (können) gut schwimmen.","prompt_en":"I can swim well.",
+   "correct":"kann","explanation_de":"'können', 1. Person Singular: ich kann (kein -e!).","explanation_en":"'können', 1st person singular: ich kann (no -e ending)."},
+
+  {"id":"a1-modal-002","level":"A1","topic":"Modalverben: Satzstellung","type":"word_order",
+   "prompt_de":"Ordne die Wörter: (heute / ich / Deutsch / muss / lernen)","prompt_en":"Arrange: (today / I / German / must / learn)",
+   "options":["Ich","muss","heute","Deutsch","lernen"],
+   "correct":["Ich","muss","heute","Deutsch","lernen"],
+   "explanation_de":"Modalverb 'muss' auf Position 2, Infinitiv 'lernen' am Satzende.","explanation_en":"Modal verb 'muss' in position 2, infinitive 'lernen' at the end of the clause."},
+
+  {"id":"a1-modal-003","level":"A1","topic":"Modalverben","type":"mc",
+   "prompt_de":"Wir ___ (möchten) einen Kaffee.","prompt_en":"We would like a coffee.",
+   "options":["möchten","möchtet","möchte"],"correct":"möchten",
+   "explanation_de":"1. Person Plural von 'möchten': wir möchten.","explanation_en":"1st person plural of 'möchten': wir möchten."},
+
+  {"id":"a1-poss-001","level":"A1","topic":"Possessivpronomen","type":"fill_blank",
+   "prompt_de":"Das ist ___ (mein) Haus.","prompt_en":"That is my house.",
+   "correct":"mein","explanation_de":"'Haus' ist Neutrum Nominativ: mein bleibt unverändert.","explanation_en":"'Haus' is neuter nominative: 'mein' stays unchanged."},
+
+  {"id":"a1-poss-002","level":"A1","topic":"Possessivpronomen","type":"fill_blank",
+   "prompt_de":"Ich sehe ___ (dein) Auto.","prompt_en":"I see your car.",
+   "correct":"dein","explanation_de":"'Auto' ist Neutrum Akkusativ: dein bleibt unverändert (wie Nominativ).","explanation_en":"'Auto' is neuter accusative: 'dein' stays the same as nominative."},
+
+  {"id":"a1-poss-003","level":"A1","topic":"Possessivpronomen","type":"mc",
+   "prompt_de":"Das ist ___ (ihr) Tasche.","prompt_en":"That is her bag.",
+   "options":["ihr","ihre","ihren"],"correct":"ihre",
+   "explanation_de":"'Tasche' ist feminin Nominativ: ihr + e = ihre.","explanation_en":"'Tasche' is feminine nominative: ihr + e = ihre."},
+
+  {"id":"a1-neg-001","level":"A1","topic":"Negation: kein vs. nicht","type":"mc",
+   "prompt_de":"Ich habe ___ Zeit.","prompt_en":"I have no time.",
+   "options":["kein","keine","nicht"],"correct":"keine",
+   "explanation_de":"'Zeit' ist feminin: kein + e = keine. 'kein/keine' verneint Nomen.","explanation_en":"'Zeit' is feminine: kein + e = keine. 'kein/keine' negates nouns."},
+
+  {"id":"a1-neg-002","level":"A1","topic":"Negation: kein vs. nicht","type":"mc",
+   "prompt_de":"Das schmeckt ___ gut.","prompt_en":"That doesn't taste good.",
+   "options":["kein","keine","nicht"],"correct":"nicht",
+   "explanation_de":"'nicht' verneint Adjektive/Verben, nicht Nomen.","explanation_en":"'nicht' negates adjectives/verbs, not nouns."},
+
+  {"id":"a1-neg-003","level":"A1","topic":"Negation: kein vs. nicht","type":"fill_blank",
+   "prompt_de":"Ich trinke ___ Kaffee.","prompt_en":"I don't drink coffee.",
+   "correct":"keinen","explanation_de":"'Kaffee' ist maskulin Akkusativ: kein → keinen.","explanation_en":"'Kaffee' is masculine accusative: kein → keinen."},
+
+  {"id":"a1-satz-001","level":"A1","topic":"Satzstellung: W-Fragen","type":"word_order",
+   "prompt_de":"Ordne die Wörter: (du / wohnst / wo)","prompt_en":"Arrange: (you / live / where)",
+   "options":["Wo","wohnst","du"],
+   "correct":["Wo","wohnst","du"],
+   "explanation_de":"W-Frage: Fragewort, dann Verb, dann Subjekt.","explanation_en":"Wh-question: question word, then verb, then subject."},
+
+  {"id":"a1-satz-002","level":"A1","topic":"Satzstellung: Verb Position 2","type":"word_order",
+   "prompt_de":"Ordne die Wörter: (heute / ich / arbeite)","prompt_en":"Arrange: (today / I / am working)",
+   "options":["Heute","arbeite","ich"],
+   "correct":["Heute","arbeite","ich"],
+   "explanation_de":"Verb bleibt auf Position 2, auch wenn ein anderes Element zuerst kommt: Heute arbeite ich.","explanation_en":"The verb stays in position 2, even when another element comes first: Heute arbeite ich."},
+
+  {"id":"a1-plural-001","level":"A1","topic":"Pluralbildung","type":"fill_blank",
+   "prompt_de":"ein Kind → zwei ___","prompt_en":"one child → two children",
+   "correct":"Kinder","explanation_de":"Plural von 'Kind' ist 'Kinder' (unregelmäßig).","explanation_en":"Plural of 'Kind' is 'Kinder' (irregular)."},
+
+  {"id":"a1-plural-002","level":"A1","topic":"Pluralbildung","type":"mc",
+   "prompt_de":"ein Auto → zwei ___","prompt_en":"one car → two cars",
+   "options":["Autos","Auten","Autoe"],"correct":"Autos",
+   "explanation_de":"Plural von 'Auto' ist 'Autos' (+s-Plural, typisch bei Fremdwörtern/Vokal-Endung).","explanation_en":"Plural of 'Auto' is 'Autos' (+s plural, typical for loanwords/vowel endings)."}
+]
