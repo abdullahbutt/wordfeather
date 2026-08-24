@@ -508,5 +508,81 @@
     </script>
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+
+    <style>
+        .d-tts{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:none;background:none;cursor:pointer;opacity:.35;transition:opacity .2s;padding:0;margin-left:3px;vertical-align:middle;border-radius:50%;font-size:13px}
+        .d-tts:hover{opacity:.8;background:rgba(29,78,216,.1)}
+        .d-tts.playing{opacity:1;color:#1d4ed8;background:rgba(29,78,216,.15)}
+        [data-bs-theme="dark"] .d-tts:hover{background:rgba(99,102,241,.2)}
+        [data-bs-theme="dark"] .d-tts.playing{color:#818cf8;background:rgba(99,102,241,.25)}
+    </style>
+
+    <script>
+    // Per-phrase listen button for Sprechen pages — same speechSynthesis
+    // pattern as Hoeren/Lesen's blockquote button, but scoped to
+    // individual phrase items (<li>, and <p> blocks that contain <br> —
+    // the "Redemittel" dash-line pattern), since Sprechen's content is
+    // discrete practice phrases rather than one continuous passage.
+    // Strips any <em> (the inline English translation) before speaking,
+    // so only the German gets read aloud, never the translation.
+    (function() {
+        if (!('speechSynthesis' in window)) return;
+        var ttsSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+        var synth = window.speechSynthesis;
+        var activeBtn = null;
+
+        function stopAll() {
+            synth.cancel();
+            if (activeBtn) { activeBtn.classList.remove('playing'); activeBtn = null; }
+        }
+
+        function germanTextOf(el) {
+            var clone = el.cloneNode(true);
+            clone.querySelectorAll('em').forEach(function (em) { em.remove(); });
+            // Bilingual section labels like "Einleitung / Introduction:"
+            // put the English half as plain text (not <em>), since it's
+            // a label pair rather than a phrase+translation. Keep only
+            // the German half before the slash for these.
+            clone.querySelectorAll('strong').forEach(function (strong) {
+                if (strong.textContent.indexOf(' / ') > -1) {
+                    strong.textContent = strong.textContent.split(' / ')[0] + ':';
+                }
+            });
+            return clone.textContent.replace(/^[\s-]+/, '').replace(/\s+/g, ' ').trim();
+        }
+
+        function addButton(el) {
+            var text = germanTextOf(el);
+            if (!text) return;
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'd-tts';
+            btn.innerHTML = ttsSvg;
+            btn.title = 'Anhören / Listen';
+            btn.addEventListener('click', function (e) {
+                e.preventDefault(); e.stopPropagation();
+                if (btn.classList.contains('playing')) { stopAll(); return; }
+                stopAll();
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'de-DE';
+                u.rate = 0.9;
+                u.onend = function () { btn.classList.remove('playing'); activeBtn = null; };
+                u.onerror = function () { btn.classList.remove('playing'); activeBtn = null; };
+                btn.classList.add('playing');
+                activeBtn = btn;
+                synth.speak(u);
+            });
+            el.appendChild(btn);
+        }
+
+        document.querySelectorAll('.markdown-content li').forEach(addButton);
+        document.querySelectorAll('.markdown-content p').forEach(function (p) {
+            if (p.querySelector('br')) addButton(p);
+        });
+
+        window.addEventListener('pagehide', stopAll);
+    })();
+    </script>
+
 </body>
 </html>
