@@ -68,9 +68,6 @@
         </button>
         <div class="collapse navbar-collapse" id="siteNavbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links">
-                <li class="nav-item">
-                    <a class="nav-link" href="/" id="nav-home">Home</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a>
@@ -118,9 +115,7 @@
         if (el) el.classList.add('active');
     }
 
-    if (path === '/' || path === '/index.html') {
-        markActive('nav-home');
-    } else if (path.indexOf('/dictionary.html') !== -1) {
+    if (path.indexOf('/dictionary.html') !== -1) {
         markActive('nav-dictionary');
     } else if (path.indexOf('/quiz.html') !== -1) {
         markActive('nav-quiz');
