@@ -197,12 +197,10 @@ INSTALL_BANNER_STYLE_SCRIPT = (
     '    <style>\n'
     '        .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}\n'
     '        .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}\n'
-    '        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;background:none;'
-    'border:none;color:#fff;text-align:left;cursor:pointer;padding:.2rem .25rem;font-size:.85rem;}\n'
+    '        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;'
+    'padding:.2rem .25rem;font-size:.85rem;}\n'
     '        .install-banner-icon{font-size:1.1rem;line-height:1;}\n'
     '        .install-banner-text{font-weight:600;flex:1;}\n'
-    '        .install-banner-chevron{opacity:.8;transition:transform .2s;}\n'
-    '        .install-banner-bar[aria-expanded="true"] .install-banner-chevron{transform:rotate(180deg);}\n'
     '        .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;'
     'color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}\n'
     '        .install-banner-close:hover{opacity:1;}\n'
@@ -221,14 +219,7 @@ INSTALL_BANNER_STYLE_SCRIPT = (
     "        try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}\n"
     '        if (isStandalone || dismissed) return;\n'
     "        banner.style.display = 'block';\n"
-    "        var toggle = document.getElementById('installBannerToggle');\n"
-    "        var panel = document.getElementById('installBannerPanel');\n"
     "        var closeBtn = document.getElementById('installBannerClose');\n"
-    "        toggle.addEventListener('click', function () {\n"
-    "            var expanded = toggle.getAttribute('aria-expanded') === 'true';\n"
-    "            toggle.setAttribute('aria-expanded', String(!expanded));\n"
-    '            panel.hidden = expanded;\n'
-    '        });\n'
     "        closeBtn.addEventListener('click', function (e) {\n"
     '            e.stopPropagation();\n'
     "            try { localStorage.setItem(KEY, '1'); } catch (e2) {}\n"
@@ -266,15 +257,13 @@ INSTALL_BANNER = (
     '    <div id="installBanner" class="install-banner-wrap" style="display:none;">\n'
     '        <div class="container">\n'
     '            <div class="install-banner">\n'
-    '                <button type="button" id="installBannerToggle" class="install-banner-bar" '
-    'aria-expanded="false" aria-controls="installBannerPanel">\n'
+    '                <div class="install-banner-bar">\n'
     '                    <span class="install-banner-icon">📱</span>\n'
     '                    <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>\n'
-    '                    <span class="install-banner-chevron">▾</span>\n'
-    '                </button>\n'
+    '                </div>\n'
     '                <button type="button" id="installBannerClose" class="install-banner-close" '
     'aria-label="Dismiss install banner">✕</button>\n'
-    '                <div id="installBannerPanel" class="install-banner-panel" hidden>\n'
+    '                <div id="installBannerPanel" class="install-banner-panel">\n'
     + INSTALL_BANNER_CARDS.replace('                    ', '                        ')
     + '                </div>\n'
     '            </div>\n'
@@ -291,15 +280,13 @@ INSTALL_BANNER_DICT = (
     '                <!-- App Install Banner -->\n'
     '                <div id="installBanner" class="install-banner-wrap mb-3" style="display:none;">\n'
     '                    <div class="install-banner">\n'
-    '                        <button type="button" id="installBannerToggle" class="install-banner-bar" '
-    'aria-expanded="false" aria-controls="installBannerPanel">\n'
+    '                        <div class="install-banner-bar">\n'
     '                            <span class="install-banner-icon">📱</span>\n'
     '                            <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>\n'
-    '                            <span class="install-banner-chevron">▾</span>\n'
-    '                        </button>\n'
+    '                        </div>\n'
     '                        <button type="button" id="installBannerClose" class="install-banner-close" '
     'aria-label="Dismiss install banner">✕</button>\n'
-    '                        <div id="installBannerPanel" class="install-banner-panel" hidden>\n'
+    '                        <div id="installBannerPanel" class="install-banner-panel">\n'
     + INSTALL_BANNER_CARDS.replace('                    ', '                            ')
     + '                        </div>\n'
     '                    </div>\n'
@@ -2013,7 +2000,7 @@ def build_wortschatz_page(level, level_words):
 <body id="top">
 <div id="header-placeholder"></div>
 <script>
-(function(){{var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-bs-theme',s);var path=window.location.pathname.replace(/\\\\/g,'/');var lm=path.match(/\\/(A1|A2|B1|B2|C1|C2)\\//);var prefix=lm?'../':'';var cl=lm?lm[1]:null;var modules={{A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']}};var labels=['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];var hFb='<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="BASE/index.html">🪶 WordFeather</a></div></nav>';function renderHeader(html){{html=html.replace(/BASE\\//g,prefix);document.getElementById('header-placeholder').innerHTML=html;if(cl){{document.querySelectorAll('.dropdown-item[data-level]').forEach(function(el){{if(el.getAttribute('data-level')===cl){{el.classList.add('active');el.setAttribute('aria-current','page');}}}}); var mf=modules[cl];var ul='<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"><li><a class="dropdown-item" href="README.html">📖 Overview</a></li><li><hr class="dropdown-divider"></li>';mf.forEach(function(f,i){{ul+='<li><a class="dropdown-item" href="'+f+'">'+labels[i]+'</a></li>';}}); ul+='</ul>';var li=document.createElement('li');li.className='nav-item dropdown';li.innerHTML='<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">'+cl+' Modules</a>'+ul;var nav=document.getElementById('nav-main-links');var lvLi=document.getElementById('nav-levels');lvLi=lvLi?lvLi.closest('li'):null;if(lvLi&&lvLi.nextSibling){{lvLi.parentNode.insertBefore(li,lvLi.nextSibling);}}else if(nav){{nav.appendChild(li);}}}}var btn=document.getElementById('themeToggle');if(btn){{function sync(){{var d=document.documentElement.getAttribute('data-bs-theme')==='dark';btn.textContent=d?'☀️ Light':'🌙 Dark';}}sync();btn.addEventListener('click',function(){{var n=document.documentElement.getAttribute('data-bs-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-bs-theme',n);localStorage.setItem('theme',n);sync();}});}}}}
+(function(){{var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-bs-theme',s);var path=window.location.pathname.replace(/\\\\/g,'/');var lm=path.match(/\\/(A1|A2|B1|B2|C1|C2)\\//);var prefix=lm?'../':'';var cl=lm?lm[1]:null;var modules={{A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']}};var labels=['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Musterprüfung'];var hFb='<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="/">🪶 WordFeather</a></div></nav>';function renderHeader(html){{html=html.replace(/BASE\\//g,prefix);document.getElementById('header-placeholder').innerHTML=html;if(cl){{document.querySelectorAll('.dropdown-item[data-level]').forEach(function(el){{if(el.getAttribute('data-level')===cl){{el.classList.add('active');el.setAttribute('aria-current','page');}}}}); var mf=modules[cl];var ul='<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"><li><a class="dropdown-item" href="README.html">📖 Overview</a></li><li><hr class="dropdown-divider"></li>';mf.forEach(function(f,i){{ul+='<li><a class="dropdown-item" href="'+f+'">'+labels[i]+'</a></li>';}}); ul+='</ul>';var li=document.createElement('li');li.className='nav-item dropdown';li.innerHTML='<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">'+cl+' Modules</a>'+ul;var nav=document.getElementById('nav-main-links');var lvLi=document.getElementById('nav-levels');lvLi=lvLi?lvLi.closest('li'):null;if(lvLi&&lvLi.nextSibling){{lvLi.parentNode.insertBefore(li,lvLi.nextSibling);}}else if(nav){{nav.appendChild(li);}}}}var btn=document.getElementById('themeToggle');if(btn){{function sync(){{var d=document.documentElement.getAttribute('data-bs-theme')==='dark';btn.textContent=d?'☀️ Light':'🌙 Dark';}}sync();btn.addEventListener('click',function(){{var n=document.documentElement.getAttribute('data-bs-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-bs-theme',n);localStorage.setItem('theme',n);sync();}});}}}}
 fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.reject();}}).then(renderHeader).catch(function(){{renderHeader(hFb);}});
 }})();
 </script>

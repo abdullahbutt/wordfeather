@@ -237,13 +237,12 @@
     <div id="installBanner" class="install-banner-wrap" style="display:none;">
         <div class="container">
             <div class="install-banner">
-                <button type="button" id="installBannerToggle" class="install-banner-bar" aria-expanded="false" aria-controls="installBannerPanel">
+                <div class="install-banner-bar">
                     <span class="install-banner-icon">📱</span>
                     <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>
-                    <span class="install-banner-chevron">▾</span>
-                </button>
+                </div>
                 <button type="button" id="installBannerClose" class="install-banner-close" aria-label="Dismiss install banner">✕</button>
-                <div id="installBannerPanel" class="install-banner-panel" hidden>
+                <div id="installBannerPanel" class="install-banner-panel">
                         <div class="row g-2">
                             <div class="col-6 col-md-3">
                                 <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div><div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>
@@ -265,11 +264,9 @@
     <style>
         .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}
         .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}
-        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;background:none;border:none;color:#fff;text-align:left;cursor:pointer;padding:.2rem .25rem;font-size:.85rem;}
+        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;padding:.2rem .25rem;font-size:.85rem;}
         .install-banner-icon{font-size:1.1rem;line-height:1;}
         .install-banner-text{font-weight:600;flex:1;}
-        .install-banner-chevron{opacity:.8;transition:transform .2s;}
-        .install-banner-bar[aria-expanded="true"] .install-banner-chevron{transform:rotate(180deg);}
         .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}
         .install-banner-close:hover{opacity:1;}
         .install-banner-panel{padding-top:.5rem;}
@@ -286,14 +283,7 @@
         try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
         if (isStandalone || dismissed) return;
         banner.style.display = 'block';
-        var toggle = document.getElementById('installBannerToggle');
-        var panel = document.getElementById('installBannerPanel');
         var closeBtn = document.getElementById('installBannerClose');
-        toggle.addEventListener('click', function () {
-            var expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            panel.hidden = expanded;
-        });
         closeBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             try { localStorage.setItem(KEY, '1'); } catch (e2) {}
