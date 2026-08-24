@@ -2010,7 +2010,7 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
 <div class="card-body p-4 p-lg-5">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb small mb-3">
-            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="index.html">{level}</a></li>
             <li class="breadcrumb-item active">01 Wortschatz</li>
         </ol>
