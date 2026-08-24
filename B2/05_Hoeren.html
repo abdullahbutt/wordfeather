@@ -493,5 +493,63 @@
     </script>
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+
+    <style>
+        .d-tts{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:none;background:none;cursor:pointer;opacity:.35;transition:opacity .2s;padding:0;margin-left:3px;vertical-align:middle;border-radius:50%;font-size:13px}
+        .d-tts:hover{opacity:.8;background:rgba(29,78,216,.1)}
+        .d-tts.playing{opacity:1;color:#1d4ed8;background:rgba(29,78,216,.15)}
+        [data-bs-theme="dark"] .d-tts:hover{background:rgba(99,102,241,.2)}
+        [data-bs-theme="dark"] .d-tts.playing{color:#818cf8;background:rgba(99,102,241,.25)}
+        .listen-btn{display:inline-flex;align-items:center;gap:.35rem;margin-bottom:.5rem;padding:.3rem .7rem;border-radius:999px;border:1px solid var(--alpha-border);background:var(--card-bg);color:var(--page-text);font-size:.82rem;cursor:pointer;transition:background .15s,opacity .2s}
+        .listen-btn:hover{background:var(--alpha-bg)}
+        .listen-btn.playing{opacity:1;color:#1d4ed8;border-color:#1d4ed8;background:rgba(29,78,216,.08)}
+        [data-bs-theme="dark"] .listen-btn.playing{color:#818cf8;border-color:#818cf8;background:rgba(99,102,241,.15)}
+    </style>
+
+    <script>
+    // Sound-play button for listening passages — same speechSynthesis
+    // pattern already used for word pronunciation elsewhere on the
+    // site (see dictionary.html's addTtsIfAvailable), applied here to
+    // whole blockquote passages instead of single words. Skips
+    // silently if the browser has no speechSynthesis support, same
+    // fallback behavior as the rest of the site.
+    (function() {
+        if (!('speechSynthesis' in window)) return;
+        var ttsSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+        var synth = window.speechSynthesis;
+        var activeBtn = null;
+
+        function stopAll() {
+            synth.cancel();
+            if (activeBtn) { activeBtn.classList.remove('playing'); activeBtn = null; }
+        }
+
+        document.querySelectorAll('blockquote').forEach(function (bq) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'listen-btn';
+            btn.innerHTML = ttsSvg + '<span>Anhören / Listen</span>';
+            btn.addEventListener('click', function () {
+                if (btn.classList.contains('playing')) { stopAll(); return; }
+                stopAll();
+                var clean = bq.textContent.replace(/\s+/g, ' ').trim();
+                if (!clean) return;
+                var u = new SpeechSynthesisUtterance(clean);
+                u.lang = 'de-DE';
+                u.rate = 0.9;
+                u.onend = function () { btn.classList.remove('playing'); activeBtn = null; };
+                u.onerror = function () { btn.classList.remove('playing'); activeBtn = null; };
+                btn.classList.add('playing');
+                activeBtn = btn;
+                synth.speak(u);
+            });
+            bq.parentNode.insertBefore(btn, bq);
+        });
+
+        // Stop any playback if the user navigates away.
+        window.addEventListener('pagehide', stopAll);
+    })();
+    </script>
+
 </body>
 </html>
