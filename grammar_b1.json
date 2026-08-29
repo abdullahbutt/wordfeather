@@ -1,91 +1,867 @@
 [
-  {"id":"b1-neben-001","level":"B1","topic":"Nebensätze: weil","type":"fill_blank",
-   "prompt_de":"Ich bleibe im Bett, weil ich krank ___ (sein).","prompt_en":"I stay in bed because I am sick.",
-   "correct":"bin","explanation_de":"Im Nebensatz steht das konjugierte Verb am Ende: ...krank bin.","explanation_en":"In a subordinate clause, the conjugated verb goes to the end: ...krank bin."},
-
-  {"id":"b1-neben-002","level":"B1","topic":"Nebensätze: dass","type":"word_order",
-   "prompt_de":"Ordne die Wörter: (dass / er / morgen / kommt)","prompt_en":"Arrange: (that / he / tomorrow / is coming)",
-   "options":["kommt","dass","morgen","er"],
-   "correct":["dass","er","morgen","kommt"],
-   "explanation_de":"Nebensatz-Wortstellung: Konjunktion, Subjekt, weitere Angaben, Verb am Ende.","explanation_en":"Subordinate clause word order: conjunction, subject, other elements, verb at the end."},
-
-  {"id":"b1-neben-003","level":"B1","topic":"Nebensätze: Verbposition im Hauptsatz","type":"fill_blank",
-   "prompt_de":"Wenn es regnet, ___ (bleiben) ich zu Hause.","prompt_en":"If it rains, I stay home.",
-   "correct":"bleibe","explanation_de":"Nach einem vorangestellten Nebensatz steht das Verb im Hauptsatz auf Position 2: Wenn es regnet, bleibe ich...","explanation_en":"After a fronted subordinate clause, the verb in the main clause stays in position 2: Wenn es regnet, bleibe ich..."},
-
-  {"id":"b1-neben-004","level":"B1","topic":"Nebensätze: obwohl","type":"word_order",
-   "prompt_de":"Ordne die Wörter: (obwohl / es / regnet)","prompt_en":"Arrange: (although / it / is raining)",
-   "options":["regnet","obwohl","es"],
-   "correct":["obwohl","es","regnet"],
-   "explanation_de":"Nebensatz: Konjunktion 'obwohl', Subjekt 'es', Verb 'regnet' am Ende.","explanation_en":"Subordinate clause: conjunction 'obwohl', subject 'es', verb 'regnet' at the end."},
-
-  {"id":"b1-neben-005","level":"B1","topic":"Nebensätze: Konjunktionen","type":"mc",
-   "prompt_de":"Ich glaube, ___ das stimmt.","prompt_en":"I believe that this is correct.",
-   "options":["dass","weil","wenn"],"correct":"dass",
-   "explanation_de":"'glauben, dass...' — 'dass' leitet einen Nebensatz ohne Grund-/Bedingungsbedeutung ein.","explanation_en":"'glauben, dass...' — 'dass' introduces a subordinate clause with no reason/condition meaning."},
-
-  {"id":"b1-gen-001","level":"B1","topic":"Kasus: Genitiv","type":"fill_blank",
-   "prompt_de":"Das ist das Auto ___ Mannes.","prompt_en":"That is the man's car.",
-   "correct":"des","explanation_de":"Genitiv maskulin: der → des; das Nomen bekommt zusätzlich -es.","explanation_en":"Genitive masculine: der → des; the noun also gets an -es ending."},
-
-  {"id":"b1-gen-002","level":"B1","topic":"Kasus: Genitiv","type":"mc",
-   "prompt_de":"Die Farbe ___ (das Auto) ist rot.","prompt_en":"The color of the car is red.",
-   "options":["des Autos","dem Auto","das Auto"],"correct":"des Autos",
-   "explanation_de":"Genitiv neutrum: das → des; das Nomen bekommt zusätzlich -s.","explanation_en":"Genitive neuter: das → des; the noun also gets an -s ending."},
-
-  {"id":"b1-gen-003","level":"B1","topic":"Kasus: Genitiv (feminin)","type":"fill_blank",
-   "prompt_de":"Die Tasche ___ Frau ist teuer.","prompt_en":"The woman's bag is expensive.",
-   "correct":"der","explanation_de":"Genitiv feminin: die → der; feminine Nomen bekommen KEINE zusätzliche Endung.","explanation_en":"Genitive feminine: die → der; feminine nouns get NO extra ending."},
-
-  {"id":"b1-rel-001","level":"B1","topic":"Relativsätze: Nominativ","type":"fill_blank",
-   "prompt_de":"Der Mann, ___ dort steht, ist mein Lehrer.","prompt_en":"The man who is standing there is my teacher.",
-   "correct":"der","explanation_de":"Relativpronomen Nominativ maskulin: der (Subjekt des Relativsatzes).","explanation_en":"Relative pronoun, nominative masculine: der (subject of the relative clause)."},
-
-  {"id":"b1-rel-002","level":"B1","topic":"Relativsätze: Akkusativ","type":"mc",
-   "prompt_de":"Die Frau, ___ ich gestern getroffen habe, ist Ärztin.","prompt_en":"The woman whom I met yesterday is a doctor.",
-   "options":["die","der","den"],"correct":"die",
-   "explanation_de":"'treffen' verlangt Akkusativ; Akkusativ feminin sieht wie Nominativ aus: die.","explanation_en":"'treffen' takes the accusative; feminine accusative looks the same as nominative: die."},
-
-  {"id":"b1-rel-003","level":"B1","topic":"Relativsätze: Dativ","type":"fill_blank",
-   "prompt_de":"Das Kind, ___ ich geholfen habe, ist glücklich.","prompt_en":"The child whom I helped is happy.",
-   "correct":"dem","explanation_de":"'helfen' verlangt Dativ; Dativ Neutrum: dem.","explanation_en":"'helfen' takes the dative; dative neuter: dem."},
-
-  {"id":"b1-rel-004","level":"B1","topic":"Relativsätze: Plural","type":"mc",
-   "prompt_de":"Die Kinder, ___ dort spielen, sind laut.","prompt_en":"The children who are playing there are loud.",
-   "options":["die","der","denen"],"correct":"die",
-   "explanation_de":"Relativpronomen Nominativ Plural (alle Genera): die.","explanation_en":"Relative pronoun, nominative plural (all genders): die."},
-
-  {"id":"b1-pass-001","level":"B1","topic":"Passiv: Präsens","type":"fill_blank",
-   "prompt_de":"Das Fenster ___ (werden) geöffnet.","prompt_en":"The window is (being) opened.",
-   "correct":"wird","explanation_de":"Passiv Präsens: werden (konjugiert) + Partizip II; 3. Person Singular: wird.","explanation_en":"Present passive: werden (conjugated) + past participle; 3rd person singular: wird."},
-
-  {"id":"b1-pass-002","level":"B1","topic":"Passiv: Partizip II","type":"fill_blank",
-   "prompt_de":"Der Brief wird von ihr ___ (schreiben).","prompt_en":"The letter is being written by her.",
-   "correct":"geschrieben","explanation_de":"Partizip II von 'schreiben' (unregelmäßig): geschrieben.","explanation_en":"Past participle of 'schreiben' (irregular): geschrieben."},
-
-  {"id":"b1-pass-003","level":"B1","topic":"Passiv: Präteritum","type":"mc",
-   "prompt_de":"Das Haus ___ 1990 gebaut.","prompt_en":"The house was built in 1990.",
-   "options":["wurde","wird","ist"],"correct":"wurde",
-   "explanation_de":"Passiv Präteritum: wurde + Partizip II.","explanation_en":"Passive Präteritum: wurde + past participle."},
-
-  {"id":"b1-pass-004","level":"B1","topic":"Passiv mit Modalverb","type":"fill_blank",
-   "prompt_de":"Die Arbeit muss heute ___ (machen).","prompt_en":"The work must be done today.",
-   "correct":"gemacht werden","explanation_de":"Passiv mit Modalverb: Modalverb (muss) + Partizip II + werden (Infinitiv Passiv) am Satzende.","explanation_en":"Passive with a modal verb: modal (muss) + past participle + werden (passive infinitive) at the end of the clause."},
-
-  {"id":"b1-konj-001","level":"B1","topic":"Konjunktiv II: würde","type":"fill_blank",
-   "prompt_de":"Wenn ich Geld hätte, ___ ich ein neues Auto kaufen.","prompt_en":"If I had money, I would buy a new car.",
-   "correct":"würde","explanation_de":"Konjunktiv II mit würde + Infinitiv (kaufen steht am Satzende).","explanation_en":"Konjunktiv II with würde + infinitive (kaufen goes to the end of the clause)."},
-
-  {"id":"b1-konj-002","level":"B1","topic":"Konjunktiv II: wäre","type":"fill_blank",
-   "prompt_de":"Wenn ich reich ___ (sein), würde ich ein Haus kaufen.","prompt_en":"If I were rich, I would buy a house.",
-   "correct":"wäre","explanation_de":"Konjunktiv II von 'sein' ist unregelmäßig: wäre (nicht 'würde sein').","explanation_en":"Konjunktiv II of 'sein' is irregular: wäre (not 'würde sein')."},
-
-  {"id":"b1-konj-003","level":"B1","topic":"Konjunktiv II: hätte","type":"mc",
-   "prompt_de":"Ich ___ gern mehr Zeit.","prompt_en":"I would like to have more time.",
-   "options":["hätte","habe","hatte"],"correct":"hätte",
-   "explanation_de":"Konjunktiv II von 'haben' ist unregelmäßig: hätte (Wunschform).","explanation_en":"Konjunktiv II of 'haben' is irregular: hätte (used for wishes)."},
-
-  {"id":"b1-konj-004","level":"B1","topic":"Konjunktiv II: könnte","type":"fill_blank",
-   "prompt_de":"Wenn du lauter sprichst, ___ (können) ich dich besser verstehen.","prompt_en":"If you spoke louder, I could understand you better.",
-   "correct":"könnte","explanation_de":"Konjunktiv II von 'können' ist unregelmäßig: könnte.","explanation_en":"Konjunktiv II of 'können' is irregular: könnte."}
+  {
+    "id": "b1-neben-001",
+    "level": "B1",
+    "topic": "Nebensätze: weil",
+    "type": "fill_blank",
+    "prompt_de": "Ich bleibe im Bett, weil ich krank ___ (sein).",
+    "prompt_en": "I stay in bed because I am sick.",
+    "correct": "bin",
+    "explanation_de": "Im Nebensatz steht das konjugierte Verb am Ende: ...krank bin.",
+    "explanation_en": "In a subordinate clause, the conjugated verb goes to the end: ...krank bin."
+  },
+  {
+    "id": "b1-neben-002",
+    "level": "B1",
+    "topic": "Nebensätze: dass",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (dass / er / morgen / kommt)",
+    "prompt_en": "Arrange: (that / he / tomorrow / is coming)",
+    "options": [
+      "kommt",
+      "dass",
+      "morgen",
+      "er"
+    ],
+    "correct": [
+      "dass",
+      "er",
+      "morgen",
+      "kommt"
+    ],
+    "explanation_de": "Nebensatz-Wortstellung: Konjunktion, Subjekt, weitere Angaben, Verb am Ende.",
+    "explanation_en": "Subordinate clause word order: conjunction, subject, other elements, verb at the end."
+  },
+  {
+    "id": "b1-neben-003",
+    "level": "B1",
+    "topic": "Nebensätze: Verbposition im Hauptsatz",
+    "type": "fill_blank",
+    "prompt_de": "Wenn es regnet, ___ (bleiben) ich zu Hause.",
+    "prompt_en": "If it rains, I stay home.",
+    "correct": "bleibe",
+    "explanation_de": "Nach einem vorangestellten Nebensatz steht das Verb im Hauptsatz auf Position 2: Wenn es regnet, bleibe ich...",
+    "explanation_en": "After a fronted subordinate clause, the verb in the main clause stays in position 2: Wenn es regnet, bleibe ich..."
+  },
+  {
+    "id": "b1-neben-004",
+    "level": "B1",
+    "topic": "Nebensätze: obwohl",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (obwohl / es / regnet)",
+    "prompt_en": "Arrange: (although / it / is raining)",
+    "options": [
+      "regnet",
+      "obwohl",
+      "es"
+    ],
+    "correct": [
+      "obwohl",
+      "es",
+      "regnet"
+    ],
+    "explanation_de": "Nebensatz: Konjunktion 'obwohl', Subjekt 'es', Verb 'regnet' am Ende.",
+    "explanation_en": "Subordinate clause: conjunction 'obwohl', subject 'es', verb 'regnet' at the end."
+  },
+  {
+    "id": "b1-neben-005",
+    "level": "B1",
+    "topic": "Nebensätze: Konjunktionen",
+    "type": "mc",
+    "prompt_de": "Ich glaube, ___ das stimmt.",
+    "prompt_en": "I believe that this is correct.",
+    "options": [
+      "dass",
+      "weil",
+      "wenn"
+    ],
+    "correct": "dass",
+    "explanation_de": "'glauben, dass...' — 'dass' leitet einen Nebensatz ohne Grund-/Bedingungsbedeutung ein.",
+    "explanation_en": "'glauben, dass...' — 'dass' introduces a subordinate clause with no reason/condition meaning."
+  },
+  {
+    "id": "b1-gen-001",
+    "level": "B1",
+    "topic": "Kasus: Genitiv",
+    "type": "fill_blank",
+    "prompt_de": "Das ist das Auto ___ Mannes.",
+    "prompt_en": "That is the man's car.",
+    "correct": "des",
+    "explanation_de": "Genitiv maskulin: der → des; das Nomen bekommt zusätzlich -es.",
+    "explanation_en": "Genitive masculine: der → des; the noun also gets an -es ending."
+  },
+  {
+    "id": "b1-gen-002",
+    "level": "B1",
+    "topic": "Kasus: Genitiv",
+    "type": "mc",
+    "prompt_de": "Die Farbe ___ (das Auto) ist rot.",
+    "prompt_en": "The color of the car is red.",
+    "options": [
+      "des Autos",
+      "dem Auto",
+      "das Auto"
+    ],
+    "correct": "des Autos",
+    "explanation_de": "Genitiv neutrum: das → des; das Nomen bekommt zusätzlich -s.",
+    "explanation_en": "Genitive neuter: das → des; the noun also gets an -s ending."
+  },
+  {
+    "id": "b1-gen-003",
+    "level": "B1",
+    "topic": "Kasus: Genitiv (feminin)",
+    "type": "fill_blank",
+    "prompt_de": "Die Tasche ___ Frau ist teuer.",
+    "prompt_en": "The woman's bag is expensive.",
+    "correct": "der",
+    "explanation_de": "Genitiv feminin: die → der; feminine Nomen bekommen KEINE zusätzliche Endung.",
+    "explanation_en": "Genitive feminine: die → der; feminine nouns get NO extra ending."
+  },
+  {
+    "id": "b1-rel-001",
+    "level": "B1",
+    "topic": "Relativsätze: Nominativ",
+    "type": "fill_blank",
+    "prompt_de": "Der Mann, ___ dort steht, ist mein Lehrer.",
+    "prompt_en": "The man who is standing there is my teacher.",
+    "correct": "der",
+    "explanation_de": "Relativpronomen Nominativ maskulin: der (Subjekt des Relativsatzes).",
+    "explanation_en": "Relative pronoun, nominative masculine: der (subject of the relative clause)."
+  },
+  {
+    "id": "b1-rel-002",
+    "level": "B1",
+    "topic": "Relativsätze: Akkusativ",
+    "type": "mc",
+    "prompt_de": "Die Frau, ___ ich gestern getroffen habe, ist Ärztin.",
+    "prompt_en": "The woman whom I met yesterday is a doctor.",
+    "options": [
+      "die",
+      "der",
+      "den"
+    ],
+    "correct": "die",
+    "explanation_de": "'treffen' verlangt Akkusativ; Akkusativ feminin sieht wie Nominativ aus: die.",
+    "explanation_en": "'treffen' takes the accusative; feminine accusative looks the same as nominative: die."
+  },
+  {
+    "id": "b1-rel-003",
+    "level": "B1",
+    "topic": "Relativsätze: Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Das Kind, ___ ich geholfen habe, ist glücklich.",
+    "prompt_en": "The child whom I helped is happy.",
+    "correct": "dem",
+    "explanation_de": "'helfen' verlangt Dativ; Dativ Neutrum: dem.",
+    "explanation_en": "'helfen' takes the dative; dative neuter: dem."
+  },
+  {
+    "id": "b1-rel-004",
+    "level": "B1",
+    "topic": "Relativsätze: Plural",
+    "type": "mc",
+    "prompt_de": "Die Kinder, ___ dort spielen, sind laut.",
+    "prompt_en": "The children who are playing there are loud.",
+    "options": [
+      "die",
+      "der",
+      "denen"
+    ],
+    "correct": "die",
+    "explanation_de": "Relativpronomen Nominativ Plural (alle Genera): die.",
+    "explanation_en": "Relative pronoun, nominative plural (all genders): die."
+  },
+  {
+    "id": "b1-pass-001",
+    "level": "B1",
+    "topic": "Passiv: Präsens",
+    "type": "fill_blank",
+    "prompt_de": "Das Fenster ___ (werden) geöffnet.",
+    "prompt_en": "The window is (being) opened.",
+    "correct": "wird",
+    "explanation_de": "Passiv Präsens: werden (konjugiert) + Partizip II; 3. Person Singular: wird.",
+    "explanation_en": "Present passive: werden (conjugated) + past participle; 3rd person singular: wird."
+  },
+  {
+    "id": "b1-pass-002",
+    "level": "B1",
+    "topic": "Passiv: Partizip II",
+    "type": "fill_blank",
+    "prompt_de": "Der Brief wird von ihr ___ (schreiben).",
+    "prompt_en": "The letter is being written by her.",
+    "correct": "geschrieben",
+    "explanation_de": "Partizip II von 'schreiben' (unregelmäßig): geschrieben.",
+    "explanation_en": "Past participle of 'schreiben' (irregular): geschrieben."
+  },
+  {
+    "id": "b1-pass-003",
+    "level": "B1",
+    "topic": "Passiv: Präteritum",
+    "type": "mc",
+    "prompt_de": "Das Haus ___ 1990 gebaut.",
+    "prompt_en": "The house was built in 1990.",
+    "options": [
+      "wurde",
+      "wird",
+      "ist"
+    ],
+    "correct": "wurde",
+    "explanation_de": "Passiv Präteritum: wurde + Partizip II.",
+    "explanation_en": "Passive Präteritum: wurde + past participle."
+  },
+  {
+    "id": "b1-pass-004",
+    "level": "B1",
+    "topic": "Passiv mit Modalverb",
+    "type": "fill_blank",
+    "prompt_de": "Die Arbeit muss heute ___ (machen).",
+    "prompt_en": "The work must be done today.",
+    "correct": "gemacht werden",
+    "explanation_de": "Passiv mit Modalverb: Modalverb (muss) + Partizip II + werden (Infinitiv Passiv) am Satzende.",
+    "explanation_en": "Passive with a modal verb: modal (muss) + past participle + werden (passive infinitive) at the end of the clause."
+  },
+  {
+    "id": "b1-konj-001",
+    "level": "B1",
+    "topic": "Konjunktiv II: würde",
+    "type": "fill_blank",
+    "prompt_de": "Wenn ich Geld hätte, ___ ich ein neues Auto kaufen.",
+    "prompt_en": "If I had money, I would buy a new car.",
+    "correct": "würde",
+    "explanation_de": "Konjunktiv II mit würde + Infinitiv (kaufen steht am Satzende).",
+    "explanation_en": "Konjunktiv II with würde + infinitive (kaufen goes to the end of the clause)."
+  },
+  {
+    "id": "b1-konj-002",
+    "level": "B1",
+    "topic": "Konjunktiv II: wäre",
+    "type": "fill_blank",
+    "prompt_de": "Wenn ich reich ___ (sein), würde ich ein Haus kaufen.",
+    "prompt_en": "If I were rich, I would buy a house.",
+    "correct": "wäre",
+    "explanation_de": "Konjunktiv II von 'sein' ist unregelmäßig: wäre (nicht 'würde sein').",
+    "explanation_en": "Konjunktiv II of 'sein' is irregular: wäre (not 'würde sein')."
+  },
+  {
+    "id": "b1-konj-003",
+    "level": "B1",
+    "topic": "Konjunktiv II: hätte",
+    "type": "mc",
+    "prompt_de": "Ich ___ gern mehr Zeit.",
+    "prompt_en": "I would like to have more time.",
+    "options": [
+      "hätte",
+      "habe",
+      "hatte"
+    ],
+    "correct": "hätte",
+    "explanation_de": "Konjunktiv II von 'haben' ist unregelmäßig: hätte (Wunschform).",
+    "explanation_en": "Konjunktiv II of 'haben' is irregular: hätte (used for wishes)."
+  },
+  {
+    "id": "b1-konj-004",
+    "level": "B1",
+    "topic": "Konjunktiv II: könnte",
+    "type": "fill_blank",
+    "prompt_de": "Wenn du lauter sprichst, ___ (können) ich dich besser verstehen.",
+    "prompt_en": "If you spoke louder, I could understand you better.",
+    "correct": "könnte",
+    "explanation_de": "Konjunktiv II von 'können' ist unregelmäßig: könnte.",
+    "explanation_en": "Konjunktiv II of 'können' is irregular: könnte."
+  },
+  {
+    "id": "b1-konj-nichtnur-001",
+    "level": "B1",
+    "topic": "Konjunktionen: nicht nur...sondern auch",
+    "type": "mc",
+    "prompt_de": "Die Wohnung hat nicht nur ein Bad, ____ auch eine Küche.",
+    "prompt_en": "The apartment has not only a bathroom, but also a kitchen.",
+    "options": [
+      "aber",
+      "sondern",
+      "oder",
+      "mit"
+    ],
+    "correct": "sondern",
+    "explanation_de": "'Nicht nur ... sondern auch' ist ein festes Konnektorenpaar mit der Bedeutung 'nicht nur ... sondern auch'.",
+    "explanation_en": "'Nicht nur ... sondern auch' is a fixed correlating pair meaning 'not only ... but also'."
+  },
+  {
+    "id": "b1-umzu-001",
+    "level": "B1",
+    "topic": "\"um...zu\"-Sätze",
+    "type": "mc",
+    "prompt_de": "Ich brauche eine Leiter, ____ das Bild an die Wand ____ hängen.",
+    "prompt_en": "I need a ladder [in order] to hang the picture on the wall.",
+    "options": [
+      "und/für",
+      "zwei/von",
+      "für/zu",
+      "um/zu"
+    ],
+    "correct": "um/zu",
+    "explanation_de": "'Um...zu' + Infinitiv drückt einen Zweck aus ('um etwas zu tun').",
+    "explanation_en": "'Um...zu' + infinitive expresses purpose ('in order to')."
+  },
+  {
+    "id": "b1-frage-002",
+    "level": "B1",
+    "topic": "Fragewörter",
+    "type": "mc",
+    "prompt_de": "____ Monat ist jetzt?",
+    "prompt_en": "Which month is it now?",
+    "options": [
+      "Welcher",
+      "Was für eine",
+      "Was",
+      "Wann"
+    ],
+    "correct": "Welcher",
+    "explanation_de": "'Welcher' stimmt mit dem maskulinen Nomen 'der Monat' im Nominativ überein.",
+    "explanation_en": "'Welcher' (which) agrees with the masculine noun 'der Monat' in the nominative."
+  },
+  {
+    "id": "b1-neben-wenn-001",
+    "level": "B1",
+    "topic": "Nebensätze: wenn",
+    "type": "mc",
+    "prompt_de": "____ es schneit, fahre ich Ski.",
+    "prompt_en": "Whenever it snows, I go skiing.",
+    "options": [
+      "Wann",
+      "Als",
+      "So",
+      "Wenn"
+    ],
+    "correct": "Wenn",
+    "explanation_de": "'Wenn' wird für wiederholte/bedingte Situationen in der Gegenwart verwendet ('immer wenn').",
+    "explanation_en": "'Wenn' is used for repeated/conditional situations in the present ('whenever/if')."
+  },
+  {
+    "id": "b1-komp-als-001",
+    "level": "B1",
+    "topic": "Komparativ: als",
+    "type": "mc",
+    "prompt_de": "Der Roman ist interessanter ____ das Theaterstück.",
+    "prompt_en": "The novel is more interesting than the play.",
+    "options": [
+      "wie",
+      "als",
+      "als wie",
+      "wie als"
+    ],
+    "correct": "als",
+    "explanation_de": "Im Deutschen wird beim Komparativ 'als' für 'than' verwendet, nicht 'wie'.",
+    "explanation_en": "German comparatives use 'als' for 'than', not 'wie'."
+  },
+  {
+    "id": "b1-praep-dativ-001",
+    "level": "B1",
+    "topic": "Präpositionen mit Dativ",
+    "type": "mc",
+    "prompt_de": "Es steht vor ____.",
+    "prompt_en": "It's standing in front of me.",
+    "options": [
+      "mir",
+      "dich",
+      "sie",
+      "ihn"
+    ],
+    "correct": "mir",
+    "explanation_de": "'Vor' (räumlich, feste Position) verlangt den Dativ: <b>mir</b> (Dativ von ich).",
+    "explanation_en": "'Vor' (in front of), used for static location, takes the dative: <b>mir</b> (dative of ich)."
+  },
+  {
+    "id": "b1-indef-alles-001",
+    "level": "B1",
+    "topic": "Indefinitpronomen: alles",
+    "type": "mc",
+    "prompt_de": "Ich bin mit ____ zufrieden.",
+    "prompt_en": "I am satisfied with everything.",
+    "options": [
+      "alle",
+      "alles",
+      "allem",
+      "aller"
+    ],
+    "correct": "allem",
+    "explanation_de": "'Mit' verlangt den Dativ: <b>allem</b> (Dativ Neutrum von 'alles').",
+    "explanation_en": "'Mit' governs the dative case: <b>allem</b> (dative neuter of 'alles')."
+  },
+  {
+    "id": "b1-verb-freuen-001",
+    "level": "B1",
+    "topic": "Verben mit Präposition: sich freuen auf",
+    "type": "mc",
+    "prompt_de": "Ich freue mich ____ die Ferien.",
+    "prompt_en": "I'm looking forward to the vacation.",
+    "options": [
+      "an",
+      "auf",
+      "über",
+      "für"
+    ],
+    "correct": "auf",
+    "explanation_de": "'Sich freuen auf' + Akkusativ drückt die Vorfreude auf ein zukünftiges Ereignis aus.",
+    "explanation_en": "'Sich freuen auf' + accusative expresses looking forward to a future event."
+  },
+  {
+    "id": "b1-inf-zu-001",
+    "level": "B1",
+    "topic": "Infinitiv mit \"zu\"",
+    "type": "mc",
+    "prompt_de": "Toll, dich zu ____!",
+    "prompt_en": "Great to see you!",
+    "options": [
+      "nennen",
+      "kennenlernen",
+      "sehen",
+      "gehen"
+    ],
+    "correct": "sehen",
+    "explanation_de": "Der Satz stellt 'zu' bereits als eigenes Wort bereit. 'Kennenlernen' bräuchte 'zu' eingefügt in einem Wort (kennen<b>zu</b>lernen — vgl. Frage 49), passt hier also nicht. 'Sehen' passt korrekt: <b>Toll, dich zu sehen!</b>",
+    "explanation_en": "The sentence already places 'zu' as a separate word. 'Kennenlernen' would need 'zu' infixed as one word (kennen<b>zu</b>lernen — compare Q49), so it doesn't fit here. 'Sehen' fits correctly: <b>Toll, dich zu sehen!</b>"
+  },
+  {
+    "id": "b1-verb-dat-akk-001",
+    "level": "B1",
+    "topic": "Verben mit Dativ und Akkusativ",
+    "type": "mc",
+    "prompt_de": "Die Verkäuferin zeigt ____ Kundin ____ Tasche.",
+    "prompt_en": "The saleswoman shows the customer the bag.",
+    "options": [
+      "der/die",
+      "die/der",
+      "der/der",
+      "die/die"
+    ],
+    "correct": "der/die",
+    "explanation_de": "'Zeigen' verlangt Dativ (die Person) + Akkusativ (die Sache). 'Die Kundin' (fem.) → Dativ <b>der Kundin</b>; 'die Tasche' (fem.) → Akkusativ <b>die Tasche</b>.",
+    "explanation_en": "'Zeigen' governs dative (the person shown something) + accusative (the thing shown). 'Die Kundin' (fem.) → dative <b>der Kundin</b>; 'die Tasche' (fem.) → accusative <b>die Tasche</b>."
+  },
+  {
+    "id": "b1-wortschatz-vergleich-001",
+    "level": "B1",
+    "topic": "Wortschatz: Vergleiche",
+    "type": "mc",
+    "prompt_de": "Eine Wohnung in München kostet im Vergleich zu Leipzig ____.",
+    "prompt_en": "An apartment in Munich costs, compared to Leipzig, double.",
+    "options": [
+      "jede zweite",
+      "ungefähr",
+      "halb",
+      "das Doppelte"
+    ],
+    "correct": "das Doppelte",
+    "explanation_de": "'Das Doppelte' funktioniert als eigenständige Nominalphrase und dient als Objekt von 'kosten'. ('Halb' allein bräuchte zusätzliche Wörter wie 'halb so viel'.)",
+    "explanation_en": "'Das Doppelte' (the double amount) works as a standalone noun phrase, functioning as the object of 'kosten'. ('Halb' alone would need extra words, e.g. 'halb so viel', to work here.)"
+  },
+  {
+    "id": "b1-praed-adj-001",
+    "level": "B1",
+    "topic": "Prädikatives Adjektiv",
+    "type": "mc",
+    "prompt_de": "Die Idee ist ____.",
+    "prompt_en": "The idea is creative.",
+    "options": [
+      "schnellsten",
+      "kreativ",
+      "neue",
+      "günstigere"
+    ],
+    "correct": "kreativ",
+    "explanation_de": "Prädikative Adjektive werden im Deutschen nicht dekliniert. 'Kreativ' bleibt unverändert; die anderen Optionen sind falsch dekliniert oder Komparativformen.",
+    "explanation_en": "Predicate adjectives in German don't decline. 'Kreativ' stands unchanged; the other options are wrongly declined or comparative forms that don't fit a bare predicate position."
+  },
+  {
+    "id": "b1-konn-deshalb-001",
+    "level": "B1",
+    "topic": "Konnektoren: deshalb",
+    "type": "mc",
+    "prompt_de": "Ich bin an einer Stelle in Ihrem Team interessiert, ____ bewerbe ich mich.",
+    "prompt_en": "I am interested in a position on your team, that's why I am applying.",
+    "options": [
+      "deshalb",
+      "damit",
+      "sodass",
+      "denn"
+    ],
+    "correct": "deshalb",
+    "explanation_de": "'Deshalb' (deswegen) leitet eine Folge als Hauptsatz ein.",
+    "explanation_en": "'Deshalb' (therefore/that's why) introduces a consequence as a main clause."
+  },
+  {
+    "id": "b1-gen-fem-001",
+    "level": "B1",
+    "topic": "Kasus: Genitiv (feminin)",
+    "type": "mc",
+    "prompt_de": "Während ____ Reise habe ich fotografiert.",
+    "prompt_en": "During the trip, I took photos.",
+    "options": [
+      "den",
+      "die",
+      "der",
+      "denen"
+    ],
+    "correct": "der",
+    "explanation_de": "'Während' verlangt formal den Genitiv. 'Die Reise' (fem.) → Genitiv <b>der Reise</b>.",
+    "explanation_en": "'Während' formally governs the genitive case. 'Die Reise' (fem.) → genitive <b>der Reise</b>."
+  },
+  {
+    "id": "b1-indef-irgend-001",
+    "level": "B1",
+    "topic": "Indefinitpronomen: irgend-",
+    "type": "mc",
+    "prompt_de": "Kannst du ____ hören?",
+    "prompt_en": "Can you hear anything?",
+    "options": [
+      "irgendetwas",
+      "irgendwo",
+      "irgendwer",
+      "irgendein"
+    ],
+    "correct": "irgendetwas",
+    "explanation_de": "'Hören' braucht ein Akkusativobjekt. 'Irgendetwas' (etwas/irgendetwas) erfüllt diese Rolle. 'Irgendwo' (irgendwo) ist ein Ortsadverb, kein Objekt, und passt daher nicht.",
+    "explanation_en": "'Hören' needs a direct object. 'Irgendetwas' (something/anything) fills that role. 'Irgendwo' (somewhere) is a locative adverb, not an object, so it doesn't fit."
+  },
+  {
+    "id": "b1-passiv-praes-001",
+    "level": "B1",
+    "topic": "Passiv: Präsens",
+    "type": "mc",
+    "prompt_de": "Der Vertrag ____ gerade unterschrieben.",
+    "prompt_en": "The contract is being signed right now.",
+    "options": [
+      "ist",
+      "kann",
+      "wird",
+      "soll"
+    ],
+    "correct": "wird",
+    "explanation_de": "Präsens Passiv wird mit 'werden' + Partizip II gebildet: <b>wird...unterschrieben</b>.",
+    "explanation_en": "Present passive is formed with 'werden' + past participle: <b>wird...unterschrieben</b>."
+  },
+  {
+    "id": "b1-rel-dativ-001",
+    "level": "B1",
+    "topic": "Relativsätze: Dativ",
+    "type": "mc",
+    "prompt_de": "Die Frau, ____ das Fahrrad gehört, heißt Lena.",
+    "prompt_en": "The woman to whom the bike belongs is named Lena.",
+    "options": [
+      "der",
+      "dem",
+      "des",
+      "den"
+    ],
+    "correct": "der",
+    "explanation_de": "'Gehören' verlangt den Dativ. 'Die Frau' ist feminin, also lautet das Dativ-Relativpronomen <b>der</b>.",
+    "explanation_en": "'Gehören' takes the dative. 'Die Frau' is feminine, so the dative relative pronoun is <b>der</b>."
+  },
+  {
+    "id": "b1-inf-zu-wortschatz-001",
+    "level": "B1",
+    "topic": "Infinitiv mit \"zu\": Wortschatz",
+    "type": "mc",
+    "prompt_de": "Du wirst es sicher spannend finden, das Museum ____.",
+    "prompt_en": "You'll surely find it exciting to visit the museum.",
+    "options": [
+      "zu besichtigen",
+      "zu beschichten",
+      "zu beschützen",
+      "zu berichten"
+    ],
+    "correct": "zu besichtigen",
+    "explanation_de": "'Besichtigen' bedeutet eine Sehenswürdigkeit besuchen; die anderen Verben (beschichten, beschützen, berichten) passen nicht in den Kontext.",
+    "explanation_en": "'Besichtigen' means to visit/tour (a sight); the other verbs (to coat, to protect, to report) don't fit the context."
+  },
+  {
+    "id": "b1-genitiv-004",
+    "level": "B1",
+    "topic": "Kasus: Genitiv",
+    "type": "mc",
+    "prompt_de": "Sie wohnen weit außerhalb ____.",
+    "prompt_en": "They live far outside the city.",
+    "options": [
+      "die Stadt",
+      "zur Stadt",
+      "der Stadt",
+      "vom Stadt"
+    ],
+    "correct": "der Stadt",
+    "explanation_de": "'Außerhalb' verlangt den Genitiv: <b>der Stadt</b> (Genitiv feminin).",
+    "explanation_en": "'Außerhalb' governs the genitive case: <b>der Stadt</b> (genitive feminine)."
+  },
+  {
+    "id": "b1-neben-dass-001",
+    "level": "B1",
+    "topic": "Nebensätze: dass",
+    "type": "mc",
+    "prompt_de": "Ich hatte Pech, ____ ich die Prüfung nicht bestanden habe.",
+    "prompt_en": "I was unlucky, in that I didn't pass the exam.",
+    "options": [
+      "ob",
+      "dass",
+      "wie",
+      "wo"
+    ],
+    "correct": "dass",
+    "explanation_de": "'Dass' leitet einen Inhaltssatz ein, der erklärt, worin das Pech bestand.",
+    "explanation_en": "'Dass' introduces a content clause explaining what the bad luck consisted of."
+  },
+  {
+    "id": "b1-genitiv-005",
+    "level": "B1",
+    "topic": "Kasus: Genitiv",
+    "type": "mc",
+    "prompt_de": "Trotz ____ geht sie schwimmen.",
+    "prompt_en": "Despite the cold water, she goes swimming.",
+    "options": [
+      "dem kalten Wasser",
+      "das kalte Wasser",
+      "des kalten Wassers",
+      "den kalten Wasser"
+    ],
+    "correct": "des kalten Wassers",
+    "explanation_de": "'Trotz' verlangt formal den Genitiv. 'Das kalte Wasser' (Neutrum) → Genitiv <b>des kalten Wassers</b>.",
+    "explanation_en": "'Trotz' formally governs the genitive case. 'Das kalte Wasser' (neuter) → genitive <b>des kalten Wassers</b>."
+  },
+  {
+    "id": "b1-neben-weil-001",
+    "level": "B1",
+    "topic": "Nebensätze: weil",
+    "type": "mc",
+    "prompt_de": "Warum verschiebt sich der Flug? ____ das Wetter schlecht ist.",
+    "prompt_en": "Why is the flight delayed? Because the weather is bad.",
+    "options": [
+      "Darum",
+      "Denn",
+      "Deshalb",
+      "Weil"
+    ],
+    "correct": "Weil",
+    "explanation_de": "'Weil' ist eine unterordnende Konjunktion und schickt das Verb ans Satzende ('...schlecht ist'), passend zur vorgegebenen Wortstellung.",
+    "explanation_en": "'Weil' is a subordinating conjunction, sending the verb to the end of the clause ('...schlecht ist'), which matches the given word order."
+  },
+  {
+    "id": "b1-wortschatz-richtung-001",
+    "level": "B1",
+    "topic": "Wortschatz: Richtungsadverbien",
+    "type": "mc",
+    "prompt_de": "Komm bitte runter! Ja, ich komme gleich ____.",
+    "prompt_en": "Come down please! Yes, I'm coming right down.",
+    "options": [
+      "hoch",
+      "unten",
+      "draußen",
+      "runter"
+    ],
+    "correct": "runter",
+    "explanation_de": "'Runter' passt zur Abwärtsrichtung des Rufs; die anderen Optionen beschreiben die falsche Richtung oder einen festen Ort.",
+    "explanation_en": "'Runter' (down) matches the downward direction of the call; the other options describe the wrong direction or a static location."
+  },
+  {
+    "id": "b1-vorfeld-001",
+    "level": "B1",
+    "topic": "Satzstellung: Vorfeld",
+    "type": "mc",
+    "prompt_de": "Zuerst ____.",
+    "prompt_en": "First, I'll go shopping.",
+    "options": [
+      "geh ich einkaufen",
+      "ich geh einkaufen",
+      "ich einkaufen geh",
+      "ich geh kaufen ein"
+    ],
+    "correct": "geh ich einkaufen",
+    "explanation_de": "Das vorangestellte Adverb 'zuerst' löst die Verb-Zweit-Regel aus: Das finite Verb bleibt an Position 2, gefolgt vom Subjekt.",
+    "explanation_en": "Fronting the adverb 'zuerst' triggers the verb-second (V2) rule: the finite verb stays in second position, followed by the subject."
+  },
+  {
+    "id": "b1-wortschatz-redewendung-001",
+    "level": "B1",
+    "topic": "Wortschatz: Redewendungen",
+    "type": "mc",
+    "prompt_de": "Wahrscheinlich ____.",
+    "prompt_en": "You're probably right.",
+    "options": [
+      "bist du Recht",
+      "hast du Richtig",
+      "hast du Recht",
+      "liegst du Recht"
+    ],
+    "correct": "hast du Recht",
+    "explanation_de": "'Recht haben' ist eine feste Redewendung — nicht 'Recht sein' oder andere Kombinationen.",
+    "explanation_en": "'Recht haben' (to be right) is a fixed idiom — not 'Recht sein' or other combinations."
+  },
+  {
+    "id": "b1-inf-zu-kennenlernen-001",
+    "level": "B1",
+    "topic": "Infinitiv mit \"zu\": kennenlernen",
+    "type": "mc",
+    "prompt_de": "Ich freue mich sehr, Sie ____.",
+    "prompt_en": "I'm very pleased to meet you.",
+    "options": [
+      "zu kennenlernen",
+      "kennen zu lernen",
+      "kennenzulernen",
+      "zu lernenkennen"
+    ],
+    "correct": "kennenzulernen",
+    "explanation_de": "Der zu-Infinitiv von 'kennenlernen' fügt 'zu' in einem Wort ein: <b>kennenzulernen</b> (vgl. Frage 25, wo der Satz bereits ein separates 'zu' vorgibt).",
+    "explanation_en": "The zu-infinitive of 'kennenlernen' has 'zu' infixed as one word: <b>kennenzulernen</b> (compare Q25, where the sentence template already provides a separate 'zu')."
+  },
+  {
+    "id": "b1-praep-dativ-002",
+    "level": "B1",
+    "topic": "Präpositionen mit Dativ",
+    "type": "mc",
+    "prompt_de": "Die Bäckerei liegt ____ der Kirche.",
+    "prompt_en": "The bakery is located across from the church.",
+    "options": [
+      "gegenüber",
+      "zu",
+      "durch",
+      "ohne"
+    ],
+    "correct": "gegenüber",
+    "explanation_de": "'Gegenüber' (gegenüber von) verlangt den Dativ.",
+    "explanation_en": "'Gegenüber' (across from/opposite) governs the dative case."
+  },
+  {
+    "id": "b1-n-deklination-001",
+    "level": "B1",
+    "topic": "N-Deklination",
+    "type": "mc",
+    "prompt_de": "Ich kenne einen ____, der zwei Brüder hat.",
+    "prompt_en": "I know a boy who has two brothers.",
+    "options": [
+      "Jungen",
+      "Jung",
+      "Junge",
+      "Junges"
+    ],
+    "correct": "Jungen",
+    "explanation_de": "'Der Junge' ist ein N-Nomen und nimmt in allen Kasus außer Nominativ Singular ein -n. Akkusativ: <b>Jungen</b>.",
+    "explanation_en": "'Der Junge' is an N-noun, taking -n in all cases except nominative singular. Accusative: <b>Jungen</b>."
+  },
+  {
+    "id": "b1-praep-dativ-003",
+    "level": "B1",
+    "topic": "Präpositionen mit Dativ",
+    "type": "mc",
+    "prompt_de": "Nach ____ Schule spiele ich Fußball.",
+    "prompt_en": "After school, I play football.",
+    "options": [
+      "die",
+      "der",
+      "des",
+      "den"
+    ],
+    "correct": "der",
+    "explanation_de": "'Nach' verlangt den Dativ: <b>der Schule</b> (Dativ feminin).",
+    "explanation_en": "'Nach' governs the dative case: <b>der Schule</b> (dative feminine)."
+  },
+  {
+    "id": "b1-wortschatz-redewendung-002",
+    "level": "B1",
+    "topic": "Wortschatz: Redewendungen",
+    "type": "mc",
+    "prompt_de": "Das müssen wir erledigen! Das ____ wir morgen in Angriff.",
+    "prompt_en": "We have to get that done! We'll tackle that tomorrow.",
+    "options": [
+      "sehen",
+      "machen",
+      "legen",
+      "nehmen"
+    ],
+    "correct": "nehmen",
+    "explanation_de": "'Etwas in Angriff nehmen' (mit etwas beginnen) ist eine feste Redewendung.",
+    "explanation_en": "'Etwas in Angriff nehmen' (to tackle something) is a fixed idiom."
+  },
+  {
+    "id": "b1-verb-bestehen-001",
+    "level": "B1",
+    "topic": "Verben mit Präposition: bestehen aus",
+    "type": "mc",
+    "prompt_de": "Ein Team ____ aus 5 Spielern.",
+    "prompt_en": "A team consists of 5 players.",
+    "options": [
+      "versteht",
+      "gesteht",
+      "steht",
+      "besteht"
+    ],
+    "correct": "besteht",
+    "explanation_de": "'Bestehen aus' bedeutet 'sich zusammensetzen aus'.",
+    "explanation_en": "'Bestehen aus' means 'to consist of'."
+  },
+  {
+    "id": "b1-neben-obwohl-002",
+    "level": "B1",
+    "topic": "Nebensätze: obwohl",
+    "type": "mc",
+    "prompt_de": "____ sie zum Umweltschutz beitragen, können Elektroautos allein den Klimawandel nicht stoppen.",
+    "prompt_en": "Although they contribute to environmental protection, electric cars alone cannot stop climate change.",
+    "options": [
+      "Trotz",
+      "Weil",
+      "Obwohl",
+      "Desto"
+    ],
+    "correct": "Obwohl",
+    "explanation_de": "'Obwohl' (obgleich) ist eine konzessive unterordnende Konjunktion.",
+    "explanation_en": "'Obwohl' (although) is a concessive subordinating conjunction."
+  },
+  {
+    "id": "b1-adj-dekl-ein-stark-002",
+    "level": "B1",
+    "topic": "Adjektivdeklination: nach \"ein\" (stark)",
+    "type": "mc",
+    "prompt_de": "Es war ein ____ und ____ Abend.",
+    "prompt_en": "It was an eventful and varied evening.",
+    "options": [
+      "ereignis/abwechslung",
+      "ereignisreiches/abwechslungsreiches",
+      "ereignisreicher/abwechslungsreicher",
+      "ereignisreicher/abwechselnd"
+    ],
+    "correct": "ereignisreicher/abwechslungsreicher",
+    "explanation_de": "'Der Abend' ist maskulin. Nach dem unbestimmten Artikel 'ein' gilt die starke Deklination mit der Endung <b>-er</b>: <b>ereignisreicher und abwechslungsreicher Abend</b>.",
+    "explanation_en": "'Der Abend' is masculine. After the indefinite article 'ein', strong declension applies, taking <b>-er</b>: <b>ereignisreicher und abwechslungsreicher Abend</b>."
+  },
+  {
+    "id": "b1-genitiv-006",
+    "level": "B1",
+    "topic": "Kasus: Genitiv",
+    "type": "mc",
+    "prompt_de": "Das Werk ____ Künstlers war schnell ausverkauft.",
+    "prompt_en": "The well-known artist's work sold out quickly.",
+    "options": [
+      "dem bekannten",
+      "der bekannten",
+      "des bekannten",
+      "dieses bekannte"
+    ],
+    "correct": "des bekannten",
+    "explanation_de": "Genitiv maskulin Singular mit schwacher Adjektivdeklination nach dem bestimmten Artikel: <b>des bekannten</b> Künstlers.",
+    "explanation_en": "Genitive masculine singular with weak adjective declension after the definite article: <b>des bekannten</b> Künstlers."
+  },
+  {
+    "id": "b1-wechselpraep-001",
+    "level": "B1",
+    "topic": "Wechselpräpositionen",
+    "type": "mc",
+    "prompt_de": "Sie ging ____ Büro und befand sich in ____ Warteschlange.",
+    "prompt_en": "She went into the office and found herself in a queue.",
+    "options": [
+      "ins/einer",
+      "in dem/eine",
+      "ins/eine",
+      "in dem/einer"
+    ],
+    "correct": "ins/einer",
+    "explanation_de": "'Ins Büro' (Bewegung, Akkusativ) ist korrekt; 'sich befinden in' drückt einen festen Ort aus (Dativ). 'Die Warteschlange' (fem.) im Dativ → <b>einer</b>. Richtig: <b>ins/einer</b>.",
+    "explanation_en": "'Ins Büro' (movement into, accusative) is correct; 'sich befinden in' expresses static location (dative). 'Die Warteschlange' (fem.) dative → <b>einer</b>. Correct: <b>ins/einer</b>."
+  }
 ]

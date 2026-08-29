@@ -1,95 +1,434 @@
 [
-  {"id":"a2-praet-001","level":"A2","topic":"Präteritum","type":"fill_blank",
-   "prompt_de":"Ich ___ (sein) gestern müde.","prompt_en":"I was tired yesterday.",
-   "correct":"war","explanation_de":"Präteritum von 'sein', 1. Person Singular: ich war.","explanation_en":"Präteritum of 'sein', 1st person singular: ich war."},
-
-  {"id":"a2-praet-002","level":"A2","topic":"Präteritum","type":"fill_blank",
-   "prompt_de":"Wir ___ (haben) keine Zeit.","prompt_en":"We had no time.",
-   "correct":"hatten","explanation_de":"Präteritum von 'haben', 1. Person Plural: wir hatten.","explanation_en":"Präteritum of 'haben', 1st person plural: wir hatten."},
-
-  {"id":"a2-praet-003","level":"A2","topic":"Präteritum (unregelmäßig)","type":"mc",
-   "prompt_de":"Sie ___ (gehen) nach Hause.","prompt_en":"She went home.",
-   "options":["ging","gehte","gang"],"correct":"ging",
-   "explanation_de":"'gehen' ist unregelmäßig: Präteritum-Stamm ist 'ging-'.","explanation_en":"'gehen' is irregular: the Präteritum stem is 'ging-'."},
-
-  {"id":"a2-perfekt-001","level":"A2","topic":"Perfekt","type":"fill_blank",
-   "prompt_de":"Ich habe das Buch ___ (lesen).","prompt_en":"I have read the book.",
-   "correct":"gelesen","explanation_de":"Partizip II von 'lesen' (unregelmäßig): gelesen.","explanation_en":"Past participle of 'lesen' (irregular): gelesen."},
-
-  {"id":"a2-perfekt-002","level":"A2","topic":"Perfekt: haben oder sein","type":"mc",
-   "prompt_de":"Er ___ nach Berlin gefahren.","prompt_en":"He traveled to Berlin.",
-   "options":["hat","ist","war"],"correct":"ist",
-   "explanation_de":"Verben der Bewegung (fahren, gehen, fliegen...) bilden das Perfekt mit 'sein'.","explanation_en":"Verbs of motion (fahren, gehen, fliegen...) form the perfect tense with 'sein'."},
-
-  {"id":"a2-perfekt-003","level":"A2","topic":"Perfekt: haben oder sein","type":"mc",
-   "prompt_de":"Wir ___ das Essen gekocht.","prompt_en":"We cooked the meal.",
-   "options":["haben","sind","waren"],"correct":"haben",
-   "explanation_de":"'kochen' ist ein transitives Verb (kein Bewegungs-/Zustandsverb): Perfekt mit 'haben'.","explanation_en":"'kochen' is a transitive verb (not motion/change of state): perfect tense with 'haben'."},
-
-  {"id":"a2-perfekt-004","level":"A2","topic":"Perfekt","type":"word_order",
-   "prompt_de":"Ordne die Wörter: (ich / habe / gestern / Pizza / gegessen)","prompt_en":"Arrange: (I / have / yesterday / pizza / eaten)",
-   "options":["Ich","habe","gestern","Pizza","gegessen"],
-   "correct":["Ich","habe","gestern","Pizza","gegessen"],
-   "explanation_de":"Perfekt: 'haben/sein' auf Position 2, Partizip II am Satzende.","explanation_en":"Perfect tense: 'haben/sein' in position 2, past participle at the end of the clause."},
-
-  {"id":"a2-dativ-001","level":"A2","topic":"Kasus: Dativ","type":"fill_blank",
-   "prompt_de":"Ich gebe ___ (der Mann) das Buch.","prompt_en":"I give the man the book.",
-   "correct":"dem","explanation_de":"Dativ maskulin: der → dem.","explanation_en":"Dative masculine: der → dem."},
-
-  {"id":"a2-dativ-002","level":"A2","topic":"Kasus: Dativ","type":"mc",
-   "prompt_de":"Das gehört ___ (die Frau).","prompt_en":"That belongs to the woman.",
-   "options":["der","dem","die"],"correct":"der",
-   "explanation_de":"Dativ feminin: die → der. 'gehören' verlangt Dativ.","explanation_en":"Dative feminine: die → der. 'gehören' takes the dative case."},
-
-  {"id":"a2-dativ-003","level":"A2","topic":"Kasus: Dativ (Personalpronomen)","type":"fill_blank",
-   "prompt_de":"Er hilft ___ (ich) oft.","prompt_en":"He often helps me.",
-   "correct":"mir","explanation_de":"'helfen' verlangt Dativ; Dativ von 'ich' ist 'mir'.","explanation_en":"'helfen' takes the dative; the dative of 'ich' is 'mir'."},
-
-  {"id":"a2-prep-001","level":"A2","topic":"Präpositionen mit Dativ","type":"mc",
-   "prompt_de":"Ich fahre mit ___ Bus.","prompt_en":"I go by bus.",
-   "options":["der","dem","den"],"correct":"dem",
-   "explanation_de":"'mit' verlangt immer Dativ; 'der Bus' → dem Bus.","explanation_en":"'mit' always takes the dative; 'der Bus' → dem Bus."},
-
-  {"id":"a2-prep-002","level":"A2","topic":"Präpositionen mit Akkusativ","type":"mc",
-   "prompt_de":"Das Geschenk ist für ___ (mein) Vater.","prompt_en":"The gift is for my father.",
-   "options":["mein","meinen","meinem"],"correct":"meinen",
-   "explanation_de":"'für' verlangt immer Akkusativ; maskulin: mein → meinen.","explanation_en":"'für' always takes the accusative; masculine: mein → meinen."},
-
-  {"id":"a2-prep-003","level":"A2","topic":"Wechselpräpositionen","type":"mc",
-   "prompt_de":"Ich lege das Buch auf ___ Tisch.","prompt_en":"I put the book on the table. (motion)",
-   "options":["dem","den","der"],"correct":"den",
-   "explanation_de":"Wechselpräposition 'auf' + Bewegung (wohin?) = Akkusativ: den Tisch.","explanation_en":"Two-way preposition 'auf' + motion (wohin?) = accusative: den Tisch."},
-
-  {"id":"a2-prep-004","level":"A2","topic":"Wechselpräpositionen","type":"mc",
-   "prompt_de":"Das Buch liegt auf ___ Tisch.","prompt_en":"The book is lying on the table. (location)",
-   "options":["dem","den","der"],"correct":"dem",
-   "explanation_de":"Wechselpräposition 'auf' + Ort (wo?) = Dativ: dem Tisch.","explanation_en":"Two-way preposition 'auf' + location (wo?) = dative: dem Tisch."},
-
-  {"id":"a2-trenn-001","level":"A2","topic":"Trennbare Verben","type":"word_order",
-   "prompt_de":"Ordne die Wörter: (ich / heute / stehe / früh / auf)","prompt_en":"Arrange: (I / today / get up / early)",
-   "options":["Ich","stehe","heute","früh","auf"],
-   "correct":["Ich","stehe","heute","früh","auf"],
-   "explanation_de":"Trennbares Verb 'aufstehen': Vorsilbe 'auf' steht am Satzende.","explanation_en":"Separable verb 'aufstehen': the prefix 'auf' goes to the end of the clause."},
-
-  {"id":"a2-trenn-002","level":"A2","topic":"Trennbare Verben","type":"fill_blank",
-   "prompt_de":"Der Film ___ um 20 Uhr an. (anfangen)","prompt_en":"The film starts at 8pm.",
-   "correct":"fängt","explanation_de":"'anfangen' ist trennbar: fängt ... an. Die Vorsilbe 'an' bleibt am Satzende stehen.","explanation_en":"'anfangen' is separable: fängt ... an. The prefix 'an' stays at the end of the clause."},
-
-  {"id":"a2-trenn-003","level":"A2","topic":"Trennbare Verben (Perfekt)","type":"mc",
-   "prompt_de":"Ich habe die Tür ___ (zumachen).","prompt_en":"I closed the door.",
-   "options":["zugemacht","gezumacht","zumachtge"],"correct":"zugemacht",
-   "explanation_de":"Partizip II von trennbaren Verben: Vorsilbe + ge + Stamm: zu-ge-macht.","explanation_en":"Past participle of separable verbs: prefix + ge + stem: zu-ge-macht."},
-
-  {"id":"a2-komp-001","level":"A2","topic":"Komparativ","type":"fill_blank",
-   "prompt_de":"Berlin ist ___ (groß) als München.","prompt_en":"Berlin is bigger than Munich.",
-   "correct":"größer","explanation_de":"Komparativ von 'groß' mit Umlaut: größer.","explanation_en":"Comparative of 'groß' with umlaut: größer."},
-
-  {"id":"a2-komp-002","level":"A2","topic":"Komparativ (unregelmäßig)","type":"mc",
-   "prompt_de":"Dieses Auto ist ___ als meins.","prompt_en":"This car is better than mine.",
-   "options":["guter","besser","gutter"],"correct":"besser",
-   "explanation_de":"Komparativ von 'gut' ist unregelmäßig: besser.","explanation_en":"Comparative of 'gut' is irregular: besser."},
-
-  {"id":"a2-komp-003","level":"A2","topic":"Superlativ","type":"fill_blank",
-   "prompt_de":"Das ist der ___ (schnell) Zug.","prompt_en":"That is the fastest train.",
-   "correct":"schnellste","explanation_de":"Superlativ mit -ste-Endung: der schnellste.","explanation_en":"Superlative with -ste ending: der schnellste."}
+  {
+    "id": "a2-praet-001",
+    "level": "A2",
+    "topic": "Präteritum",
+    "type": "fill_blank",
+    "prompt_de": "Ich ___ (sein) gestern müde.",
+    "prompt_en": "I was tired yesterday.",
+    "correct": "war",
+    "explanation_de": "Präteritum von 'sein', 1. Person Singular: ich war.",
+    "explanation_en": "Präteritum of 'sein', 1st person singular: ich war."
+  },
+  {
+    "id": "a2-praet-002",
+    "level": "A2",
+    "topic": "Präteritum",
+    "type": "fill_blank",
+    "prompt_de": "Wir ___ (haben) keine Zeit.",
+    "prompt_en": "We had no time.",
+    "correct": "hatten",
+    "explanation_de": "Präteritum von 'haben', 1. Person Plural: wir hatten.",
+    "explanation_en": "Präteritum of 'haben', 1st person plural: wir hatten."
+  },
+  {
+    "id": "a2-praet-003",
+    "level": "A2",
+    "topic": "Präteritum (unregelmäßig)",
+    "type": "mc",
+    "prompt_de": "Sie ___ (gehen) nach Hause.",
+    "prompt_en": "She went home.",
+    "options": [
+      "ging",
+      "gehte",
+      "gang"
+    ],
+    "correct": "ging",
+    "explanation_de": "'gehen' ist unregelmäßig: Präteritum-Stamm ist 'ging-'.",
+    "explanation_en": "'gehen' is irregular: the Präteritum stem is 'ging-'."
+  },
+  {
+    "id": "a2-perfekt-001",
+    "level": "A2",
+    "topic": "Perfekt",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe das Buch ___ (lesen).",
+    "prompt_en": "I have read the book.",
+    "correct": "gelesen",
+    "explanation_de": "Partizip II von 'lesen' (unregelmäßig): gelesen.",
+    "explanation_en": "Past participle of 'lesen' (irregular): gelesen."
+  },
+  {
+    "id": "a2-perfekt-002",
+    "level": "A2",
+    "topic": "Perfekt: haben oder sein",
+    "type": "mc",
+    "prompt_de": "Er ___ nach Berlin gefahren.",
+    "prompt_en": "He traveled to Berlin.",
+    "options": [
+      "hat",
+      "ist",
+      "war"
+    ],
+    "correct": "ist",
+    "explanation_de": "Verben der Bewegung (fahren, gehen, fliegen...) bilden das Perfekt mit 'sein'.",
+    "explanation_en": "Verbs of motion (fahren, gehen, fliegen...) form the perfect tense with 'sein'."
+  },
+  {
+    "id": "a2-perfekt-003",
+    "level": "A2",
+    "topic": "Perfekt: haben oder sein",
+    "type": "mc",
+    "prompt_de": "Wir ___ das Essen gekocht.",
+    "prompt_en": "We cooked the meal.",
+    "options": [
+      "haben",
+      "sind",
+      "waren"
+    ],
+    "correct": "haben",
+    "explanation_de": "'kochen' ist ein transitives Verb (kein Bewegungs-/Zustandsverb): Perfekt mit 'haben'.",
+    "explanation_en": "'kochen' is a transitive verb (not motion/change of state): perfect tense with 'haben'."
+  },
+  {
+    "id": "a2-perfekt-004",
+    "level": "A2",
+    "topic": "Perfekt",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (ich / habe / gestern / Pizza / gegessen)",
+    "prompt_en": "Arrange: (I / have / yesterday / pizza / eaten)",
+    "options": [
+      "Ich",
+      "habe",
+      "gestern",
+      "Pizza",
+      "gegessen"
+    ],
+    "correct": [
+      "Ich",
+      "habe",
+      "gestern",
+      "Pizza",
+      "gegessen"
+    ],
+    "explanation_de": "Perfekt: 'haben/sein' auf Position 2, Partizip II am Satzende.",
+    "explanation_en": "Perfect tense: 'haben/sein' in position 2, past participle at the end of the clause."
+  },
+  {
+    "id": "a2-dativ-001",
+    "level": "A2",
+    "topic": "Kasus: Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich gebe ___ (der Mann) das Buch.",
+    "prompt_en": "I give the man the book.",
+    "correct": "dem",
+    "explanation_de": "Dativ maskulin: der → dem.",
+    "explanation_en": "Dative masculine: der → dem."
+  },
+  {
+    "id": "a2-dativ-002",
+    "level": "A2",
+    "topic": "Kasus: Dativ",
+    "type": "mc",
+    "prompt_de": "Das gehört ___ (die Frau).",
+    "prompt_en": "That belongs to the woman.",
+    "options": [
+      "der",
+      "dem",
+      "die"
+    ],
+    "correct": "der",
+    "explanation_de": "Dativ feminin: die → der. 'gehören' verlangt Dativ.",
+    "explanation_en": "Dative feminine: die → der. 'gehören' takes the dative case."
+  },
+  {
+    "id": "a2-dativ-003",
+    "level": "A2",
+    "topic": "Kasus: Dativ (Personalpronomen)",
+    "type": "fill_blank",
+    "prompt_de": "Er hilft ___ (ich) oft.",
+    "prompt_en": "He often helps me.",
+    "correct": "mir",
+    "explanation_de": "'helfen' verlangt Dativ; Dativ von 'ich' ist 'mir'.",
+    "explanation_en": "'helfen' takes the dative; the dative of 'ich' is 'mir'."
+  },
+  {
+    "id": "a2-prep-001",
+    "level": "A2",
+    "topic": "Präpositionen mit Dativ",
+    "type": "mc",
+    "prompt_de": "Ich fahre mit ___ Bus.",
+    "prompt_en": "I go by bus.",
+    "options": [
+      "der",
+      "dem",
+      "den"
+    ],
+    "correct": "dem",
+    "explanation_de": "'mit' verlangt immer Dativ; 'der Bus' → dem Bus.",
+    "explanation_en": "'mit' always takes the dative; 'der Bus' → dem Bus."
+  },
+  {
+    "id": "a2-prep-002",
+    "level": "A2",
+    "topic": "Präpositionen mit Akkusativ",
+    "type": "mc",
+    "prompt_de": "Das Geschenk ist für ___ (mein) Vater.",
+    "prompt_en": "The gift is for my father.",
+    "options": [
+      "mein",
+      "meinen",
+      "meinem"
+    ],
+    "correct": "meinen",
+    "explanation_de": "'für' verlangt immer Akkusativ; maskulin: mein → meinen.",
+    "explanation_en": "'für' always takes the accusative; masculine: mein → meinen."
+  },
+  {
+    "id": "a2-prep-003",
+    "level": "A2",
+    "topic": "Wechselpräpositionen",
+    "type": "mc",
+    "prompt_de": "Ich lege das Buch auf ___ Tisch.",
+    "prompt_en": "I put the book on the table. (motion)",
+    "options": [
+      "dem",
+      "den",
+      "der"
+    ],
+    "correct": "den",
+    "explanation_de": "Wechselpräposition 'auf' + Bewegung (wohin?) = Akkusativ: den Tisch.",
+    "explanation_en": "Two-way preposition 'auf' + motion (wohin?) = accusative: den Tisch."
+  },
+  {
+    "id": "a2-prep-004",
+    "level": "A2",
+    "topic": "Wechselpräpositionen",
+    "type": "mc",
+    "prompt_de": "Das Buch liegt auf ___ Tisch.",
+    "prompt_en": "The book is lying on the table. (location)",
+    "options": [
+      "dem",
+      "den",
+      "der"
+    ],
+    "correct": "dem",
+    "explanation_de": "Wechselpräposition 'auf' + Ort (wo?) = Dativ: dem Tisch.",
+    "explanation_en": "Two-way preposition 'auf' + location (wo?) = dative: dem Tisch."
+  },
+  {
+    "id": "a2-trenn-001",
+    "level": "A2",
+    "topic": "Trennbare Verben",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (ich / heute / stehe / früh / auf)",
+    "prompt_en": "Arrange: (I / today / get up / early)",
+    "options": [
+      "Ich",
+      "stehe",
+      "heute",
+      "früh",
+      "auf"
+    ],
+    "correct": [
+      "Ich",
+      "stehe",
+      "heute",
+      "früh",
+      "auf"
+    ],
+    "explanation_de": "Trennbares Verb 'aufstehen': Vorsilbe 'auf' steht am Satzende.",
+    "explanation_en": "Separable verb 'aufstehen': the prefix 'auf' goes to the end of the clause."
+  },
+  {
+    "id": "a2-trenn-002",
+    "level": "A2",
+    "topic": "Trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Der Film ___ um 20 Uhr an. (anfangen)",
+    "prompt_en": "The film starts at 8pm.",
+    "correct": "fängt",
+    "explanation_de": "'anfangen' ist trennbar: fängt ... an. Die Vorsilbe 'an' bleibt am Satzende stehen.",
+    "explanation_en": "'anfangen' is separable: fängt ... an. The prefix 'an' stays at the end of the clause."
+  },
+  {
+    "id": "a2-trenn-003",
+    "level": "A2",
+    "topic": "Trennbare Verben (Perfekt)",
+    "type": "mc",
+    "prompt_de": "Ich habe die Tür ___ (zumachen).",
+    "prompt_en": "I closed the door.",
+    "options": [
+      "zugemacht",
+      "gezumacht",
+      "zumachtge"
+    ],
+    "correct": "zugemacht",
+    "explanation_de": "Partizip II von trennbaren Verben: Vorsilbe + ge + Stamm: zu-ge-macht.",
+    "explanation_en": "Past participle of separable verbs: prefix + ge + stem: zu-ge-macht."
+  },
+  {
+    "id": "a2-komp-001",
+    "level": "A2",
+    "topic": "Komparativ",
+    "type": "fill_blank",
+    "prompt_de": "Berlin ist ___ (groß) als München.",
+    "prompt_en": "Berlin is bigger than Munich.",
+    "correct": "größer",
+    "explanation_de": "Komparativ von 'groß' mit Umlaut: größer.",
+    "explanation_en": "Comparative of 'groß' with umlaut: größer."
+  },
+  {
+    "id": "a2-komp-002",
+    "level": "A2",
+    "topic": "Komparativ (unregelmäßig)",
+    "type": "mc",
+    "prompt_de": "Dieses Auto ist ___ als meins.",
+    "prompt_en": "This car is better than mine.",
+    "options": [
+      "guter",
+      "besser",
+      "gutter"
+    ],
+    "correct": "besser",
+    "explanation_de": "Komparativ von 'gut' ist unregelmäßig: besser.",
+    "explanation_en": "Comparative of 'gut' is irregular: besser."
+  },
+  {
+    "id": "a2-komp-003",
+    "level": "A2",
+    "topic": "Superlativ",
+    "type": "fill_blank",
+    "prompt_de": "Das ist der ___ (schnell) Zug.",
+    "prompt_en": "That is the fastest train.",
+    "correct": "schnellste",
+    "explanation_de": "Superlativ mit -ste-Endung: der schnellste.",
+    "explanation_en": "Superlative with -ste ending: der schnellste."
+  },
+  {
+    "id": "a2-dativ-pron-001",
+    "level": "A2",
+    "topic": "Kasus: Dativ (Personalpronomen)",
+    "type": "mc",
+    "prompt_de": "Der Stift gehört ____!",
+    "prompt_en": "The pen belongs to me!",
+    "options": [
+      "mich",
+      "meinen Bruder",
+      "meine Schwester",
+      "mir"
+    ],
+    "correct": "mir",
+    "explanation_de": "'Gehören' verlangt den Dativ: <b>mir</b> (Dativ von ich).",
+    "explanation_en": "'Gehören' (to belong to) governs the dative case: <b>mir</b> (dative of ich)."
+  },
+  {
+    "id": "a2-wortschatz-einkaufen-001",
+    "level": "A2",
+    "topic": "Wortschatz: Einkaufen",
+    "type": "mc",
+    "prompt_de": "Welche ____ haben Sie? Bei Schuhen habe ich 42.",
+    "prompt_en": "What size do you take? For shoes I take 42.",
+    "options": [
+      "Zahl",
+      "Farbe",
+      "Größe",
+      "Jacke"
+    ],
+    "correct": "Größe",
+    "explanation_de": "'Größe' bedeutet die Kleider- oder Schuhgröße, passend zum Kontext.",
+    "explanation_en": "'Größe' means size, matching the context of a shoe size."
+  },
+  {
+    "id": "a2-partizip-adj-001",
+    "level": "A2",
+    "topic": "Partizip II als Adjektiv",
+    "type": "mc",
+    "prompt_de": "Die Ärztin schreibt mich krank. Ich bin ____.",
+    "prompt_en": "The doctor signs me off sick. I am signed off sick.",
+    "options": [
+      "krankschreiben",
+      "krankenschrift",
+      "krankenschreiben",
+      "krankgeschrieben"
+    ],
+    "correct": "krankgeschrieben",
+    "explanation_de": "Das Partizip II 'krankgeschrieben' wirkt hier als prädikatives Adjektiv und beschreibt den entstandenen Zustand.",
+    "explanation_en": "The past participle 'krankgeschrieben' functions as a predicate adjective here, describing the resulting state."
+  },
+  {
+    "id": "a2-verb-praep-001",
+    "level": "A2",
+    "topic": "Verben mit Präposition",
+    "type": "mc",
+    "prompt_de": "Ich möchte mich für den Kurs ____.",
+    "prompt_en": "I would like to register for the course.",
+    "options": [
+      "beantragen",
+      "ablegen",
+      "anmelden",
+      "finden"
+    ],
+    "correct": "anmelden",
+    "explanation_de": "'Sich anmelden für' bedeutet, sich für etwas einzutragen.",
+    "explanation_en": "'Sich anmelden für' means to register/sign up for something."
+  },
+  {
+    "id": "a2-ind-frage-001",
+    "level": "A2",
+    "topic": "Indirekte Frage: W-Wort",
+    "type": "mc",
+    "prompt_de": "Ich möchte wissen, ____ die Post ist.",
+    "prompt_en": "I would like to know where the post office is.",
+    "options": [
+      "wann",
+      "wo",
+      "wer",
+      "ob"
+    ],
+    "correct": "wo",
+    "explanation_de": "'Wo' fragt nach dem Ort — genau das, wonach hier gesucht wird (die Post).",
+    "explanation_en": "'Wo' asks about location, matching what's being sought (the post office's location)."
+  },
+  {
+    "id": "a2-trennbar-perfekt-001",
+    "level": "A2",
+    "topic": "Trennbare Verben (Perfekt)",
+    "type": "mc",
+    "prompt_de": "Herr Schmidt ____ die Tür ____.",
+    "prompt_en": "Mr. Schmidt closed the door.",
+    "options": [
+      "hast/zumachen",
+      "hat/zumacht",
+      "hat/zugemacht",
+      "habe/zumachst"
+    ],
+    "correct": "hat/zugemacht",
+    "explanation_de": "Perfekt des trennbaren Verbs 'zumachen': <b>hat...zugemacht</b> (Hilfsverb 'hat' + Partizip mit 'ge-' zwischen Präfix und Stamm).",
+    "explanation_en": "Perfekt tense of the separable verb 'zumachen': <b>hat...zugemacht</b> (auxiliary 'hat' + past participle with 'ge-' inserted between the prefix and stem)."
+  },
+  {
+    "id": "a2-adj-dekl-best-001",
+    "level": "A2",
+    "topic": "Adjektivdeklination: bestimmter Artikel",
+    "type": "mc",
+    "prompt_de": "Das sind die ____ Preise.",
+    "prompt_en": "These are the current prices.",
+    "options": [
+      "aktuellen",
+      "aktuelles",
+      "aktuelle",
+      "aktueller"
+    ],
+    "correct": "aktuellen",
+    "explanation_de": "Nach dem bestimmten Artikel 'die' (Plural) gilt die schwache Deklination, die im Plural für alle Genera/Kasus die Endung <b>-en</b> nimmt.",
+    "explanation_en": "After the definite article 'die' (plural), weak adjective declension applies, taking the ending <b>-en</b> for all genders/cases in the plural."
+  },
+  {
+    "id": "a2-adj-dekl-poss-001",
+    "level": "A2",
+    "topic": "Adjektivdeklination: Possessivartikel",
+    "type": "mc",
+    "prompt_de": "Übernachten Sie in unserem ____ Hotelzimmer.",
+    "prompt_en": "Stay overnight in our new hotel room.",
+    "options": [
+      "neuen",
+      "neuem",
+      "neuer",
+      "neues"
+    ],
+    "correct": "neuen",
+    "explanation_de": "Nach dem Possessivartikel 'unserem' (Dativ, Neutrum) nimmt das Adjektiv die schwache Endung <b>-en</b>, da 'unserem' die Kasusmarkierung bereits trägt.",
+    "explanation_en": "After the possessive 'unserem' (dative, neuter — das Hotelzimmer), the adjective takes the weak dative ending <b>-en</b>, since 'unserem' already carries the case marking."
+  }
 ]

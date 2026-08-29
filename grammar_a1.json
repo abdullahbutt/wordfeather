@@ -453,5 +453,141 @@
     "correct": "meinem Bruder",
     "explanation_de": "'geben' hat zwei Objekte: Dativ (Person) + Akkusativ (Sache). Dativ maskulin: meinem Bruder.",
     "explanation_en": "'geben' takes two objects: dative (person) + accusative (thing). Dative masculine: meinem Bruder."
+  },
+  {
+    "id": "a1-verb-sein-001",
+    "level": "A1",
+    "topic": "Verben im Präsens",
+    "type": "mc",
+    "prompt_de": "Guten Tag! Ich ____ Sabine Klein.",
+    "prompt_en": "I am Sabine Klein.",
+    "options": [
+      "ist",
+      "Name",
+      "bin",
+      "von"
+    ],
+    "correct": "bin",
+    "explanation_de": "Das Verb 'sein' wird in der 1. Person Singular zu 'ich bin' konjugiert.",
+    "explanation_en": "The verb 'sein' (to be) conjugates as 'ich bin' in the first person singular."
+  },
+  {
+    "id": "a1-frage-001",
+    "level": "A1",
+    "topic": "Fragewörter",
+    "type": "mc",
+    "prompt_de": "____ ist das? Das ist die Ärztin.",
+    "prompt_en": "Who is that? That's the doctor.",
+    "options": [
+      "Was",
+      "Wo",
+      "Wie",
+      "Wer"
+    ],
+    "correct": "Wer",
+    "explanation_de": "'Wer' fragt nach einer Person und passt zur Antwort 'die Ärztin'.",
+    "explanation_en": "'Wer' asks about a person (who), matching the answer 'die Ärztin' (the doctor)."
+  },
+  {
+    "id": "a1-poss-004",
+    "level": "A1",
+    "topic": "Possessivpronomen",
+    "type": "mc",
+    "prompt_de": "Das ist mein Buch. Das sind ____ Hefte.",
+    "prompt_en": "Those are my notebooks.",
+    "options": [
+      "mein",
+      "meine",
+      "meines",
+      "meinen"
+    ],
+    "correct": "meine",
+    "explanation_de": "'Hefte' steht im Plural, deshalb nimmt das Possessivpronomen die Pluralendung: <b>meine</b>.",
+    "explanation_en": "'Hefte' is plural, so the possessive 'mein' takes the plural ending: <b>meine</b>."
+  },
+  {
+    "id": "a1-wortschatz-familie-001",
+    "level": "A1",
+    "topic": "Wortschatz: Familie",
+    "type": "mc",
+    "prompt_de": "Hast du ____? Ja, ich habe eine Schwester.",
+    "prompt_en": "Do you have siblings? Yes, I have a sister.",
+    "options": [
+      "einen Freund",
+      "Kinder",
+      "Geschwister",
+      "einen Sohn"
+    ],
+    "correct": "Geschwister",
+    "explanation_de": "'Geschwister' ist der Oberbegriff, für den 'eine Schwester' ein Beispiel ist.",
+    "explanation_en": "'Geschwister' (siblings) is the general term that the specific answer 'eine Schwester' (a sister) is an example of."
+  },
+  {
+    "id": "a1-uhrzeit-001",
+    "level": "A1",
+    "topic": "Uhrzeit",
+    "type": "mc",
+    "prompt_de": "Wie spät ist es? 14.30 Uhr.",
+    "prompt_en": "What time is it? 2:30 PM.",
+    "options": [
+      "halb drei",
+      "zwei Uhr dreizehn",
+      "vierzehn Uhr dreizehn",
+      "halb vier"
+    ],
+    "correct": "halb drei",
+    "explanation_de": "'Halb drei' bedeutet 'halb auf dem Weg zu drei', also 14:30 Uhr — die genannte Stunde ist die kommende, nicht die aktuelle.",
+    "explanation_en": "In German, 'halb drei' means 'half toward three', i.e. 2:30 — the hour named is the <i>upcoming</i> hour, not the current one."
+  },
+  {
+    "id": "a1-praep-001",
+    "level": "A1",
+    "topic": "Präpositionen",
+    "type": "mc",
+    "prompt_de": "Wo liegt die Katze? Sie liegt ____ dem Bett.",
+    "prompt_en": "Where is the cat lying? It's lying on the bed.",
+    "options": [
+      "ein",
+      "zwischen",
+      "durch",
+      "auf"
+    ],
+    "correct": "auf",
+    "explanation_de": "'Auf' + Dativ beschreibt eine feste Position auf einer Fläche: <b>auf dem Bett</b>.",
+    "explanation_en": "'Auf' (on) + dative describes a static position on a surface: <b>auf dem Bett</b>."
+  },
+  {
+    "id": "a1-praep-002",
+    "level": "A1",
+    "topic": "Präpositionen",
+    "type": "mc",
+    "prompt_de": "Wohin fliegst du? Ich fliege ____ München.",
+    "prompt_en": "Where are you flying to? I'm flying to Munich.",
+    "options": [
+      "zu",
+      "nach",
+      "auf",
+      "hin"
+    ],
+    "correct": "nach",
+    "explanation_de": "'Nach' wird vor Stadt- und Ländernamen (ohne Artikel) verwendet, um ein Ziel auszudrücken.",
+    "explanation_en": "'Nach' is used before city and country names (without an article) to express direction/destination."
+  },
+  {
+    "id": "a1-wortschatz-restaurant-001",
+    "level": "A1",
+    "topic": "Wortschatz: Restaurant",
+    "type": "mc",
+    "prompt_de": "Als ____ nehme ich einen Salat.",
+    "prompt_en": "As a starter, I'll have a salad.",
+    "options": [
+      "Vorspeise",
+      "Nachspeise",
+      "Hauptgericht",
+      "Getränk"
+    ],
+    "correct": "Vorspeise",
+    "explanation_de": "'Vorspeise' bedeutet der erste Gang eines Essens — ein Salat ist ein typisches Beispiel dafür.",
+    "explanation_en": "'Vorspeise' means starter/appetizer — the first course of a meal, which a salad commonly is."
   }
 ]
