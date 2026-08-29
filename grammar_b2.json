@@ -1,89 +1,605 @@
 [
-  {"id":"b2-konj-001","level":"B2","topic":"Konjunktiv II: Vergangenheit (haben)","type":"fill_blank",
-   "prompt_de":"Wenn ich mehr Zeit gehabt ___, hätte ich das Projekt beendet.","prompt_en":"If I had had more time, I would have finished the project.",
-   "correct":"hätte","explanation_de":"Konjunktiv II Vergangenheit: hätte + Partizip II (gehabt) im wenn-Satz, hätte + Partizip II im Hauptsatz.","explanation_en":"Past subjunctive: hätte + past participle (gehabt) in the wenn-clause, hätte + past participle in the main clause."},
-
-  {"id":"b2-konj-002","level":"B2","topic":"Konjunktiv II: Vergangenheit (sein)","type":"fill_blank",
-   "prompt_de":"Wenn er früher losgefahren ___ (sein), wäre er nicht zu spät gekommen.","prompt_en":"If he had left earlier, he wouldn't have been late.",
-   "correct":"wäre","explanation_de":"Verben mit 'sein' im Perfekt bilden den Konjunktiv II Vergangenheit mit wäre + Partizip II.","explanation_en":"Verbs that use 'sein' in the perfect tense form the past subjunctive with wäre + past participle."},
-
-  {"id":"b2-konj-003","level":"B2","topic":"Konjunktiv II: unregelmäßige Formen","type":"fill_blank",
-   "prompt_de":"Wenn es keine Handys ___ (geben), wäre das Leben einfacher.","prompt_en":"If there were no cellphones, life would be simpler.",
-   "correct":"gäbe","explanation_de":"Konjunktiv II von 'geben' ist unregelmäßig: gäbe.","explanation_en":"Konjunktiv II of 'geben' is irregular: gäbe."},
-
-  {"id":"b2-konj-004","level":"B2","topic":"Konjunktiv II: unregelmäßige Formen","type":"fill_blank",
-   "prompt_de":"Ich ___ (wissen) gern, wo er wohnt.","prompt_en":"I would like to know where he lives.",
-   "correct":"wüsste","explanation_de":"Konjunktiv II von 'wissen' ist unregelmäßig: wüsste.","explanation_en":"Konjunktiv II of 'wissen' is irregular: wüsste."},
-
-  {"id":"b2-konj-005","level":"B2","topic":"Konjunktiv II: unregelmäßige Formen","type":"mc",
-   "prompt_de":"Wir ___ mehr Informationen, um zu entscheiden.","prompt_en":"We would need more information to decide.",
-   "options":["bräuchten","brauchten","brauchen"],"correct":"bräuchten",
-   "explanation_de":"Konjunktiv II von 'brauchen' im Alltag: bräuchte(n) — weit verbreitet, obwohl formal 'würde brauchen' auch korrekt ist.","explanation_en":"Everyday Konjunktiv II of 'brauchen': bräuchte(n) — widely used, though formally 'würde brauchen' is also correct."},
-
-  {"id":"b2-pass-001","level":"B2","topic":"Passiv mit Modalverb: können","type":"fill_blank",
-   "prompt_de":"Das Problem ___ (können) gelöst werden.","prompt_en":"The problem can be solved.",
-   "correct":"kann","explanation_de":"Modalverb konjugiert (kann) + Partizip II (gelöst) + werden (Infinitiv Passiv) am Ende.","explanation_en":"Modal verb conjugated (kann) + past participle (gelöst) + werden (passive infinitive) at the end."},
-
-  {"id":"b2-pass-002","level":"B2","topic":"Passiv mit Modalverb: sollen","type":"mc",
-   "prompt_de":"Die Aufgabe ___ bis morgen erledigt werden.","prompt_en":"The task is supposed to be finished by tomorrow.",
-   "options":["soll","sollst","sollen"],"correct":"soll",
-   "explanation_de":"'Die Aufgabe' ist 3. Person Singular: sie soll erledigt werden.","explanation_en":"'Die Aufgabe' is 3rd person singular: sie soll erledigt werden."},
-
-  {"id":"b2-pass-003","level":"B2","topic":"Passiv mit Modalverb: dürfen (Verneinung)","type":"fill_blank",
-   "prompt_de":"Hier ___ (dürfen) nicht geraucht werden.","prompt_en":"Smoking is not allowed here.",
-   "correct":"darf","explanation_de":"Unpersönliches Passiv mit Modalverb: Hier darf nicht geraucht werden.","explanation_en":"Impersonal passive with a modal verb: Hier darf nicht geraucht werden."},
-
-  {"id":"b2-pass-004","level":"B2","topic":"Passiv mit Modalverb: Präteritum","type":"mc",
-   "prompt_de":"Das Auto ___ repariert werden.","prompt_en":"The car had to be repaired.",
-   "options":["musste","muss","hat"],"correct":"musste",
-   "explanation_de":"Präteritum von 'müssen' + Partizip II + werden: musste repariert werden.","explanation_en":"Präteritum of 'müssen' + past participle + werden: musste repariert werden."},
-
-  {"id":"b2-nom-001","level":"B2","topic":"Nominalisierung","type":"fill_blank",
-   "prompt_de":"___ (rauchen) ist hier verboten.","prompt_en":"Smoking is forbidden here.",
-   "correct":"Das Rauchen","explanation_de":"Der Infinitiv als Nomen ist immer Neutrum: das Rauchen.","explanation_en":"An infinitive used as a noun is always neuter: das Rauchen."},
-
-  {"id":"b2-nom-002","level":"B2","topic":"Nominalisierung","type":"fill_blank",
-   "prompt_de":"___ (schwimmen) im Meer macht Spaß.","prompt_en":"Swimming in the sea is fun.",
-   "correct":"Das Schwimmen","explanation_de":"Infinitiv als Nomen, Neutrum: das Schwimmen.","explanation_en":"Infinitive used as a noun, neuter: das Schwimmen."},
-
-  {"id":"b2-nom-003","level":"B2","topic":"Nominalisierung","type":"mc",
-   "prompt_de":"___ (kochen) ist eine wichtige Fähigkeit.","prompt_en":"Cooking is an important skill.",
-   "options":["Das Kochen","Der Kochen","Die Kochen"],"correct":"Das Kochen",
-   "explanation_de":"Alle nominalisierten Infinitive sind Neutrum: das Kochen (nie der/die Kochen).","explanation_en":"All nominalized infinitives are neuter: das Kochen (never der/die Kochen)."},
-
-  {"id":"b2-ind-001","level":"B2","topic":"Indirekte Rede: Konjunktiv I (sein)","type":"fill_blank",
-   "prompt_de":"Er sagt, er ___ (sein) müde.","prompt_en":"He says he is tired.",
-   "correct":"sei","explanation_de":"Konjunktiv I von 'sein', 3. Person Singular: sei.","explanation_en":"Konjunktiv I of 'sein', 3rd person singular: sei."},
-
-  {"id":"b2-ind-002","level":"B2","topic":"Indirekte Rede: Konjunktiv I (haben)","type":"fill_blank",
-   "prompt_de":"Sie sagte, sie ___ (haben) keine Zeit.","prompt_en":"She said she had no time.",
-   "correct":"habe","explanation_de":"Konjunktiv I von 'haben', 3. Person Singular: habe.","explanation_en":"Konjunktiv I of 'haben', 3rd person singular: habe."},
-
-  {"id":"b2-ind-003","level":"B2","topic":"Indirekte Rede: Konjunktiv I (können)","type":"mc",
-   "prompt_de":"Er meinte, er ___ nicht kommen.","prompt_en":"He said he couldn't come.",
-   "options":["könne","kann","könnte"],"correct":"könne",
-   "explanation_de":"Konjunktiv I 'könne' unterscheidet sich von der Indikativform 'kann' und wird deshalb hier bevorzugt.","explanation_en":"The Konjunktiv I form 'könne' is distinct from the indicative 'kann', so it's preferred here."},
-
-  {"id":"b2-ind-004","level":"B2","topic":"Indirekte Rede: Konjunktiv I (werden)","type":"fill_blank",
-   "prompt_de":"Der Sprecher sagte, die Preise ___ (werden) steigen.","prompt_en":"The speaker said prices would rise.",
-   "correct":"werde","explanation_de":"Konjunktiv I von 'werden', 3. Person Singular: werde.","explanation_en":"Konjunktiv I of 'werden', 3rd person singular: werde."},
-
-  {"id":"b2-konj-006","level":"B2","topic":"Konjunktiv II: eigene Form statt würde","type":"fill_blank",
-   "prompt_de":"An deiner Stelle ___ (sein) ich vorsichtiger.","prompt_en":"In your place, I would be more careful.",
-   "correct":"wäre","explanation_de":"'sein' hat eine eigene Konjunktiv-II-Form (wäre); 'würde sein' wird im Deutschen vermieden.","explanation_en":"'sein' has its own Konjunktiv II form (wäre); 'würde sein' is avoided in German."},
-
-  {"id":"b2-konj-007","level":"B2","topic":"Konjunktiv II Vergangenheit mit Modalverb","type":"fill_blank",
-   "prompt_de":"Er hätte das Auto reparieren ___ (müssen).","prompt_en":"He would have had to repair the car.",
-   "correct":"müssen","explanation_de":"Konjunktiv II Vergangenheit mit Modalverb nutzt den Ersatzinfinitiv: hätte + Infinitiv + Modalverb (Infinitiv) am Ende.","explanation_en":"Past subjunctive with a modal verb uses the 'double infinitive': hätte + infinitive + modal (infinitive) at the end."},
-
-  {"id":"b2-wortstellung-001","level":"B2","topic":"Konjunktiv II: Nebensatz-Wortstellung","type":"word_order",
-   "prompt_de":"Ordne die Wörter: (wenn / ich / das / gewusst / hätte)","prompt_en":"Arrange: (if / I / that / known / had)",
-   "options":["gewusst","wenn","hätte","ich","das"],
-   "correct":["wenn","ich","das","gewusst","hätte"],
-   "explanation_de":"Nebensatz: Konjunktion, Subjekt, Objekt, Partizip II, Hilfsverb (hätte) am Ende.","explanation_en":"Subordinate clause: conjunction, subject, object, past participle, auxiliary (hätte) at the end."},
-
-  {"id":"b2-ind-005","level":"B2","topic":"Indirekte Frage: ob","type":"mc",
-   "prompt_de":"Er fragte, ___ ich Zeit hätte.","prompt_en":"He asked whether I had time.",
-   "options":["ob","dass","wenn"],"correct":"ob",
-   "explanation_de":"Eine indirekte Ja/Nein-Frage wird mit 'ob' eingeleitet.","explanation_en":"An indirect yes/no question is introduced with 'ob'."}
+  {
+    "id": "b2-konj-001",
+    "level": "B2",
+    "topic": "Konjunktiv II: Vergangenheit (haben)",
+    "type": "fill_blank",
+    "prompt_de": "Wenn ich mehr Zeit gehabt ___, hätte ich das Projekt beendet.",
+    "prompt_en": "If I had had more time, I would have finished the project.",
+    "correct": "hätte",
+    "explanation_de": "Konjunktiv II Vergangenheit: hätte + Partizip II (gehabt) im wenn-Satz, hätte + Partizip II im Hauptsatz.",
+    "explanation_en": "Past subjunctive: hätte + past participle (gehabt) in the wenn-clause, hätte + past participle in the main clause."
+  },
+  {
+    "id": "b2-konj-002",
+    "level": "B2",
+    "topic": "Konjunktiv II: Vergangenheit (sein)",
+    "type": "fill_blank",
+    "prompt_de": "Wenn er früher losgefahren ___ (sein), wäre er nicht zu spät gekommen.",
+    "prompt_en": "If he had left earlier, he wouldn't have been late.",
+    "correct": "wäre",
+    "explanation_de": "Verben mit 'sein' im Perfekt bilden den Konjunktiv II Vergangenheit mit wäre + Partizip II.",
+    "explanation_en": "Verbs that use 'sein' in the perfect tense form the past subjunctive with wäre + past participle."
+  },
+  {
+    "id": "b2-konj-003",
+    "level": "B2",
+    "topic": "Konjunktiv II: unregelmäßige Formen",
+    "type": "fill_blank",
+    "prompt_de": "Wenn es keine Handys ___ (geben), wäre das Leben einfacher.",
+    "prompt_en": "If there were no cellphones, life would be simpler.",
+    "correct": "gäbe",
+    "explanation_de": "Konjunktiv II von 'geben' ist unregelmäßig: gäbe.",
+    "explanation_en": "Konjunktiv II of 'geben' is irregular: gäbe."
+  },
+  {
+    "id": "b2-konj-004",
+    "level": "B2",
+    "topic": "Konjunktiv II: unregelmäßige Formen",
+    "type": "fill_blank",
+    "prompt_de": "Ich ___ (wissen) gern, wo er wohnt.",
+    "prompt_en": "I would like to know where he lives.",
+    "correct": "wüsste",
+    "explanation_de": "Konjunktiv II von 'wissen' ist unregelmäßig: wüsste.",
+    "explanation_en": "Konjunktiv II of 'wissen' is irregular: wüsste."
+  },
+  {
+    "id": "b2-konj-005",
+    "level": "B2",
+    "topic": "Konjunktiv II: unregelmäßige Formen",
+    "type": "mc",
+    "prompt_de": "Wir ___ mehr Informationen, um zu entscheiden.",
+    "prompt_en": "We would need more information to decide.",
+    "options": [
+      "bräuchten",
+      "brauchten",
+      "brauchen"
+    ],
+    "correct": "bräuchten",
+    "explanation_de": "Konjunktiv II von 'brauchen' im Alltag: bräuchte(n) — weit verbreitet, obwohl formal 'würde brauchen' auch korrekt ist.",
+    "explanation_en": "Everyday Konjunktiv II of 'brauchen': bräuchte(n) — widely used, though formally 'würde brauchen' is also correct."
+  },
+  {
+    "id": "b2-pass-001",
+    "level": "B2",
+    "topic": "Passiv mit Modalverb: können",
+    "type": "fill_blank",
+    "prompt_de": "Das Problem ___ (können) gelöst werden.",
+    "prompt_en": "The problem can be solved.",
+    "correct": "kann",
+    "explanation_de": "Modalverb konjugiert (kann) + Partizip II (gelöst) + werden (Infinitiv Passiv) am Ende.",
+    "explanation_en": "Modal verb conjugated (kann) + past participle (gelöst) + werden (passive infinitive) at the end."
+  },
+  {
+    "id": "b2-pass-002",
+    "level": "B2",
+    "topic": "Passiv mit Modalverb: sollen",
+    "type": "mc",
+    "prompt_de": "Die Aufgabe ___ bis morgen erledigt werden.",
+    "prompt_en": "The task is supposed to be finished by tomorrow.",
+    "options": [
+      "soll",
+      "sollst",
+      "sollen"
+    ],
+    "correct": "soll",
+    "explanation_de": "'Die Aufgabe' ist 3. Person Singular: sie soll erledigt werden.",
+    "explanation_en": "'Die Aufgabe' is 3rd person singular: sie soll erledigt werden."
+  },
+  {
+    "id": "b2-pass-003",
+    "level": "B2",
+    "topic": "Passiv mit Modalverb: dürfen (Verneinung)",
+    "type": "fill_blank",
+    "prompt_de": "Hier ___ (dürfen) nicht geraucht werden.",
+    "prompt_en": "Smoking is not allowed here.",
+    "correct": "darf",
+    "explanation_de": "Unpersönliches Passiv mit Modalverb: Hier darf nicht geraucht werden.",
+    "explanation_en": "Impersonal passive with a modal verb: Hier darf nicht geraucht werden."
+  },
+  {
+    "id": "b2-pass-004",
+    "level": "B2",
+    "topic": "Passiv mit Modalverb: Präteritum",
+    "type": "mc",
+    "prompt_de": "Das Auto ___ repariert werden.",
+    "prompt_en": "The car had to be repaired.",
+    "options": [
+      "musste",
+      "muss",
+      "hat"
+    ],
+    "correct": "musste",
+    "explanation_de": "Präteritum von 'müssen' + Partizip II + werden: musste repariert werden.",
+    "explanation_en": "Präteritum of 'müssen' + past participle + werden: musste repariert werden."
+  },
+  {
+    "id": "b2-nom-001",
+    "level": "B2",
+    "topic": "Nominalisierung",
+    "type": "fill_blank",
+    "prompt_de": "___ (rauchen) ist hier verboten.",
+    "prompt_en": "Smoking is forbidden here.",
+    "correct": "Das Rauchen",
+    "explanation_de": "Der Infinitiv als Nomen ist immer Neutrum: das Rauchen.",
+    "explanation_en": "An infinitive used as a noun is always neuter: das Rauchen."
+  },
+  {
+    "id": "b2-nom-002",
+    "level": "B2",
+    "topic": "Nominalisierung",
+    "type": "fill_blank",
+    "prompt_de": "___ (schwimmen) im Meer macht Spaß.",
+    "prompt_en": "Swimming in the sea is fun.",
+    "correct": "Das Schwimmen",
+    "explanation_de": "Infinitiv als Nomen, Neutrum: das Schwimmen.",
+    "explanation_en": "Infinitive used as a noun, neuter: das Schwimmen."
+  },
+  {
+    "id": "b2-nom-003",
+    "level": "B2",
+    "topic": "Nominalisierung",
+    "type": "mc",
+    "prompt_de": "___ (kochen) ist eine wichtige Fähigkeit.",
+    "prompt_en": "Cooking is an important skill.",
+    "options": [
+      "Das Kochen",
+      "Der Kochen",
+      "Die Kochen"
+    ],
+    "correct": "Das Kochen",
+    "explanation_de": "Alle nominalisierten Infinitive sind Neutrum: das Kochen (nie der/die Kochen).",
+    "explanation_en": "All nominalized infinitives are neuter: das Kochen (never der/die Kochen)."
+  },
+  {
+    "id": "b2-ind-001",
+    "level": "B2",
+    "topic": "Indirekte Rede: Konjunktiv I (sein)",
+    "type": "fill_blank",
+    "prompt_de": "Er sagt, er ___ (sein) müde.",
+    "prompt_en": "He says he is tired.",
+    "correct": "sei",
+    "explanation_de": "Konjunktiv I von 'sein', 3. Person Singular: sei.",
+    "explanation_en": "Konjunktiv I of 'sein', 3rd person singular: sei."
+  },
+  {
+    "id": "b2-ind-002",
+    "level": "B2",
+    "topic": "Indirekte Rede: Konjunktiv I (haben)",
+    "type": "fill_blank",
+    "prompt_de": "Sie sagte, sie ___ (haben) keine Zeit.",
+    "prompt_en": "She said she had no time.",
+    "correct": "habe",
+    "explanation_de": "Konjunktiv I von 'haben', 3. Person Singular: habe.",
+    "explanation_en": "Konjunktiv I of 'haben', 3rd person singular: habe."
+  },
+  {
+    "id": "b2-ind-003",
+    "level": "B2",
+    "topic": "Indirekte Rede: Konjunktiv I (können)",
+    "type": "mc",
+    "prompt_de": "Er meinte, er ___ nicht kommen.",
+    "prompt_en": "He said he couldn't come.",
+    "options": [
+      "könne",
+      "kann",
+      "könnte"
+    ],
+    "correct": "könne",
+    "explanation_de": "Konjunktiv I 'könne' unterscheidet sich von der Indikativform 'kann' und wird deshalb hier bevorzugt.",
+    "explanation_en": "The Konjunktiv I form 'könne' is distinct from the indicative 'kann', so it's preferred here."
+  },
+  {
+    "id": "b2-ind-004",
+    "level": "B2",
+    "topic": "Indirekte Rede: Konjunktiv I (werden)",
+    "type": "fill_blank",
+    "prompt_de": "Der Sprecher sagte, die Preise ___ (werden) steigen.",
+    "prompt_en": "The speaker said prices would rise.",
+    "correct": "werde",
+    "explanation_de": "Konjunktiv I von 'werden', 3. Person Singular: werde.",
+    "explanation_en": "Konjunktiv I of 'werden', 3rd person singular: werde."
+  },
+  {
+    "id": "b2-konj-006",
+    "level": "B2",
+    "topic": "Konjunktiv II: eigene Form statt würde",
+    "type": "fill_blank",
+    "prompt_de": "An deiner Stelle ___ (sein) ich vorsichtiger.",
+    "prompt_en": "In your place, I would be more careful.",
+    "correct": "wäre",
+    "explanation_de": "'sein' hat eine eigene Konjunktiv-II-Form (wäre); 'würde sein' wird im Deutschen vermieden.",
+    "explanation_en": "'sein' has its own Konjunktiv II form (wäre); 'würde sein' is avoided in German."
+  },
+  {
+    "id": "b2-konj-007",
+    "level": "B2",
+    "topic": "Konjunktiv II Vergangenheit mit Modalverb",
+    "type": "fill_blank",
+    "prompt_de": "Er hätte das Auto reparieren ___ (müssen).",
+    "prompt_en": "He would have had to repair the car.",
+    "correct": "müssen",
+    "explanation_de": "Konjunktiv II Vergangenheit mit Modalverb nutzt den Ersatzinfinitiv: hätte + Infinitiv + Modalverb (Infinitiv) am Ende.",
+    "explanation_en": "Past subjunctive with a modal verb uses the 'double infinitive': hätte + infinitive + modal (infinitive) at the end."
+  },
+  {
+    "id": "b2-wortstellung-001",
+    "level": "B2",
+    "topic": "Konjunktiv II: Nebensatz-Wortstellung",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (wenn / ich / das / gewusst / hätte)",
+    "prompt_en": "Arrange: (if / I / that / known / had)",
+    "options": [
+      "gewusst",
+      "wenn",
+      "hätte",
+      "ich",
+      "das"
+    ],
+    "correct": [
+      "wenn",
+      "ich",
+      "das",
+      "gewusst",
+      "hätte"
+    ],
+    "explanation_de": "Nebensatz: Konjunktion, Subjekt, Objekt, Partizip II, Hilfsverb (hätte) am Ende.",
+    "explanation_en": "Subordinate clause: conjunction, subject, object, past participle, auxiliary (hätte) at the end."
+  },
+  {
+    "id": "b2-ind-005",
+    "level": "B2",
+    "topic": "Indirekte Frage: ob",
+    "type": "mc",
+    "prompt_de": "Er fragte, ___ ich Zeit hätte.",
+    "prompt_en": "He asked whether I had time.",
+    "options": [
+      "ob",
+      "dass",
+      "wenn"
+    ],
+    "correct": "ob",
+    "explanation_de": "Eine indirekte Ja/Nein-Frage wird mit 'ob' eingeleitet.",
+    "explanation_en": "An indirect yes/no question is introduced with 'ob'."
+  },
+  {
+    "id": "b2-pqp-reflexiv-001",
+    "level": "B2",
+    "topic": "Plusquamperfekt: reflexive Verben",
+    "type": "mc",
+    "prompt_de": "Bevor sie ihn heiratete, ____ sie sich in ihn verliebt.",
+    "prompt_en": "Before she married him, she had fallen in love with him.",
+    "options": [
+      "hat",
+      "ist",
+      "war",
+      "hatte"
+    ],
+    "correct": "hatte",
+    "explanation_de": "Dies beschreibt ein Ereignis vor einem anderen Ereignis in der Vergangenheit → Plusquamperfekt. Reflexive Verben wie 'sich verlieben' bilden das Perfekt/Plusquamperfekt mit 'haben': <b>hatte...verliebt</b>.",
+    "explanation_en": "This describes an event before another past event, requiring Plusquamperfekt. Reflexive verbs like 'sich verlieben' take 'haben' as their auxiliary: <b>hatte...verliebt</b>."
+  },
+  {
+    "id": "b2-wortschatz-derselbe-003",
+    "level": "B2",
+    "topic": "Wortschatz: derselbe vs. der gleiche",
+    "type": "mc",
+    "prompt_de": "Das ist ____ Modell, aber nicht ____.",
+    "prompt_en": "This is the same model, but not the very same one.",
+    "options": [
+      "derselbe/der gleiche",
+      "denselben/den gleichen",
+      "den gleichen/derselbe",
+      "der gleiche/derselbe"
+    ],
+    "correct": "der gleiche/derselbe",
+    "explanation_de": "'Das ist ____' verlangt den Nominativ, was die Akkusativ-Optionen ausschließt. Von den verbleibenden nominativen Formen ergibt <b>der gleiche/derselbe</b> den sinnvollen Kontrast: gleiches Modell, aber nicht dasselbe Stück.",
+    "explanation_en": "'Das ist ____' requires the nominative case, ruling out the accusative options. Between the remaining nominative pair, <b>der gleiche/derselbe</b> makes the sensible contrast: same model, but not the literal same physical item."
+  },
+  {
+    "id": "b2-konjii-wuerde-modal-001",
+    "level": "B2",
+    "topic": "Konjunktiv II: würde + Modalverb",
+    "type": "mc",
+    "prompt_de": "Ich ____ mich gerne entspannen ____.",
+    "prompt_en": "I would like to be able to relax.",
+    "options": [
+      "ware/haben",
+      "würde/können",
+      "wurde/gehabt",
+      "war/sein"
+    ],
+    "correct": "würde/können",
+    "explanation_de": "Konjunktiv II 'würde' + Modalverb 'können' drückt einen höflichen hypothetischen Wunsch aus: <b>würde...können</b>.",
+    "explanation_en": "Konjunktiv II 'würde' + modal 'können' expresses a polite hypothetical wish: <b>würde...können</b>."
+  },
+  {
+    "id": "b2-hoeflich-waeren-001",
+    "level": "B2",
+    "topic": "Höflichkeitsform: Wären Sie so...",
+    "type": "mc",
+    "prompt_de": "____ Sie so freundlich, das Fenster zu schließen?",
+    "prompt_en": "Would you be so kind as to close the window?",
+    "options": [
+      "Hätten",
+      "Wären",
+      "Könnten",
+      "Sollten"
+    ],
+    "correct": "Wären",
+    "explanation_de": "'Wären Sie so freundlich/nett, ... zu ...?' ist die feste, standardsprachliche Höflichkeitsformel.",
+    "explanation_en": "'Wären Sie so freundlich/nett, ... zu ...?' is the standard, fixed German polite-request idiom."
+  },
+  {
+    "id": "b2-konj-nichtnur-neben-001",
+    "level": "B2",
+    "topic": "Konjunktionen: nicht nur...sondern auch (Nebensatz)",
+    "type": "mc",
+    "prompt_de": "Ich muss ihn ____ verstehen, ____ muss ich ihm vertrauen.",
+    "prompt_en": "I must not only understand him, but also trust him.",
+    "options": [
+      "eigentlich/aber",
+      "nicht nur/sondern auch",
+      "sowohl/als auch",
+      "weder/noch"
+    ],
+    "correct": "nicht nur/sondern auch",
+    "explanation_de": "'Nicht nur ... sondern auch' ist ein festes Konnektorenpaar. Beginnt 'sondern auch' den Satz, folgt das Verb direkt danach: <b>sondern auch muss ich...</b>",
+    "explanation_en": "'Nicht nur ... sondern auch' is a fixed correlating pair; with 'sondern auch' beginning the clause, the verb follows directly: <b>sondern auch muss ich...</b>"
+  },
+  {
+    "id": "b2-kausativ-lassen-003",
+    "level": "B2",
+    "topic": "Kausativkonstruktion: lassen",
+    "type": "mc",
+    "prompt_de": "Wo haben Sie sich die Zähne kontrollieren ____?",
+    "prompt_en": "Where did you have your teeth checked?",
+    "options": [
+      "machen",
+      "färben",
+      "werden",
+      "lassen"
+    ],
+    "correct": "lassen",
+    "explanation_de": "Die kausative Konstruktion 'sich etwas machen lassen' (etwas von jemand anderem erledigen lassen) verwendet 'lassen'.",
+    "explanation_en": "The causative construction 'sich etwas machen lassen' (to have something done) uses 'lassen'."
+  },
+  {
+    "id": "b2-verb-dat-akk-002",
+    "level": "B2",
+    "topic": "Verben mit Dativ und Akkusativ",
+    "type": "mc",
+    "prompt_de": "____ Absender schickt ____ Freund ____ Brief.",
+    "prompt_en": "The sender sends the friend the letter.",
+    "options": [
+      "der/dem/den",
+      "der/den/dem",
+      "den/der/dem",
+      "dem/der/den"
+    ],
+    "correct": "der/dem/den",
+    "explanation_de": "'Schicken' verlangt Dativ (Empfänger) + Akkusativ (Sache). Subjekt 'der Absender' (Nom.), 'der Freund' → Dativ <b>dem Freund</b>, 'der Brief' → Akkusativ <b>den Brief</b>.",
+    "explanation_en": "'Schicken' takes dative (recipient) + accusative (thing sent). Subject 'der Absender' (nom.), 'der Freund' → dative <b>dem Freund</b>, 'der Brief' → accusative <b>den Brief</b>."
+  },
+  {
+    "id": "b2-rel-genitiv-001",
+    "level": "B2",
+    "topic": "Relativsätze: Genitiv (dessen)",
+    "type": "mc",
+    "prompt_de": "Der Nachbar, ____ Auto immer laut ist, wohnt nebenan.",
+    "prompt_en": "The neighbor whose car is always loud lives next door.",
+    "options": [
+      "dem",
+      "dessen",
+      "die",
+      "sein"
+    ],
+    "correct": "dessen",
+    "explanation_de": "'Dessen' ist das Genitiv-Relativpronomen für maskuline/neutrale Bezugswörter und bedeutet 'whose'.",
+    "explanation_en": "'Dessen' is the genitive relative pronoun for masculine/neuter antecedents, meaning 'whose'."
+  },
+  {
+    "id": "b2-adj-dekl-ohne-artikel-001",
+    "level": "B2",
+    "topic": "Adjektivdeklination: ohne Artikel",
+    "type": "mc",
+    "prompt_de": "Ich mag ____ Fisch mit ____ Gemüse.",
+    "prompt_en": "I like grilled fish with fresh vegetables.",
+    "options": [
+      "gegrillten/frischem",
+      "gegrilltes/frischem",
+      "gegrillter/frischem",
+      "gegrilltes/frisches"
+    ],
+    "correct": "gegrillten/frischem",
+    "explanation_de": "Ohne Artikel gilt die starke Deklination. 'Fisch' (mask., Akkusativobjekt von 'mögen') → <b>gegrillten</b>; 'Gemüse' (neutr., Dativ nach 'mit') → <b>frischem</b>.",
+    "explanation_en": "With no article, strong declension applies. 'Fisch' (masc., accusative object of 'mögen') → <b>gegrillten</b>; 'Gemüse' (neut., dative after 'mit') → <b>frischem</b>."
+  },
+  {
+    "id": "b2-adj-zu-inf-003",
+    "level": "B2",
+    "topic": "Adjektiv + zu + Infinitiv",
+    "type": "mc",
+    "prompt_de": "Sie kann die Aufgabe lösen = Sie ist ____, die Aufgabe zu lösen.",
+    "prompt_en": "She can solve the task = She is capable of solving the task.",
+    "options": [
+      "stetig",
+      "fertig",
+      "nötig",
+      "fähig"
+    ],
+    "correct": "fähig",
+    "explanation_de": "'Fähig sein, etwas zu tun' bedeutet, in der Lage zu sein, etwas zu tun.",
+    "explanation_en": "'Fähig sein, etwas zu tun' means 'to be capable of doing something'."
+  },
+  {
+    "id": "b2-ind-konji-sein-002",
+    "level": "B2",
+    "topic": "Indirekte Rede: Konjunktiv I (sein)",
+    "type": "mc",
+    "prompt_de": "„Ich bin jeden Freitag im Fitnessstudio.“ Sie sagt, sie ____ jeden Freitag im Fitnessstudio.",
+    "prompt_en": "'I'm at the gym every Friday.' She says she's at the gym every Friday.",
+    "options": [
+      "ist",
+      "wäre",
+      "sei",
+      "war"
+    ],
+    "correct": "sei",
+    "explanation_de": "Formelle indirekte Rede verwendet Konjunktiv I: <b>sei</b> (von 'sein').",
+    "explanation_en": "Formal indirect speech uses Konjunktiv I: <b>sei</b> (from 'sein')."
+  },
+  {
+    "id": "b2-konjii-bedingung-003",
+    "level": "B2",
+    "topic": "Konjunktiv II: Bedingungssatz",
+    "type": "mc",
+    "prompt_de": "Wenn es mehr Parkplätze ____, ____ der Stress weniger.",
+    "prompt_en": "If there were more parking spaces, the stress would be less.",
+    "options": [
+      "gibt/würde",
+      "gab/wird",
+      "gaben/wurde",
+      "gäbe/wäre"
+    ],
+    "correct": "gäbe/wäre",
+    "explanation_de": "Irreale Bedingungssätze verwenden in beiden Teilsätzen Konjunktiv II: <b>gäbe/wäre</b>.",
+    "explanation_en": "Unreal/hypothetical conditionals use Konjunktiv II in both clauses: <b>gäbe/wäre</b>."
+  },
+  {
+    "id": "b2-indef-mancher-000",
+    "level": "B2",
+    "topic": "Indefinitpronomen: mancher",
+    "type": "mc",
+    "prompt_de": "____ wäre gerne Gast bei der Gala.",
+    "prompt_en": "Many a person would like to be a guest at the gala.",
+    "options": [
+      "Mancher",
+      "Manches",
+      "Manchen",
+      "Manch ein"
+    ],
+    "correct": "Mancher",
+    "explanation_de": "'Mancher' (so mancher) ist die nominative maskuline Form des Indefinitpronomens und fungiert hier als Subjekt.",
+    "explanation_en": "'Mancher' (many a one) is the nominative masculine indefinite pronoun functioning as the subject."
+  },
+  {
+    "id": "b2-wortschatz-menge-002",
+    "level": "B2",
+    "topic": "Wortschatz: Mengenangaben",
+    "type": "mc",
+    "prompt_de": "Du kannst den Schlüssel behalten, ich habe ihn ____.",
+    "prompt_en": "You can keep the key, I have it twice over.",
+    "options": [
+      "zwei",
+      "doppel",
+      "doppelt",
+      "zu zweit"
+    ],
+    "correct": "doppelt",
+    "explanation_de": "'Doppelt' (zweifach) drückt aus, ein Duplikat zu besitzen.",
+    "explanation_en": "'Doppelt' (doubly) expresses having a duplicate."
+  },
+  {
+    "id": "b2-gen-praep-aufgrund-003",
+    "level": "B2",
+    "topic": "Genitivpräpositionen: aufgrund",
+    "type": "mc",
+    "prompt_de": "____ des Fachkräftemangels wurden neue Stellen geschaffen.",
+    "prompt_en": "Due to the skilled-labor shortage, new positions were created.",
+    "options": [
+      "Denn",
+      "Deswegen",
+      "Da",
+      "Aufgrund"
+    ],
+    "correct": "Aufgrund",
+    "explanation_de": "'Aufgrund' + Genitiv bedeutet 'wegen/auf der Grundlage von'.",
+    "explanation_en": "'Aufgrund' + genitive means 'due to/because of'."
+  },
+  {
+    "id": "b2-wortbildung-komposita-002",
+    "level": "B2",
+    "topic": "Wortbildung: Komposita",
+    "type": "mc",
+    "prompt_de": "Das Auto + die Tür + der Schlüssel = ____ Autotürschlüssel.",
+    "prompt_en": "Car + door + key = the car door key.",
+    "options": [
+      "Das",
+      "Die",
+      "Der",
+      "Dem"
+    ],
+    "correct": "Der",
+    "explanation_de": "Ein deutsches Kompositum übernimmt das Genus seines letzten Bestandteils. 'Der Schlüssel' ist maskulin, also ist 'Autotürschlüssel' ebenfalls maskulin: <b>der</b>.",
+    "explanation_en": "A German compound noun takes the gender of its final component. 'Der Schlüssel' is masculine, so 'Autotürschlüssel' is also masculine: <b>der</b>."
+  },
+  {
+    "id": "b2-konn-einerseits-002",
+    "level": "B2",
+    "topic": "Konnektoren: einerseits...andererseits",
+    "type": "mc",
+    "prompt_de": "____ mag ich sie, aber ____ nervt sie mich.",
+    "prompt_en": "On one hand I like her, but on the other hand she annoys me.",
+    "options": [
+      "Diesseits/jenseits",
+      "Hierseits/daseits",
+      "Einerseits/andererseits",
+      "Aufseits/abseits"
+    ],
+    "correct": "Einerseits/andererseits",
+    "explanation_de": "'Einerseits...andererseits' ist ein festes Kontrastpaar.",
+    "explanation_en": "'Einerseits...andererseits' is a fixed contrastive pair meaning 'on one hand...on the other hand'."
+  },
+  {
+    "id": "b2-abtoenung-vielleicht-003",
+    "level": "B2",
+    "topic": "Abtönungspartikel: vielleicht",
+    "type": "mc",
+    "prompt_de": "Könnten Sie mir ____ die Unterlagen zuschicken?",
+    "prompt_en": "Could you perhaps send me the documents?",
+    "options": [
+      "ruhig",
+      "aber",
+      "genau",
+      "vielleicht"
+    ],
+    "correct": "vielleicht",
+    "explanation_de": "'Vielleicht' mildert eine höfliche Bitte ab.",
+    "explanation_en": "'Vielleicht' softens a polite request."
+  },
+  {
+    "id": "b2-pronomen-es-platzhalter-001",
+    "level": "B2",
+    "topic": "Pronomen: es als Platzhalter",
+    "type": "mc",
+    "prompt_de": "Viele Leute schwärmen von den Cafés hier. Ich tue ____ auch.",
+    "prompt_en": "Many people rave about the cafés here. I do too.",
+    "options": [
+      "diesen",
+      "es",
+      "dessen",
+      "diese"
+    ],
+    "correct": "es",
+    "explanation_de": "'Es tun' ist der idiomatische Platzhalter für eine wiederholte Verbphrase: 'ich tue es auch'.",
+    "explanation_en": "'Es tun' is the idiomatic placeholder for a repeated verb phrase: 'ich tue es auch' ('I do so too')."
+  },
+  {
+    "id": "b2-wortschatz-register-002",
+    "level": "B2",
+    "topic": "Wortschatz: Register",
+    "type": "mc",
+    "prompt_de": "Für die Gala beachten Sie bitte folgenden Stil: ____.",
+    "prompt_en": "For the gala, please observe the following style: festive and elegant.",
+    "options": [
+      "bequem und geschmacklos",
+      "salopp und ungemütlich",
+      "festlich und elegant",
+      "korrekt und neutral"
+    ],
+    "correct": "festlich und elegant",
+    "explanation_de": "'Festlich und elegant' passt zu einer formellen Gala; die anderen Optionen beschreiben unpassende Stile.",
+    "explanation_en": "'Festlich und elegant' fits a formal gala; the other options describe styles unsuited to such an event."
+  }
 ]

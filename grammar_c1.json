@@ -1,88 +1,600 @@
 [
-  {"id":"c1-konj-001","level":"C1","topic":"Konjunktiv I: Ausweichen auf Konjunktiv II","type":"fill_blank",
-   "prompt_de":"Sie sagten, sie ___ (haben) keine Ahnung.","prompt_en":"They said they had no idea.",
-   "correct":"hätten","explanation_de":"Konjunktiv I Plural von 'haben' (haben) ist mit dem Indikativ identisch; deshalb weicht man auf Konjunktiv II (hätten) aus.","explanation_en":"The Konjunktiv I plural of 'haben' (haben) is identical to the indicative, so Konjunktiv II (hätten) is used instead."},
-
-  {"id":"c1-konj-002","level":"C1","topic":"Konjunktiv I: müsse","type":"fill_blank",
-   "prompt_de":"Er erklärte, man ___ (müssen) die Regeln befolgen.","prompt_en":"He explained that one must follow the rules.",
-   "correct":"müsse","explanation_de":"Konjunktiv I von 'müssen', 3. Person Singular: müsse.","explanation_en":"Konjunktiv I of 'müssen', 3rd person singular: müsse."},
-
-  {"id":"c1-konj-003","level":"C1","topic":"Konjunktiv I: wolle","type":"fill_blank",
-   "prompt_de":"Sie behauptete, sie ___ (wollen) das Projekt beenden.","prompt_en":"She claimed she wanted to finish the project.",
-   "correct":"wolle","explanation_de":"Konjunktiv I von 'wollen', 3. Person Singular: wolle.","explanation_en":"Konjunktiv I of 'wollen', 3rd person singular: wolle."},
-
-  {"id":"c1-konj-004","level":"C1","topic":"Konjunktiv I: dürfe","type":"mc",
-   "prompt_de":"Der Minister erklärte, niemand ___ das Gebäude betreten.","prompt_en":"The minister explained that no one was allowed to enter the building.",
-   "options":["dürfe","darf","durfte"],"correct":"dürfe",
-   "explanation_de":"Konjunktiv I von 'dürfen', 3. Person Singular: dürfe (unterscheidet sich vom Indikativ 'darf').","explanation_en":"Konjunktiv I of 'dürfen', 3rd person singular: dürfe (distinct from the indicative 'darf')."},
-
-  {"id":"c1-konj-005","level":"C1","topic":"Konjunktiv I: indirekter Imperativ mit möge","type":"fill_blank",
-   "prompt_de":"Er sagte, sie ___ (mögen) doch bitte pünktlich kommen.","prompt_en":"He said she should please come on time.",
-   "correct":"möge","explanation_de":"Konjunktiv I 'möge' wird für indirekt wiedergegebene Aufforderungen/Wünsche verwendet.","explanation_en":"The Konjunktiv I form 'möge' is used for indirectly reported requests/wishes."},
-
-  {"id":"c1-part-001","level":"C1","topic":"Partizip I als Adjektiv","type":"fill_blank",
-   "prompt_de":"Der ___ (lachen) Mann winkte uns zu.","prompt_en":"The laughing man waved to us.",
-   "correct":"lachende","explanation_de":"Partizip I (Präsenspartizip) als attributives Adjektiv + Adjektivendung: lachende.","explanation_en":"Partizip I (present participle) as an attributive adjective + adjective ending: lachende."},
-
-  {"id":"c1-part-002","level":"C1","topic":"Partizip II als Adjektiv","type":"fill_blank",
-   "prompt_de":"Das ___ (schreiben) Buch liegt auf dem Tisch.","prompt_en":"The written book is on the table.",
-   "correct":"geschriebene","explanation_de":"Partizip II als attributives Adjektiv + Adjektivendung: geschriebene.","explanation_en":"Partizip II as an attributive adjective + adjective ending: geschriebene."},
-
-  {"id":"c1-part-003","level":"C1","topic":"Erweiterte Partizipialkonstruktion","type":"mc",
-   "prompt_de":"Der ___ Brief liegt auf dem Tisch.","prompt_en":"The letter written by me is on the table.",
-   "options":["von mir geschriebene","von mir schreibende","von mir geschriebte"],"correct":"von mir geschriebene",
-   "explanation_de":"Erweiterte Partizipialkonstruktion ersetzt einen Relativsatz: der Brief, der von mir geschrieben wurde.","explanation_en":"An extended participial construction replaces a relative clause: der Brief, der von mir geschrieben wurde."},
-
-  {"id":"c1-part-004","level":"C1","topic":"Erweiterte Partizipialkonstruktion","type":"fill_blank",
-   "prompt_de":"Die ___ (schnell laufen) Kinder erreichten das Ziel zuerst.","prompt_en":"The fast-running children reached the goal first.",
-   "correct":"schnell laufenden","explanation_de":"Erweitertes Partizip I (mit Adverb) + Adjektivendung: schnell laufenden.","explanation_en":"Extended Partizip I (with adverb) + adjective ending: schnell laufenden."},
-
-  {"id":"c1-neben-001","level":"C1","topic":"Komplexe Nebensätze: sodass","type":"fill_blank",
-   "prompt_de":"Er arbeitete hart, ___ er die Prüfung bestand.","prompt_en":"He worked hard, so that he passed the exam.",
-   "correct":"sodass","explanation_de":"'sodass' leitet einen Konsekutivsatz ein (Folge/Ergebnis).","explanation_en":"'sodass' introduces a consecutive clause (result/consequence)."},
-
-  {"id":"c1-neben-002","level":"C1","topic":"Komplexe Nebensätze: indem","type":"fill_blank",
-   "prompt_de":"Sie verbesserte ihr Deutsch, ___ sie viel las.","prompt_en":"She improved her German by reading a lot.",
-   "correct":"indem","explanation_de":"'indem' leitet einen Modalsatz ein (Art und Weise, wie etwas geschieht).","explanation_en":"'indem' introduces a clause of manner (how something is done)."},
-
-  {"id":"c1-neben-003","level":"C1","topic":"Komplexe Nebensätze: obschon","type":"mc",
-   "prompt_de":"___ er müde war, arbeitete er weiter.","prompt_en":"Although he was tired, he kept working.",
-   "options":["Obschon","Sodass","Indem"],"correct":"Obschon",
-   "explanation_de":"'obschon' (= obwohl) leitet einen Konzessivsatz ein.","explanation_en":"'obschon' (= obwohl, 'although') introduces a concessive clause."},
-
-  {"id":"c1-korrel-001","level":"C1","topic":"Je... desto...","type":"fill_blank",
-   "prompt_de":"Je mehr er übt, ___ besser wird er.","prompt_en":"The more he practices, the better he gets.",
-   "correct":"desto","explanation_de":"Korrelative Konstruktion: je + Komparativ ..., desto + Komparativ ...","explanation_en":"Correlative construction: je + comparative ..., desto + comparative ..."},
-
-  {"id":"c1-korrel-002","level":"C1","topic":"Je... desto...: Wortstellung","type":"word_order",
-   "prompt_de":"Ordne die Wörter für den desto-Satz: (desto / mehr / gibt / er / aus)","prompt_en":"Arrange the 'desto' clause: (the more / gives / he / out) — from 'Je mehr Geld er verdient, ...'",
-   "options":["gibt","aus","desto","er","mehr"],
-   "correct":["desto","mehr","gibt","er","aus"],
-   "explanation_de":"Der desto-Satz hat Verb-Zweit-Stellung wie ein normaler Hauptsatz: desto + Vergleichsform, Verb, Subjekt, Rest.","explanation_en":"The 'desto' clause has verb-second word order like a normal main clause: desto + comparative, verb, subject, rest."},
-
-  {"id":"c1-ger-001","level":"C1","topic":"Gerundivum (zu + Partizip I)","type":"fill_blank",
-   "prompt_de":"Die zu ___ (lösen) Aufgabe ist schwierig.","prompt_en":"The task to be solved is difficult.",
-   "correct":"lösende","explanation_de":"Gerundivum: zu + Partizip I + Adjektivendung drückt Notwendigkeit aus: die zu lösende Aufgabe = die Aufgabe, die gelöst werden muss.","explanation_en":"Gerundive: zu + Partizip I + adjective ending expresses necessity: die zu lösende Aufgabe = the task that must be solved."},
-
-  {"id":"c1-ger-002","level":"C1","topic":"Gerundivum (zu + Partizip I)","type":"mc",
-   "prompt_de":"Das ___ Problem muss sofort behandelt werden.","prompt_en":"The problem to be dealt with must be addressed immediately.",
-   "options":["zu behandelnde","behandelnde","zu behandeln"],"correct":"zu behandelnde",
-   "explanation_de":"Gerundivum: zu + Partizip I (behandelnd) + Adjektivendung: zu behandelnde.","explanation_en":"Gerundive: zu + Partizip I (behandelnd) + adjective ending: zu behandelnde."},
-
-  {"id":"c1-neben-004","level":"C1","topic":"Komplexe Nebensätze: anstatt dass","type":"fill_blank",
-   "prompt_de":"___ er half, ging er einfach weg.","prompt_en":"Instead of helping, he just walked away.",
-   "correct":"Anstatt dass","explanation_de":"'Anstatt dass' leitet einen Kontrastsatz ein (etwas Erwartetes geschieht nicht).","explanation_en":"'Anstatt dass' introduces a contrastive clause (an expected action doesn't happen)."},
-
-  {"id":"c1-konj-006","level":"C1","topic":"Konjunktiv I in Berichten","type":"fill_blank",
-   "prompt_de":"Die Zeitung berichtete, die Regierung ___ (planen) neue Steuergesetze.","prompt_en":"The newspaper reported that the government was planning new tax laws.",
-   "correct":"plane","explanation_de":"Konjunktiv I von 'planen', 3. Person Singular: plane.","explanation_en":"Konjunktiv I of 'planen', 3rd person singular: plane."},
-
-  {"id":"c1-konj-007","level":"C1","topic":"Konjunktiv I Plural: eigenständige Form","type":"fill_blank",
-   "prompt_de":"Sie sagten, sie ___ (sein) zufrieden.","prompt_en":"They said they were satisfied.",
-   "correct":"seien","explanation_de":"Konjunktiv I Plural von 'sein' ist 'seien' — unterscheidet sich vom Indikativ 'sind', daher hier korrekt (im Gegensatz zu 'haben').","explanation_en":"Konjunktiv I plural of 'sein' is 'seien' — distinct from the indicative 'sind', so it's used directly here (unlike 'haben')."},
-
-  {"id":"c1-korrel-003","level":"C1","topic":"Je... desto...","type":"mc",
-   "prompt_de":"Je länger die Besprechung dauerte, ___ ungeduldiger wurden die Mitarbeiter.","prompt_en":"The longer the meeting lasted, the more impatient the employees became.",
-   "options":["desto","je","sodass"],"correct":"desto",
-   "explanation_de":"Der zweite Teil der Korrelation beginnt immer mit 'desto'.","explanation_en":"The second part of the correlation always begins with 'desto'."}
+  {
+    "id": "c1-konj-001",
+    "level": "C1",
+    "topic": "Konjunktiv I: Ausweichen auf Konjunktiv II",
+    "type": "fill_blank",
+    "prompt_de": "Sie sagten, sie ___ (haben) keine Ahnung.",
+    "prompt_en": "They said they had no idea.",
+    "correct": "hätten",
+    "explanation_de": "Konjunktiv I Plural von 'haben' (haben) ist mit dem Indikativ identisch; deshalb weicht man auf Konjunktiv II (hätten) aus.",
+    "explanation_en": "The Konjunktiv I plural of 'haben' (haben) is identical to the indicative, so Konjunktiv II (hätten) is used instead."
+  },
+  {
+    "id": "c1-konj-002",
+    "level": "C1",
+    "topic": "Konjunktiv I: müsse",
+    "type": "fill_blank",
+    "prompt_de": "Er erklärte, man ___ (müssen) die Regeln befolgen.",
+    "prompt_en": "He explained that one must follow the rules.",
+    "correct": "müsse",
+    "explanation_de": "Konjunktiv I von 'müssen', 3. Person Singular: müsse.",
+    "explanation_en": "Konjunktiv I of 'müssen', 3rd person singular: müsse."
+  },
+  {
+    "id": "c1-konj-003",
+    "level": "C1",
+    "topic": "Konjunktiv I: wolle",
+    "type": "fill_blank",
+    "prompt_de": "Sie behauptete, sie ___ (wollen) das Projekt beenden.",
+    "prompt_en": "She claimed she wanted to finish the project.",
+    "correct": "wolle",
+    "explanation_de": "Konjunktiv I von 'wollen', 3. Person Singular: wolle.",
+    "explanation_en": "Konjunktiv I of 'wollen', 3rd person singular: wolle."
+  },
+  {
+    "id": "c1-konj-004",
+    "level": "C1",
+    "topic": "Konjunktiv I: dürfe",
+    "type": "mc",
+    "prompt_de": "Der Minister erklärte, niemand ___ das Gebäude betreten.",
+    "prompt_en": "The minister explained that no one was allowed to enter the building.",
+    "options": [
+      "dürfe",
+      "darf",
+      "durfte"
+    ],
+    "correct": "dürfe",
+    "explanation_de": "Konjunktiv I von 'dürfen', 3. Person Singular: dürfe (unterscheidet sich vom Indikativ 'darf').",
+    "explanation_en": "Konjunktiv I of 'dürfen', 3rd person singular: dürfe (distinct from the indicative 'darf')."
+  },
+  {
+    "id": "c1-konj-005",
+    "level": "C1",
+    "topic": "Konjunktiv I: indirekter Imperativ mit möge",
+    "type": "fill_blank",
+    "prompt_de": "Er sagte, sie ___ (mögen) doch bitte pünktlich kommen.",
+    "prompt_en": "He said she should please come on time.",
+    "correct": "möge",
+    "explanation_de": "Konjunktiv I 'möge' wird für indirekt wiedergegebene Aufforderungen/Wünsche verwendet.",
+    "explanation_en": "The Konjunktiv I form 'möge' is used for indirectly reported requests/wishes."
+  },
+  {
+    "id": "c1-part-001",
+    "level": "C1",
+    "topic": "Partizip I als Adjektiv",
+    "type": "fill_blank",
+    "prompt_de": "Der ___ (lachen) Mann winkte uns zu.",
+    "prompt_en": "The laughing man waved to us.",
+    "correct": "lachende",
+    "explanation_de": "Partizip I (Präsenspartizip) als attributives Adjektiv + Adjektivendung: lachende.",
+    "explanation_en": "Partizip I (present participle) as an attributive adjective + adjective ending: lachende."
+  },
+  {
+    "id": "c1-part-002",
+    "level": "C1",
+    "topic": "Partizip II als Adjektiv",
+    "type": "fill_blank",
+    "prompt_de": "Das ___ (schreiben) Buch liegt auf dem Tisch.",
+    "prompt_en": "The written book is on the table.",
+    "correct": "geschriebene",
+    "explanation_de": "Partizip II als attributives Adjektiv + Adjektivendung: geschriebene.",
+    "explanation_en": "Partizip II as an attributive adjective + adjective ending: geschriebene."
+  },
+  {
+    "id": "c1-part-003",
+    "level": "C1",
+    "topic": "Erweiterte Partizipialkonstruktion",
+    "type": "mc",
+    "prompt_de": "Der ___ Brief liegt auf dem Tisch.",
+    "prompt_en": "The letter written by me is on the table.",
+    "options": [
+      "von mir geschriebene",
+      "von mir schreibende",
+      "von mir geschriebte"
+    ],
+    "correct": "von mir geschriebene",
+    "explanation_de": "Erweiterte Partizipialkonstruktion ersetzt einen Relativsatz: der Brief, der von mir geschrieben wurde.",
+    "explanation_en": "An extended participial construction replaces a relative clause: der Brief, der von mir geschrieben wurde."
+  },
+  {
+    "id": "c1-part-004",
+    "level": "C1",
+    "topic": "Erweiterte Partizipialkonstruktion",
+    "type": "fill_blank",
+    "prompt_de": "Die ___ (schnell laufen) Kinder erreichten das Ziel zuerst.",
+    "prompt_en": "The fast-running children reached the goal first.",
+    "correct": "schnell laufenden",
+    "explanation_de": "Erweitertes Partizip I (mit Adverb) + Adjektivendung: schnell laufenden.",
+    "explanation_en": "Extended Partizip I (with adverb) + adjective ending: schnell laufenden."
+  },
+  {
+    "id": "c1-neben-001",
+    "level": "C1",
+    "topic": "Komplexe Nebensätze: sodass",
+    "type": "fill_blank",
+    "prompt_de": "Er arbeitete hart, ___ er die Prüfung bestand.",
+    "prompt_en": "He worked hard, so that he passed the exam.",
+    "correct": "sodass",
+    "explanation_de": "'sodass' leitet einen Konsekutivsatz ein (Folge/Ergebnis).",
+    "explanation_en": "'sodass' introduces a consecutive clause (result/consequence)."
+  },
+  {
+    "id": "c1-neben-002",
+    "level": "C1",
+    "topic": "Komplexe Nebensätze: indem",
+    "type": "fill_blank",
+    "prompt_de": "Sie verbesserte ihr Deutsch, ___ sie viel las.",
+    "prompt_en": "She improved her German by reading a lot.",
+    "correct": "indem",
+    "explanation_de": "'indem' leitet einen Modalsatz ein (Art und Weise, wie etwas geschieht).",
+    "explanation_en": "'indem' introduces a clause of manner (how something is done)."
+  },
+  {
+    "id": "c1-neben-003",
+    "level": "C1",
+    "topic": "Komplexe Nebensätze: obschon",
+    "type": "mc",
+    "prompt_de": "___ er müde war, arbeitete er weiter.",
+    "prompt_en": "Although he was tired, he kept working.",
+    "options": [
+      "Obschon",
+      "Sodass",
+      "Indem"
+    ],
+    "correct": "Obschon",
+    "explanation_de": "'obschon' (= obwohl) leitet einen Konzessivsatz ein.",
+    "explanation_en": "'obschon' (= obwohl, 'although') introduces a concessive clause."
+  },
+  {
+    "id": "c1-korrel-001",
+    "level": "C1",
+    "topic": "Je... desto...",
+    "type": "fill_blank",
+    "prompt_de": "Je mehr er übt, ___ besser wird er.",
+    "prompt_en": "The more he practices, the better he gets.",
+    "correct": "desto",
+    "explanation_de": "Korrelative Konstruktion: je + Komparativ ..., desto + Komparativ ...",
+    "explanation_en": "Correlative construction: je + comparative ..., desto + comparative ..."
+  },
+  {
+    "id": "c1-korrel-002",
+    "level": "C1",
+    "topic": "Je... desto...: Wortstellung",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter für den desto-Satz: (desto / mehr / gibt / er / aus)",
+    "prompt_en": "Arrange the 'desto' clause: (the more / gives / he / out) — from 'Je mehr Geld er verdient, ...'",
+    "options": [
+      "gibt",
+      "aus",
+      "desto",
+      "er",
+      "mehr"
+    ],
+    "correct": [
+      "desto",
+      "mehr",
+      "gibt",
+      "er",
+      "aus"
+    ],
+    "explanation_de": "Der desto-Satz hat Verb-Zweit-Stellung wie ein normaler Hauptsatz: desto + Vergleichsform, Verb, Subjekt, Rest.",
+    "explanation_en": "The 'desto' clause has verb-second word order like a normal main clause: desto + comparative, verb, subject, rest."
+  },
+  {
+    "id": "c1-ger-001",
+    "level": "C1",
+    "topic": "Gerundivum (zu + Partizip I)",
+    "type": "fill_blank",
+    "prompt_de": "Die zu ___ (lösen) Aufgabe ist schwierig.",
+    "prompt_en": "The task to be solved is difficult.",
+    "correct": "lösende",
+    "explanation_de": "Gerundivum: zu + Partizip I + Adjektivendung drückt Notwendigkeit aus: die zu lösende Aufgabe = die Aufgabe, die gelöst werden muss.",
+    "explanation_en": "Gerundive: zu + Partizip I + adjective ending expresses necessity: die zu lösende Aufgabe = the task that must be solved."
+  },
+  {
+    "id": "c1-ger-002",
+    "level": "C1",
+    "topic": "Gerundivum (zu + Partizip I)",
+    "type": "mc",
+    "prompt_de": "Das ___ Problem muss sofort behandelt werden.",
+    "prompt_en": "The problem to be dealt with must be addressed immediately.",
+    "options": [
+      "zu behandelnde",
+      "behandelnde",
+      "zu behandeln"
+    ],
+    "correct": "zu behandelnde",
+    "explanation_de": "Gerundivum: zu + Partizip I (behandelnd) + Adjektivendung: zu behandelnde.",
+    "explanation_en": "Gerundive: zu + Partizip I (behandelnd) + adjective ending: zu behandelnde."
+  },
+  {
+    "id": "c1-neben-004",
+    "level": "C1",
+    "topic": "Komplexe Nebensätze: anstatt dass",
+    "type": "fill_blank",
+    "prompt_de": "___ er half, ging er einfach weg.",
+    "prompt_en": "Instead of helping, he just walked away.",
+    "correct": "Anstatt dass",
+    "explanation_de": "'Anstatt dass' leitet einen Kontrastsatz ein (etwas Erwartetes geschieht nicht).",
+    "explanation_en": "'Anstatt dass' introduces a contrastive clause (an expected action doesn't happen)."
+  },
+  {
+    "id": "c1-konj-006",
+    "level": "C1",
+    "topic": "Konjunktiv I in Berichten",
+    "type": "fill_blank",
+    "prompt_de": "Die Zeitung berichtete, die Regierung ___ (planen) neue Steuergesetze.",
+    "prompt_en": "The newspaper reported that the government was planning new tax laws.",
+    "correct": "plane",
+    "explanation_de": "Konjunktiv I von 'planen', 3. Person Singular: plane.",
+    "explanation_en": "Konjunktiv I of 'planen', 3rd person singular: plane."
+  },
+  {
+    "id": "c1-konj-007",
+    "level": "C1",
+    "topic": "Konjunktiv I Plural: eigenständige Form",
+    "type": "fill_blank",
+    "prompt_de": "Sie sagten, sie ___ (sein) zufrieden.",
+    "prompt_en": "They said they were satisfied.",
+    "correct": "seien",
+    "explanation_de": "Konjunktiv I Plural von 'sein' ist 'seien' — unterscheidet sich vom Indikativ 'sind', daher hier korrekt (im Gegensatz zu 'haben').",
+    "explanation_en": "Konjunktiv I plural of 'sein' is 'seien' — distinct from the indicative 'sind', so it's used directly here (unlike 'haben')."
+  },
+  {
+    "id": "c1-korrel-003",
+    "level": "C1",
+    "topic": "Je... desto...",
+    "type": "mc",
+    "prompt_de": "Je länger die Besprechung dauerte, ___ ungeduldiger wurden die Mitarbeiter.",
+    "prompt_en": "The longer the meeting lasted, the more impatient the employees became.",
+    "options": [
+      "desto",
+      "je",
+      "sodass"
+    ],
+    "correct": "desto",
+    "explanation_de": "Der zweite Teil der Korrelation beginnt immer mit 'desto'.",
+    "explanation_en": "The second part of the correlation always begins with 'desto'."
+  },
+  {
+    "id": "c1-modal-perfekt-passiv-000",
+    "level": "C1",
+    "topic": "Modalverb + Perfekt Passiv (Vermutung)",
+    "type": "mc",
+    "prompt_de": "Er soll an dem Diebstahl ____.",
+    "prompt_en": "He is said to have been involved in the theft.",
+    "options": [
+      "beteiligt gewesen sein",
+      "begangen worden sein",
+      "verteilt haben",
+      "gefahndet werden haben"
+    ],
+    "correct": "beteiligt gewesen sein",
+    "explanation_de": "Modalverb 'sollen' für Vermutungen/Gerüchte über ein vergangenes Ereignis verwendet den Perfekt-Infinitiv: <b>beteiligt gewesen sein</b>.",
+    "explanation_en": "Modal 'sollen' expressing hearsay about a past event uses the perfect infinitive: <b>beteiligt gewesen sein</b> (to have been involved)."
+  },
+  {
+    "id": "c1-neben-sofern-001",
+    "level": "C1",
+    "topic": "Nebensätze: sofern",
+    "type": "mc",
+    "prompt_de": "Man kann das Treffen verschieben, ____ alle einverstanden sind.",
+    "prompt_en": "The meeting can be postponed, provided that everyone agrees.",
+    "options": [
+      "sodass",
+      "sofern",
+      "inwiefern",
+      "damit"
+    ],
+    "correct": "sofern",
+    "explanation_de": "'Sofern' bedeutet 'unter der Bedingung, dass' und leitet eine Bedingung ein.",
+    "explanation_en": "'Sofern' means 'provided that', introducing a condition."
+  },
+  {
+    "id": "c1-trenn-untrenn-umfahren-003",
+    "level": "C1",
+    "topic": "Trennbare/untrennbare Verben: umfahren",
+    "type": "mc",
+    "prompt_de": "Auf der Autobahn ist es nicht leicht, eine Baustelle ____.",
+    "prompt_en": "On the motorway, it's not easy to bypass a construction site.",
+    "options": [
+      "um zu fahren",
+      "umfahren",
+      "umzufahren",
+      "zu umfahren"
+    ],
+    "correct": "zu umfahren",
+    "explanation_de": "Trennbares 'úmfahren' bedeutet 'anfahren/umstoßen' (zu-Infinitiv: umzufahren); untrennbares 'umfáhren' bedeutet 'umgehen' (zu-Infinitiv: zu umfahren). Eine Baustelle kann man nur umgehen: <b>zu umfahren</b>.",
+    "explanation_en": "Separable 'úmfahren' means 'to knock into' (zu-infinitive: umzufahren); inseparable 'umfáhren' means 'to bypass' (zu-infinitive: zu umfahren). A construction site can only be bypassed: <b>zu umfahren</b>."
+  },
+  {
+    "id": "c1-wortschatz-verb-formell-001",
+    "level": "C1",
+    "topic": "Wortschatz: Verben (formell)",
+    "type": "mc",
+    "prompt_de": "Es ist manchmal schwer, bei Konzerten die Ordnung zu ____.",
+    "prompt_en": "It's sometimes difficult to ensure order at concerts.",
+    "options": [
+      "gewähren",
+      "gewährleisten",
+      "gelingen",
+      "gehören"
+    ],
+    "correct": "gewährleisten",
+    "explanation_de": "'Gewährleisten' bedeutet 'sicherstellen/garantieren'.",
+    "explanation_en": "'Gewährleisten' means 'to ensure/guarantee'."
+  },
+  {
+    "id": "c1-passiv-futur-001",
+    "level": "C1",
+    "topic": "Passiv: Futur",
+    "type": "mc",
+    "prompt_de": "Elektroautos mit hoher Reichweite werden ____ werden.",
+    "prompt_en": "Electric cars with high range will be developed.",
+    "options": [
+      "geflogen haben",
+      "entwickelt",
+      "hergestellt sind",
+      "beigelegt worden"
+    ],
+    "correct": "entwickelt",
+    "explanation_de": "Futur Passiv: 'werden...entwickelt werden' ('werden entwickelt werden'); die anderen Optionen passen nicht in dieses Muster.",
+    "explanation_en": "Future passive: 'werden...entwickelt werden' ('will be developed'); the other options don't fit this passive-future pattern."
+  },
+  {
+    "id": "c1-partitiv-superlativ-000",
+    "level": "C1",
+    "topic": "Partitivkonstruktion: einer der + Superlativ",
+    "type": "mc",
+    "prompt_de": "Auf der Konferenz habe ich ____ bekanntesten Forscher getroffen.",
+    "prompt_en": "At the conference I met one of the most well-known researchers.",
+    "options": [
+      "einen der",
+      "einer der",
+      "eine der",
+      "eines der"
+    ],
+    "correct": "einen der",
+    "explanation_de": "'Einen der [Superlativ]' (Akkusativ, maskulin) bedeutet 'einer der ...sten'.",
+    "explanation_en": "'Einen der [superlative]' (accusative, masculine) means 'one of the most...'"
+  },
+  {
+    "id": "c1-demonstrativ-derjenige-003",
+    "level": "C1",
+    "topic": "Demonstrativpronomen: derjenige",
+    "type": "mc",
+    "prompt_de": "____, ____ mein Blog nicht gefällt, muss ihn nicht lesen.",
+    "prompt_en": "Whoever doesn't like my blog doesn't have to read it.",
+    "options": [
+      "Derjenigen/dem",
+      "Diejenige/des",
+      "Denjenigen/der",
+      "Derjenige/dem"
+    ],
+    "correct": "Derjenige/dem",
+    "explanation_de": "'Gefallen' verlangt den Dativ. 'Derjenige' (wer auch immer, Subjekt im Nominativ) + Dativ-Relativpronomen <b>dem</b>.",
+    "explanation_en": "'Gefallen' takes the dative. 'Derjenige' (whoever, nominative subject) + dative relative <b>dem</b>."
+  },
+  {
+    "id": "c1-nomin-nichts-adj-003",
+    "level": "C1",
+    "topic": "Nominalisierung: nichts + Adjektiv",
+    "type": "mc",
+    "prompt_de": "Der Film gestern war nichts ____.",
+    "prompt_en": "The movie yesterday was nothing special.",
+    "options": [
+      "Besonders",
+      "besonders",
+      "besonder",
+      "Besonderes"
+    ],
+    "correct": "Besonderes",
+    "explanation_de": "Nach 'nichts' wird ein substantiviertes Adjektiv großgeschrieben und nimmt '-es': <b>nichts Besonderes</b>.",
+    "explanation_en": "After 'nichts', a substantivized adjective is capitalized and takes '-es': <b>nichts Besonderes</b>."
+  },
+  {
+    "id": "c1-wortschatz-redewendung-003",
+    "level": "C1",
+    "topic": "Wortschatz: Redewendungen",
+    "type": "mc",
+    "prompt_de": "Sie sagt immer direkt ihre Meinung. Sie ____.",
+    "prompt_en": "She always speaks her mind directly. She doesn't mince words.",
+    "options": [
+      "nimmt kein Blatt vor den Mund.",
+      "redet um den heißen Brei herum.",
+      "dreht einem das Wort im Mund um.",
+      "redet wie ein Wasserfall."
+    ],
+    "correct": "nimmt kein Blatt vor den Mund.",
+    "explanation_de": "'Kein Blatt vor den Mund nehmen' ist eine Redewendung für 'offen/direkt sprechen'.",
+    "explanation_en": "'Kein Blatt vor den Mund nehmen' is an idiom meaning 'to speak bluntly/not mince words'."
+  },
+  {
+    "id": "c1-wortschatz-adverb-formell-000",
+    "level": "C1",
+    "topic": "Wortschatz: Adverbien (formell)",
+    "type": "mc",
+    "prompt_de": "Die Kollegen misstrauten dem Chef völlig, und er reagierte ____.",
+    "prompt_en": "The colleagues completely distrusted the boss, and he reacted correspondingly.",
+    "options": [
+      "entsprechend",
+      "bindend",
+      "folgend",
+      "aufsteigend"
+    ],
+    "correct": "entsprechend",
+    "explanation_de": "'Entsprechend' (dementsprechend) impliziert eine gleichartige Reaktion.",
+    "explanation_en": "'Entsprechend' (correspondingly) implies a matching, in-kind reaction."
+  },
+  {
+    "id": "c1-wortschatz-redewendung-005",
+    "level": "C1",
+    "topic": "Wortschatz: Redewendungen",
+    "type": "mc",
+    "prompt_de": "Das Thema Gehaltserhöhung kam ____.",
+    "prompt_en": "The topic of a raise came up for discussion.",
+    "options": [
+      "zum Vorschein",
+      "unter Anklage",
+      "zur Sprache",
+      "in Abhängigkeit"
+    ],
+    "correct": "zur Sprache",
+    "explanation_de": "'Zur Sprache kommen' (thematisiert werden) ist eine feste Redewendung.",
+    "explanation_en": "'Zur Sprache kommen' (to come up for discussion) is a fixed idiom."
+  },
+  {
+    "id": "c1-modal-epistemisch-002",
+    "level": "C1",
+    "topic": "Modalverben: epistemischer Gebrauch",
+    "type": "mc",
+    "prompt_de": "Alle Gäste tragen historische Kostüme; es ____ sich um ein Fest handeln.",
+    "prompt_en": "All the guests are wearing historical costumes; it must be a celebration.",
+    "options": [
+      "soll",
+      "darf",
+      "muss",
+      "mag"
+    ],
+    "correct": "muss",
+    "explanation_de": "'Es muss sich um... handeln' drückt eine logische Schlussfolgerung aus ('es muss so sein').",
+    "explanation_en": "'Es muss sich um... handeln' expresses logical deduction/certainty ('it must be')."
+  },
+  {
+    "id": "c1-wortschatz-redewendung-007",
+    "level": "C1",
+    "topic": "Wortschatz: Redewendungen",
+    "type": "mc",
+    "prompt_de": "Man will ein Haus verkaufen. Die Immobilie sollte vom ____ des Käufers aus attraktiv sein.",
+    "prompt_en": "One wants to sell a house. The property should be attractive from the buyer's standpoint.",
+    "options": [
+      "Grund",
+      "Anlass",
+      "Standpunkt",
+      "Stand"
+    ],
+    "correct": "Standpunkt",
+    "explanation_de": "'Vom Standpunkt...aus' ist eine feste Wendung mit der Bedeutung 'aus der Sicht von'.",
+    "explanation_en": "'Vom Standpunkt...aus' is a fixed phrase meaning 'from the standpoint of'."
+  },
+  {
+    "id": "c1-wortschatz-diskurs-001",
+    "level": "C1",
+    "topic": "Wortschatz: Diskurspartikeln",
+    "type": "mc",
+    "prompt_de": "International ist das ZDF ein bekannter Sender. Er zeigt ____ seine Sendungen auch im Ausland.",
+    "prompt_en": "Internationally, ZDF is a well-known broadcaster. It broadcasts its programs abroad, namely [in many countries].",
+    "options": [
+      "hoffentlich",
+      "deshalb",
+      "öffentlich",
+      "nämlich"
+    ],
+    "correct": "nämlich",
+    "explanation_de": "'Nämlich' liefert einen erläuternden Zusatz zum vorher Gesagten.",
+    "explanation_en": "'Nämlich' (namely) provides elaborating context."
+  },
+  {
+    "id": "c1-wortschatz-redewendung-008",
+    "level": "C1",
+    "topic": "Wortschatz: Redewendungen",
+    "type": "mc",
+    "prompt_de": "Der Fortschritt hat uns Vorteile gebracht, für die wir manchen Nachteil ____.",
+    "prompt_en": "Progress has brought us advantages, for which we gladly accept some disadvantage.",
+    "options": [
+      "zum Kauf nehmen",
+      "in Rechnung stellen",
+      "auf Rechnung setzen",
+      "in Kauf nehmen"
+    ],
+    "correct": "in Kauf nehmen",
+    "explanation_de": "'Etwas in Kauf nehmen' bedeutet, etwas als Kompromiss zu akzeptieren.",
+    "explanation_en": "'Etwas in Kauf nehmen' means 'to accept something as a trade-off'."
+  },
+  {
+    "id": "c1-wortschatz-redewendung-009",
+    "level": "C1",
+    "topic": "Wortschatz: Redewendungen",
+    "type": "mc",
+    "prompt_de": "In der Technikbranche bleiben Männer oft ____, Frauen sind dagegen in der Pflege häufiger in der Mehrheit.",
+    "prompt_en": "In the tech industry, men often remain among themselves; women, meanwhile, are more often in the majority in care professions.",
+    "options": [
+      "für sich",
+      "miteinander",
+      "unter sich",
+      "beieinander"
+    ],
+    "correct": "unter sich",
+    "explanation_de": "'Unter sich bleiben' ist eine feste Redewendung für 'nur unter Gleichgesinnten/derselben Gruppe bleiben'.",
+    "explanation_en": "'Unter sich bleiben' is a fixed idiom meaning 'to stay among themselves'."
+  },
+  {
+    "id": "c1-wortschatz-verb-praep-001",
+    "level": "C1",
+    "topic": "Wortschatz: Verben mit Präposition",
+    "type": "mc",
+    "prompt_de": "Toyota ____ den größten Automobilherstellern der Welt.",
+    "prompt_en": "Toyota counts among the largest car manufacturers in the world.",
+    "options": [
+      "macht aus",
+      "gehört in",
+      "liegt in",
+      "zählt zu"
+    ],
+    "correct": "zählt zu",
+    "explanation_de": "'Zählen zu' bedeutet 'gehören zu/eines von... sein'.",
+    "explanation_en": "'Zählen zu' means 'to count among/be one of'."
+  },
+  {
+    "id": "c1-n-dekl-possessiv-001",
+    "level": "C1",
+    "topic": "N-Deklination: Possessivpronomen",
+    "type": "mc",
+    "prompt_de": "Die Ärztin behauptete, ____ Patienten gehe es heute besser.",
+    "prompt_en": "The doctor claimed her patient was doing better today.",
+    "options": [
+      "ihrer",
+      "ihrem",
+      "dessen",
+      "dem"
+    ],
+    "correct": "ihrem",
+    "explanation_de": "'Es geht jemandem gut' verlangt den Dativ. 'Der Patient' ist ein N-Nomen (daher 'Patienten'), also lautet das passende Possessivpronomen im Dativ maskulin: <b>ihrem</b>.",
+    "explanation_en": "'Es geht jemandem gut' uses the dative. 'Der Patient' is masculine (an N-noun, hence 'Patienten'), so the matching possessive is dative masculine: <b>ihrem</b>."
+  },
+  {
+    "id": "c1-rel-wechselpraep-001",
+    "level": "C1",
+    "topic": "Relativsätze: Wechselpräpositionen",
+    "type": "mc",
+    "prompt_de": "Stelle den Karton bitte vor ____ Schrank, vor ____ die Lampe steht.",
+    "prompt_en": "Please put the box in front of the cabinet, in front of which the lamp stands.",
+    "options": [
+      "dem/dem",
+      "den/dem",
+      "den/den",
+      "dem/den"
+    ],
+    "correct": "den/dem",
+    "explanation_de": "'Stellen' (Bewegung) verlangt den Akkusativ: 'der Schrank' (mask.) → <b>den Schrank</b>. Der Relativsatz 'vor dem die Lampe steht' beschreibt einen festen Ort (Dativ): <b>dem</b>.",
+    "explanation_en": "'Stellen' (placement/movement) takes accusative: 'der Schrank' (masculine) → <b>den Schrank</b>. The relative clause 'vor dem die Lampe steht' describes a static location (dative): <b>dem</b>. Correct: <b>den/dem</b>."
+  },
+  {
+    "id": "c1-konn-zwaraber-001",
+    "level": "C1",
+    "topic": "Konnektoren: zwar...aber",
+    "type": "mc",
+    "prompt_de": "Kleine Fehler lassen sich ____ korrigieren, ____ Sorgfalt ist trotzdem wichtig.",
+    "prompt_en": "Small mistakes can admittedly be corrected, but care is still important.",
+    "options": [
+      "zwar/aber",
+      "sowohl/als auch",
+      "zu/um",
+      "entweder/oder"
+    ],
+    "correct": "zwar/aber",
+    "explanation_de": "'Zwar...aber' ist ein festes konzessives Konnektorenpaar.",
+    "explanation_en": "'Zwar...aber' is a fixed concessive pair meaning 'admittedly...but'."
+  }
 ]
