@@ -979,6 +979,10 @@ _KNOWN_PROPER_NOUN = {
     # were falling through to the verb-shape guess with no article and
     # no other classification catching them first.
     'algerien','italien','polen','spanien',
+    # Holiday names, which German treats as article-less time-expressions
+    # ("An Ostern...", "Frohe Weihnachten") rather than article-taking
+    # common nouns — see de-lemma normalisation that dropped their articles.
+    'ostern','weihnachten','silvester','neujahr','pfingsten',
 }
 _KNOWN_ADJ = {
     # Simple/participial adjectives ending in "-en" that don't match any
@@ -1192,8 +1196,8 @@ def build_jsonld(words):
                 "name": "WordFeather \u2014 Goethe-Zertifikat A1 to C2 Dictionary",
                 "description": (f"Free German\u2013English vocabulary dictionary with {len(words):,} words and "
                                 f"phrases covering CEFR levels A1\u2013C2. Includes example sentences, "
-                                f"collocations and audio pronunciation. Aligned to Goethe-Zertifikat "
-                                f"and telc exam requirements."),
+                                f"collocations and audio pronunciation. Designed to support "
+                                f"Goethe-Zertifikat and telc exam preparation."),
                 "url": "https://wordfeather.com/dictionary.html",
                 "inLanguage": ["de", "en"],
                 "numberOfItems": len(words),
