@@ -237,15 +237,15 @@ INSTALL_BANNER_CARDS = (
     '                        </div>\n'
     '                        <div class="col-6 col-md-3">\n'
     '                            <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div>'
-    '<div>Chrome → <strong>⋮ Menu</strong> → Add to Home Screen</div></div>\n'
+    '<div>Chrome → <strong>⋮ Menu</strong> or address bar → Install app</div></div>\n'
     '                        </div>\n'
     '                        <div class="col-6 col-md-3">\n'
     '                            <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div>'
-    '<div>Safari → <strong>Share</strong> → Add to Dock</div></div>\n'
+    '<div>Safari → <strong>File</strong> menu → Add to Dock</div></div>\n'
     '                        </div>\n'
     '                        <div class="col-6 col-md-3">\n'
     '                            <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div>'
-    '<div>Edge → <strong>Apps</strong> → Install this site</div></div>\n'
+    '<div>Chrome/Edge → <strong>⊕</strong> address bar icon or <strong>⋯</strong> menu → Install</div></div>\n'
     '                        </div>\n'
     '                    </div>\n'
 )
@@ -1514,6 +1514,23 @@ def inject_conjugation_dict_script(content):
         return content
     return content.replace("</body>", CONJUGATION_DICT_SCRIPT + "\n</body>", 1)
 
+# ─────────────────────────────────────────────────────────────────────
+# Install-banner fix — single source of truth for the "Install as a
+# free app" per-OS instructions shown on the homepage, dictionary page,
+# and every level-landing page. Previously this text was hand-copied
+# into each page independently, which let stale/incorrect wording
+# drift silently (confirmed wrong on Android and macOS; Windows needed
+# updating after live-testing both Edge and Chrome on Windows 11).
+#
+# fix_install_banner(html) is idempotent and self-healing: it matches
+# on the stable emoji+platform-name title in each card and replaces
+# whatever instructional text currently follows it, regardless of what
+# that text says. Call this on ANY page's HTML that contains the
+# install-banner block (homepage, dictionary, level-landing pages) as
+# part of your normal build/regeneration step — do not hand-edit the
+# per-card text in individual files, or it will drift out of sync
+# again exactly as it did before this fix.
+# ─────────────────────────────────────────────────────────────────────
 def build_dictionary(words):
     """
     Fully regenerate dictionary.html word-card section from words_final.json.
