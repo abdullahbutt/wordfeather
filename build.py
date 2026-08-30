@@ -1604,8 +1604,15 @@ def build_dictionary(words):
 
     content_new = content[:wl_open] + WORDLIST + content[wl_close:]
 
-    # Inject app install banner (after filters, before word list — not before <main>)
-    content_new = inject_install_banner_dict(content_new)
+    # Inject app install banner — uses the SAME full-width, before-<main>
+    # placement as every other page (index.html, level pages) for visual
+    # consistency. Previously used inject_install_banner_dict(), which
+    # nested the banner inside the page's narrower .container/.card
+    # wrapper — that made it noticeably narrower than on other pages and
+    # caused the same card text to wrap onto extra lines here but not
+    # elsewhere. inject_install_banner_dict() is left defined (unused)
+    # in case a deliberate inset placement is ever wanted again.
+    content_new = inject_install_banner(content_new)
     content_new = inject_person_sentences_script(content_new)
     content_new = inject_conjugation_dict_script(content_new)
     content_new = re.sub(
