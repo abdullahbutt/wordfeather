@@ -320,44 +320,34 @@ window.addEventListener('load', function () {
 </script>
     <div id="header-placeholder"></div>
 
-<main>
-        <div class="container py-4">
-            <div class="card content-card p-4 p-md-5">
-                <nav aria-label="breadcrumb" class="mb-3">
-                    <ol class="breadcrumb small">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Wörterbuch / Dictionary</li>
-                    </ol>
-                </nav>
-                <h1 class="h2 mb-1">📖 Wörterbuch / Dictionary</h1>
-                <p class="info-line mb-3">5243 exam-relevant words from A1–C2 · <span class="art-m fw-bold">m.</span> der · <span class="art-f fw-bold">f.</span> die · <span class="art-n fw-bold">n.</span> das · 🔊 Tap speaker to hear pronunciation</p>
-                <p class="info-line mb-3" style="font-size:0.8rem;">Content reviewed by native German speaker <strong>Birgit Unger</strong>, with spot-checks as the dictionary has grown — Vielen Dank! 🙏</p>
-                <!-- App Install Banner -->
-                <div id="installBanner" class="install-banner-wrap mb-3" style="display:none;">
-                    <div class="install-banner">
-                        <div class="install-banner-bar">
-                            <span class="install-banner-icon">📱</span>
-                            <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>
-                        </div>
-                        <button type="button" id="installBannerClose" class="install-banner-close" aria-label="Dismiss install banner">✕</button>
-                        <div id="installBannerPanel" class="install-banner-panel">
-                            <div class="row g-2">
-                                <div class="col-6 col-lg-3">
-                                    <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div><div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div><div>Chrome → <strong>⋮ Menu</strong> or address bar → Install app</div></div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div><div>Safari → <strong>File</strong> menu → Add to Dock</div></div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div><div>Chrome/Edge → <strong>⊕</strong> icon in address bar → Install</div></div>
-                                </div>
+    <!-- App Install Banner -->
+    <div id="installBanner" class="install-banner-wrap" style="display:none;">
+        <div class="container">
+            <div class="install-banner">
+                <div class="install-banner-bar">
+                    <span class="install-banner-icon">📱</span>
+                    <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>
+                </div>
+                <button type="button" id="installBannerClose" class="install-banner-close" aria-label="Dismiss install banner">✕</button>
+                <div id="installBannerPanel" class="install-banner-panel">
+                        <div class="row g-2">
+                            <div class="col-6 col-lg-3">
+                                <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div><div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div><div>Chrome → <strong>⋮ Menu</strong> or address bar → Install app</div></div>
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div><div>Safari → <strong>File</strong> menu → Add to Dock</div></div>
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div><div>Chrome/Edge → <strong>⊕</strong> icon in address bar → Install</div></div>
                             </div>
                         </div>
-                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
     <style>
         .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}
         .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}
@@ -388,7 +378,19 @@ window.addEventListener('load', function () {
         });
     })();
     </script>
-                <!-- End App Install Banner -->
+    <!-- End App Install Banner -->
+<main>
+        <div class="container py-4">
+            <div class="card content-card p-4 p-md-5">
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb small">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Wörterbuch / Dictionary</li>
+                    </ol>
+                </nav>
+                <h1 class="h2 mb-1">📖 Wörterbuch / Dictionary</h1>
+                <p class="info-line mb-3">5243 exam-relevant words from A1–C2 · <span class="art-m fw-bold">m.</span> der · <span class="art-f fw-bold">f.</span> die · <span class="art-n fw-bold">n.</span> das · 🔊 Tap speaker to hear pronunciation</p>
+                <p class="info-line mb-3" style="font-size:0.8rem;">Content reviewed by native German speaker <strong>Birgit Unger</strong>, with spot-checks as the dictionary has grown — Vielen Dank! 🙏</p>
 <div class="search-wrap mb-2">
                     <div class="position-relative">
                         <label for="searchInput" class="visually-hidden">Search the German dictionary</label>
