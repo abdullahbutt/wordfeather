@@ -189121,7 +189121,41 @@
     "example": "Ich abonniere den Newsletter.",
     "example_en": "I subscribe to the newsletter.",
     "register": "everyday",
-    "category": "Technik & Medien"
+    "category": "Technik & Medien",
+    "person_sentences": [
+      [
+        "Ich abonniere den Newsletter.",
+        "I subscribe to the newsletter."
+      ],
+      [
+        "Du abonnierst den Newsletter.",
+        "You subscribe to the newsletter."
+      ],
+      [
+        "Er abonniert den Newsletter.",
+        "He subscribes to the newsletter."
+      ],
+      [
+        "Wir abonnieren den Newsletter.",
+        "We subscribe to the newsletter."
+      ],
+      [
+        "Ihr abonniert den Newsletter.",
+        "You all subscribe to the newsletter."
+      ],
+      [
+        "Sie abonnieren den Newsletter.",
+        "They subscribe to the newsletter."
+      ]
+    ],
+    "conjugation": {
+      "infinitiv": "abonnieren",
+      "praeteritum_stamm": "abonnierte",
+      "partizip2": "abonniert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "bearbeiten",
@@ -189131,7 +189165,41 @@
     "example": "Die Behörde bearbeitet meinen Antrag.",
     "example_en": "The office is processing my application.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich bearbeite den Antrag.",
+        "I am processing the application."
+      ],
+      [
+        "Du bearbeitest den Antrag.",
+        "You are processing the application."
+      ],
+      [
+        "Er bearbeitet den Antrag.",
+        "He is processing the application."
+      ],
+      [
+        "Wir bearbeiten den Antrag.",
+        "We are processing the application."
+      ],
+      [
+        "Ihr bearbeitet den Antrag.",
+        "You all are processing the application."
+      ],
+      [
+        "Sie bearbeiten den Antrag.",
+        "They are processing the application."
+      ]
+    ],
+    "conjugation": {
+      "infinitiv": "bearbeiten",
+      "praeteritum_stamm": "bearbeitete",
+      "partizip2": "bearbeitet",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "einhalten",
@@ -189141,7 +189209,43 @@
     "example": "Bitte halten Sie die Frist ein.",
     "example_en": "Please keep to the deadline.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich halte die Frist ein.",
+        "I keep to the deadline."
+      ],
+      [
+        "Du hältst die Frist ein.",
+        "You keep to the deadline."
+      ],
+      [
+        "Er hält die Frist ein.",
+        "He keeps to the deadline."
+      ],
+      [
+        "Wir halten die Frist ein.",
+        "We keep to the deadline."
+      ],
+      [
+        "Ihr haltet die Frist ein.",
+        "You all keep to the deadline."
+      ],
+      [
+        "Sie halten die Frist ein.",
+        "They keep to the deadline."
+      ]
+    ],
+    "conjugation": {
+      "infinitiv": "einhalten",
+      "praesens_stamm": "häl",
+      "praeteritum_stamm": "hielt",
+      "partizip2": "eingehalten",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ein",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "schmücken",
@@ -189151,7 +189255,41 @@
     "example": "Wir schmücken das Zimmer für die Feier.",
     "example_en": "We are decorating the room for the party.",
     "register": "everyday",
-    "category": "Feste & Feiern"
+    "category": "Feste & Feiern",
+    "person_sentences": [
+      [
+        "Ich schmücke das Zimmer.",
+        "I decorate the room."
+      ],
+      [
+        "Du schmückst das Zimmer.",
+        "You decorate the room."
+      ],
+      [
+        "Er schmückt das Zimmer.",
+        "He decorates the room."
+      ],
+      [
+        "Wir schmücken das Zimmer.",
+        "We decorate the room."
+      ],
+      [
+        "Ihr schmückt das Zimmer.",
+        "You all decorate the room."
+      ],
+      [
+        "Sie schmücken das Zimmer.",
+        "They decorate the room."
+      ]
+    ],
+    "conjugation": {
+      "infinitiv": "schmücken",
+      "praeteritum_stamm": "schmückte",
+      "partizip2": "geschmückt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "verlangen",
@@ -189161,7 +189299,41 @@
     "example": "Der Chef verlangt pünktliches Erscheinen.",
     "example_en": "The boss demands punctual arrival.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich verlange eine Erklärung.",
+        "I demand an explanation."
+      ],
+      [
+        "Du verlangst eine Erklärung.",
+        "You demand an explanation."
+      ],
+      [
+        "Er verlangt eine Erklärung.",
+        "He demands an explanation."
+      ],
+      [
+        "Wir verlangen eine Erklärung.",
+        "We demand an explanation."
+      ],
+      [
+        "Ihr verlangt eine Erklärung.",
+        "You all demand an explanation."
+      ],
+      [
+        "Sie verlangen eine Erklärung.",
+        "They demand an explanation."
+      ]
+    ],
+    "conjugation": {
+      "infinitiv": "verlangen",
+      "praeteritum_stamm": "verlangte",
+      "partizip2": "verlangt",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "verreisen",
@@ -189171,7 +189343,40 @@
     "example": "Wir verreisen dieses Jahr nach Italien.",
     "example_en": "We are going on a trip to Italy this year.",
     "register": "everyday",
-    "category": "Verkehr & Reisen"
+    "category": "Verkehr & Reisen",
+    "person_sentences": [
+      [
+        "Ich verreise nach Italien.",
+        "I am going on a trip to Italy."
+      ],
+      [
+        "Du verreist nach Italien.",
+        "You are going on a trip to Italy."
+      ],
+      [
+        "Er verreist nach Italien.",
+        "He is going on a trip to Italy."
+      ],
+      [
+        "Wir verreisen nach Italien.",
+        "We are going on a trip to Italy."
+      ],
+      [
+        "Ihr verreist nach Italien.",
+        "You all are going on a trip to Italy."
+      ],
+      [
+        "Sie verreisen nach Italien.",
+        "They are going on a trip to Italy."
+      ]
+    ],
+    "conjugation": {
+      "infinitiv": "verreisen",
+      "praeteritum_stamm": "verreiste",
+      "partizip2": "verreist",
+      "hilfsverb": "sein",
+      "governs": "none"
+    }
   },
   {
     "de": "das Brautkleid, -er",
@@ -189181,7 +189386,33 @@
     "example": "Sie trägt ein wunderschönes Brautkleid.",
     "example_en": "She is wearing a beautiful wedding dress.",
     "register": "everyday",
-    "category": "Feste & Feiern"
+    "category": "Feste & Feiern",
+    "person_sentences": [
+      [
+        "Ich kaufe ein Brautkleid.",
+        "I am buying a wedding dress."
+      ],
+      [
+        "Du kaufst ein Brautkleid.",
+        "You are buying a wedding dress."
+      ],
+      [
+        "Er kauft ein Brautkleid.",
+        "He is buying a wedding dress."
+      ],
+      [
+        "Wir kaufen ein Brautkleid.",
+        "We are buying a wedding dress."
+      ],
+      [
+        "Ihr kauft ein Brautkleid.",
+        "You all are buying a wedding dress."
+      ],
+      [
+        "Sie kaufen ein Brautkleid.",
+        "They are buying a wedding dress."
+      ]
+    ]
   },
   {
     "de": "das Grundeinkommen",
@@ -189191,7 +189422,33 @@
     "example": "Manche Länder testen ein Grundeinkommen für alle Bürger.",
     "example_en": "Some countries are testing a basic income for all citizens.",
     "register": "everyday",
-    "category": "Gesellschaft & Umwelt"
+    "category": "Gesellschaft & Umwelt",
+    "person_sentences": [
+      [
+        "Ich bekomme ein Grundeinkommen.",
+        "I receive a basic income."
+      ],
+      [
+        "Du bekommst ein Grundeinkommen.",
+        "You receive a basic income."
+      ],
+      [
+        "Er bekommt ein Grundeinkommen.",
+        "He receives a basic income."
+      ],
+      [
+        "Wir bekommen ein Grundeinkommen.",
+        "We receive a basic income."
+      ],
+      [
+        "Ihr bekommt ein Grundeinkommen.",
+        "You all receive a basic income."
+      ],
+      [
+        "Sie bekommen ein Grundeinkommen.",
+        "They receive a basic income."
+      ]
+    ]
   },
   {
     "de": "der Dolmetscher, -",
@@ -189201,7 +189458,33 @@
     "example": "Der Dolmetscher übersetzt das Gespräch live.",
     "example_en": "The interpreter translates the conversation live.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich brauche einen Dolmetscher.",
+        "I need an interpreter."
+      ],
+      [
+        "Du brauchst einen Dolmetscher.",
+        "You need an interpreter."
+      ],
+      [
+        "Er braucht einen Dolmetscher.",
+        "He needs an interpreter."
+      ],
+      [
+        "Wir brauchen einen Dolmetscher.",
+        "We need an interpreter."
+      ],
+      [
+        "Ihr braucht einen Dolmetscher.",
+        "You all need an interpreter."
+      ],
+      [
+        "Sie brauchen einen Dolmetscher.",
+        "They need an interpreter."
+      ]
+    ]
   },
   {
     "de": "die Dolmetscherin, -nen",
@@ -189211,7 +189494,33 @@
     "example": "Die Dolmetscherin arbeitet für die Regierung.",
     "example_en": "The interpreter works for the government.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich kenne die Dolmetscherin.",
+        "I know the interpreter."
+      ],
+      [
+        "Du kennst die Dolmetscherin.",
+        "You know the interpreter."
+      ],
+      [
+        "Er kennt die Dolmetscherin.",
+        "He knows the interpreter."
+      ],
+      [
+        "Wir kennen die Dolmetscherin.",
+        "We know the interpreter."
+      ],
+      [
+        "Ihr kennt die Dolmetscherin.",
+        "You all know the interpreter."
+      ],
+      [
+        "Sie kennen die Dolmetscherin.",
+        "They know the interpreter."
+      ]
+    ]
   },
   {
     "de": "der Fahrgast, -̈e",
@@ -189221,7 +189530,33 @@
     "example": "Die Fahrgäste steigen am Bahnhof aus.",
     "example_en": "The passengers get off at the train station.",
     "register": "everyday",
-    "category": "Verkehr & Reisen"
+    "category": "Verkehr & Reisen",
+    "person_sentences": [
+      [
+        "Ich sehe einen Fahrgast.",
+        "I see a passenger."
+      ],
+      [
+        "Du siehst einen Fahrgast.",
+        "You see a passenger."
+      ],
+      [
+        "Er sieht einen Fahrgast.",
+        "He sees a passenger."
+      ],
+      [
+        "Wir sehen einen Fahrgast.",
+        "We see a passenger."
+      ],
+      [
+        "Ihr seht einen Fahrgast.",
+        "You all see a passenger."
+      ],
+      [
+        "Sie sehen einen Fahrgast.",
+        "They see a passenger."
+      ]
+    ]
   },
   {
     "de": "der Gang, -̈e",
@@ -189231,7 +189566,33 @@
     "example": "Mein Zimmer ist am Ende des Gangs.",
     "example_en": "My room is at the end of the corridor.",
     "register": "everyday",
-    "category": "Wohnen & Haushalt"
+    "category": "Wohnen & Haushalt",
+    "person_sentences": [
+      [
+        "Ich stehe im Gang.",
+        "I am standing in the corridor."
+      ],
+      [
+        "Du stehst im Gang.",
+        "You are standing in the corridor."
+      ],
+      [
+        "Er steht im Gang.",
+        "He is standing in the corridor."
+      ],
+      [
+        "Wir stehen im Gang.",
+        "We are standing in the corridor."
+      ],
+      [
+        "Ihr steht im Gang.",
+        "You all are standing in the corridor."
+      ],
+      [
+        "Sie stehen im Gang.",
+        "They are standing in the corridor."
+      ]
+    ]
   },
   {
     "de": "der Schulranzen, -",
@@ -189241,7 +189602,33 @@
     "example": "Das Kind trägt seinen Schulranzen zur Schule.",
     "example_en": "The child carries their school backpack to school.",
     "register": "everyday",
-    "category": "Schule & Bildung"
+    "category": "Schule & Bildung",
+    "person_sentences": [
+      [
+        "Ich trage einen Schulranzen.",
+        "I am carrying a school backpack."
+      ],
+      [
+        "Du trägst einen Schulranzen.",
+        "You are carrying a school backpack."
+      ],
+      [
+        "Er trägt einen Schulranzen.",
+        "He is carrying a school backpack."
+      ],
+      [
+        "Wir tragen einen Schulranzen.",
+        "We are carrying a school backpack."
+      ],
+      [
+        "Ihr tragt einen Schulranzen.",
+        "You all are carrying a school backpack."
+      ],
+      [
+        "Sie tragen einen Schulranzen.",
+        "They are carrying a school backpack."
+      ]
+    ]
   },
   {
     "de": "der Traumberuf, -e",
@@ -189251,7 +189638,33 @@
     "example": "Ihr Traumberuf ist Ärztin.",
     "example_en": "Her dream job is to be a doctor.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich habe einen Traumberuf.",
+        "I have a dream job."
+      ],
+      [
+        "Du hast einen Traumberuf.",
+        "You have a dream job."
+      ],
+      [
+        "Er hat einen Traumberuf.",
+        "He has a dream job."
+      ],
+      [
+        "Wir haben einen Traumberuf.",
+        "We have a dream job."
+      ],
+      [
+        "Ihr habt einen Traumberuf.",
+        "You all have a dream job."
+      ],
+      [
+        "Sie haben einen Traumberuf.",
+        "They have a dream job."
+      ]
+    ]
   },
   {
     "de": "der Zeitplan, -̈e",
@@ -189261,7 +189674,33 @@
     "example": "Wir müssen den Zeitplan einhalten.",
     "example_en": "We have to stick to the schedule.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich habe einen Zeitplan.",
+        "I have a schedule."
+      ],
+      [
+        "Du hast einen Zeitplan.",
+        "You have a schedule."
+      ],
+      [
+        "Er hat einen Zeitplan.",
+        "He has a schedule."
+      ],
+      [
+        "Wir haben einen Zeitplan.",
+        "We have a schedule."
+      ],
+      [
+        "Ihr habt einen Zeitplan.",
+        "You all have a schedule."
+      ],
+      [
+        "Sie haben einen Zeitplan.",
+        "They have a schedule."
+      ]
+    ]
   },
   {
     "de": "die Arbeitswelt",
@@ -189271,7 +189710,33 @@
     "example": "Die digitale Arbeitswelt verändert sich schnell.",
     "example_en": "The digital world of work is changing quickly.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich kenne die moderne Arbeitswelt.",
+        "I know the modern world of work."
+      ],
+      [
+        "Du kennst die moderne Arbeitswelt.",
+        "You know the modern world of work."
+      ],
+      [
+        "Er kennt die moderne Arbeitswelt.",
+        "He knows the modern world of work."
+      ],
+      [
+        "Wir kennen die moderne Arbeitswelt.",
+        "We know the modern world of work."
+      ],
+      [
+        "Ihr kennt die moderne Arbeitswelt.",
+        "You all know the modern world of work."
+      ],
+      [
+        "Sie kennen die moderne Arbeitswelt.",
+        "They know the modern world of work."
+      ]
+    ]
   },
   {
     "de": "die Babykleidung",
@@ -189281,7 +189746,33 @@
     "example": "Wir kaufen Babykleidung für unseren Sohn.",
     "example_en": "We are buying baby clothes for our son.",
     "register": "everyday",
-    "category": "Familie & Beziehungen"
+    "category": "Familie & Beziehungen",
+    "person_sentences": [
+      [
+        "Ich kaufe Babykleidung.",
+        "I am buying baby clothes."
+      ],
+      [
+        "Du kaufst Babykleidung.",
+        "You are buying baby clothes."
+      ],
+      [
+        "Er kauft Babykleidung.",
+        "He is buying baby clothes."
+      ],
+      [
+        "Wir kaufen Babykleidung.",
+        "We are buying baby clothes."
+      ],
+      [
+        "Ihr kauft Babykleidung.",
+        "You all are buying baby clothes."
+      ],
+      [
+        "Sie kaufen Babykleidung.",
+        "They are buying baby clothes."
+      ]
+    ]
   },
   {
     "de": "die Bezahlung",
@@ -189291,7 +189782,33 @@
     "example": "Die Bezahlung erfolgt am Monatsende.",
     "example_en": "Payment is made at the end of the month.",
     "register": "everyday",
-    "category": "Arbeit & Beruf"
+    "category": "Arbeit & Beruf",
+    "person_sentences": [
+      [
+        "Ich bekomme meine Bezahlung.",
+        "I get my payment."
+      ],
+      [
+        "Du bekommst deine Bezahlung.",
+        "You get your payment."
+      ],
+      [
+        "Er bekommt seine Bezahlung.",
+        "He gets his payment."
+      ],
+      [
+        "Wir bekommen unsere Bezahlung.",
+        "We get our payment."
+      ],
+      [
+        "Ihr bekommt eure Bezahlung.",
+        "You all get your payment."
+      ],
+      [
+        "Sie bekommen ihre Bezahlung.",
+        "They get their payment."
+      ]
+    ]
   },
   {
     "de": "die Gartenarbeit",
@@ -189301,7 +189818,33 @@
     "example": "Am Wochenende mache ich Gartenarbeit.",
     "example_en": "On the weekend I do gardening.",
     "register": "everyday",
-    "category": "Freizeit & Sport"
+    "category": "Freizeit & Sport",
+    "person_sentences": [
+      [
+        "Ich mache Gartenarbeit.",
+        "I do gardening."
+      ],
+      [
+        "Du machst Gartenarbeit.",
+        "You do gardening."
+      ],
+      [
+        "Er macht Gartenarbeit.",
+        "He does gardening."
+      ],
+      [
+        "Wir machen Gartenarbeit.",
+        "We do gardening."
+      ],
+      [
+        "Ihr macht Gartenarbeit.",
+        "You all do gardening."
+      ],
+      [
+        "Sie machen Gartenarbeit.",
+        "They do gardening."
+      ]
+    ]
   },
   {
     "de": "die Medaille, -n",
@@ -189311,7 +189854,33 @@
     "example": "Sie gewinnt die Medaille für den ersten Platz.",
     "example_en": "She wins the medal for first place.",
     "register": "everyday",
-    "category": "Freizeit & Sport"
+    "category": "Freizeit & Sport",
+    "person_sentences": [
+      [
+        "Ich gewinne eine Medaille.",
+        "I win a medal."
+      ],
+      [
+        "Du gewinnst eine Medaille.",
+        "You win a medal."
+      ],
+      [
+        "Er gewinnt eine Medaille.",
+        "He wins a medal."
+      ],
+      [
+        "Wir gewinnen eine Medaille.",
+        "We win a medal."
+      ],
+      [
+        "Ihr gewinnt eine Medaille.",
+        "You all win a medal."
+      ],
+      [
+        "Sie gewinnen eine Medaille.",
+        "They win a medal."
+      ]
+    ]
   },
   {
     "de": "die Schultüte, -n",
@@ -189321,6 +189890,32 @@
     "example": "Am ersten Schultag bekommt das Kind eine Schultüte.",
     "example_en": "On the first day of school, the child gets a school cone.",
     "register": "everyday",
-    "category": "Schule & Bildung"
+    "category": "Schule & Bildung",
+    "person_sentences": [
+      [
+        "Ich bekomme eine Schultüte.",
+        "I get a school cone."
+      ],
+      [
+        "Du bekommst eine Schultüte.",
+        "You get a school cone."
+      ],
+      [
+        "Er bekommt eine Schultüte.",
+        "He gets a school cone."
+      ],
+      [
+        "Wir bekommen eine Schultüte.",
+        "We get a school cone."
+      ],
+      [
+        "Ihr bekommt eine Schultüte.",
+        "You all get a school cone."
+      ],
+      [
+        "Sie bekommen eine Schultüte.",
+        "They get a school cone."
+      ]
+    ]
   }
 ]
