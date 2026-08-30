@@ -245,7 +245,7 @@ INSTALL_BANNER_CARDS = (
     '                        </div>\n'
     '                        <div class="col-6 col-md-3">\n'
     '                            <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div>'
-    '<div>Chrome/Edge → <strong>⊕</strong> address bar icon or <strong>⋯</strong> menu → Install</div></div>\n'
+    '<div>Chrome/Edge → <strong>⊕</strong> icon in address bar → Install</div></div>\n'
     '                        </div>\n'
     '                    </div>\n'
 )
