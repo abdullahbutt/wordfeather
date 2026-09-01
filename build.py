@@ -1531,6 +1531,31 @@ def inject_conjugation_dict_script(content):
 # per-card text in individual files, or it will drift out of sync
 # again exactly as it did before this fix.
 # ─────────────────────────────────────────────────────────────────────
+def build_category_dropdown_options():
+    """Generate the <option> elements for the dictionary's Thema dropdown
+    from WORTSCHATZ_DISPLAY_ORDER, so the dropdown can never silently
+    drift out of sync with the category list the way a hand-copied
+    static HTML list previously could."""
+    lines = ['                            <option value="ALL">Alle Themen</option>']
+    for cat in WORTSCHATZ_DISPLAY_ORDER:
+        escaped = htmllib.escape(cat, quote=True)
+        lines.append(f'                            <option value="{escaped}">{escaped}</option>')
+    return '\n'.join(lines)
+
+
+def inject_category_dropdown(content):
+    """Replace the dictionary page's <select id="categoryFilter"> options
+    with a freshly generated list from build_category_dropdown_options(),
+    regardless of what's currently there. Idempotent and self-healing,
+    same pattern as the install-banner fix."""
+    pattern = re.compile(
+        r'(<select id="categoryFilter"[^>]*>\n).*?(\n\s*</select>)',
+        re.DOTALL
+    )
+    replacement = r'\1' + build_category_dropdown_options().replace('\\', '\\\\') + r'\2'
+    return pattern.sub(replacement, content, count=1)
+
+
 def build_dictionary(words):
     """
     Fully regenerate dictionary.html word-card section from words_final.json.
@@ -1613,6 +1638,7 @@ def build_dictionary(words):
     # elsewhere. inject_install_banner_dict() is left defined (unused)
     # in case a deliberate inset placement is ever wanted again.
     content_new = inject_install_banner(content_new)
+    content_new = inject_category_dropdown(content_new)
     content_new = inject_person_sentences_script(content_new)
     content_new = inject_conjugation_dict_script(content_new)
     content_new = re.sub(
@@ -1751,6 +1777,37 @@ CATEGORY_ORDER = [
     "Allgemein",
 ]
 
+# WORTSCHATZ_DISPLAY_ORDER controls the VISUAL display order of topic
+# sections on Wortschatz pages and the dictionary's Thema dropdown —
+# a rough A1-to-C2 chapter-style progression (personal/family/everyday
+# basics first, expanding through practical/social topics, then work/
+# school/city, then society/culture, then the most abstract academic
+# topics last). This is a separate, independent list from CATEGORY_ORDER
+# on purpose: CATEGORY_ORDER is shared with the quiz's semantic-
+# distractor system (see the comment above), and this project must
+# never risk degrading quiz quality by changing that list's order or
+# content. WORTSCHATZ_DISPLAY_ORDER exists purely for display purposes;
+# it does not affect which category any word is assigned to (that's
+# get_topic()'s job) and nothing about CATEGORY_ORDER changes because
+# this list exists. If a new category is ever added, it must be added
+# to BOTH lists — CATEGORY_ORDER and this one — since they are
+# intentionally NOT kept in sync automatically.
+WORTSCHATZ_DISPLAY_ORDER = [
+    "Familie & Menschen", "Zahlen & Mengen", "Zahlen & Zeit", "Farben",
+    "Farben & Formen", "Kleidung & Aussehen", "Essen & Trinken",
+    "Wohnen & Haushalt", "Moebel", "Koerper & Gesundheit", "Zeit & Alltag",
+    "Einkaufen & Geld", "Verkehr & Reisen", "Wohnungssuche & Umzug",
+    "Freizeit & Sport", "Natur & Wetter", "Tiere & Pflanzen",
+    "Feste & Traditionen", "Beziehungsleben & Liebe", "Gefuehle & Charakter",
+    "Schule & Bildung", "Arbeit & Beruf", "Stadt & Orte",
+    "Kommunikation & Sprache", "Technik & Medien", "Kunst & Unterhaltung",
+    "Sicherheit & Notfaelle", "Aemter & Buerokratie",
+    "Gesellschaft & Umwelt", "Wirtschaft & Finanzen", "Gesellschaft & Kultur",
+    "Recht & Politik", "Wissenschaft & Medizin", "Sprache & Literatur",
+    "Philosophie & Erkenntnistheorie", "Argumentation & Analyse",
+    "Allgemein",
+]
+
 # Manual ordering overrides for small, tightly-bound word clusters where
 # a natural sequence matters more than alphabetical lookup — currently
 # just the daily greetings (Morgen -> Tag -> Abend -> Nacht), which
@@ -1851,7 +1908,7 @@ def build_wortschatz_page(level, level_words):
     for w in sorted(level_words, key=sort_key):
         by_topic[get_topic(w, level)].append(w)
 
-    ordered = list(CATEGORY_ORDER)
+    ordered = list(WORTSCHATZ_DISPLAY_ORDER)
     for t in by_topic:
         if t not in ordered:
             ordered.append(t)
