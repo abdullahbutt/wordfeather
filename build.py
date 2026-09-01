@@ -2030,9 +2030,9 @@ def build_wortschatz_page(level, level_words):
         .content-card{{border:0;border-radius:1rem;box-shadow:var(--card-shadow);background:var(--card-bg);}}
         .page-header{{border-bottom:2px solid #e9ecef;padding-bottom:1rem;margin-bottom:1.5rem;}}
         .breadcrumb a{{text-decoration:none;}} .breadcrumb a:hover{{text-decoration:underline;}}
-        .jump-bar{{position:sticky;top:5rem;z-index:1020;background:var(--alpha-bg);border:1px solid var(--alpha-border);border-radius:.75rem;padding:.75rem;backdrop-filter:blur(4px);max-height:80vh;overflow-y:auto;}}
+        .jump-bar{{z-index:1020;background:var(--alpha-bg);border:1px solid var(--alpha-border);border-radius:.75rem;padding:.75rem;backdrop-filter:blur(4px);max-height:80vh;overflow-y:auto;}}
         .jump-layout{{display:block;}}
-        @media(min-width:992px){{.jump-layout{{display:grid;grid-template-columns:15rem minmax(0,1fr);gap:1.5rem;align-items:start;}}.jump-bar{{top:6rem;}}}}
+        @media(min-width:992px){{.jump-layout{{display:grid;grid-template-columns:15rem minmax(0,1fr);gap:1.5rem;}}.jump-bar{{position:sticky;top:6rem;}}}}
         h2[id]{{scroll-margin-top:6rem;}}
         .ws-search-shade{{background:var(--page-bg);border-radius:.9rem;padding:.6rem;}}
         .ws-search-wrap{{position:relative;}}
