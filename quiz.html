@@ -1548,10 +1548,14 @@ var LESEN_PRACTICE_DATA = {
       var infoEl = document.getElementById('mistakesInfo');
       var startBtn = document.getElementById('startBtn');
       if (count === 0) {
-        infoEl.textContent = 'Keine aktuellen Fehler — gut gemacht! Übe weiter (Wortschatz, Hören, Lesen), damit hier Fragen erscheinen, die du wiederholen solltest. / No current mistakes — well done! Keep practising (Vocabulary, Listening, Reading) and questions you should review will appear here.';
+        infoEl.innerHTML =
+          '<div>Keine aktuellen Fehler — gut gemacht! Übe weiter (Wortschatz, Hören, Lesen), damit hier Fragen erscheinen, die du wiederholen solltest.</div>' +
+          '<div class="text-muted mt-1">No current mistakes — well done! Keep practising (Vocabulary, Listening, Reading) and questions you should review will appear here.</div>';
         startBtn.disabled = true;
       } else {
-        infoEl.textContent = count + ' zu wiederholen (Wortschatz, Hören und Lesen). Du hast diese schon einmal falsch beantwortet und noch nicht wieder richtig. / ' + count + ' to review (Vocabulary, Listening, and Reading). You answered these incorrectly before and haven\'t answered them correctly again yet.';
+        infoEl.innerHTML =
+          '<div>' + count + ' zu wiederholen (Wortschatz, Hören und Lesen). Du hast diese schon einmal falsch beantwortet und noch nicht wieder richtig.</div>' +
+          '<div class="text-muted mt-1">' + count + ' to review (Vocabulary, Listening, and Reading). You answered these incorrectly before and haven\'t answered them correctly again yet.</div>';
         startBtn.disabled = false;
       }
     } else {
