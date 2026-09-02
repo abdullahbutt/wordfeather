@@ -282,7 +282,7 @@
              (which redistributes items per row based on available width and
              would otherwise split this pair apart unpredictably). -->
         <div class="mb-4">
-          <p class="small text-muted fw-semibold mb-2">Einstufungstests / Level tests</p>
+          <p class="small text-muted fw-semibold mb-2">Einstufungstests <span class="text-muted fw-normal">/ Level tests</span></p>
           <div class="d-flex gap-2 flex-wrap nav nav-pills">
             <button class="nav-link border rounded flex-fill" id="tab-placement" data-mode="placement" style="min-width:200px;text-align:center;">
               <span class="d-block">🎯 Niveau (Wortschatz)</span>
@@ -297,22 +297,22 @@
 
         <!-- Practice-by-level options (vocab) -->
         <div id="practiceOptions" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
-          <label class="form-label fw-semibold">Niveau(s) auswählen / Choose level(s)</label>
+          <label class="form-label fw-semibold">Niveau(s) auswählen <span class="text-muted fw-normal">/ Choose level(s)</span></label>
           <div class="d-flex gap-2 flex-wrap mb-4" id="levelChecks">
             <!-- filled by JS -->
           </div>
 
-          <label class="form-label fw-semibold">Richtung / Direction</label>
+          <label class="form-label fw-semibold">Richtung <span class="text-muted fw-normal">/ Direction</span></label>
           <div class="btn-group direction-toggle mb-4 w-100" role="group">
             <input type="radio" class="btn-check" name="direction" id="dirDeEn" value="de-en" checked>
             <label class="btn btn-outline-secondary" for="dirDeEn">DE → EN</label>
             <input type="radio" class="btn-check" name="direction" id="dirEnDe" value="en-de">
             <label class="btn btn-outline-secondary" for="dirEnDe">EN → DE</label>
             <input type="radio" class="btn-check" name="direction" id="dirMixed" value="mixed">
-            <label class="btn btn-outline-secondary" for="dirMixed">Gemischt / Mixed</label>
+            <label class="btn btn-outline-secondary" for="dirMixed">Gemischt <span style="opacity:.75">/ Mixed</span></label>
           </div>
 
-          <label class="form-label fw-semibold">Anzahl Fragen / Number of questions</label>
+          <label class="form-label fw-semibold">Anzahl Fragen <span class="text-muted fw-normal">/ Number of questions</span></label>
           <select class="form-select mb-4" id="questionCount">
             <option value="10">10</option>
             <option value="20" selected>20</option>
@@ -323,28 +323,31 @@
 
         <!-- Hören practice options -->
         <div id="hoerenOptions" class="hidden" role="tabpanel" aria-labelledby="tab-hoeren" tabindex="0">
-          <label class="form-label fw-semibold">Niveau auswählen / Choose a level</label>
+          <label class="form-label fw-semibold">Niveau auswählen <span class="text-muted fw-normal">/ Choose a level</span></label>
           <div class="d-flex gap-2 flex-wrap mb-3" id="hoerenLevelChecks"></div>
           <div class="alert alert-info small" id="hoerenLevelInfo"></div>
-          <p class="text-muted small">Jeder Text wird nur <strong>einmal</strong> vorgelesen — genau wie in der echten Prüfung. / Each text plays only <strong>once</strong> — matching real exam conditions.</p>
+          <p class="text-muted small mb-1">Jeder Text wird nur <strong>einmal</strong> vorgelesen — genau wie in der echten Prüfung.</p>
+          <p class="text-muted small" style="opacity:.75">Each text plays only <strong>once</strong> — matching real exam conditions.</p>
         </div>
 
         <!-- Lesen practice options -->
         <div id="lesenOptions" class="hidden" role="tabpanel" aria-labelledby="tab-lesen" tabindex="0">
-          <label class="form-label fw-semibold">Niveau auswählen / Choose a level</label>
+          <label class="form-label fw-semibold">Niveau auswählen <span class="text-muted fw-normal">/ Choose a level</span></label>
           <div class="d-flex gap-2 flex-wrap mb-3" id="lesenLevelChecks"></div>
           <div class="alert alert-info small" id="lesenLevelInfo"></div>
-          <p class="text-muted small">Der Text bleibt sichtbar — Sie können jederzeit nachlesen. / The text stays visible — reread it anytime.</p>
+          <p class="text-muted small mb-1">Der Text bleibt sichtbar — Sie können jederzeit nachlesen.</p>
+          <p class="text-muted small" style="opacity:.75">The text stays visible — reread it anytime.</p>
         </div>
 
         <!-- Placement test explanation -->
         <div id="placementOptions" class="hidden" role="tabpanel" aria-labelledby="tab-placement" tabindex="0">
           <div class="alert alert-info">
-            Der Level-Test beginnt bei <strong>A1</strong> mit Wortschatz (18 Fragen), Leseverstehen und
+            <div>Der Level-Test beginnt bei <strong>A1</strong> mit Wortschatz (18 Fragen), Leseverstehen und
             Hörverstehen. Bestehst du das gesamte Niveau (≥70%), geht es weiter mit A2, dann B1 — bis C2 oder
-            bis du ein Niveau nicht bestehst. / The level test starts at <strong>A1</strong> with vocabulary
+            bis du ein Niveau nicht bestehst.</div>
+            <div class="mt-2" style="opacity:.75">The level test starts at <strong>A1</strong> with vocabulary
             (18 questions), reading, and listening. If you pass the whole level (≥70%), it continues to A2,
-            then B1 — up to C2, or until you fail a level.
+            then B1 — up to C2, or until you fail a level.</div>
           </div>
         </div>
 
@@ -353,9 +356,11 @@
         <!-- Mistake Notebook options -->
         <div id="mistakesOptions" class="hidden" role="tabpanel" aria-labelledby="tab-mistakes" tabindex="0">
           <div class="alert alert-info" id="mistakesInfo">
-            Lade Fehler... / Loading mistakes...
+            <div>Lade Fehler...</div>
+            <div style="opacity:.75">Loading mistakes...</div>
           </div>
-          <p class="text-muted small">Diese Wörter hast du zuletzt falsch beantwortet. Sobald du sie richtig beantwortest, verschwinden sie automatisch aus dieser Liste. / These are words you most recently got wrong. Once you answer them correctly, they automatically leave this list.</p>
+          <p class="text-muted small mb-1">Diese Wörter hast du zuletzt falsch beantwortet. Sobald du sie richtig beantwortest, verschwinden sie automatisch aus dieser Liste.</p>
+          <p class="text-muted small" style="opacity:.75">These are words you most recently got wrong. Once you answer them correctly, they automatically leave this list.</p>
         </div>
 
         <button class="btn btn-primary btn-lg w-100" id="startBtn">Quiz starten →</button>
@@ -397,7 +402,7 @@
           <p class="prompt-meta mb-1" id="hoerenMeta">A1 · Hörverstehen</p>
           <p class="fw-semibold mb-3" id="hoerenTitle">Dialog</p>
           <button class="play-btn" id="placementPlayBtn" type="button" aria-label="Text anhören">🔊</button>
-          <p class="play-status mt-2 mb-0" id="hoerenPlayStatus">Klicken Sie, um den Text einmal zu hören / Click to hear the text once</p>
+          <p class="play-status mt-2 mb-0" id="hoerenPlayStatus">Klicken Sie, um den Text einmal zu hören (Click to hear the text once)</p>
         </div>
         <p class="prompt-word mb-0 text-center" id="hoerenQuestionText" style="font-size:1.25rem;">Frage?</p>
       </div>
@@ -414,12 +419,12 @@
   <section id="resultsScreen" class="hidden">
     <div class="quiz-card text-center">
       <div class="card p-4">
-        <h2 class="h4 mb-4">Ergebnis / Result</h2>
+        <h2 class="h4 mb-4">Ergebnis <span class="text-muted fw-normal">/ Result</span></h2>
         <div class="score-ring bg-primary-subtle text-primary mb-3" id="scoreRing">0%</div>
         <p class="mb-4" id="scoreDetail">0 von 0 richtig</p>
         <div class="d-flex gap-2 justify-content-center">
-          <button class="btn btn-primary" id="retryBtn">Nochmal üben → / Practice again →</button>
-          <a href="/dictionary.html" class="btn btn-outline-secondary">Zum Wörterbuch / To the dictionary</a>
+          <button class="btn btn-primary" id="retryBtn">Nochmal üben → <span style="opacity:.75">/ Practice again →</span></button>
+          <a href="/dictionary.html" class="btn btn-outline-secondary">Zum Wörterbuch <span style="opacity:.75">/ To the dictionary</span></a>
         </div>
       </div>
     </div>
@@ -429,7 +434,7 @@
   <section id="placementResultScreen" class="hidden">
     <div class="quiz-card text-center">
       <div class="card p-4">
-        <h2 class="h4 mb-3">Dein wahrscheinliches Niveau / Your likely level</h2>
+        <h2 class="h4 mb-3">Dein wahrscheinliches Niveau <span class="text-muted fw-normal">/ Your likely level</span></h2>
         <div class="level-result-badge mb-3" id="placementLevelBadge">A1</div>
         <p class="mb-2" id="placementSummary"></p>
         <p class="text-muted small mb-4">
@@ -438,13 +443,13 @@
         </p>
         <div class="table-responsive mb-4">
           <table class="table table-sm">
-            <thead><tr><th>Niveau</th><th>Richtig / Correct</th><th>Erreicht? / Reached?</th></tr></thead>
+            <thead><tr><th>Niveau</th><th>Richtig <span class="text-muted fw-normal">/ Correct</span></th><th>Erreicht? <span class="text-muted fw-normal">/ Reached?</span></th></tr></thead>
             <tbody id="placementBreakdown"></tbody>
           </table>
         </div>
         <div class="d-flex gap-2 justify-content-center">
-          <button class="btn btn-primary" id="practiceThisLevelBtn">Auf diesem Niveau üben → / Practice at this level →</button>
-          <button class="btn btn-outline-secondary" id="placementRetryBtn">Test wiederholen / Retake test</button>
+          <button class="btn btn-primary" id="practiceThisLevelBtn">Auf diesem Niveau üben → <span style="opacity:.75">/ Practice at this level →</span></button>
+          <button class="btn btn-outline-secondary" id="placementRetryBtn">Test wiederholen <span style="opacity:.75">/ Retake test</span></button>
         </div>
       </div>
     </div>
@@ -456,9 +461,9 @@
       <div class="card p-4">
         <div class="mb-2" style="font-size:2.5rem;">🎉</div>
         <h2 class="h4 mb-2">
-          <span id="transitionPassedLevel">A1</span>-Niveau erreicht! / level reached!
+          <span id="transitionPassedLevel">A1</span>-Niveau erreicht! <span style="opacity:.75">/ level reached!</span>
         </h2>
-        <p class="text-muted mb-3" id="transitionStats">18 / 18 richtig / correct (100%)</p>
+        <p class="text-muted mb-3" id="transitionStats">18 / 18 <span class="fw-semibold">richtig</span> <span style="opacity:.75">/ correct</span> (100%)</p>
         <p class="mb-4">
           Weiter geht's mit <strong id="transitionNextLevel">A2</strong> (moving on to this level).
         </p>
@@ -471,19 +476,20 @@
   <section id="progressScreen" class="hidden">
     <div class="quiz-card">
       <div class="card p-4">
-        <h2 class="h4 mb-1">📊 Mein Fortschritt / My progress</h2>
-        <p class="text-muted small mb-4">Gespeichert auf diesem Gerät — nicht mit anderen Geräten synchronisiert. / Saved on this device only — not synced across devices.</p>
+        <h2 class="h4 mb-1">📊 Mein Fortschritt <span class="text-muted fw-normal">/ My progress</span></h2>
+        <p class="text-muted small mb-1">Gespeichert auf diesem Gerät — nicht mit anderen Geräten synchronisiert.</p>
+        <p class="text-muted small mb-4" style="opacity:.75">Saved on this device only — not synced across devices.</p>
 
         <div class="table-responsive mb-4">
           <table class="table table-sm align-middle">
-            <thead><tr><th>Niveau</th><th>Gesehen / Seen</th><th>Gemeistert / Mastered</th><th>Fällig / Due now</th></tr></thead>
+            <thead><tr><th>Niveau</th><th>Gesehen <span class="text-muted fw-normal">/ Seen</span></th><th>Gemeistert <span class="text-muted fw-normal">/ Mastered</span></th><th>Fällig <span class="text-muted fw-normal">/ Due now</span></th></tr></thead>
             <tbody id="progressBreakdown"></tbody>
           </table>
         </div>
 
         <div class="d-flex gap-2 justify-content-center flex-wrap">
-          <button class="btn btn-primary" id="progressBackBtn">← Zurück / Back</button>
-          <button class="btn btn-outline-danger" id="resetProgressBtn">Fortschritt zurücksetzen / Reset progress</button>
+          <button class="btn btn-primary" id="progressBackBtn">← Zurück <span style="opacity:.75">/ Back</span></button>
+          <button class="btn btn-outline-danger" id="resetProgressBtn">Fortschritt zurücksetzen <span style="opacity:.75">/ Reset progress</span></button>
         </div>
       </div>
     </div>
@@ -985,7 +991,7 @@ var LESEN_PRACTICE_DATA = {
 
     A1: [
       {
-        title: 'Schild: Bibliothek', part: 'Teil 1', tag: 'Schild / Sign',
+        title: 'Schild: Bibliothek', part: 'Teil 1', tag: 'Schild (Sign)',
         passage: ['Bibliothek\nMo–Fr: 9:00–18:00\nSa: 10:00–14:00\nSo: geschlossen'],
         questions: [
           tf('Die Bibliothek ist am Sonntag geöffnet.', false, 'Das Schild sagt: „So: geschlossen“ — am Sonntag ist geschlossen.'),
@@ -994,7 +1000,7 @@ var LESEN_PRACTICE_DATA = {
         ]
       },
       {
-        title: 'Schild: Museum', part: 'Teil 1', tag: 'Schild / Sign',
+        title: 'Schild: Museum', part: 'Teil 1', tag: 'Schild (Sign)',
         passage: ['Achtung! Eingang nur mit Ticket. Kinder unter 6 Jahren: frei. Erwachsene: 8 Euro.'],
         questions: [
           tf('Kinder bezahlen 8 Euro.', false, 'Das Schild sagt: „Kinder unter 6 Jahren: frei“ — Erwachsene zahlen 8 Euro, nicht Kinder.'),
@@ -1002,7 +1008,7 @@ var LESEN_PRACTICE_DATA = {
         ]
       },
       {
-        title: 'Nachricht von Peter', part: 'Teil 2', tag: 'Kurze Mitteilung / Short Message',
+        title: 'Nachricht von Peter', part: 'Teil 2', tag: 'Kurze Mitteilung (Short Message)',
         passage: ['Liebe Susanne, ich komme morgen um 15:30 Uhr am Hauptbahnhof an. Kannst du mich abholen? Mein Zug kommt auf Gleis 7. Viele Grüße, Peter'],
         questions: [
           mc('Wann kommt Peter an?', ['Um 15:30 Uhr', 'Um 13:30 Uhr', 'Um 17:30 Uhr', 'Um 15:00 Uhr'], 0, 'Peter schreibt: „ich komme morgen um 15:30 Uhr am Hauptbahnhof an.“'),
@@ -1011,7 +1017,7 @@ var LESEN_PRACTICE_DATA = {
         ]
       },
       {
-        title: 'Nachricht von Maria', part: 'Teil 2', tag: 'Kurze Mitteilung / Short Message',
+        title: 'Nachricht von Maria', part: 'Teil 2', tag: 'Kurze Mitteilung (Short Message)',
         passage: ['Hallo Thomas, heute Abend mache ich eine kleine Party. Kannst du kommen? Wir fangen um 19 Uhr an. Bring bitte Getränke mit! Bis dann, Maria'],
         questions: [
           mc('Was macht Maria heute Abend?', ['Eine Party', 'Einen Kurs', 'Eine Reise', 'Eine Prüfung'], 0, 'Maria schreibt: „heute Abend mache ich eine kleine Party.“'),
@@ -1020,7 +1026,7 @@ var LESEN_PRACTICE_DATA = {
         ]
       },
       {
-        title: 'Kleinanzeigen', part: 'Teil 3', tag: 'Kleinanzeigen / Classifieds',
+        title: 'Kleinanzeigen', part: 'Teil 3', tag: 'Kleinanzeigen (Classifieds)',
         passage: [
           'A: Verkaufe Fahrrad, 2 Jahre alt, blau, guter Zustand. 80 Euro.',
           'B: Suche 2-Zimmer-Wohnung in Stadtmitte. Bis 500 Euro warm.',
@@ -1061,7 +1067,7 @@ var LESEN_PRACTICE_DATA = {
         ]
       },
       {
-        title: 'Kleinanzeigen', part: 'Teil 3', tag: 'Kleinanzeigen / Classifieds',
+        title: 'Kleinanzeigen', part: 'Teil 3', tag: 'Kleinanzeigen (Classifieds)',
         passage: [
           'A: Suche zuverlässige Putzfrau, 1x pro Woche. 15 Euro/Stunde.',
           'B: Biete Nachhilfe in Mathematik für Klassen 5–10. 20 Euro/Stunde.',
@@ -1103,7 +1109,7 @@ var LESEN_PRACTICE_DATA = {
         ]
       },
       {
-        title: 'Leserbriefe: Plastiktüten verbieten?', part: 'Teil 4', tag: 'Leserbriefe / Meinungen',
+        title: 'Leserbriefe: Plastiktüten verbieten?', part: 'Teil 4', tag: 'Leserbriefe (Meinungen)',
         passage: [
           'Leser A: Ich bin absolut dafür. Jedes Jahr gelangen Millionen Tonnen Plastik in die Meere. Eine Stofftasche mitzunehmen ist nicht schwer.',
           'Leser B: Ein Verbot ist übertrieben. Man sollte lieber auf besseres Recycling setzen.',
@@ -1357,7 +1363,7 @@ var LESEN_PRACTICE_DATA = {
       var box = document.getElementById('loadError');
       if (!Array.isArray(data) || data.length === 0) {
         box.classList.remove('hidden');
-        box.textContent = 'words_final.json wurde geladen, enthält aber keine Einträge. / words_final.json loaded but contains no entries.';
+        box.textContent = 'words_final.json wurde geladen, enthält aber keine Einträge. (words_final.json loaded but contains no entries.)';
         document.getElementById('startBtn').disabled = true;
         return;
       }
@@ -1385,7 +1391,7 @@ var LESEN_PRACTICE_DATA = {
     .catch(function (err) {
       var box = document.getElementById('loadError');
       box.classList.remove('hidden');
-      box.textContent = 'Wörterbuch konnte nicht geladen werden (words_final.json). / Could not load the dictionary data. (' + err.message + ')';
+      box.textContent = 'Wörterbuch konnte nicht geladen werden (words_final.json). (Could not load the dictionary data: ' + err.message + ')';
       document.getElementById('startBtn').disabled = true;
     });
 
@@ -1696,10 +1702,10 @@ var LESEN_PRACTICE_DATA = {
 
   function buildPracticeQuiz() {
     var levels = getSelectedLevels();
-    if (!levels.length) { alert('Bitte mindestens ein Niveau auswählen. / Please select at least one level.'); return null; }
+    if (!levels.length) { alert('Bitte mindestens ein Niveau auswählen.\nPlease select at least one level.'); return null; }
     var pool = [];
     levels.forEach(function (lvl) { pool = pool.concat(wordsByLevel[lvl] || []); });
-    if (!pool.length) { alert('Keine Wörter für dieses Niveau gefunden. / No words found for this level.'); return null; }
+    if (!pool.length) { alert('Keine Wörter für dieses Niveau gefunden.\nNo words found for this level.'); return null; }
 
     var count = Math.min(parseInt(document.getElementById('questionCount').value, 10), pool.length);
     var directionPref = document.querySelector('input[name="direction"]:checked').value;
@@ -1771,13 +1777,13 @@ var LESEN_PRACTICE_DATA = {
 
   function buildHoerenPracticeQuiz() {
     var questions = buildHoerenPracticeQuestions(selectedHoerenLevel);
-    if (!questions.length) { alert('Keine Hörtexte für dieses Niveau gefunden. / No listening texts found for this level.'); return null; }
+    if (!questions.length) { alert('Keine Hörtexte für dieses Niveau gefunden.\nNo listening texts found for this level.'); return null; }
     return { mode: 'hoeren-practice', questions: questions, index: 0, correctCount: 0, hoerenPlayedItemTitle: null };
   }
 
   function buildLesenPracticeQuiz() {
     var questions = buildLesenPracticeQuestions(selectedLesenLevel);
-    if (!questions.length) { alert('Keine Lesetexte für dieses Niveau gefunden. / No reading texts found for this level.'); return null; }
+    if (!questions.length) { alert('Keine Lesetexte für dieses Niveau gefunden.\nNo reading texts found for this level.'); return null; }
     return { mode: 'lesen-practice', questions: questions, index: 0, correctCount: 0 };
   }
 
@@ -1846,18 +1852,18 @@ var LESEN_PRACTICE_DATA = {
         playBtn.disabled = false;
         playBtn.classList.remove('playing');
         playBtn.innerHTML = '🔊';
-        document.getElementById('hoerenPlayStatus').textContent = 'Klicken Sie, um den Text einmal zu hören / Click to hear the text once';
+        document.getElementById('hoerenPlayStatus').textContent = 'Klicken Sie, um den Text einmal zu hören (Click to hear the text once)';
         playBtn.onclick = function () {
           if (playBtn.disabled) return;
           playBtn.disabled = true;
           playBtn.classList.add('playing');
-          document.getElementById('hoerenPlayStatus').textContent = '▶️ Wird abgespielt... / Playing...';
+          document.getElementById('hoerenPlayStatus').textContent = '▶️ Wird abgespielt... (Playing...)';
 
           function unlock() {
             currentQuiz.hoerenPlayedItemTitle = q.itemTitle;
             playBtn.classList.remove('playing');
             playBtn.innerHTML = '✅';
-            document.getElementById('hoerenPlayStatus').textContent = 'Text wurde vorgelesen. Beantworten Sie jetzt die Fragen. / Now answer the questions.';
+            document.getElementById('hoerenPlayStatus').textContent = 'Text wurde vorgelesen. Beantworten Sie jetzt die Fragen. (Now answer the questions.)';
             document.querySelectorAll('#optionsContainer .option-btn').forEach(function (b) { b.disabled = false; });
           }
 
@@ -1879,7 +1885,7 @@ var LESEN_PRACTICE_DATA = {
         // played once for this item, so options start unlocked directly.
         playBtn.disabled = true;
         playBtn.innerHTML = '✅';
-        document.getElementById('hoerenPlayStatus').textContent = 'Text wurde bereits vorgelesen. / Text was already played.';
+        document.getElementById('hoerenPlayStatus').textContent = 'Text wurde bereits vorgelesen. (Text was already played.)';
       }
 
     } else {
@@ -1947,8 +1953,8 @@ var LESEN_PRACTICE_DATA = {
 
     var box = document.getElementById('feedbackBox');
     var resultLine = correct
-      ? '<div class="fw-bold">✓ Richtig! / Correct!</div>'
-      : '<div class="fw-bold">✗ Leider falsch / Incorrect</div>';
+      ? '<div class="fw-bold">✓ Richtig! <span style="opacity:.75">/ Correct!</span></div>'
+      : '<div class="fw-bold">✗ Leider falsch <span style="opacity:.75">/ Incorrect</span></div>';
 
     // Show the word's real example sentence as context after every answer —
     // right or wrong — since seeing the word actually used in a sentence
@@ -1960,7 +1966,7 @@ var LESEN_PRACTICE_DATA = {
     if (q.kind === 'vocab' && q.word && q.word.example) {
       explanationHtml =
         '<div class="answer-explanation mt-2 pt-2 border-top">' +
-        '<span class="small text-muted">Beispiel / Example:</span><br>' +
+        '<span class="small text-muted">Beispiel</span> <span class="small" style="opacity:.6">/ Example:</span><br>' +
         '<span class="fw-semibold">' + q.word.example + '</span>' +
         (q.word.example_en ? '<br><span class="text-muted">' + q.word.example_en + '</span>' : '') +
         '</div>';
@@ -1975,7 +1981,7 @@ var LESEN_PRACTICE_DATA = {
     if (q.explanation) {
       explanationHtml +=
         '<div class="answer-explanation mt-2 pt-2 border-top">' +
-        '<span class="small text-muted">Warum ist das richtig? / Why is this correct?</span><br>' +
+        '<span class="small text-muted">Warum ist das richtig?</span> <span class="small" style="opacity:.6">/ Why is this correct?</span><br>' +
         '<span>' + q.explanation + '</span>' +
         '</div>';
     }
@@ -2011,7 +2017,7 @@ var LESEN_PRACTICE_DATA = {
 
     var nextBtn = document.getElementById('nextBtn');
     var isLastQuestion = currentQuiz.index + 1 >= currentQuiz.questions.length;
-    nextBtn.textContent = isLastQuestion ? 'Ergebnis anzeigen / Show results →' : 'Weiter / Next →';
+    nextBtn.textContent = isLastQuestion ? 'Ergebnis anzeigen (Show results) →' : 'Weiter (Next) →';
     nextBtn.classList.remove('hidden');
     nextBtn.focus();
   }
@@ -2082,7 +2088,7 @@ var LESEN_PRACTICE_DATA = {
     var pct = Math.round((correct / total) * 100);
 
     document.getElementById('scoreRing').textContent = pct + '%';
-    document.getElementById('scoreDetail').textContent = correct + ' von ' + total + ' richtig / ' + correct + ' of ' + total + ' correct';
+    document.getElementById('scoreDetail').textContent = correct + ' von ' + total + ' richtig (' + correct + ' of ' + total + ' correct)';
     document.getElementById('resultsScreen').classList.remove('hidden');
   }
 
@@ -2128,8 +2134,8 @@ var LESEN_PRACTICE_DATA = {
     var screen = document.getElementById('placementTransitionScreen');
     document.getElementById('transitionPassedLevel').textContent = passedLevel;
     document.getElementById('transitionNextLevel').textContent = nextLevel;
-    document.getElementById('transitionStats').textContent =
-      stats.correct + ' / ' + stats.total + ' richtig / correct (' + Math.round((stats.correct / stats.total) * 100) + '%)';
+    document.getElementById('transitionStats').innerHTML =
+      stats.correct + ' / ' + stats.total + ' <span class="fw-semibold">richtig</span> <span style="opacity:.75">/ correct</span> (' + Math.round((stats.correct / stats.total) * 100) + '%)';
     screen.classList.remove('hidden');
 
     var btn = document.getElementById('transitionContinueBtn');
@@ -2152,7 +2158,7 @@ var LESEN_PRACTICE_DATA = {
 
     var summary;
     if (isLastLevel && passed) {
-      summary = 'Herzlichen Glückwunsch — du hast alle Niveaus bis C2 erreicht! / Congratulations — you\'ve reached every level up to C2!';
+      summary = 'Herzlichen Glückwunsch — du hast alle Niveaus bis C2 erreicht! (Congratulations — you\'ve reached every level up to C2!)';
     } else if (!passed) {
       // Computed from the actual PLACEMENT_PASS_THRESHOLD constant rather
       // than a hardcoded number, so this text can never drift out of sync
@@ -2177,7 +2183,7 @@ var LESEN_PRACTICE_DATA = {
       var passedThisLevel = acc >= PLACEMENT_PASS_THRESHOLD * 100;
       var row = document.createElement('tr');
       row.innerHTML = '<td>' + lvl + '</td><td>' + stats.correct + ' / ' + stats.total + ' (' + acc + '%)</td>' +
-        '<td>' + (passedThisLevel ? '✓ Erreicht / Reached' : '✗ Nicht erreicht / Not reached') + '</td>';
+        '<td>' + (passedThisLevel ? '✓ Erreicht <span style="opacity:.75">/ Reached</span>' : '✗ Nicht erreicht <span style="opacity:.75">/ Not reached</span>') + '</td>';
       tbody.appendChild(row);
     });
 
