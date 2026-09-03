@@ -953,6 +953,9 @@ _KNOWN_ADV = {
     # only ever show "not available."
     'hinten','daneben','dagegen','deswegen','meinetwegen','mitten','innen',
     'inzwischen','zuweilen','unumwunden','übermorgen',
+    # Flagged by external review as incorrectly defaulting to 'adjective'
+    # via the generic fallback (no article, not in any known-word set):
+    'andererseits',
 }
 _KNOWN_CONJ = {
     'aber','als','bevor','denn','dass','damit','ehe','entweder','falls',
@@ -973,6 +976,9 @@ _KNOWN_PRON = {
     # (well, "ihnen" does; den/wen just needed a home) and were never
     # in this list at all — same false-verb-tag issue as the adverbs above.
     'den','wen','ihnen',
+    # Flagged by external review as incorrectly defaulting to 'adjective'
+    # via the generic fallback (no article, not in any known-word set):
+    'alles',
 }
 _KNOWN_PROPER_NOUN = {
     # Country names ending in "-en" (Algerien, Italien, Polen, Spanien)
