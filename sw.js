@@ -1,7 +1,7 @@
 // WordFeather - Service Worker
 // CACHE_NAME below is auto-updated by build.py on every run — do not edit by hand.
 // AUTO-CACHE-VERSION-START
-const CACHE_NAME = 'deutsch-lernen-v20260904-064229';
+const CACHE_NAME = 'deutsch-lernen-v20260904-082430';
 // AUTO-CACHE-VERSION-END
 const BASE = '/';
 
