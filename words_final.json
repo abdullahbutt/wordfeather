@@ -729,7 +729,17 @@
         "They lose five kilos."
       ]
     ],
-    "category": "Koerper & Gesundheit"
+    "category": "Koerper & Gesundheit",
+    "conjugation": {
+      "infinitiv": "abnehmen",
+      "praesens_stamm": "nimm",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "abgenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "ab",
+      "transitiv": true,
+      "governs": "none (intransitive: to lose weight)"
+    }
   },
   {
     "de": "der Absatz",
@@ -33388,7 +33398,15 @@
         "They invest in renewable energy."
       ]
     ],
-    "category": "Argumentation & Analyse"
+    "category": "Argumentation & Analyse",
+    "conjugation": {
+      "infinitiv": "investieren",
+      "praeteritum_stamm": "investierte",
+      "partizip2": "investiert",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "in + accusative (optional)"
+    }
   },
   {
     "de": "die Ironie",
@@ -40727,7 +40745,41 @@
         "They are lending him a book."
       ]
     ],
-    "category": "Einkaufen & Geld"
+    "category": "Einkaufen & Geld",
+    "conjugation": {
+      "infinitiv": "leihen",
+      "praeteritum_stamm": "lieh",
+      "partizip2": "geliehen",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "english": {
+        "praesens_voll": [
+          "lend",
+          "lend",
+          "lends",
+          "lend",
+          "lend",
+          "lend"
+        ],
+        "praeteritum_voll": [
+          "lent",
+          "lent",
+          "lent",
+          "lent",
+          "lent",
+          "lent"
+        ],
+        "perfekt_voll": [
+          "have lent",
+          "have lent",
+          "has lent",
+          "have lent",
+          "have lent",
+          "have lent"
+        ]
+      },
+      "governs": "dative+accusative"
+    }
   },
   {
     "de": "die Leinwand, -̈e",
@@ -60487,7 +60539,15 @@
         "They are sitting down on the chair."
       ]
     ],
-    "category": "Allgemein"
+    "category": "Allgemein",
+    "conjugation": {
+      "infinitiv": "setzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "gesetzt",
+      "hilfsverb": "haben",
+      "reflexiv": true,
+      "governs": "none"
+    }
   },
   {
     "de": "sich streiten",
@@ -70355,7 +70415,15 @@
         "They illustrate complex relationships with a good diagram."
       ]
     ],
-    "category": "Argumentation & Analyse"
+    "category": "Argumentation & Analyse",
+    "conjugation": {
+      "infinitiv": "veranschaulichen",
+      "praeteritum_stamm": "veranschaulichte",
+      "partizip2": "veranschaulicht",
+      "hilfsverb": "haben",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "die Veranstaltung, -en",
@@ -73419,7 +73487,16 @@
         "Their essay presupposes a solid knowledge of the sources."
       ]
     ],
-    "category": "Argumentation & Analyse"
+    "category": "Argumentation & Analyse",
+    "conjugation": {
+      "infinitiv": "voraussetzen",
+      "praeteritum_stamm": "setzte",
+      "partizip2": "vorausgesetzt",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "voraus",
+      "transitiv": true,
+      "governs": "accusative"
+    }
   },
   {
     "de": "vorgestern",
@@ -78954,31 +79031,40 @@
     "register": "everyday",
     "person_sentences": [
       [
-        "Ich nehme im Urlaub zu.",
-        "I gain weight on vacation."
+        "Ich merke, dass die Nachfrage stetig zunimmt.",
+        "I notice that demand is steadily increasing."
       ],
       [
-        "Du nimmst im Urlaub zu.",
-        "You gain weight on vacation."
+        "Du merkst, dass die Nachfrage stetig zunimmt.",
+        "You notice that demand is steadily increasing."
       ],
       [
-        "Er nimmt im Urlaub zu.",
-        "He gains weight on vacation."
+        "Er merkt, dass die Nachfrage stetig zunimmt.",
+        "He notices that demand is steadily increasing."
       ],
       [
-        "Wir nehmen im Urlaub zu.",
-        "We gain weight on vacation."
+        "Wir merken, dass die Nachfrage stetig zunimmt.",
+        "We notice that demand is steadily increasing."
       ],
       [
-        "Ihr nehmt im Urlaub zu.",
-        "You all gain weight on vacation."
+        "Ihr merkt, dass die Nachfrage stetig zunimmt.",
+        "You all notice that demand is steadily increasing."
       ],
       [
-        "Sie nehmen im Urlaub zu.",
-        "They gain weight on vacation."
+        "Sie merken, dass die Nachfrage stetig zunimmt.",
+        "They notice that demand is steadily increasing."
       ]
     ],
-    "category": "Allgemein"
+    "category": "Allgemein",
+    "conjugation": {
+      "infinitiv": "zunehmen",
+      "praesens_stamm": "nimm",
+      "praeteritum_stamm": "nahm",
+      "partizip2": "zugenommen",
+      "hilfsverb": "haben",
+      "trennbares_praefix": "zu",
+      "governs": "none"
+    }
   },
   {
     "de": "zur Verfügung stehen",
