@@ -1,4 +1,11 @@
 <style>
+  /* Bootstrap's default dropdown z-index (1000) sits below several pages'
+     sticky "Inhalt"/Quick-Jump sidebar (.jump-bar / .alphabet-nav, z-index
+     1020) — without this, the Levels/Modules dropdown renders visually
+     underneath that sidebar instead of on top of it. */
+  #siteNavbar .dropdown-menu {
+    z-index: 1040;
+  }
   /* Bootstrap's .navbar-dark .nav-link defaults to 55% opacity white unless
      hovered/active — on a solid blue background that reads as faint/blurry
      rather than crisp. Override to fully opaque for legibility. */
