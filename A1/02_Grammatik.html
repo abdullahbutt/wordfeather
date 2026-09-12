@@ -107,54 +107,31 @@
             text-decoration: underline;
         }
 
-        .alphabet-nav {
+        .jump-bar {
             z-index: 1020;
             background: var(--alpha-bg);
             border: 1px solid var(--alpha-border);
             border-radius: 0.75rem;
             padding: 0.75rem;
             backdrop-filter: blur(4px);
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .jump-layout {
             display: block;
         }
 
-        .jump-links {
-            align-items: center;
-        }
-
         @media (min-width: 992px) {
             .jump-layout {
                 display: grid;
-                grid-template-columns: 4rem minmax(0, 1fr);
-                gap: 1rem;
+                grid-template-columns: 15rem minmax(0, 1fr);
+                gap: 1.5rem;
             }
 
-            .alphabet-nav {
+            .jump-bar {
                 position: sticky;
                 top: 6rem;
-                width: 100%;
-                margin-bottom: 0 !important;
-            }
-
-            .alphabet-nav .jump-links {
-                display: flex !important;
-                flex-direction: column;
-                gap: 0.4rem !important;
-            }
-
-            .alphabet-nav .btn {
-                width: 2.2rem;
-                padding: 0.2rem 0;
-            }
-
-            .jump-more-btn {
-                width: 2.2rem;
-                padding: 0.2rem 0;
-                font-size: 0.85rem;
-                margin-top: 0.1rem;
-                letter-spacing: 0.05em;
             }
 
             .jump-layout .markdown-content {
@@ -1458,6 +1435,21 @@ Ich habe Frühstück gemacht. Ich habe ein Drama gesehen. Ich bin nach Lahore ge
 <li>8:30 — Es ist <strong>halb neun</strong>. <em>(It's half past eight.)</em> — <strong>Achtung! / Watch out!</strong> "halb" bezieht sich auf die NÄCHSTE Stunde! <em>"halb" refers to the NEXT hour!</em></li>
 <li>8:45 — Es ist Viertel vor neun. <em>(It's quarter to nine.)</em></li>
 </ul>
+<p><strong>Formell (24-Stunden-Format) / Formal (24-hour format):</strong></p>
+<table>
+<thead><tr><th>Informell</th><th></th><th>Formell</th><th></th></tr></thead>
+<tbody>
+<tr><td>6:00 Uhr</td><td>sechs Uhr</td><td>18:00 Uhr</td><td>achtzehn Uhr</td></tr>
+<tr><td>6:15 Uhr</td><td>Viertel nach sechs</td><td>18:15 Uhr</td><td>achtzehn Uhr fünfzehn</td></tr>
+<tr><td>6:30 Uhr</td><td>halb sieben</td><td>18:30 Uhr</td><td>achtzehn Uhr dreißig</td></tr>
+<tr><td>6:45 Uhr</td><td>Viertel vor sieben</td><td>18:45 Uhr</td><td>achtzehn Uhr fünfundvierzig</td></tr>
+<tr><td>5:55 Uhr</td><td>fünf vor sechs</td><td>17:55 Uhr</td><td>siebzehn Uhr fünfundfünfzig</td></tr>
+<tr><td>6:05 Uhr</td><td>fünf nach sechs</td><td>18:05 Uhr</td><td>achtzehn Uhr fünf</td></tr>
+<tr><td>6:03 Uhr</td><td>kurz nach sechs</td><td>18:03 Uhr</td><td>achtzehn Uhr drei</td></tr>
+<tr><td>5:57 Uhr</td><td>kurz vor sechs</td><td>17:57 Uhr</td><td>siebzehn Uhr siebenundfünfzig</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Wie spät ist es? / Wie viel Uhr ist es? — beide fragen nach der Uhrzeit. Das informelle Format (Viertel nach/vor, halb, fünf vor/nach) ist im Alltag üblich; das formelle 24-Stunden-Format (mit Minutenzahl) wird bei Fahrplänen, Öffnungszeiten usw. verwendet.<br /><em>Note: "Wie spät ist es?" / "Wie viel Uhr ist es?" both ask for the time. The informal format is used in everyday speech; the formal 24-hour format is used for timetables, opening hours, etc.</em></div>
 <h3 id="temporale-prapositionen-temporal-prepositions">Temporale Präpositionen / Temporal Prepositions</h3>
 <ul>
 <li><strong>am</strong> + Tag/Tageszeit: <strong>am</strong> Montag <em>(on Monday)</em>, <strong>am</strong> Vormittag <em>(in the morning)</em></li>
@@ -1567,7 +1559,9 @@ Ich habe Frühstück gemacht. Ich habe ein Drama gesehen. Ich bin nach Lahore ge
 <tr><td>4. der vierte</td><td>...</td><td></td></tr>
 </tbody>
 </table>
-<p><em>Beispiele / Examples:</em> Am zweiten Mai. / Vom zweiten bis (zum) zwanzigsten Mai.</p>
+<p><em>Beispiele / Examples:</em> Am zweiten Mai. / Vom zweiten bis (zum) zwanzigsten Mai.<br />
+Wann ist dein/Ihr Geburtstag? — Mein Geburtstag ist am 3. April. <em>(When is your birthday? — My birthday is on April 3rd.)</em><br />
+Ich gehe am 5. Oktober nach Pakistan. <em>(I'm going to Pakistan on October 5th.)</em></p>
 <hr />
 <h2 id="20-wortbildung-nomen">20. Wortbildung: Nomen / Word Formation: Nouns</h2>
 <p>Weibliche Berufsbezeichnungen: meist Endung <strong>-in</strong>. <em>Feminine job titles: usually the ending -in.</em></p>
@@ -1700,50 +1694,17 @@ Ich habe Frühstück gemacht. Ich habe ein Drama gesehen. Ich bin nach Lahore ge
             backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
         });
 
-        function setupJumpCollapse() {
-            var THRESHOLD = 8;
-            var nav = document.querySelector('.alphabet-nav');
-            if (!nav) return;
-            var existing = nav.querySelector('.jump-more-btn');
-            if (existing) existing.remove();
-            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
-            links.forEach(function (l) { l.style.display = ''; });
-            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
-            var firstBatch = links.slice(0, THRESHOLD);
-            var lastBatch = links.slice(THRESHOLD);
-            var moreBtn = document.createElement('button');
-            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
-            moreBtn.textContent = '\u2026';
-            moreBtn.title = 'Show more buttons';
-            var isExpanded = false;
-            var toggleDisplay = function () {
-                isExpanded = !isExpanded;
-                if (isExpanded) {
-                    lastBatch.forEach(function (l) { l.style.display = ''; });
-                    moreBtn.textContent = '\u25B2';
-                    moreBtn.title = 'Show fewer';
-                } else {
-                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
-                    moreBtn.textContent = '\u2026';
-                    moreBtn.title = 'Show more buttons';
-                }
-            };
-            moreBtn.addEventListener('click', toggleDisplay);
-            lastBatch.forEach(function (l) { l.style.display = 'none'; });
-            nav.querySelector('.jump-links').appendChild(moreBtn);
-        }
-
-        window.addEventListener('resize', setupJumpCollapse);
-
         (function () {
             var buttons = '';
-                    document.querySelectorAll('h2[id]').forEach(function (h) {
-                        var m = h.id.match(/^(\d+)-/);
-                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
-                    });
-                    document.getElementById('jump-bar-placeholder').innerHTML =
-                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
-                    setupJumpCollapse();
+            document.querySelectorAll('h2[id]').forEach(function (h) {
+                var m = h.id.match(/^(\d+)-/);
+                if (!m) return;
+                var full = h.textContent.replace(/^\d+\.\s*/, '');
+                var label = full.length > 34 ? full.slice(0, 33) + '\u2026' : full;
+                buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="' + full.replace(/"/g, '&quot;') + '">' + m[1] + '. ' + label + '</a>';
+            });
+            document.getElementById('jump-bar-placeholder').innerHTML =
+                '<div class="jump-bar"><div class="fw-semibold small mb-2" style="color:#1d4ed8">\ud83d\udcda Inhalt</div><div class="jump-links d-flex flex-column">' + buttons + '</div></div>';
         })();
     </script>
     <script>

@@ -1,0 +1,687 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A1 Kursnotizen: Wortschatz, Dialoge und Redemittel aus dem Unterricht mit Beispielsätzen und Übersetzungen.">
+    <meta name="keywords" content="Deutsch lernen, Deutsch A1 Grammatik, Goethe Prüfung, telc Prüfung, A1 B1 C1 Deutsch">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: canonical + robots -->
+    <link rel="canonical" href="https://wordfeather.com/A1/10_notes.html">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kursnotizen A1 — Notes | WordFeather">
+    <meta property="og:description" content="A1 course notes: vocabulary, dialogues and useful phrases from class with example sentences and translations.">
+    <meta property="og:url" content="https://wordfeather.com/A1/10_notes.html">
+    <meta property="og:image" content="https://wordfeather.com/og-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WordFeather">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kursnotizen A1 — Notes | WordFeather">
+    <meta name="twitter:description" content="A1 course notes: vocabulary, dialogues and useful phrases from class with example sentences and translations.">
+    <meta name="twitter:image" content="https://wordfeather.com/og-image.png">
+    
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="WordFeather">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>10 Kursnotizen - A1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'JameelNooriNastaleeq';
+            src: url('../fonts/JameelNooriNastaleeq.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        .urdu {
+            font-family: 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif;
+            direction: rtl;
+            unicode-bidi: embed;
+            font-size: 1.15em;
+            line-height: 2.1;
+        }
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .jump-bar {
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 15rem minmax(0, 1fr);
+                gap: 1.5rem;
+            }
+
+            .jump-bar {
+                position: sticky;
+                top: 6rem;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 10.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    
+        .site-footer {
+            background: var(--page-bg, #f1f3f5);
+            color: var(--page-text, #1f2937);
+        }
+        [data-bs-theme="dark"] .site-footer {
+            background: #1e293b !important;
+            color: #e2e8f0;
+            border-color: #374151 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .text-secondary {
+            color: #94a3b8 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary {
+            color: #94a3b8;
+            border-color: #475569;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary:hover {
+            background: #334155;
+            color: #e2e8f0;
+        }
+        .d-tts{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:none;background:none;cursor:pointer;opacity:.35;transition:opacity .2s;padding:0;margin-left:3px;vertical-align:middle;border-radius:50%;font-size:13px}
+        .d-tts:hover{opacity:.8;background:rgba(29,78,216,.1)}.d-tts.playing{opacity:1;color:#1d4ed8;background:rgba(29,78,216,.15)}
+        [data-bs-theme="dark"] .d-tts:hover{background:rgba(99,102,241,.2)}[data-bs-theme="dark"] .d-tts.playing{color:#818cf8;background:rgba(99,102,241,.25)}
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','10_notes.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','02b Grammatik (Neu)','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat','10 Kursnotizen (Notes)'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../quiz.html" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                var lvLi = document.getElementById('nav-levels');
+                lvLi = lvLi ? lvLi.closest('li') : null;
+                if (lvLi && lvLi.nextSibling) {
+                    lvLi.parentNode.insertBefore(li, lvLi.nextSibling);
+                } else if (nav) {
+                    nav.appendChild(li);
+                }
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/A1/">A1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">10 Kursnotizen</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">10 Kursnotizen (Notes)</h1>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">A1</span>
+                        
+                    </div>
+                </div>
+
+                <div class="jump-layout">
+                <div id="jump-bar-placeholder"></div>
+
+                <div class="markdown-content">
+                    <h1 id="a1-kursnotizen-notes">A1 Kursnotizen / Course Notes</h1>
+<p>Wortschatz, Dialoge und Redemittel aus dem Unterricht — praktische Beispiele zum Üben (ergänzend zur Grammatikseite).<br />
+<em>Vocabulary, dialogues and useful phrases from class — practical examples for practice (complementing the grammar page).</em></p>
+<hr />
+<h2 id="1-persoenliche-angaben">1. Persönliche Angaben — Fragen &amp; Antworten / Personal Information — Questions &amp; Answers</h2>
+<p>Wichtige Fragen und Antworten, um sich vorzustellen.<br />
+<em>Key questions and answers for introducing yourself.</em></p><table>
+<thead><tr><th>Frage</th><th>Antwort</th></tr></thead>
+<tbody>
+<tr><td>Wie heißen Sie? / Wie heißt du?</td><td>Ich heiße Jawad. / Ich bin Jawad. Mein Name ist Jawad.</td></tr><tr><td>Wer bist du? / Wer sind Sie?</td><td>Wie ist dein/Ihr Name?</td></tr><tr><td>Wie geht es Ihnen? / Wie geht es dir?</td><td>Gut, danke.</td></tr><tr><td>Wo wohnen Sie? / Wo wohnst du?</td><td>Ich wohne in Bonn / in Karachi.</td></tr><tr><td>Woher kommen Sie? / Woher kommst du?</td><td>Ich komme aus Pakistan.</td></tr><tr><td>Welche Sprachen sprechen Sie? / sprichst du?</td><td>Ich spreche Urdu, Englisch und ein bisschen Deutsch.</td></tr><tr><td>Was lernen Sie? / Was lernst du?</td><td>Ich lerne Deutsch.</td></tr><tr><td>Was sind Sie von Beruf? / Was bist du von Beruf?</td><td>Ich bin Student/Studentin.</td></tr>
+</tbody>
+</table><p><strong>sein (to be)</strong> mit Urdu: ich bin (میں ہوں), du bist (تم ہو), Sie sind (آپ ہیں), er/sie/es ist (وہ ہے), wir sind (ہم ہیں), ihr seid (تم لوگ ہو), Sie/sie sind (آپ/وہ لوگ ہیں).<br />
+<em>The verb "sein" (to be) conjugated with Urdu translations for each form.</em></p><div class="rule"><strong>Ja / Nein / Doch — Übung:</strong></div><table>
+<thead><tr><th>Frage</th><th>Antwort</th></tr></thead>
+<tbody>
+<tr><td>Heißen Sie Jawad?</td><td>Ja.</td></tr><tr><td>Wohnen Sie in Bonn?</td><td>Ja, ich wohne in Bonn. / Nein, ich wohne nicht in Bonn.</td></tr><tr><td>Wohnen Sie nicht in Bonn?</td><td>Doch, ich wohne in Bonn. / Nein, ich wohne nicht in Bonn.</td></tr><tr><td>Kommen Sie aus Afghanistan?</td><td>Nein, ich komme aus Pakistan.</td></tr><tr><td>Sprechen Sie Englisch?</td><td>Ja.</td></tr><tr><td>Lernen Sie Französisch?</td><td>Nein, ich lerne Deutsch.</td></tr><tr><td>Lernen Sie nicht Deutsch?</td><td>Doch, ich lerne Deutsch.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-freizeitaktivitaeten">2. Freizeitaktivitäten — Verben im Präsens / Leisure Activities — Verbs in Present Tense</h2>
+<p>fotografieren, singen, kochen, reisen, schwimmen, tanzen, joggen, chatten, Musik hören, ins Kino gehen<br />
+<em>Common leisure-activity verbs conjugated across all persons.</em></p><table>
+<thead><tr><th>Person</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>ich</td><td>Ich fotografiere, singe, koche, reise, schwimme, tanze, jogge, chatte. Ich höre Musik. Ich gehe ins Kino.</td></tr><tr><td>du</td><td>Du fotografierst, singst, kochst, reist, schwimmst, tanzt, joggst, chattest. Du hörst Musik. Du gehst ins Kino.</td></tr><tr><td>er/sie</td><td>Er/sie fotografiert, singt, kocht, reist, schwimmt, tanzt, joggt, chattet. Er/sie hört Musik. Er/sie geht ins Kino.</td></tr><tr><td>wir</td><td>Wir fotografieren, singen, kochen, reisen, schwimmen, tanzen, joggen, chatten. Wir hören Musik. Wir gehen ins Kino.</td></tr><tr><td>ihr</td><td>Ihr fotografiert, singt, kocht, reist, schwimmt, tanzt, joggt, chattet. Ihr hört Musik. Ihr geht ins Kino.</td></tr><tr><td>Sie/sie</td><td>Sie/sie fotografieren, singen, kochen, reisen, schwimmen, tanzen, joggen, chatten.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-wochentage-und-arbeitszeiten">3. Wochentage &amp; Arbeitszeiten / Days of the Week &amp; Working Times</h2>
+<table>
+<thead><tr><th>Deutsch</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>Wann arbeiten Sie? / Wann arbeitest du?</td><td>Ich arbeite am Montag/Dienstag/Mittwoch... Ich arbeite von Montag bis Freitag. Ich arbeite am Wochenende. Ich arbeite nicht.</td></tr><tr><td>Wann lernen Sie Deutsch? / Wann lernst du Deutsch?</td><td>Ich lerne Deutsch am Donnerstag und am Freitag.</td></tr><tr><td>Wann sehen Sie einen Film?</td><td>Ich sehe am Mittwoch einen Film.</td></tr><tr><td>Wann spielen Sie Tischtennis?</td><td>Ich spiele am Freitag Tischtennis.</td></tr><tr><td>Wann schreiben Sie die E-Mail?</td><td>Ich schreibe am Dienstag die E-Mail.</td></tr><tr><td>Wann schwimmen Sie?</td><td>Ich schwimme am Montag.</td></tr>
+</tbody>
+</table><p><strong>Die Wochentage:</strong> Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag.<br />
+<em>The days of the week. Use "am" + Wochentag: am Montag, am Dienstag, etc.</em></p>
+<hr />
+<h2 id="4-tageszeiten">4. Tageszeiten — Wann am Tag? / Times of Day — When During the Day?</h2>
+<table>
+<thead><tr><th>Tageszeit</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>am Morgen</td><td>Ich lerne am Morgen.</td></tr><tr><td>am Vormittag</td><td>Ich arbeite am Vormittag.</td></tr><tr><td>am Mittag</td><td>Ich arbeite am Mittag.</td></tr><tr><td>am Nachmittag</td><td>Ich habe am Nachmittag frei.</td></tr><tr><td>am Abend</td><td>Ich jogge am Abend.</td></tr><tr><td>in der Nacht</td><td>Ich schlafe in der Nacht.</td></tr>
+</tbody>
+</table><p><strong>Wiederholung mit -s (jeden Tag) / Repeated actions (every day):</strong> morgens (every morning), mittags (every noon), nachmittags (every afternoon), abends (every evening), nachts (every night).<br />Ich trinke morgens Kaffee. Ich esse mittags Suppe. Ich esse nachmittags Kuchen. Ich trinke abends Lassi. Ich lese nachts. Ich möchte abends Lassi trinken.<br />
+<em>The "-s" forms (morgens, mittags, abends, nachts) mean "every morning/noon/evening/night" — a repeated habit, unlike "am Morgen" which refers to one specific morning.</em></p>
+<hr />
+<h2 id="5-zeiteinheiten">5. Zeiteinheiten / Units of Time</h2>
+<table>
+<thead><tr><th>Einheit</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>das Jahr, -e</td><td>Ein Jahr hat 12 Monate.</td></tr><tr><td>der Monat, -e</td><td>Ein Monat hat 4 Wochen.</td></tr><tr><td>die Woche, -n</td><td>Eine Woche hat 7 Tage.</td></tr><tr><td>der Tag, -e</td><td>Ein Tag hat 24 Stunden.</td></tr><tr><td>die Stunde, -n</td><td>Eine Stunde hat 60 Minuten.</td></tr><tr><td>die Minute, -n</td><td>Eine Minute hat 60 Sekunden.</td></tr><tr><td>die Sekunde, -n</td><td>—</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-monate-und-jahreszeiten">6. Monate &amp; Jahreszeiten / Months &amp; Seasons</h2>
+<table>
+<thead><tr><th>Jahreszeit</th><th>Monate</th></tr></thead>
+<tbody>
+<tr><td>Frühling</td><td>März, April, Mai</td></tr><tr><td>Sommer</td><td>Juni, Juli, August</td></tr><tr><td>Herbst</td><td>September, Oktober, November</td></tr><tr><td>Winter</td><td>Dezember, Januar, Februar</td></tr>
+</tbody>
+</table><p>Alle Monate: Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember. Mit "im": im Juni, im Winter.<br />
+<em>Use "im" + month/season: im Juni (in June), im Winter (in winter).</em></p>
+<hr />
+<h2 id="7-geburtstag-und-datum">7. Geburtstag &amp; Datum / Birthday &amp; Date</h2>
+<table>
+<thead><tr><th>Deutsch</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Wann ist dein/Ihr Geburtstag?</td><td>When is your birthday?</td></tr><tr><td>Mein Geburtstag ist am 3. April.</td><td>My birthday is on April 3rd.</td></tr><tr><td>am 1. April = am ersten April = am 1.4. (am ersten vierten)</td><td>on the 1st of April</td></tr><tr><td>am 15. März = am 15.3. (am fünfzehnten dritten)</td><td>on the 15th of March</td></tr><tr><td>am 22. Dezember = am 22.12. (am zweiundzwanzigsten zwölften)</td><td>on the 22nd of December</td></tr><tr><td>Wann besuchen Sie mich? — Ich besuche Sie am 2. Mai.</td><td>When will you visit me? — I’ll visit you on May 2nd.</td></tr><tr><td>Ich gehe am 5. Oktober nach Pakistan.</td><td>I’m going to Pakistan on October 5th.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-stadt-und-gebaeude">8. Stadt &amp; Gebäude — Was ist das? / City &amp; Buildings — What is that?</h2>
+<table>
+<thead><tr><th>Frage</th><th>Antwort</th></tr></thead>
+<tbody>
+<tr><td>Was ist das?</td><td>Das ist ein Bahnhof. Das ist der Bahnhof von Hamburg.</td></tr><tr><td>—</td><td>Das ist ein Hotel. Das Hotel heißt „Avari".</td></tr><tr><td>—</td><td>Das ist eine Straße. Die Straße heißt „Mall Road".</td></tr><tr><td>—</td><td>Das sind Schiffe. Die Schiffe sind im Hafen.</td></tr><tr><td>Ist das ein Rathaus?</td><td>Nein, das ist kein Rathaus. Das ist ein Bahnhof.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-essen-einkaufen-akkusativ">9. Essen einkaufen — Akkusativ in der Praxis / Grocery Shopping — Accusative in Practice</h2>
+<p>trinken, brauchen, haben, machen, kochen, essen, kaufen + Akkusativ<br />
+<em>These verbs take a direct (accusative) object.</em></p><table>
+<thead><tr><th>Nominativ</th><th>Akkusativ-Satz</th></tr></thead>
+<tbody>
+<tr><td>Der Apfel ist frisch.</td><td>Ich kaufe den/einen/keinen Apfel.</td></tr><tr><td>Das Brot ist gut.</td><td>Ich kaufe das/ein/kein Brot.</td></tr><tr><td>Die Gurke ist billig.</td><td>Ich kaufe die/eine/keine Gurke.</td></tr><tr><td>Die Tomaten sind billig.</td><td>Ich kaufe die/—/keine Tomaten.</td></tr><tr><td>Der Apfel</td><td>Ich esse den/einen/keinen Apfel.</td></tr><tr><td>Der Salat</td><td>Ich mache den/einen/keinen Salat.</td></tr><tr><td>Das Fleisch</td><td>Ich koche das/kein Fleisch.</td></tr><tr><td>Der Reis</td><td>Ich koche den/keinen Reis.</td></tr><tr><td>Das Buch</td><td>Ich kaufe das/ein/kein Buch.</td></tr>
+</tbody>
+</table><p>Weitere Beispiele: Ich brauche eine Jacke. Ich habe eine Tochter. Ich mache Kartoffelsalat. Sie kocht Spaghetti für das Abendessen. Ich esse Döner. Du kaufst Gemüse.<br />
+<em>More accusative practice sentences.</em></p><p><strong>Mahlzeiten / Meals:</strong> das Frühstück, das Mittagessen, das Abendessen.<br />
+<em>breakfast, lunch, dinner</em></p>
+<hr />
+<h2 id="10-wo-kauft-man-was">10. Wo kauft man was? / Where Do You Buy What?</h2>
+<table>
+<thead><tr><th>Ort</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>in der Bäckerei</td><td>Ich kaufe Brot in der Bäckerei.</td></tr><tr><td>in der Metzgerei</td><td>Ich kaufe Fleisch in der Metzgerei.</td></tr><tr><td>im Supermarkt</td><td>Ich kaufe Käse im Supermarkt.</td></tr><tr><td>auf dem Markt</td><td>Ich kaufe Bananen auf dem Markt.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-preise-und-einkaufsdialog">11. Preise &amp; Einkaufsdialog / Prices &amp; Shopping Dialogue</h2>
+<p>0,99 Euro = 99 Cent &nbsp; 1,20 Euro = ein Euro zwanzig &nbsp; 3,50 Euro = drei Euro fünfzig<br />
+<em>How to say prices in German.</em></p><table>
+<thead><tr><th>Frage</th><th>Antwort</th></tr></thead>
+<tbody>
+<tr><td>Was kostet der Apfelsaft? / Wie viel kostet der Apfelsaft?</td><td>Der Apfelsaft kostet 1,20 Euro.</td></tr><tr><td>Was kosten die Bücher? / Wie viel kosten die Bücher?</td><td>Die Bücher kosten 12 Euro.</td></tr>
+</tbody>
+</table><p><strong>Einkaufsdialog / Shopping dialogue:</strong></p><table>
+<thead><tr><th>Verkäufer/in</th><th>Kunde/Kundin</th></tr></thead>
+<tbody>
+<tr><td>Was möchten Sie, bitte?</td><td>Ich möchte ein Brot und zwei Brötchen.</td></tr><tr><td>Sonst noch etwas?</td><td>Nein, das ist alles.</td></tr><tr><td>Das macht 5,80 Euro.</td><td>Hier, bitte.</td></tr><tr><td>4,20 Euro zurück, danke. Auf Wiedersehen.</td><td>—</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-moegen-vs-moechten">12. „mögen“ vs. „möchten“ / "mögen" (to like) vs. "möchten" (would like)</h2>
+<table>
+<thead><tr><th>möchten + Verb-Infinitiv (Wunsch)</th><th>mögen + Nomen (Vorliebe)</th></tr></thead>
+<tbody>
+<tr><td>Ich möchte einen Apfelsaft trinken.</td><td>Ich mag Fleisch.</td></tr><tr><td>Er möchte eine Pizza essen.</td><td>Er mag Apfelsaft.</td></tr><tr><td>Wir möchten Orangensaft trinken.</td><td>Wir mögen Orangensaft.</td></tr>
+</tbody>
+</table><div class="rule"><strong>Merke:</strong> "möchten" + Infinitiv drückt einen aktuellen Wunsch aus; "mögen" + Nomen drückt eine allgemeine Vorliebe aus.<br /><em>Note: "möchten" + infinitive expresses a current wish; "mögen" + noun expresses a general liking.</em></div>
+<hr />
+                </div>
+                </div>
+
+                    <div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        (function () {
+            var buttons = '';
+            document.querySelectorAll('h2[id]').forEach(function (h) {
+                var m = h.id.match(/^(\d+)-/);
+                if (!m) return;
+                var full = h.textContent.replace(/^\d+\.\s*/, '');
+                var label = full.length > 34 ? full.slice(0, 33) + '\u2026' : full;
+                buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="' + full.replace(/"/g, '&quot;') + '">' + m[1] + '. ' + label + '</a>';
+            });
+            document.getElementById('jump-bar-placeholder').innerHTML =
+                '<div class="jump-bar"><div class="fw-semibold small mb-2" style="color:#1d4ed8">\ud83d\udcda Inhalt</div><div class="jump-links d-flex flex-column">' + buttons + '</div></div>';
+        })();
+    </script>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\\/g, '/');
+            var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+            var prefix = levelMatch ? '../' : '';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/wordfeather" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a><a href="https://www.paypal.com/paypalme/abdullahbuttde" class="btn btn-sm fw-semibold" style="background:#ffdd00;border-color:#ffdd00;color:#1a1a1a;" target="_blank" rel="noopener">☕ Buy me a Coffee</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="../privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div></div></footer>';
+            fetch(prefix + 'footer.html?v=' + Date.now())
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { var html = footerFallback.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; });
+        })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function(reg) {
+                // Check for updates on every page load
+                reg.update();
+                // When a new SW is found, activate it immediately
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
+
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+// TTS — same engine as dictionary.html / 10_notes.html, extended to also
+// handle this page's inline pattern: German sentence followed by an
+// <em>(English translation)</em>, used throughout the prose/list sections
+// rather than in tables.
+(function() {
+    if (!('speechSynthesis' in window)) return;
+    var synth = window.speechSynthesis;
+    var activeBtn = null;
+    var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+    function mkBtn(text, lang) {
+        var b = document.createElement('button');
+        b.className = 'd-tts'; b.innerHTML = svg;
+        b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+        b.onclick = function(e) {
+            e.preventDefault(); e.stopPropagation();
+            synth.cancel();
+            if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
+            if (activeBtn) activeBtn.classList.remove('playing');
+            var clean = text.replace(/\s+/g,' ').trim();
+            if (!clean) return;
+            var u = new SpeechSynthesisUtterance(clean);
+            u.lang = lang; u.rate = 0.9;
+            var voices = synth.getVoices();
+            var lp = lang.split('-')[0];
+            for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
+            b.classList.add('playing'); activeBtn = b;
+            u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
+            synth.speak(u);
+        };
+        return b;
+    }
+    var SKIP_HEADERS = ['english','englisch','urdu','اردو'];
+    var initialized = false;
+    function initTables() {
+        document.querySelectorAll('table').forEach(function(table) {
+            var ths = table.querySelectorAll('thead th');
+            var headers = Array.prototype.map.call(ths, function(th) { return th.textContent.trim().toLowerCase(); });
+            table.querySelectorAll('tbody tr').forEach(function(row) {
+                var cells = row.querySelectorAll('td');
+                cells.forEach(function(cell, i) {
+                    var header = headers[i] || '';
+                    var text = cell.textContent.trim();
+                    if (!text || cell.querySelector('.d-tts')) return;
+                    var isEnglish = /english|englisch/.test(header);
+                    if (SKIP_HEADERS.some(function(s){ return header.indexOf(s) > -1; }) && !isEnglish) return;
+                    var lang = isEnglish ? 'en-US' : 'de-DE';
+                    cell.appendChild(mkBtn(text, lang));
+                });
+            });
+        });
+    }
+    function initProse() {
+        // Handles "German sentence <em>(English translation)</em>" pattern
+        // found in <p> and <li> elements outside tables.
+        document.querySelectorAll('main li, main p').forEach(function(el) {
+            if (el.closest('table')) return;
+            if (el.querySelector('.d-tts')) return;
+            var ems = el.querySelectorAll('em');
+            if (!ems.length) return;
+            ems.forEach(function(em) {
+                var raw = em.textContent.trim();
+                var m = raw.match(/^\(([\s\S]+)\)$/);
+                if (!m) return; // only handle the "(...)" translation convention
+                var enText = m[1].trim();
+                if (!enText) return;
+                var enBtn = mkBtn(enText, 'en-US');
+                em.parentNode.insertBefore(enBtn, em.nextSibling);
+                // German: the text content of em's previous sibling run back to
+                // the last sentence boundary (., —, or start of element/line).
+                var node = em.previousSibling;
+                var pieces = [];
+                while (node) {
+                    if (node.nodeType === 3) { pieces.unshift(node.textContent); }
+                    else if (node.nodeName === 'BR') { break; }
+                    else if (node.nodeName === 'STRONG' || node.nodeName === 'SPAN') { pieces.unshift(node.textContent); }
+                    else { break; }
+                    node = node.previousSibling;
+                }
+                var segment = pieces.join('');
+                var deMatch = segment.match(/(?:^|[.—]|→)\s*([^.—→]*)$/);
+                var deText = deMatch ? deMatch[1].trim() : segment.trim();
+                deText = deText.replace(/^-+\s*/, '').trim();
+                if (deText) {
+                    var deBtn = mkBtn(deText, 'de-DE');
+                    em.parentNode.insertBefore(deBtn, em);
+                }
+            });
+        });
+    }
+    function initProseFallback() {
+        // Catches lines that are pure German with no <em>(English)</em> tag —
+        // e.g. dialogue turns (Was möchten Sie? — Ich möchte ...) and pattern
+        // drills (Ich treffe ihn.) in sections like 23/24 that initProse skips.
+        document.querySelectorAll('main li, main p').forEach(function(el) {
+            if (el.closest('table')) return;
+            if (el.querySelector('.d-tts')) return;
+            var text = el.textContent.trim();
+            if (!text || text.length < 2) return;
+            // skip pure fill-in-the-blank lines with no real words to speak
+            if (/^[-_\s.,0-9]+$/.test(text)) return;
+            el.appendChild(mkBtn(text, 'de-DE'));
+        });
+    }
+    function init() {
+        if (initialized) return;
+        initialized = true;
+        initTables();
+        initProse();
+        initProseFallback();
+    }
+    if (synth.getVoices().length > 0) init();
+    else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }
+})();
+</script>
+</body>
+</html>
+
