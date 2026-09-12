@@ -93,46 +93,31 @@
             text-decoration: underline;
         }
 
-        .alphabet-nav {
+        .jump-bar {
             z-index: 1020;
             background: var(--alpha-bg);
             border: 1px solid var(--alpha-border);
             border-radius: 0.75rem;
             padding: 0.75rem;
             backdrop-filter: blur(4px);
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .jump-layout {
             display: block;
         }
 
-        .jump-links {
-            align-items: center;
-        }
-
         @media (min-width: 992px) {
             .jump-layout {
                 display: grid;
-                grid-template-columns: 4rem minmax(0, 1fr);
-                gap: 1rem;
+                grid-template-columns: 15rem minmax(0, 1fr);
+                gap: 1.5rem;
             }
 
-            .alphabet-nav {
+            .jump-bar {
                 position: sticky;
                 top: 6rem;
-                width: 100%;
-                margin-bottom: 0 !important;
-            }
-
-            .alphabet-nav .jump-links {
-                display: flex !important;
-                flex-direction: column;
-                gap: 0.4rem !important;
-            }
-
-            .alphabet-nav .btn {
-                width: 2.2rem;
-                padding: 0.2rem 0;
             }
 
             .jump-layout .markdown-content {
@@ -187,6 +172,13 @@
             position: sticky;
             top: 0;
             z-index: 1;
+        }
+
+        /* Colored case/direction labels (Nominativ/Akkusativ/Dativ, Wo?/Wohin?) stay
+           readable on the blue header background — white overrides the inline color,
+           but only inside table headers; the color-coding still shows everywhere else. */
+        .markdown-content thead th span[style*="color"] {
+            color: #fff !important;
         }
 
         .markdown-content tbody tr:nth-child(odd) {
@@ -383,439 +375,375 @@
 
                 <div class="markdown-content">
                     <h1 id="a2-grammatik-grammar">A2 Grammatik / Grammar</h1>
-<p>Alle wichtigen Grammatikregeln für das Goethe-Zertifikat A2 (aufbauend auf A1).<br />
-<em>All important grammar rules for the Goethe-Zertifikat A2 (building on A1).</em></p>
+<p>Alle wichtigen Grammatikthemen aus den Kursnotizen der Lehrerin, organisiert nach Themen.<br />
+<em>All important grammar topics from the teacher's course notes, organized by topic.</em></p>
+<p class="notice-text"><em>Farbcode wie im Original: <span style="color:#c00;font-weight:700;">Nominativ</span> (rot), <span style="color:#0070c0;font-weight:700;">Akkusativ</span> (blau), <span style="color:#00a651;font-weight:700;">Dativ</span> (grün). / Color code as in the original notes: Nominativ (red), Akkusativ (blue), Dativ (green).</em></p>
 <hr />
-<h2 id="1-perfekt-vertiefung-perfect-tense-deepening">1. Perfekt — Vertiefung / Perfect Tense — Deepening</h2>
-<h3 id="perfekt-mit-sein-vollstandige-liste-complete-list">Perfekt mit "sein" — Vollständige Liste / Complete List</h3>
-<p>Verwenden Sie "sein" für Bewegungsverben und Zustandsänderungen.<br />
-<em>Use "sein" for movement verbs and changes of state.</em></p>
+<h2 id="1-artikel-regeln-genus-nach-endung">1. Artikel-Regeln: Genus nach Wortendung / Article Rules: Gender by Word Ending</h2>
+<p>Bestimmte Wortendungen zeigen oft das Genus (der/die/das) an.<br />
+<em>Certain word endings often indicate the gender (der/die/das).</em></p><table>
+<thead><tr><th>Genus</th><th>Endungen / Regeln</th><th>Beispiele</th></tr></thead>
+<tbody>
+<tr><td>der (Maskulin)</td><td>Wochentage + "am"; Jahreszeiten + "im"; Autos; Berufe (-or, -ant, -ismus, -ent, -er); -ling, -ich</td><td>der Frühling, der Sommer, der Arzt, der Motor, der Musikant, der Sozialismus, der Lehrling, der Teppich</td></tr><tr><td>die (Feminin)</td><td>alle Zahlen; -heit, -keit, -schaft, -ei, -ung, -ion, -ik, -tät, -ur, -enz, -e</td><td>die Schönheit, die Freundlichkeit, die Nachbarschaft, die Bäckerei, die Ordnung, die Information, die Musik, die Universität, die Natur, die Tendenz, die Farbe</td></tr><tr><td>das (Neutrum)</td><td>-ium, -ment, -chen, -ett, -tum, Materialien, -o</td><td>das Studium, das Apartment, das Mädchen, das Bett, das Reichtum, das Holz, das Auto</td></tr>
+</tbody>
+</table><div class="rule"><strong>Merke:</strong> Es gibt Ausnahmen — diese Endungen sind Faustregeln, keine 100%-Garantie.<br /><em>Note: there are exceptions — these endings are rules of thumb, not a 100% guarantee.</em></div>
+<hr />
+<h2 id="2-perfekt-haben-und-sein">2. Perfekt: „haben“ und „sein“ — Vertiefung / Perfect Tense: "haben" and "sein" — Deepening</h2>
+<p>Die meisten Verben bilden das Perfekt mit "haben". Bewegungsverben und Verben mit Ortswechsel/Zustandswechsel bilden das Perfekt mit "sein".<br />
+<em>Most verbs form the Perfekt with "haben". Verbs of motion and verbs involving a change of location/state form the Perfekt with "sein".</em></p><table>
+<thead><tr><th>Präsens</th><th>Perfekt</th></tr></thead>
+<tbody>
+<tr><td>Ich arbeite bei Siemens.</td><td>Ich habe bei Siemens gearbeitet.</td></tr><tr><td>Ich mache die Hausaufgabe.</td><td>Ich habe die Hausaufgabe gemacht.</td></tr><tr><td>Er kauft ein Auto.</td><td>Er hat ein Auto gekauft.</td></tr><tr><td>Wir wohnen in Frankfurt.</td><td>Wir haben in Frankfurt gewohnt.</td></tr><tr><td>Ich lese ein Buch.</td><td>Ich habe ein Buch gelesen.</td></tr><tr><td>Ich esse Pizza.</td><td>Ich habe Pizza gegessen.</td></tr><tr><td>Ich schreibe eine E-Mail.</td><td>Ich habe eine E-Mail geschrieben.</td></tr><tr><td>Ich fahre mit dem Zug nach Köln. (sein)</td><td>Ich bin mit dem Zug nach Köln gefahren.</td></tr><tr><td>Wir gehen nach Hause. (sein)</td><td>Wir sind nach Hause gegangen.</td></tr><tr><td>Er kommt zu mir. (sein)</td><td>Er ist zu mir gekommen.</td></tr><tr><td>Du fliegst nach New York. (sein)</td><td>Du bist nach New York geflogen.</td></tr><tr><td>Ich gehe zur Uni. (sein)</td><td>Ich bin zur Uni gegangen.</td></tr>
+</tbody>
+</table><div class="rule"><strong>Merke:</strong> "haben" für die meisten Verben; "sein" für fahren, gehen, kommen, fliegen und ähnliche Bewegungs-/Zustandsverben.<br /><em>Note: "haben" for most verbs; "sein" for fahren, gehen, kommen, fliegen and similar motion/state-change verbs.</em></div><table>
+<thead><tr><th>haben (heute)</th><th>hatte (gestern)</th></tr></thead>
+<tbody>
+<tr><td>Ich habe einen Kuli.</td><td>Ich hatte einen Kuli.</td></tr><tr><td>Du hast einen Kuli.</td><td>Du hattest einen Kuli.</td></tr><tr><td>Er/sie/es hat einen Kuli.</td><td>Er/sie/es hatte einen Kuli.</td></tr><tr><td>Wir haben einen Kuli.</td><td>Wir hatten einen Kuli.</td></tr><tr><td>Ihr habt einen Kuli.</td><td>Ihr hattet einen Kuli.</td></tr>
+</tbody>
+</table><table>
+<thead><tr><th>sein (heute)</th><th>war (gestern)</th></tr></thead>
+<tbody>
+<tr><td>Ich bin in Berlin.</td><td>Ich war in Berlin.</td></tr><tr><td>Du bist in Berlin.</td><td>Du warst in Berlin.</td></tr><tr><td>Er/sie/es ist in Berlin.</td><td>Er/sie/es war in Berlin.</td></tr><tr><td>Wir sind in Berlin.</td><td>Wir waren in Berlin.</td></tr><tr><td>Ihr seid in Berlin.</td><td>Ihr wart in Berlin.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-personalpronomen-nom-akk-dat">3. Personalpronomen: Nominativ, Akkusativ, Dativ / Personal Pronouns: Nominative, Accusative, Dative</h2>
 <table>
-<thead>
-<tr>
-<th>Infinitiv</th>
-<th>Partizip II</th>
-<th>Englisch / English</th>
-</tr>
-</thead>
+<thead><tr><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
 <tbody>
-<tr>
-<td>gehen</td>
-<td>gegangen</td>
-<td>to go</td>
-</tr>
-<tr>
-<td>kommen</td>
-<td>gekommen</td>
-<td>to come</td>
-</tr>
-<tr>
-<td>fahren</td>
-<td>gefahren</td>
-<td>to drive</td>
-</tr>
-<tr>
-<td>fliegen</td>
-<td>geflogen</td>
-<td>to fly</td>
-</tr>
-<tr>
-<td>laufen</td>
-<td>gelaufen</td>
-<td>to run</td>
-</tr>
-<tr>
-<td>reisen</td>
-<td>gereist</td>
-<td>to travel</td>
-</tr>
-<tr>
-<td>aufstehen</td>
-<td>aufgestanden</td>
-<td>to get up</td>
-</tr>
-<tr>
-<td>werden</td>
-<td>geworden</td>
-<td>to become</td>
-</tr>
-<tr>
-<td>sein</td>
-<td>gewesen</td>
-<td>to be</td>
-</tr>
-<tr>
-<td>bleiben</td>
-<td>geblieben</td>
-<td>to stay</td>
-</tr>
-<tr>
-<td>passieren</td>
-<td>passiert</td>
-<td>to happen</td>
-</tr>
-<tr>
-<td>einschlafen</td>
-<td>eingeschlafen</td>
-<td>to fall asleep</td>
-</tr>
+<tr><td>ich</td><td>mich</td><td>mir</td></tr><tr><td>du</td><td>dich</td><td>dir</td></tr><tr><td>er</td><td>ihn</td><td>ihm</td></tr><tr><td>sie</td><td>sie</td><td>ihr</td></tr><tr><td>es</td><td>es</td><td>ihm</td></tr><tr><td>wir</td><td>uns</td><td>uns</td></tr><tr><td>ihr</td><td>euch</td><td>euch</td></tr><tr><td>sie/Sie</td><td>sie/Sie</td><td>ihnen/Ihnen</td></tr>
 </tbody>
 </table>
 <hr />
-<h2 id="2-prateritum-simple-past">2. Präteritum / Simple Past</h2>
-<p>Das Präteritum wird hauptsächlich für "sein", "haben" und Modalverben verwendet (im Gespräch). Für andere Verben benutzt man meistens das Perfekt.<br />
-<em>The Präteritum is mainly used for "sein", "haben", and modal verbs (in conversation). For other verbs, the Perfekt is mostly used.</em></p>
-<h3 id="sein-im-prateritum-sein-in-simple-past">"sein" im Präteritum / "sein" in simple past</h3>
+<h2 id="4-possessivartikel-nom-akk-dat">4. Possessivartikel: Nominativ, Akkusativ, Dativ / Possessive Articles: Nominative, Accusative, Dative</h2>
 <table>
-<thead>
-<tr>
-<th>Person</th>
-<th>Präteritum</th>
-<th>Englisch</th>
-</tr>
-</thead>
+<thead><tr><th></th><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
 <tbody>
-<tr>
-<td>ich</td>
-<td>war</td>
-<td>I was</td>
-</tr>
-<tr>
-<td>du</td>
-<td>warst</td>
-<td>you were</td>
-</tr>
-<tr>
-<td>er/sie/es</td>
-<td>war</td>
-<td>he/she/it was</td>
-</tr>
-<tr>
-<td>wir</td>
-<td>waren</td>
-<td>we were</td>
-</tr>
-<tr>
-<td>ihr</td>
-<td>wart</td>
-<td>you (pl.) were</td>
-</tr>
-<tr>
-<td>sie/Sie</td>
-<td>waren</td>
-<td>they/you were</td>
-</tr>
+<tr><td>Maskulin</td><td>der/ein/mein</td><td>den/einen/meinen</td><td>dem/einem/meinem</td></tr><tr><td>Femininum</td><td>die/eine/meine</td><td>die/eine/meine</td><td>der/einer/meiner</td></tr><tr><td>Neutrum</td><td>das/ein/mein</td><td>das/ein/mein</td><td>dem/einem/meinem</td></tr><tr><td>Plural</td><td>die/—/meine</td><td>die/—/meine</td><td>den+n/—/meinen+n</td></tr>
+</tbody>
+</table><p>Ich frühstücke mit der Familie. → Ich frühstücke mit meiner Familie.<br />Kommt ihr mit den Kindern? → Kommt ihr mit euren Kindern?<br />Ich gehe mit dem Bruder nach Lahore. → Ich gehe mit meinem Bruder nach Lahore.<br />Ich schreibe mit einem Kuli. → Ich schreibe mit deinem Kuli.<br />Ich nehme ein Buch. → Ich nehme dein Buch.<br />Wir nehmen die Bücher. → Wir nehmen eure Bücher.<br />
+<em>Practice examples showing possessive articles replacing definite/indefinite articles in context.</em></p>
+<hr />
+<h2 id="5-praepositionen-mit-dativ">5. Präpositionen mit Dativ / Prepositions with the Dative</h2>
+<p><span style="color:#c00;font-weight:700;">mit, zu, nach, aus, seit, von, bei</span><br />
+<em>with, to, to/after, from/out of, since/for, from/of, at/with (person)</em></p><table>
+<thead><tr><th>Präposition</th><th>Beispiele</th></tr></thead>
+<tbody>
+<tr><td>zu (Ort/Person)</td><td>Ich gehe zu meinem Onkel. Ich gehe zur (zu der) Universität/Bank/Schule. Ich gehe zum (zu dem) Supermarkt.</td></tr><tr><td>nach (Ort ohne Artikel; auch Zeit)</td><td>Ich gehe nach Deutschland/Lahore. Es ist Viertel nach sieben. Nach der Arbeit besuche ich meine Mutter.</td></tr><tr><td>bei (Person/Ort in der Nähe)</td><td>Ich bin bei meinem Freund. Kotri ist bei Hyderabad.</td></tr><tr><td>aus / von (Herkunft)</td><td>Ich komme aus Pakistan / aus dem Zimmer. Ich komme von der Bank / von Lahore / von meinem Onkel.</td></tr><tr><td>seit (Zeitpunkt/Dauer)</td><td>Ich arbeite seit 2 Monaten in Berlin. Ich arbeite seit Februar in Berlin.</td></tr>
+</tbody>
+</table><div class="rule"><strong>Merke:</strong> "Ich gehe nach Hause" (wohin) aber "Ich bin zu Hause" (wo) — feste Ausdrücke ohne Artikel.<br /><em>Note: "nach Hause" (to home) vs. "zu Hause" (at home) are fixed expressions without an article.</em></div>
+<hr />
+<h2 id="6-praepositionen-mit-akkusativ">6. Präpositionen mit Akkusativ / Prepositions with the Accusative</h2>
+<p><span style="color:#c00;font-weight:700;">für, gegen, ohne, durch, um, bis, entlang</span><br />
+<em>for, against, without, through, around, until, along</em></p><table>
+<thead><tr><th>Präposition</th><th>Beispiele</th></tr></thead>
+<tbody>
+<tr><td>für</td><td>Ich bin für dich. Ich spreche für die Meinungsfreiheit.</td></tr><tr><td>gegen</td><td>Ich bin gegen dich. Du sprichst gegen die Freiheit. Ich komme gegen 8 Uhr. (ungefähre Zeit)</td></tr><tr><td>ohne</td><td>Ich arbeite ohne dich. Ich trinke Tee ohne Zucker.</td></tr><tr><td>durch</td><td>Ich gehe durch den Park/die Stadt.</td></tr><tr><td>um</td><td>Ich komme um 9 Uhr. Ich gehe um das Haus.</td></tr><tr><td>bis</td><td>Ich arbeite bis 17 Uhr. Ich fahre bis München.</td></tr>
 </tbody>
 </table>
-<h3 id="haben-im-prateritum-haben-in-simple-past">"haben" im Präteritum / "haben" in simple past</h3>
+<hr />
+<h2 id="7-wechselpraepositionen-wo-dativ-wohin-akkusativ">7. Wechselpräpositionen: Wo? (Dativ) / Wohin? (Akkusativ) / Two-Way Prepositions: Where? (Dative) / Where to? (Accusative)</h2>
+<p><span style="color:#c00;font-weight:700;">in, an, auf, über, zwischen, hinter, vor, neben, unter</span><br />
+<em>the nine two-way prepositions</em></p><table>
+<thead><tr><th>Frage</th><th>Kasus</th><th>passende Verben</th></tr></thead>
+<tbody>
+<tr><td><span style="color:#00a651;font-weight:700;">Wo?</span></td><td>Dativ</td><td>liegen, stehen, hängen</td></tr><tr><td><span style="color:#0070c0;font-weight:700;">Wohin?</span></td><td>Akkusativ</td><td>legen, stellen, hängen</td></tr>
+</tbody>
+</table><table>
+<thead><tr><th>Akkusativ (Wohin?)</th><th>Dativ (Wo?)</th></tr></thead>
+<tbody>
+<tr><td>legen</td><td>liegen</td></tr><tr><td>stellen</td><td>stehen</td></tr><tr><td>hängen</td><td>hängen</td></tr>
+</tbody>
+</table><p>Wo steht die Flasche? → Die Flasche steht unter dem Tisch.<br />Wohin stellen Sie die Flasche? → Ich stelle die Flasche unter den Tisch.<br />Wo liegt das Buch? → Das Buch liegt auf dem Tisch.<br />Wohin legen Sie das Buch? → Ich lege das Buch auf den Tisch.<br />Wo hängt das Bild? → Das Bild hängt an der Wand.<br />Wohin hängen Sie das Bild? → Ich hänge das Bild an die Wand.<br />Wo ist Quaid? → Er ist im Zimmer. Wohin geht Quaid? → Er geht ins Zimmer.<br />
+<em>in dem = im; in das = ins — contracted forms of the preposition + article.</em></p><div class="rule"><strong>Merke:</strong> "in" und "an" + Akkusativ auch für Ziele wie "der See", "das Meer": Ich gehe an den See. Ich gehe ans Meer.<br /><em>Note: "in" and "an" + accusative are also used for destinations like "the lake", "the sea".</em></div>
+<hr />
+<h2 id="8-verben-mit-fester-praeposition">8. Verben mit fester Präposition (Akkusativ &amp; Dativ) / Verbs with a Fixed Preposition (Accusative &amp; Dative)</h2>
 <table>
-<thead>
-<tr>
-<th>Person</th>
-<th>Präteritum</th>
-<th>Englisch</th>
-</tr>
-</thead>
+<thead><tr><th>Verb + Präposition</th><th>Beispiel</th></tr></thead>
 <tbody>
-<tr>
-<td>ich</td>
-<td>hatte</td>
-<td>I had</td>
-</tr>
-<tr>
-<td>du</td>
-<td>hattest</td>
-<td>you had</td>
-</tr>
-<tr>
-<td>er/sie/es</td>
-<td>hatte</td>
-<td>he/she/it had</td>
-</tr>
-<tr>
-<td>wir</td>
-<td>hatten</td>
-<td>we had</td>
-</tr>
+<tr><td>Lust haben auf + Akk.</td><td>Ich habe Lust auf eine Pizza / einen Kaffee / einen Film / Biryani.</td></tr><tr><td>aussehen (aus + sehen)</td><td>Das Auto sieht schön aus. Das Hemd sieht gut aus.</td></tr><tr><td>schmecken + Dativ (Person)</td><td>Das Fleisch schmeckt mir sehr gut. Schmeckt dir das Biryani?</td></tr><tr><td>Angst haben vor + Dat.</td><td>Ich habe Angst vor Prüfungen.</td></tr>
 </tbody>
 </table>
-<h3 id="modalverben-im-prateritum-modal-verbs-in-simple-past">Modalverben im Präteritum / Modal Verbs in Simple Past</h3>
+<hr />
+<h2 id="9-ja-nein-doch">9. Ja — Nein — <span style="color:#c00;font-weight:700;">Doch</span> / Yes — No — Doch (contradicting a negative)</h2>
 <table>
-<thead>
-<tr>
-<th>Person</th>
-<th>können <em>(could)</em></th>
-<th>müssen <em>(had to)</em></th>
-<th>wollen <em>(wanted)</em></th>
-<th>dürfen <em>(was allowed)</em></th>
-</tr>
-</thead>
+<thead><tr><th>Frage</th><th>Antwort ja/nein</th><th>Antwort auf negative Frage</th></tr></thead>
 <tbody>
-<tr>
-<td>ich</td>
-<td>konnte</td>
-<td>musste</td>
-<td>wollte</td>
-<td>durfte</td>
-</tr>
-<tr>
-<td>du</td>
-<td>konntest</td>
-<td>musstest</td>
-<td>wolltest</td>
-<td>durftest</td>
-</tr>
-<tr>
-<td>er/sie</td>
-<td>konnte</td>
-<td>musste</td>
-<td>wollte</td>
-<td>durfte</td>
-</tr>
-<tr>
-<td>wir</td>
-<td>konnten</td>
-<td>mussten</td>
-<td>wollten</td>
-<td>durften</td>
-</tr>
+<tr><td>Arbeitest du?</td><td>Ja, ich arbeite. / Nein, ich arbeite nicht.</td><td>Arbeitest du nicht? → Doch, ich arbeite. / Nein, ich arbeite nicht.</td></tr><tr><td>Hast du einen Kuli?</td><td>Ja, ich habe einen Kuli. / Nein, ich habe keinen Kuli.</td><td>Hast du keinen Kuli? → Doch, ich habe einen Kuli. / Nein, ich habe keinen Kuli.</td></tr><tr><td>Haben Sie kein Buch?</td><td>—</td><td>Doch, ich habe (ein Buch). / Nein, ich habe kein Buch.</td></tr><tr><td>Trinken Sie keinen Apfelsaft?</td><td>—</td><td>Doch, ich trinke (Apfelsaft). / Nein, ich trinke keinen Apfelsaft.</td></tr>
+</tbody>
+</table><div class="rule"><strong>Merke:</strong> "Doch" widerspricht einer negativen Frage positiv ("Doch, ich..." = "Yes, I actually do...").<br /><em>Note: "Doch" contradicts a negative question positively — it means "yes, actually..." when the question was phrased negatively.</em></div>
+<hr />
+<h2 id="10-nebensatz-weil-denn">10. Nebensatz: „weil“ und „denn“ / Subordinate Clause: "weil" and "denn"</h2>
+<p><span style="color:#c00;font-weight:700;">weil</span> + Subjekt + ... + Verb (am Ende). <span style="color:#c00;font-weight:700;">denn</span> + Subjekt + Verb (Verb bleibt an Position 2, wie im Hauptsatz).<br />
+<em>"weil" sends the verb to the end of the clause. "denn" is a coordinating conjunction — the verb stays in position 2, just like in a main clause.</em></p><table>
+<thead><tr><th>weil</th><th>denn</th></tr></thead>
+<tbody>
+<tr><td>Ich arbeite, weil ich Geld brauche.</td><td>Ich arbeite, denn ich brauche Geld.</td></tr><tr><td>Ich lerne Deutsch, weil ich in Deutschland arbeiten möchte.</td><td>Ich lerne Deutsch, denn ich möchte in Deutschland arbeiten.</td></tr><tr><td>Ich kaufe Wasser, weil ich Durst habe.</td><td>Ich kaufe Wasser, denn ich habe Durst.</td></tr><tr><td>Ich möchte eine Pizza, weil ich Hunger habe.</td><td>Ich möchte eine Pizza, denn ich habe Hunger.</td></tr>
+</tbody>
+</table><p>Warum lernen Sie Deutsch? → Weil ich in Deutschland arbeiten möchte. Weil ich nach Deutschland reisen möchte.<br />Ich kann morgen nicht kommen, weil ich im Supermarkt einkaufe.<br />Weil ich in Deutschland arbeiten möchte, lerne ich Deutsch. (weil-Satz kann auch am Satzanfang stehen)<br />
+<em>A "weil"-clause can also come first in the sentence, followed by the main clause with verb-subject inversion.</em></p>
+<hr />
+<h2 id="11-nebensatz-dass">11. Nebensatz mit „dass“ / Subordinate Clause with "dass"</h2>
+<p>dass + Subjekt + ... + Verb (am Ende).<br />
+<em>The verb goes to the end of the "dass"-clause.</em></p><table>
+<thead><tr><th>Zwei Sätze</th><th>Ein Satz mit "dass"</th></tr></thead>
+<tbody>
+<tr><td>Ich finde es gut. Wir lernen Deutsch.</td><td>Ich finde es gut, dass wir Deutsch lernen.</td></tr><tr><td>Ich glaube/denke. Er kommt nicht.</td><td>Ich glaube/denke, dass er nicht kommt.</td></tr><tr><td>Ich bin sicher. Er besucht uns.</td><td>Ich bin sicher, dass er uns besucht.</td></tr><tr><td>Er hat gesagt. Er hat keine Zeit.</td><td>Er hat gesagt, dass er keine Zeit hat.</td></tr><tr><td>Mir hat gefallen. Er gibt mir ein Buch.</td><td>Mir hat gefallen, dass er mir ein Buch gibt.</td></tr><tr><td>Ich mag es. Er kann gut tanzen.</td><td>Ich mag es, dass er gut tanzen kann.</td></tr><tr><td>Es ist schön. Du besuchst mich.</td><td>Es ist schön, dass du mich besuchst.</td></tr><tr><td>Für mich ist es sehr gut. Es gibt das Internet.</td><td>Für mich persönlich ist es sehr gut, dass es das Internet gibt.</td></tr>
 </tbody>
 </table>
 <hr />
-<h2 id="3-nebensatze-subordinate-clauses">3. Nebensätze / Subordinate Clauses</h2>
-<p>In Nebensätzen steht das Verb am <strong>Ende</strong>. <em>In subordinate clauses, the verb goes to the </em><em>end</em><em>.</em></p>
-<p><strong>weil</strong> <em>(because)</em>: Ich lerne Deutsch, <strong>weil</strong> ich in Deutschland arbeiten <strong>will</strong>.<br />
-<em>I'm learning German because I want to work in Germany.</em></p>
-<p><strong>dass</strong> <em>(that)</em>: Ich glaube, <strong>dass</strong> er morgen <strong>kommt</strong>.<br />
-<em>I believe that he's coming tomorrow.</em></p>
-<p><strong>wenn</strong> <em>(when/if)</em>: <strong>Wenn</strong> es <strong>regnet</strong>, bleibe ich zu Hause.<br />
-<em>When/If it rains, I stay home.</em></p>
-<p><strong>obwohl</strong> <em>(although)</em>: Ich gehe spazieren, <strong>obwohl</strong> es kalt <strong>ist</strong>.<br />
-<em>I go for a walk although it's cold.</em></p>
-<p><strong>als</strong> <em>(when — one-time past)</em>: <strong>Als</strong> ich ein Kind <strong>war</strong>, spielte ich gern Fußball.<br />
-<em>When I was a child, I liked playing football.</em></p>
-<h3 id="indirekte-fragen-indirect-questions">Indirekte Fragen / Indirect Questions</h3>
-<p>Das Verb geht auch ans Ende. <em>The verb also goes to the end.</em></p>
-<p><strong>ob</strong> <em>(whether)</em>: Ich weiß nicht, <strong>ob</strong> er morgen <strong>kommt</strong>. <em>(I don't know whether he's coming tomorrow.)</em></p>
-<p><strong>W-Wort:</strong> Kannst du mir sagen, <strong>wann</strong> der Zug <strong>fährt</strong>? <em>(Can you tell me when the train leaves?)</em></p>
+<h2 id="12-nebensatz-wenn">12. Nebensatz mit „wenn“ (Bedingung / Wiederholung) / Subordinate Clause with "wenn" (Condition / Repetition)</h2>
+<p>Wann? → <span style="color:#c00;font-weight:700;">wenn</span> + Subjekt + ... + Verb (am Ende), (dann) Verb + Subjekt ...<br />
+<em>"wenn" answers the question "wann?" (when) for conditions and repeated events; when the "wenn"-clause comes first, the verb of the main clause comes immediately after the comma.</em></p><p>Wann gehen Sie nach Pakistan? → Ich gehe nach Pakistan, wenn ich Urlaub habe. / Wenn ich Urlaub habe, gehe ich nach Pakistan.<br />Wann machen Sie die Hausaufgabe? → Wenn ich Zeit habe, mache ich die Hausaufgabe.<br />Wann kaufen Sie ein Auto? → Wenn ich Geld habe, kaufe ich ein Auto.<br />Was machst du, wenn du Urlaub hast? → Wenn ich Urlaub habe, besuche ich meinen Onkel.<br />Was machst du, wenn du Kopfschmerzen hast? → Wenn ich Kopfschmerzen habe, nehme ich eine Tablette.<br />
+<em>More practice examples with "wenn" for habitual/conditional actions.</em></p>
 <hr />
-<h2 id="4-komparativ-und-superlativ-comparison">4. Komparativ und Superlativ / Comparison</h2>
-<h3 id="regelmaig-regular">Regelmäßig / Regular</h3>
+<h2 id="13-als-vs-wenn">13. „als“ vs. „wenn“ (einmalig vs. wiederholt in der Vergangenheit) / "als" vs. "wenn" (one-time vs. repeated in the past)</h2>
 <table>
-<thead>
-<tr>
-<th>Grundform / Base</th>
-<th>Komparativ / Comparative</th>
-<th>Superlativ / Superlative</th>
-</tr>
-</thead>
+<thead><tr><th>als (einmaliges Ereignis, Vergangenheit)</th><th>wenn (wiederholtes Ereignis)</th></tr></thead>
 <tbody>
-<tr>
-<td>klein <em>(small)</em></td>
-<td>kleiner</td>
-<td>am kleinsten</td>
-</tr>
-<tr>
-<td>schnell <em>(fast)</em></td>
-<td>schneller</td>
-<td>am schnellsten</td>
-</tr>
-<tr>
-<td>schön <em>(beautiful)</em></td>
-<td>schöner</td>
-<td>am schönsten</td>
-</tr>
+<tr><td>Als ich Kind war, habe ich mit anderen Kindern gespielt.</td><td>Wenn ich allein zu Hause war, habe ich Bücher gelesen.</td></tr><tr><td>Als ich das erste Mal in Deutschland war, habe ich Deutsch gelernt.</td><td>Wenn ich meine Großeltern besucht habe, hat meine Großmutter Biryani gekocht.</td></tr><tr><td>Als ich das erste Mal Geld verdient habe, habe ich es meiner Mutter gegeben.</td><td>Wenn ich Ferien hatte, habe ich meinen Onkel besucht.</td></tr><tr><td>Als ich 16 war, habe ich England besucht.</td><td>Immer wenn ich nach London gehe, treffe ich meine Freunde.</td></tr>
 </tbody>
-</table>
-<h3 id="unregelmaig-irregular">Unregelmäßig / Irregular</h3>
+</table><div class="rule"><strong>Merke:</strong> "als" = ein einziges Mal in der Vergangenheit (auch für einen längeren Zeitraum, z. B. "als ich Kind war"). "wenn" = mehrmals/immer, in Vergangenheit, Gegenwart oder Zukunft.<br /><em>Note: "als" = a single occasion in the past (even a longer period, e.g. "when I was a child"). "wenn" = repeatedly/whenever, in past, present or future.</em></div>
+<hr />
+<h2 id="14-trotzdem-deshalb-deswegen-darum">14. „trotzdem“, „deshalb“, „deswegen“, „darum“ / "trotzdem", "deshalb", "deswegen", "darum"</h2>
+<p><span style="color:#c00;font-weight:700;">trotzdem</span>/<span style="color:#c00;font-weight:700;">deshalb</span>/<span style="color:#c00;font-weight:700;">deswegen</span>/<span style="color:#c00;font-weight:700;">darum</span> + Verb + Subjekt ... (Verb-Subjekt-Inversion, wie nach einer Ergänzung im Hauptsatz).<br />
+<em>These connectors trigger verb-subject inversion (the verb comes right after them, before the subject) — the second clause is a main clause.</em></p><table>
+<thead><tr><th>Konnektor</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>deshalb / deswegen / darum (Folge)</td><td>Ich habe kein Geld, deshalb arbeite ich. Mein Deutsch ist nicht gut, deshalb lerne ich Deutsch.</td></tr><tr><td>trotzdem (Gegensatz)</td><td>Ich habe wenig Zeit, trotzdem treffe ich meine Freunde. Ich habe wenig Schlaf, trotzdem gehe ich zur Arbeit.</td></tr>
+</tbody>
+</table><p>Die Prüfung war schwierig, deshalb bin ich durchgefallen. (durchfallen – durchgefallen)<br />Ich will gute Noten, deshalb lerne ich viel.<br />Ich kann nicht so gut Deutsch sprechen, trotzdem versuche ich.<br />
+<em>durchfallen = to fail (an exam); bestehen (bestanden) = to pass.</em></p>
+<hr />
+<h2 id="15-es-gibt-akkusativ">15. „es gibt“ + Akkusativ / "es gibt" + Accusative</h2>
+<p>Ich habe + Akkusativ. Es gibt + Akkusativ.<br />
+<em>"Ich habe" (I have) vs. "es gibt" (there is/are) — both take an accusative object.</em></p><p>Ich habe einen Kuli. Es gibt einen Kuli.<br />Gibt es hier einen Kuli? → Ja, es gibt hier einen Kuli.<br />Gibt es hier Bücher? → Ja, es gibt hier viele Bücher.<br />
+<em>Example sentences with "es gibt".</em></p>
+<hr />
+<h2 id="16-verben-mit-dativ-und-akkusativ">16. Verben mit Dativ + Akkusativ / Verbs with Dative + Accusative</h2>
+<p>geben, erklären, bringen, holen, schreiben, empfehlen, schicken, schenken, kaufen, zeigen, wünschen, vorschlagen, vorlesen, vorstellen<br />
+<em>These verbs typically take a dative object (person) and an accusative object (thing).</em></p><table>
+<thead><tr><th>W-Frage</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>Wer?</td><td>Wer erklärt den Studenten die Grammatik? → Ich (erkläre den Studenten die Grammatik).</td></tr><tr><td>Wem?</td><td>Wem erklären Sie die Grammatik? → Den Studenten / ihnen.</td></tr><tr><td>Was?</td><td>Was erklären Sie den Studenten? → Die Grammatik.</td></tr>
+</tbody>
+</table><p>Ich erkläre den Studenten (ihnen) die Grammatik.<br />Ich schicke dir eine E-Mail. Mein Vater schickt dem (seinem) Chef eine E-Mail.<br />Ich gebe dem Mann ein Buch. Ich bringe dir einen Laptop. Ich empfehle euch Kababji.<br />Ich schenke dir ein Auto. Ich kaufe dir einen Kuli.<br />
+<em>More Dativ+Akkusativ verb examples.</em></p><div class="rule"><strong>Merke — Wortstellung:</strong> Nominativ + Verb + Dativ (Nomen) + Akkusativ (Nomen): "Ich gebe dem Mann den Kuli." Wenn das Akkusativobjekt ein Pronomen ist, kommt es vor dem Dativ: "Ich gebe ihn ihm."<br /><em>Note — word order: subject + verb + dative (noun) + accusative (noun). If the accusative object is a pronoun, it comes before the dative: "Ich gebe ihn ihm" (I give it to him).</em></div><table>
+<thead><tr><th>fragen</th><th>sagen</th><th>helfen</th></tr></thead>
+<tbody>
+<tr><td>Ich frage dich. (wen?)</td><td>Ich sage dir. (wem?)</td><td>Ich helfe dir. (wem?)</td></tr>
+</tbody>
+</table><p>gratulieren + Dativ: Ich gratuliere dir. treffen + Akkusativ: Ich treffe dich. sehen + Akkusativ: Ich sehe den Mann.<br />
+<em>Some verbs take only dative (gratulieren, helfen) or only accusative (treffen, sehen, fragen).</em></p>
+<hr />
+<h2 id="17-reflexive-verben">17. Reflexive Verben / Reflexive Verbs</h2>
 <table>
-<thead>
-<tr>
-<th>Grundform</th>
-<th>Komparativ</th>
-<th>Superlativ</th>
-</tr>
-</thead>
+<thead><tr><th>Reflexivverb</th><th>Beispiel</th></tr></thead>
 <tbody>
-<tr>
-<td>gut <em>(good)</em></td>
-<td>besser <em>(better)</em></td>
-<td>am besten <em>(best)</em></td>
-</tr>
-<tr>
-<td>viel <em>(much)</em></td>
-<td>mehr <em>(more)</em></td>
-<td>am meisten <em>(most)</em></td>
-</tr>
-<tr>
-<td>gern <em>(gladly)</em></td>
-<td>lieber <em>(rather)</em></td>
-<td>am liebsten <em>(most gladly)</em></td>
-</tr>
-<tr>
-<td>groß <em>(big)</em></td>
-<td>größer <em>(bigger)</em></td>
-<td>am größten <em>(biggest)</em></td>
-</tr>
-<tr>
-<td>alt <em>(old)</em></td>
-<td>älter <em>(older)</em></td>
-<td>am ältesten <em>(oldest)</em></td>
-</tr>
+<tr><td>sich umziehen</td><td>Ich ziehe mich um. Ich habe mich umgezogen.</td></tr><tr><td>sich beeilen</td><td>Ich beeile mich. Ich muss mich beeilen.</td></tr><tr><td>sich verspäten</td><td>Ich habe mich verspätet.</td></tr><tr><td>sich treffen + mit + Dativ</td><td>Ich treffe mich mit meinem Freund. Wir treffen uns am Freitag.</td></tr><tr><td>sich ärgern + über + Akk.</td><td>Ich ärgere mich über dich. Ich habe mich über dich geärgert.</td></tr><tr><td>sich freuen + auf + Akk. (Zukunft)</td><td>Ich freue mich auf die Party / meinen Geburtstag / deinen Besuch.</td></tr><tr><td>sich freuen + über + Akk. (schon da)</td><td>Ich freue mich über die Party / meinen Geburtstag / deinen Besuch.</td></tr><tr><td>sich melden</td><td>Du meldest dich gar nicht. Ich melde mich morgen.</td></tr><tr><td>sich setzen</td><td>Kann ich mich setzen? Bitte setzen Sie sich.</td></tr><tr><td>sich bedanken + bei</td><td>Ich bedanke mich bei dir/Ihnen.</td></tr><tr><td>sich entscheiden + für/gegen + Akk.</td><td>Ich entscheide mich für die schwarze Hose. Ich habe mich für die schwarze Hose entschieden.</td></tr><tr><td>sich entschuldigen + bei</td><td>Ich entschuldige mich bei dir/Ihnen.</td></tr><tr><td>sich erinnern + an + Akk.</td><td>Ich erinnere mich an die Schule.</td></tr><tr><td>sich streiten</td><td>Wir streiten uns.</td></tr><tr><td>sich unterhalten + mit + Dat. / über + Akk.</td><td>Ich unterhalte mich mit meinem Freund über Cricket.</td></tr><tr><td>sich langweilen</td><td>Ich langweile mich in New York.</td></tr><tr><td>sich ausruhen</td><td>Ich ruhe mich aus.</td></tr><tr><td>sich verabschieden</td><td>Ich verabschiede mich.</td></tr>
 </tbody>
-</table>
-<h3 id="vergleiche-comparisons">Vergleiche / Comparisons</h3>
-<ul>
-<li>Berlin ist <strong>größer als</strong> München. <em>(Berlin is bigger than Munich.)</em></li>
-<li>München ist <strong>nicht so groß wie</strong> Berlin. <em>(Munich is not as big as Berlin.)</em></li>
-<li>Berlin ist <strong>die größte</strong> Stadt in Deutschland. <em>(Berlin is the biggest city in Germany.)</em></li>
-</ul>
+</table><p>Volle Konjugation "sich beeilen": Ich beeile mich. Du beeilst dich. Er/sie/es beeilt sich. Wir beeilen uns. Ihr beeilt euch. Sie/sie beeilen sich.<br />
+<em>Full conjugation of "sich beeilen" (to hurry) as a model for reflexive verb conjugation.</em></p><p>Mit wem triffst du dich oft? → Ich treffe mich oft mit meinen Freunden.<br />Wann ärgerst du dich? → Wenn ich keine Zeit habe.<br />Wann freust du dich? → Wenn meine Freunde mich besuchen.<br />Bei wem hast du dich heute schon bedankt? → Bei meinem Onkel. Er hat mir Geld gegeben.<br />
+<em>Practice questions and answers with reflexive verbs.</em></p>
 <hr />
-<h2 id="5-reflexive-verben-reflexive-verbs">5. Reflexive Verben / Reflexive Verbs</h2>
-<p>Reflexive Verben brauchen ein Reflexivpronomen (mich, dich, sich, uns, euch, sich).<br />
-<em>Reflexive verbs need a reflexive pronoun.</em></p>
+<h2 id="18-modalverben-praesens-praeteritum">18. Modalverben: Präsens &amp; Präteritum / Modal Verbs: Present &amp; Simple Past</h2>
 <table>
-<thead>
-<tr>
-<th>Person</th>
-<th>Reflexivpronomen / Reflexive pronoun</th>
-</tr>
-</thead>
+<thead><tr><th>Präsens</th><th>Präteritum</th></tr></thead>
 <tbody>
-<tr>
-<td>ich</td>
-<td>mich <em>(myself)</em></td>
-</tr>
-<tr>
-<td>du</td>
-<td>dich <em>(yourself)</em></td>
-</tr>
-<tr>
-<td>er/sie/es</td>
-<td>sich <em>(himself/herself/itself)</em></td>
-</tr>
-<tr>
-<td>wir</td>
-<td>uns <em>(ourselves)</em></td>
-</tr>
-<tr>
-<td>ihr</td>
-<td>euch <em>(yourselves)</em></td>
-</tr>
-<tr>
-<td>sie/Sie</td>
-<td>sich <em>(themselves/yourself formal)</em></td>
-</tr>
+<tr><td>wollen</td><td>wollte</td></tr><tr><td>können</td><td>konnte</td></tr><tr><td>müssen</td><td>musste</td></tr><tr><td>dürfen</td><td>durfte</td></tr><tr><td>sollen</td><td>sollte</td></tr>
 </tbody>
-</table>
-<p><strong>Beispiele / Examples:</strong><br />
-- Ich <strong>freue mich</strong> auf den Urlaub. <em>(I'm looking forward to the vacation.)</em><br />
-- Er <strong>ärgert sich</strong> über den Stau. <em>(He's annoyed about the traffic jam.)</em><br />
-- Wir <strong>treffen uns</strong> um 15 Uhr. <em>(We're meeting at 3 PM.)</em><br />
-- Sie <strong>interessiert sich</strong> für Kunst. <em>(She's interested in art.)</em></p>
-<h3 id="wichtige-reflexive-verben-important-reflexive-verbs">Wichtige reflexive Verben / Important reflexive verbs</h3>
-<p>sich anmelden <em>(register)</em>, sich ärgern <em>(be annoyed)</em>, sich ausruhen <em>(rest)</em>, sich beeilen <em>(hurry)</em>, sich beschweren <em>(complain)</em>, sich entscheiden <em>(decide)</em>, sich entschuldigen <em>(apologize)</em>, sich erinnern <em>(remember)</em>, sich freuen <em>(be happy)</em>, sich fühlen <em>(feel)</em>, sich gewöhnen <em>(get used to)</em>, sich interessieren <em>(be interested)</em>, sich kümmern <em>(take care of)</em>, sich treffen <em>(meet)</em>, sich unterhalten <em>(converse)</em>, sich vorstellen <em>(imagine/introduce)</em></p>
-<hr />
-<h2 id="6-dativverben-dative-verbs">6. Dativverben / Dative Verbs</h2>
-<p>Einige Verben brauchen ein Dativobjekt. <em>Some verbs require a dative object.</em></p>
-<ul>
-<li><strong>helfen</strong>: Ich helfe <strong>dir</strong>. <em>(I help you.)</em></li>
-<li><strong>gefallen</strong>: Das Bild gefällt <strong>mir</strong>. <em>(I like the picture.)</em></li>
-<li><strong>gehören</strong>: Das Buch gehört <strong>meiner Schwester</strong>. <em>(The book belongs to my sister.)</em></li>
-<li><strong>schmecken</strong>: Die Suppe schmeckt <strong>mir</strong> gut. <em>(The soup tastes good to me.)</em></li>
-<li><strong>passen</strong>: Die Schuhe passen <strong>mir</strong> nicht. <em>(The shoes don't fit me.)</em></li>
-<li><strong>fehlen</strong>: Du fehlst <strong>mir</strong>. <em>(I miss you.)</em></li>
-</ul>
-<h3 id="verben-mit-dativ-und-akkusativ-verbs-with-dative-and-accusative">Verben mit Dativ UND Akkusativ / Verbs with Dative AND Accusative</h3>
-<ul>
-<li><strong>geben</strong>: Ich gebe <strong>dir</strong> (Dativ) <strong>das Buch</strong> (Akk.). <em>(I give you the book.)</em></li>
-<li><strong>schenken</strong>: Er schenkt <strong>seiner Mutter</strong> <strong>Blumen</strong>. <em>(He gives his mother flowers.)</em></li>
-<li><strong>zeigen</strong>: Zeigen Sie <strong>mir</strong> <strong>den Weg</strong>? <em>(Can you show me the way?)</em></li>
-</ul>
-<hr />
-<h2 id="7-konjunktiv-ii-subjunctive-ii-hoflichkeit-politeness">7. Konjunktiv II / Subjunctive II (Höflichkeit / Politeness)</h2>
-<p>Verwenden Sie den Konjunktiv II für höfliche Bitten und Wünsche.<br />
-<em>Use Subjunctive II for polite requests and wishes.</em></p>
-<h3 id="wurde-infinitiv">würde + Infinitiv</h3>
-<ul>
-<li>Ich <strong>würde</strong> gern einen Kaffee <strong>trinken</strong>. <em>(I would like to drink a coffee.)</em></li>
-<li><strong>Würden</strong> Sie mir bitte <strong>helfen</strong>? <em>(Would you please help me?)</em></li>
-</ul>
-<h3 id="wichtige-formen-important-forms">Wichtige Formen / Important Forms</h3>
-<ul>
-<li>ich <strong>hätte</strong> gern ... <em>(I would like ...)</em></li>
-<li><strong>könnten</strong> Sie bitte ...? <em>(could you please ...?)</em></li>
-<li>das <strong>wäre</strong> schön <em>(that would be nice)</em></li>
-<li>ich <strong>sollte</strong> ... <em>(I should ...)</em></li>
-</ul>
-<hr />
-<h2 id="8-konnektoren-connectors">8. Konnektoren / Connectors</h2>
-<h3 id="adverbiale-konnektoren-adverbial-connectors-position-1-verb-position-2">Adverbiale Konnektoren / Adverbial Connectors (Position 1, Verb Position 2)</h3>
-<p>Diese Konnektoren stehen am Anfang des zweiten Satzes. Das Verb folgt direkt danach.<br />
-<em>These connectors stand at the beginning of the second sentence. The verb follows directly after.</em></p>
-<ul>
-<li><strong>deshalb/deswegen</strong> <em>(therefore)</em>: Ich bin müde. <strong>Deshalb</strong> gehe ich ins Bett.</li>
-<li><strong>trotzdem</strong> <em>(nevertheless)</em>: Es regnet. <strong>Trotzdem</strong> gehe ich spazieren.</li>
-<li><strong>zuerst</strong> <em>(first)</em>: <strong>Zuerst</strong> dusche ich.</li>
-<li><strong>dann</strong> <em>(then)</em>: <strong>Dann</strong> frühstücke ich.</li>
-<li><strong>außerdem</strong> <em>(besides)</em>: <strong>Außerdem</strong> muss ich einkaufen.</li>
-<li><strong>schließlich</strong> <em>(finally)</em>: <strong>Schließlich</strong> gehe ich ins Bett.</li>
-</ul>
-<hr />
-<h2 id="9-frageartikel-was-fuer-ein-question-article">9. Frageartikel: "Was für ein ...?" / Question Article</h2>
-<table class="table table-bordered table-sm">
-<thead><tr><th></th><th>Nominativ</th><th>Akkusativ</th><th>Beispiel / Example</th></tr></thead>
+</table><table>
+<thead><tr><th>Person</th><th>wollen (heute)</th><th>wollen (gestern)</th></tr></thead>
 <tbody>
-<tr><td>Maskulin</td><td>ein</td><td>einen</td><td>Was für ein Aufkleber?</td></tr>
-<tr><td>Neutrum</td><td>ein</td><td>ein</td><td>Was für ein Formular?</td></tr>
-<tr><td>Feminin</td><td>eine</td><td>eine</td><td>Was für eine Verpackung?</td></tr>
-<tr><td>Plural</td><td>–</td><td>–</td><td>Was für Briefmarken?</td></tr>
+<tr><td>ich</td><td>will</td><td>wollte</td></tr><tr><td>du</td><td>willst</td><td>wolltest</td></tr><tr><td>er/sie/es</td><td>will</td><td>wollte</td></tr><tr><td>wir</td><td>wollen</td><td>wollten</td></tr><tr><td>ihr</td><td>wollt</td><td>wolltet</td></tr><tr><td>sie/Sie</td><td>wollen</td><td>wollten</td></tr>
+</tbody>
+</table><p>Ich kann in Deutschland studieren. → Ich konnte in Deutschland studieren.<br />Ich muss heute arbeiten. → Ich musste gestern arbeiten.<br />Ich darf hier nicht rauchen. → Ich durfte hier nicht rauchen.<br />Ich soll Deutsch lernen. → Ich sollte Deutsch lernen.<br />Heute kann ich arbeiten. Gestern konnte ich nicht arbeiten. Heute will ich Tee trinken. Gestern wollte ich Kaffee trinken.<br />
+<em>Modal verbs conjugated in full across Präsens and Präteritum, contrasting today vs. yesterday.</em></p>
+<hr />
+<h2 id="19-werden-praesens-praeteritum-perfekt">19. „werden“ — Präsens, Präteritum, Perfekt / "werden" — Present, Simple Past, Perfect</h2>
+<table>
+<thead><tr><th>Präsens</th><th>Präteritum</th><th>Perfekt</th></tr></thead>
+<tbody>
+<tr><td>ich werde</td><td>ich wurde</td><td>ich bin geworden</td></tr><tr><td>du wirst</td><td>—</td><td>—</td></tr><tr><td>er/sie/es wird</td><td>—</td><td>—</td></tr><tr><td>wir werden</td><td>—</td><td>—</td></tr><tr><td>ihr werdet</td><td>—</td><td>—</td></tr><tr><td>sie/Sie werden</td><td>—</td><td>—</td></tr>
+</tbody>
+</table><p>Ich werde Arzt. Ich wurde Arzt. Ich bin Arzt geworden.<br />
+<em>"werden" is used to express becoming something (a profession, a state).</em></p>
+<hr />
+<h2 id="20-konjunktiv-ii-formen-und-wenn-saetze">20. Konjunktiv II: Formen &amp; irreale „wenn“-Sätze / Konjunktiv II: Forms &amp; Unreal "wenn"-Clauses</h2>
+<table>
+<thead><tr><th></th><th>haben</th><th>Konjunktiv II</th><th>sein</th><th>Konjunktiv II</th></tr></thead>
+<tbody>
+<tr><td>ich</td><td>habe</td><td>hätte</td><td>bin</td><td>wäre</td></tr><tr><td>du</td><td>hast</td><td>hättest</td><td>bist</td><td>wärst</td></tr><tr><td>er/sie/es/man</td><td>hat</td><td>hätte</td><td>ist</td><td>wäre</td></tr><tr><td>wir</td><td>haben</td><td>hätten</td><td>sind</td><td>wären</td></tr><tr><td>ihr</td><td>habt</td><td>hättet</td><td>seid</td><td>wärt</td></tr><tr><td>sie/Sie</td><td>haben</td><td>hätten</td><td>sind</td><td>wären</td></tr>
+</tbody>
+</table><table>
+<thead><tr><th>würde</th></tr></thead>
+<tbody>
+<tr><td>ich würde</td></tr><tr><td>du würdest</td></tr><tr><td>er/sie/es/man würde</td></tr><tr><td>wir würden</td></tr><tr><td>ihr würdet</td></tr><tr><td>sie/Sie würden</td></tr>
+</tbody>
+</table><div class="rule"><strong>Merke:</strong> würde + Infinitiv für normale Verben; hätte/wäre für haben/sein.<br /><em>Note: würde + infinitive for regular verbs; hätte/wäre for haben/sein.</em></div><p>Ich kaufe kein Auto. Ich habe kein Geld. → Wenn ich Geld hätte, würde ich ein Auto kaufen.<br />Ich bin kein Arzt. Ich helfe den Kranken nicht. → Wenn ich ein Arzt wäre, würde ich den Kranken helfen.<br />Ich habe ein Buch. → Wenn ich ein E-Book hätte... Ich bin ein Lehrer. → Wenn ich ein Ingenieur wäre...<br />
+<em>Unreal/hypothetical "wenn"-clauses with Konjunktiv II.</em></p>
+<hr />
+<h2 id="21-konjunktiv-ii-hoefliche-bitte-und-wunsch">21. Konjunktiv II: Höfliche Bitte &amp; Wunsch / Konjunktiv II: Polite Request &amp; Wish</h2>
+<table>
+<thead><tr><th>Person</th><th>könnte</th></tr></thead>
+<tbody>
+<tr><td>ich</td><td>könnte</td></tr><tr><td>du</td><td>könntest</td></tr><tr><td>er/sie/es/man</td><td>könnte</td></tr><tr><td>wir</td><td>könnten</td></tr><tr><td>ihr</td><td>könntet</td></tr><tr><td>sie/Sie</td><td>könnten</td></tr>
+</tbody>
+</table><p>Könntest du mir das Buch geben? Könnten Sie mir bitte helfen?<br />Was hätten Sie gern? (= Was möchten Sie?) → Ich hätte gern einen Kaffee.<br />Ich würde gern einen Apfelkuchen essen.<br />Ich hätte gern + Akkusativ: Ich hätte gern einen Termin. Ich hätte gern Information zu den Deutschkursen.<br />Könnten Sie mir bitte einen Termin geben?<br />
+<em>Konjunktiv II ("könnte", "hätte gern", "würde gern") makes requests and wishes sound more polite than the present tense.</em></p>
+<hr />
+<h2 id="22-ratschlag-sollen-im-konjunktiv-ii">22. Ratschlag: „sollen“ im Konjunktiv II / Advice: "sollen" in Konjunktiv II</h2>
+<table>
+<thead><tr><th>Präsens</th><th>Konjunktiv II (sollte)</th></tr></thead>
+<tbody>
+<tr><td>ich soll</td><td>ich sollte</td></tr><tr><td>du sollst</td><td>du solltest</td></tr><tr><td>er/sie/es soll</td><td>er/sie/es sollte</td></tr><tr><td>wir sollen</td><td>wir sollten</td></tr><tr><td>ihr sollt</td><td>ihr solltet</td></tr><tr><td>sie/Sie sollen</td><td>sie/Sie sollten</td></tr>
+</tbody>
+</table><p>Ich sollte Deutsch lernen. Du solltest eine Arbeit suchen. Er sollte freundlich sein. Wir sollten unsere Hausaufgaben machen. Sie sollten Amerika besuchen.<br />
+<em>"sollte" (Konjunktiv II of "sollen") is the standard way to give advice ("should").</em></p>
+<hr />
+<h2 id="23-indirekte-fragen">23. Indirekte Fragen / Indirect Questions</h2>
+<table>
+<thead><tr><th>direkte Frage</th><th>indirekte Frage</th></tr></thead>
+<tbody>
+<tr><td>Wie heißen Sie?</td><td>Bitte sagen Sie mir, wie Sie heißen. / Können Sie mir bitte sagen, wie Sie heißen?</td></tr><tr><td>Wo wohnen Sie?</td><td>Bitte sagen Sie mir, wo Sie wohnen. / Können Sie mir bitte sagen, wo Sie wohnen?</td></tr><tr><td>Was bist du von Beruf?</td><td>Kannst du mir bitte sagen, was du von Beruf bist?</td></tr><tr><td>Wohin gehst du?</td><td>Kannst du mir bitte sagen, wohin du gehst?</td></tr>
+</tbody>
+</table><table>
+<thead><tr><th>direkte Ja/Nein-Frage</th><th>indirekte Frage mit "ob"</th></tr></thead>
+<tbody>
+<tr><td>Wohnen Sie in Deutschland?</td><td>Bitte sagen Sie mir, ob Sie in Deutschland wohnen.</td></tr><tr><td>Gehen Sie zur Uni?</td><td>Bitte sagen Sie mir, ob Sie zur Uni gehen.</td></tr><tr><td>Haben Sie gekocht?</td><td>Bitte sagen Sie mir, ob Sie gekocht haben.</td></tr><tr><td>Trinkst du Cola?</td><td>Bitte sag mir, ob du Cola trinkst.</td></tr>
+</tbody>
+</table><div class="rule"><strong>Merke:</strong> W-Frage → indirekte Frage mit demselben Fragewort + Verb am Ende. Ja/Nein-Frage → indirekte Frage mit "ob" + Verb am Ende.<br /><em>Note: W-questions keep their question word; yes/no questions use "ob" — both send the verb to the end.</em></div>
+<hr />
+<h2 id="24-imperativ">24. Imperativ / Imperative</h2>
+<table>
+<thead><tr><th>Aussage</th><th>Imperativ</th></tr></thead>
+<tbody>
+<tr><td>Sie kommen hier.</td><td>Bitte, kommen Sie hier!</td></tr><tr><td>Du kommst hier.</td><td>Bitte, komm hier!</td></tr><tr><td>Du sagst mir.</td><td>Bitte, sag mir!</td></tr><tr><td>Ihr kommt hier.</td><td>Bitte, kommt hier!</td></tr>
 </tbody>
 </table>
 <hr />
-<h2 id="10-adjektivdeklination-adjective-declension">10. Adjektivdeklination / Adjective Declension</h2>
-<h3 id="mit-indefinitem-artikel-with-indefinite-article">Mit indefinitem Artikel / With Indefinite Article</h3>
-<table class="table table-bordered table-sm">
-<thead><tr><th>Kasus / Case</th><th>Maskulin</th><th>Neutrum</th><th>Feminin</th><th>Plural (ohne Artikel)</th></tr></thead>
+<h2 id="25-verb-verb-konstruktion">25. Verb + Verb-Konstruktion (gehen/lernen + Infinitiv) / Verb + Verb Construction (gehen/lernen + Infinitive)</h2>
+<p>Subjekt + Verb (gehen/lernen) + ... + Verb-Infinitiv (am Ende).<br />
+<em>Verbs like "gehen" and "lernen" can be followed directly by another verb in the infinitive at the end of the sentence.</em></p><p>Ich gehe schlafen. Ich gehe einkaufen. Ich gehe meine Freunde besuchen.<br />Er geht Fußball spielen. Er geht schwimmen. Er geht arbeiten. Er geht Deutsch lernen.<br />Ich lerne schwimmen. Er lernt Deutsch sprechen. Wir lernen Gitarre spielen.<br />
+<em>Example sentences with this construction.</em></p>
+<hr />
+<h2 id="26-komparativ-und-superlativ">26. Komparativ &amp; Superlativ / Comparative &amp; Superlative</h2>
+<table>
+<thead><tr><th>Positiv (genauso ... wie)</th><th>Komparativ (... als)</th><th>Superlativ (am ...-sten)</th></tr></thead>
 <tbody>
-<tr><td>Nominativ</td><td>ein neuer Laden</td><td>ein schönes Licht</td><td>eine schöne Wohnung</td><td>– braune Möbel</td></tr>
-<tr><td>Akkusativ</td><td>einen neuen Laden</td><td>ein schönes Licht</td><td>eine schöne Wohnung</td><td>– braune Möbel</td></tr>
-<tr><td>Dativ</td><td>einem neuen Laden</td><td>einem schönen Licht</td><td>einer schönen Wohnung</td><td>– braunen Möbeln</td></tr>
+<tr><td>billig</td><td>billiger</td><td>am billigsten</td></tr><tr><td>schön</td><td>schöner</td><td>am schönsten</td></tr><tr><td>schlecht</td><td>schlechter</td><td>am schlechtesten</td></tr><tr><td>schnell</td><td>schneller</td><td>am schnellsten</td></tr><tr><td>intelligent</td><td>intelligenter</td><td>am intelligentesten</td></tr><tr><td>teuer</td><td>teurer</td><td>am teuersten</td></tr>
 </tbody>
-</table>
-<p><em>Auch so nach / Also after:</em> mein-, dein-, kein- ... <strong>Aber Achtung / But note:</strong> <em>meine/keine braunen Möbel</em> (Dativ Plural nimmt -en, auch ohne Artikel-Endung).</p>
-<h3 id="mit-definitem-artikel-with-definite-article">Mit definitem Artikel / With Definite Article</h3>
-<table class="table table-bordered table-sm">
-<thead><tr><th>Kasus / Case</th><th>Maskulin</th><th>Neutrum</th><th>Feminin</th><th>Plural</th></tr></thead>
+</table><table>
+<thead><tr><th>Positiv (unregelmäßig)</th><th>Komparativ</th><th>Superlativ</th></tr></thead>
 <tbody>
-<tr><td>Nominativ</td><td>der grüne Schal</td><td>das alte Handy</td><td>die große Uhr</td><td>die verschiedenen Bierdeckel</td></tr>
-<tr><td>Akkusativ</td><td>den grünen Schal</td><td>das tolle Handy</td><td>die große Uhr</td><td>die verschiedenen Bierdeckel</td></tr>
-<tr><td>Dativ</td><td>dem grünen Schal</td><td>dem tollen Handy</td><td>der großen Uhr</td><td>den verschiedenen Bierdeckeln</td></tr>
+<tr><td>gut</td><td>besser</td><td>am besten</td></tr><tr><td>viel</td><td>mehr</td><td>am meisten</td></tr><tr><td>gern</td><td>lieber</td><td>am liebsten</td></tr>
 </tbody>
-</table>
-<h3 id="ohne-artikel-without-article">Ohne Artikel / Without Article</h3>
-<table class="table table-bordered table-sm">
-<thead><tr><th>Kasus / Case</th><th>Maskulin</th><th>Neutrum</th><th>Feminin</th><th>Plural</th></tr></thead>
+</table><p>Toyota ist billig. Mazda ist billiger als Toyota. KIA ist am billigsten.<br />Ich trinke gern Tee. Ich trinke Kaffee lieber als Tee. Ich trinke Coca Cola am liebsten.<br />Toyota ist genauso gut wie Mazda. / Toyota ist so gut wie Mazda.<br />Deutschland ist genauso groß wie Balochistan.<br />
+<em>Comparative and superlative in context, including the "genauso ... wie" / "so ... wie" (just as ... as) equal-comparison pattern.</em></p>
+<hr />
+<h2 id="27-was-fuer-ein-und-welcher">27. „Was für ein/eine“ &amp; „welcher/welches/welche“ / "What kind of" &amp; "Which"</h2>
+<table>
+<thead><tr><th></th><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
 <tbody>
-<tr><td>Nominativ</td><td>schöner Blick</td><td>leckeres Frühstück</td><td>schöne Lage</td><td>regionale Produkte</td></tr>
-<tr><td>Akkusativ</td><td>schönen Blick</td><td>leckeres Frühstück</td><td>schöne Lage</td><td>regionale Produkte</td></tr>
-<tr><td>Dativ</td><td>schönem Blick</td><td>leckerem Frühstück</td><td>schöner Lage</td><td>regionalen Produkten</td></tr>
+<tr><td>Maskulin (der)</td><td>welcher</td><td>welchen</td><td>welchem</td></tr><tr><td>Neutrum (das)</td><td>welches</td><td>welches</td><td>welchem</td></tr><tr><td>Feminin (die)</td><td>welche</td><td>welche</td><td>welcher</td></tr>
+</tbody>
+</table><p>Was für ein Buch ist es? → Es ist ein Roman. (fragt nach der Art/Sorte)<br />Was für einen Kuli kaufst du? → Ich kaufe einen blauen Kuli.<br />Welcher Kuli ist auf dem Tisch? → Parker. (fragt nach einer bestimmten Auswahl)<br />Welches Buch kaufst du? → Ich kaufe ein Deutschbuch.<br />Welchen Kuli kaufst du? → Ich kaufe einen blauen Kuli.<br />
+<em>"Was für ein/eine" asks about the type/kind (uses ein-words); "welcher/welches/welche" asks about a specific choice from a known set (declines like the definite article).</em></p><div class="rule"><strong>Merke:</strong> "Was für ein" bleibt im Nominativ "ein/eine/ein"; im Akkusativ "einen/eine/ein". "Welcher" dekliniert wie der bestimmte Artikel.<br /><em>Note: "was für ein" keeps ein-word endings; "welcher" declines like the definite article.</em></div>
+<hr />
+<h2 id="28-relativsaetze-nominativ-und-akkusativ">28. Relativsätze: Nominativ &amp; Akkusativ / Relative Clauses: Nominative &amp; Accusative</h2>
+<table>
+<thead><tr><th>Pronomen</th><th>Relativpronomen (Nominativ)</th></tr></thead>
+<tbody>
+<tr><td>er (der Mann, der Tisch)</td><td>der</td></tr><tr><td>sie (die Frau, die Uhr)</td><td>die</td></tr><tr><td>es (das Kind, das Buch)</td><td>das</td></tr><tr><td>sie (die Leute, die Tische)</td><td>die</td></tr>
+</tbody>
+</table><table>
+<thead><tr><th>Pronomen</th><th>Relativpronomen (Akkusativ)</th></tr></thead>
+<tbody>
+<tr><td>ihn (den Mann, den Tisch)</td><td>den</td></tr><tr><td>sie (die Frau, die Uhr)</td><td>die</td></tr><tr><td>es (das Kind, das Buch)</td><td>das</td></tr><tr><td>sie (die Leute, die Tische)</td><td>die</td></tr>
+</tbody>
+</table><p>Das ist der Mann. Er arbeitet bei Siemens. → Das ist der Mann, der bei Siemens arbeitet.<br />Das ist die Frau. Sie arbeitet bei Siemens. → Das ist die Frau, die bei Siemens arbeitet.<br />Das ist das Kind. Es spielt im Garten. → Das ist das Kind, das im Garten spielt.<br />Das sind die Leute. Sie kommen aus Pakistan. → Das sind die Leute, die aus Pakistan kommen.<br />
+<em>Nominativ relative clauses: the relative pronoun matches the personal pronoun it replaces.</em></p><p>Das ist der Mann. Ich kenne den Mann (ihn) nicht. → Das ist der Mann, den ich nicht kenne.<br />Das ist die Frau. Ich kenne die Frau (sie) nicht. → Das ist die Frau, die ich nicht kenne.<br />Das ist das Kind. Ich frage das Kind (es). → Das ist das Kind, das ich frage.<br />Das sind die Leute. Ich kenne die Leute (sie). → Das sind die Leute, die ich kenne.<br />
+<em>Akkusativ relative clauses: note that the verb still goes to the end of the relative clause.</em></p>
+<hr />
+<h2 id="29-genitiv-ersatz-von-dativ">29. Genitiv-Ersatz: „von“ + Dativ / Genitive Substitute: "von" + Dative</h2>
+<p>In der gesprochenen Sprache ersetzt man den Genitiv oft durch "von" + Dativ, besonders bei Namen.<br />
+<em>In spoken German, the genitive is often replaced by "von" + dative, especially with names.</em></p><p>Das Auto von Zahir = Zahirs Auto<br />Das Haus von Babar = Babars Haus<br />Die Uhr von Wahab = Wahabs Uhr<br />
+<em>The "s"-genitive with names ("Zahirs Auto") and the "von + Dativ" version mean the same thing.</em></p>
+<hr />
+<h2 id="30-wortstellung-verb-position-2">30. Wortstellung: Verb an Position 2 / Word Order: Verb in Position 2</h2>
+<p>Im Hauptsatz steht das konjugierte Verb immer an zweiter Stelle — egal, was an erster Stelle steht.<br />
+<em>In a main clause, the conjugated verb always stays in second position — no matter what comes first.</em></p><table>
+<thead><tr><th>Position 1</th><th>Verb (Position 2)</th><th>Rest des Satzes</th></tr></thead>
+<tbody>
+<tr><td>Ich</td><td>arbeite</td><td>am Samstag bei Siemens.</td></tr><tr><td>Am Samstag</td><td>arbeite</td><td>ich bei Siemens.</td></tr><tr><td>Bei Siemens</td><td>arbeite</td><td>ich am Samstag.</td></tr><tr><td>Ich</td><td>habe</td><td>die Hausaufgabe gemacht.</td></tr><tr><td>Die Hausaufgabe</td><td>habe</td><td>ich gemacht.</td></tr>
 </tbody>
 </table>
 <hr />
-<h2 id="11-passiv-praesens-passive-present">11. Passiv: Präsens / Passive: Present Tense</h2>
+<h2 id="31-adjektivdeklination">31. Adjektivdeklination / Adjective Declension</h2>
+<p>Adjektivendungen ohne Artikel, nach unbestimmtem Artikel und nach bestimmtem Artikel.<br />
+<em>Adjective endings with no article, after the indefinite article, and after the definite article.</em></p><p><strong>Beispiel "gut" — ohne Artikel:</strong></p><table>
+<thead><tr><th></th><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>guter Kuli</td><td>guten Kuli</td><td>gutem Kuli</td></tr><tr><td>Neutrum</td><td>gutes Buch</td><td>gutes Buch</td><td>gutem Buch</td></tr><tr><td>Feminin</td><td>gute Uhr</td><td>gute Uhr</td><td>guter Uhr</td></tr><tr><td>Plural</td><td>gute Bücher</td><td>gute Bücher</td><td>guten Büchern</td></tr>
+</tbody>
+</table><p><strong>Beispiel "gut" — nach unbestimmtem Artikel:</strong></p><table>
+<thead><tr><th></th><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>ein guter Kuli</td><td>einen guten Kuli</td><td>einem guten Kuli</td></tr><tr><td>Neutrum</td><td>ein gutes Buch</td><td>ein gutes Buch</td><td>einem guten Buch</td></tr><tr><td>Feminin</td><td>eine gute Uhr</td><td>eine gute Uhr</td><td>einer guten Uhr</td></tr><tr><td>Plural</td><td>gute Bücher</td><td>gute Bücher</td><td>guten Büchern</td></tr>
+</tbody>
+</table><p><strong>Beispiel "gut" — nach bestimmtem Artikel:</strong></p><table>
+<thead><tr><th></th><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>der gute Kuli</td><td>den guten Kuli</td><td>dem guten Kuli</td></tr><tr><td>Neutrum</td><td>das gute Buch</td><td>das gute Buch</td><td>dem guten Buch</td></tr><tr><td>Feminin</td><td>die gute Uhr</td><td>die gute Uhr</td><td>der guten Uhr</td></tr><tr><td>Plural</td><td>die guten Bücher</td><td>die guten Bücher</td><td>den guten Büchern</td></tr>
+</tbody>
+</table><p><strong>Reine Endungen — ohne Artikel:</strong></p><table>
+<thead><tr><th></th><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>-er</td><td>-en</td><td>-em</td></tr><tr><td>Neutrum</td><td>-es</td><td>-es</td><td>-em</td></tr><tr><td>Feminin</td><td>-e</td><td>-e</td><td>-er</td></tr><tr><td>Plural</td><td>-e</td><td>-e</td><td>-en</td></tr>
+</tbody>
+</table><p><strong>Reine Endungen — nach unbestimmtem Artikel:</strong></p><table>
+<thead><tr><th></th><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>-er</td><td>-en</td><td>-en</td></tr><tr><td>Neutrum</td><td>-es</td><td>-es</td><td>-en</td></tr><tr><td>Feminin</td><td>-e</td><td>-e</td><td>-en</td></tr><tr><td>Plural</td><td>-e</td><td>-e</td><td>-en</td></tr>
+</tbody>
+</table><p><strong>Reine Endungen — nach bestimmtem Artikel:</strong></p><table>
+<thead><tr><th></th><th><span style="color:#c00;font-weight:700;">Nominativ</span></th><th><span style="color:#0070c0;font-weight:700;">Akkusativ</span></th><th><span style="color:#00a651;font-weight:700;">Dativ</span></th></tr></thead>
+<tbody>
+<tr><td>Maskulin</td><td>-e</td><td>-en</td><td>-en</td></tr><tr><td>Neutrum</td><td>-e</td><td>-e</td><td>-en</td></tr><tr><td>Feminin</td><td>-e</td><td>-e</td><td>-en</td></tr><tr><td>Plural</td><td>-en</td><td>-en</td><td>-en</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="32-themenwortschatz-aemter-und-behoerden">32. Themenwortschatz: Ämter &amp; Behörden / Topic Vocabulary: Offices &amp; Authorities</h2>
+<table>
+<thead><tr><th>Aufgabe</th><th>Beispielsatz</th></tr></thead>
+<tbody>
+<tr><td>einen Personalausweis beantragen</td><td>Ich möchte einen Personalausweis beantragen.</td></tr><tr><td>einen Betrag überweisen</td><td>Ich möchte einen Betrag überweisen.</td></tr><tr><td>melden, dass man die Geldbörse verloren hat</td><td>Ich möchte melden, dass ich die Geldbörse verloren habe.</td></tr><tr><td>ein Konto eröffnen</td><td>Ich möchte ein Konto eröffnen.</td></tr><tr><td>den Führerschein abholen</td><td>Ich möchte den Führerschein abholen.</td></tr><tr><td>einen Kredit beantragen</td><td>Ich möchte einen Kredit beantragen.</td></tr><tr><td>einen Vertrag unterschreiben</td><td>Ich unterschreibe einen Vertrag.</td></tr><tr><td>den Pass verlängern</td><td>Bitte verlängern Sie den Pass.</td></tr><tr><td>einen Diebstahl melden</td><td>Ich möchte einen Diebstahl melden.</td></tr><tr><td>Dokumente für die Einbürgerung abgeben</td><td>Ich möchte die Dokumente für die Einbürgerung abgeben.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="33-themenwortschatz-verkehrsmittel">33. Themenwortschatz: Verkehrsmittel / Topic Vocabulary: Means of Transport</h2>
+<table>
+<thead><tr><th>Ausdruck</th><th>Beispielsatz</th></tr></thead>
+<tbody>
+<tr><td>mit dem Auto/Bus/der Straßenbahn/U-Bahn/S-Bahn/dem Fahrrad fahren</td><td>Ich fahre mit dem Auto/dem Bus/der Straßenbahn/der U-Bahn/der S-Bahn/dem Fahrrad.</td></tr><tr><td>den Bus/die Bahn nehmen</td><td>Ich nehme den Bus/die Straßenbahn/die U-Bahn/die S-Bahn.</td></tr><tr><td>zu Fuß gehen</td><td>Ich gehe zu Fuß.</td></tr><tr><td>umsteigen</td><td>Ich steige in Frankfurt um.</td></tr><tr><td>im Stau stehen</td><td>Ich stehe im Stau.</td></tr><tr><td>an der Ampel stehen</td><td>Ich stehe an der Ampel.</td></tr><tr><td>Verspätung haben</td><td>Ich habe Verspätung.</td></tr><tr><td>den Anschluss verpassen</td><td>Ich habe den Anschluss verpasst.</td></tr><tr><td>tanken</td><td>Ich muss tanken.</td></tr><tr><td>voll sein / alle Plätze besetzt sein</td><td>Der Bus ist voll. Alle Plätze sind besetzt.</td></tr><tr><td>eine App benutzen</td><td>Ich benutze eine App.</td></tr>
+</tbody>
+</table><p>Wenn ich mit dem Fahrrad fahre, brauche ich keinen Führerschein. Das Fahrrad ist praktisch für die Stadtmitte.<br />
+<em>Combining transport vocabulary with a "wenn"-clause.</em></p>
+<hr />
+<h2 id="34-passiv-praesens">34. Passiv: Präsens / Passive: Present Tense</h2>
 <p>Bildung: <strong>werden</strong> (konjugiert) + Partizip II am Satzende. <em>Formation: werden (conjugated) + past participle at the end of the clause.</em></p>
-<table class="table table-bordered table-sm">
+<table>
 <thead><tr><th></th><th>werden</th><th>Partizip II</th></tr></thead>
 <tbody>
 <tr><td>er/es/sie</td><td>wird</td><td>reingeschrieben</td></tr>
 <tr><td>sie (Pl.)</td><td>werden</td><td>reingeschrieben</td></tr>
 </tbody>
 </table>
-<p><em>Das wird reingeschrieben.</em> = <em>Man schreibt das rein.</em> (Passive shifts focus from the doer to the action/object.)</p>
+<p><em>Das wird reingeschrieben.</em> = <em>Man schreibt das rein.</em> (Das Passiv verschiebt den Fokus vom Handelnden auf die Handlung/das Objekt. / Passive shifts focus from the doer to the action/object.)</p>
 <hr />
-<h2 id="12-verb-lassen-verb-lassen">12. Verb: "lassen"</h2>
-<table class="table table-bordered table-sm">
+
+<h2 id="35-verb-lassen">35. Verb: „lassen"</h2>
+<table>
 <tbody>
 <tr><td>ich lasse</td><td>wir lassen</td></tr>
 <tr><td>du lässt</td><td>ihr lasst</td></tr>
@@ -824,27 +752,9 @@
 </table>
 <p><em>Beispiele / Examples:</em> Sie lässt ihr Konto prüfen. (She has her account checked.) / Sie sollten vor dem Winter die Reifen wechseln lassen. (You should have the tyres changed before winter.)</p>
 <hr />
-<h2 id="13-lokale-und-temporale-praepositionen-local-and-temporal-prepositions">13. Lokale und temporale Präpositionen / Local and Temporal Prepositions</h2>
-<h3 id="woher-dativ">Woher? + Dativ</h3>
-<p><strong>aus</strong> + Dativ: aus dem Bus, aus dem Hotel, aus der S-Bahn. &nbsp; <strong>von</strong> + Dativ: vom Arzt, vom Meer, von der Tankstelle.</p>
-<h3 id="wo-dativ-wohin-akkusativ">Wo? – Dativ / Wohin? – Akkusativ</h3>
-<table class="table table-bordered table-sm">
-<thead><tr><th></th><th>Wo? (Dativ)</th><th>Wohin? (Akkusativ)</th></tr></thead>
-<tbody>
-<tr><td>an</td><td>am Atlantik/Meer, an der Küste</td><td>an den Atlantik/ans Meer, an die Küste</td></tr>
-<tr><td>auf</td><td>auf dem Land, auf der Insel</td><td>aufs Land, auf die Insel</td></tr>
-<tr><td>in</td><td>im Schwarzwald/Gebirge, in der Wüste</td><td>in den Schwarzwald/ins Gebirge, in die Wüste</td></tr>
-</tbody>
-</table>
-<h3 id="weitere-lokale-praepositionen">Weitere lokale Präpositionen / Further Local Prepositions</h3>
-<p>mit Akkusativ: durch den Park, über die Straße, die Straße entlang, um die Oper (herum). &nbsp; mit Dativ: an dem See vorbei, bis zum Westend, gegenüber der S-Bahn-Station / der S-Bahn-Station gegenüber.</p>
-<h3 id="temporale-praepositionen">Temporale Präpositionen / Temporal Prepositions</h3>
-<p><strong>von ... an</strong> + Dativ: Von Oktober an gibt es wieder freie Plätze. &nbsp; <strong>über</strong> + Akkusativ: Er hat über eine Stunde Aufenthalt in Berlin.</p>
-<h3 id="modale-praeposition-ohne">Modale Präposition "ohne" + Akkusativ</h3>
-<p>ohne lauten Verkehr (without loud traffic)</p>
-<hr />
-<h2 id="14-wortbildung-word-formation">14. Wortbildung / Word Formation</h2>
-<table class="table table-bordered table-sm">
+
+<h2 id="36-wortbildung">36. Wortbildung / Word Formation</h2>
+<table>
 <thead><tr><th>Typ / Type</th><th>Beispiel / Example</th></tr></thead>
 <tbody>
 <tr><td>Nomen → Adjektiv</td><td>die Arbeit → arbeitslos; der Sturm → stürmisch; das Eis → eisig</td></tr>
@@ -858,15 +768,11 @@
 </tbody>
 </table>
 <hr />
-<h2 id="15-genitiv-ersatz-von-dativ-genitive-replacement">15. Genitiv-Ersatz: "von" + Dativ / Genitive Replacement</h2>
-<p>Bei Namen ersetzt man den Genitiv oft durch <strong>von</strong> + Dativ.<br />
-<em>With names, the genitive is often replaced by "von" + dative.</em></p>
-<p><strong>Annas Mutter = die Mutter von Anna</strong> <em>(Anna's mother = the mother of Anna)</em></p>
-<hr />
-<h2 id="16-indefinitpronomen-indefinite-pronouns">16. Indefinitpronomen / Indefinite Pronouns</h2>
+
+<h2 id="37-indefinitpronomen">37. Indefinitpronomen / Indefinite Pronouns</h2>
 <p>Diese Pronomen ersetzen ein Nomen mit unbestimmtem oder verneintem Artikel.<br />
 <em>These pronouns replace a noun with an indefinite or negated article.</em></p>
-<table class="table table-bordered table-sm">
+<table>
 <thead><tr><th></th><th>Hier ist/sind ...</th><th>Ich möchte/nehme/brauche ...</th></tr></thead>
 <tbody>
 <tr><td>der Espresso</td><td>(k)einer</td><td>(k)einen</td></tr>
@@ -878,9 +784,10 @@
 <p><em>Auch so / Also like this:</em> meiner, meins, meine, meine ...</p>
 <p>der/ein Espresso → <strong>einer</strong> &nbsp; den/einen Espresso → <strong>einen</strong></p>
 <hr />
-<h2 id="17-direktionaladverbien-directional-adverbs">17. Direktionaladverbien / Directional Adverbs</h2>
-<table class="table table-bordered table-sm">
-<thead><tr><th>Wo? (position)</th><th>Wohin? (direction)</th></tr></thead>
+
+<h2 id="38-direktionaladverbien">38. Direktionaladverbien / Directional Adverbs</h2>
+<table>
+<thead><tr><th><span style="color:#00a651;font-weight:700;">Wo?</span> (position)</th><th><span style="color:#0070c0;font-weight:700;">Wohin?</span> (direction)</th></tr></thead>
 <tbody>
 <tr><td>hier/da/dort</td><td>hierhin/dahin/dorthin</td></tr>
 <tr><td>–</td><td>rein/raus/rauf/runter/rüber</td></tr>
@@ -888,10 +795,11 @@
 </table>
 <p><em>Beispiele / Examples:</em> Stellen Sie die Leiter dahin. (Put the ladder there.) / Fallen Sie nicht runter. (Don't fall down.)</p>
 <hr />
-<h2 id="18-praepositionaladverbien-da-compounds">18. Präpositionaladverbien (da-Komposita) / Da-Compounds</h2>
+
+<h2 id="39-praepositionaladverbien-da-komposita">39. Präpositionaladverbien (da-Komposita) / Da-Compounds</h2>
 <p>Wenn sich ein Verb mit Präposition auf eine <strong>Sache</strong> (nicht Person) bezieht, benutzt man da(r) + Präposition.<br />
 <em>When a verb with a preposition refers to a thing (not a person), use da(r) + preposition.</em></p>
-<table class="table table-bordered table-sm">
+<table>
 <thead><tr><th>Verb mit Präposition</th><th>Präpositionaladverb</th><th>Fragewort</th></tr></thead>
 <tbody>
 <tr><td>sich interessieren für</td><td>dafür</td><td>Wofür ...?</td></tr>
@@ -905,80 +813,10 @@
 <p><em>Beispiel / Example:</em> Ich habe keine Lust auf Tanzen. → Ich habe keine Lust darauf. → Worauf hast du dann Lust?<br />
 <em>(I don't feel like dancing. → I don't feel like it. → What do you feel like then?)</em></p>
 <hr />
-<h2 id="19-wechselpraepositionen-verben-two-way-preposition-verbs">19. Verben mit Wechselpräpositionen / Two-Way Preposition Verbs</h2>
-<p>Manche Verbpaare zeigen Position (Wo? + Dativ) oder Bewegung (Wohin? + Akkusativ).<br />
-<em>Some verb pairs express position (Wo? + dative) or movement (Wohin? + accusative).</em></p>
-<table class="table table-bordered table-sm">
-<thead><tr><th>"Wo?" + Dativ (Position)</th><th>"Wohin?" + Akkusativ (Bewegung)</th></tr></thead>
-<tbody>
-<tr><td>liegen</td><td>legen</td></tr>
-<tr><td>stehen</td><td>stellen</td></tr>
-<tr><td>stecken</td><td>stecken</td></tr>
-<tr><td>hängen</td><td>hängen</td></tr>
-</tbody>
-</table>
-<p><em>Beispiele / Examples:</em> Die Sachen liegen auf dem Tisch. (The things are lying on the table.) / Er legt die Sachen auf den Tisch. (He puts the things on the table.)</p>
+
+<h2 id="40-uebungen-exercises">40. Übungen / Exercises</h2>
+<h3 id="ubung-1-weil-oder-dass">Übung 1: „weil" oder „dass"</h3><p>Verbinden Sie die Sätze. <em>Connect the sentences.</em></p><ol><li>Ich bleibe zu Hause. Es regnet. (weil) → <strong>Ich bleibe zu Hause, weil es regnet.</strong> <em>(I'm staying home because it's raining.)</em></li><li>Ich finde es gut. Wir lernen Deutsch. (dass) → <strong>Ich finde es gut, dass wir Deutsch lernen.</strong> <em>(I think it's good that we're learning German.)</em></li><li>Ich weiß nicht. Hat sie Zeit? (ob) → <strong>Ich weiß nicht, ob sie Zeit hat.</strong> <em>(I don't know whether she has time.)</em></li><li>Ich arbeite. Ich brauche Geld. (weil) → <strong>Ich arbeite, weil ich Geld brauche.</strong> <em>(I work because I need money.)</em></li></ol><h3 id="ubung-2-modalverben-praeteritum">Übung 2: Modalverben im Präteritum</h3><p>Setzen Sie die richtige Form ein. <em>Fill in the correct form.</em></p><ol><li>Gestern ___ (können) ich nicht arbeiten. → <strong>konnte</strong> <em>(I couldn't work yesterday.)</em></li><li>Er ___ (müssen) früh aufstehen. → <strong>musste</strong> <em>(He had to get up early.)</em></li><li>Wir ___ (wollen) Tee trinken. → <strong>wollten</strong> <em>(We wanted to drink tea.)</em></li><li>Ich ___ (dürfen) hier nicht rauchen. → <strong>durfte</strong> <em>(I wasn't allowed to smoke here.)</em></li></ol><h3 id="ubung-3-konjunktiv-ii">Übung 3: Konjunktiv II</h3><p>Bilden Sie irreale Sätze mit "wenn". <em>Form unreal sentences with "wenn".</em></p><ol><li>Ich habe kein Geld. Ich kaufe kein Fahrrad. → <strong>Wenn ich Geld hätte, würde ich ein Fahrrad kaufen.</strong></li><li>Ich bin kein Arzt. Ich helfe den Kranken nicht. → <strong>Wenn ich ein Arzt wäre, würde ich den Kranken helfen.</strong></li></ol>
 <hr />
-<h2 id="20-verben-mit-praepositionen-vollstaendige-liste-verbs-with-prepositions-full-list">20. Verben mit Präpositionen — vollständige Liste / Verbs with Prepositions — Full List</h2>
-<h3 id="mit-akkusativ-with-accusative">Mit Akkusativ / With Accusative</h3>
-<p><strong>warten auf</strong> + Akk.: warten auf den Mann/das Kind/die Frau/die Personen.<br />
-<em>Auch so / Also like this:</em> sich beschweren über, sich freuen auf, sich ärgern über, sprechen über, sich freuen über, sich kümmern um, sich erinnern an, denken an, Lust haben auf ...</p>
-<h3 id="mit-dativ-with-dative">Mit Dativ / With Dative</h3>
-<p><strong>zufrieden sein mit</strong> + Dativ: zufrieden sein mit dem Mann/dem Kind/der Frau/den Personen.<br />
-<em>Auch so / Also like this:</em> erzählen von, sich treffen mit, sprechen mit, telefonieren mit, träumen von, Angst haben vor ...</p>
-<hr />
-<h2 id="21-praeposition-von-dativ-possessiv-ersatz-preposition-von-dative">21. Präposition "von" + Dativ (Possessiv-Ersatz) / Preposition "von" + Dative</h2>
-<p>Als Alternative zum Possessivartikel, besonders bei Personen: <strong>von</strong> + Dativ.<br />
-<em>As an alternative to the possessive article, especially with people: "von" + dative.</em></p>
-<p>von <strong>meinem</strong> Kollegen &nbsp; von <strong>meinem</strong> Kind &nbsp; von <strong>meiner</strong> Kollegin &nbsp; von <strong>seinen</strong> Kollegen &nbsp; von <strong>mir</strong></p>
-<hr />
-<h2 id="22-stellung-der-objekte-word-order-of-objects">22. Stellung der Objekte / Word Order of Objects</h2>
-<p>Wenn beide Objekte Nomen sind: <strong>Dativ vor Akkusativ</strong>. Wenn ein Objekt ein Pronomen ist, steht das Pronomen zuerst. Wenn beide Objekte Pronomen sind: <strong>Akkusativ vor Dativ</strong>.<br />
-<em>When both objects are nouns: dative before accusative. When one object is a pronoun, the pronoun comes first. When both are pronouns: accusative before dative.</em></p>
-<table class="table table-bordered table-sm">
-<thead><tr><th>Subjekt + Verb</th><th>Dativ(pronomen)</th><th>Akkusativ</th></tr></thead>
-<tbody>
-<tr><td>Jan schenkt</td><td>ihnen</td><td>Konzertkarten.</td></tr>
-<tr><td>Dimi empfiehlt</td><td>Joachim Wagner</td><td>das Tzatziki.</td></tr>
-</tbody>
-</table>
-<table class="table table-bordered table-sm">
-<thead><tr><th>Subjekt + Verb</th><th>Akkusativpronomen</th><th>Dativpronomen</th></tr></thead>
-<tbody>
-<tr><td>Dimi empfiehlt</td><td>es</td><td>ihm.</td></tr>
-</tbody>
-</table>
-<hr />
-<h2 id="23-ratschlag-sollen-im-konjunktiv-ii-advice-sollen-in-subjunctive-ii">23. Ratschlag: "sollen" im Konjunktiv II / Advice: "sollen" in Subjunctive II</h2>
-<table class="table table-bordered table-sm">
-<thead><tr><th>Person</th><th>sollte</th></tr></thead>
-<tbody>
-<tr><td>ich</td><td>sollte</td></tr>
-<tr><td>du</td><td>solltest</td></tr>
-<tr><td>er/es/sie</td><td>sollte</td></tr>
-<tr><td>wir</td><td>sollten</td></tr>
-<tr><td>ihr</td><td>solltet</td></tr>
-<tr><td>sie/Sie</td><td>sollten</td></tr>
-</tbody>
-</table>
-<p><em>Beispiel / Example:</em> Du solltest Detektiv werden. (You should become a detective.)</p>
-<hr />
-<h2 id="ubungen-exercises">Übungen / Exercises</h2>
-<h3 id="ubung-1-prateritum-simple-past">Übung 1: Präteritum / Simple Past</h3>
-<p>Setzen Sie die richtige Form ein. <em>Fill in the correct form.</em></p>
-<ol>
-<li>Gestern ___ (sein) ich im Kino. → <strong>war</strong> <em>(I was at the cinema yesterday.)</em></li>
-<li>Wir ___ (haben) viel Spaß. → <strong>hatten</strong> <em>(We had a lot of fun.)</em></li>
-<li>Er ___ (müssen) früh aufstehen. → <strong>musste</strong> <em>(He had to get up early.)</em></li>
-<li>Ich ___ (können) nicht kommen. → <strong>konnte</strong> <em>(I couldn't come.)</em></li>
-</ol>
-<h3 id="ubung-2-nebensatze-subordinate-clauses">Übung 2: Nebensätze / Subordinate Clauses</h3>
-<p>Verbinden Sie die Sätze. <em>Connect the sentences.</em></p>
-<ol>
-<li>Ich bleibe zu Hause. Es regnet. (weil) → <strong>Ich bleibe zu Hause, weil es regnet.</strong> <em>(I'm staying home because it's raining.)</em></li>
-<li>Er sagt. Er kommt morgen. (dass) → <strong>Er sagt, dass er morgen kommt.</strong> <em>(He says that he's coming tomorrow.)</em></li>
-<li>Ich weiß nicht. Hat sie Zeit? (ob) → <strong>Ich weiß nicht, ob sie Zeit hat.</strong> <em>(I don't know whether she has time.)</em></li>
-</ol>
                 </div>
                 </div>
 
@@ -996,50 +834,17 @@
             backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
         });
 
-        function setupJumpCollapse() {
-            var THRESHOLD = 8;
-            var nav = document.querySelector('.alphabet-nav');
-            if (!nav) return;
-            var existing = nav.querySelector('.jump-more-btn');
-            if (existing) existing.remove();
-            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
-            links.forEach(function (l) { l.style.display = ''; });
-            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
-            var firstBatch = links.slice(0, THRESHOLD);
-            var lastBatch = links.slice(THRESHOLD);
-            var moreBtn = document.createElement('button');
-            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
-            moreBtn.textContent = '\u2026';
-            moreBtn.title = 'Show more buttons';
-            var isExpanded = false;
-            var toggleDisplay = function () {
-                isExpanded = !isExpanded;
-                if (isExpanded) {
-                    lastBatch.forEach(function (l) { l.style.display = ''; });
-                    moreBtn.textContent = '\u25B2';
-                    moreBtn.title = 'Show fewer';
-                } else {
-                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
-                    moreBtn.textContent = '\u2026';
-                    moreBtn.title = 'Show more buttons';
-                }
-            };
-            moreBtn.addEventListener('click', toggleDisplay);
-            lastBatch.forEach(function (l) { l.style.display = 'none'; });
-            nav.querySelector('.jump-links').appendChild(moreBtn);
-        }
-
-        window.addEventListener('resize', setupJumpCollapse);
-
         (function () {
             var buttons = '';
-                    document.querySelectorAll('h2[id]').forEach(function (h) {
-                        var m = h.id.match(/^(\d+)-/);
-                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
-                    });
-                    document.getElementById('jump-bar-placeholder').innerHTML =
-                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
-                    setupJumpCollapse();
+            document.querySelectorAll('h2[id]').forEach(function (h) {
+                var m = h.id.match(/^(\d+)-/);
+                if (!m) return;
+                var full = h.textContent.replace(/^\d+\.\s*/, '');
+                var label = full.length > 34 ? full.slice(0, 33) + '\u2026' : full;
+                buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="' + full.replace(/"/g, '&quot;') + '">' + m[1] + '. ' + label + '</a>';
+            });
+            document.getElementById('jump-bar-placeholder').innerHTML =
+                '<div class="jump-bar"><div class="fw-semibold small mb-2" style="color:#1d4ed8">\ud83d\udcda Inhalt</div><div class="jump-links d-flex flex-column">' + buttons + '</div></div>';
         })();
     </script>
     <script>
