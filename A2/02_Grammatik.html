@@ -240,6 +240,10 @@
             justify-content: center;
             padding: 0 0.65rem;
         }
+
+        .d-tts{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:none;background:none;cursor:pointer;opacity:.35;transition:opacity .2s;padding:0;margin-left:3px;vertical-align:middle;border-radius:50%;font-size:13px}
+        .d-tts:hover{opacity:.8;background:rgba(29,78,216,.1)}.d-tts.playing{opacity:1;color:#1d4ed8;background:rgba(29,78,216,.15)}
+        [data-bs-theme="dark"] .d-tts:hover{background:rgba(99,102,241,.2)}[data-bs-theme="dark"] .d-tts.playing{color:#818cf8;background:rgba(99,102,241,.25)}
     
         .site-footer {
             background: var(--page-bg, #f1f3f5);
@@ -880,6 +884,107 @@
     </script>
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+// TTS — same engine/button style as dictionary.html / 10_notes.html / A1 Grammatik,
+// adapted to this page's actual content pattern: tables are German-only (no
+// English column), and English appears as <em>...</em> asides inside prose
+// (<p>, <li>, .rule) rather than in a parallel table column. Bilingual
+// headings ("German / English") are split on " / ".
+(function() {
+    if (!('speechSynthesis' in window)) return;
+    var synth = window.speechSynthesis;
+    var activeBtn = null;
+    var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+    function mkBtn(text, lang) {
+        var b = document.createElement('button');
+        b.className = 'd-tts'; b.innerHTML = svg;
+        b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+        b.onclick = function(e) {
+            e.preventDefault(); e.stopPropagation();
+            synth.cancel();
+            if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
+            if (activeBtn) activeBtn.classList.remove('playing');
+            var clean = text.replace(/\s+/g,' ').trim();
+            if (!clean) return;
+            var u = new SpeechSynthesisUtterance(clean);
+            u.lang = lang; u.rate = 0.9;
+            var voices = synth.getVoices();
+            var lp = lang.split('-')[0];
+            for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
+            b.classList.add('playing'); activeBtn = b;
+            u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
+            synth.speak(u);
+        };
+        return b;
+    }
+    function stripParens(s) {
+        var m = s.trim().match(/^\(([\s\S]+)\)$/);
+        return m ? m[1].trim() : s.trim();
+    }
+    function initTables() {
+        // No English column exists on this page's tables — every cell is German.
+        document.querySelectorAll('table').forEach(function(table) {
+            table.querySelectorAll('tbody td').forEach(function(cell) {
+                var text = cell.textContent.trim();
+                if (!text || cell.querySelector('.d-tts')) return;
+                if (/^[-—–\s]*$/.test(text)) return;
+                cell.appendChild(mkBtn(text, 'de-DE'));
+            });
+        });
+    }
+    function initHeadings() {
+        document.querySelectorAll('.markdown-content h1, .markdown-content h2, .markdown-content h3').forEach(function(h) {
+            if (h.querySelector('.d-tts')) return;
+            var full = h.textContent.replace(/^\d+\.\s*/, '').trim();
+            if (!full) return;
+            var parts = full.split(/\s*\/\s*/);
+            if (parts.length >= 2) {
+                h.appendChild(mkBtn(parts[0], 'de-DE'));
+                h.appendChild(mkBtn(parts.slice(1).join(' / '), 'en-US'));
+            } else {
+                h.appendChild(mkBtn(full, 'de-DE'));
+            }
+        });
+    }
+    function initProse() {
+        // Blocks outside tables that carry the actual sentence content.
+        document.querySelectorAll('.markdown-content p, .markdown-content li, .markdown-content div.rule').forEach(function(el) {
+            if (el.closest('table')) return;
+            if (el.querySelector('.d-tts')) return;
+            var ems = el.querySelectorAll('em');
+            var emTextTotal = '';
+            ems.forEach(function(em) {
+                var raw = em.textContent.trim();
+                if (!raw) return;
+                emTextTotal += raw + ' ';
+                var enText = stripParens(raw);
+                if (enText) {
+                    var enBtn = mkBtn(enText, 'en-US');
+                    em.parentNode.insertBefore(enBtn, em.nextSibling);
+                }
+            });
+            // German = full element text minus the <em> (English) portions.
+            var full = el.textContent.trim();
+            var deText = full;
+            ems.forEach(function(em) {
+                var raw = em.textContent.trim();
+                if (raw) deText = deText.replace(raw, ' ');
+            });
+            deText = deText.replace(/\s+/g, ' ').trim();
+            if (deText && !/^[-—–\s.,:;()]*$/.test(deText)) {
+                el.appendChild(mkBtn(deText, 'de-DE'));
+            }
+        });
+    }
+    function init() {
+        initTables();
+        initHeadings();
+        initProse();
+    }
+    if (synth.getVoices().length > 0) init();
+    else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { init(); }, 500); }
+})();
+</script>
 </body>
 </html>
 
