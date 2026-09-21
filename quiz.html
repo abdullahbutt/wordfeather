@@ -413,6 +413,7 @@
         <div id="optionsContainer" class="d-grid gap-2 mb-3"></div>
         <div class="feedback-box mb-3" id="feedbackBox"></div>
         <button type="button" class="btn btn-outline-secondary btn-lg w-100 mt-2 hidden" id="nextBtn">Weiter / Next →</button>
+        <button type="button" class="btn btn-link btn-sm w-100 hidden" id="reportBtn">Problem melden <span style="opacity:.75">/ Report a problem</span></button>
       </form>
     </div>
   </section>
@@ -2240,6 +2241,66 @@ var LESEN_PRACTICE_DATA = {
     resetProgress();
     document.getElementById('viewProgressBtn').click(); // refresh the table to show all-zero state
   });
+
+  // ===== Keyboard: press 1–9 to pick the matching answer (Enter already works on the focused "Weiter" button) =====
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (!/^[1-9]$/.test(e.key)) return;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test((e.target && e.target.tagName) || '')) return;
+    if (document.getElementById('quizScreen').classList.contains('hidden')) return;
+    var open = Array.prototype.filter.call(document.querySelectorAll('#optionsContainer .option-btn'), function (b) { return !b.disabled; });
+    var btn = open[parseInt(e.key, 10) - 1];
+    if (btn) { e.preventDefault(); btn.click(); }
+  });
+
+  // ===== Report a problem (backend-ready) =====
+  // Set before this script, once you have an API:  window.WF_CONFIG = { reportEndpoint: '/api/quiz-reports' };
+  // Until then reports are queued in localStorage (key wf_quiz_reports_v1) and sent automatically later.
+  // Item ids use the same keys as the progress data (wordKey / questionKey), so the server can match them.
+  var WF_CONFIG = window.WF_CONFIG || {};
+  var REPORTS_KEY = 'wf_quiz_reports_v1';
+  var REPORT_LABEL = 'Problem melden <span style="opacity:.75">/ Report a problem</span>';
+  function loadReports() {
+    try { return JSON.parse(localStorage.getItem(REPORTS_KEY) || '[]'); } catch (e) { return []; }
+  }
+  function saveReports(list) {
+    try { localStorage.setItem(REPORTS_KEY, JSON.stringify(list)); return true; } catch (e) { return false; }
+  }
+  function flushReports() {
+    if (!WF_CONFIG.reportEndpoint || !window.fetch) return;
+    var list = loadReports();
+    if (!list.length) return;
+    fetch(WF_CONFIG.reportEndpoint, {
+      method: 'POST', credentials: 'include', keepalive: true,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ app: 'wordfeather-quiz', reports: list })
+    }).then(function (r) {
+      if (r.ok) saveReports(loadReports().filter(function (x) { return list.every(function (s) { return s.ts !== x.ts; }); }));
+    }).catch(function () { /* stay queued, retry next time */ });
+  }
+  var reportBtn = document.getElementById('reportBtn');
+  var nextBtnEl = document.getElementById('nextBtn');
+  // "Weiter" appears exactly when a question has been answered — mirror that for the report button.
+  new MutationObserver(function () {
+    var answered = !nextBtnEl.classList.contains('hidden');
+    reportBtn.classList.toggle('hidden', !answered);
+    if (answered) { reportBtn.disabled = false; reportBtn.innerHTML = REPORT_LABEL; }
+  }).observe(nextBtnEl, { attributes: true, attributeFilter: ['class'] });
+  reportBtn.addEventListener('click', function () {
+    var q = currentQuiz && currentQuiz.questions[currentQuiz.index];
+    if (!q) return;
+    var list = loadReports();
+    list.push({
+      ts: Date.now(), itemKey: (q.kind === 'vocab' && q.word) ? wordKey(q.word) : questionKey(q), kind: q.kind, level: q.level,
+      prompt: q.prompt, answer: q.answerField, direction: q.direction || null
+    });
+    if (!saveReports(list)) return;
+    reportBtn.disabled = true;
+    reportBtn.innerHTML = 'Gemeldet ✓ <span style="opacity:.75">/ Reported ✓</span>';
+    nextBtnEl.focus(); // keep Enter working
+    flushReports();
+  });
+  flushReports(); // send anything queued earlier once an endpoint is configured
 
 })();
 </script>
