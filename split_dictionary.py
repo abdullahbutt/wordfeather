@@ -60,7 +60,10 @@ def sort_key_text(de, pos):
     """The text a dictionary would alphabetise by (article / 'sich' removed)."""
     t = de.strip()
     if pos == "noun":
-        t = re.sub(r"^(der|die|das)(/(der|die|das))*\s+", "", t, flags=re.I)
+        rest = re.sub(r"^(der|die|das)(/(der|die|das))*\s+", "", t, flags=re.I)
+        # only strip the article when a real word follows; entries like "der (2)" ARE the article itself
+        if re.match(r"[^\W\d_]|\d", rest):
+            t = rest
     t = re.sub(r"^sich\s+", "", t, flags=re.I)
     t = re.sub(r"^[^\w]+", "", t)
     return t
@@ -200,13 +203,15 @@ def alpha_nav(pages, current=None):
 def letter_page(tpl, pages, page, base_url, counts_total):
     n_page = len(page["items"])
     L = page["letter"]
-    label = "0-9" if L == "#" else L
+    label = L   # "#" is shown as "#" everywhere, same as in the A-Z nav
     part_txt = "" if page["parts"] == 1 else " (Teil %d/%d)" % (page["part"], page["parts"])
     letter_total = sum(len(p["items"]) for p in pages if p["letter"] == L)
-    samples = ", ".join(e["disp"] for e in page["items"][:3])
-    title = "Wörterbuch %s%s: %d deutsche Wörter A1–C2 | WordFeather" % (label, part_txt, letter_total)
-    desc = ("%d German words starting with %s (%s, …) with English translations, example sentences and "
-            "collocations – CEFR levels A1–C2 for Goethe and telc exam preparation." % (letter_total, label, samples))
+    samples = ", ".join(re.sub(r"[\u2060\u200b]", "", e["disp"].split(",")[0]).strip() for e in page["items"][:3])
+    starting = "starting with a number or symbol (#)" if L == "#" else "starting with %s" % label
+    title = "German Words %s%s – Deutsch Wörterbuch A1–C2 | WordFeather" % (starting[0].upper() + starting[1:], part_txt)
+    desc = ("%d German word%s %s (e.g. %s) with English translations, example sentences and collocations. "
+            "Deutsch–Englisch Wörterbuch for Goethe and telc exam preparation, levels A1–C2." %
+            (letter_total, "" if letter_total == 1 else "s", starting, samples))
     url = "%s/%s" % (base_url, page["file"])
 
     s = set_head(tpl["before"], title, desc, url)
@@ -223,9 +228,14 @@ def letter_page(tpl, pages, page, base_url, counts_total):
 
     # visible headline + counts
     s = s.replace("📖 Wörterbuch / Dictionary</h1>",
-                  "📖 Wörterbuch / Dictionary – %s%s</h1>" % (label, part_txt), 1)
+                  "📖 German Words %s%s – Deutsch Wörterbuch</h1>" % (starting[0].upper() + starting[1:], part_txt), 1)
+    intro = ('<p class="mb-3">%d German word%s %s, each with its English translation, an example sentence with '
+             'translation and common collocations – graded from A1 to C2 for Goethe and telc exam preparation. '
+             'Deutsche Wörter mit englischer Übersetzung und Beispielsätzen. '
+             '<a href="dictionary.html">Back to the full dictionary</a>.</p>\n' % (letter_total, "" if letter_total == 1 else "s", starting))
+    s = s.replace('<p class="info-line mb-3">', intro + '<p class="info-line mb-3">', 1)
     s, k = re.subn(r"\d+ exam-relevant words from A1–C2",
-                   "%d words beginning with %s · A1–C2" % (letter_total, label), s, count=1)
+                   "%d word%s beginning with %s · A1–C2" % (letter_total, "" if letter_total == 1 else "s", label), s, count=1)
     s = re.sub(r'(<span class="stats" id="wordCount">)[^<]*(</span>)',
                lambda m: "%s%d words%s" % (m.group(1), n_page, m.group(2)), s, count=1)
     s = s.replace('<li class="breadcrumb-item active" aria-current="page">Wörterbuch / Dictionary</li>',
@@ -264,7 +274,7 @@ def letter_page(tpl, pages, page, base_url, counts_total):
     next_p = pages[idx + 1] if idx + 1 < len(pages) else None
 
     def plabel(p):
-        l = "0-9" if p["letter"] == "#" else p["letter"]
+        l = p["letter"]
         return l + ("" if p["parts"] == 1 else " (%d)" % p["part"])
     pager = '<nav class="letter-pager" aria-label="Seiten">%s<a href="dictionary.html">↑ A–Z</a>%s</nav>\n' % (
         ('<a href="%s" rel="prev">← %s</a>' % (prev_p["file"], plabel(prev_p))) if prev_p else "<span></span>",
@@ -420,10 +430,19 @@ __CATEGORY_EN__
 
 def hub_page(tpl, pages, base_url, total, counts_by_letter, counts_by_level):
     s = tpl["before"]
-    title = "Wörterbuch / Dictionary – %d deutsche Wörter A1–C2 | WordFeather" % total
-    desc = ("Deutsch–Englisch Wörterbuch mit %d prüfungsorientierten Wörtern von A1 bis C2: Übersetzungen, Beispielsätze "
-            "und Kollokationen für Goethe und telc. Nach Buchstaben durchsuchen oder direkt suchen." % total)
+    title = "German Dictionary A1–C2: {:,} Words – Deutsch Wörterbuch | WordFeather".format(total)
+    desc = ("Free German–English dictionary with {:,} exam-relevant words, graded A1 to C2, with translations, "
+            "example sentences and collocations for Goethe and telc. Deutsch–Englisch Wörterbuch: "
+            "durchsuchen oder nach Buchstaben blättern.".format(total))
     s = set_head(s, title, desc, base_url + "/dictionary.html")
+    s = s.replace("📖 Wörterbuch / Dictionary</h1>", "📖 German Dictionary / Deutsch–Englisch Wörterbuch</h1>", 1)
+    levels = " · ".join('<a href="%s/">%s</a>' % (l, l) for l in LEVELS)
+    intro = ('<p class="mb-3">A free German–English dictionary with {:,} words from A1 to C2. Every entry has an '
+             'English translation, an example sentence with translation, collocations and audio pronunciation, '
+             'and is chosen for Goethe and telc exam preparation. Search all words below or browse A–Z. '
+             'Ein kostenloses Deutsch–Englisch Wörterbuch mit Beispielsätzen für die Prüfungsvorbereitung. '
+             'Vocabulary by level: {}.</p>\n'.format(total, levels))
+    s = s.replace('<p class="info-line mb-3">', intro + '<p class="info-line mb-3">', 1)
     s = s.replace("</head>", HUB_CSS + "</head>", 1)
 
     # letter grid (static, crawlable, works without JS)
@@ -432,7 +451,7 @@ def hub_page(tpl, pages, base_url, total, counts_by_letter, counts_by_level):
         firsts.setdefault(p["letter"], p["file"])
     tiles = "".join(
         '<a class="letter-tile" href="%s"><strong>%s</strong><span>%d Wörter</span></a>' %
-        (f, "0-9" if L == "#" else L, counts_by_letter[L]) for L, f in firsts.items())
+        (f, L, counts_by_letter[L]) for L, f in firsts.items())
     lv = " · ".join("%s: %d" % (l, counts_by_level.get(l, 0)) for l in LEVELS)
     grid = ('<div id="letterGrid">\n<h2 class="h5 mb-2">Nach Buchstaben blättern / Browse A–Z</h2>\n'
             '<div class="letter-grid">%s</div>\n<p class="info-line">%s</p>\n</div>\n'
