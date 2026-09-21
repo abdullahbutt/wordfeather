@@ -8,7 +8,7 @@ from the single source of truth: words_final.json
 Usage:
     python3 build.py                     # rebuild Wortschatz pages + update dictionary counts
     python3 build.py --all               # rebuild everything: Wortschatz + dictionary (recommended)
-    python3 build.py --dictionary        # fully rebuild dictionary.html from JSON only
+    python3 build.py --dictionary        # fully rebuild dictionary.html + dictionary-a..z.html from JSON only
     python3 build.py --wortschatz-only   # rebuild Wortschatz pages only
     python3 build.py --audit             # run quality audit and exit
     python3 build.py --help              # show this help
@@ -21,11 +21,17 @@ from datetime import datetime, timezone
 from collections import defaultdict, Counter
 from conjugator import conjugate, _regular_stem
 from english_conjugator import build_english_table
+from split_dictionary import split_dictionary   # splits the full dictionary into hub + per-letter pages (<2 MB each)
 
 REPO    = os.path.dirname(os.path.abspath(__file__))
 JSON    = os.path.join(REPO, 'words_final.json')
 BASE    = ''
 SW_JS_PATH = os.path.join(REPO, 'sw.js')
+# The dictionary "shell" (head, filters, scripts, footer) WITHOUT the 5,243 cards. build_dictionary()
+# renders the full page in memory from this and then split_dictionary() writes the small deployable
+# pages. dictionary.html itself is now OUTPUT ONLY (the hub) — never edit it by hand.
+DICT_TEMPLATE = os.path.join(REPO, 'templates', 'dictionary.template.html')
+BASE_URL = 'https://wordfeather.com'
 
 
 def update_service_worker_cache_name():
@@ -1564,18 +1570,21 @@ def inject_category_dropdown(content):
 
 def build_dictionary(words):
     """
-    Fully regenerate dictionary.html word-card section from words_final.json.
+    Fully regenerate the dictionary from words_final.json.
+    Reads the card-less shell templates/dictionary.template.html, renders the full page in memory
+    and hands it to split_dictionary(), which writes dictionary.html (small A-Z hub + search),
+    dictionary-<letter>.html (all cards, one page per letter) and dictionary-index.json.
+    Google only indexes the first 2 MB of an HTML file, so the 5 MB single page is never written.
     Preserves all HTML outside #wordList (header, search, filters, scripts, footer).
     Inserts letter-header anchor divs at each alphabet boundary.
     Verifies correct DOM order: cards → </main> → footer-placeholder → querySelectorAll.
     """
-    dict_path = os.path.join(REPO, 'dictionary.html')
-    if not os.path.exists(dict_path):
-        print("  ❌ dictionary.html not found — cannot rebuild")
+    if not os.path.exists(DICT_TEMPLATE):
+        print(f"  ❌ {DICT_TEMPLATE} not found — cannot rebuild the dictionary")
         return False
 
-    with open(dict_path, encoding='utf-8') as f:
-        content = f.read()
+    with open(DICT_TEMPLATE, encoding='utf-8') as f:
+        content = f.read().replace('\r\n', '\n')
 
     # Sort words alphabetically
     sorted_words = sorted(words, key=lambda w: (first_letter(w['de']), w['de'].lower()))
@@ -1614,7 +1623,7 @@ def build_dictionary(words):
     # Find and replace #wordList in the HTML
     wl_open = content.find('<div id="wordList">')
     if wl_open == -1:
-        print("  ❌ #wordList div not found in dictionary.html")
+        print("  ❌ #wordList div not found in templates/dictionary.template.html")
         return False
 
     # Depth-count to find matching closing </div>
@@ -1681,12 +1690,12 @@ def build_dictionary(words):
         (fp_match is None or fp_match.start() < qs_pos)
     )
 
-    with open(dict_path, 'w', encoding='utf-8') as f:
-        f.write(content_new)
-
-    print(f"  ✅ dictionary.html — {total} cards, {letters} letter headers, "
+    print(f"  ✅ dictionary (full page, in memory) — {total} cards, "
           f"order {'✅' if order_ok else '❌'}, "
           f"footer {'✅' if fp_match else '❌'}")
+
+    # Write hub + per-letter pages + search index + sitemap-dictionary.xml into the repo root.
+    split_dictionary(content_new, REPO, BASE_URL)
     return True
 
 # ── Wortschatz page builder ────────────────────────────────────────────────────
@@ -2323,19 +2332,8 @@ def main():
         build_dictionary(words)
         build_person_sentences(words)
     elif '--wortschatz-only' not in args:
-        # Default: just update word count in existing dictionary.html
-        dict_path = os.path.join(REPO, 'dictionary.html')
-        if os.path.exists(dict_path):
-            with open(dict_path, encoding='utf-8') as f:
-                content = f.read()
-            total = len(re.findall(r'<div class="word-card"', content))
-            content = re.sub(r'\d[\d\.]+ exam-relevant words from A1',
-                             f'{total} exam-relevant words from A1', content)
-            content = re.sub(r'id="wordCount">\d+ words',
-                             f'id="wordCount">{total} words', content)
-            with open(dict_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            print(f"  ✅ dictionary.html — word count updated to {total}")
+        # Default: rebuild the dictionary too (dictionary.html is generated output now)
+        build_dictionary(words)
 
     update_service_worker_cache_name()
     update_footer_last_updated()
