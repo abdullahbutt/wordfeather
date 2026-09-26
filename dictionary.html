@@ -570,7 +570,7 @@ window.addEventListener('load', function () {
         var LETTER_FILES = {"#": "dictionary-0-9.html", "A": "dictionary-a.html", "B": "dictionary-b.html", "C": "dictionary-c.html", "D": "dictionary-d.html", "E": "dictionary-e.html", "F": "dictionary-f.html", "G": "dictionary-g.html", "H": "dictionary-h.html", "I": "dictionary-i.html", "J": "dictionary-j.html", "K": "dictionary-k.html", "L": "dictionary-l.html", "M": "dictionary-m.html", "N": "dictionary-n.html", "O": "dictionary-o.html", "P": "dictionary-p.html", "Q": "dictionary-q.html", "R": "dictionary-r.html", "S": "dictionary-s.html", "T": "dictionary-t.html", "U": "dictionary-u.html", "V": "dictionary-v.html", "W": "dictionary-w.html", "Y": "dictionary-y.html", "Z": "dictionary-z.html"};
         var m = location.hash.match(/^#letter-(.+)$/);
         if (m && LETTER_FILES[decodeURIComponent(m[1]).toUpperCase()]) {
-            location.replace(LETTER_FILES[decodeURIComponent(m[1]).toUpperCase()]);
+            location.replace(LETTER_FILES[decodeURIComponent(m[1]).toUpperCase()] + location.search);
             return;
         }
         var input = document.getElementById('searchInput');
@@ -638,7 +638,7 @@ window.addEventListener('load', function () {
             lastHits.slice(0, shown).forEach(function (r) {
                 var a = document.createElement('a');
                 a.className = 'hub-result';
-                a.href = j.p[r[7]] + '#' + r[8];
+                a.href = j.p[r[7]] + currentFilterQuery() + '#' + r[8];
                 var de = document.createElement('span'); de.className = 'hub-de'; de.textContent = r[0];
                 var lv = document.createElement('span'); lv.className = 'badge rounded-pill'; lv.textContent = r[2];
                 lv.style.background = LEVEL_COLORS[r[2]] || '#64748b';
@@ -655,6 +655,45 @@ window.addEventListener('load', function () {
                 resultsBox.appendChild(more);
             }
         }
+        // Same idea as on the letter pages: read ?level=&pos=&cat= on load (so a filtered
+        // result clicked on a letter page's "Search all N words" link reopens the same filter
+        // here), and build the same query string onto every result link below so clicking into
+        // a word keeps the filter instead of losing it on the way to the letter page.
+        function currentFilterQuery() {
+            var p = new URLSearchParams();
+            if (activeLevel !== 'ALL') p.set('level', activeLevel);
+            if (activePOS !== 'ALL') p.set('pos', activePOS);
+            if (activeCategory !== 'ALL') p.set('cat', activeCategory);
+            var qs = p.toString();
+            return qs ? '?' + qs : '';
+        }
+        (function () {
+            var params = new URLSearchParams(location.search);
+            var qLevel = params.get('level'), qPos = params.get('pos'), qCat = params.get('cat');
+            if (qLevel && qLevel !== 'ALL') {
+                var btn = document.querySelector('.level-filter button[data-level="' + qLevel + '"]');
+                if (btn) {
+                    document.querySelectorAll('.level-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                    btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+                    activeLevel = qLevel;
+                }
+            }
+            if (qPos && qPos !== 'ALL') {
+                var pbtn = document.querySelector('.pos-filter button[data-pos="' + qPos + '"]');
+                if (pbtn) {
+                    document.querySelectorAll('.pos-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                    pbtn.classList.add('active'); pbtn.setAttribute('aria-pressed', 'true');
+                    activePOS = qPos;
+                }
+            }
+            if (qCat && qCat !== 'ALL' && document.querySelector('#categoryFilter option[value="' + qCat + '"]')) {
+                document.getElementById('categoryFilter').value = qCat;
+                activeCategory = qCat;
+                updateCategoryEnLabel();
+            }
+            if (qLevel || qPos || qCat) search();
+        })();
+
         var timer = null;
         input.addEventListener('focus', function () { loadIndex().catch(function () {}); });
         input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(search, 120); });
