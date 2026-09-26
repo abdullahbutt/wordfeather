@@ -196,7 +196,7 @@ def alpha_nav(pages, current=None):
     links = []
     for L, f in firsts.items():
         cur = ' aria-current="page"' if current == L else ""
-        links.append('<a href="%s"%s>%s</a>' % (f, cur, L))
+        links.append('<a class="az-link" href="%s"%s>%s</a>' % (f, cur, L))
     return '<nav class="alpha-nav" aria-label="A-Z">\n%s\n</nav>' % "".join(links)
 
 
@@ -305,23 +305,21 @@ HUB_CSS = """<style>
 .hub-result .hub-en{color:var(--muted,#64748b)}
 .hub-result .hub-ex{flex-basis:100%;font-size:.85rem;color:var(--muted,#64748b)}
 .hub-msg{padding:1.5rem .25rem;color:var(--muted,#64748b)}
+.az-link.active{font-weight:800;color:#1d4ed8}
+.letter-tile.active{border-color:#1d4ed8;box-shadow:0 0 0 2px #1d4ed8 inset}
 </style>
 """
 
 HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on first use) ----
         var LEVEL_COLORS = __COLORS__;
         var LETTER_FILES = __FILES__;
-        var m = location.hash.match(/^#letter-(.+)$/);
-        if (m && LETTER_FILES[decodeURIComponent(m[1]).toUpperCase()]) {
-            location.replace(LETTER_FILES[decodeURIComponent(m[1]).toUpperCase()] + location.search);
-            return;
-        }
         var input = document.getElementById('searchInput');
         var wordCount = document.getElementById('wordCount');
         var grid = document.getElementById('letterGrid');
         var resultsBox = document.getElementById('hubResults');
         var noResults = document.getElementById('noResults');
-        var activeLevel = 'ALL', activePOS = 'ALL', activeCategory = 'ALL';
+        var activeLevel = 'ALL', activePOS = 'ALL', activeCategory = 'ALL', activeLetterFile = null;
+        var FILE_TO_LETTER = {}; Object.keys(LETTER_FILES).forEach(function (l) { FILE_TO_LETTER[LETTER_FILES[l]] = l; });
         var OTHER_POS = ['proverb', 'preposition', 'conjunction', 'pronoun', 'determiner'];
         var TOTAL = __TOTAL__;
         var PAGE = 150, shown = PAGE, lastHits = [];
@@ -346,12 +344,14 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
             return loading;
         }
         function isFiltering() {
-            return input.value.trim() !== '' || activeLevel !== 'ALL' || activePOS !== 'ALL' || activeCategory !== 'ALL';
+            return input.value.trim() !== '' || activeLevel !== 'ALL' || activePOS !== 'ALL' || activeCategory !== 'ALL' || !!activeLetterFile;
         }
         function search() {
             if (!isFiltering()) {
                 grid.style.display = ''; resultsBox.style.display = 'none'; noResults.style.display = 'none';
                 wordCount.textContent = TOTAL + ' words';
+                var prevChip = resultsBox.previousElementSibling;
+                if (prevChip && prevChip.classList.contains('hub-msg')) prevChip.remove();
                 return;
             }
             resultsBox.style.display = ''; grid.style.display = 'none';
@@ -360,6 +360,7 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
                 var q = foldGerman(input.value.toLowerCase().trim());
                 var cat = activeCategory === 'ALL' ? null : activeCategory;
                 lastHits = j.w.filter(function (r) {
+                    if (activeLetterFile && j.p[r[7]] !== activeLetterFile) return false;
                     if (activeLevel !== 'ALL' && r[2] !== activeLevel) return false;
                     if (activePOS !== 'ALL' && !(r[3] === activePOS ||
                         (activePOS === 'irregular' && r[4] === 1) ||
@@ -447,7 +448,10 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
                 if (token !== renderToken) return;   // a newer search/filter/page superseded this one
                 var docByPage = {};
                 pages.forEach(function (p, i) { docByPage[p] = docs[i]; });
+                var prevChip = resultsBox.previousElementSibling;
+                if (prevChip && prevChip.classList.contains('hub-msg')) prevChip.remove();
                 resultsBox.innerHTML = '';
+                letterChip();
                 slice.forEach(function (r) {
                     var doc = docByPage[j.p[r[7]]];
                     var el = doc && doc.getElementById(r[8]);
@@ -478,12 +482,67 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
             if (activeLevel !== 'ALL') p.set('level', activeLevel);
             if (activePOS !== 'ALL') p.set('pos', activePOS);
             if (activeCategory !== 'ALL') p.set('cat', activeCategory);
+            if (activeLetterFile) p.set('letter', FILE_TO_LETTER[activeLetterFile] || '');
             var qs = p.toString();
             return qs ? '?' + qs : '';
         }
+
+        // Clicking a letter - in the left A-Z sidebar (every page) or the big A-Z tiles below
+        // (hub only) - used to be a normal link, so it navigated away to that letter's own
+        // static page, same trap search results used to fall into. Both link sets share the
+        // "az-link" class; here they browse that letter INLINE instead, through the exact same
+        // full-card rendering as a search. The href is left in place, so the pages stay real,
+        // separately-crawlable URLs for Google and for anyone without JS, and Ctrl/Cmd/middle
+        // click still opens the real page in a new tab as usual.
+        function letterChip() {
+            if (!activeLetterFile) return;
+            var label = FILE_TO_LETTER[activeLetterFile] || '?';
+            var chip = document.createElement('p');
+            chip.className = 'hub-msg';
+            chip.style.padding = '0 .25rem .5rem';
+            var span = document.createElement('span');
+            span.innerHTML = 'Buchstabe / Letter: <strong>' + label + '</strong> &nbsp;';
+            var clear = document.createElement('a');
+            clear.href = '#'; clear.textContent = '✕ alle Buchstaben / all letters';
+            clear.addEventListener('click', function (e) { e.preventDefault(); setLetter(null); });
+            chip.appendChild(span); chip.appendChild(clear);
+            resultsBox.parentNode.insertBefore(chip, resultsBox);
+        }
+        function setLetter(file) {
+            activeLetterFile = activeLetterFile === file ? null : file;
+            document.querySelectorAll('.az-link').forEach(function (a) {
+                a.classList.toggle('active', !!activeLetterFile && a.getAttribute('href') === activeLetterFile);
+            });
+            history.pushState(null, '', 'dictionary.html' + currentFilterQuery());
+            search();
+        }
+        document.querySelectorAll('.az-link').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;   // let new-tab etc. through
+                e.preventDefault();
+                setLetter(a.getAttribute('href'));
+            });
+        });
+        window.addEventListener('popstate', function () {
+            var p = new URLSearchParams(location.search);
+            var l = p.get('letter');
+            activeLetterFile = (l && LETTER_FILES[l.toUpperCase()]) || null;
+            document.querySelectorAll('.az-link').forEach(function (a) {
+                a.classList.toggle('active', !!activeLetterFile && a.getAttribute('href') === activeLetterFile);
+            });
+            search();
+        });
+
         (function () {
             var params = new URLSearchParams(location.search);
             var qLevel = params.get('level'), qPos = params.get('pos'), qCat = params.get('cat');
+            var qLetterLabel = params.get('letter');
+            if (qLetterLabel && LETTER_FILES[qLetterLabel.toUpperCase()]) {
+                activeLetterFile = LETTER_FILES[qLetterLabel.toUpperCase()];
+                document.querySelectorAll('.az-link').forEach(function (a) {
+                    a.classList.toggle('active', a.getAttribute('href') === activeLetterFile);
+                });
+            }
             if (qLevel && qLevel !== 'ALL') {
                 var btn = document.querySelector('.level-filter button[data-level="' + qLevel + '"]');
                 if (btn) {
@@ -505,7 +564,14 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
                 activeCategory = qCat;
                 updateCategoryEnLabel();
             }
-            if (qLevel || qPos || qCat) search();
+            var hashLetter = location.hash.match(/^#letter-(.+)$/);
+            if (!activeLetterFile && hashLetter && LETTER_FILES[decodeURIComponent(hashLetter[1]).toUpperCase()]) {
+                activeLetterFile = LETTER_FILES[decodeURIComponent(hashLetter[1]).toUpperCase()];
+                document.querySelectorAll('.az-link').forEach(function (a) {
+                    a.classList.toggle('active', a.getAttribute('href') === activeLetterFile);
+                });
+            }
+            if (qLevel || qPos || qCat || activeLetterFile) search();
         })();
 
         var timer = null;
@@ -565,7 +631,7 @@ def hub_page(tpl, pages, base_url, total, counts_by_letter, counts_by_level):
     for p in pages:
         firsts.setdefault(p["letter"], p["file"])
     tiles = "".join(
-        '<a class="letter-tile" href="%s"><strong>%s</strong><span>%d Wörter</span></a>' %
+        '<a class="letter-tile az-link" href="%s"><strong>%s</strong><span>%d Wörter</span></a>' %
         (f, L, counts_by_letter[L]) for L, f in firsts.items())
     lv = " · ".join("%s: %d" % (l, counts_by_level.get(l, 0)) for l in LEVELS)
     grid = ('<div id="letterGrid">\n<h2 class="h5 mb-2">Nach Buchstaben blättern / Browse A–Z</h2>\n'
