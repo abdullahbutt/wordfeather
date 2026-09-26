@@ -200,6 +200,9 @@ def alpha_nav(pages, current=None):
     return '<nav class="alpha-nav" aria-label="A-Z">\n%s\n</nav>' % "".join(links)
 
 
+_LETTER_FILTER_MARKER = "        // Remove the loading overlay only once filters are actually wired"
+_LETTER_FILTER_JS = "\n\n        // Carry the Level / Wortart / Thema filters in the URL (?level=&pos=&cat=) instead of\n        // relying on each browser's own back/forward-cache. Two effects: (1) a filtered result\n        // clicked on the hub lands on this page already showing the same filter, instead of\n        // resetting to \"all words on this page\" and looking like results were lost; (2) the\n        // \"Search all N words\" link above takes the CURRENT filter to the hub too, so the\n        // page-only count here and the site-wide count there are reachable from one another\n        // instead of only matching by coincidence of navigation history.\n        (function () {\n            var params = new URLSearchParams(location.search);\n            var qLevel = params.get('level'), qPos = params.get('pos'), qCat = params.get('cat');\n            if (qLevel && qLevel !== 'ALL') {\n                var lvlBtn = document.querySelector('.level-filter button[data-level=\"' + qLevel + '\"]');\n                if (lvlBtn) {\n                    document.querySelectorAll('.level-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });\n                    lvlBtn.classList.add('active'); lvlBtn.setAttribute('aria-pressed', 'true');\n                    activeLevel = qLevel;\n                }\n            }\n            if (qPos && qPos !== 'ALL') {\n                var posBtn = document.querySelector('.pos-filter button[data-pos=\"' + qPos + '\"]');\n                if (posBtn) {\n                    document.querySelectorAll('.pos-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });\n                    posBtn.classList.add('active'); posBtn.setAttribute('aria-pressed', 'true');\n                    activePOS = qPos;\n                }\n            }\n            var catSelect = document.getElementById('categoryFilter');\n            if (qCat && qCat !== 'ALL' && catSelect && [].slice.call(catSelect.options).some(function (o) { return o.value === qCat; })) {\n                catSelect.value = qCat;\n                activeCategory = qCat;\n                if (typeof updateCategoryEnLabel === 'function') updateCategoryEnLabel();\n            }\n            if (qLevel || qPos || qCat) filterWords();\n\n            function currentFilterQuery() {\n                var p = new URLSearchParams();\n                if (activeLevel !== 'ALL') p.set('level', activeLevel);\n                if (activePOS !== 'ALL') p.set('pos', activePOS);\n                if (activeCategory !== 'ALL') p.set('cat', activeCategory);\n                var qs = p.toString();\n                return qs ? '?' + qs : '';\n            }\n            var hubLink = document.getElementById('hubFilterLink');\n            function syncHubLink() { if (hubLink) hubLink.href = 'dictionary.html' + currentFilterQuery(); }\n            syncHubLink();\n            document.querySelectorAll('.level-filter button, .pos-filter button').forEach(function (b) {\n                b.addEventListener('click', syncHubLink);\n            });\n            if (catSelect) catSelect.addEventListener('change', syncHubLink);\n        })();\n\n"
+
 def letter_page(tpl, pages, page, base_url, counts_total):
     n_page = len(page["items"])
     L = page["letter"]
@@ -250,7 +253,7 @@ def letter_page(tpl, pages, page, base_url, counts_total):
 
     # search box is now per-letter: say so, link to the global search on the hub
     scope = ('<p class="search-scope mb-2">Search and filters apply to this page (%s). '
-             '<a href="dictionary.html">Search all %d words →</a></p>\n' % (label, counts_total))
+             '<a href="dictionary.html" id="hubFilterLink">Search all %d words →</a></p>\n' % (label, counts_total))
     s = s.replace('<div class="search-wrap mb-2">', scope + '<div class="search-wrap mb-2">', 1)
 
     # cards
@@ -282,7 +285,9 @@ def letter_page(tpl, pages, page, base_url, counts_total):
 
     middle = ('<div class="dict-layout">\n%s\n<div id="wordList">\n%s%s%s%s' %
               (alpha_nav(pages, L), tpl["no_results"], hdr, "".join(body), pager))
-    return s + middle + tpl["after"]
+    full = s + middle + tpl["after"]
+    full = full.replace(_LETTER_FILTER_MARKER, _LETTER_FILTER_JS + _LETTER_FILTER_MARKER, 1)
+    return full
 
 
 # --------------------------------------------------------------------------- hub
@@ -308,7 +313,7 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
         var LETTER_FILES = __FILES__;
         var m = location.hash.match(/^#letter-(.+)$/);
         if (m && LETTER_FILES[decodeURIComponent(m[1]).toUpperCase()]) {
-            location.replace(LETTER_FILES[decodeURIComponent(m[1]).toUpperCase()]);
+            location.replace(LETTER_FILES[decodeURIComponent(m[1]).toUpperCase()] + location.search);
             return;
         }
         var input = document.getElementById('searchInput');
@@ -376,7 +381,7 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
             lastHits.slice(0, shown).forEach(function (r) {
                 var a = document.createElement('a');
                 a.className = 'hub-result';
-                a.href = j.p[r[7]] + '#' + r[8];
+                a.href = j.p[r[7]] + currentFilterQuery() + '#' + r[8];
                 var de = document.createElement('span'); de.className = 'hub-de'; de.textContent = r[0];
                 var lv = document.createElement('span'); lv.className = 'badge rounded-pill'; lv.textContent = r[2];
                 lv.style.background = LEVEL_COLORS[r[2]] || '#64748b';
@@ -393,6 +398,45 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
                 resultsBox.appendChild(more);
             }
         }
+        // Same idea as on the letter pages: read ?level=&pos=&cat= on load (so a filtered
+        // result clicked on a letter page's "Search all N words" link reopens the same filter
+        // here), and build the same query string onto every result link below so clicking into
+        // a word keeps the filter instead of losing it on the way to the letter page.
+        function currentFilterQuery() {
+            var p = new URLSearchParams();
+            if (activeLevel !== 'ALL') p.set('level', activeLevel);
+            if (activePOS !== 'ALL') p.set('pos', activePOS);
+            if (activeCategory !== 'ALL') p.set('cat', activeCategory);
+            var qs = p.toString();
+            return qs ? '?' + qs : '';
+        }
+        (function () {
+            var params = new URLSearchParams(location.search);
+            var qLevel = params.get('level'), qPos = params.get('pos'), qCat = params.get('cat');
+            if (qLevel && qLevel !== 'ALL') {
+                var btn = document.querySelector('.level-filter button[data-level="' + qLevel + '"]');
+                if (btn) {
+                    document.querySelectorAll('.level-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                    btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+                    activeLevel = qLevel;
+                }
+            }
+            if (qPos && qPos !== 'ALL') {
+                var pbtn = document.querySelector('.pos-filter button[data-pos="' + qPos + '"]');
+                if (pbtn) {
+                    document.querySelectorAll('.pos-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                    pbtn.classList.add('active'); pbtn.setAttribute('aria-pressed', 'true');
+                    activePOS = qPos;
+                }
+            }
+            if (qCat && qCat !== 'ALL' && document.querySelector('#categoryFilter option[value="' + qCat + '"]')) {
+                document.getElementById('categoryFilter').value = qCat;
+                activeCategory = qCat;
+                updateCategoryEnLabel();
+            }
+            if (qLevel || qPos || qCat) search();
+        })();
+
         var timer = null;
         input.addEventListener('focus', function () { loadIndex().catch(function () {}); });
         input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(search, 120); });

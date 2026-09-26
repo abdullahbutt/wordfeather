@@ -279,7 +279,7 @@ window.addEventListener('load', function () {
                 <p class="mb-3">257 German words starting with M, each with its English translation, an example sentence with translation and common collocations – graded from A1 to C2 for Goethe and telc exam preparation. Deutsche Wörter mit englischer Übersetzung und Beispielsätzen. <a href="dictionary.html">Back to the full dictionary</a>.</p>
 <p class="info-line mb-3">257 words beginning with M · A1–C2 · <span class="art-m fw-bold">m.</span> der · <span class="art-f fw-bold">f.</span> die · <span class="art-n fw-bold">n.</span> das · 🔊 Tap speaker to hear pronunciation</p>
                 <p class="info-line mb-3" style="font-size:0.8rem;">Content reviewed by native German speaker <strong>Birgit Unger</strong>, with spot-checks as the dictionary has grown — Vielen Dank! 🙏</p>
-<p class="search-scope mb-2">Search and filters apply to this page (M). <a href="dictionary.html">Search all 5243 words →</a></p>
+<p class="search-scope mb-2">Search and filters apply to this page (M). <a href="dictionary.html" id="hubFilterLink">Search all 5243 words →</a></p>
 <div class="search-wrap mb-2">
                     <div class="position-relative">
                         <label for="searchInput" class="visually-hidden">Search the German dictionary</label>
@@ -3576,6 +3576,59 @@ window.addEventListener('load', function () {
                 runFilterWords();
             });
         }
+
+
+
+        // Carry the Level / Wortart / Thema filters in the URL (?level=&pos=&cat=) instead of
+        // relying on each browser's own back/forward-cache. Two effects: (1) a filtered result
+        // clicked on the hub lands on this page already showing the same filter, instead of
+        // resetting to "all words on this page" and looking like results were lost; (2) the
+        // "Search all N words" link above takes the CURRENT filter to the hub too, so the
+        // page-only count here and the site-wide count there are reachable from one another
+        // instead of only matching by coincidence of navigation history.
+        (function () {
+            var params = new URLSearchParams(location.search);
+            var qLevel = params.get('level'), qPos = params.get('pos'), qCat = params.get('cat');
+            if (qLevel && qLevel !== 'ALL') {
+                var lvlBtn = document.querySelector('.level-filter button[data-level="' + qLevel + '"]');
+                if (lvlBtn) {
+                    document.querySelectorAll('.level-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                    lvlBtn.classList.add('active'); lvlBtn.setAttribute('aria-pressed', 'true');
+                    activeLevel = qLevel;
+                }
+            }
+            if (qPos && qPos !== 'ALL') {
+                var posBtn = document.querySelector('.pos-filter button[data-pos="' + qPos + '"]');
+                if (posBtn) {
+                    document.querySelectorAll('.pos-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                    posBtn.classList.add('active'); posBtn.setAttribute('aria-pressed', 'true');
+                    activePOS = qPos;
+                }
+            }
+            var catSelect = document.getElementById('categoryFilter');
+            if (qCat && qCat !== 'ALL' && catSelect && [].slice.call(catSelect.options).some(function (o) { return o.value === qCat; })) {
+                catSelect.value = qCat;
+                activeCategory = qCat;
+                if (typeof updateCategoryEnLabel === 'function') updateCategoryEnLabel();
+            }
+            if (qLevel || qPos || qCat) filterWords();
+
+            function currentFilterQuery() {
+                var p = new URLSearchParams();
+                if (activeLevel !== 'ALL') p.set('level', activeLevel);
+                if (activePOS !== 'ALL') p.set('pos', activePOS);
+                if (activeCategory !== 'ALL') p.set('cat', activeCategory);
+                var qs = p.toString();
+                return qs ? '?' + qs : '';
+            }
+            var hubLink = document.getElementById('hubFilterLink');
+            function syncHubLink() { if (hubLink) hubLink.href = 'dictionary.html' + currentFilterQuery(); }
+            syncHubLink();
+            document.querySelectorAll('.level-filter button, .pos-filter button').forEach(function (b) {
+                b.addEventListener('click', syncHubLink);
+            });
+            if (catSelect) catSelect.addEventListener('change', syncHubLink);
+        })();
 
         // Remove the loading overlay only once filters are actually wired
         // up and clickable — this is the point where the page stops
