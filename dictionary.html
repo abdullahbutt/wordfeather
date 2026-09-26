@@ -630,29 +630,100 @@ window.addEventListener('load', function () {
                 resultsBox.innerHTML = '<p class="hub-msg">Suche momentan nicht verfügbar – bitte einen Buchstaben oben wählen. / Search unavailable – please pick a letter.</p>';
             });
         }
+        // Full-card rendering for search results: reuses the ACTUAL word-card markup from
+        // the relevant letter page (fetched once, cached, then reused for every later search)
+        // rather than a stripped-down snippet - so a search result looks and behaves exactly
+        // like the word does on its own letter page: same translation/example layout, the
+        // audio buttons, the ich/du/er... drill, and (for verbs) the conjugation table, all
+        // clickable right there without navigating away. The letter pages remain the single
+        // source of truth for this markup; nothing here duplicates it into the index file.
+        var pageDocCache = {};   // page filename -> Promise<Document>
+        function loadPageDoc(pageFile) {
+            if (!pageDocCache[pageFile]) {
+                pageDocCache[pageFile] = fetch(prefix + pageFile).then(function (r) {
+                    if (!r.ok) throw new Error('page ' + pageFile);
+                    return r.text();
+                }).then(function (html) {
+                    return new DOMParser().parseFromString(html, 'text/html');
+                });
+            }
+            return pageDocCache[pageFile];
+        }
+
+        var ttsSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+        function ttsBtn(text, lang) {
+            var b = document.createElement('button');
+            b.className = 'd-tts'; b.innerHTML = ttsSvg;
+            b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+            b.onclick = function (e) {
+                e.preventDefault(); e.stopPropagation();
+                if (!('speechSynthesis' in window) || !text) return;
+                var synth = window.speechSynthesis; synth.cancel();
+                var clean = text.replace(/\s*[,]\s*-\w+/g, '').replace(/[—–]/g, '').replace(/\(.*?\)/g, '').replace(/\s+/g, ' ').trim();
+                if (!clean) return;
+                var u = new SpeechSynthesisUtterance(clean); u.lang = lang; u.rate = 0.9;
+                synth.speak(u);
+            };
+            return b;
+        }
+        // Same idea as tts.js's own init(), but scoped to one freshly-injected card at a
+        // time (that script's own init() only ever runs once, over whatever .word-card
+        // elements exist at page load - here that's none, since results render later).
+        function addTtsButtons(card) {
+            var deEl = card.querySelector('.word-de'), enEl = card.querySelector('.word-en');
+            if (deEl && deEl.textContent.trim()) deEl.parentNode.insertBefore(ttsBtn(deEl.textContent.trim(), 'de-DE'), deEl.nextSibling);
+            if (enEl && enEl.textContent.trim()) enEl.appendChild(ttsBtn(enEl.textContent.trim(), 'en-US'));
+            var exDe = card.querySelector('.ex-de'), exEn = card.querySelector('.ex-en');
+            if (exDe && exDe.textContent.trim()) exDe.appendChild(ttsBtn(exDe.textContent.trim(), 'de-DE'));
+            if (exEn && exEn.textContent.trim()) exEn.appendChild(ttsBtn(exEn.textContent.trim(), 'en-US'));
+        }
+        // Mirrors addToggle() in the (kept, not stripped) conjugation script below - its own
+        // click handling is delegated on document, so a button built here works automatically;
+        // it just isn't added to freshly-injected cards by that script's one-time page-load scan.
+        function addConjToggle(card) {
+            if (card.getAttribute('data-pos') !== 'verb' || card.querySelector('.conj-toggle')) return;
+            var btn = document.createElement('button');
+            btn.className = 'conj-toggle'; btn.type = 'button';
+            btn.textContent = '📖 Konjugation (alle Formen)';
+            btn.setAttribute('aria-expanded', 'false');
+            var main = card.querySelector('.word-main');
+            if (main) main.appendChild(btn);
+        }
+
+        var renderToken = 0;
         function render(j) {
             var n = lastHits.length;
             wordCount.textContent = n + ' word' + (n !== 1 ? 's' : '');
-            resultsBox.innerHTML = '';
             noResults.style.display = n === 0 ? 'block' : 'none';
-            lastHits.slice(0, shown).forEach(function (r) {
-                var a = document.createElement('a');
-                a.className = 'hub-result';
-                a.href = j.p[r[7]] + currentFilterQuery() + '#' + r[8];
-                var de = document.createElement('span'); de.className = 'hub-de'; de.textContent = r[0];
-                var lv = document.createElement('span'); lv.className = 'badge rounded-pill'; lv.textContent = r[2];
-                lv.style.background = LEVEL_COLORS[r[2]] || '#64748b';
-                var en = document.createElement('span'); en.className = 'hub-en'; en.textContent = r[1];
-                var ex = document.createElement('span'); ex.className = 'hub-ex'; ex.textContent = r[6];
-                a.appendChild(de); a.appendChild(lv); a.appendChild(en); a.appendChild(ex);
-                resultsBox.appendChild(a);
+            var token = ++renderToken;   // guards against a slower, older render finishing after a newer one
+            var slice = lastHits.slice(0, shown);
+            var pages = [];
+            slice.forEach(function (r) { if (pages.indexOf(j.p[r[7]]) === -1) pages.push(j.p[r[7]]); });
+            resultsBox.innerHTML = n ? '<p class="hub-msg">⏳ Laden… / Loading…</p>' : '';
+            Promise.all(pages.map(loadPageDoc)).then(function (docs) {
+                if (token !== renderToken) return;   // a newer search/filter/page superseded this one
+                var docByPage = {};
+                pages.forEach(function (p, i) { docByPage[p] = docs[i]; });
+                resultsBox.innerHTML = '';
+                slice.forEach(function (r) {
+                    var doc = docByPage[j.p[r[7]]];
+                    var el = doc && doc.getElementById(r[8]);
+                    if (!el) return;   // shouldn't happen - the index and the letter pages are built together
+                    var card = el.cloneNode(true);
+                    addTtsButtons(card);
+                    addConjToggle(card);
+                    resultsBox.appendChild(card);
+                });
+            }).catch(function () {
+                if (token !== renderToken) return;
+                resultsBox.innerHTML = '<p class="hub-msg">Suche momentan nicht verfügbar – bitte einen Buchstaben oben wählen. / Search unavailable – please pick a letter.</p>';
             });
             if (n > shown) {
                 var more = document.createElement('button');
                 more.type = 'button'; more.className = 'btn btn-outline-primary btn-sm my-3';
                 more.textContent = 'Mehr anzeigen / Show more (' + (n - shown) + ')';
                 more.addEventListener('click', function () { shown += PAGE; render(j); });
-                resultsBox.appendChild(more);
+                resultsBox.appendChild(more);   // appended after the (possibly still-loading) cards; fine either way
             }
         }
         // Same idea as on the letter pages: read ?level=&pos=&cat= on load (so a filtered
@@ -777,7 +848,77 @@ window.addEventListener('load', function () {
         }
     })();
     </script>
-        <script>
+    <script>
+    // TTS
+    (function() {
+        if (!('speechSynthesis' in window)) return;
+        var synth = window.speechSynthesis;
+        var activeBtn = null;
+        var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+        function mkBtn(text, lang) {
+            var b = document.createElement('button');
+            b.className = 'd-tts'; b.innerHTML = svg;
+            b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+            b.setAttribute('aria-label', lang === 'de-DE' ? 'German pronunciation' : 'English pronunciation');
+            b.onclick = function(e) {
+                e.preventDefault(); e.stopPropagation();
+                synth.cancel();
+                if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
+                if (activeBtn) activeBtn.classList.remove('playing');
+                var clean = text.replace(/\s*[,]\s*-\w+/g,'').replace(/[—–]/g,'').replace(/\(.*?\)/g,'').replace(/\s+/g,' ').trim();
+                if (!clean) return;
+                var u = new SpeechSynthesisUtterance(clean);
+                u.lang = lang; u.rate = 0.9;
+                var voices = synth.getVoices();
+                var lp = lang.split('-')[0];
+                for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
+                b.classList.add('playing'); activeBtn = b;
+                u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
+                synth.speak(u);
+            };
+            return b;
+        }
+        var initialized = false;
+        function init() {
+            if (initialized) return;
+            initialized = true;
+            document.querySelectorAll('.word-card').forEach(function(card) {
+                var deEl = card.querySelector('.word-de');
+                var enEl = card.querySelector('.word-en');
+                var exEl = card.querySelector('.word-example');
+                if (deEl && deEl.textContent.trim()) deEl.parentNode.insertBefore(mkBtn(deEl.textContent.trim(), 'de-DE'), deEl.nextSibling);
+                if (enEl && enEl.textContent.trim()) enEl.appendChild(mkBtn(enEl.textContent.trim(), 'en-US'));
+                if (exEl) {
+                    var exDe = exEl.querySelector('.ex-de');
+                    var exEn = exEl.querySelector('.ex-en');
+                    if (exDe && exDe.textContent.trim()) exDe.appendChild(mkBtn(exDe.textContent.trim(), 'de-DE'));
+                    if (exEn && exEn.textContent.trim()) exEn.appendChild(mkBtn(exEn.textContent.trim(), 'en-US'));
+                }
+            });
+            // 6-person sentence drill (ich/du/er,sie,es/wir/ihr/sie,Sie) —
+            // added after the drill feature shipped, so this page's own
+            // inline TTS script (separate from tts.js) needed the same
+            // handling added here. Scoped explicitly to .word-person-drill
+            // rows by position, not by table/header text, for the same
+            // reason the shared tts.js does it this way: broad matching
+            // by header text is what caused an earlier bug where the
+            // search filter reached into this exact nested table.
+            document.querySelectorAll('.word-person-drill tbody tr').forEach(function(row) {
+                var cells = row.querySelectorAll('td');
+                if (cells.length < 2) return;
+                var deCell = cells[0], enCell = cells[1];
+                if (deCell.querySelector('.d-tts')) return; // already processed
+                var deText = deCell.textContent.trim();
+                var enText = enCell.textContent.trim();
+                if (deText) deCell.appendChild(mkBtn(deText, 'de-DE'));
+                if (enText) enCell.appendChild(mkBtn(enText, 'en-US'));
+            });
+        }
+        if (synth.getVoices().length > 0) init();
+        else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }
+    })();
+    </script>
+    <script>
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js')
             .then(function(reg) { reg.update(); })
@@ -785,6 +926,298 @@ window.addEventListener('load', function () {
     }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script>    </body>
+    <script>
+// Person-sentence drill (ich/du/er.../Sie) for dictionary.html —
+// lazy-loaded on first expand, same pattern as the full conjugation
+// table loader elsewhere on this page. Injected automatically by
+// build_dictionary() (idempotent — see inject_person_sentences_script)
+// so a fresh checkout of dictionary.html always has it, without
+// needing a one-off manual edit to the file's static shell.
+(function() {
+    var prefix = window.location.pathname.replace(/\\/g, '/').match(/\/(A1|A2|B1|B2|C1|C2)\//) ? '../' : '';
+    var dataPromise = null;
+    function loadPersonData() {
+        if (dataPromise) return dataPromise;
+        dataPromise = fetch(prefix + 'person-sentences.json')
+            .then(function(r) { return r.ok ? r.json() : {}; })
+            .catch(function() { return {}; });
+        return dataPromise;
+    }
+
+    var ttsSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+    function addTtsIfAvailable(cell, text, lang) {
+        if (!('speechSynthesis' in window) || !text) return;
+        var b = document.createElement('button');
+        b.className = 'd-tts';
+        b.innerHTML = ttsSvg;
+        b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+        b.onclick = function(e) {
+            e.preventDefault(); e.stopPropagation();
+            var synth = window.speechSynthesis;
+            synth.cancel();
+            var clean = text.replace(/\s*[,]\s*-\w+/g, '').replace(/[—–]/g, '').replace(/\(.*?\)/g, '').replace(/\s+/g, ' ').trim();
+            if (!clean) return;
+            var u = new SpeechSynthesisUtterance(clean);
+            u.lang = lang; u.rate = 0.9;
+            synth.speak(u);
+        };
+        cell.appendChild(b);
+    }
+
+    function renderDrillTable(rows) {
+        // Shares the same 'showEnglishConj' localStorage key as the
+        // conjugation-table English toggle, so there's one unified
+        // "show English" preference across both features on the page,
+        // not two independently-remembered settings.
+        var showEn = localStorage.getItem('showEnglishConj') === 'true';
+        var html = '<div style="margin-top:0.4rem;">' +
+            '<label style="display:inline-flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.8rem;margin-bottom:0.3rem;">' +
+            '<input type="checkbox" class="person-en-toggle-input"' + (showEn ? ' checked' : '') + '>' +
+            '<span>Englische Übersetzung anzeigen / Show English</span>' +
+            '</label>' +
+            '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
+            '<thead><tr><th style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;width:55%;">Deutsch</th>' +
+            '<th class="person-en-col" style="text-align:left;padding:0.25rem 0.5rem;border-bottom:1px solid #e5e7eb;' + (showEn ? '' : 'display:none;') + '">English</th></tr></thead><tbody>';
+        rows.forEach(function(pair) {
+            html += '<tr><td>' + pair[0] + '</td><td class="person-en-col" style="' + (showEn ? '' : 'display:none;') + '">' + pair[1] + '</td></tr>';
+        });
+        html += '</tbody></table></div></div>';
+        return html;
+    }
+
+    document.addEventListener('toggle', function(e) {
+        var details = e.target;
+        if (!details.classList || !details.classList.contains('word-person-drill')) return;
+        if (!details.open) return;
+        if (details.querySelector('table')) return; // already rendered
+
+        var word = details.getAttribute('data-word') || '';
+
+        loadPersonData().then(function(data) {
+            var rows = data[word];
+            if (!rows) return;
+            var wrap = document.createElement('div');
+            wrap.innerHTML = renderDrillTable(rows);
+            details.appendChild(wrap.firstChild);
+            details.querySelectorAll('tbody tr').forEach(function(row) {
+                var cells = row.querySelectorAll('td');
+                if (cells.length < 2) return;
+                addTtsIfAvailable(cells[0], cells[0].textContent.trim(), 'de-DE');
+                addTtsIfAvailable(cells[1], cells[1].textContent.trim(), 'en-US');
+            });
+        });
+    }, true);
+
+    // English toggle for the person-drill — event delegation since each
+    // switch is created fresh whenever a drill table is rendered (same
+    // reasoning as the conjugation table's own English toggle elsewhere
+    // on this page). Shares the 'showEnglishConj' key, so turning this
+    // on/off also updates the conjugation table's toggle state and vice
+    // versa — one consistent preference, not two separate ones.
+    document.addEventListener('change', function(e) {
+        var toggle = e.target.closest('.person-en-toggle-input');
+        if (!toggle) return;
+        localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+        document.querySelectorAll('.person-en-toggle-input, .conj-en-toggle-input').forEach(function(t) {
+            t.checked = toggle.checked;
+        });
+        document.querySelectorAll('.person-en-col').forEach(function(el) {
+            el.style.display = toggle.checked ? '' : 'none';
+        });
+        document.body.classList.toggle('show-english', toggle.checked);
+    });
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script>    <script>
+    // Full verb conjugation table — lazy-loaded, click-to-expand
+    (function() {
+        var conjData = null;
+        var conjPromise = null;
+        var prefix = window.location.pathname.replace(/\\/g, '/').match(/\/(A1|A2|B1|B2|C1|C2)\//) ? '../' : '';
+
+        function loadConjugations() {
+            if (conjPromise) return conjPromise;
+            conjPromise = fetch(prefix + 'conjugations.json')
+                .then(function(r) { return r.ok ? r.json() : {}; })
+                .then(function(json) {
+                    conjData = {};
+                    Object.keys(json).forEach(function(k) {
+                        conjData[k.toLowerCase()] = json[k];
+                    });
+                    return conjData;
+                })
+                .catch(function() { conjData = {}; return conjData; });
+            return conjPromise;
+        }
+
+        var TENSE_LABELS = {
+            praesens: 'Präsens', praeteritum: 'Präteritum', perfekt: 'Perfekt',
+            plusquamperfekt: 'Plusquamperfekt', futur1: 'Futur I', futur2: 'Futur II'
+        };
+        var PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'Sie'];
+        var PERSONS_EN = ['I', 'you', 'he/she/it', 'we', 'you', 'they'];
+        // English translations are only shown for the tenses a learner
+        // actually uses day-to-day — Konjunktiv/Futur II/Passiv are
+        // skipped since a rule-derived English rendering for those is
+        // often misleading rather than merely absent.
+        var EN_ELIGIBLE_TENSES = ['praesens', 'praeteritum', 'perfekt'];
+
+        function renderTenseBlock(tenseKey, forms, englishForms) {
+            var rows = '';
+            var showEn = englishForms && EN_ELIGIBLE_TENSES.indexOf(tenseKey) > -1;
+            for (var i = 0; i < 6; i++) {
+                var enLine = showEn
+                    ? '<div class="conj-en-line">(' + PERSONS_EN[i] + ' ' + englishForms[i] + ')</div>'
+                    : '';
+                rows += '<div class="conj-row"><span class="conj-person">' + PERSONS[i] + '</span>' +
+                        forms[i] + enLine + '</div>';
+            }
+            return '<div class="conj-tense-block">' +
+                   '<div class="conj-tense-label">' + (TENSE_LABELS[tenseKey] || tenseKey) + '</div>' +
+                   rows + '</div>';
+        }
+
+        function renderMoodGrid(tenses, source, english) {
+            var html = '';
+            tenses.forEach(function(t) {
+                if (source && source[t]) html += renderTenseBlock(t, source[t], english && english[t]);
+            });
+            return html ? '<div class="conj-mood-grid">' + html + '</div>' : '';
+        }
+
+        function renderTable(table, isA1) {
+            var html = '<div class="conj-table-wrap">';
+            var en = table.english || null;
+
+            html += '<div class="conj-mood-title">Präsens</div>';
+            html += renderMoodGrid(['praesens'], table.indikativ, null);
+
+            var restHtml = '';
+            restHtml += '<div class="conj-en-toggle-wrap">' +
+                    '<label class="conj-en-toggle">' +
+                    '<input type="checkbox" class="conj-en-toggle-input">' +
+                    '<span class="conj-en-toggle-slider"></span>' +
+                    '</label>' +
+                    '<span>Englische Übersetzung anzeigen</span>' +
+                    '</div>';
+
+            restHtml += '<div class="conj-mood-title">Weitere Formen</div><div class="conj-imperativ-row">' +
+                    '<span>Infinitiv: ' + table.infinitiv + '</span>' +
+                    '<span>Partizip Präsens: ' + table.partizip1 + '</span>' +
+                    '<span>Partizip Perfekt: ' + table.partizip2 + '</span>' +
+                    '<span>zu + Infinitiv: ' + table.zu_infinitiv + '</span>' +
+                    '</div>';
+
+            restHtml += '<div class="conj-mood-title">Indikativ</div>';
+            restHtml += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1','futur2'], table.indikativ, en);
+
+            restHtml += '<div class="conj-mood-title">Konjunktiv I</div>';
+            restHtml += renderMoodGrid(['praesens','perfekt','futur1','futur2'], table.konjunktiv1);
+
+            restHtml += '<div class="conj-mood-title">Konjunktiv II</div>';
+            restHtml += renderMoodGrid(['praeteritum','plusquamperfekt','futur1','futur2'], table.konjunktiv2);
+
+            if (table.imperativ) {
+                restHtml += '<div class="conj-mood-title">Imperativ</div><div class="conj-imperativ-row">';
+                ['du','ihr','Sie','wir'].forEach(function(p) {
+                    if (table.imperativ[p]) restHtml += '<span>' + p + ': ' + table.imperativ[p] + '</span>';
+                });
+                restHtml += '</div>';
+            }
+
+            if (table.passiv) {
+                restHtml += '<div class="conj-mood-title">Passiv</div>';
+                restHtml += renderMoodGrid(['praesens','praeteritum','perfekt','plusquamperfekt','futur1'], table.passiv);
+            }
+
+            // A1: everything past Präsens is real data, not deleted — just
+            // nested behind its own collapsed-by-default toggle, so a true
+            // beginner isn't confronted with grammar far beyond A1 the
+            // moment they click "📖 Konjugation". A2-C2 show it directly,
+            // same as before.
+            if (isA1) {
+                html += '<details class="conj-more-details"><summary class="conj-more-summary">' +
+                        'Weitere Formen anzeigen (fortgeschritten) / Show more forms (advanced)</summary>' +
+                        restHtml + '</details>';
+            } else {
+                html += restHtml;
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function addToggle(card) {
+            if (card.getAttribute('data-pos') !== 'verb') return;
+            if (card.querySelector('.conj-toggle')) return;
+            var btn = document.createElement('button');
+            btn.className = 'conj-toggle';
+            btn.type = 'button';
+            btn.textContent = '📖 Konjugation (alle Formen)';
+            btn.setAttribute('aria-expanded', 'false');
+            var mainDiv = card.querySelector('.word-main');
+            mainDiv.appendChild(btn);
+        }
+
+        document.querySelectorAll('.word-card').forEach(addToggle);
+
+        // Event delegation: robust against any future DOM rebuilding of
+        // .word-card content, not just direct listener attachment.
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.conj-toggle');
+            if (!btn) return;
+            e.preventDefault(); e.stopPropagation();
+
+            var card = btn.closest('.word-card');
+            var de = card.getAttribute('data-de');
+            var existing = card.querySelector('.conj-table-wrap');
+            if (existing) {
+                existing.remove();
+                btn.textContent = '📖 Konjugation (alle Formen)';
+                btn.setAttribute('aria-expanded', 'false');
+                return;
+            }
+
+            loadConjugations().then(function(data) {
+                var table = data[de];
+                if (!table) {
+                    btn.textContent = '(noch keine vollständige Konjugation verfügbar)';
+                    btn.disabled = true;
+                    btn.setAttribute('aria-expanded', 'false');
+                    return;
+                }
+                var div = document.createElement('div');
+                div.innerHTML = renderTable(table, card.getAttribute('data-level') === 'A1');
+                var wrap = div.firstChild;
+                var enToggleInput = wrap.querySelector('.conj-en-toggle-input');
+                if (enToggleInput) {
+                    enToggleInput.checked = localStorage.getItem('showEnglishConj') === 'true';
+                }
+                card.querySelector('.word-main').appendChild(wrap);
+                btn.textContent = '✕ Konjugation ausblenden';
+                btn.setAttribute('aria-expanded', 'true');
+            });
+        });
+
+        // English translation toggle — event delegation since each
+        // toggle switch is created fresh whenever a conjugation table
+        // is rendered (same lesson as the tts.js conflict: attaching a
+        // listener directly to a dynamically-created node is fragile).
+        if (localStorage.getItem('showEnglishConj') === 'true') {
+            document.body.classList.add('show-english');
+        }
+        document.addEventListener('change', function(e) {
+            var toggle = e.target.closest('.conj-en-toggle-input');
+            if (!toggle) return;
+            document.body.classList.toggle('show-english', toggle.checked);
+            localStorage.setItem('showEnglishConj', toggle.checked ? 'true' : 'false');
+            // keep every other already-rendered toggle switch in sync
+            document.querySelectorAll('.conj-en-toggle-input').forEach(function(t) {
+                t.checked = toggle.checked;
+            });
+        });
+    })();
+    </script>
+</body>
 </html>

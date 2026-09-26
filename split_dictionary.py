@@ -373,29 +373,100 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
                 resultsBox.innerHTML = '<p class="hub-msg">Suche momentan nicht verfügbar – bitte einen Buchstaben oben wählen. / Search unavailable – please pick a letter.</p>';
             });
         }
+        // Full-card rendering for search results: reuses the ACTUAL word-card markup from
+        // the relevant letter page (fetched once, cached, then reused for every later search)
+        // rather than a stripped-down snippet - so a search result looks and behaves exactly
+        // like the word does on its own letter page: same translation/example layout, the
+        // audio buttons, the ich/du/er... drill, and (for verbs) the conjugation table, all
+        // clickable right there without navigating away. The letter pages remain the single
+        // source of truth for this markup; nothing here duplicates it into the index file.
+        var pageDocCache = {};   // page filename -> Promise<Document>
+        function loadPageDoc(pageFile) {
+            if (!pageDocCache[pageFile]) {
+                pageDocCache[pageFile] = fetch(prefix + pageFile).then(function (r) {
+                    if (!r.ok) throw new Error('page ' + pageFile);
+                    return r.text();
+                }).then(function (html) {
+                    return new DOMParser().parseFromString(html, 'text/html');
+                });
+            }
+            return pageDocCache[pageFile];
+        }
+
+        var ttsSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+        function ttsBtn(text, lang) {
+            var b = document.createElement('button');
+            b.className = 'd-tts'; b.innerHTML = ttsSvg;
+            b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+            b.onclick = function (e) {
+                e.preventDefault(); e.stopPropagation();
+                if (!('speechSynthesis' in window) || !text) return;
+                var synth = window.speechSynthesis; synth.cancel();
+                var clean = text.replace(/\s*[,]\s*-\w+/g, '').replace(/[—–]/g, '').replace(/\(.*?\)/g, '').replace(/\s+/g, ' ').trim();
+                if (!clean) return;
+                var u = new SpeechSynthesisUtterance(clean); u.lang = lang; u.rate = 0.9;
+                synth.speak(u);
+            };
+            return b;
+        }
+        // Same idea as tts.js's own init(), but scoped to one freshly-injected card at a
+        // time (that script's own init() only ever runs once, over whatever .word-card
+        // elements exist at page load - here that's none, since results render later).
+        function addTtsButtons(card) {
+            var deEl = card.querySelector('.word-de'), enEl = card.querySelector('.word-en');
+            if (deEl && deEl.textContent.trim()) deEl.parentNode.insertBefore(ttsBtn(deEl.textContent.trim(), 'de-DE'), deEl.nextSibling);
+            if (enEl && enEl.textContent.trim()) enEl.appendChild(ttsBtn(enEl.textContent.trim(), 'en-US'));
+            var exDe = card.querySelector('.ex-de'), exEn = card.querySelector('.ex-en');
+            if (exDe && exDe.textContent.trim()) exDe.appendChild(ttsBtn(exDe.textContent.trim(), 'de-DE'));
+            if (exEn && exEn.textContent.trim()) exEn.appendChild(ttsBtn(exEn.textContent.trim(), 'en-US'));
+        }
+        // Mirrors addToggle() in the (kept, not stripped) conjugation script below - its own
+        // click handling is delegated on document, so a button built here works automatically;
+        // it just isn't added to freshly-injected cards by that script's one-time page-load scan.
+        function addConjToggle(card) {
+            if (card.getAttribute('data-pos') !== 'verb' || card.querySelector('.conj-toggle')) return;
+            var btn = document.createElement('button');
+            btn.className = 'conj-toggle'; btn.type = 'button';
+            btn.textContent = '📖 Konjugation (alle Formen)';
+            btn.setAttribute('aria-expanded', 'false');
+            var main = card.querySelector('.word-main');
+            if (main) main.appendChild(btn);
+        }
+
+        var renderToken = 0;
         function render(j) {
             var n = lastHits.length;
             wordCount.textContent = n + ' word' + (n !== 1 ? 's' : '');
-            resultsBox.innerHTML = '';
             noResults.style.display = n === 0 ? 'block' : 'none';
-            lastHits.slice(0, shown).forEach(function (r) {
-                var a = document.createElement('a');
-                a.className = 'hub-result';
-                a.href = j.p[r[7]] + currentFilterQuery() + '#' + r[8];
-                var de = document.createElement('span'); de.className = 'hub-de'; de.textContent = r[0];
-                var lv = document.createElement('span'); lv.className = 'badge rounded-pill'; lv.textContent = r[2];
-                lv.style.background = LEVEL_COLORS[r[2]] || '#64748b';
-                var en = document.createElement('span'); en.className = 'hub-en'; en.textContent = r[1];
-                var ex = document.createElement('span'); ex.className = 'hub-ex'; ex.textContent = r[6];
-                a.appendChild(de); a.appendChild(lv); a.appendChild(en); a.appendChild(ex);
-                resultsBox.appendChild(a);
+            var token = ++renderToken;   // guards against a slower, older render finishing after a newer one
+            var slice = lastHits.slice(0, shown);
+            var pages = [];
+            slice.forEach(function (r) { if (pages.indexOf(j.p[r[7]]) === -1) pages.push(j.p[r[7]]); });
+            resultsBox.innerHTML = n ? '<p class="hub-msg">⏳ Laden… / Loading…</p>' : '';
+            Promise.all(pages.map(loadPageDoc)).then(function (docs) {
+                if (token !== renderToken) return;   // a newer search/filter/page superseded this one
+                var docByPage = {};
+                pages.forEach(function (p, i) { docByPage[p] = docs[i]; });
+                resultsBox.innerHTML = '';
+                slice.forEach(function (r) {
+                    var doc = docByPage[j.p[r[7]]];
+                    var el = doc && doc.getElementById(r[8]);
+                    if (!el) return;   // shouldn't happen - the index and the letter pages are built together
+                    var card = el.cloneNode(true);
+                    addTtsButtons(card);
+                    addConjToggle(card);
+                    resultsBox.appendChild(card);
+                });
+            }).catch(function () {
+                if (token !== renderToken) return;
+                resultsBox.innerHTML = '<p class="hub-msg">Suche momentan nicht verfügbar – bitte einen Buchstaben oben wählen. / Search unavailable – please pick a letter.</p>';
             });
             if (n > shown) {
                 var more = document.createElement('button');
                 more.type = 'button'; more.className = 'btn btn-outline-primary btn-sm my-3';
                 more.textContent = 'Mehr anzeigen / Show more (' + (n - shown) + ')';
                 more.addEventListener('click', function () { shown += PAGE; render(j); });
-                resultsBox.appendChild(more);
+                resultsBox.appendChild(more);   // appended after the (possibly still-loading) cards; fine either way
             }
         }
         // Same idea as on the letter pages: read ?level=&pos=&cat= on load (so a filtered
@@ -505,15 +576,8 @@ def hub_page(tpl, pages, base_url, total, counts_by_letter, counts_by_level):
     tail = tpl["after"][len("</div>\n</div>\n"):]     # the original wordList + dict-layout closers are re-added below
     s = s + middle + "</div>\n</div>\n" + tail
 
-    # scripts: drop the per-card scripts (TTS, person drill, conjugations) - the hub has no cards
-    def drop(s, marker):
-        pat = re.compile(r"<script>(?:(?!</script>).)*?%s.*?</script>\n?" % re.escape(marker), re.S)
-        s2, n = pat.subn("", s, count=1)
-        if not n:
-            print("  warn: hub script marker not found: %s" % marker, file=sys.stderr)
-        return s2
-    for marker in ("// TTS\n", "Person-sentence drill", "Full verb conjugation table"):
-        s = drop(s, marker)
+    # NOTE: TTS / person-drill / conjugation scripts are intentionally KEPT on the hub (not
+    # stripped) - see the "full card" search rendering in HUB_JS below, which reuses them.
 
     # replace the card-based "Search & Filter" section of the main script with the index-based one
     a = s.find("        // Search & Filter")
