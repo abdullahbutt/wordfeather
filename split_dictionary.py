@@ -307,6 +307,11 @@ HUB_CSS = """<style>
 .hub-msg{padding:1.5rem .25rem;color:var(--muted,#64748b)}
 .az-link.active{font-weight:800;color:#1d4ed8}
 .letter-tile.active{border-color:#1d4ed8;box-shadow:0 0 0 2px #1d4ed8 inset}
+.letter-chip{display:inline-flex;align-items:center;gap:.4rem;border:1.5px solid #1d4ed8;background:#1d4ed8;color:#fff;
+ border-radius:2rem;padding:.2rem .35rem .2rem .75rem;font-size:.78rem;font-weight:600;margin:0 0 .6rem}
+.letter-chip button{all:unset;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+ width:1.2rem;height:1.2rem;border-radius:50%;background:rgba(255,255,255,.25);font-size:.7rem;line-height:1}
+.letter-chip button:hover{background:rgba(255,255,255,.4)}
 </style>
 """
 
@@ -351,7 +356,7 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
                 grid.style.display = ''; resultsBox.style.display = 'none'; noResults.style.display = 'none';
                 wordCount.textContent = TOTAL + ' words';
                 var prevChip = resultsBox.previousElementSibling;
-                if (prevChip && prevChip.classList.contains('hub-msg')) prevChip.remove();
+                if (prevChip && prevChip.classList.contains('letter-chip')) prevChip.remove();
                 return;
             }
             resultsBox.style.display = ''; grid.style.display = 'none';
@@ -449,7 +454,7 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
                 var docByPage = {};
                 pages.forEach(function (p, i) { docByPage[p] = docs[i]; });
                 var prevChip = resultsBox.previousElementSibling;
-                if (prevChip && prevChip.classList.contains('hub-msg')) prevChip.remove();
+                if (prevChip && prevChip.classList.contains('letter-chip')) prevChip.remove();
                 resultsBox.innerHTML = '';
                 letterChip();
                 slice.forEach(function (r) {
@@ -497,13 +502,14 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
         function letterChip() {
             if (!activeLetterFile) return;
             var label = FILE_TO_LETTER[activeLetterFile] || '?';
-            var chip = document.createElement('p');
-            chip.className = 'hub-msg';
-            chip.style.padding = '0 .25rem .5rem';
+            var chip = document.createElement('div');
+            chip.className = 'letter-chip';
             var span = document.createElement('span');
-            span.innerHTML = 'Buchstabe / Letter: <strong>' + label + '</strong> &nbsp;';
-            var clear = document.createElement('a');
-            clear.href = '#'; clear.textContent = '✕ alle Buchstaben / all letters';
+            span.textContent = 'Buchstabe / Letter: ' + label;
+            var clear = document.createElement('button');
+            clear.type = 'button'; clear.textContent = '✕';
+            clear.title = 'Alle Buchstaben / all letters';
+            clear.setAttribute('aria-label', 'Alle Buchstaben / all letters');
             clear.addEventListener('click', function (e) { e.preventDefault(); setLetter(null); });
             chip.appendChild(span); chip.appendChild(clear);
             resultsBox.parentNode.insertBefore(chip, resultsBox);
