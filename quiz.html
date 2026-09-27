@@ -76,6 +76,24 @@
 
   .quiz-progress-bar { height: 6px; }
 
+  /* Deliberately separated from "Weiter" — right-aligned, well below, with
+     its own divider — so it reads as a distinct, occasional secondary
+     action rather than a second button that could be pressed by accident
+     right after (or instead of) the primary "next question" button. */
+  .report-wrap {
+    margin-top: 1.75rem;
+    padding-top: .75rem;
+    border-top: 1px solid var(--word-border, #e5e7eb);
+  }
+  [data-bs-theme="dark"] .report-wrap { border-top-color: #334155; }
+  #reportBtn { font-size: 0.8rem; color: var(--muted, #64748b); }
+  #reportBtn:hover { color: var(--accent); }
+  [data-bs-theme="dark"] #reportBtn { color: #94a3b8; }
+
+  #quitQuizBtn { font-size: 0.8rem; color: var(--muted, #64748b); text-decoration: none; }
+  #quitQuizBtn:hover { color: var(--bad); text-decoration: underline; }
+  [data-bs-theme="dark"] #quitQuizBtn { color: #94a3b8; }
+
   .prompt-word {
     font-size: 2.1rem;
     font-weight: 700;
@@ -377,7 +395,10 @@
       <div class="progress quiz-progress-bar mb-3">
         <div class="progress-bar bg-primary" id="quizProgressBar" style="width:0%"></div>
       </div>
-      <p class="text-center text-muted small mb-4" id="quizProgressText">Frage 1 / 20</p>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <p class="text-muted small mb-0" id="quizProgressText">Frage 1 / 20</p>
+        <button type="button" class="btn btn-link btn-sm p-0" id="quitQuizBtn">✕ Beenden <span style="opacity:.75">/ Quit</span></button>
+      </div>
 
       <!-- Vocab (Wortschatz) card — shown for kind='vocab' -->
       <div class="card p-4 mb-3" id="vocabPromptCard">
@@ -413,7 +434,9 @@
         <div id="optionsContainer" class="d-grid gap-2 mb-3"></div>
         <div class="feedback-box mb-3" id="feedbackBox"></div>
         <button type="button" class="btn btn-outline-secondary btn-lg w-100 mt-2 hidden" id="nextBtn">Weiter / Next →</button>
-        <button type="button" class="btn btn-link btn-sm w-100 hidden" id="reportBtn">Problem melden <span style="opacity:.75">/ Report a problem</span></button>
+        <div class="report-wrap text-end">
+          <button type="button" class="btn btn-link btn-sm hidden" id="reportBtn">Problem melden <span style="opacity:.75">/ Report a problem</span></button>
+        </div>
       </form>
     </div>
   </section>
@@ -429,6 +452,7 @@
           <button class="btn btn-primary" id="retryBtn">Nochmal üben → <span style="opacity:.75">/ Practice again →</span></button>
           <a href="/dictionary.html" class="btn btn-outline-secondary">Zum Wörterbuch <span style="opacity:.75">/ To the dictionary</span></a>
         </div>
+        <button type="button" class="btn btn-link btn-sm mt-3" id="backToSetupBtn">← Andere Übung wählen <span style="opacity:.75">/ Choose a different exercise</span></button>
       </div>
     </div>
   </section>
@@ -581,11 +605,26 @@
   // resurfaces again within the same study session.
   var INTERVAL_LADDER_DAYS = [0, 1, 2, 4, 7, 14, 30, 60];
 
-  function recordAnswer(word, correct) {
+  function recordAnswer(word, correct, responseMs) {
     var key = questionKey(word);
     var entry = progressData[key] || { streak: 0, timesCorrect: 0, timesWrong: 0, lastSeen: 0, nextDue: 0 };
 
     entry.lastSeen = Date.now();
+    // Response time: not shown to the learner anywhere (a visible timer
+    // would just add exam-style pressure to low-stakes practice), but kept
+    // here silently as a signal for later — how fast a correct answer came
+    // usually says something different than a slow, hesitant one, which is
+    // exactly the kind of input an HLR-style learner model can use. Once
+    // the thesis backend exists, this is what gets included in the answer
+    // API call alongside correct/incorrect (see the reportEndpoint pattern
+    // above for how that hookup works). Kept as a simple running average,
+    // not a full per-attempt history, to keep localStorage lean.
+    if (typeof responseMs === 'number' && responseMs >= 0 && responseMs < 5 * 60 * 1000) {
+      entry.lastResponseMs = responseMs;
+      entry.avgResponseMs = (typeof entry.avgResponseMs === 'number')
+        ? Math.round(entry.avgResponseMs * 0.7 + responseMs * 0.3)
+        : responseMs;
+    }
     if (correct) {
       entry.streak = Math.min(entry.streak + 1, INTERVAL_LADDER_DAYS.length - 1);
       entry.timesCorrect++;
@@ -1790,6 +1829,23 @@ var LESEN_PRACTICE_DATA = {
     renderQuestion();
   });
 
+  // Lets a learner abandon an in-progress quiz and go back to picking what
+  // to practice next — without this, finishing (or refreshing the page)
+  // was the only way out, and refreshing loses whatever tab/options they'd
+  // set up (e.g. Mistakes). setupScreen was only ever hidden, never reset,
+  // so its DOM (including which tab was active) is exactly as they left it.
+  document.getElementById('quitQuizBtn').addEventListener('click', function () {
+    var ok = window.confirm(
+      'Quiz abbrechen? Dein Fortschritt in dieser Runde geht verloren.\n' +
+      'Quit this quiz? Your progress in this round will be lost.'
+    );
+    if (!ok) return;
+    if (window.speechSynthesis) window.speechSynthesis.cancel(); // stop a Hören item mid-playback
+    currentQuiz = null;
+    document.getElementById('quizScreen').classList.add('hidden');
+    document.getElementById('setupScreen').classList.remove('hidden');
+  });
+
   function buildHoerenPracticeQuiz() {
     var questions = buildHoerenPracticeQuestions(selectedHoerenLevel);
     if (!questions.length) { alert('Keine Hörtexte für dieses Niveau gefunden.\nNo listening texts found for this level.'); return null; }
@@ -1818,7 +1874,14 @@ var LESEN_PRACTICE_DATA = {
     return { mode: 'mistakes-practice', questions: questions, index: 0, correctCount: 0, hoerenPlayedItemTitle: null };
   }
 
+  // When the current question actually became answerable — reset at the top
+  // of renderQuestion() for vocab/lesen/an-already-played Hören item, but
+  // overridden inside the Hören unlock() below for a fresh item, since
+  // those options stay disabled until playback finishes.
+  var questionAnswerableAt = 0;
+
   function renderQuestion() {
+    questionAnswerableAt = Date.now();
     var q = currentQuiz.questions[currentQuiz.index];
 
     var pct = Math.round((currentQuiz.index / currentQuiz.questions.length) * 100);
@@ -1875,6 +1938,7 @@ var LESEN_PRACTICE_DATA = {
           document.getElementById('hoerenPlayStatus').textContent = '▶️ Wird abgespielt... (Playing...)';
 
           function unlock() {
+            questionAnswerableAt = Date.now();
             currentQuiz.hoerenPlayedItemTitle = q.itemTitle;
             playBtn.classList.remove('playing');
             playBtn.innerHTML = '✅';
@@ -1951,6 +2015,7 @@ var LESEN_PRACTICE_DATA = {
     // click event is already mid-flight.
     if (clickedBtn.disabled) return;
 
+    var responseMs = Date.now() - questionAnswerableAt;
     var correct = clickedBtn.dataset.answer === q.answerField;
 
     // Disable all options and visually mark the correct one (and the
@@ -2020,14 +2085,14 @@ var LESEN_PRACTICE_DATA = {
     } else if (q.kind === 'vocab') {
       // Placement-test answers deliberately do NOT feed into the
       // spaced-repetition schedule — see note at buildPracticeQuiz/handlePlacementLevelComplete.
-      recordAnswer(q.word, correct);
+      recordAnswer(q.word, correct, responseMs);
     } else if (q.kind === 'lesen' || q.kind === 'hoeren') {
       // Same rule as vocab: only PRACTICE-mode answers are recorded (this
       // branch is only reached when mode !== 'placement', since that's
       // handled in the branch above). Previously these answers were never
       // recorded at all, so Lesen/Hören mistakes never appeared in the
       // mistake notebook and never affected the progress dashboard.
-      recordAnswer(q, correct);
+      recordAnswer(q, correct, responseMs);
     }
 
     var nextBtn = document.getElementById('nextBtn');
@@ -2108,6 +2173,16 @@ var LESEN_PRACTICE_DATA = {
   }
 
   document.getElementById('retryBtn').addEventListener('click', function () {
+    document.getElementById('resultsScreen').classList.add('hidden');
+    document.getElementById('setupScreen').classList.remove('hidden');
+  });
+
+  // Functionally identical to retryBtn above (setupScreen is only ever
+  // hidden, never reset, so whichever tab — e.g. Mistakes — was active
+  // before the quiz is still active) — this just makes "go back and pick
+  // something else" visible as its own labeled option, since "Practice
+  // again →" alone reads as "redo this exact quiz," not "go back."
+  document.getElementById('backToSetupBtn').addEventListener('click', function () {
     document.getElementById('resultsScreen').classList.add('hidden');
     document.getElementById('setupScreen').classList.remove('hidden');
   });
