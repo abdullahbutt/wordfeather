@@ -183,4 +183,4 @@ This project is licensed under **Creative Commons Attribution-NonCommercial 4.0 
 
 **You may not:** sell this content, include it in a paid product or service, or use it commercially without written permission.
 
-© 2024–2026 [Abdullah Butt](https://github.com/abdullahbutt) · [Full license text](LICENSE) · Commercial enquiries: abdullah.butt@msn.com
+© 2024–2026 [Abdullah Butt](https://github.com/abdullahbutt) · [Full license text](LICENSE) · Commercial enquiries: [open a GitHub Issue](https://github.com/abdullahbutt/wordfeather/issues)
