@@ -336,7 +336,7 @@
             <input type="radio" class="btn-check" name="direction" id="dirEnDe" value="en-de">
             <label class="btn btn-outline-secondary" for="dirEnDe">EN → DE</label>
             <input type="radio" class="btn-check" name="direction" id="dirMixed" value="mixed">
-            <label class="btn btn-outline-secondary" for="dirMixed">Gemischt <span style="opacity:.75">/ Mixed</span></label>
+            <label class="btn btn-outline-secondary" for="dirMixed">Gemischt <span style="opacity:.75">/ Mixed (DE &harr; EN)</span></label>
           </div>
 
           <label class="form-label fw-semibold">Anzahl Fragen <span class="text-muted fw-normal">/ Number of questions</span></label>
@@ -2374,13 +2374,17 @@ var LESEN_PRACTICE_DATA = {
   });
 
   // ===== Keyboard: press 1–9 to pick the matching answer (Enter already works on the focused "Weiter" button) =====
+  // Both A-D (matching the visible option letters) and 1-9 (the original
+  // shortcut) select an answer, so the keyboard matches what's on screen
+  // instead of requiring a translation step from letter to number.
   document.addEventListener('keydown', function (e) {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
-    if (!/^[1-9]$/.test(e.key)) return;
+    if (!/^[1-9a-dA-D]$/.test(e.key)) return;
     if (/^(INPUT|TEXTAREA|SELECT)$/.test((e.target && e.target.tagName) || '')) return;
     if (document.getElementById('quizScreen').classList.contains('hidden')) return;
     var open = Array.prototype.filter.call(document.querySelectorAll('#optionsContainer .option-btn'), function (b) { return !b.disabled; });
-    var btn = open[parseInt(e.key, 10) - 1];
+    var idx = /^[a-dA-D]$/.test(e.key) ? e.key.toUpperCase().charCodeAt(0) - 65 : parseInt(e.key, 10) - 1;
+    var btn = open[idx];
     if (btn) { e.preventDefault(); btn.click(); }
   });
 
