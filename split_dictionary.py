@@ -617,18 +617,18 @@ __CATEGORY_EN__
 
 def hub_page(tpl, pages, base_url, total, counts_by_letter, counts_by_level):
     s = tpl["before"]
-    title = "German Dictionary A1–C2: {:,} Words – Deutsch Wörterbuch | WordFeather".format(total)
+    title = "German Dictionary A1–C2: {:,} Words – Deutsch Wörterbuch & Wortschatz | WordFeather".format(total)
     desc = ("Free German–English dictionary with {:,} exam-relevant words, graded A1 to C2, with translations, "
-            "example sentences and collocations for Goethe and telc. Deutsch–Englisch Wörterbuch: "
+            "example sentences and collocations for Goethe and telc. Deutsch–Englisch Wörterbuch und Wortschatz: "
             "durchsuchen oder nach Buchstaben blättern.".format(total))
     s = set_head(s, title, desc, base_url + "/dictionary.html")
-    s = s.replace("📖 Wörterbuch / Dictionary</h1>", "📖 German Dictionary / Deutsch–Englisch Wörterbuch</h1>", 1)
+    s = s.replace("📖 Wörterbuch / Dictionary</h1>", "📖 German Dictionary — Deutsch Wörterbuch & Wortschatz</h1>", 1)
     levels = " · ".join('<a href="%s/">%s</a>' % (l, l) for l in LEVELS)
     intro = ('<p class="mb-3">A free German–English dictionary with {:,} words from A1 to C2. Every entry has an '
              'English translation, an example sentence with translation, collocations and audio pronunciation, '
              'and is chosen for Goethe and telc exam preparation. Search all words below or browse A–Z. '
-             'Ein kostenloses Deutsch–Englisch Wörterbuch mit Beispielsätzen für die Prüfungsvorbereitung. '
-             'Vocabulary by level: {}.</p>\n'.format(total, levels))
+             'Ein kostenloses Deutsch–Englisch Wörterbuch und Wortschatz mit Beispielsätzen für die '
+             'Prüfungsvorbereitung. Vocabulary by level: {}.</p>\n'.format(total, levels))
     s = s.replace('<p class="info-line mb-3">', intro + '<p class="info-line mb-3">', 1)
     s = s.replace("</head>", HUB_CSS + "</head>", 1)
 
