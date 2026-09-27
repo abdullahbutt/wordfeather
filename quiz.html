@@ -569,6 +569,11 @@
     return wordKey(item);
   }
 
+  // This block (interval ladder, recordAnswer, isDue, isMastered) is the RQ3 baseline
+  // referenced in the thesis (accepted Exposé, Section 6: "existing non-personalized,
+  // fixed-interval spaced-repetition baseline"). Selection order for the practice quiz
+  // below (most-overdue-first) is also part of that description — do not change either
+  // without updating that section first.
   var DAY_MS = 24 * 60 * 60 * 1000;
   // Interval ladder in days for each consecutive correct streak level.
   // A wrong answer resets the streak to 0 and brings the word back due
@@ -1714,11 +1719,18 @@ var LESEN_PRACTICE_DATA = {
     var directionPref = document.querySelector('input[name="direction"]:checked').value;
 
     // Spaced-repetition priority: words that are due for review (or never
-    // studied) go first, so a study session actually reinforces what's due
-    // rather than just sampling the whole pool uniformly at random. Once
-    // due/new words run out, backfill with already-mastered words so the
-    // requested question count is still met.
-    var due = shuffle(pool.filter(isDue));
+    // studied) go first, most-overdue-first (matches the baseline as
+    // described in the thesis — see the comment above the interval ladder),
+    // so a study session reinforces what's most behind rather than sampling
+    // the due pool uniformly at random. Once due/new words run out, backfill
+    // with already-mastered words so the requested question count is still
+    // met.
+    var due = pool.filter(isDue).sort(function (a, b) {
+      var ea = getEntry(a), eb = getEntry(b);
+      // No entry yet = never studied = due since the beginning of time, so
+      // it sorts before anything with a real (later) nextDue timestamp.
+      return (ea ? ea.nextDue : -Infinity) - (eb ? eb.nextDue : -Infinity);
+    });
     var notDue = shuffle(pool.filter(function (w) { return !isDue(w); }));
     var chosen = due.concat(notDue).slice(0, count);
 
