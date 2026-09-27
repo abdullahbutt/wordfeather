@@ -86,13 +86,17 @@
     border-top: 1px solid var(--word-border, #e5e7eb);
   }
   [data-bs-theme="dark"] .report-wrap { border-top-color: #334155; }
-  #reportBtn { font-size: 0.8rem; color: var(--muted, #64748b); }
-  #reportBtn:hover { color: var(--accent); }
-  [data-bs-theme="dark"] #reportBtn { color: #94a3b8; }
-
-  #quitQuizBtn { font-size: 0.8rem; color: var(--muted, #64748b); text-decoration: none; }
-  #quitQuizBtn:hover { color: var(--bad); text-decoration: underline; }
-  [data-bs-theme="dark"] #quitQuizBtn { color: #94a3b8; }
+  #reportBtn, #quitQuizBtn {
+    font-size: 0.8rem;
+    color: var(--muted, #64748b);
+    border-color: var(--word-border, #d1d5db);
+  }
+  #reportBtn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  #quitQuizBtn:hover { color: var(--bad); border-color: var(--bad); background: #fef2f2; }
+  [data-bs-theme="dark"] #reportBtn,
+  [data-bs-theme="dark"] #quitQuizBtn { color: #94a3b8; border-color: #334155; }
+  [data-bs-theme="dark"] #reportBtn:hover { background: #1e293b; }
+  [data-bs-theme="dark"] #quitQuizBtn:hover { background: #2a1618; }
 
   .prompt-word {
     font-size: 2.1rem;
@@ -260,6 +264,11 @@
     <div class="card quiz-card">
       <div class="card-body p-4">
 
+        <!-- Wortschatz üben is the site's core, most-used feature, so it
+             gets its own prominent featured button rather than sitting at
+             equal weight in a flat row with everything else. Same element,
+             same id/data-mode/aria wiring as before — switchMode() doesn't
+             need to change at all. -->
         <ul class="nav nav-pills nav-fill mb-3 flex-wrap" id="modeTabs" role="tablist" aria-label="Quiz-Modus wählen / Choose quiz mode">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="tab-practice" data-mode="practice" role="tab" aria-selected="true" aria-controls="practiceOptions">
@@ -397,7 +406,7 @@
       </div>
       <div class="d-flex justify-content-between align-items-center mb-4">
         <p class="text-muted small mb-0" id="quizProgressText">Frage 1 / 20</p>
-        <button type="button" class="btn btn-link btn-sm p-0" id="quitQuizBtn">✕ Beenden <span style="opacity:.75">/ Quit</span></button>
+        <button type="button" class="btn btn-outline-secondary btn-sm" id="quitQuizBtn">✕ Beenden <span style="opacity:.75">/ Quit</span></button>
       </div>
 
       <!-- Vocab (Wortschatz) card — shown for kind='vocab' -->
@@ -435,7 +444,7 @@
         <div class="feedback-box mb-3" id="feedbackBox"></div>
         <button type="button" class="btn btn-outline-secondary btn-lg w-100 mt-2 hidden" id="nextBtn">Weiter / Next →</button>
         <div class="report-wrap text-end">
-          <button type="button" class="btn btn-link btn-sm hidden" id="reportBtn">Problem melden <span style="opacity:.75">/ Report a problem</span></button>
+          <button type="button" class="btn btn-outline-secondary btn-sm hidden" id="reportBtn">🚩 Problem melden <span style="opacity:.75">/ Report a problem</span></button>
         </div>
       </form>
     </div>
