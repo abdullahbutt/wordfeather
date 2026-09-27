@@ -533,6 +533,28 @@
 
 </main>
 
+<!-- Confirmation modal for quitting a quiz in progress — replaces the
+     native window.confirm() dialog, which can't be styled and looks jarring
+     against the rest of the page. -->
+<div class="modal fade" id="quitConfirmModal" tabindex="-1" aria-labelledby="quitConfirmTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5" id="quitConfirmTitle">Quiz abbrechen? <span class="text-muted fw-normal">/ Quit this quiz?</span></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Abbrechen / Cancel"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-0">Dein Fortschritt in dieser Runde geht verloren.</p>
+        <p class="text-muted mb-0">Your progress in this round will be lost.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Weiter üben <span style="opacity:.75">/ Keep going</span></button>
+        <button type="button" class="btn btn-danger" id="quitConfirmOkBtn">Ja, beenden <span style="opacity:.75">/ Yes, quit</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="footer-placeholder"></div>
 <script>
 (function() {
@@ -1843,16 +1865,29 @@ var LESEN_PRACTICE_DATA = {
   // was the only way out, and refreshing loses whatever tab/options they'd
   // set up (e.g. Mistakes). setupScreen was only ever hidden, never reset,
   // so its DOM (including which tab was active) is exactly as they left it.
+  // Confirmation uses a styled Bootstrap modal rather than window.confirm()
+  // — the native dialog can't be themed and looks out of place here.
+  var quitConfirmModalEl = document.getElementById('quitConfirmModal');
+  var quitConfirmModal = window.bootstrap ? new window.bootstrap.Modal(quitConfirmModalEl) : null;
   document.getElementById('quitQuizBtn').addEventListener('click', function () {
-    var ok = window.confirm(
+    if (quitConfirmModal) {
+      quitConfirmModal.show();
+    } else if (window.confirm(   // fallback if bootstrap.bundle.min.js ever fails to load
       'Quiz abbrechen? Dein Fortschritt in dieser Runde geht verloren.\n' +
       'Quit this quiz? Your progress in this round will be lost.'
-    );
-    if (!ok) return;
+    )) {
+      doQuitQuiz();
+    }
+  });
+  function doQuitQuiz() {
     if (window.speechSynthesis) window.speechSynthesis.cancel(); // stop a Hören item mid-playback
     currentQuiz = null;
     document.getElementById('quizScreen').classList.add('hidden');
     document.getElementById('setupScreen').classList.remove('hidden');
+  }
+  document.getElementById('quitConfirmOkBtn').addEventListener('click', function () {
+    if (quitConfirmModal) quitConfirmModal.hide();
+    doQuitQuiz();
   });
 
   function buildHoerenPracticeQuiz() {
