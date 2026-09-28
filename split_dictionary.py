@@ -102,6 +102,44 @@ def set_head(s, title, desc, url):
 
 
 # --------------------------------------------------------------------------- parsing
+# Category names in words_final.json are ASCII-transliterated (Moebel, Koerper ...) and are used as
+# identifiers across the project, so the JSON stays untouched. Only the LABEL shown in the Thema
+# dropdown gets the proper German spelling; the <option value> stays the ASCII key, so filtering,
+# the English label map and ?cat=... URLs are unaffected.
+CATEGORY_LABELS = {
+    "Aemter & Buerokratie": "Ämter & Bürokratie",
+    "Gefuehle & Charakter": "Gefühle & Charakter",
+    "Koerper & Gesundheit": "Körper & Gesundheit",
+    "Moebel": "Möbel",
+    "Sicherheit & Notfaelle": "Sicherheit & Notfälle",
+}
+
+
+def relabel_categories(page_html):
+    for key, label in CATEGORY_LABELS.items():
+        k = html.escape(key, quote=False)
+        old = '<option value="%s">%s</option>' % (k, k)
+        new = '<option value="%s">%s</option>' % (k, html.escape(label, quote=False))
+        if old not in page_html:
+            print("  warn: category option not found, label unchanged: %s" % key, file=sys.stderr)
+            continue
+        page_html = page_html.replace(old, new, 1)
+    return page_html
+
+
+# Shown when a search/filter matches nothing. The old text only said "try a different search"
+# and gave no way out; the reset button is wired in the hub script and in the letter-page script.
+NO_RESULTS_HTML = (
+    '<div id="noResults" class="text-center py-5" style="display:none">\n'
+    '    <p class="fs-5">🔍 Keine Wörter gefunden <span class="text-muted">/ No words found</span></p>\n'
+    '    <p>Versuche einen anderen Suchbegriff oder ändere die Filter.<br>\n'
+    '       <span class="text-muted">Try a different search term or change the filters.</span></p>\n'
+    '    <button type="button" class="btn btn-outline-primary btn-sm" id="resetFiltersBtn">'
+    'Filter zurücksetzen <span style="opacity:.75">/ Clear filters</span></button>\n'
+    '</div>\n'
+)
+
+
 def parse_source(src_text):
     s = src_text.lstrip("\ufeff").replace("\r\n", "\n")
 
@@ -154,9 +192,9 @@ def parse_source(src_text):
         entries.append(a)
 
     return {
-        "before": s[:dl_at],
+        "before": relabel_categories(s[:dl_at]),
         "after": after_cards,
-        "no_results": no_results.group(0) if no_results else "",
+        "no_results": NO_RESULTS_HTML if no_results else "",
         "header_tpl": header_tpl.group(0),
         "entries": entries,
         "full": s,
@@ -201,7 +239,7 @@ def alpha_nav(pages, current=None):
 
 
 _LETTER_FILTER_MARKER = "        // Remove the loading overlay only once filters are actually wired"
-_LETTER_FILTER_JS = "\n\n        // Carry the Level / Wortart / Thema filters in the URL (?level=&pos=&cat=) instead of\n        // relying on each browser's own back/forward-cache. Two effects: (1) a filtered result\n        // clicked on the hub lands on this page already showing the same filter, instead of\n        // resetting to \"all words on this page\" and looking like results were lost; (2) the\n        // \"Search all N words\" link above takes the CURRENT filter to the hub too, so the\n        // page-only count here and the site-wide count there are reachable from one another\n        // instead of only matching by coincidence of navigation history.\n        (function () {\n            var params = new URLSearchParams(location.search);\n            var qLevel = params.get('level'), qPos = params.get('pos'), qCat = params.get('cat');\n            if (qLevel && qLevel !== 'ALL') {\n                var lvlBtn = document.querySelector('.level-filter button[data-level=\"' + qLevel + '\"]');\n                if (lvlBtn) {\n                    document.querySelectorAll('.level-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });\n                    lvlBtn.classList.add('active'); lvlBtn.setAttribute('aria-pressed', 'true');\n                    activeLevel = qLevel;\n                }\n            }\n            if (qPos && qPos !== 'ALL') {\n                var posBtn = document.querySelector('.pos-filter button[data-pos=\"' + qPos + '\"]');\n                if (posBtn) {\n                    document.querySelectorAll('.pos-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });\n                    posBtn.classList.add('active'); posBtn.setAttribute('aria-pressed', 'true');\n                    activePOS = qPos;\n                }\n            }\n            var catSelect = document.getElementById('categoryFilter');\n            if (qCat && qCat !== 'ALL' && catSelect && [].slice.call(catSelect.options).some(function (o) { return o.value === qCat; })) {\n                catSelect.value = qCat;\n                activeCategory = qCat;\n                if (typeof updateCategoryEnLabel === 'function') updateCategoryEnLabel();\n            }\n            if (qLevel || qPos || qCat) filterWords();\n\n            function currentFilterQuery() {\n                var p = new URLSearchParams();\n                if (activeLevel !== 'ALL') p.set('level', activeLevel);\n                if (activePOS !== 'ALL') p.set('pos', activePOS);\n                if (activeCategory !== 'ALL') p.set('cat', activeCategory);\n                var qs = p.toString();\n                return qs ? '?' + qs : '';\n            }\n            var hubLink = document.getElementById('hubFilterLink');\n            function syncHubLink() { if (hubLink) hubLink.href = 'dictionary.html' + currentFilterQuery(); }\n            syncHubLink();\n            document.querySelectorAll('.level-filter button, .pos-filter button').forEach(function (b) {\n                b.addEventListener('click', syncHubLink);\n            });\n            if (catSelect) catSelect.addEventListener('change', syncHubLink);\n        })();\n\n"
+_LETTER_FILTER_JS = "\n\n        // Carry the Level / Wortart / Thema filters in the URL (?level=&pos=&cat=) instead of\n        // relying on each browser's own back/forward-cache. Two effects: (1) a filtered result\n        // clicked on the hub lands on this page already showing the same filter, instead of\n        // resetting to \"all words on this page\" and looking like results were lost; (2) the\n        // \"Search all N words\" link above takes the CURRENT filter to the hub too, so the\n        // page-only count here and the site-wide count there are reachable from one another\n        // instead of only matching by coincidence of navigation history.\n        (function () {\n            var params = new URLSearchParams(location.search);\n            var qLevel = params.get('level'), qPos = params.get('pos'), qCat = params.get('cat');\n            if (qLevel && qLevel !== 'ALL') {\n                var lvlBtn = document.querySelector('.level-filter button[data-level=\"' + qLevel + '\"]');\n                if (lvlBtn) {\n                    document.querySelectorAll('.level-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });\n                    lvlBtn.classList.add('active'); lvlBtn.setAttribute('aria-pressed', 'true');\n                    activeLevel = qLevel;\n                }\n            }\n            if (qPos && qPos !== 'ALL') {\n                var posBtn = document.querySelector('.pos-filter button[data-pos=\"' + qPos + '\"]');\n                if (posBtn) {\n                    document.querySelectorAll('.pos-filter button').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });\n                    posBtn.classList.add('active'); posBtn.setAttribute('aria-pressed', 'true');\n                    activePOS = qPos;\n                }\n            }\n            var catSelect = document.getElementById('categoryFilter');\n            if (qCat && qCat !== 'ALL' && catSelect && [].slice.call(catSelect.options).some(function (o) { return o.value === qCat; })) {\n                catSelect.value = qCat;\n                activeCategory = qCat;\n                if (typeof updateCategoryEnLabel === 'function') updateCategoryEnLabel();\n            }\n            if (qLevel || qPos || qCat) filterWords();\n\n            function currentFilterQuery() {\n                var p = new URLSearchParams();\n                if (activeLevel !== 'ALL') p.set('level', activeLevel);\n                if (activePOS !== 'ALL') p.set('pos', activePOS);\n                if (activeCategory !== 'ALL') p.set('cat', activeCategory);\n                var qs = p.toString();\n                return qs ? '?' + qs : '';\n            }\n            var hubLink = document.getElementById('hubFilterLink');\n            function syncHubLink() { if (hubLink) hubLink.href = 'dictionary.html' + currentFilterQuery(); }\n            syncHubLink();\n            document.querySelectorAll('.level-filter button, .pos-filter button').forEach(function (b) {\n                b.addEventListener('click', syncHubLink);\n            });\n            if (catSelect) catSelect.addEventListener('change', syncHubLink);\n\n            // \"Filter zur\u00fccksetzen\" in the no-results box (same idea as on the hub).\n            var resetBtn = document.getElementById('resetFiltersBtn');\n            if (resetBtn) resetBtn.addEventListener('click', function () {\n                var si = document.getElementById('searchInput');\n                si.value = ''; si.dispatchEvent(new Event('input'));\n                var lb = document.querySelector('.level-filter button[data-level=\"ALL\"]'); if (lb) lb.click();\n                var pb = document.querySelector('.pos-filter button[data-pos=\"ALL\"]'); if (pb) pb.click();\n                if (catSelect) { catSelect.value = 'ALL'; catSelect.dispatchEvent(new Event('change')); }\n            });\n        })();\n\n"
 
 def letter_page(tpl, pages, page, base_url, counts_total):
     n_page = len(page["items"])
@@ -240,7 +278,7 @@ def letter_page(tpl, pages, page, base_url, counts_total):
     s, k = re.subn(r"\d+ exam-relevant words from A1–C2",
                    "%d word%s beginning with %s · A1–C2" % (letter_total, "" if letter_total == 1 else "s", label), s, count=1)
     s = re.sub(r'(<span class="stats" id="wordCount">)[^<]*(</span>)',
-               lambda m: "%s%d words%s" % (m.group(1), n_page, m.group(2)), s, count=1)
+               lambda m: "%s%d %s%s" % (m.group(1), n_page, "Wort" if n_page == 1 else "Wörter", m.group(2)), s, count=1)
     s = s.replace('<li class="breadcrumb-item active" aria-current="page">Wörterbuch / Dictionary</li>',
                   '<li class="breadcrumb-item"><a href="dictionary.html">Wörterbuch / Dictionary</a></li>'
                   '<li class="breadcrumb-item active" aria-current="page">%s%s</li>' % (label, part_txt), 1)
@@ -354,7 +392,7 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
         function search() {
             if (!isFiltering()) {
                 grid.style.display = ''; resultsBox.style.display = 'none'; noResults.style.display = 'none';
-                wordCount.textContent = TOTAL + ' words';
+                wordCount.textContent = TOTAL + ' Wörter';
                 var prevChip = resultsBox.previousElementSibling;
                 if (prevChip && prevChip.classList.contains('letter-chip')) prevChip.remove();
                 return;
@@ -362,6 +400,10 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
             resultsBox.style.display = ''; grid.style.display = 'none';
             resultsBox.innerHTML = '<p class="hub-msg">⏳ Laden… / Loading…</p>';
             loadIndex().then(function (j) {
+                // Several search() calls can be queued back to back (e.g. "Filter zurücksetzen"
+                // clicks each control in turn). If everything has been cleared by the time this
+                // one finishes, the unfiltered view is already showing - don't overwrite it.
+                if (!isFiltering()) return;
                 var q = foldGerman(input.value.toLowerCase().trim());
                 var cat = activeCategory === 'ALL' ? null : activeCategory;
                 lastHits = j.w.filter(function (r) {
@@ -442,7 +484,7 @@ HUB_JS = r"""        // ---- hub search (uses dictionary-index.json, loaded on f
         var renderToken = 0;
         function render(j) {
             var n = lastHits.length;
-            wordCount.textContent = n + ' word' + (n !== 1 ? 's' : '');
+            wordCount.textContent = n === 1 ? '1 Wort gefunden / word found' : n + ' Wörter gefunden / words found';
             noResults.style.display = n === 0 ? 'block' : 'none';
             var token = ++renderToken;   // guards against a slower, older render finishing after a newer one
             var slice = lastHits.slice(0, shown);
@@ -612,25 +654,40 @@ __CATEGORY_EN__
             });
         }
 
+        // "Filter zurücksetzen" in the no-results box: clear the search text, every filter
+        // and the letter in one go, by driving the same controls a person would click.
+        var resetBtn = document.getElementById('resetFiltersBtn');
+        if (resetBtn) resetBtn.addEventListener('click', function () {
+            input.value = '';
+            var lb = document.querySelector('.level-filter button[data-level="ALL"]'); if (lb) lb.click();
+            var pb = document.querySelector('.pos-filter button[data-pos="ALL"]'); if (pb) pb.click();
+            if (categorySelect) { categorySelect.value = 'ALL'; activeCategory = 'ALL'; updateCategoryEnLabel(); }
+            if (activeLetterFile) { setLetter(activeLetterFile); }        // toggles the letter off + updates the URL
+            else { history.replaceState(null, '', 'dictionary.html'); search(); }
+        });
+
 """
 
 
 def hub_page(tpl, pages, base_url, total, counts_by_letter, counts_by_level):
     s = tpl["before"]
     title = "German Dictionary A1–C2: {:,} Words – Deutsch Wörterbuch & Wortschatz | WordFeather".format(total)
-    desc = ("Free German–English dictionary with {:,} exam-relevant words, graded A1 to C2, with translations, "
+    desc = ("Free German–English dictionary with {:,} exam-relevant words and phrases, graded A1 to C2, with translations, "
             "example sentences and collocations for Goethe and telc. Deutsch–Englisch Wörterbuch und Wortschatz: "
             "durchsuchen oder nach Buchstaben blättern.".format(total))
     s = set_head(s, title, desc, base_url + "/dictionary.html")
     s = s.replace("📖 Wörterbuch / Dictionary</h1>", "📖 German Dictionary — Deutsch Wörterbuch & Wortschatz</h1>", 1)
     levels = " · ".join('<a href="%s/">%s</a>' % (l, l) for l in LEVELS)
-    intro = ('<p class="mb-3">A free German–English dictionary with {:,} words from A1 to C2. Every entry has an '
+    intro = ('<p class="mb-3">A free German–English dictionary with {:,} words and phrases from A1 to C2. Every entry has an '
              'English translation, an example sentence with translation, collocations and audio pronunciation, '
              'and is chosen for Goethe and telc exam preparation. Search all words below or browse A–Z. '
              'Ein kostenloses Deutsch–Englisch Wörterbuch und Wortschatz mit Beispielsätzen für die '
              'Prüfungsvorbereitung. Vocabulary by level: {}.</p>\n'.format(total, levels))
     s = s.replace('<p class="info-line mb-3">', intro + '<p class="info-line mb-3">', 1)
     s = s.replace("</head>", HUB_CSS + "</head>", 1)
+    s = s.replace("exam-relevant words from A1–C2", "words and phrases from A1–C2", 1)
+    s = re.sub(r'(<span class="stats" id="wordCount">)[^<]*(</span>)',
+               lambda m: "%s%d Wörter%s" % (m.group(1), total, m.group(2)), s, count=1)
 
     # letter grid (static, crawlable, works without JS)
     firsts = OrderedDict()
