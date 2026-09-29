@@ -2,53 +2,56 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/abdullahbutt/wordfeather?style=for-the-badge&logo=github&label=Star%20this%20Repo)](https://github.com/abdullahbutt/wordfeather)
 &nbsp;&nbsp;
-[![View Website](https://img.shields.io/badge/🌐_View_as_Website-Click_Here-blue?style=for-the-badge)](https://wordfeather.com/)
+[![View Website](https://img.shields.io/badge/🌐_Use_the_Website-wordfeather.com-blue?style=for-the-badge)](https://wordfeather.com/)
 
 </div>
+
 # 🪶 WordFeather — Deutsch Lernen / Goethe-Zertifikat Vorbereitung
 # 🇩🇪 Learn German — Goethe Certificate Preparation
 
-Umfassende Lernmaterialien für alle CEFR-Niveaustufen (A1–C2) zur Vorbereitung auf die Goethe-Prüfungen.
+**👉 Most people should just use [wordfeather.com](https://wordfeather.com/) — no need to browse this repo's files.**
+*Die meisten sollten einfach [wordfeather.com](https://wordfeather.com/) benutzen — ein Durchstöbern dieses Repos ist nicht nötig.*
 
-*Comprehensive learning materials for all CEFR levels (A1–C2) to prepare for the Goethe exams.*
-
----
-
-## 📚 Niveaustufen / Levels
-
-| Stufe | Prüfung | Beschreibung / Description | Sprache / Language |
-|-------|---------|-------------|---------|
-| [A1](./A1/) | Goethe-Zertifikat A1: Start Deutsch 1 | Anfänger / Beginner | 🇩🇪 + 🇬🇧 Bilingual |
-| [A2](./A2/) | Goethe-Zertifikat A2 | Grundlegende Kenntnisse / Elementary | 🇩🇪 + 🇬🇧 Bilingual |
-| [B1](./B1/) | Goethe-Zertifikat B1 | Fortgeschrittene Sprachverwendung / Intermediate | 🇩🇪 + 🇬🇧 Bilingual |
-| [B2](./B2/) | Goethe-Zertifikat B2 | Selbstständige Sprachverwendung / Upper Intermediate | 🇩🇪 Deutsch |
-| [C1](./C1/) | Goethe-Zertifikat C1 | Fachkundige Sprachkenntnisse / Advanced | 🇩🇪 Deutsch |
-| [C2](./C2/) | Goethe-Zertifikat C2: GDS | Annähernd muttersprachliche Kenntnisse / Proficiency | 🇩🇪 Deutsch |
-
-**A1–B1 files include English translations** of all instructions, explanations, strategies, and tips — so beginners can understand everything while learning. B2–C2 files are in German (with English only in vocabulary tables) to support immersion at advanced levels.
+This repository is the source material behind [wordfeather.com](https://wordfeather.com/): a free, open-source study platform for all CEFR levels (A1–C2) preparing for the Goethe and telc exams. The website is the finished, interactive product — searchable, with audio, and installable as an app. The files in this repo are the raw content it's built from, useful if you want to read offline, fork it, or contribute.
 
 ---
 
-## 📂 Inhalt jeder Stufe / Contents per Level
+## 🌐 What's on wordfeather.com
 
-Jeder Ordner enthält **9 Dateien** / Each folder contains **9 files**:
+| Tool | What it does |
+|---|---|
+| [📖 Dictionary](https://wordfeather.com/dictionary.html) | 5,243 words and phrases, A1–C2, searchable in German or English, with audio pronunciation, example sentences, collocations and full verb conjugation tables |
+| [🎯 Quiz](https://wordfeather.com/quiz.html) | Vocabulary practice with spaced repetition, Hörverstehen (listening) and Leseverstehen (reading) exercises, and a "find my level" placement test |
+| [📚 A1–C2 level pages](https://wordfeather.com/) | Every level's vocabulary, grammar, example sentences, reading, listening, speaking, writing, a full sample exam, and the telc exam format — as browsable pages, most with audio pronunciation built in |
+| [🇩🇪 leben.wordfeather.com](https://leben.wordfeather.com/) | A companion site for the "Leben in Deutschland" (German citizenship) test |
 
-| Datei / File | Inhalt / Content |
-|-------|--------|
-| `01_Wortschatz.md` | Vocabulary with English translations (thematic groupings) |
-| `02_Grammatik.md` | Grammar rules, explanations, tables, and exercises |
-| `03_Saetze.md` | Example sentences organized A–Z with English translations |
-| `04_Lesen.md` | Reading comprehension exercises matching Goethe exam format |
-| `05_Hoeren.md` | Listening exercises with transcripts and strategies |
-| `06_Sprechen.md` | Speaking exam preparation — prompts and Redemittel |
-| `07_Schreiben.md` | Writing exam tasks with model answers |
-| `08_Musterpruefung.md` | Complete sample exam (Modelltest) with answer key |
-| `09_telc_Pruefungsformat.md` | telc exam format, task types, scoring, and tips (A1–C2) |
-| `README.md` | Level overview and study plan |
+No login, no ads, works offline as an installable app (PWA).
 
 ---
 
-## 🎯 Prüfungsformat / Exam Format Overview
+## 📂 What's in this repo
+
+Each level folder (`A1/` … `C2/`) contains the source content for that level's pages on the site:
+
+| File | Content | On the site as |
+|---|---|---|
+| `01_Wortschatz.md` | Vocabulary, organized by theme | part of the live [Dictionary](https://wordfeather.com/dictionary.html), plus the level's own Wortschatz page |
+| `02_Grammatik.md` | Grammar rules, tables, exercises | the level's Grammatik page, and [grammar-quiz.html](https://wordfeather.com/grammar-quiz.html) |
+| `03_Saetze.md` | Example sentences, A–Z | the level's Sätze page |
+| `04_Lesen.md` | Reading comprehension, Goethe-format | the level's Lesen page, and the Quiz's Leseverstehen mode |
+| `05_Hoeren.md` | Listening exercises, transcripts | the level's Hören page, and the Quiz's Hörverstehen mode |
+| `06_Sprechen.md` | Speaking prompts and Redemittel | the level's Sprechen page, with audio |
+| `07_Schreiben.md` | Writing tasks with model answers | the level's Schreiben page |
+| `08_Musterpruefung.md` | A complete sample exam with answer key | the level's Musterprüfung page |
+| `09_telc_Pruefungsformat.md` | telc exam format, task types, scoring | the level's own page |
+
+Each `.md` file has a matching `.html` file — that's the actual page the site serves; the Markdown is the plain-text source it's generated from. A few levels also have extra pages not listed above (e.g. course notes, a cheat sheet) — open a level's `index.html` or visit its page on the site to see everything available for it.
+
+**5,243 vocabulary entries · 6 levels · all 4 exam skills, every level**
+
+---
+
+## 🎯 Exam format overview
 
 ### Goethe-Zertifikat A1: Start Deutsch 1
 - **Lesen** (25 min) · **Hören** (20 min) · **Schreiben** (20 min) · **Sprechen** (15 min)
@@ -70,21 +73,21 @@ Jeder Ordner enthält **9 Dateien** / Each folder contains **9 files**:
 
 ---
 
-## 📖 Was ist in den Dateien enthalten? / What's Covered?
+## 📖 Vocabulary and grammar by level
 
-### Wortschatz / Vocabulary (thematisch geordnet / organized by theme)
-| Stufe / Level | Wörter / Words | Themen / Themes |
-|-------|--------|---------|
-| A1 | ~2,043 | Alphabetisch A–Z: Alltag, Familie, Essen, Körper, Verkehr |
-| A2 | ~866 | 12 Themen: Wohnen, Gesundheit, Arbeit, Reisen, Einkaufen, Behörden |
-| B1 | ~1,116 | 10 Themen: Gesellschaft, Medien, Karriere, Umwelt, Bildung, Gefühle |
-| B2 | ~433 | 10 Themen: Politik, Wissenschaft, Wirtschaft, Kultur, Recht, Psychologie + Kollokationen |
-| C1 | ~408 | 9 Themen: Akademie, Diplomatie, Philosophie, Biotechnologie + Stilistische Wendungen |
-| C2 | ~334 + Idiome | Literarisch, Akademisch, Rhetorik + 29 Redewendungen + 16 Sprichwörter |
+### Wortschatz / Vocabulary
+| Level | Words | Themes |
+|---|---|---|
+| A1 | 2,024 | Alphabetisch A–Z: Alltag, Familie, Essen, Körper, Verkehr |
+| A2 | 932 | 12 Themen: Wohnen, Gesundheit, Arbeit, Reisen, Einkaufen, Behörden |
+| B1 | 1,099 | 10 Themen: Gesellschaft, Medien, Karriere, Umwelt, Bildung, Gefühle |
+| B2 | 446 | 10 Themen: Politik, Wissenschaft, Wirtschaft, Kultur, Recht, Psychologie + Kollokationen |
+| C1 | 408 | 9 Themen: Akademie, Diplomatie, Philosophie, Biotechnologie + Stilistische Wendungen |
+| C2 | 334 + Idiome | Literarisch, Akademisch, Rhetorik + 29 Redewendungen + 16 Sprichwörter |
 
 ### Grammatik / Grammar
-| Stufe / Level | Schwerpunkte / Focus Areas |
-|-------|---------------------------|
+| Level | Focus Areas |
+|---|---|
 | A1 | Artikel, Präsens, Perfekt, Modalverben, Satzstruktur, Imperativ, Präpositionen |
 | A2 | Präteritum, Nebensätze (weil, dass, wenn, obwohl), Komparativ/Superlativ, Reflexivverben, Dativverben, Konjunktiv II (Höflichkeit) |
 | B1 | Konjunktiv II (irreal), Passiv, Relativsätze, Genitiv, Infinitiv mit "zu", Plusquamperfekt, Zweiteilige Konnektoren |
@@ -92,37 +95,28 @@ Jeder Ordner enthält **9 Dateien** / Each folder contains **9 files**:
 | C1 | Funktionsverbgefüge, Modalpartikeln, Konjunktiv I (indirekte Rede), Textgrammatik, Nominalstil |
 | C2 | Komplexe Satzgefüge, Stilregister, Verbalperiphrasen, Spaltsätze, Ausklammerung |
 
-### Prüfungsvorbereitung / Exam Preparation
-- Vollständige Modelltests für jede Stufe / Complete sample exams for each level
-- Strategien und Tipps für alle 4 Module / Strategies and tips for all 4 modules
-- Redemittel für Sprechen und Schreiben / Useful phrases for speaking and writing
-- Bewertungskriterien erklärt / Assessment criteria explained
+---
+
+## 🌍 Bilingual approach
+
+| Levels | Language | Reason |
+|---|---|---|
+| **A1, A2, B1** | German + English | Beginners need English to understand explanations and tips |
+| **B2, C1, C2** | German only (English only in vocab tables) | Advanced learners benefit from immersion |
 
 ---
 
-## 🌍 Bilingual Approach / Zweisprachiger Ansatz
-
-Dieses Repo verwendet einen **stufengerechten zweisprachigen Ansatz**.
-*This repository uses a **level-appropriate bilingual approach**.*
-
-| Stufen / Levels | Sprache / Language | Grund / Reason |
-|--------|----------|--------|
-| **A1, A2, B1** | Deutsch + Englisch / German + English | Anfänger brauchen Englisch, um Erklärungen und Tipps zu verstehen / Beginners need English to understand explanations and tips |
-| **B2, C1, C2** | Nur Deutsch (Englisch nur in Vokabeltabellen) / German only (English only in vocab tables) | Fortgeschrittene profitieren von Immersion / Advanced learners benefit from immersion |
-
----
-
-## 💡 Lerntipps / Study Tips
+## 💡 Study tips
 
 1. **Täglich lernen** — Regelmäßigkeit ist wichtiger als Dauer. *Consistency matters more than duration.*
 2. **Wortschatz im Kontext** — Lerne Wörter in Sätzen, nicht isoliert. *Learn words in sentences, not in isolation.*
 3. **Alle vier Fertigkeiten üben** — Lesen, Hören, Sprechen, Schreiben. *Practice all four skills.*
-4. **Prüfungsformat kennen** — Übe mit den Modelltests in `08_Musterpruefung.md`. *Know the exam format.*
+4. **Prüfungsformat kennen** — Übe mit den Modelltests. *Know the exam format.*
 5. **Deutsche Medien nutzen** — Podcasts, Filme, Bücher, Nachrichten. *Use German media.*
 
 ---
 
-## 🔗 Nützliche Ressourcen / Useful Resources
+## 🔗 Useful resources
 
 - [Goethe-Institut Prüfungen](https://www.goethe.de/de/spr/kup/prf.html)
 - [Deutsche Welle Deutschkurse](https://www.dw.com/de/deutsch-lernen/s-2055)
@@ -130,44 +124,10 @@ Dieses Repo verwendet einen **stufengerechten zweisprachigen Ansatz**.
 
 ---
 
-## 📋 Repo-Struktur / Repository Structure
-
-```
-wordfeather/
-├── README.md
-├── A1/                          ← 🇩🇪+🇬🇧 Bilingual
-│   ├── 01_Wortschatz.md
-│   ├── 02_Grammatik.md
-│   ├── 03_Saetze.md
-│   ├── 04_Lesen.md
-│   ├── 05_Hoeren.md
-│   ├── 06_Sprechen.md
-│   ├── 07_Schreiben.md
-│   ├── 08_Musterpruefung.md
-│   └── README.md
-├── A2/                          ← 🇩🇪+🇬🇧 Bilingual
-│   └── (same structure)
-├── B1/                          ← 🇩🇪+🇬🇧 Bilingual
-│   └── (same structure)
-├── B2/                          ← 🇩🇪 Deutsch
-│   └── (same structure)
-├── C1/                          ← 🇩🇪 Deutsch
-│   └── (same structure)
-└── C2/                          ← 🇩🇪 Deutsch
-    └── (same structure)
-```
-
-**55 Dateien · 6 Niveaustufen · Alle 4 Prüfungsmodule · 5.200+ Vokabeln**
-*55 files · 6 levels · All 4 exam modules · 5,200+ vocabulary entries*
-
----
-
 **Viel Erfolg beim Lernen! / Good luck with your studies!** 🍀
 
-## ☕ Support This Project / Unterstütze dieses Projekt
+## ☕ Support this project
 *If these materials helped you, consider buying me a coffee to keep this project free for everyone!*
-
-*Wenn dir diese Materialien geholfen haben, kannst du mich gerne mit einem Kaffee unterstützen!*
 
 [![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?logo=paypal&style=for-the-badge)](https://www.paypal.com/paypalme/abdullahbuttde)
 
