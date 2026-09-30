@@ -60,6 +60,14 @@
         <button class="gq-level-btn" data-level="C2">C2</button>
     </div>
 
+    <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-4" id="countPicker">
+        <span class="small text-muted">Fragen / Questions:</span>
+        <button class="gq-level-btn active" data-count="33">33</button>
+        <button class="gq-level-btn" data-count="66">66</button>
+        <button class="gq-level-btn" data-count="99">99</button>
+        <button class="gq-level-btn" data-count="0">Alle / All</button>
+    </div>
+
     <div class="gq-progress d-flex justify-content-between align-items-center">
         <span id="gqProgress" class="text-muted small"></span>
         <span id="gqScore" class="fw-bold"></span>
@@ -82,6 +90,7 @@
 (function () {
     var state = {
         level: 'A1',
+        count: 33,
         questions: [],
         index: 0,
         score: 0,
@@ -110,7 +119,15 @@
         fetch(file)
             .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)); })
             .then(function (data) {
-                state.questions = shuffle(data);
+                // Placement-test questions (marked "core": 1-96) always come first, in test order;
+                // all other questions follow in random order.
+                var core = data.filter(function (q) { return q.core; })
+                    .sort(function (a, b) { return a.core - b.core; });
+                var rest = data.filter(function (q) { return !q.core; });
+                state.questions = core.concat(shuffle(rest));
+                if (state.count > 0 && state.count < state.questions.length) {
+                    state.questions = state.questions.slice(0, state.count);
+                }
                 state.index = 0;
                 state.score = 0;
                 document.getElementById('gqSummary').style.display = 'none';
@@ -166,11 +183,17 @@
         if (isCorrect) state.score++;
         updateProgress();
         var fb = document.getElementById('gqFeedback');
+        var reveal = '';
+        if (!isCorrect && q.type !== 'mc') {
+            var ans = Array.isArray(q.correct) ? q.correct.join(' ') : q.correct;
+            reveal = '<div class="mt-2"><b>Richtig / Correct:</b> ' + ans + '</div>';
+        }
         fb.innerHTML =
             '<div class="gq-feedback ' + (isCorrect ? 'correct' : 'incorrect') + '">' +
             (isCorrect ? '✅ Richtig! / Correct!' : '❌ Nicht ganz. / Not quite.') +
             '<div class="mt-1">' + q.explanation_de + '</div>' +
             '<div class="gq-en-hint">' + q.explanation_en + '</div>' +
+            reveal +
             '</div>';
         document.getElementById('gqNextWrap').style.display = '';
     }
@@ -247,7 +270,9 @@
             }
             submit.addEventListener('click', function () {
                 if (state.answered) return;
-                var isCorrect = JSON.stringify(chosen) === JSON.stringify(q.correct);
+                var orderKey = function (arr) { return arr.map(foldGerman).join('|'); };
+                var okOrders = [q.correct].concat(q.accept_orders || []).map(orderKey);
+                var isCorrect = okOrders.indexOf(orderKey(chosen)) !== -1;
                 submit.disabled = true;
                 showFeedback(isCorrect, q);
             });
@@ -281,6 +306,15 @@
             document.querySelectorAll('#levelPicker button').forEach(function (b) { b.classList.remove('active'); });
             btn.classList.add('active');
             loadLevel(btn.getAttribute('data-level'));
+        });
+    });
+
+    document.querySelectorAll('#countPicker button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('#countPicker button').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            state.count = parseInt(btn.getAttribute('data-count'), 10) || 0;
+            loadLevel(state.level);
         });
     });
 

@@ -1,5 +1,581 @@
 [
   {
+    "id": "c1-inf-zu-kennenlernen-001",
+    "level": "C1",
+    "topic": "Infinitiv mit \"zu\": kennenlernen",
+    "core": 49,
+    "type": "mc",
+    "prompt_de": "Ich freue mich sehr, Sie ____.",
+    "prompt_en": "I'm very pleased to meet you.",
+    "options": [
+      "zu kennenlernen",
+      "kennen zu lernen",
+      "kennenzulernen",
+      "zu lernenkennen"
+    ],
+    "correct": "kennenzulernen",
+    "explanation_de": "Der zu-Infinitiv von 'kennenlernen' fügt 'zu' in einem Wort ein: <b>kennenzulernen</b> (vgl. Frage 25, wo der Satz bereits ein separates 'zu' vorgibt).",
+    "explanation_en": "The zu-infinitive of 'kennenlernen' has 'zu' infixed as one word: <b>kennenzulernen</b> (compare Q25, where the sentence template already provides a separate 'zu')."
+  },
+  {
+    "id": "c1-praep-dativ-002",
+    "level": "C1",
+    "topic": "Präpositionen mit Dativ",
+    "core": 50,
+    "type": "mc",
+    "prompt_de": "Die Bäckerei liegt ____ der Kirche.",
+    "prompt_en": "The bakery is located across from the church.",
+    "options": [
+      "gegenüber",
+      "zu",
+      "durch",
+      "ohne"
+    ],
+    "correct": "gegenüber",
+    "explanation_de": "'Gegenüber' (gegenüber von) verlangt den Dativ.",
+    "explanation_en": "'Gegenüber' (across from/opposite) governs the dative case."
+  },
+  {
+    "id": "c1-rel-genitiv-001",
+    "level": "C1",
+    "topic": "Relativsätze: Genitiv (dessen)",
+    "core": 51,
+    "type": "mc",
+    "prompt_de": "Der Nachbar, ____ Auto immer laut ist, wohnt nebenan.",
+    "prompt_en": "The neighbor whose car is always loud lives next door.",
+    "options": [
+      "dem",
+      "dessen",
+      "die",
+      "sein"
+    ],
+    "correct": "dessen",
+    "explanation_de": "'Dessen' ist das Genitiv-Relativpronomen für maskuline/neutrale Bezugswörter und bedeutet 'whose'.",
+    "explanation_en": "'Dessen' is the genitive relative pronoun for masculine/neuter antecedents, meaning 'whose'."
+  },
+  {
+    "id": "c1-n-deklination-001",
+    "level": "C1",
+    "topic": "N-Deklination",
+    "core": 52,
+    "type": "mc",
+    "prompt_de": "Ich kenne einen ____, der zwei Brüder hat.",
+    "prompt_en": "I know a boy who has two brothers.",
+    "options": [
+      "Jungen",
+      "Jung",
+      "Junge",
+      "Junges"
+    ],
+    "correct": "Jungen",
+    "explanation_de": "'Der Junge' ist ein N-Nomen und nimmt in allen Kasus außer Nominativ Singular ein -n. Akkusativ: <b>Jungen</b>.",
+    "explanation_en": "'Der Junge' is an N-noun, taking -n in all cases except nominative singular. Accusative: <b>Jungen</b>."
+  },
+  {
+    "id": "c1-praep-dativ-003",
+    "level": "C1",
+    "topic": "Präpositionen mit Dativ",
+    "core": 53,
+    "type": "mc",
+    "prompt_de": "Nach ____ Schule spiele ich Fußball.",
+    "prompt_en": "After school, I play football.",
+    "options": [
+      "die",
+      "der",
+      "des",
+      "den"
+    ],
+    "correct": "der",
+    "explanation_de": "'Nach' verlangt den Dativ: <b>der Schule</b> (Dativ feminin).",
+    "explanation_en": "'Nach' governs the dative case: <b>der Schule</b> (dative feminine)."
+  },
+  {
+    "id": "c1-wortschatz-redewendung-002",
+    "level": "C1",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 54,
+    "type": "mc",
+    "prompt_de": "Das müssen wir erledigen! Das ____ wir morgen in Angriff.",
+    "prompt_en": "We have to get that done! We'll tackle that tomorrow.",
+    "options": [
+      "sehen",
+      "machen",
+      "legen",
+      "nehmen"
+    ],
+    "correct": "nehmen",
+    "explanation_de": "'Etwas in Angriff nehmen' (mit etwas beginnen) ist eine feste Redewendung.",
+    "explanation_en": "'Etwas in Angriff nehmen' (to tackle something) is a fixed idiom."
+  },
+  {
+    "id": "c1-adj-dekl-ohne-artikel-001",
+    "level": "C1",
+    "topic": "Adjektivdeklination: ohne Artikel",
+    "core": 55,
+    "type": "mc",
+    "prompt_de": "Ich mag ____ Fisch mit ____ Gemüse.",
+    "prompt_en": "I like grilled fish with fresh vegetables.",
+    "options": [
+      "gegrillten/frischem",
+      "gegrilltes/frischem",
+      "gegrillter/frischem",
+      "gegrilltes/frisches"
+    ],
+    "correct": "gegrillten/frischem",
+    "explanation_de": "Ohne Artikel gilt die starke Deklination. 'Fisch' (mask., Akkusativobjekt von 'mögen') → <b>gegrillten</b>; 'Gemüse' (neutr., Dativ nach 'mit') → <b>frischem</b>.",
+    "explanation_en": "With no article, strong declension applies. 'Fisch' (masc., accusative object of 'mögen') → <b>gegrillten</b>; 'Gemüse' (neut., dative after 'mit') → <b>frischem</b>."
+  },
+  {
+    "id": "c1-verb-bestehen-001",
+    "level": "C1",
+    "topic": "Verben mit Präposition: bestehen aus",
+    "core": 56,
+    "type": "mc",
+    "prompt_de": "Ein Team ____ aus 5 Spielern.",
+    "prompt_en": "A team consists of 5 players.",
+    "options": [
+      "versteht",
+      "gesteht",
+      "steht",
+      "besteht"
+    ],
+    "correct": "besteht",
+    "explanation_de": "'Bestehen aus' bedeutet 'sich zusammensetzen aus'.",
+    "explanation_en": "'Bestehen aus' means 'to consist of'."
+  },
+  {
+    "id": "c1-adj-zu-inf-003",
+    "level": "C1",
+    "topic": "Adjektiv + zu + Infinitiv",
+    "core": 57,
+    "type": "mc",
+    "prompt_de": "Sie kann die Aufgabe lösen = Sie ist ____, die Aufgabe zu lösen.",
+    "prompt_en": "She can solve the task = She is capable of solving the task.",
+    "options": [
+      "stetig",
+      "fertig",
+      "nötig",
+      "fähig"
+    ],
+    "correct": "fähig",
+    "explanation_de": "'Fähig sein, etwas zu tun' bedeutet, in der Lage zu sein, etwas zu tun.",
+    "explanation_en": "'Fähig sein, etwas zu tun' means 'to be capable of doing something'."
+  },
+  {
+    "id": "c1-modal-perfekt-passiv-000",
+    "level": "C1",
+    "topic": "Modalverb + Perfekt Passiv (Vermutung)",
+    "core": 58,
+    "type": "mc",
+    "prompt_de": "Er soll an dem Diebstahl ____.",
+    "prompt_en": "He is said to have been involved in the theft.",
+    "options": [
+      "beteiligt gewesen sein",
+      "begangen worden sein",
+      "verteilt haben",
+      "gefahndet werden haben"
+    ],
+    "correct": "beteiligt gewesen sein",
+    "explanation_de": "Modalverb 'sollen' für Vermutungen/Gerüchte über ein vergangenes Ereignis verwendet den Perfekt-Infinitiv: <b>beteiligt gewesen sein</b>.",
+    "explanation_en": "Modal 'sollen' expressing hearsay about a past event uses the perfect infinitive: <b>beteiligt gewesen sein</b> (to have been involved)."
+  },
+  {
+    "id": "c1-neben-sofern-001",
+    "level": "C1",
+    "topic": "Nebensätze: sofern",
+    "core": 59,
+    "type": "mc",
+    "prompt_de": "Man kann das Treffen verschieben, ____ alle einverstanden sind.",
+    "prompt_en": "The meeting can be postponed, provided that everyone agrees.",
+    "options": [
+      "sodass",
+      "sofern",
+      "inwiefern",
+      "damit"
+    ],
+    "correct": "sofern",
+    "explanation_de": "'Sofern' bedeutet 'unter der Bedingung, dass' und leitet eine Bedingung ein.",
+    "explanation_en": "'Sofern' means 'provided that', introducing a condition."
+  },
+  {
+    "id": "c1-ind-konji-sein-002",
+    "level": "C1",
+    "topic": "Indirekte Rede: Konjunktiv I (sein)",
+    "core": 60,
+    "type": "mc",
+    "prompt_de": "„Ich bin jeden Freitag im Fitnessstudio.“ Sie sagt, sie ____ jeden Freitag im Fitnessstudio.",
+    "prompt_en": "'I'm at the gym every Friday.' She says she's at the gym every Friday.",
+    "options": [
+      "ist",
+      "wäre",
+      "sei",
+      "war"
+    ],
+    "correct": "sei",
+    "explanation_de": "Formelle indirekte Rede verwendet Konjunktiv I: <b>sei</b> (von 'sein').",
+    "explanation_en": "Formal indirect speech uses Konjunktiv I: <b>sei</b> (from 'sein')."
+  },
+  {
+    "id": "c1-trenn-untrenn-umfahren-003",
+    "level": "C1",
+    "topic": "Trennbare/untrennbare Verben: umfahren",
+    "core": 61,
+    "type": "mc",
+    "prompt_de": "Auf der Autobahn ist es nicht leicht, eine Baustelle ____.",
+    "prompt_en": "On the motorway, it's not easy to bypass a construction site.",
+    "options": [
+      "um zu fahren",
+      "umfahren",
+      "umzufahren",
+      "zu umfahren"
+    ],
+    "correct": "zu umfahren",
+    "explanation_de": "Trennbares 'úmfahren' bedeutet 'anfahren/umstoßen' (zu-Infinitiv: umzufahren); untrennbares 'umfáhren' bedeutet 'umgehen' (zu-Infinitiv: zu umfahren). Eine Baustelle kann man nur umgehen: <b>zu umfahren</b>.",
+    "explanation_en": "Separable 'úmfahren' means 'to knock into' (zu-infinitive: umzufahren); inseparable 'umfáhren' means 'to bypass' (zu-infinitive: zu umfahren). A construction site can only be bypassed: <b>zu umfahren</b>."
+  },
+  {
+    "id": "c1-konjii-bedingung-003",
+    "level": "C1",
+    "topic": "Konjunktiv II: Bedingungssatz",
+    "core": 62,
+    "type": "mc",
+    "prompt_de": "Wenn es mehr Parkplätze ____, ____ der Stress weniger.",
+    "prompt_en": "If there were more parking spaces, the stress would be less.",
+    "options": [
+      "gibt/würde",
+      "gab/wird",
+      "gaben/wurde",
+      "gäbe/wäre"
+    ],
+    "correct": "gäbe/wäre",
+    "explanation_de": "Irreale Bedingungssätze verwenden in beiden Teilsätzen Konjunktiv II: <b>gäbe/wäre</b>.",
+    "explanation_en": "Unreal/hypothetical conditionals use Konjunktiv II in both clauses: <b>gäbe/wäre</b>."
+  },
+  {
+    "id": "c1-indef-mancher-000",
+    "level": "C1",
+    "topic": "Indefinitpronomen: mancher",
+    "core": 63,
+    "type": "mc",
+    "prompt_de": "____ wäre gerne Gast bei der Gala.",
+    "prompt_en": "Many a person would like to be a guest at the gala.",
+    "options": [
+      "Mancher",
+      "Manches",
+      "Manchen",
+      "Manch ein"
+    ],
+    "correct": "Mancher",
+    "explanation_de": "'Mancher' (so mancher) ist die nominative maskuline Form des Indefinitpronomens und fungiert hier als Subjekt.",
+    "explanation_en": "'Mancher' (many a one) is the nominative masculine indefinite pronoun functioning as the subject."
+  },
+  {
+    "id": "c1-neben-obwohl-002",
+    "level": "C1",
+    "topic": "Nebensätze: obwohl",
+    "core": 64,
+    "type": "mc",
+    "prompt_de": "____ sie zum Umweltschutz beitragen, können Elektroautos allein den Klimawandel nicht stoppen.",
+    "prompt_en": "Although they contribute to environmental protection, electric cars alone cannot stop climate change.",
+    "options": [
+      "Trotz",
+      "Weil",
+      "Obwohl",
+      "Desto"
+    ],
+    "correct": "Obwohl",
+    "explanation_de": "'Obwohl' (obgleich) ist eine konzessive unterordnende Konjunktion.",
+    "explanation_en": "'Obwohl' (although) is a concessive subordinating conjunction."
+  },
+  {
+    "id": "c1-wortschatz-verb-formell-001",
+    "level": "C1",
+    "topic": "Wortschatz: Verben (formell)",
+    "core": 65,
+    "type": "mc",
+    "prompt_de": "Es ist manchmal schwer, bei Konzerten die Ordnung zu ____.",
+    "prompt_en": "It's sometimes difficult to ensure order at concerts.",
+    "options": [
+      "gewähren",
+      "gewährleisten",
+      "gelingen",
+      "gehören"
+    ],
+    "correct": "gewährleisten",
+    "explanation_de": "'Gewährleisten' bedeutet 'sicherstellen/garantieren'.",
+    "explanation_en": "'Gewährleisten' means 'to ensure/guarantee'."
+  },
+  {
+    "id": "c1-wortschatz-menge-002",
+    "level": "C1",
+    "topic": "Wortschatz: Mengenangaben",
+    "core": 66,
+    "type": "mc",
+    "prompt_de": "Du kannst den Schlüssel behalten, ich habe ihn ____.",
+    "prompt_en": "You can keep the key, I have it twice over.",
+    "options": [
+      "zwei",
+      "doppel",
+      "doppelt",
+      "zu zweit"
+    ],
+    "correct": "doppelt",
+    "explanation_de": "'Doppelt' (zweifach) drückt aus, ein Duplikat zu besitzen.",
+    "explanation_en": "'Doppelt' (doubly) expresses having a duplicate."
+  },
+  {
+    "id": "c1-gen-praep-aufgrund-003",
+    "level": "C1",
+    "topic": "Genitivpräpositionen: aufgrund",
+    "core": 67,
+    "type": "mc",
+    "prompt_de": "____ des Fachkräftemangels wurden neue Stellen geschaffen.",
+    "prompt_en": "Due to the skilled-labor shortage, new positions were created.",
+    "options": [
+      "Denn",
+      "Deswegen",
+      "Da",
+      "Aufgrund"
+    ],
+    "correct": "Aufgrund",
+    "explanation_de": "'Aufgrund' + Genitiv bedeutet 'wegen/auf der Grundlage von'.",
+    "explanation_en": "'Aufgrund' + genitive means 'due to/because of'."
+  },
+  {
+    "id": "c1-passiv-futur-001",
+    "level": "C1",
+    "topic": "Passiv: Futur",
+    "core": 68,
+    "type": "mc",
+    "prompt_de": "Elektroautos mit hoher Reichweite werden ____ werden.",
+    "prompt_en": "Electric cars with high range will be developed.",
+    "options": [
+      "geflogen haben",
+      "entwickelt",
+      "hergestellt sind",
+      "beigelegt worden"
+    ],
+    "correct": "entwickelt",
+    "explanation_de": "Futur Passiv: 'werden...entwickelt werden' ('werden entwickelt werden'); die anderen Optionen passen nicht in dieses Muster.",
+    "explanation_en": "Future passive: 'werden...entwickelt werden' ('will be developed'); the other options don't fit this passive-future pattern."
+  },
+  {
+    "id": "c1-partitiv-superlativ-000",
+    "level": "C1",
+    "topic": "Partitivkonstruktion: einer der + Superlativ",
+    "core": 69,
+    "type": "mc",
+    "prompt_de": "Auf der Konferenz habe ich ____ bekanntesten Forscher getroffen.",
+    "prompt_en": "At the conference I met one of the most well-known researchers.",
+    "options": [
+      "einen der",
+      "einer der",
+      "eine der",
+      "eines der"
+    ],
+    "correct": "einen der",
+    "explanation_de": "'Einen der [Superlativ]' (Akkusativ, maskulin) bedeutet 'einer der ...sten'.",
+    "explanation_en": "'Einen der [superlative]' (accusative, masculine) means 'one of the most...'"
+  },
+  {
+    "id": "c1-demonstrativ-derjenige-003",
+    "level": "C1",
+    "topic": "Demonstrativpronomen: derjenige",
+    "core": 70,
+    "type": "mc",
+    "prompt_de": "____, ____ mein Blog nicht gefällt, muss ihn nicht lesen.",
+    "prompt_en": "Whoever doesn't like my blog doesn't have to read it.",
+    "options": [
+      "Derjenigen/dem",
+      "Diejenige/des",
+      "Denjenigen/der",
+      "Derjenige/dem"
+    ],
+    "correct": "Derjenige/dem",
+    "explanation_de": "'Gefallen' verlangt den Dativ. 'Derjenige' (wer auch immer, Subjekt im Nominativ) + Dativ-Relativpronomen <b>dem</b>.",
+    "explanation_en": "'Gefallen' takes the dative. 'Derjenige' (whoever, nominative subject) + dative relative <b>dem</b>."
+  },
+  {
+    "id": "c1-wortbildung-komposita-002",
+    "level": "C1",
+    "topic": "Wortbildung: Komposita",
+    "core": 71,
+    "type": "mc",
+    "prompt_de": "Das Auto + die Tür + der Schlüssel = ____ Autotürschlüssel.",
+    "prompt_en": "Car + door + key = the car door key.",
+    "options": [
+      "Das",
+      "Die",
+      "Der",
+      "Dem"
+    ],
+    "correct": "Der",
+    "explanation_de": "Ein deutsches Kompositum übernimmt das Genus seines letzten Bestandteils. 'Der Schlüssel' ist maskulin, also ist 'Autotürschlüssel' ebenfalls maskulin: <b>der</b>.",
+    "explanation_en": "A German compound noun takes the gender of its final component. 'Der Schlüssel' is masculine, so 'Autotürschlüssel' is also masculine: <b>der</b>."
+  },
+  {
+    "id": "c1-konn-einerseits-002",
+    "level": "C1",
+    "topic": "Konnektoren: einerseits...andererseits",
+    "core": 72,
+    "type": "mc",
+    "prompt_de": "____ mag ich sie, aber ____ nervt sie mich.",
+    "prompt_en": "On one hand I like her, but on the other hand she annoys me.",
+    "options": [
+      "Diesseits/jenseits",
+      "Hierseits/daseits",
+      "Einerseits/andererseits",
+      "Aufseits/abseits"
+    ],
+    "correct": "Einerseits/andererseits",
+    "explanation_de": "'Einerseits...andererseits' ist ein festes Kontrastpaar.",
+    "explanation_en": "'Einerseits...andererseits' is a fixed contrastive pair meaning 'on one hand...on the other hand'."
+  },
+  {
+    "id": "c1-n-dekl-possessiv-001",
+    "level": "C1",
+    "topic": "N-Deklination: Possessivpronomen",
+    "core": 73,
+    "type": "mc",
+    "prompt_de": "Die Ärztin behauptete, ____ Patienten gehe es heute besser.",
+    "prompt_en": "The doctor claimed her patient was doing better today.",
+    "options": [
+      "ihrer",
+      "ihrem",
+      "dessen",
+      "dem"
+    ],
+    "correct": "ihrem",
+    "explanation_de": "'Es geht jemandem gut' verlangt den Dativ. 'Der Patient' ist ein N-Nomen (daher 'Patienten'), also lautet das passende Possessivpronomen im Dativ maskulin: <b>ihrem</b>.",
+    "explanation_en": "'Es geht jemandem gut' uses the dative. 'Der Patient' is masculine (an N-noun, hence 'Patienten'), so the matching possessive is dative masculine: <b>ihrem</b>."
+  },
+  {
+    "id": "c1-konn-zwaraber-001",
+    "level": "C1",
+    "topic": "Konnektoren: zwar...aber",
+    "core": 74,
+    "type": "mc",
+    "prompt_de": "Kleine Fehler lassen sich ____ korrigieren, ____ Sorgfalt ist trotzdem wichtig.",
+    "prompt_en": "Small mistakes can admittedly be corrected, but care is still important.",
+    "options": [
+      "zwar/aber",
+      "sowohl/als auch",
+      "zu/um",
+      "entweder/oder"
+    ],
+    "correct": "zwar/aber",
+    "explanation_de": "'Zwar...aber' ist ein festes konzessives Konnektorenpaar.",
+    "explanation_en": "'Zwar...aber' is a fixed concessive pair meaning 'admittedly...but'."
+  },
+  {
+    "id": "c1-abtoenung-vielleicht-003",
+    "level": "C1",
+    "topic": "Abtönungspartikel: vielleicht",
+    "core": 75,
+    "type": "mc",
+    "prompt_de": "Könnten Sie mir ____ die Unterlagen zuschicken?",
+    "prompt_en": "Could you perhaps send me the documents?",
+    "options": [
+      "ruhig",
+      "aber",
+      "genau",
+      "vielleicht"
+    ],
+    "correct": "vielleicht",
+    "explanation_de": "'Vielleicht' mildert eine höfliche Bitte ab.",
+    "explanation_en": "'Vielleicht' softens a polite request."
+  },
+  {
+    "id": "c1-adj-dekl-ein-stark-002",
+    "level": "C1",
+    "topic": "Adjektivdeklination: nach \"ein\" (stark)",
+    "core": 76,
+    "type": "mc",
+    "prompt_de": "Es war ein ____ und ____ Abend.",
+    "prompt_en": "It was an eventful and varied evening.",
+    "options": [
+      "ereignis/abwechslung",
+      "ereignisreiches/abwechslungsreiches",
+      "ereignisreicher/abwechslungsreicher",
+      "ereignisreicher/abwechselnd"
+    ],
+    "correct": "ereignisreicher/abwechslungsreicher",
+    "explanation_de": "'Der Abend' ist maskulin. Nach dem unbestimmten Artikel 'ein' gilt die starke Deklination mit der Endung <b>-er</b>: <b>ereignisreicher und abwechslungsreicher Abend</b>.",
+    "explanation_en": "'Der Abend' is masculine. After the indefinite article 'ein', strong declension applies, taking <b>-er</b>: <b>ereignisreicher und abwechslungsreicher Abend</b>."
+  },
+  {
+    "id": "c1-nomin-nichts-adj-003",
+    "level": "C1",
+    "topic": "Nominalisierung: nichts + Adjektiv",
+    "core": 77,
+    "type": "mc",
+    "prompt_de": "Der Film gestern war nichts ____.",
+    "prompt_en": "The movie yesterday was nothing special.",
+    "options": [
+      "Besonders",
+      "besonders",
+      "besonder",
+      "Besonderes"
+    ],
+    "correct": "Besonderes",
+    "explanation_de": "Nach 'nichts' wird ein substantiviertes Adjektiv großgeschrieben und nimmt '-es': <b>nichts Besonderes</b>.",
+    "explanation_en": "After 'nichts', a substantivized adjective is capitalized and takes '-es': <b>nichts Besonderes</b>."
+  },
+  {
+    "id": "c1-pronomen-es-platzhalter-001",
+    "level": "C1",
+    "topic": "Pronomen: es als Platzhalter",
+    "core": 78,
+    "type": "mc",
+    "prompt_de": "Viele Leute schwärmen von den Cafés hier. Ich tue ____ auch.",
+    "prompt_en": "Many people rave about the cafés here. I do too.",
+    "options": [
+      "diesen",
+      "es",
+      "dessen",
+      "diese"
+    ],
+    "correct": "es",
+    "explanation_de": "'Es tun' ist der idiomatische Platzhalter für eine wiederholte Verbphrase: 'ich tue es auch'.",
+    "explanation_en": "'Es tun' is the idiomatic placeholder for a repeated verb phrase: 'ich tue es auch' ('I do so too')."
+  },
+  {
+    "id": "c1-wortschatz-redewendung-003",
+    "level": "C1",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 79,
+    "type": "mc",
+    "prompt_de": "Sie sagt immer direkt ihre Meinung. Sie ____.",
+    "prompt_en": "She always speaks her mind directly. She doesn't mince words.",
+    "options": [
+      "nimmt kein Blatt vor den Mund.",
+      "redet um den heißen Brei herum.",
+      "dreht einem das Wort im Mund um.",
+      "redet wie ein Wasserfall."
+    ],
+    "correct": "nimmt kein Blatt vor den Mund.",
+    "explanation_de": "'Kein Blatt vor den Mund nehmen' ist eine Redewendung für 'offen/direkt sprechen'.",
+    "explanation_en": "'Kein Blatt vor den Mund nehmen' is an idiom meaning 'to speak bluntly/not mince words'."
+  },
+  {
+    "id": "c1-genitiv-006",
+    "level": "C1",
+    "topic": "Kasus: Genitiv",
+    "core": 80,
+    "type": "mc",
+    "prompt_de": "Das Werk ____ Künstlers war schnell ausverkauft.",
+    "prompt_en": "The well-known artist's work sold out quickly.",
+    "options": [
+      "dem bekannten",
+      "der bekannten",
+      "des bekannten",
+      "dieses bekannte"
+    ],
+    "correct": "des bekannten",
+    "explanation_de": "Genitiv maskulin Singular mit schwacher Adjektivdeklination nach dem bestimmten Artikel: <b>des bekannten</b> Künstlers.",
+    "explanation_en": "Genitive masculine singular with weak adjective declension after the definite article: <b>des bekannten</b> Künstlers."
+  },
+  {
     "id": "c1-konj-001",
     "level": "C1",
     "topic": "Konjunktiv I: Ausweichen auf Konjunktiv II",
@@ -259,345 +835,5 @@
     "correct": "desto",
     "explanation_de": "Der zweite Teil der Korrelation beginnt immer mit 'desto'.",
     "explanation_en": "The second part of the correlation always begins with 'desto'."
-  },
-  {
-    "id": "c1-modal-perfekt-passiv-000",
-    "level": "C1",
-    "topic": "Modalverb + Perfekt Passiv (Vermutung)",
-    "type": "mc",
-    "prompt_de": "Er soll an dem Diebstahl ____.",
-    "prompt_en": "He is said to have been involved in the theft.",
-    "options": [
-      "beteiligt gewesen sein",
-      "begangen worden sein",
-      "verteilt haben",
-      "gefahndet werden haben"
-    ],
-    "correct": "beteiligt gewesen sein",
-    "explanation_de": "Modalverb 'sollen' für Vermutungen/Gerüchte über ein vergangenes Ereignis verwendet den Perfekt-Infinitiv: <b>beteiligt gewesen sein</b>.",
-    "explanation_en": "Modal 'sollen' expressing hearsay about a past event uses the perfect infinitive: <b>beteiligt gewesen sein</b> (to have been involved)."
-  },
-  {
-    "id": "c1-neben-sofern-001",
-    "level": "C1",
-    "topic": "Nebensätze: sofern",
-    "type": "mc",
-    "prompt_de": "Man kann das Treffen verschieben, ____ alle einverstanden sind.",
-    "prompt_en": "The meeting can be postponed, provided that everyone agrees.",
-    "options": [
-      "sodass",
-      "sofern",
-      "inwiefern",
-      "damit"
-    ],
-    "correct": "sofern",
-    "explanation_de": "'Sofern' bedeutet 'unter der Bedingung, dass' und leitet eine Bedingung ein.",
-    "explanation_en": "'Sofern' means 'provided that', introducing a condition."
-  },
-  {
-    "id": "c1-trenn-untrenn-umfahren-003",
-    "level": "C1",
-    "topic": "Trennbare/untrennbare Verben: umfahren",
-    "type": "mc",
-    "prompt_de": "Auf der Autobahn ist es nicht leicht, eine Baustelle ____.",
-    "prompt_en": "On the motorway, it's not easy to bypass a construction site.",
-    "options": [
-      "um zu fahren",
-      "umfahren",
-      "umzufahren",
-      "zu umfahren"
-    ],
-    "correct": "zu umfahren",
-    "explanation_de": "Trennbares 'úmfahren' bedeutet 'anfahren/umstoßen' (zu-Infinitiv: umzufahren); untrennbares 'umfáhren' bedeutet 'umgehen' (zu-Infinitiv: zu umfahren). Eine Baustelle kann man nur umgehen: <b>zu umfahren</b>.",
-    "explanation_en": "Separable 'úmfahren' means 'to knock into' (zu-infinitive: umzufahren); inseparable 'umfáhren' means 'to bypass' (zu-infinitive: zu umfahren). A construction site can only be bypassed: <b>zu umfahren</b>."
-  },
-  {
-    "id": "c1-wortschatz-verb-formell-001",
-    "level": "C1",
-    "topic": "Wortschatz: Verben (formell)",
-    "type": "mc",
-    "prompt_de": "Es ist manchmal schwer, bei Konzerten die Ordnung zu ____.",
-    "prompt_en": "It's sometimes difficult to ensure order at concerts.",
-    "options": [
-      "gewähren",
-      "gewährleisten",
-      "gelingen",
-      "gehören"
-    ],
-    "correct": "gewährleisten",
-    "explanation_de": "'Gewährleisten' bedeutet 'sicherstellen/garantieren'.",
-    "explanation_en": "'Gewährleisten' means 'to ensure/guarantee'."
-  },
-  {
-    "id": "c1-passiv-futur-001",
-    "level": "C1",
-    "topic": "Passiv: Futur",
-    "type": "mc",
-    "prompt_de": "Elektroautos mit hoher Reichweite werden ____ werden.",
-    "prompt_en": "Electric cars with high range will be developed.",
-    "options": [
-      "geflogen haben",
-      "entwickelt",
-      "hergestellt sind",
-      "beigelegt worden"
-    ],
-    "correct": "entwickelt",
-    "explanation_de": "Futur Passiv: 'werden...entwickelt werden' ('werden entwickelt werden'); die anderen Optionen passen nicht in dieses Muster.",
-    "explanation_en": "Future passive: 'werden...entwickelt werden' ('will be developed'); the other options don't fit this passive-future pattern."
-  },
-  {
-    "id": "c1-partitiv-superlativ-000",
-    "level": "C1",
-    "topic": "Partitivkonstruktion: einer der + Superlativ",
-    "type": "mc",
-    "prompt_de": "Auf der Konferenz habe ich ____ bekanntesten Forscher getroffen.",
-    "prompt_en": "At the conference I met one of the most well-known researchers.",
-    "options": [
-      "einen der",
-      "einer der",
-      "eine der",
-      "eines der"
-    ],
-    "correct": "einen der",
-    "explanation_de": "'Einen der [Superlativ]' (Akkusativ, maskulin) bedeutet 'einer der ...sten'.",
-    "explanation_en": "'Einen der [superlative]' (accusative, masculine) means 'one of the most...'"
-  },
-  {
-    "id": "c1-demonstrativ-derjenige-003",
-    "level": "C1",
-    "topic": "Demonstrativpronomen: derjenige",
-    "type": "mc",
-    "prompt_de": "____, ____ mein Blog nicht gefällt, muss ihn nicht lesen.",
-    "prompt_en": "Whoever doesn't like my blog doesn't have to read it.",
-    "options": [
-      "Derjenigen/dem",
-      "Diejenige/des",
-      "Denjenigen/der",
-      "Derjenige/dem"
-    ],
-    "correct": "Derjenige/dem",
-    "explanation_de": "'Gefallen' verlangt den Dativ. 'Derjenige' (wer auch immer, Subjekt im Nominativ) + Dativ-Relativpronomen <b>dem</b>.",
-    "explanation_en": "'Gefallen' takes the dative. 'Derjenige' (whoever, nominative subject) + dative relative <b>dem</b>."
-  },
-  {
-    "id": "c1-nomin-nichts-adj-003",
-    "level": "C1",
-    "topic": "Nominalisierung: nichts + Adjektiv",
-    "type": "mc",
-    "prompt_de": "Der Film gestern war nichts ____.",
-    "prompt_en": "The movie yesterday was nothing special.",
-    "options": [
-      "Besonders",
-      "besonders",
-      "besonder",
-      "Besonderes"
-    ],
-    "correct": "Besonderes",
-    "explanation_de": "Nach 'nichts' wird ein substantiviertes Adjektiv großgeschrieben und nimmt '-es': <b>nichts Besonderes</b>.",
-    "explanation_en": "After 'nichts', a substantivized adjective is capitalized and takes '-es': <b>nichts Besonderes</b>."
-  },
-  {
-    "id": "c1-wortschatz-redewendung-003",
-    "level": "C1",
-    "topic": "Wortschatz: Redewendungen",
-    "type": "mc",
-    "prompt_de": "Sie sagt immer direkt ihre Meinung. Sie ____.",
-    "prompt_en": "She always speaks her mind directly. She doesn't mince words.",
-    "options": [
-      "nimmt kein Blatt vor den Mund.",
-      "redet um den heißen Brei herum.",
-      "dreht einem das Wort im Mund um.",
-      "redet wie ein Wasserfall."
-    ],
-    "correct": "nimmt kein Blatt vor den Mund.",
-    "explanation_de": "'Kein Blatt vor den Mund nehmen' ist eine Redewendung für 'offen/direkt sprechen'.",
-    "explanation_en": "'Kein Blatt vor den Mund nehmen' is an idiom meaning 'to speak bluntly/not mince words'."
-  },
-  {
-    "id": "c1-wortschatz-adverb-formell-000",
-    "level": "C1",
-    "topic": "Wortschatz: Adverbien (formell)",
-    "type": "mc",
-    "prompt_de": "Die Kollegen misstrauten dem Chef völlig, und er reagierte ____.",
-    "prompt_en": "The colleagues completely distrusted the boss, and he reacted correspondingly.",
-    "options": [
-      "entsprechend",
-      "bindend",
-      "folgend",
-      "aufsteigend"
-    ],
-    "correct": "entsprechend",
-    "explanation_de": "'Entsprechend' (dementsprechend) impliziert eine gleichartige Reaktion.",
-    "explanation_en": "'Entsprechend' (correspondingly) implies a matching, in-kind reaction."
-  },
-  {
-    "id": "c1-wortschatz-redewendung-005",
-    "level": "C1",
-    "topic": "Wortschatz: Redewendungen",
-    "type": "mc",
-    "prompt_de": "Das Thema Gehaltserhöhung kam ____.",
-    "prompt_en": "The topic of a raise came up for discussion.",
-    "options": [
-      "zum Vorschein",
-      "unter Anklage",
-      "zur Sprache",
-      "in Abhängigkeit"
-    ],
-    "correct": "zur Sprache",
-    "explanation_de": "'Zur Sprache kommen' (thematisiert werden) ist eine feste Redewendung.",
-    "explanation_en": "'Zur Sprache kommen' (to come up for discussion) is a fixed idiom."
-  },
-  {
-    "id": "c1-modal-epistemisch-002",
-    "level": "C1",
-    "topic": "Modalverben: epistemischer Gebrauch",
-    "type": "mc",
-    "prompt_de": "Alle Gäste tragen historische Kostüme; es ____ sich um ein Fest handeln.",
-    "prompt_en": "All the guests are wearing historical costumes; it must be a celebration.",
-    "options": [
-      "soll",
-      "darf",
-      "muss",
-      "mag"
-    ],
-    "correct": "muss",
-    "explanation_de": "'Es muss sich um... handeln' drückt eine logische Schlussfolgerung aus ('es muss so sein').",
-    "explanation_en": "'Es muss sich um... handeln' expresses logical deduction/certainty ('it must be')."
-  },
-  {
-    "id": "c1-wortschatz-redewendung-007",
-    "level": "C1",
-    "topic": "Wortschatz: Redewendungen",
-    "type": "mc",
-    "prompt_de": "Man will ein Haus verkaufen. Die Immobilie sollte vom ____ des Käufers aus attraktiv sein.",
-    "prompt_en": "One wants to sell a house. The property should be attractive from the buyer's standpoint.",
-    "options": [
-      "Grund",
-      "Anlass",
-      "Standpunkt",
-      "Stand"
-    ],
-    "correct": "Standpunkt",
-    "explanation_de": "'Vom Standpunkt...aus' ist eine feste Wendung mit der Bedeutung 'aus der Sicht von'.",
-    "explanation_en": "'Vom Standpunkt...aus' is a fixed phrase meaning 'from the standpoint of'."
-  },
-  {
-    "id": "c1-wortschatz-diskurs-001",
-    "level": "C1",
-    "topic": "Wortschatz: Diskurspartikeln",
-    "type": "mc",
-    "prompt_de": "International ist das ZDF ein bekannter Sender. Er zeigt ____ seine Sendungen auch im Ausland.",
-    "prompt_en": "Internationally, ZDF is a well-known broadcaster. It broadcasts its programs abroad, namely [in many countries].",
-    "options": [
-      "hoffentlich",
-      "deshalb",
-      "öffentlich",
-      "nämlich"
-    ],
-    "correct": "nämlich",
-    "explanation_de": "'Nämlich' liefert einen erläuternden Zusatz zum vorher Gesagten.",
-    "explanation_en": "'Nämlich' (namely) provides elaborating context."
-  },
-  {
-    "id": "c1-wortschatz-redewendung-008",
-    "level": "C1",
-    "topic": "Wortschatz: Redewendungen",
-    "type": "mc",
-    "prompt_de": "Der Fortschritt hat uns Vorteile gebracht, für die wir manchen Nachteil ____.",
-    "prompt_en": "Progress has brought us advantages, for which we gladly accept some disadvantage.",
-    "options": [
-      "zum Kauf nehmen",
-      "in Rechnung stellen",
-      "auf Rechnung setzen",
-      "in Kauf nehmen"
-    ],
-    "correct": "in Kauf nehmen",
-    "explanation_de": "'Etwas in Kauf nehmen' bedeutet, etwas als Kompromiss zu akzeptieren.",
-    "explanation_en": "'Etwas in Kauf nehmen' means 'to accept something as a trade-off'."
-  },
-  {
-    "id": "c1-wortschatz-redewendung-009",
-    "level": "C1",
-    "topic": "Wortschatz: Redewendungen",
-    "type": "mc",
-    "prompt_de": "In der Technikbranche bleiben Männer oft ____, Frauen sind dagegen in der Pflege häufiger in der Mehrheit.",
-    "prompt_en": "In the tech industry, men often remain among themselves; women, meanwhile, are more often in the majority in care professions.",
-    "options": [
-      "für sich",
-      "miteinander",
-      "unter sich",
-      "beieinander"
-    ],
-    "correct": "unter sich",
-    "explanation_de": "'Unter sich bleiben' ist eine feste Redewendung für 'nur unter Gleichgesinnten/derselben Gruppe bleiben'.",
-    "explanation_en": "'Unter sich bleiben' is a fixed idiom meaning 'to stay among themselves'."
-  },
-  {
-    "id": "c1-wortschatz-verb-praep-001",
-    "level": "C1",
-    "topic": "Wortschatz: Verben mit Präposition",
-    "type": "mc",
-    "prompt_de": "Toyota ____ den größten Automobilherstellern der Welt.",
-    "prompt_en": "Toyota counts among the largest car manufacturers in the world.",
-    "options": [
-      "macht aus",
-      "gehört in",
-      "liegt in",
-      "zählt zu"
-    ],
-    "correct": "zählt zu",
-    "explanation_de": "'Zählen zu' bedeutet 'gehören zu/eines von... sein'.",
-    "explanation_en": "'Zählen zu' means 'to count among/be one of'."
-  },
-  {
-    "id": "c1-n-dekl-possessiv-001",
-    "level": "C1",
-    "topic": "N-Deklination: Possessivpronomen",
-    "type": "mc",
-    "prompt_de": "Die Ärztin behauptete, ____ Patienten gehe es heute besser.",
-    "prompt_en": "The doctor claimed her patient was doing better today.",
-    "options": [
-      "ihrer",
-      "ihrem",
-      "dessen",
-      "dem"
-    ],
-    "correct": "ihrem",
-    "explanation_de": "'Es geht jemandem gut' verlangt den Dativ. 'Der Patient' ist ein N-Nomen (daher 'Patienten'), also lautet das passende Possessivpronomen im Dativ maskulin: <b>ihrem</b>.",
-    "explanation_en": "'Es geht jemandem gut' uses the dative. 'Der Patient' is masculine (an N-noun, hence 'Patienten'), so the matching possessive is dative masculine: <b>ihrem</b>."
-  },
-  {
-    "id": "c1-rel-wechselpraep-001",
-    "level": "C1",
-    "topic": "Relativsätze: Wechselpräpositionen",
-    "type": "mc",
-    "prompt_de": "Stelle den Karton bitte vor ____ Schrank, vor ____ die Lampe steht.",
-    "prompt_en": "Please put the box in front of the cabinet, in front of which the lamp stands.",
-    "options": [
-      "dem/dem",
-      "den/dem",
-      "den/den",
-      "dem/den"
-    ],
-    "correct": "den/dem",
-    "explanation_de": "'Stellen' (Bewegung) verlangt den Akkusativ: 'der Schrank' (mask.) → <b>den Schrank</b>. Der Relativsatz 'vor dem die Lampe steht' beschreibt einen festen Ort (Dativ): <b>dem</b>.",
-    "explanation_en": "'Stellen' (placement/movement) takes accusative: 'der Schrank' (masculine) → <b>den Schrank</b>. The relative clause 'vor dem die Lampe steht' describes a static location (dative): <b>dem</b>. Correct: <b>den/dem</b>."
-  },
-  {
-    "id": "c1-konn-zwaraber-001",
-    "level": "C1",
-    "topic": "Konnektoren: zwar...aber",
-    "type": "mc",
-    "prompt_de": "Kleine Fehler lassen sich ____ korrigieren, ____ Sorgfalt ist trotzdem wichtig.",
-    "prompt_en": "Small mistakes can admittedly be corrected, but care is still important.",
-    "options": [
-      "zwar/aber",
-      "sowohl/als auch",
-      "zu/um",
-      "entweder/oder"
-    ],
-    "correct": "zwar/aber",
-    "explanation_de": "'Zwar...aber' ist ein festes konzessives Konnektorenpaar.",
-    "explanation_en": "'Zwar...aber' is a fixed concessive pair meaning 'admittedly...but'."
   }
 ]

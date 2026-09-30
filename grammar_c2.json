@@ -1,5 +1,293 @@
 [
   {
+    "id": "c2-gen-praep-zwecks-003",
+    "level": "C2",
+    "topic": "Genitivpräpositionen: zwecks",
+    "core": 81,
+    "type": "mc",
+    "prompt_de": "Außerhalb der Öffnungszeiten wählen Sie bitte die Nummer zwecks ____.",
+    "prompt_en": "Outside opening hours, please dial the number for the purpose of the on-call schedule.",
+    "options": [
+      "dem Notdienstplan",
+      "der Notdienstplan",
+      "den Notdienstplan",
+      "des Notdienstplans"
+    ],
+    "correct": "des Notdienstplans",
+    "explanation_de": "'Zwecks' (zum Zweck von) verlangt den Genitiv: <b>des Notdienstplans</b>.",
+    "explanation_en": "'Zwecks' (for the purpose of) governs the genitive: <b>des Notdienstplans</b>."
+  },
+  {
+    "id": "c2-wortschatz-register-002",
+    "level": "C2",
+    "topic": "Wortschatz: Register",
+    "core": 82,
+    "type": "mc",
+    "prompt_de": "Für die Gala beachten Sie bitte folgenden Stil: ____.",
+    "prompt_en": "For the gala, please observe the following style: festive and elegant.",
+    "options": [
+      "bequem und geschmacklos",
+      "salopp und ungemütlich",
+      "festlich und elegant",
+      "korrekt und neutral"
+    ],
+    "correct": "festlich und elegant",
+    "explanation_de": "'Festlich und elegant' passt zu einer formellen Gala; die anderen Optionen beschreiben unpassende Stile.",
+    "explanation_en": "'Festlich und elegant' fits a formal gala; the other options describe styles unsuited to such an event."
+  },
+  {
+    "id": "c2-wortschatz-adverb-formell-000",
+    "level": "C2",
+    "topic": "Wortschatz: Adverbien (formell)",
+    "core": 83,
+    "type": "mc",
+    "prompt_de": "Die Kollegen misstrauten dem Chef völlig, und er reagierte ____.",
+    "prompt_en": "The colleagues completely distrusted the boss, and he reacted correspondingly.",
+    "options": [
+      "entsprechend",
+      "bindend",
+      "folgend",
+      "aufsteigend"
+    ],
+    "correct": "entsprechend",
+    "explanation_de": "'Entsprechend' (dementsprechend) impliziert eine gleichartige Reaktion.",
+    "explanation_en": "'Entsprechend' (correspondingly) implies a matching, in-kind reaction."
+  },
+  {
+    "id": "c2-wortschatz-redewendung-001",
+    "level": "C2",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 84,
+    "type": "mc",
+    "prompt_de": "Nach langem Nachdenken ____ sie zu ____, dass sie umziehen sollte.",
+    "prompt_en": "After much thought, she came to the conviction that she should move.",
+    "options": [
+      "beschloss/den Zeitpunkt",
+      "fand/die Erkenntnis",
+      "gelangte/der Überzeugung",
+      "kam/den Beschluss"
+    ],
+    "correct": "gelangte/der Überzeugung",
+    "explanation_de": "'Zu der Überzeugung gelangen' ist eine feste Kollokation.",
+    "explanation_en": "'Zu der Überzeugung gelangen' (to come to the conviction) is a fixed collocation."
+  },
+  {
+    "id": "c2-wortschatz-redewendung-005",
+    "level": "C2",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 85,
+    "type": "mc",
+    "prompt_de": "Das Thema Gehaltserhöhung kam ____.",
+    "prompt_en": "The topic of a raise came up for discussion.",
+    "options": [
+      "zum Vorschein",
+      "unter Anklage",
+      "zur Sprache",
+      "in Abhängigkeit"
+    ],
+    "correct": "zur Sprache",
+    "explanation_de": "'Zur Sprache kommen' (thematisiert werden) ist eine feste Redewendung.",
+    "explanation_en": "'Zur Sprache kommen' (to come up for discussion) is a fixed idiom."
+  },
+  {
+    "id": "c2-wechselpraep-001",
+    "level": "C2",
+    "topic": "Wechselpräpositionen",
+    "core": 86,
+    "type": "mc",
+    "prompt_de": "Sie ging ____ Büro und befand sich in ____ Warteschlange.",
+    "prompt_en": "She went into the office and found herself in a queue.",
+    "options": [
+      "ins/einer",
+      "in dem/eine",
+      "ins/eine",
+      "in dem/einer"
+    ],
+    "correct": "ins/einer",
+    "explanation_de": "'Ins Büro' (Bewegung, Akkusativ) ist korrekt; 'sich befinden in' drückt einen festen Ort aus (Dativ). 'Die Warteschlange' (fem.) im Dativ → <b>einer</b>. Richtig: <b>ins/einer</b>.",
+    "explanation_en": "'Ins Büro' (movement into, accusative) is correct; 'sich befinden in' expresses static location (dative). 'Die Warteschlange' (fem.) dative → <b>einer</b>. Correct: <b>ins/einer</b>."
+  },
+  {
+    "id": "c2-rel-wechselpraep-001",
+    "level": "C2",
+    "topic": "Relativsätze: Wechselpräpositionen",
+    "core": 87,
+    "type": "mc",
+    "prompt_de": "Stelle den Karton bitte vor ____ Schrank, vor ____ die Lampe steht.",
+    "prompt_en": "Please put the box in front of the cabinet, in front of which the lamp stands.",
+    "options": [
+      "dem/dem",
+      "den/dem",
+      "den/den",
+      "dem/den"
+    ],
+    "correct": "den/dem",
+    "explanation_de": "'Stellen' (Bewegung) verlangt den Akkusativ: 'der Schrank' (mask.) → <b>den Schrank</b>. Der Relativsatz 'vor dem die Lampe steht' beschreibt einen festen Ort (Dativ): <b>dem</b>.",
+    "explanation_en": "'Stellen' (placement/movement) takes accusative: 'der Schrank' (masculine) → <b>den Schrank</b>. The relative clause 'vor dem die Lampe steht' describes a static location (dative): <b>dem</b>. Correct: <b>den/dem</b>."
+  },
+  {
+    "id": "c2-wortschatz-redewendung-006",
+    "level": "C2",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 88,
+    "type": "mc",
+    "prompt_de": "Da wird der Hund ____.",
+    "prompt_en": "That's enough to drive anyone crazy (idiom).",
+    "options": [
+      "zum Schuh",
+      "in der Pfanne verrückt",
+      "von dem Elch geknutscht",
+      "vor die Säue geworfen"
+    ],
+    "correct": "in der Pfanne verrückt",
+    "explanation_de": "'Da wird der Hund in der Pfanne verrückt' ist eine feste Redewendung für starkes Erstaunen/Verärgerung.",
+    "explanation_en": "'Da wird der Hund in der Pfanne verrückt' is a fixed idiom expressing strong astonishment/exasperation."
+  },
+  {
+    "id": "c2-modal-epistemisch-002",
+    "level": "C2",
+    "topic": "Modalverben: epistemischer Gebrauch",
+    "core": 89,
+    "type": "mc",
+    "prompt_de": "Alle Gäste tragen historische Kostüme; es ____ sich um ein Fest handeln.",
+    "prompt_en": "All the guests are wearing historical costumes; it must be a celebration.",
+    "options": [
+      "soll",
+      "darf",
+      "muss",
+      "mag"
+    ],
+    "correct": "muss",
+    "explanation_de": "'Es muss sich um... handeln' drückt eine logische Schlussfolgerung aus ('es muss so sein').",
+    "explanation_en": "'Es muss sich um... handeln' expresses logical deduction/certainty ('it must be')."
+  },
+  {
+    "id": "c2-wortschatz-redewendung-007",
+    "level": "C2",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 90,
+    "type": "mc",
+    "prompt_de": "Man will ein Haus verkaufen. Die Immobilie sollte vom ____ des Käufers aus attraktiv sein.",
+    "prompt_en": "One wants to sell a house. The property should be attractive from the buyer's standpoint.",
+    "options": [
+      "Grund",
+      "Anlass",
+      "Standpunkt",
+      "Stand"
+    ],
+    "correct": "Standpunkt",
+    "explanation_de": "'Vom Standpunkt...aus' ist eine feste Wendung mit der Bedeutung 'aus der Sicht von'.",
+    "explanation_en": "'Vom Standpunkt...aus' is a fixed phrase meaning 'from the standpoint of'."
+  },
+  {
+    "id": "c2-wortschatz-verb-formell-001",
+    "level": "C2",
+    "topic": "Wortschatz: Verben (formell)",
+    "core": 91,
+    "type": "mc",
+    "prompt_de": "Darauf ____ die Sprecherin, die Kritik sei unbegründet.",
+    "prompt_en": "To this, the spokeswoman retorted that the criticism was unfounded.",
+    "options": [
+      "fragte",
+      "entgegnete",
+      "hoffte",
+      "erörterte"
+    ],
+    "correct": "entgegnete",
+    "explanation_de": "'Entgegnen' bedeutet 'auf etwas [kritisch] antworten'.",
+    "explanation_en": "'Entgegnen' means 'to retort/reply [to a criticism]'."
+  },
+  {
+    "id": "c2-wortschatz-diskurs-001",
+    "level": "C2",
+    "topic": "Wortschatz: Diskurspartikeln",
+    "core": 92,
+    "type": "mc",
+    "prompt_de": "International ist das ZDF ein bekannter Sender. Er zeigt ____ seine Sendungen auch im Ausland.",
+    "prompt_en": "Internationally, ZDF is a well-known broadcaster. It broadcasts its programs abroad, namely [in many countries].",
+    "options": [
+      "hoffentlich",
+      "deshalb",
+      "öffentlich",
+      "nämlich"
+    ],
+    "correct": "nämlich",
+    "explanation_de": "'Nämlich' liefert einen erläuternden Zusatz zum vorher Gesagten.",
+    "explanation_en": "'Nämlich' (namely) provides elaborating context."
+  },
+  {
+    "id": "c2-wortschatz-redewendung-008",
+    "level": "C2",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 93,
+    "type": "mc",
+    "prompt_de": "Der Fortschritt hat uns Vorteile gebracht, für die wir manchen Nachteil ____.",
+    "prompt_en": "Progress has brought us advantages, for which we gladly accept some disadvantage.",
+    "options": [
+      "zum Kauf nehmen",
+      "in Rechnung stellen",
+      "auf Rechnung setzen",
+      "in Kauf nehmen"
+    ],
+    "correct": "in Kauf nehmen",
+    "explanation_de": "'Etwas in Kauf nehmen' bedeutet, etwas als Kompromiss zu akzeptieren.",
+    "explanation_en": "'Etwas in Kauf nehmen' means 'to accept something as a trade-off'."
+  },
+  {
+    "id": "c2-wortschatz-redewendung-009",
+    "level": "C2",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 94,
+    "type": "mc",
+    "prompt_de": "In der Technikbranche bleiben Männer oft ____, Frauen sind dagegen in der Pflege häufiger in der Mehrheit.",
+    "prompt_en": "In the tech industry, men often remain among themselves; women, meanwhile, are more often in the majority in care professions.",
+    "options": [
+      "für sich",
+      "miteinander",
+      "unter sich",
+      "beieinander"
+    ],
+    "correct": "unter sich",
+    "explanation_de": "'Unter sich bleiben' ist eine feste Redewendung für 'nur unter Gleichgesinnten/derselben Gruppe bleiben'.",
+    "explanation_en": "'Unter sich bleiben' is a fixed idiom meaning 'to stay among themselves'."
+  },
+  {
+    "id": "c2-wortschatz-verb-praep-001",
+    "level": "C2",
+    "topic": "Wortschatz: Verben mit Präposition",
+    "core": 95,
+    "type": "mc",
+    "prompt_de": "Toyota ____ den größten Automobilherstellern der Welt.",
+    "prompt_en": "Toyota counts among the largest car manufacturers in the world.",
+    "options": [
+      "macht aus",
+      "gehört in",
+      "liegt in",
+      "zählt zu"
+    ],
+    "correct": "zählt zu",
+    "explanation_de": "'Zählen zu' bedeutet 'gehören zu/eines von... sein'.",
+    "explanation_en": "'Zählen zu' means 'to count among/be one of'."
+  },
+  {
+    "id": "c2-wortschatz-redewendung-010",
+    "level": "C2",
+    "topic": "Wortschatz: Redewendungen",
+    "core": 96,
+    "type": "mc",
+    "prompt_de": "Die neuen Beweise waren erkennbar entscheidend. Für das Urteil hat dies den ____ gegeben.",
+    "prompt_en": "The new evidence was clearly decisive. This gave the deciding factor for the ruling.",
+    "options": [
+      "Ausschlag",
+      "Auftrag",
+      "Entscheidung",
+      "Begründung"
+    ],
+    "correct": "Ausschlag",
+    "explanation_de": "'Den Ausschlag geben' ist eine feste Redewendung für 'den entscheidenden Faktor darstellen'.",
+    "explanation_en": "'Den Ausschlag geben' is a fixed idiom meaning 'to be the deciding factor/tip the scales'."
+  },
+  {
     "id": "c2-konj-001",
     "level": "C2",
     "topic": "Konjunktiv II: als ob",
@@ -144,8 +432,8 @@
     "level": "C2",
     "topic": "Stilistische Inversion nach Negationswort",
     "type": "word_order",
-    "prompt_de": "Ordne die Wörter: (Nie / habe / ich / so / etwas / gesehen)",
-    "prompt_en": "Arrange: (Never / have / I / something like this / seen)",
+    "prompt_de": "Ordne die Wörter (beginne mit „Nie“): (Nie / habe / ich / so / etwas / gesehen)",
+    "prompt_en": "Arrange (start with 'Nie'): (Never / have / I / something like this / seen)",
     "options": [
       "habe",
       "Nie",
@@ -272,88 +560,516 @@
     "explanation_en": "'mangels' is an elevated-register genitive preposition (= 'for lack of')."
   },
   {
-    "id": "c2-gen-praep-zwecks-003",
+    "id": "c2-gen-praep-002",
     "level": "C2",
-    "topic": "Genitivpräpositionen: zwecks",
-    "type": "mc",
-    "prompt_de": "Außerhalb der Öffnungszeiten wählen Sie bitte die Nummer zwecks ____.",
-    "prompt_en": "Outside opening hours, please dial the number for the purpose of the on-call schedule.",
-    "options": [
-      "dem Notdienstplan",
-      "der Notdienstplan",
-      "den Notdienstplan",
-      "des Notdienstplans"
+    "topic": "Genitivpräpositionen: infolge",
+    "type": "fill_blank",
+    "prompt_de": "Infolge ___ (die starken) Regenfälle wurde die Straße gesperrt.",
+    "prompt_en": "As a result of the heavy rainfall, the road was closed.",
+    "correct": "der starken",
+    "accept": [
+      "der starken Regenfälle"
     ],
-    "correct": "des Notdienstplans",
-    "explanation_de": "'Zwecks' (zum Zweck von) verlangt den Genitiv: <b>des Notdienstplans</b>.",
-    "explanation_en": "'Zwecks' (for the purpose of) governs the genitive: <b>des Notdienstplans</b>."
+    "explanation_de": "'infolge' verlangt Genitiv; Genitiv Plural: <b>der starken</b> Regenfälle.",
+    "explanation_en": "'infolge' takes the genitive; genitive plural: <b>der starken</b> Regenfälle."
   },
   {
-    "id": "c2-wortschatz-redewendung-006",
+    "id": "c2-gen-009",
+    "level": "C2",
+    "topic": "Genitivverben: anklagen",
+    "type": "fill_blank",
+    "prompt_de": "Der Angeklagte wurde ___ (der Betrug) angeklagt.",
+    "prompt_en": "The defendant was charged with fraud.",
+    "correct": "des Betrugs",
+    "accept": [
+      "des Betruges"
+    ],
+    "explanation_de": "Im formellen Stil steht nach 'anklagen/beschuldigen' der Genitiv der Tat; Genitiv maskulin: <b>des Betrugs</b>.",
+    "explanation_en": "In formal style, 'anklagen/beschuldigen' takes the genitive of the offence; genitive masculine: <b>des Betrugs</b>."
+  },
+  {
+    "id": "c2-futur2-001",
+    "level": "C2",
+    "topic": "Futur II: Vermutung",
+    "type": "fill_blank",
+    "prompt_de": "Er ___ (werden) inzwischen längst zu Hause angekommen sein.",
+    "prompt_en": "He has probably long since arrived home by now.",
+    "correct": "wird",
+    "explanation_de": "Futur II (werden + Partizip II + sein/haben) drückt oft eine Vermutung über die Vergangenheit aus: Er <b>wird</b> angekommen sein.",
+    "explanation_en": "Futur II (werden + past participle + sein/haben) often expresses an assumption about the past: Er <b>wird</b> angekommen sein."
+  },
+  {
+    "id": "c2-konj-007",
+    "level": "C2",
+    "topic": "Konjunktiv I: Vergangenheit",
+    "type": "fill_blank",
+    "prompt_de": "Der Minister erklärte, er ___ gestern nach Brüssel gereist.",
+    "prompt_en": "The minister explained that he had travelled to Brussels yesterday.",
+    "correct": "sei",
+    "explanation_de": "Konjunktiv I der Vergangenheit: sei/habe + Partizip II. Bei 'reisen' (Bewegung): er <b>sei</b> gereist.",
+    "explanation_en": "Past-tense Konjunktiv I: sei/habe + past participle. With 'reisen' (motion): er <b>sei</b> gereist."
+  },
+  {
+    "id": "c2-konj-008",
+    "level": "C2",
+    "topic": "Konjunktiv II der Vergangenheit: Irrealis",
+    "type": "fill_blank",
+    "prompt_de": "Ohne deine Hilfe ___ (sein) wir gescheitert.",
+    "prompt_en": "Without your help we would have failed.",
+    "correct": "wären",
+    "explanation_de": "Irrealer Bedingungssatz in der Vergangenheit: wären + Partizip II (scheitern bildet das Perfekt mit 'sein').",
+    "explanation_en": "Unreal past conditional: wären + past participle ('scheitern' forms its perfect with 'sein')."
+  },
+  {
+    "id": "c2-inf-001",
+    "level": "C2",
+    "topic": "scheinen + zu + Infinitiv Perfekt",
+    "type": "fill_blank",
+    "prompt_de": "Er scheint den Fehler nicht bemerkt ___ haben.",
+    "prompt_en": "He doesn't seem to have noticed the mistake.",
+    "correct": "zu",
+    "explanation_de": "'scheinen' steht mit <b>zu</b> + Infinitiv (hier Infinitiv Perfekt): bemerkt zu haben.",
+    "explanation_en": "'scheinen' is used with <b>zu</b> + infinitive (here the perfect infinitive): bemerkt zu haben."
+  },
+  {
+    "id": "c2-konn-001",
+    "level": "C2",
+    "topic": "Konnektoren: es sei denn",
+    "type": "fill_blank",
+    "prompt_de": "Wir starten pünktlich, es ___ (sein) denn, der Zug hat Verspätung.",
+    "prompt_en": "We'll start on time unless the train is delayed.",
+    "correct": "sei",
+    "explanation_de": "Feste Wendung: <b>es sei denn</b> (= außer wenn) mit Konjunktiv I von 'sein'.",
+    "explanation_en": "Fixed phrase: <b>es sei denn</b> (= unless) with the Konjunktiv I of 'sein'."
+  },
+  {
+    "id": "c2-konn-002",
+    "level": "C2",
+    "topic": "Konnektoren: geschweige denn",
+    "type": "fill_blank",
+    "prompt_de": "Er hat kaum Zeit zum Essen, ___ denn zum Schlafen.",
+    "prompt_en": "He has hardly any time to eat, let alone to sleep.",
+    "correct": "geschweige",
+    "explanation_de": "Feste Wendung: <b>geschweige denn</b> (= und erst recht nicht).",
+    "explanation_en": "Fixed phrase: <b>geschweige denn</b> (= let alone)."
+  },
+  {
+    "id": "c2-konn-003",
+    "level": "C2",
+    "topic": "Konnektoren: je nachdem",
+    "type": "fill_blank",
+    "prompt_de": "Wir entscheiden das ___ nachdem, wie sich die Lage entwickelt.",
+    "prompt_en": "We will decide that depending on how the situation develops.",
+    "correct": "je",
+    "explanation_de": "Feste Wendung: <b>je nachdem, wie/ob …</b> (= abhängig davon, wie/ob …).",
+    "explanation_en": "Fixed phrase: <b>je nachdem, wie/ob …</b> (= depending on how/whether …)."
+  },
+  {
+    "id": "c2-adj-gen-001",
+    "level": "C2",
+    "topic": "Adjektivdeklination im Genitiv",
+    "type": "fill_blank",
+    "prompt_de": "Er sprach mit der Gelassenheit eines ___ (erfahren) Politikers.",
+    "prompt_en": "He spoke with the composure of an experienced politician.",
+    "correct": "erfahrenen",
+    "explanation_de": "Nach 'eines' (Genitiv maskulin) trägt das Adjektiv die schwache Endung <b>-en</b>: eines erfahrenen Politikers.",
+    "explanation_en": "After 'eines' (genitive masculine) the adjective takes the weak ending <b>-en</b>: eines erfahrenen Politikers."
+  },
+  {
+    "id": "c2-fvg-001",
+    "level": "C2",
+    "topic": "Funktionsverbgefüge: Rechnung tragen",
+    "type": "mc",
+    "prompt_de": "Die Regierung muss den Sorgen der Bürger ____ tragen.",
+    "prompt_en": "The government must take the citizens' concerns into account.",
+    "options": [
+      "Rechnung",
+      "Rücksicht",
+      "Geltung",
+      "Bedeutung"
+    ],
+    "correct": "Rechnung",
+    "explanation_de": "Feste Wendung: <b>einer Sache Rechnung tragen</b> (= sie berücksichtigen).",
+    "explanation_en": "Fixed phrase: <b>einer Sache Rechnung tragen</b> (= to take something into account)."
+  },
+  {
+    "id": "c2-fvg-002",
+    "level": "C2",
+    "topic": "Funktionsverbgefüge: ins Gewicht fallen",
+    "type": "mc",
+    "prompt_de": "Dieser Faktor fällt bei der Entscheidung kaum ins ____.",
+    "prompt_en": "This factor hardly matters in the decision.",
+    "options": [
+      "Gewicht",
+      "Wesen",
+      "Maß",
+      "Leben"
+    ],
+    "correct": "Gewicht",
+    "explanation_de": "Feste Wendung: <b>ins Gewicht fallen</b> (= wichtig sein, eine Rolle spielen).",
+    "explanation_en": "Fixed phrase: <b>ins Gewicht fallen</b> (= to carry weight, to matter)."
+  },
+  {
+    "id": "c2-wortschatz-redewendung-011",
     "level": "C2",
     "topic": "Wortschatz: Redewendungen",
     "type": "mc",
-    "prompt_de": "Da wird der Hund ____.",
-    "prompt_en": "That's enough to drive anyone crazy (idiom).",
+    "prompt_de": "Ich nehme davon ____, ihn öffentlich zu kritisieren.",
+    "prompt_en": "I refrain from criticising him publicly.",
     "options": [
-      "zum Schuh",
-      "in der Pfanne verrückt",
-      "von dem Elch geknutscht",
-      "vor die Säue geworfen"
+      "Abstand",
+      "Zustand",
+      "Aufstand",
+      "Umstand"
     ],
-    "correct": "in der Pfanne verrückt",
-    "explanation_de": "'Da wird der Hund in der Pfanne verrückt' ist eine feste Redewendung für starkes Erstaunen/Verärgerung.",
-    "explanation_en": "'Da wird der Hund in der Pfanne verrückt' is a fixed idiom expressing strong astonishment/exasperation."
+    "correct": "Abstand",
+    "explanation_de": "Feste Wendung: <b>von etwas Abstand nehmen</b> (= darauf verzichten).",
+    "explanation_en": "Fixed phrase: <b>von etwas Abstand nehmen</b> (= to refrain from something)."
   },
   {
-    "id": "c2-wortschatz-redewendung-010",
+    "id": "c2-wortschatz-redewendung-012",
     "level": "C2",
     "topic": "Wortschatz: Redewendungen",
     "type": "mc",
-    "prompt_de": "Die neuen Beweise waren erkennbar entscheidend. Für das Urteil hat dies den ____ gegeben.",
-    "prompt_en": "The new evidence was clearly decisive. This gave the deciding factor for the ruling.",
+    "prompt_de": "Seine Kompetenz steht ____ Frage.",
+    "prompt_en": "His competence is beyond question.",
     "options": [
-      "Ausschlag",
-      "Auftrag",
-      "Entscheidung",
-      "Begründung"
+      "außer",
+      "ohne",
+      "unter",
+      "auf"
     ],
-    "correct": "Ausschlag",
-    "explanation_de": "'Den Ausschlag geben' ist eine feste Redewendung für 'den entscheidenden Faktor darstellen'.",
-    "explanation_en": "'Den Ausschlag geben' is a fixed idiom meaning 'to be the deciding factor/tip the scales'."
+    "correct": "außer",
+    "explanation_de": "Feste Wendung: <b>außer Frage stehen</b> (= nicht zu bezweifeln sein).",
+    "explanation_en": "Fixed phrase: <b>außer Frage stehen</b> (= to be beyond doubt)."
   },
   {
-    "id": "c2-wortschatz-redewendung-001",
+    "id": "c2-gen-praep-zugunsten-001",
     "level": "C2",
-    "topic": "Wortschatz: Redewendungen",
+    "topic": "Genitivpräpositionen: zugunsten",
     "type": "mc",
-    "prompt_de": "Nach langem Nachdenken ____ sie zu ____, dass sie umziehen sollte.",
-    "prompt_en": "After much thought, she came to the conviction that she should move.",
+    "prompt_de": "Er verzichtete ____ seines Bruders auf das Erbe.",
+    "prompt_en": "He waived the inheritance in favour of his brother.",
     "options": [
-      "beschloss/den Zeitpunkt",
-      "fand/die Erkenntnis",
-      "gelangte/der Überzeugung",
-      "kam/den Beschluss"
+      "zugunsten",
+      "zuliebe",
+      "zuwider",
+      "zuvor"
     ],
-    "correct": "gelangte/der Überzeugung",
-    "explanation_de": "'Zu der Überzeugung gelangen' ist eine feste Kollokation.",
-    "explanation_en": "'Zu der Überzeugung gelangen' (to come to the conviction) is a fixed collocation."
+    "correct": "zugunsten",
+    "explanation_de": "'zugunsten' steht vor einem Genitiv: zugunsten seines Bruders. ('zuliebe' steht nach dem Nomen im Dativ: seinem Bruder zuliebe.)",
+    "explanation_en": "'zugunsten' precedes a genitive: zugunsten seines Bruders. ('zuliebe' follows a dative noun: seinem Bruder zuliebe.)"
   },
   {
-    "id": "c2-wortschatz-verb-formell-001",
+    "id": "c2-stil-003",
+    "level": "C2",
+    "topic": "Nominalstil",
+    "type": "mc",
+    "prompt_de": "Nach ____ der Unterlagen konnte der Vertrag unterschrieben werden. (Nominalstil für: nachdem die Unterlagen geprüft worden waren)",
+    "prompt_en": "After the documents had been checked, the contract could be signed.",
+    "options": [
+      "Prüfung",
+      "Prüfen",
+      "geprüft",
+      "prüfend"
+    ],
+    "correct": "Prüfung",
+    "explanation_de": "Nominalstil: Der Nebensatz wird zu Präposition + Nomen: <b>Nach Prüfung</b> der Unterlagen (Nomen ohne Artikel, Genitivattribut).",
+    "explanation_en": "Nominal style: the subordinate clause becomes preposition + noun: <b>Nach Prüfung</b> der Unterlagen (noun without article, genitive attribute)."
+  },
+  {
+    "id": "c2-rel-002",
+    "level": "C2",
+    "topic": "Relativsätze: wo(r)- + Präposition",
+    "type": "mc",
+    "prompt_de": "Sie hat vieles erreicht, ____ sie stolz sein kann.",
+    "prompt_en": "She has achieved a lot of which she can be proud.",
+    "options": [
+      "worauf",
+      "auf dem",
+      "wo",
+      "wem"
+    ],
+    "correct": "worauf",
+    "explanation_de": "Nach unbestimmten Pronomen wie 'vieles' steht wo(r)- + Präposition: <b>worauf</b> sie stolz sein kann (stolz sein auf).",
+    "explanation_en": "After indefinite pronouns like 'vieles' wo(r)- + preposition is used: <b>worauf</b> sie stolz sein kann (stolz sein auf)."
+  },
+  {
+    "id": "c2-wortschatz-verb-formell-002",
     "level": "C2",
     "topic": "Wortschatz: Verben (formell)",
     "type": "mc",
-    "prompt_de": "Darauf ____ die Sprecherin, die Kritik sei unbegründet.",
-    "prompt_en": "To this, the spokeswoman retorted that the criticism was unfounded.",
+    "prompt_de": "Die Behörde hat dem Antrag ____.",
+    "prompt_en": "The authority granted the application.",
     "options": [
-      "fragte",
-      "entgegnete",
-      "hoffte",
-      "erörterte"
+      "stattgegeben",
+      "gegeben statt",
+      "stattgeben",
+      "stattzugeben"
     ],
-    "correct": "entgegnete",
-    "explanation_de": "'Entgegnen' bedeutet 'auf etwas [kritisch] antworten'.",
-    "explanation_en": "'Entgegnen' means 'to retort/reply [to a criticism]'."
+    "correct": "stattgegeben",
+    "explanation_de": "'stattgeben' (+ Dativ) ist trennbar; das Partizip II wird als ein Wort geschrieben: hat dem Antrag <b>stattgegeben</b>.",
+    "explanation_en": "'stattgeben' (+ dative) is separable; its past participle is written as one word: hat dem Antrag <b>stattgegeben</b>."
+  },
+  {
+    "id": "c2-wortschatz-verb-formell-003",
+    "level": "C2",
+    "topic": "Wortschatz: Verben",
+    "type": "mc",
+    "prompt_de": "Die Preise ____ stark je nach Saison: mal sind sie hoch, mal niedrig.",
+    "prompt_en": "Prices fluctuate greatly depending on the season: sometimes they are high, sometimes low.",
+    "options": [
+      "schwanken",
+      "sinken",
+      "steigern",
+      "wachsen"
+    ],
+    "correct": "schwanken",
+    "explanation_de": "'Schwanken' bedeutet 'mal höher, mal niedriger werden' – das passt zu 'mal hoch, mal niedrig'.",
+    "explanation_en": "'Schwanken' means 'to fluctuate' – this fits 'sometimes high, sometimes low'."
+  },
+  {
+    "id": "c2-konz-001",
+    "level": "C2",
+    "topic": "Konzessivsatz: sosehr",
+    "type": "mc",
+    "prompt_de": "Sosehr er sich auch ____, er fand keine Lösung.",
+    "prompt_en": "However hard he tried, he did not find a solution.",
+    "options": [
+      "bemühte",
+      "bemühen",
+      "bemühend",
+      "bemühst"
+    ],
+    "correct": "bemühte",
+    "explanation_de": "'Sosehr … auch' leitet einen Konzessivsatz ein (Nebensatz): Das konjugierte Verb steht am Ende, hier im Präteritum: er <b>bemühte</b> sich.",
+    "explanation_en": "'Sosehr … auch' introduces a concessive (subordinate) clause: the conjugated verb goes to the end, here in the Präteritum: er <b>bemühte</b> sich."
+  },
+  {
+    "id": "c2-wo-kaum-001",
+    "level": "C2",
+    "topic": "Inversion nach kaum",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (kaum / war / er / zu Hause / da / klingelte / das Telefon)",
+    "prompt_en": "Arrange: (hardly / was / he / at home / then / rang / the telephone)",
+    "options": [
+      "kaum",
+      "war",
+      "er",
+      "zu Hause",
+      "da",
+      "klingelte",
+      "das Telefon"
+    ],
+    "correct": [
+      "kaum",
+      "war",
+      "er",
+      "zu Hause",
+      "da",
+      "klingelte",
+      "das Telefon"
+    ],
+    "explanation_de": "Nach vorangestelltem 'kaum' gilt Inversion (Verb vor Subjekt): Kaum war er zu Hause, da klingelte das Telefon.",
+    "explanation_en": "With 'kaum' at the start, inversion applies (verb before subject): Kaum war er zu Hause, da klingelte das Telefon."
+  },
+  {
+    "id": "c2-wo-rel-001",
+    "level": "C2",
+    "topic": "Relativsatz mit Präposition",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (das ist der Grund / aus dem / er / gekündigt hat)",
+    "prompt_en": "Arrange: (that is the reason / for which / he / resigned)",
+    "options": [
+      "das ist der Grund",
+      "aus dem",
+      "er",
+      "gekündigt hat"
+    ],
+    "correct": [
+      "das ist der Grund",
+      "aus dem",
+      "er",
+      "gekündigt hat"
+    ],
+    "explanation_de": "Im Relativsatz steht die Präposition vor dem Relativpronomen ('aus dem'), das konjugierte Verb ('hat') am Ende.",
+    "explanation_en": "In the relative clause the preposition comes before the relative pronoun ('aus dem') and the conjugated verb ('hat') goes to the end."
+  },
+  {
+    "id": "c2-wo-soll-001",
+    "level": "C2",
+    "topic": "sollen + Perfekt-Infinitiv: Gerücht",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (er / soll / den Brief / geschrieben / haben)",
+    "prompt_en": "Arrange: (he / is said to / the letter / written / have)",
+    "options": [
+      "er",
+      "soll",
+      "den Brief",
+      "geschrieben",
+      "haben"
+    ],
+    "correct": [
+      "er",
+      "soll",
+      "den Brief",
+      "geschrieben",
+      "haben"
+    ],
+    "accept_orders": [
+      [
+        "den Brief",
+        "soll",
+        "er",
+        "geschrieben",
+        "haben"
+      ]
+    ],
+    "explanation_de": "'sollen' + Infinitiv Perfekt (geschrieben haben) gibt ein Gerücht über die Vergangenheit wieder; 'soll' auf Position 2, der Doppelinfinitiv am Ende.",
+    "explanation_en": "'sollen' + perfect infinitive (geschrieben haben) reports hearsay about the past; 'soll' in position 2, the double infinitive at the end."
+  },
+  {
+    "id": "c2-placementstyle-001",
+    "level": "C2",
+    "topic": "Konjunktiv I: haben",
+    "core": 105,
+    "type": "mc",
+    "prompt_de": "Der Minister erklärte, er ____ den Bericht nicht gelesen.",
+    "prompt_en": "The minister stated that he had not read the report.",
+    "options": [
+      "habe",
+      "hat",
+      "haben",
+      "hatte"
+    ],
+    "correct": "habe",
+    "explanation_de": "Indirekte Rede: Konjunktiv I – er habe.",
+    "explanation_en": "Indirect speech: Konjunktiv I – er habe."
+  },
+  {
+    "id": "c2-placementstyle-002",
+    "level": "C2",
+    "topic": "Funktionsverbgefüge",
+    "core": 106,
+    "type": "mc",
+    "prompt_de": "Jeder kann einen Beitrag zum Umweltschutz ____.",
+    "prompt_en": "Everyone can make a contribution to environmental protection.",
+    "options": [
+      "leisten",
+      "machen",
+      "geben",
+      "tun"
+    ],
+    "correct": "leisten",
+    "explanation_de": "Feste Verbindung: einen Beitrag leisten.",
+    "explanation_en": "Fixed collocation: einen Beitrag leisten."
+  },
+  {
+    "id": "c2-placementstyle-003",
+    "level": "C2",
+    "topic": "Genitivpräposition: angesichts",
+    "core": 107,
+    "type": "mc",
+    "prompt_de": "____ der steigenden Preise sparen viele Familien.",
+    "prompt_en": "In view of rising prices, many families save.",
+    "options": [
+      "Angesichts",
+      "Anstatt",
+      "Entlang",
+      "Gegenüber"
+    ],
+    "correct": "Angesichts",
+    "explanation_de": "„angesichts“ + Genitiv = in Anbetracht von.",
+    "explanation_en": "\"angesichts\" + genitive = in view of."
+  },
+  {
+    "id": "c2-placementstyle-004",
+    "level": "C2",
+    "topic": "Redewendung",
+    "core": 108,
+    "type": "mc",
+    "prompt_de": "Er hat bei dem Projekt Nägel mit ____ gemacht.",
+    "prompt_en": "He did things properly on the project.",
+    "options": [
+      "Köpfen",
+      "Händen",
+      "Füßen",
+      "Hüten"
+    ],
+    "correct": "Köpfen",
+    "explanation_de": "„Nägel mit Köpfen machen“ = etwas gründlich und richtig tun.",
+    "explanation_en": "\"Nägel mit Köpfen machen\" = to do something thoroughly and properly."
+  },
+  {
+    "id": "c2-placementstyle-005",
+    "level": "C2",
+    "topic": "Konnektor: indem",
+    "core": 109,
+    "type": "mc",
+    "prompt_de": "Sie löste das Problem, ____ sie alle Beteiligten an einen Tisch brachte.",
+    "prompt_en": "She solved the problem by bringing everyone involved to one table.",
+    "options": [
+      "indem",
+      "sodass",
+      "obwohl",
+      "damit"
+    ],
+    "correct": "indem",
+    "explanation_de": "„indem“ nennt das Mittel: dadurch, dass …",
+    "explanation_en": "\"indem\" names the means: by doing …"
+  },
+  {
+    "id": "c2-placementstyle-006",
+    "level": "C2",
+    "topic": "Partizip I als Adjektiv",
+    "core": 110,
+    "type": "mc",
+    "prompt_de": "Die ____ Zeit war kostbar.",
+    "prompt_en": "The remaining time was precious.",
+    "options": [
+      "verbleibende",
+      "verbleibenden",
+      "verbleibender",
+      "verbleibendes"
+    ],
+    "correct": "verbleibende",
+    "explanation_de": "Partizip I + -e (Nom. feminin nach „die“).",
+    "explanation_en": "Present participle + -e (nom. feminine after \"die\")."
+  },
+  {
+    "id": "c2-placementstyle-007",
+    "level": "C2",
+    "topic": "Formelles Verb",
+    "core": 111,
+    "type": "mc",
+    "prompt_de": "Nach sorgfältiger Prüfung wurde der Antrag ____.",
+    "prompt_en": "After careful examination the application was approved.",
+    "options": [
+      "bewilligt",
+      "erwidert",
+      "geleitet",
+      "gefärbt"
+    ],
+    "correct": "bewilligt",
+    "explanation_de": "Ein Antrag wird bewilligt oder abgelehnt.",
+    "explanation_en": "An application is approved or rejected."
+  },
+  {
+    "id": "c2-placementstyle-008",
+    "level": "C2",
+    "topic": "Irreale Bedingung ohne „wenn“",
+    "core": 112,
+    "type": "mc",
+    "prompt_de": "Hätte ich das gewusst, ____ ich anders entschieden.",
+    "prompt_en": "Had I known that, I would have decided differently.",
+    "options": [
+      "hätte",
+      "würde",
+      "habe",
+      "wäre"
+    ],
+    "correct": "hätte",
+    "explanation_de": "Inversion statt „wenn“: … hätte ich … entschieden.",
+    "explanation_en": "Inversion instead of \"wenn\": … hätte ich … entschieden."
   }
 ]

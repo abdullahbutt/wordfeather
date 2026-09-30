@@ -110,7 +110,7 @@
     "prompt_de": "Ordne die Wörter: (heute / ich / Deutsch / muss / lernen)",
     "prompt_en": "Arrange: (today / I / German / must / learn)",
     "options": [
-      "Ich",
+      "ich",
       "muss",
       "heute",
       "Deutsch",
@@ -122,6 +122,22 @@
       "heute",
       "Deutsch",
       "lernen"
+    ],
+    "accept_orders": [
+      [
+        "heute",
+        "muss",
+        "ich",
+        "Deutsch",
+        "lernen"
+      ],
+      [
+        "Deutsch",
+        "muss",
+        "ich",
+        "heute",
+        "lernen"
+      ]
     ],
     "explanation_de": "Modalverb 'muss' auf Position 2, Infinitiv 'lernen' am Satzende.",
     "explanation_en": "Modal verb 'muss' in position 2, infinitive 'lernen' at the end of the clause."
@@ -251,7 +267,7 @@
     "prompt_de": "Ordne die Wörter: (heute / ich / arbeite)",
     "prompt_en": "Arrange: (today / I / am working)",
     "options": [
-      "Heute",
+      "heute",
       "arbeite",
       "ich"
     ],
@@ -259,6 +275,13 @@
       "Heute",
       "arbeite",
       "ich"
+    ],
+    "accept_orders": [
+      [
+        "ich",
+        "arbeite",
+        "heute"
+      ]
     ],
     "explanation_de": "Verb bleibt auf Position 2, auch wenn ein anderes Element zuerst kommt: Heute arbeite ich.",
     "explanation_en": "The verb stays in position 2, even when another element comes first: Heute arbeite ich."
@@ -461,6 +484,7 @@
     "id": "a1-verb-sein-001",
     "level": "A1",
     "topic": "Verben im Präsens",
+    "core": 1,
     "type": "mc",
     "prompt_de": "Guten Tag! Ich ____ Sabine Klein.",
     "prompt_en": "I am Sabine Klein.",
@@ -478,6 +502,7 @@
     "id": "a1-frage-001",
     "level": "A1",
     "topic": "Fragewörter",
+    "core": 2,
     "type": "mc",
     "prompt_de": "____ ist das? Das ist die Ärztin.",
     "prompt_en": "Who is that? That's the doctor.",
@@ -495,6 +520,7 @@
     "id": "a1-poss-004",
     "level": "A1",
     "topic": "Possessivpronomen",
+    "core": 3,
     "type": "mc",
     "prompt_de": "Das ist mein Buch. Das sind ____ Hefte.",
     "prompt_en": "Those are my notebooks.",
@@ -512,6 +538,7 @@
     "id": "a1-wortschatz-familie-001",
     "level": "A1",
     "topic": "Wortschatz: Familie",
+    "core": 4,
     "type": "mc",
     "prompt_de": "Hast du ____? Ja, ich habe eine Schwester.",
     "prompt_en": "Do you have siblings? Yes, I have a sister.",
@@ -529,6 +556,7 @@
     "id": "a1-uhrzeit-001",
     "level": "A1",
     "topic": "Uhrzeit",
+    "core": 5,
     "type": "mc",
     "prompt_de": "Wie spät ist es? 14.30 Uhr.",
     "prompt_en": "What time is it? 2:30 PM.",
@@ -546,6 +574,7 @@
     "id": "a1-praep-001",
     "level": "A1",
     "topic": "Präpositionen",
+    "core": 6,
     "type": "mc",
     "prompt_de": "Wo liegt die Katze? Sie liegt ____ dem Bett.",
     "prompt_en": "Where is the cat lying? It's lying on the bed.",
@@ -563,6 +592,7 @@
     "id": "a1-praep-002",
     "level": "A1",
     "topic": "Präpositionen",
+    "core": 7,
     "type": "mc",
     "prompt_de": "Wohin fliegst du? Ich fliege ____ München.",
     "prompt_en": "Where are you flying to? I'm flying to Munich.",
@@ -580,6 +610,7 @@
     "id": "a1-wortschatz-restaurant-001",
     "level": "A1",
     "topic": "Wortschatz: Restaurant",
+    "core": 8,
     "type": "mc",
     "prompt_de": "Als ____ nehme ich einen Salat.",
     "prompt_en": "As a starter, I'll have a salad.",
@@ -592,5 +623,3428 @@
     "correct": "Vorspeise",
     "explanation_de": "'Vorspeise' bedeutet der erste Gang eines Essens — ein Salat ist ein typisches Beispiel dafür.",
     "explanation_en": "'Vorspeise' means starter/appetizer — the first course of a meal, which a salad commonly is."
+  },
+  {
+    "id": "a1-aussp-001",
+    "level": "A1",
+    "topic": "Aussprache: Umlaute",
+    "type": "mc",
+    "prompt_de": "Welches Wort hat einen Umlaut?",
+    "prompt_en": "Which word has an umlaut?",
+    "options": [
+      "Tür",
+      "Tor",
+      "Tee",
+      "Tag"
+    ],
+    "correct": "Tür",
+    "explanation_de": "„Tür“ enthält ein ü. Umlaute sind ä, ö, ü.",
+    "explanation_en": "\"Tür\" contains ü. The umlauts are ä, ö, ü."
+  },
+  {
+    "id": "a1-aussp-002",
+    "level": "A1",
+    "topic": "Aussprache: Doppelvokale",
+    "type": "mc",
+    "prompt_de": "In welchem Wort steht der Diphthong „eu“?",
+    "prompt_en": "Which word contains the diphthong \"eu\"?",
+    "options": [
+      "heute",
+      "Haus",
+      "wie",
+      "Bär"
+    ],
+    "correct": "heute",
+    "explanation_de": "„heute“ hat eu (klingt wie „oi“). „Haus“ hat au, „wie“ hat ie.",
+    "explanation_en": "\"heute\" has eu (sounds like \"oy\"). \"Haus\" has au, \"wie\" has ie."
+  },
+  {
+    "id": "a1-art-001",
+    "level": "A1",
+    "topic": "Bestimmter Artikel: Nominativ",
+    "type": "fill_blank",
+    "prompt_de": "___ Kind spielt im Garten.",
+    "prompt_en": "The child is playing in the garden.",
+    "correct": "Das",
+    "explanation_de": "„Kind“ ist Neutrum: das Kind (Nominativ).",
+    "explanation_en": "\"Kind\" is neuter: das Kind (nominative)."
+  },
+  {
+    "id": "a1-art-002",
+    "level": "A1",
+    "topic": "Bestimmter Artikel: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich sehe ___ Frau.",
+    "prompt_en": "I see the woman.",
+    "correct": "die",
+    "explanation_de": "Feminin ändert sich im Akkusativ nicht: die Frau.",
+    "explanation_en": "Feminine does not change in the accusative: die Frau."
+  },
+  {
+    "id": "a1-art-003",
+    "level": "A1",
+    "topic": "Bestimmter Artikel: Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich gebe ___ Frau ein Buch. (Dativ)",
+    "prompt_en": "I give the woman a book. (dative)",
+    "correct": "der",
+    "explanation_de": "Dativ feminin: die → der.",
+    "explanation_en": "Dative feminine: die → der."
+  },
+  {
+    "id": "a1-art-004",
+    "level": "A1",
+    "topic": "Bestimmter Artikel: Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich helfe ___ Kind. (Dativ)",
+    "prompt_en": "I help the child. (dative)",
+    "correct": "dem",
+    "explanation_de": "Dativ Neutrum: das → dem.",
+    "explanation_en": "Dative neuter: das → dem."
+  },
+  {
+    "id": "a1-art-005",
+    "level": "A1",
+    "topic": "Bestimmter Artikel: Dativ",
+    "type": "mc",
+    "prompt_de": "Ich spreche mit ___ Mann.",
+    "prompt_en": "I am talking to the man.",
+    "options": [
+      "der",
+      "den",
+      "dem"
+    ],
+    "correct": "dem",
+    "explanation_de": "„mit“ steht mit Dativ. Dativ maskulin: dem.",
+    "explanation_en": "\"mit\" takes the dative. Dative masculine: dem."
+  },
+  {
+    "id": "a1-art-006",
+    "level": "A1",
+    "topic": "Bestimmter Artikel: Dativ Plural",
+    "type": "fill_blank",
+    "prompt_de": "Sie gibt den ___ (Kind) Schokolade.",
+    "prompt_en": "She gives the children chocolate.",
+    "correct": "Kindern",
+    "explanation_de": "Dativ Plural: Artikel „den“ und das Nomen bekommt -n: Kindern.",
+    "explanation_en": "Dative plural: article \"den\" and the noun gets -n: Kindern."
+  },
+  {
+    "id": "a1-art-007",
+    "level": "A1",
+    "topic": "Bestimmter Artikel: Tabelle",
+    "type": "mc",
+    "prompt_de": "Wie heißt der Artikel im Dativ Plural?",
+    "prompt_en": "What is the article in the dative plural?",
+    "options": [
+      "die",
+      "den",
+      "dem",
+      "der"
+    ],
+    "correct": "den",
+    "explanation_de": "Dativ Plural: den (+ Nomen mit -n), z. B. den Kindern.",
+    "explanation_en": "Dative plural: den (+ -n on the noun), e.g. den Kindern."
+  },
+  {
+    "id": "a1-art-008",
+    "level": "A1",
+    "topic": "Unbestimmter Artikel: Dativ",
+    "type": "mc",
+    "prompt_de": "Ich gebe ___ Mann ein Buch.",
+    "prompt_en": "I give a man a book.",
+    "options": [
+      "ein",
+      "einen",
+      "einem",
+      "einer"
+    ],
+    "correct": "einem",
+    "explanation_de": "Dativ maskulin: ein → einem.",
+    "explanation_en": "Dative masculine: ein → einem."
+  },
+  {
+    "id": "a1-art-009",
+    "level": "A1",
+    "topic": "Unbestimmter Artikel: Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich schreibe ___ Freundin eine SMS. (eine, Dativ)",
+    "prompt_en": "I write a friend a text message. (dative)",
+    "correct": "einer",
+    "explanation_de": "Dativ feminin: eine → einer.",
+    "explanation_en": "Dative feminine: eine → einer."
+  },
+  {
+    "id": "a1-art-010",
+    "level": "A1",
+    "topic": "Unbestimmter Artikel: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Er hat ___ Tochter. (eine, Akkusativ)",
+    "prompt_en": "He has a daughter.",
+    "correct": "eine",
+    "explanation_de": "Feminin bleibt im Akkusativ gleich: eine.",
+    "explanation_en": "Feminine stays the same in the accusative: eine."
+  },
+  {
+    "id": "a1-art-011",
+    "level": "A1",
+    "topic": "Negativartikel: Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich gebe ___ Mann Geld. (kein, Dativ)",
+    "prompt_en": "I do not give any man money. (dative)",
+    "correct": "keinem",
+    "explanation_de": "kein im Dativ maskulin: keinem.",
+    "explanation_en": "kein in the dative masculine: keinem."
+  },
+  {
+    "id": "a1-art-012",
+    "level": "A1",
+    "topic": "Negativartikel: Plural",
+    "type": "mc",
+    "prompt_de": "Wir haben ___ Bücher.",
+    "prompt_en": "We have no books.",
+    "options": [
+      "kein",
+      "keine",
+      "keinen",
+      "keiner"
+    ],
+    "correct": "keine",
+    "explanation_de": "Nominativ/Akkusativ Plural: keine.",
+    "explanation_en": "Nominative/accusative plural: keine."
+  },
+  {
+    "id": "a1-art-013",
+    "level": "A1",
+    "topic": "Negativartikel: Akkusativ",
+    "type": "mc",
+    "prompt_de": "Ich trinke ___ Milch.",
+    "prompt_en": "I do not drink milk.",
+    "options": [
+      "keine",
+      "kein",
+      "keinen",
+      "keinem"
+    ],
+    "correct": "keine",
+    "explanation_de": "„Milch“ ist feminin: keine Milch.",
+    "explanation_en": "\"Milch\" is feminine: keine Milch."
+  },
+  {
+    "id": "a1-art-014",
+    "level": "A1",
+    "topic": "Volle Deklination",
+    "type": "mc",
+    "prompt_de": "Ich wohne nicht weit von ___ Supermarkt.",
+    "prompt_en": "I do not live far from the supermarket.",
+    "options": [
+      "der",
+      "den",
+      "dem",
+      "das"
+    ],
+    "correct": "dem",
+    "explanation_de": "„von“ + Dativ; der Supermarkt → dem Supermarkt.",
+    "explanation_en": "\"von\" + dative; der Supermarkt → dem Supermarkt."
+  },
+  {
+    "id": "a1-art-015",
+    "level": "A1",
+    "topic": "Volle Deklination",
+    "type": "fill_blank",
+    "prompt_de": "Ich gehe in die Bäckerei. Ich bin in ___ Bäckerei. (Dativ)",
+    "prompt_en": "I go to the bakery. I am in the bakery.",
+    "correct": "der",
+    "explanation_de": "Dativ feminin: die Bäckerei → der Bäckerei.",
+    "explanation_en": "Dative feminine: die Bäckerei → der Bäckerei."
+  },
+  {
+    "id": "a1-pluralx-001",
+    "level": "A1",
+    "topic": "Pluralbildung",
+    "type": "fill_blank",
+    "prompt_de": "der Mann → die ___",
+    "prompt_en": "the man → the men",
+    "correct": "Männer",
+    "explanation_de": "Plural von Mann: Männer (Umlaut + -er).",
+    "explanation_en": "Plural of Mann: Männer (umlaut + -er)."
+  },
+  {
+    "id": "a1-pluralx-002",
+    "level": "A1",
+    "topic": "Pluralbildung",
+    "type": "fill_blank",
+    "prompt_de": "die Frau → die ___",
+    "prompt_en": "the woman → the women",
+    "correct": "Frauen",
+    "explanation_de": "Plural von Frau: Frauen (-en).",
+    "explanation_en": "Plural of Frau: Frauen (-en)."
+  },
+  {
+    "id": "a1-pluralx-003",
+    "level": "A1",
+    "topic": "Pluralbildung",
+    "type": "mc",
+    "prompt_de": "das Buch → die ___",
+    "prompt_en": "the book → the books",
+    "options": [
+      "Buchs",
+      "Bücher",
+      "Buchen",
+      "Bucher"
+    ],
+    "correct": "Bücher",
+    "explanation_de": "Plural von Buch: Bücher (Umlaut + -er).",
+    "explanation_en": "Plural of Buch: Bücher (umlaut + -er)."
+  },
+  {
+    "id": "a1-pluralx-004",
+    "level": "A1",
+    "topic": "Pluralbildung",
+    "type": "mc",
+    "prompt_de": "die Uhr → die ___",
+    "prompt_en": "the clock → the clocks",
+    "options": [
+      "Uhren",
+      "Uhrs",
+      "Ühre",
+      "Uhrer"
+    ],
+    "correct": "Uhren",
+    "explanation_de": "Plural von Uhr: Uhren (-en).",
+    "explanation_en": "Plural of Uhr: Uhren (-en)."
+  },
+  {
+    "id": "a1-pluralx-005",
+    "level": "A1",
+    "topic": "Pluralbildung",
+    "type": "fill_blank",
+    "prompt_de": "der Kuli → die ___",
+    "prompt_en": "the pen → the pens",
+    "correct": "Kulis",
+    "explanation_de": "Plural von Kuli: Kulis (-s bei Fremdwörtern).",
+    "explanation_en": "Plural of Kuli: Kulis (-s for loanwords)."
+  },
+  {
+    "id": "a1-pron-001",
+    "level": "A1",
+    "topic": "Personalpronomen: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich sehe den Mann. → Ich sehe ___.",
+    "prompt_en": "I see the man. → I see him.",
+    "correct": "ihn",
+    "explanation_de": "Akkusativ von er: ihn.",
+    "explanation_en": "Accusative of er: ihn."
+  },
+  {
+    "id": "a1-pron-002",
+    "level": "A1",
+    "topic": "Personalpronomen: Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich gebe der Frau ein Buch. → Ich gebe ___ ein Buch.",
+    "prompt_en": "I give the woman a book. → I give her a book.",
+    "correct": "ihr",
+    "explanation_de": "Dativ von sie (Singular): ihr.",
+    "explanation_en": "Dative of sie (singular): ihr."
+  },
+  {
+    "id": "a1-pron-003",
+    "level": "A1",
+    "topic": "Personalpronomen: Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Kannst du ___ helfen? (ich, Dativ)",
+    "prompt_en": "Can you help me?",
+    "correct": "mir",
+    "explanation_de": "helfen + Dativ; Dativ von ich: mir.",
+    "explanation_en": "helfen + dative; dative of ich: mir."
+  },
+  {
+    "id": "a1-pron-004",
+    "level": "A1",
+    "topic": "Personalpronomen: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Wir treffen ___ morgen. (ihr, Akkusativ)",
+    "prompt_en": "We will meet you all tomorrow.",
+    "correct": "euch",
+    "explanation_de": "Akkusativ von ihr: euch.",
+    "explanation_en": "Accusative of ihr: euch."
+  },
+  {
+    "id": "a1-pron-005",
+    "level": "A1",
+    "topic": "Personalpronomen: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Das Geschenk ist für ___. (wir)",
+    "prompt_en": "The present is for us.",
+    "correct": "uns",
+    "explanation_de": "Nach „für“ steht Akkusativ; wir → uns.",
+    "explanation_en": "After \"für\" comes the accusative; wir → uns."
+  },
+  {
+    "id": "a1-pron-006",
+    "level": "A1",
+    "topic": "Personalpronomen: Dativ Plural",
+    "type": "fill_blank",
+    "prompt_de": "Ich gebe den Kindern ein Eis. → Ich gebe ___ ein Eis.",
+    "prompt_en": "I give the children an ice cream. → I give them an ice cream.",
+    "correct": "ihnen",
+    "explanation_de": "Dativ Plural (sie): ihnen.",
+    "explanation_en": "Dative plural (sie): ihnen."
+  },
+  {
+    "id": "a1-pron-007",
+    "level": "A1",
+    "topic": "Personalpronomen: Dativ formell",
+    "type": "fill_blank",
+    "prompt_de": "Wie geht es ___? (Sie, Dativ)",
+    "prompt_en": "How are you? (formal)",
+    "correct": "Ihnen",
+    "explanation_de": "Formell im Dativ: Ihnen (groß geschrieben).",
+    "explanation_en": "Formal dative: Ihnen (capitalised)."
+  },
+  {
+    "id": "a1-pron-008",
+    "level": "A1",
+    "topic": "Nomen → Pronomen",
+    "type": "fill_blank",
+    "prompt_de": "Wo ist das Buch? ___ liegt auf dem Tisch.",
+    "prompt_en": "Where is the book? It is on the table.",
+    "correct": "Es",
+    "explanation_de": "das Buch → es.",
+    "explanation_en": "das Buch → es."
+  },
+  {
+    "id": "a1-pron-009",
+    "level": "A1",
+    "topic": "Nomen → Pronomen",
+    "type": "mc",
+    "prompt_de": "Die Kinder spielen. ___ spielen im Garten.",
+    "prompt_en": "The children are playing. They are playing in the garden.",
+    "options": [
+      "Er",
+      "Sie",
+      "Es",
+      "Ihr"
+    ],
+    "correct": "Sie",
+    "explanation_de": "Alle Plurale werden durch „sie“ ersetzt.",
+    "explanation_en": "All plurals are replaced by \"sie\"."
+  },
+  {
+    "id": "a1-pron-010",
+    "level": "A1",
+    "topic": "Nomen → Pronomen",
+    "type": "mc",
+    "prompt_de": "Der Kuli ist neu. ___ ist blau.",
+    "prompt_en": "The pen is new. It is blue.",
+    "options": [
+      "Er",
+      "Sie",
+      "Es",
+      "Ihn"
+    ],
+    "correct": "Er",
+    "explanation_de": "der Kuli → er (auch bei Dingen).",
+    "explanation_en": "der Kuli → er (also for objects)."
+  },
+  {
+    "id": "a1-pron-011",
+    "level": "A1",
+    "topic": "Personalpronomen: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Das ist meine Schwester. Ich rufe ___ an.",
+    "prompt_en": "That is my sister. I call her.",
+    "correct": "sie",
+    "explanation_de": "Akkusativ von sie (feminin): sie.",
+    "explanation_en": "Accusative of sie (feminine): sie."
+  },
+  {
+    "id": "a1-possx-001",
+    "level": "A1",
+    "topic": "Possessivpronomen: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich besuche ___ (mein) Onkel.",
+    "prompt_en": "I visit my uncle.",
+    "correct": "meinen",
+    "explanation_de": "Akkusativ maskulin: mein → meinen.",
+    "explanation_en": "Accusative masculine: mein → meinen."
+  },
+  {
+    "id": "a1-possx-002",
+    "level": "A1",
+    "topic": "Possessivpronomen: Nominativ",
+    "type": "fill_blank",
+    "prompt_de": "Wo ist ___ (dein) Tasche?",
+    "prompt_en": "Where is your bag?",
+    "correct": "deine",
+    "explanation_de": "„Tasche“ ist feminin: deine Tasche.",
+    "explanation_en": "\"Tasche\" is feminine: deine Tasche."
+  },
+  {
+    "id": "a1-possx-003",
+    "level": "A1",
+    "topic": "Possessivpronomen: Nominativ",
+    "type": "fill_blank",
+    "prompt_de": "Das ist ___ (wir) Haus.",
+    "prompt_en": "That is our house.",
+    "correct": "unser",
+    "explanation_de": "wir → unser (Neutrum, Nominativ).",
+    "explanation_en": "wir → unser (neuter, nominative)."
+  },
+  {
+    "id": "a1-possx-004",
+    "level": "A1",
+    "topic": "Possessivpronomen: Nominativ",
+    "type": "fill_blank",
+    "prompt_de": "___ (er) Mutter kocht.",
+    "prompt_en": "His mother is cooking.",
+    "correct": "Seine",
+    "explanation_de": "er → sein; „Mutter“ ist feminin: seine Mutter.",
+    "explanation_en": "er → sein; \"Mutter\" is feminine: seine Mutter."
+  },
+  {
+    "id": "a1-possx-005",
+    "level": "A1",
+    "topic": "Possessivpronomen: euer",
+    "type": "fill_blank",
+    "prompt_de": "Das ist ___ (ihr) Lehrer. (euer)",
+    "prompt_en": "That is your (plural) teacher.",
+    "correct": "euer",
+    "explanation_de": "Nominativ maskulin: euer Lehrer.",
+    "explanation_en": "Nominative masculine: euer Lehrer."
+  },
+  {
+    "id": "a1-possx-006",
+    "level": "A1",
+    "topic": "Possessivpronomen: euer",
+    "type": "fill_blank",
+    "prompt_de": "Wir sehen ___ (euer) Lehrer. (Akkusativ)",
+    "prompt_en": "We see your (plural) teacher.",
+    "correct": "euren",
+    "explanation_de": "euer verliert vor einer Endung das zweite -e-: euren (nicht „eueren“).",
+    "explanation_en": "euer drops its second -e- before an ending: euren (not \"eueren\")."
+  },
+  {
+    "id": "a1-possx-007",
+    "level": "A1",
+    "topic": "Possessivpronomen: Akkusativ",
+    "type": "mc",
+    "prompt_de": "Er kauft ___ Kuli.",
+    "prompt_en": "He buys his pen.",
+    "options": [
+      "sein",
+      "seinen",
+      "seine",
+      "seinem"
+    ],
+    "correct": "seinen",
+    "explanation_de": "Akkusativ maskulin bekommt -en: seinen Kuli.",
+    "explanation_en": "Accusative masculine takes -en: seinen Kuli."
+  },
+  {
+    "id": "a1-possx-008",
+    "level": "A1",
+    "topic": "Possessivpronomen: Plural",
+    "type": "mc",
+    "prompt_de": "Ich kaufe ___ Bücher. (du)",
+    "prompt_en": "I buy your books.",
+    "options": [
+      "dein",
+      "deinen",
+      "deine",
+      "deiner"
+    ],
+    "correct": "deine",
+    "explanation_de": "Plural: deine Bücher.",
+    "explanation_en": "Plural: deine Bücher."
+  },
+  {
+    "id": "a1-possx-009",
+    "level": "A1",
+    "topic": "Possessivpronomen: sie/Sie",
+    "type": "mc",
+    "prompt_de": "Herr Müller, ist das ___ Auto?",
+    "prompt_en": "Mr. Müller, is that your car?",
+    "options": [
+      "dein",
+      "Ihr",
+      "mein",
+      "euer"
+    ],
+    "correct": "Ihr",
+    "explanation_de": "Formell (Sie) schreibt man Ihr groß.",
+    "explanation_en": "The formal \"you\" (Sie) is written with a capital: Ihr."
+  },
+  {
+    "id": "a1-verb-001",
+    "level": "A1",
+    "topic": "Verben im Präsens: regelmäßig",
+    "type": "fill_blank",
+    "prompt_de": "Wir ___ (machen) die Hausaufgabe.",
+    "prompt_en": "We do the homework.",
+    "correct": "machen",
+    "explanation_de": "wir → -en: machen.",
+    "explanation_en": "wir → -en: machen."
+  },
+  {
+    "id": "a1-verb-002",
+    "level": "A1",
+    "topic": "Verben im Präsens: regelmäßig",
+    "type": "fill_blank",
+    "prompt_de": "Ihr ___ (lernen) Deutsch.",
+    "prompt_en": "You (all) learn German.",
+    "correct": "lernt",
+    "explanation_de": "ihr → -t: lernt.",
+    "explanation_en": "ihr → -t: lernt."
+  },
+  {
+    "id": "a1-verb-003",
+    "level": "A1",
+    "topic": "Verben im Präsens: -t/-d/-n",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (arbeiten) viel.",
+    "prompt_en": "You work a lot.",
+    "correct": "arbeitest",
+    "explanation_de": "Verben auf -t: zusätzliches -e- → du arbeitest.",
+    "explanation_en": "Verbs ending in -t add an extra e → du arbeitest."
+  },
+  {
+    "id": "a1-verb-004",
+    "level": "A1",
+    "topic": "Verben im Präsens: -t/-d/-n",
+    "type": "fill_blank",
+    "prompt_de": "Er ___ (arbeiten) bei Siemens.",
+    "prompt_en": "He works at Siemens.",
+    "correct": "arbeitet",
+    "explanation_de": "er → arbeitet (mit -e-).",
+    "explanation_en": "er → arbeitet (with -e-)."
+  },
+  {
+    "id": "a1-verb-005",
+    "level": "A1",
+    "topic": "Verben im Präsens: sein",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (sein) müde.",
+    "prompt_en": "You are tired.",
+    "correct": "bist",
+    "explanation_de": "sein: du bist.",
+    "explanation_en": "sein: du bist."
+  },
+  {
+    "id": "a1-verb-006",
+    "level": "A1",
+    "topic": "Verben im Präsens: sein",
+    "type": "fill_blank",
+    "prompt_de": "Ihr ___ (sein) hier.",
+    "prompt_en": "You (all) are here.",
+    "correct": "seid",
+    "explanation_de": "sein: ihr seid.",
+    "explanation_en": "sein: ihr seid."
+  },
+  {
+    "id": "a1-verb-007",
+    "level": "A1",
+    "topic": "Verben im Präsens: haben",
+    "type": "fill_blank",
+    "prompt_de": "Er ___ (haben) ein Auto.",
+    "prompt_en": "He has a car.",
+    "correct": "hat",
+    "explanation_de": "haben: er hat.",
+    "explanation_en": "haben: er hat."
+  },
+  {
+    "id": "a1-verb-008",
+    "level": "A1",
+    "topic": "Verben im Präsens: haben",
+    "type": "fill_blank",
+    "prompt_de": "Ihr ___ (haben) Zeit.",
+    "prompt_en": "You (all) have time.",
+    "correct": "habt",
+    "explanation_de": "haben: ihr habt.",
+    "explanation_en": "haben: ihr habt."
+  },
+  {
+    "id": "a1-verb-009",
+    "level": "A1",
+    "topic": "Vokalwechsel",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (schlafen) lange.",
+    "prompt_en": "You sleep for a long time.",
+    "correct": "schläfst",
+    "explanation_de": "a → ä bei du: schläfst.",
+    "explanation_en": "a → ä for du: schläfst."
+  },
+  {
+    "id": "a1-verb-010",
+    "level": "A1",
+    "topic": "Vokalwechsel",
+    "type": "fill_blank",
+    "prompt_de": "Er ___ (essen) einen Apfel.",
+    "prompt_en": "He eats an apple.",
+    "correct": "isst",
+    "explanation_de": "e → i bei er: isst.",
+    "explanation_en": "e → i for er: isst."
+  },
+  {
+    "id": "a1-verb-011",
+    "level": "A1",
+    "topic": "Vokalwechsel",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (lesen) ein Buch.",
+    "prompt_en": "You read a book.",
+    "correct": "liest",
+    "explanation_de": "e → ie bei du: liest.",
+    "explanation_en": "e → ie for du: liest."
+  },
+  {
+    "id": "a1-verb-012",
+    "level": "A1",
+    "topic": "Vokalwechsel",
+    "type": "fill_blank",
+    "prompt_de": "Er ___ (helfen) mir.",
+    "prompt_en": "He helps me.",
+    "correct": "hilft",
+    "explanation_de": "e → i bei er: hilft.",
+    "explanation_en": "e → i for er: hilft."
+  },
+  {
+    "id": "a1-verb-013",
+    "level": "A1",
+    "topic": "Vokalwechsel",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (nehmen) den Bus.",
+    "prompt_en": "You take the bus.",
+    "correct": "nimmst",
+    "explanation_de": "nehmen: du nimmst (auch Konsonantenwechsel).",
+    "explanation_en": "nehmen: du nimmst (consonant changes too)."
+  },
+  {
+    "id": "a1-verb-014",
+    "level": "A1",
+    "topic": "Vokalwechsel",
+    "type": "fill_blank",
+    "prompt_de": "Sie ___ (sprechen) gut Deutsch. (sie = she)",
+    "prompt_en": "She speaks German well.",
+    "correct": "spricht",
+    "explanation_de": "sprechen: er/sie spricht.",
+    "explanation_en": "sprechen: er/sie spricht."
+  },
+  {
+    "id": "a1-verb-015",
+    "level": "A1",
+    "topic": "Vokalwechsel",
+    "type": "mc",
+    "prompt_de": "Er ___ mir ein Geschenk.",
+    "prompt_en": "He gives me a present.",
+    "options": [
+      "geben",
+      "gibt",
+      "gebt",
+      "gebst"
+    ],
+    "correct": "gibt",
+    "explanation_de": "geben: er gibt.",
+    "explanation_en": "geben: er gibt."
+  },
+  {
+    "id": "a1-verb-016",
+    "level": "A1",
+    "topic": "Vokalwechsel",
+    "type": "mc",
+    "prompt_de": "Er ___ seine Mutter. (sehen)",
+    "prompt_en": "He sees his mother.",
+    "options": [
+      "sehen",
+      "sehe",
+      "sieht",
+      "siehst"
+    ],
+    "correct": "sieht",
+    "explanation_de": "sehen: er sieht.",
+    "explanation_en": "sehen: er sieht."
+  },
+  {
+    "id": "a1-verb-017",
+    "level": "A1",
+    "topic": "Freizeitverben",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (tanzen) gern.",
+    "prompt_en": "You like dancing.",
+    "correct": "tanzt",
+    "explanation_de": "Stamm tanz- + -t (Stamm endet auf z): tanzt.",
+    "explanation_en": "Stem tanz- + -t (stem ends in z): tanzt."
+  },
+  {
+    "id": "a1-verb-018",
+    "level": "A1",
+    "topic": "Freizeitverben",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (chatten) oft.",
+    "prompt_en": "You chat often.",
+    "correct": "chattest",
+    "explanation_de": "Stamm endet auf -t: du chattest.",
+    "explanation_en": "Stem ends in -t: du chattest."
+  },
+  {
+    "id": "a1-verb-019",
+    "level": "A1",
+    "topic": "Freizeitverben",
+    "type": "fill_blank",
+    "prompt_de": "Ihr ___ (reisen) gern.",
+    "prompt_en": "You (all) like travelling.",
+    "correct": "reist",
+    "explanation_de": "ihr → -t: reist.",
+    "explanation_en": "ihr → -t: reist."
+  },
+  {
+    "id": "a1-verb-020",
+    "level": "A1",
+    "topic": "möchten vs. mögen",
+    "type": "mc",
+    "prompt_de": "Ich ___ einen Kaffee, bitte.",
+    "prompt_en": "I would like a coffee, please.",
+    "options": [
+      "mag",
+      "möchte",
+      "mögen",
+      "magst"
+    ],
+    "correct": "möchte",
+    "explanation_de": "„möchte“ = Wunsch (would like).",
+    "explanation_en": "\"möchte\" = a wish (would like)."
+  },
+  {
+    "id": "a1-verb-021",
+    "level": "A1",
+    "topic": "möchten vs. mögen",
+    "type": "mc",
+    "prompt_de": "Ich ___ Fleisch. (Ich esse es gern.)",
+    "prompt_en": "I like meat.",
+    "options": [
+      "mag",
+      "möchte",
+      "möchten",
+      "mögt"
+    ],
+    "correct": "mag",
+    "explanation_de": "„mögen“ = allgemein gern haben; ich mag.",
+    "explanation_en": "\"mögen\" = to like in general; ich mag."
+  },
+  {
+    "id": "a1-verb-022",
+    "level": "A1",
+    "topic": "möchten vs. mögen",
+    "type": "fill_blank",
+    "prompt_de": "Wir ___ (mögen) Orangensaft.",
+    "prompt_en": "We like orange juice.",
+    "correct": "mögen",
+    "explanation_de": "mögen: wir mögen.",
+    "explanation_en": "mögen: wir mögen."
+  },
+  {
+    "id": "a1-verb-023",
+    "level": "A1",
+    "topic": "möchten vs. mögen",
+    "type": "fill_blank",
+    "prompt_de": "Ihr ___ (möchten) Tee.",
+    "prompt_en": "You (all) would like tea.",
+    "correct": "möchtet",
+    "explanation_de": "möchten: ihr möchtet.",
+    "explanation_en": "möchten: ihr möchtet."
+  },
+  {
+    "id": "a1-vorst-001",
+    "level": "A1",
+    "topic": "Vorstellung",
+    "type": "fill_blank",
+    "prompt_de": "Wie heißen Sie? — Ich ___ Jawad.",
+    "prompt_en": "What is your name? — My name is Jawad.",
+    "correct": "heiße",
+    "explanation_de": "ich → heiße.",
+    "explanation_en": "ich → heiße."
+  },
+  {
+    "id": "a1-vorst-002",
+    "level": "A1",
+    "topic": "Vorstellung",
+    "type": "mc",
+    "prompt_de": "Woher kommen Sie? — Ich ___ aus Pakistan.",
+    "prompt_en": "Where do you come from? — I come from Pakistan.",
+    "options": [
+      "komme",
+      "kommst",
+      "kommt",
+      "kommen"
+    ],
+    "correct": "komme",
+    "explanation_de": "ich → komme.",
+    "explanation_en": "ich → komme."
+  },
+  {
+    "id": "a1-vorst-003",
+    "level": "A1",
+    "topic": "Vorstellung",
+    "type": "fill_blank",
+    "prompt_de": "Wo ___ du? — Ich wohne in Bonn.",
+    "prompt_en": "Where do you live?",
+    "correct": "wohnst",
+    "explanation_de": "du → wohnst.",
+    "explanation_en": "du → wohnst."
+  },
+  {
+    "id": "a1-vorst-004",
+    "level": "A1",
+    "topic": "Vorstellung: ja / nein / doch",
+    "type": "mc",
+    "prompt_de": "Wohnen Sie nicht in Bonn? — ___, ich wohne in Bonn.",
+    "prompt_en": "Don’t you live in Bonn? — Yes, I do.",
+    "options": [
+      "Ja",
+      "Nein",
+      "Doch"
+    ],
+    "correct": "Doch",
+    "explanation_de": "Auf eine verneinte Frage antwortet man mit „doch“, wenn die Antwort positiv ist.",
+    "explanation_en": "Answer a negative question with \"doch\" when your answer is positive."
+  },
+  {
+    "id": "a1-vorst-005",
+    "level": "A1",
+    "topic": "Vorstellung: ja / nein / doch",
+    "type": "mc",
+    "prompt_de": "Kommen Sie aus Afghanistan? — ___, ich komme aus Pakistan.",
+    "prompt_en": "Do you come from Afghanistan? — No, I come from Pakistan.",
+    "options": [
+      "Ja",
+      "Nein",
+      "Doch"
+    ],
+    "correct": "Nein",
+    "explanation_de": "Die Antwort ist negativ: „Nein“.",
+    "explanation_en": "The answer is negative: \"Nein\"."
+  },
+  {
+    "id": "a1-vorst-006",
+    "level": "A1",
+    "topic": "Vorstellung: ja / nein / doch",
+    "type": "mc",
+    "prompt_de": "Lernen Sie nicht Deutsch? — ___, ich lerne Deutsch.",
+    "prompt_en": "Aren’t you learning German? — Yes, I am.",
+    "options": [
+      "Ja",
+      "Nein",
+      "Doch"
+    ],
+    "correct": "Doch",
+    "explanation_de": "„Doch“ widerspricht der verneinten Frage.",
+    "explanation_en": "\"Doch\" contradicts the negative question."
+  },
+  {
+    "id": "a1-mod-001",
+    "level": "A1",
+    "topic": "Modalverben",
+    "type": "fill_blank",
+    "prompt_de": "Ihr ___ (müssen) heute arbeiten.",
+    "prompt_en": "You (all) have to work today.",
+    "correct": "müsst",
+    "explanation_de": "müssen: ihr müsst.",
+    "explanation_en": "müssen: ihr müsst."
+  },
+  {
+    "id": "a1-mod-002",
+    "level": "A1",
+    "topic": "Modalverben",
+    "type": "fill_blank",
+    "prompt_de": "Darf ich hier parken? — Nein, du ___ (dürfen) hier nicht parken.",
+    "prompt_en": "May I park here? — No, you may not park here.",
+    "correct": "darfst",
+    "explanation_de": "dürfen: du darfst.",
+    "explanation_en": "dürfen: du darfst."
+  },
+  {
+    "id": "a1-mod-003",
+    "level": "A1",
+    "topic": "Modalverben",
+    "type": "fill_blank",
+    "prompt_de": "Er ___ (wollen) in Deutschland arbeiten.",
+    "prompt_en": "He wants to work in Germany.",
+    "correct": "will",
+    "explanation_de": "wollen: er will (ohne Endung -t).",
+    "explanation_en": "wollen: er will (no -t ending)."
+  },
+  {
+    "id": "a1-mod-004",
+    "level": "A1",
+    "topic": "Modalverben",
+    "type": "fill_blank",
+    "prompt_de": "Wir ___ (sollen) Deutsch lernen.",
+    "prompt_en": "We are supposed to learn German.",
+    "correct": "sollen",
+    "explanation_de": "sollen: wir sollen.",
+    "explanation_en": "sollen: wir sollen."
+  },
+  {
+    "id": "a1-mod-005",
+    "level": "A1",
+    "topic": "Modalverben",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (können) gut kochen.",
+    "prompt_en": "You can cook well.",
+    "correct": "kannst",
+    "explanation_de": "können: du kannst.",
+    "explanation_en": "können: du kannst."
+  },
+  {
+    "id": "a1-mod-006",
+    "level": "A1",
+    "topic": "Modalverben",
+    "type": "mc",
+    "prompt_de": "Du ___ ein Visum haben.",
+    "prompt_en": "You must have a visa.",
+    "options": [
+      "musst",
+      "muss",
+      "müsst",
+      "müssen"
+    ],
+    "correct": "musst",
+    "explanation_de": "müssen: du musst.",
+    "explanation_en": "müssen: du musst."
+  },
+  {
+    "id": "a1-mod-007",
+    "level": "A1",
+    "topic": "Modalverben",
+    "type": "mc",
+    "prompt_de": "Ich ___ in Deutschland arbeiten. (Ich habe die Erlaubnis.)",
+    "prompt_en": "I may work in Germany.",
+    "options": [
+      "darf",
+      "kann",
+      "soll",
+      "möchte"
+    ],
+    "correct": "darf",
+    "explanation_de": "„dürfen“ = Erlaubnis.",
+    "explanation_en": "\"dürfen\" = permission."
+  },
+  {
+    "id": "a1-mod-008",
+    "level": "A1",
+    "topic": "Modalverben: Satzstellung",
+    "type": "mc",
+    "prompt_de": "Welcher Satz ist richtig? (Modalverben)",
+    "prompt_en": "Which sentence is correct? (Modalverben)",
+    "options": [
+      "Ich kann Deutsch sprechen.",
+      "Ich kann sprechen Deutsch.",
+      "Ich sprechen kann Deutsch.",
+      "Kann Deutsch ich sprechen."
+    ],
+    "correct": "Ich kann Deutsch sprechen.",
+    "explanation_de": "Modalverb auf Position 2, Infinitiv am Ende.",
+    "explanation_en": "Modal verb in position 2, infinitive at the end."
+  },
+  {
+    "id": "a1-mod-009",
+    "level": "A1",
+    "topic": "Modalverben: Satzstellung",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter zu einer Frage: (hier / ich / darf / rauchen)",
+    "prompt_en": "Arrange into a question: (here / I / may / smoke)",
+    "options": [
+      "darf",
+      "ich",
+      "hier",
+      "rauchen"
+    ],
+    "correct": [
+      "Darf",
+      "ich",
+      "hier",
+      "rauchen"
+    ],
+    "explanation_de": "Ja/Nein-Frage: Das Modalverb steht auf Position 1, der Infinitiv am Ende.",
+    "explanation_en": "Yes/no question: the modal verb comes first, the infinitive goes to the end."
+  },
+  {
+    "id": "a1-mod-010",
+    "level": "A1",
+    "topic": "Modalverben: Satzstellung",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (möchte / einen Kaffee / ich / trinken)",
+    "prompt_en": "Arrange: (would like / a coffee / I / drink)",
+    "options": [
+      "ich",
+      "möchte",
+      "einen Kaffee",
+      "trinken"
+    ],
+    "correct": [
+      "Ich",
+      "möchte",
+      "einen Kaffee",
+      "trinken"
+    ],
+    "accept_orders": [
+      [
+        "einen Kaffee",
+        "möchte",
+        "ich",
+        "trinken"
+      ]
+    ],
+    "explanation_de": "Modalverb auf Position 2, Infinitiv „trinken“ am Ende.",
+    "explanation_en": "Modal verb in position 2, infinitive \"trinken\" at the end."
+  },
+  {
+    "id": "a1-trenn-001",
+    "level": "A1",
+    "topic": "Trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Ich stehe um 7 Uhr ___. (aufstehen)",
+    "prompt_en": "I get up at 7.",
+    "correct": "auf",
+    "explanation_de": "aufstehen → Ich stehe … auf.",
+    "explanation_en": "aufstehen → Ich stehe … auf."
+  },
+  {
+    "id": "a1-trenn-002",
+    "level": "A1",
+    "topic": "Trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Wir kaufen im Supermarkt ___. (einkaufen)",
+    "prompt_en": "We shop at the supermarket.",
+    "correct": "ein",
+    "explanation_de": "einkaufen → Wir kaufen … ein.",
+    "explanation_en": "einkaufen → Wir kaufen … ein."
+  },
+  {
+    "id": "a1-trenn-003",
+    "level": "A1",
+    "topic": "Trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Abends sehe ich ___. (fernsehen)",
+    "prompt_en": "In the evening I watch TV.",
+    "correct": "fern",
+    "explanation_de": "fernsehen → Ich sehe … fern.",
+    "explanation_en": "fernsehen → Ich sehe … fern."
+  },
+  {
+    "id": "a1-trenn-004",
+    "level": "A1",
+    "topic": "Trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Nimmst du den Schirm ___? (mitnehmen)",
+    "prompt_en": "Are you taking the umbrella along?",
+    "correct": "mit",
+    "explanation_de": "mitnehmen → Nimmst du … mit?",
+    "explanation_en": "mitnehmen → Nimmst du … mit?"
+  },
+  {
+    "id": "a1-trenn-005",
+    "level": "A1",
+    "topic": "Trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Wann kommst du ___? (zurückkommen)",
+    "prompt_en": "When are you coming back?",
+    "correct": "zurück",
+    "explanation_de": "zurückkommen → Wann kommst du zurück?",
+    "explanation_en": "zurückkommen → Wann kommst du zurück?"
+  },
+  {
+    "id": "a1-trenn-006",
+    "level": "A1",
+    "topic": "Trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Wir fangen um 9 Uhr ___. (anfangen)",
+    "prompt_en": "We start at 9.",
+    "correct": "an",
+    "explanation_de": "anfangen → Wir fangen … an.",
+    "explanation_en": "anfangen → Wir fangen … an."
+  },
+  {
+    "id": "a1-trenn-007",
+    "level": "A1",
+    "topic": "Trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Du ___ (einladen) Aqsa ein.",
+    "prompt_en": "You invite Aqsa.",
+    "correct": "lädst",
+    "explanation_de": "einladen: a → ä bei du: lädst … ein.",
+    "explanation_en": "einladen: a → ä for du: lädst … ein."
+  },
+  {
+    "id": "a1-trenn-008",
+    "level": "A1",
+    "topic": "Trennbare Verben mit Modalverb",
+    "type": "fill_blank",
+    "prompt_de": "Ich muss Jawad ___. (abholen)",
+    "prompt_en": "I have to pick Jawad up.",
+    "correct": "abholen",
+    "explanation_de": "Mit Modalverb steht das trennbare Verb am Ende im Infinitiv: abholen.",
+    "explanation_en": "With a modal verb the separable verb stays together at the end: abholen."
+  },
+  {
+    "id": "a1-trenn-009",
+    "level": "A1",
+    "topic": "Trennbare Verben mit Modalverb",
+    "type": "fill_blank",
+    "prompt_de": "Wir wollen jetzt ___. (anfangen)",
+    "prompt_en": "We want to start now.",
+    "correct": "anfangen",
+    "explanation_de": "Modalverb + Infinitiv (nicht getrennt): anfangen.",
+    "explanation_en": "Modal verb + infinitive (not split): anfangen."
+  },
+  {
+    "id": "a1-trenn-010",
+    "level": "A1",
+    "topic": "Trennbare Verben",
+    "type": "mc",
+    "prompt_de": "Ich ___ Jawad ab. (abholen)",
+    "prompt_en": "I pick Jawad up.",
+    "options": [
+      "hole",
+      "holt",
+      "holen",
+      "abhole"
+    ],
+    "correct": "hole",
+    "explanation_de": "ich → hole … ab.",
+    "explanation_en": "ich → hole … ab."
+  },
+  {
+    "id": "a1-trenn-011",
+    "level": "A1",
+    "topic": "Trennbare Verben: Satzstellung",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (morgen / rufe / ich / an / dich)",
+    "prompt_en": "Arrange: (tomorrow / call / I / up / you)",
+    "options": [
+      "ich",
+      "rufe",
+      "dich",
+      "morgen",
+      "an"
+    ],
+    "correct": [
+      "Ich",
+      "rufe",
+      "dich",
+      "morgen",
+      "an"
+    ],
+    "accept_orders": [
+      [
+        "morgen",
+        "rufe",
+        "ich",
+        "dich",
+        "an"
+      ]
+    ],
+    "explanation_de": "Das Präfix „an“ steht am Satzende.",
+    "explanation_en": "The prefix \"an\" goes to the end of the clause."
+  },
+  {
+    "id": "a1-satzx-001",
+    "level": "A1",
+    "topic": "Satzstellung: Verb Position 2",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (am Nachmittag / ich / trinke / Tee)",
+    "prompt_en": "Arrange: (in the afternoon / I / drink / tea)",
+    "options": [
+      "ich",
+      "trinke",
+      "Tee",
+      "am Nachmittag"
+    ],
+    "correct": [
+      "Ich",
+      "trinke",
+      "Tee",
+      "am Nachmittag"
+    ],
+    "accept_orders": [
+      [
+        "am Nachmittag",
+        "trinke",
+        "ich",
+        "Tee"
+      ],
+      [
+        "Tee",
+        "trinke",
+        "ich",
+        "am Nachmittag"
+      ]
+    ],
+    "explanation_de": "Das Verb steht immer auf Position 2. Andere Teile können auf Position 1 stehen.",
+    "explanation_en": "The verb is always in position 2. Other parts can take position 1."
+  },
+  {
+    "id": "a1-satzx-002",
+    "level": "A1",
+    "topic": "Satzstellung: Verb Position 2",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (am Wochenende / ich / frühstücke / nicht)",
+    "prompt_en": "Arrange: (at the weekend / I / have breakfast / not)",
+    "options": [
+      "ich",
+      "frühstücke",
+      "nicht",
+      "am Wochenende"
+    ],
+    "correct": [
+      "Ich",
+      "frühstücke",
+      "nicht",
+      "am Wochenende"
+    ],
+    "accept_orders": [
+      [
+        "am Wochenende",
+        "frühstücke",
+        "ich",
+        "nicht"
+      ]
+    ],
+    "explanation_de": "Verb auf Position 2; „nicht“ steht hinter dem Verb.",
+    "explanation_en": "Verb in position 2; \"nicht\" follows the verb."
+  },
+  {
+    "id": "a1-satzx-003",
+    "level": "A1",
+    "topic": "Satzstellung: W-Fragen",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (Sie / woher / kommen)",
+    "prompt_en": "Arrange: (you / where from / come)",
+    "options": [
+      "Sie",
+      "woher",
+      "kommen"
+    ],
+    "correct": [
+      "Woher",
+      "kommen",
+      "Sie"
+    ],
+    "explanation_de": "W-Frage: W-Wort – Verb – Subjekt.",
+    "explanation_en": "W-question: question word – verb – subject."
+  },
+  {
+    "id": "a1-satzx-004",
+    "level": "A1",
+    "topic": "Satzstellung: Ja/Nein-Fragen",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (du / Zeit / hast)",
+    "prompt_en": "Arrange: (you / time / have)",
+    "options": [
+      "du",
+      "Zeit",
+      "hast"
+    ],
+    "correct": [
+      "Hast",
+      "du",
+      "Zeit"
+    ],
+    "explanation_de": "Ja/Nein-Frage: Das Verb steht auf Position 1.",
+    "explanation_en": "Yes/no question: the verb is in position 1."
+  },
+  {
+    "id": "a1-satzx-005",
+    "level": "A1",
+    "topic": "Satzstellung: Verb Position 2",
+    "type": "mc",
+    "prompt_de": "Welcher Satz ist richtig? (Satzstellung)",
+    "prompt_en": "Which sentence is correct? (Satzstellung)",
+    "options": [
+      "Morgen gehe ich zur Schule.",
+      "Morgen ich gehe zur Schule.",
+      "Morgen zur Schule gehe ich.",
+      "Ich morgen gehe zur Schule."
+    ],
+    "correct": "Morgen gehe ich zur Schule.",
+    "explanation_de": "Nach „Morgen“ (Position 1) kommt sofort das Verb (Position 2), dann das Subjekt.",
+    "explanation_en": "After \"Morgen\" (position 1) comes the verb (position 2), then the subject."
+  },
+  {
+    "id": "a1-satzx-006",
+    "level": "A1",
+    "topic": "W-Fragen",
+    "type": "mc",
+    "prompt_de": "___ gehst du? — Ins Kino.",
+    "prompt_en": "Where are you going? — To the cinema.",
+    "options": [
+      "Wo",
+      "Wohin",
+      "Woher",
+      "Wann"
+    ],
+    "correct": "Wohin",
+    "explanation_de": "Wohin? fragt nach der Richtung.",
+    "explanation_en": "Wohin? asks about direction."
+  },
+  {
+    "id": "a1-satzx-007",
+    "level": "A1",
+    "topic": "W-Fragen",
+    "type": "mc",
+    "prompt_de": "___ kommst du? — Aus Indien.",
+    "prompt_en": "Where do you come from? — From India.",
+    "options": [
+      "Wo",
+      "Wohin",
+      "Woher",
+      "Warum"
+    ],
+    "correct": "Woher",
+    "explanation_de": "Woher? fragt nach der Herkunft.",
+    "explanation_en": "Woher? asks about origin."
+  },
+  {
+    "id": "a1-satzx-008",
+    "level": "A1",
+    "topic": "W-Fragen",
+    "type": "mc",
+    "prompt_de": "___ bist du hier? — Ich lerne Deutsch.",
+    "prompt_en": "Why are you here? — I am learning German.",
+    "options": [
+      "Wann",
+      "Warum",
+      "Wie",
+      "Was"
+    ],
+    "correct": "Warum",
+    "explanation_de": "Warum? fragt nach dem Grund.",
+    "explanation_en": "Warum? asks for the reason."
+  },
+  {
+    "id": "a1-satzx-009",
+    "level": "A1",
+    "topic": "W-Fragen",
+    "type": "mc",
+    "prompt_de": "___ kommst du? — Morgen um acht.",
+    "prompt_en": "When are you coming? — Tomorrow at eight.",
+    "options": [
+      "Wann",
+      "Wo",
+      "Wer",
+      "Wie"
+    ],
+    "correct": "Wann",
+    "explanation_de": "Wann? fragt nach der Zeit.",
+    "explanation_en": "Wann? asks about time."
+  },
+  {
+    "id": "a1-satzx-010",
+    "level": "A1",
+    "topic": "W-Fragen",
+    "type": "mc",
+    "prompt_de": "___ heißen Sie? — Ich heiße Ali.",
+    "prompt_en": "What is your name? — My name is Ali.",
+    "options": [
+      "Wo",
+      "Wie",
+      "Wer",
+      "Was"
+    ],
+    "correct": "Wie",
+    "explanation_de": "„Wie heißen Sie?“ = What is your name?",
+    "explanation_en": "\"Wie heißen Sie?\" = What is your name?"
+  },
+  {
+    "id": "a1-imp-001",
+    "level": "A1",
+    "topic": "Imperativ",
+    "type": "fill_blank",
+    "prompt_de": "___ das Buch! (lesen, du-Form)",
+    "prompt_en": "Read the book!",
+    "correct": "Lies",
+    "explanation_de": "lesen: e → ie auch im Imperativ: Lies!",
+    "explanation_en": "lesen: e → ie in the imperative too: Lies!"
+  },
+  {
+    "id": "a1-imp-002",
+    "level": "A1",
+    "topic": "Imperativ",
+    "type": "fill_blank",
+    "prompt_de": "___ bitte langsam! (sprechen, ihr-Form)",
+    "prompt_en": "Please speak slowly!",
+    "correct": "Sprecht",
+    "explanation_de": "ihr-Form: Stamm + -t: Sprecht!",
+    "explanation_en": "ihr form: stem + -t: Sprecht!"
+  },
+  {
+    "id": "a1-imp-003",
+    "level": "A1",
+    "topic": "Imperativ",
+    "type": "fill_blank",
+    "prompt_de": "___ Sie bitte her! (kommen, Sie-Form)",
+    "prompt_en": "Please come here!",
+    "correct": "Kommen",
+    "explanation_de": "Sie-Form: Infinitiv + Sie: Kommen Sie!",
+    "explanation_en": "Sie form: infinitive + Sie: Kommen Sie!"
+  },
+  {
+    "id": "a1-imp-004",
+    "level": "A1",
+    "topic": "Imperativ",
+    "type": "fill_blank",
+    "prompt_de": "___ deinen Namen! (schreiben, du-Form)",
+    "prompt_en": "Write your name!",
+    "correct": "Schreib",
+    "accept": [
+      "Schreibe"
+    ],
+    "explanation_de": "du-Form: Stamm ohne -st: Schreib! (oder Schreibe!)",
+    "explanation_en": "du form: stem without -st: Schreib! (or Schreibe!)"
+  },
+  {
+    "id": "a1-imp-005",
+    "level": "A1",
+    "topic": "Imperativ",
+    "type": "fill_blank",
+    "prompt_de": "___ nach Hause! (gehen, du-Form)",
+    "prompt_en": "Go home!",
+    "correct": "Geh",
+    "accept": [
+      "Gehe"
+    ],
+    "explanation_de": "du-Form: Geh! (oder Gehe!)",
+    "explanation_en": "du form: Geh! (or Gehe!)"
+  },
+  {
+    "id": "a1-imp-006",
+    "level": "A1",
+    "topic": "Imperativ",
+    "type": "mc",
+    "prompt_de": "___ Sie bitte langsam!",
+    "prompt_en": "Please speak slowly!",
+    "options": [
+      "Sprich",
+      "Sprecht",
+      "Sprechen",
+      "Sprecht Sie"
+    ],
+    "correct": "Sprechen",
+    "explanation_de": "Sie-Form: Sprechen Sie …!",
+    "explanation_en": "Sie form: Sprechen Sie …!"
+  },
+  {
+    "id": "a1-imp-007",
+    "level": "A1",
+    "topic": "Imperativ: bitte",
+    "type": "mc",
+    "prompt_de": "Welcher Satz ist richtig? (Imperativ)",
+    "prompt_en": "Which sentence is correct? (Imperativ)",
+    "options": [
+      "Komm hier, bitte!",
+      "Komm bitte hier du!",
+      "Du komm hier!",
+      "Kommen hier, bitte!"
+    ],
+    "correct": "Komm hier, bitte!",
+    "explanation_de": "„bitte“ kann am Anfang, in der Mitte oder am Ende stehen.",
+    "explanation_en": "\"bitte\" can go at the beginning, in the middle or at the end."
+  },
+  {
+    "id": "a1-perf-001",
+    "level": "A1",
+    "topic": "Perfekt: Partizip II",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe Deutsch ___ (lernen).",
+    "prompt_en": "I learned German.",
+    "correct": "gelernt",
+    "explanation_de": "Regelmäßig: ge- + Stamm + -t.",
+    "explanation_en": "Regular: ge- + stem + -t."
+  },
+  {
+    "id": "a1-perf-002",
+    "level": "A1",
+    "topic": "Perfekt: Partizip II",
+    "type": "fill_blank",
+    "prompt_de": "Er hat einen Kuchen ___ (essen).",
+    "prompt_en": "He ate a cake.",
+    "correct": "gegessen",
+    "explanation_de": "Unregelmäßig: ge- + Stamm + -en.",
+    "explanation_en": "Irregular: ge- + stem + -en."
+  },
+  {
+    "id": "a1-perf-003",
+    "level": "A1",
+    "topic": "Perfekt: Partizip II",
+    "type": "fill_blank",
+    "prompt_de": "Wir haben Kaffee ___ (trinken).",
+    "prompt_en": "We drank coffee.",
+    "correct": "getrunken",
+    "explanation_de": "trinken → getrunken.",
+    "explanation_en": "trinken → getrunken."
+  },
+  {
+    "id": "a1-perf-004",
+    "level": "A1",
+    "topic": "Perfekt: Partizip II",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe eine E-Mail ___ (schreiben).",
+    "prompt_en": "I wrote an e-mail.",
+    "correct": "geschrieben",
+    "explanation_de": "schreiben → geschrieben.",
+    "explanation_en": "schreiben → geschrieben."
+  },
+  {
+    "id": "a1-perf-005",
+    "level": "A1",
+    "topic": "Perfekt: Partizip II",
+    "type": "fill_blank",
+    "prompt_de": "Was hast du am Wochenende ___ (machen)?",
+    "prompt_en": "What did you do at the weekend?",
+    "correct": "gemacht",
+    "explanation_de": "machen → gemacht.",
+    "explanation_en": "machen → gemacht."
+  },
+  {
+    "id": "a1-perf-006",
+    "level": "A1",
+    "topic": "Perfekt: Partizip II",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe mein Buch nicht ___ (finden).",
+    "prompt_en": "I did not find my book.",
+    "correct": "gefunden",
+    "explanation_de": "finden → gefunden.",
+    "explanation_en": "finden → gefunden."
+  },
+  {
+    "id": "a1-perf-007",
+    "level": "A1",
+    "topic": "Perfekt: Partizip II",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe lange ___ (schlafen).",
+    "prompt_en": "I slept for a long time.",
+    "correct": "geschlafen",
+    "explanation_de": "schlafen → geschlafen.",
+    "explanation_en": "schlafen → geschlafen."
+  },
+  {
+    "id": "a1-perf-008",
+    "level": "A1",
+    "topic": "Perfekt: untrennbares Präfix",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe das nicht ___ (verstehen).",
+    "prompt_en": "I did not understand that.",
+    "correct": "verstanden",
+    "explanation_de": "Untrennbares Präfix ver-: kein ge-. verstehen → verstanden.",
+    "explanation_en": "Inseparable prefix ver-: no ge-. verstehen → verstanden."
+  },
+  {
+    "id": "a1-perf-009",
+    "level": "A1",
+    "topic": "Perfekt: untrennbares Präfix",
+    "type": "fill_blank",
+    "prompt_de": "Er hat die Rechnung ___ (bezahlen).",
+    "prompt_en": "He paid the bill.",
+    "correct": "bezahlt",
+    "explanation_de": "bezahlen → bezahlt (kein ge-).",
+    "explanation_en": "bezahlen → bezahlt (no ge-)."
+  },
+  {
+    "id": "a1-perf-010",
+    "level": "A1",
+    "topic": "Perfekt: trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Wir haben im Supermarkt ___ (einkaufen).",
+    "prompt_en": "We shopped at the supermarket.",
+    "correct": "eingekauft",
+    "explanation_de": "Trennbar: Präfix + ge + Stamm + t → eingekauft.",
+    "explanation_en": "Separable: prefix + ge + stem + t → eingekauft."
+  },
+  {
+    "id": "a1-perf-011",
+    "level": "A1",
+    "topic": "Perfekt: trennbare Verben",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe meinen Freund ___ (anrufen).",
+    "prompt_en": "I called my friend.",
+    "correct": "angerufen",
+    "explanation_de": "anrufen → angerufen.",
+    "explanation_en": "anrufen → angerufen."
+  },
+  {
+    "id": "a1-perf-012",
+    "level": "A1",
+    "topic": "Perfekt: haben oder sein",
+    "type": "mc",
+    "prompt_de": "Ich ___ nach Berlin gefahren.",
+    "prompt_en": "I went to Berlin.",
+    "options": [
+      "habe",
+      "bin",
+      "hat",
+      "ist"
+    ],
+    "correct": "bin",
+    "explanation_de": "Bewegung → sein: Ich bin gefahren.",
+    "explanation_en": "Movement → sein: Ich bin gefahren."
+  },
+  {
+    "id": "a1-perf-013",
+    "level": "A1",
+    "topic": "Perfekt: haben oder sein",
+    "type": "mc",
+    "prompt_de": "Er ___ einen Kuchen gegessen.",
+    "prompt_en": "He ate a cake.",
+    "options": [
+      "hat",
+      "ist",
+      "habe",
+      "bin"
+    ],
+    "correct": "hat",
+    "explanation_de": "essen → haben: Er hat gegessen.",
+    "explanation_en": "essen → haben: Er hat gegessen."
+  },
+  {
+    "id": "a1-perf-014",
+    "level": "A1",
+    "topic": "Perfekt: haben oder sein",
+    "type": "mc",
+    "prompt_de": "Ich ___ bei meiner Oma geblieben.",
+    "prompt_en": "I stayed at my grandma’s.",
+    "options": [
+      "habe",
+      "bin",
+      "hat",
+      "ist"
+    ],
+    "correct": "bin",
+    "explanation_de": "bleiben bildet das Perfekt mit sein.",
+    "explanation_en": "bleiben forms the Perfekt with sein."
+  },
+  {
+    "id": "a1-perf-015",
+    "level": "A1",
+    "topic": "Perfekt: haben oder sein",
+    "type": "mc",
+    "prompt_de": "Er ___ um 7 Uhr aufgestanden.",
+    "prompt_en": "He got up at 7.",
+    "options": [
+      "hat",
+      "ist",
+      "habe",
+      "sind"
+    ],
+    "correct": "ist",
+    "explanation_de": "Zustandsänderung → sein.",
+    "explanation_en": "Change of state → sein."
+  },
+  {
+    "id": "a1-perf-016",
+    "level": "A1",
+    "topic": "Perfekt: haben oder sein",
+    "type": "mc",
+    "prompt_de": "Wir ___ Fußball gespielt.",
+    "prompt_en": "We played football.",
+    "options": [
+      "haben",
+      "sind",
+      "hat",
+      "bin"
+    ],
+    "correct": "haben",
+    "explanation_de": "spielen → haben.",
+    "explanation_en": "spielen → haben."
+  },
+  {
+    "id": "a1-perf-017",
+    "level": "A1",
+    "topic": "Perfekt: Satzstellung",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (habe / ich / Käse / gegessen)",
+    "prompt_en": "Arrange: (have / I / cheese / eaten)",
+    "options": [
+      "ich",
+      "habe",
+      "Käse",
+      "gegessen"
+    ],
+    "correct": [
+      "Ich",
+      "habe",
+      "Käse",
+      "gegessen"
+    ],
+    "explanation_de": "Perfekt: Hilfsverb auf Position 2, Partizip II am Ende.",
+    "explanation_en": "Perfekt: auxiliary in position 2, participle at the end."
+  },
+  {
+    "id": "a1-prep-001",
+    "level": "A1",
+    "topic": "Akkusativ-Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Ich gehe durch ___ Park. (der Park)",
+    "prompt_en": "I walk through the park.",
+    "correct": "den",
+    "explanation_de": "durch + Akkusativ: der Park → den Park.",
+    "explanation_en": "durch + accusative: der Park → den Park."
+  },
+  {
+    "id": "a1-prep-002",
+    "level": "A1",
+    "topic": "Akkusativ-Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Das Buch ist für ___. (ich)",
+    "prompt_en": "The book is for me.",
+    "correct": "mich",
+    "explanation_de": "für + Akkusativ: ich → mich.",
+    "explanation_en": "für + accusative: ich → mich."
+  },
+  {
+    "id": "a1-prep-003",
+    "level": "A1",
+    "topic": "Akkusativ-Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Ich gehe ohne ___. (du)",
+    "prompt_en": "I go without you.",
+    "correct": "dich",
+    "explanation_de": "ohne + Akkusativ: du → dich.",
+    "explanation_en": "ohne + accusative: du → dich."
+  },
+  {
+    "id": "a1-prep-004",
+    "level": "A1",
+    "topic": "Akkusativ-Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Wir sitzen um ___ Tisch. (der Tisch)",
+    "prompt_en": "We sit around the table.",
+    "correct": "den",
+    "explanation_de": "um + Akkusativ: der Tisch → den Tisch.",
+    "explanation_en": "um + accusative: der Tisch → den Tisch."
+  },
+  {
+    "id": "a1-prep-005",
+    "level": "A1",
+    "topic": "Akkusativ-Präpositionen",
+    "type": "mc",
+    "prompt_de": "Ich arbeite ___ 17 Uhr.",
+    "prompt_en": "I work until 5 pm.",
+    "options": [
+      "bis",
+      "ohne",
+      "gegen",
+      "durch"
+    ],
+    "correct": "bis",
+    "explanation_de": "bis = until.",
+    "explanation_en": "bis = until."
+  },
+  {
+    "id": "a1-prep-006",
+    "level": "A1",
+    "topic": "Akkusativ-Präpositionen",
+    "type": "mc",
+    "prompt_de": "Pakistan spielt ___ England.",
+    "prompt_en": "Pakistan plays against England.",
+    "options": [
+      "für",
+      "gegen",
+      "ohne",
+      "um"
+    ],
+    "correct": "gegen",
+    "explanation_de": "gegen = against.",
+    "explanation_en": "gegen = against."
+  },
+  {
+    "id": "a1-prep-007",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen",
+    "type": "mc",
+    "prompt_de": "Ich komme ___ der Türkei.",
+    "prompt_en": "I come from Turkey.",
+    "options": [
+      "aus",
+      "mit",
+      "bei",
+      "nach"
+    ],
+    "correct": "aus",
+    "explanation_de": "aus = Herkunft (from).",
+    "explanation_en": "aus = origin (from)."
+  },
+  {
+    "id": "a1-prep-008",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen",
+    "type": "mc",
+    "prompt_de": "Ich fahre ___ dem Bus.",
+    "prompt_en": "I go by bus.",
+    "options": [
+      "mit",
+      "bei",
+      "seit",
+      "von"
+    ],
+    "correct": "mit",
+    "explanation_de": "mit = with / by (means of transport).",
+    "explanation_en": "mit = with / by (means of transport)."
+  },
+  {
+    "id": "a1-prep-009",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen",
+    "type": "mc",
+    "prompt_de": "___ einem Jahr lerne ich Deutsch.",
+    "prompt_en": "I have been learning German for a year.",
+    "options": [
+      "Seit",
+      "Bis",
+      "Für",
+      "Durch"
+    ],
+    "correct": "Seit",
+    "explanation_de": "seit + Dativ = for/since (Dauer).",
+    "explanation_en": "seit + dative = for/since (duration)."
+  },
+  {
+    "id": "a1-prep-010",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen: zu",
+    "type": "fill_blank",
+    "prompt_de": "Ich gehe ___ Arzt. (zu + dem)",
+    "prompt_en": "I go to the doctor.",
+    "correct": "zum",
+    "explanation_de": "zu + dem = zum.",
+    "explanation_en": "zu + dem = zum."
+  },
+  {
+    "id": "a1-prep-011",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen: zu",
+    "type": "fill_blank",
+    "prompt_de": "Ich gehe ___ Bank. (zu + der)",
+    "prompt_en": "I go to the bank.",
+    "correct": "zur",
+    "explanation_de": "zu + der = zur.",
+    "explanation_en": "zu + der = zur."
+  },
+  {
+    "id": "a1-prep-012",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen: von",
+    "type": "fill_blank",
+    "prompt_de": "Ich komme ___ Supermarkt. (von + dem)",
+    "prompt_en": "I come from the supermarket.",
+    "correct": "vom",
+    "explanation_de": "von + dem = vom.",
+    "explanation_en": "von + dem = vom."
+  },
+  {
+    "id": "a1-prep-013",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen: nach",
+    "type": "fill_blank",
+    "prompt_de": "Ich gehe ___ Deutschland.",
+    "prompt_en": "I go to Germany.",
+    "correct": "nach",
+    "explanation_de": "Städte und Länder ohne Artikel: nach.",
+    "explanation_en": "Cities and countries without an article: nach."
+  },
+  {
+    "id": "a1-prep-014",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen: bei",
+    "type": "fill_blank",
+    "prompt_de": "Ich arbeite ___ Siemens.",
+    "prompt_en": "I work at Siemens.",
+    "correct": "bei",
+    "explanation_de": "bei = at (Firma, Person).",
+    "explanation_en": "bei = at (company, person)."
+  },
+  {
+    "id": "a1-prep-015",
+    "level": "A1",
+    "topic": "Dativ-Präpositionen: aus",
+    "type": "fill_blank",
+    "prompt_de": "Er geht ins Kino. Er kommt ___ dem Kino.",
+    "prompt_en": "He goes to the cinema. He comes out of the cinema.",
+    "correct": "aus",
+    "explanation_de": "aus dem Kino (Dativ).",
+    "explanation_en": "aus dem Kino (dative)."
+  },
+  {
+    "id": "a1-prep-016",
+    "level": "A1",
+    "topic": "Lokale Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Das Buch liegt auf ___ Tisch. (der Tisch)",
+    "prompt_en": "The book is on the table.",
+    "correct": "dem",
+    "explanation_de": "Wo? → Dativ: auf dem Tisch.",
+    "explanation_en": "Wo? → dative: auf dem Tisch."
+  },
+  {
+    "id": "a1-prep-017",
+    "level": "A1",
+    "topic": "Lokale Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Wo ist Arafat? — Er ist ___ Supermarkt. (in + dem)",
+    "prompt_en": "Where is Arafat? — He is in the supermarket.",
+    "correct": "im",
+    "explanation_de": "in + dem = im.",
+    "explanation_en": "in + dem = im."
+  },
+  {
+    "id": "a1-prep-018",
+    "level": "A1",
+    "topic": "Lokale Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Wo ist Majid? — Er ist ___ Fenster. (an + dem)",
+    "prompt_en": "Where is Majid? — He is at the window.",
+    "correct": "am",
+    "explanation_de": "an + dem = am.",
+    "explanation_en": "an + dem = am."
+  },
+  {
+    "id": "a1-prep-019",
+    "level": "A1",
+    "topic": "Wegbeschreibung",
+    "type": "mc",
+    "prompt_de": "Wo ist das Kino? — Gehen Sie ___.",
+    "prompt_en": "Where is the cinema? — Go straight ahead.",
+    "options": [
+      "geradeaus",
+      "hinter",
+      "zwischen",
+      "neben"
+    ],
+    "correct": "geradeaus",
+    "explanation_de": "geradeaus = straight ahead.",
+    "explanation_en": "geradeaus = straight ahead."
+  },
+  {
+    "id": "a1-prep-020",
+    "level": "A1",
+    "topic": "Wegbeschreibung",
+    "type": "mc",
+    "prompt_de": "An der Ampel gehen Sie nach ___.",
+    "prompt_en": "At the traffic light, go left.",
+    "options": [
+      "links",
+      "oben",
+      "unten",
+      "vorne"
+    ],
+    "correct": "links",
+    "explanation_de": "nach links / nach rechts.",
+    "explanation_en": "nach links / nach rechts."
+  },
+  {
+    "id": "a1-prep-021",
+    "level": "A1",
+    "topic": "Wechselpräpositionen",
+    "type": "mc",
+    "prompt_de": "Ich gehe in ___ Schule. (Wohin?)",
+    "prompt_en": "I am going to school.",
+    "options": [
+      "die",
+      "der",
+      "dem",
+      "den"
+    ],
+    "correct": "die",
+    "explanation_de": "Wohin? → Akkusativ: die Schule.",
+    "explanation_en": "Wohin? → accusative: die Schule."
+  },
+  {
+    "id": "a1-prep-022",
+    "level": "A1",
+    "topic": "Wechselpräpositionen",
+    "type": "mc",
+    "prompt_de": "Ich bin in ___ Schule. (Wo?)",
+    "prompt_en": "I am at school.",
+    "options": [
+      "die",
+      "der",
+      "dem",
+      "den"
+    ],
+    "correct": "der",
+    "explanation_de": "Wo? → Dativ: in der Schule.",
+    "explanation_en": "Wo? → dative: in der Schule."
+  },
+  {
+    "id": "a1-prep-023",
+    "level": "A1",
+    "topic": "Wechselpräpositionen: liegen / legen",
+    "type": "mc",
+    "prompt_de": "Ich ___ das Buch auf den Tisch.",
+    "prompt_en": "I put the book on the table.",
+    "options": [
+      "liege",
+      "lege",
+      "liegt",
+      "legt"
+    ],
+    "correct": "lege",
+    "explanation_de": "Wohin? + Akkusativ → legen.",
+    "explanation_en": "Wohin? + accusative → legen."
+  },
+  {
+    "id": "a1-prep-024",
+    "level": "A1",
+    "topic": "Wechselpräpositionen: liegen / legen",
+    "type": "mc",
+    "prompt_de": "Das Buch ___ auf dem Tisch.",
+    "prompt_en": "The book lies on the table.",
+    "options": [
+      "liegt",
+      "legt",
+      "lege",
+      "liege"
+    ],
+    "correct": "liegt",
+    "explanation_de": "Wo? + Dativ → liegen.",
+    "explanation_en": "Wo? + dative → liegen."
+  },
+  {
+    "id": "a1-prep-025",
+    "level": "A1",
+    "topic": "Wechselpräpositionen: stehen / stellen",
+    "type": "mc",
+    "prompt_de": "Ich ___ die Flasche ins Regal.",
+    "prompt_en": "I put the bottle on the shelf.",
+    "options": [
+      "stelle",
+      "stehe",
+      "steht",
+      "stellt"
+    ],
+    "correct": "stelle",
+    "explanation_de": "Wohin? → stellen.",
+    "explanation_en": "Wohin? → stellen."
+  },
+  {
+    "id": "a1-prep-026",
+    "level": "A1",
+    "topic": "Wechselpräpositionen: hängen",
+    "type": "mc",
+    "prompt_de": "Das Bild ___ an der Wand.",
+    "prompt_en": "The picture hangs on the wall.",
+    "options": [
+      "hängt",
+      "hänge",
+      "hängst",
+      "hängen"
+    ],
+    "correct": "hängt",
+    "explanation_de": "Wo? → Dativ: an der Wand; das Bild hängt.",
+    "explanation_en": "Wo? → dative: an der Wand; das Bild hängt."
+  },
+  {
+    "id": "a1-prep-027",
+    "level": "A1",
+    "topic": "Wechselpräpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Ich hänge das Bild an ___ Wand. (die Wand)",
+    "prompt_en": "I hang the picture on the wall.",
+    "correct": "die",
+    "explanation_de": "Wohin? → Akkusativ: an die Wand.",
+    "explanation_en": "Wohin? → accusative: an die Wand."
+  },
+  {
+    "id": "a1-prep-028",
+    "level": "A1",
+    "topic": "Wechselpräpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Der Laptop liegt auf ___ Bett. (das Bett)",
+    "prompt_en": "The laptop is lying on the bed.",
+    "correct": "dem",
+    "explanation_de": "Wo? → Dativ: auf dem Bett.",
+    "explanation_en": "Wo? → dative: auf dem Bett."
+  },
+  {
+    "id": "a1-neg2-001",
+    "level": "A1",
+    "topic": "Negation: nicht",
+    "type": "mc",
+    "prompt_de": "Er arbeitet ___.",
+    "prompt_en": "He does not work.",
+    "options": [
+      "nicht",
+      "kein",
+      "keine",
+      "nichts"
+    ],
+    "correct": "nicht",
+    "explanation_de": "Verb verneinen → nicht.",
+    "explanation_en": "Negating a verb → nicht."
+  },
+  {
+    "id": "a1-neg2-002",
+    "level": "A1",
+    "topic": "Negation: kein",
+    "type": "mc",
+    "prompt_de": "Hier gibt es ___ Parkplätze.",
+    "prompt_en": "There are no parking spaces here.",
+    "options": [
+      "nicht",
+      "kein",
+      "keine",
+      "keinen"
+    ],
+    "correct": "keine",
+    "explanation_de": "Nomen ohne Artikel im Plural → keine.",
+    "explanation_en": "Plural noun without an article → keine."
+  },
+  {
+    "id": "a1-neg2-003",
+    "level": "A1",
+    "topic": "Negation: nicht vor Possessiv",
+    "type": "mc",
+    "prompt_de": "Das ist ___ mein Buch.",
+    "prompt_en": "That is not my book.",
+    "options": [
+      "nicht",
+      "kein",
+      "keine",
+      "keinen"
+    ],
+    "correct": "nicht",
+    "explanation_de": "Mit Possessivartikel (mein) verneint man mit „nicht“.",
+    "explanation_en": "With a possessive article (mein) negate with \"nicht\"."
+  },
+  {
+    "id": "a1-neg2-004",
+    "level": "A1",
+    "topic": "Negation: kein",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe ___ Hund.",
+    "prompt_en": "I do not have a dog.",
+    "correct": "keinen",
+    "explanation_de": "Nomen mit unbestimmtem Artikel → kein; maskulin Akkusativ: keinen.",
+    "explanation_en": "Noun with an indefinite article → kein; masculine accusative: keinen."
+  },
+  {
+    "id": "a1-konj-001",
+    "level": "A1",
+    "topic": "Konjunktionen",
+    "type": "mc",
+    "prompt_de": "Kaffee ___ Tee?",
+    "prompt_en": "Coffee or tea?",
+    "options": [
+      "und",
+      "oder",
+      "aber",
+      "denn"
+    ],
+    "correct": "oder",
+    "explanation_de": "oder = or (Alternative).",
+    "explanation_en": "oder = or (alternative)."
+  },
+  {
+    "id": "a1-konj-002",
+    "level": "A1",
+    "topic": "Konjunktionen",
+    "type": "mc",
+    "prompt_de": "Ich bin müde, ___ glücklich.",
+    "prompt_en": "I am tired but happy.",
+    "options": [
+      "aber",
+      "oder",
+      "denn",
+      "weil"
+    ],
+    "correct": "aber",
+    "explanation_de": "aber = Gegensatz.",
+    "explanation_en": "aber = contrast."
+  },
+  {
+    "id": "a1-konj-003",
+    "level": "A1",
+    "topic": "Konjunktionen",
+    "type": "mc",
+    "prompt_de": "Ich bleibe zu Hause, ___ ich bin krank.",
+    "prompt_en": "I stay at home because I am ill.",
+    "options": [
+      "denn",
+      "dass",
+      "wenn",
+      "oder"
+    ],
+    "correct": "denn",
+    "explanation_de": "denn = because (Hauptsatz, Verb bleibt auf Position 2).",
+    "explanation_en": "denn = because (main clause, verb stays in position 2)."
+  },
+  {
+    "id": "a1-konj-004",
+    "level": "A1",
+    "topic": "Konjunktionen: weil",
+    "type": "fill_blank",
+    "prompt_de": "Ich bleibe, weil ich krank ___. (sein)",
+    "prompt_en": "I am staying because I am ill.",
+    "correct": "bin",
+    "explanation_de": "Nach „weil“ steht das Verb am Ende.",
+    "explanation_en": "After \"weil\" the verb goes to the end."
+  },
+  {
+    "id": "a1-konj-005",
+    "level": "A1",
+    "topic": "Konjunktionen: wenn",
+    "type": "fill_blank",
+    "prompt_de": "Wenn es regnet, ___ ich zu Hause. (bleiben)",
+    "prompt_en": "If it rains, I stay at home.",
+    "correct": "bleibe",
+    "explanation_de": "Nach dem Nebensatz kommt das Verb direkt: bleibe ich.",
+    "explanation_en": "After the subordinate clause the verb comes next: bleibe ich."
+  },
+  {
+    "id": "a1-konj-006",
+    "level": "A1",
+    "topic": "Konjunktionen: dass",
+    "type": "fill_blank",
+    "prompt_de": "Ich weiß, dass er morgen ___. (kommen)",
+    "prompt_en": "I know that he is coming tomorrow.",
+    "correct": "kommt",
+    "explanation_de": "Nach „dass“ steht das Verb am Ende.",
+    "explanation_en": "After \"dass\" the verb goes to the end."
+  },
+  {
+    "id": "a1-konj-007",
+    "level": "A1",
+    "topic": "Konjunktionen: Nebensatz",
+    "type": "mc",
+    "prompt_de": "Welcher Satz ist richtig? (Konjunktionen)",
+    "prompt_en": "Which sentence is correct? (Konjunktionen)",
+    "options": [
+      "Ich lerne, weil ich Deutsch brauche.",
+      "Ich lerne, weil ich brauche Deutsch.",
+      "Ich lerne, weil brauche ich Deutsch.",
+      "Ich lerne, weil Deutsch brauche ich."
+    ],
+    "correct": "Ich lerne, weil ich Deutsch brauche.",
+    "explanation_de": "„weil“ schickt das konjugierte Verb ans Ende.",
+    "explanation_en": "\"weil\" sends the conjugated verb to the end."
+  },
+  {
+    "id": "a1-konj-008",
+    "level": "A1",
+    "topic": "Konjunktionen: Nebensatz",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (weil / ich / krank / bin)",
+    "prompt_en": "Arrange: (because / I / ill / am)",
+    "options": [
+      "weil",
+      "ich",
+      "krank",
+      "bin"
+    ],
+    "correct": [
+      "weil",
+      "ich",
+      "krank",
+      "bin"
+    ],
+    "explanation_de": "Nebensatz: Verb am Ende.",
+    "explanation_en": "Subordinate clause: verb at the end."
+  },
+  {
+    "id": "a1-zeit-001",
+    "level": "A1",
+    "topic": "Uhrzeiten",
+    "type": "fill_blank",
+    "prompt_de": "8:15 Uhr — Es ist ___ nach acht.",
+    "prompt_en": "8:15 — It is quarter past eight.",
+    "correct": "Viertel",
+    "explanation_de": "8:15 = Viertel nach acht.",
+    "explanation_en": "8:15 = Viertel nach acht."
+  },
+  {
+    "id": "a1-zeit-002",
+    "level": "A1",
+    "topic": "Uhrzeiten",
+    "type": "fill_blank",
+    "prompt_de": "8:45 Uhr — Es ist Viertel ___ neun.",
+    "prompt_en": "8:45 — It is quarter to nine.",
+    "correct": "vor",
+    "explanation_de": "8:45 = Viertel vor neun.",
+    "explanation_en": "8:45 = Viertel vor neun."
+  },
+  {
+    "id": "a1-zeit-003",
+    "level": "A1",
+    "topic": "Uhrzeiten",
+    "type": "fill_blank",
+    "prompt_de": "8:30 Uhr — Es ist ___ neun.",
+    "prompt_en": "8:30 — It is half past eight.",
+    "correct": "halb",
+    "explanation_de": "„halb“ bezieht sich auf die NÄCHSTE Stunde: halb neun = 8:30.",
+    "explanation_en": "\"halb\" refers to the NEXT hour: halb neun = 8:30."
+  },
+  {
+    "id": "a1-zeit-004",
+    "level": "A1",
+    "topic": "Uhrzeiten",
+    "type": "mc",
+    "prompt_de": "Wie spät ist es? 7:30 Uhr",
+    "prompt_en": "What time is it? 7:30",
+    "options": [
+      "halb acht",
+      "halb sieben",
+      "Viertel vor acht",
+      "sieben Uhr dreißig nach"
+    ],
+    "correct": "halb acht",
+    "explanation_de": "halb + nächste Stunde: 7:30 = halb acht.",
+    "explanation_en": "halb + next hour: 7:30 = halb acht."
+  },
+  {
+    "id": "a1-zeit-005",
+    "level": "A1",
+    "topic": "Uhrzeiten: formell",
+    "type": "mc",
+    "prompt_de": "18:15 Uhr — formell (24-Stunden-Format):",
+    "prompt_en": "18:15 — formal (24-hour format):",
+    "options": [
+      "achtzehn Uhr fünfzehn",
+      "Viertel nach achtzehn",
+      "sechs Uhr fünfzehn",
+      "achtzehn Uhr Viertel"
+    ],
+    "correct": "achtzehn Uhr fünfzehn",
+    "explanation_de": "Formell: Stunde + Uhr + Minuten.",
+    "explanation_en": "Formal: hour + Uhr + minutes."
+  },
+  {
+    "id": "a1-zeit-006",
+    "level": "A1",
+    "topic": "Uhrzeiten",
+    "type": "fill_blank",
+    "prompt_de": "5:55 Uhr — Es ist fünf ___ sechs.",
+    "prompt_en": "5:55 — It is five to six.",
+    "correct": "vor",
+    "explanation_de": "5:55 = fünf vor sechs.",
+    "explanation_en": "5:55 = fünf vor sechs."
+  },
+  {
+    "id": "a1-zeit-007",
+    "level": "A1",
+    "topic": "Uhrzeiten",
+    "type": "fill_blank",
+    "prompt_de": "6:03 Uhr — Es ist kurz ___ sechs.",
+    "prompt_en": "6:03 — It is just after six.",
+    "correct": "nach",
+    "explanation_de": "6:03 = kurz nach sechs.",
+    "explanation_en": "6:03 = kurz nach sechs."
+  },
+  {
+    "id": "a1-zeit-008",
+    "level": "A1",
+    "topic": "Temporale Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Der Kurs beginnt ___ 8 Uhr.",
+    "prompt_en": "The course starts at 8 o’clock.",
+    "correct": "um",
+    "explanation_de": "um + Uhrzeit.",
+    "explanation_en": "um + clock time."
+  },
+  {
+    "id": "a1-zeit-009",
+    "level": "A1",
+    "topic": "Temporale Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Ich habe ___ Montag frei.",
+    "prompt_en": "I have Monday off.",
+    "correct": "am",
+    "explanation_de": "am + Wochentag.",
+    "explanation_en": "am + weekday."
+  },
+  {
+    "id": "a1-zeit-010",
+    "level": "A1",
+    "topic": "Temporale Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Wir fahren ___ Mai nach Berlin.",
+    "prompt_en": "We are going to Berlin in May.",
+    "correct": "im",
+    "explanation_de": "im + Monat.",
+    "explanation_en": "im + month."
+  },
+  {
+    "id": "a1-zeit-011",
+    "level": "A1",
+    "topic": "Temporale Präpositionen",
+    "type": "fill_blank",
+    "prompt_de": "Im Sommer ist es warm. Ich schwimme ___ Sommer.",
+    "prompt_en": "In summer it is warm. I swim in summer.",
+    "correct": "im",
+    "explanation_de": "im + Jahreszeit.",
+    "explanation_en": "im + season."
+  },
+  {
+    "id": "a1-zeit-012",
+    "level": "A1",
+    "topic": "Temporale Präpositionen",
+    "type": "mc",
+    "prompt_de": "Ich arbeite von 9 ___ 17 Uhr.",
+    "prompt_en": "I work from 9 to 5.",
+    "options": [
+      "bis",
+      "nach",
+      "seit",
+      "um"
+    ],
+    "correct": "bis",
+    "explanation_de": "von … bis …",
+    "explanation_en": "von … bis …"
+  },
+  {
+    "id": "a1-zeit-013",
+    "level": "A1",
+    "topic": "Tageszeiten",
+    "type": "mc",
+    "prompt_de": "Ich jogge ___ Abend.",
+    "prompt_en": "I jog in the evening.",
+    "options": [
+      "am",
+      "im",
+      "um",
+      "in der"
+    ],
+    "correct": "am",
+    "explanation_de": "am Morgen/Vormittag/Mittag/Nachmittag/Abend.",
+    "explanation_en": "am Morgen/Vormittag/Mittag/Nachmittag/Abend."
+  },
+  {
+    "id": "a1-zeit-014",
+    "level": "A1",
+    "topic": "Tageszeiten",
+    "type": "mc",
+    "prompt_de": "Ich schlafe ___ der Nacht.",
+    "prompt_en": "I sleep at night.",
+    "options": [
+      "in",
+      "am",
+      "um",
+      "im"
+    ],
+    "correct": "in",
+    "explanation_de": "Ausnahme: in der Nacht.",
+    "explanation_en": "Exception: in der Nacht."
+  },
+  {
+    "id": "a1-zeit-015",
+    "level": "A1",
+    "topic": "Zeiteinheiten",
+    "type": "fill_blank",
+    "prompt_de": "Ein Jahr hat 12 ___.",
+    "prompt_en": "A year has 12 months.",
+    "correct": "Monate",
+    "explanation_de": "Plural von der Monat: die Monate.",
+    "explanation_en": "Plural of der Monat: die Monate."
+  },
+  {
+    "id": "a1-zeit-016",
+    "level": "A1",
+    "topic": "Zeiteinheiten",
+    "type": "fill_blank",
+    "prompt_de": "Eine Woche hat 7 ___.",
+    "prompt_en": "A week has 7 days.",
+    "correct": "Tage",
+    "explanation_de": "Plural von der Tag: die Tage.",
+    "explanation_en": "Plural of der Tag: die Tage."
+  },
+  {
+    "id": "a1-zeit-017",
+    "level": "A1",
+    "topic": "Zeiteinheiten",
+    "type": "mc",
+    "prompt_de": "Eine Stunde hat 60 ___.",
+    "prompt_en": "An hour has 60 minutes.",
+    "options": [
+      "Sekunden",
+      "Minuten",
+      "Tage",
+      "Wochen"
+    ],
+    "correct": "Minuten",
+    "explanation_de": "1 Stunde = 60 Minuten.",
+    "explanation_en": "1 hour = 60 minutes."
+  },
+  {
+    "id": "a1-zeit-018",
+    "level": "A1",
+    "topic": "Jahreszeiten",
+    "type": "mc",
+    "prompt_de": "Welche Monate gehören zum Herbst?",
+    "prompt_en": "Which months belong to autumn?",
+    "options": [
+      "September, Oktober, November",
+      "März, April, Mai",
+      "Juni, Juli, August",
+      "Dezember, Januar, Februar"
+    ],
+    "correct": "September, Oktober, November",
+    "explanation_de": "Herbst: September – November.",
+    "explanation_en": "Autumn: September – November."
+  },
+  {
+    "id": "a1-zeit-019",
+    "level": "A1",
+    "topic": "Jahreszeiten",
+    "type": "mc",
+    "prompt_de": "Dezember, Januar, Februar = der ___",
+    "prompt_en": "December, January, February = the ___",
+    "options": [
+      "Winter",
+      "Herbst",
+      "Sommer",
+      "Frühling"
+    ],
+    "correct": "Winter",
+    "explanation_de": "Winter: Dezember – Februar.",
+    "explanation_en": "Winter: December – February."
+  },
+  {
+    "id": "a1-man-001",
+    "level": "A1",
+    "topic": "Pronomen „man“",
+    "type": "fill_blank",
+    "prompt_de": "___ muss zuerst das Ziel wählen.",
+    "prompt_en": "One must first choose the destination.",
+    "correct": "Man",
+    "explanation_de": "„man“ = eine unbestimmte Person.",
+    "explanation_en": "\"man\" = an unspecified person."
+  },
+  {
+    "id": "a1-man-002",
+    "level": "A1",
+    "topic": "Pronomen „man“",
+    "type": "mc",
+    "prompt_de": "Hier ___ man gut essen. (können)",
+    "prompt_en": "One can eat well here.",
+    "options": [
+      "kann",
+      "kannst",
+      "können",
+      "könnt"
+    ],
+    "correct": "kann",
+    "explanation_de": "„man“ wird wie er/sie/es konjugiert.",
+    "explanation_en": "\"man\" is conjugated like er/sie/es."
+  },
+  {
+    "id": "a1-dem-001",
+    "level": "A1",
+    "topic": "Demonstrativpronomen",
+    "type": "fill_blank",
+    "prompt_de": "Der Gürtel ist neu. ___ ist schön. (Nominativ)",
+    "prompt_en": "The belt is new. It is beautiful.",
+    "correct": "Der",
+    "explanation_de": "Demonstrativ Nominativ maskulin: der.",
+    "explanation_en": "Demonstrative nominative masculine: der."
+  },
+  {
+    "id": "a1-dem-002",
+    "level": "A1",
+    "topic": "Demonstrativpronomen",
+    "type": "fill_blank",
+    "prompt_de": "Die Jacke: ___ finde ich super. (Akkusativ)",
+    "prompt_en": "The jacket — I think it’s great.",
+    "correct": "Die",
+    "explanation_de": "Akkusativ feminin: die.",
+    "explanation_en": "Accusative feminine: die."
+  },
+  {
+    "id": "a1-dem-003",
+    "level": "A1",
+    "topic": "Demonstrativpronomen",
+    "type": "fill_blank",
+    "prompt_de": "Der Gürtel: ___ finde ich super. (Akkusativ)",
+    "prompt_en": "The belt — I think it’s great.",
+    "correct": "Den",
+    "explanation_de": "Akkusativ maskulin: den.",
+    "explanation_en": "Accusative masculine: den."
+  },
+  {
+    "id": "a1-dem-004",
+    "level": "A1",
+    "topic": "Frageartikel „welcher?“",
+    "type": "mc",
+    "prompt_de": "___ Mantel möchtest du? (Nominativ maskulin)",
+    "prompt_en": "Which coat would you like?",
+    "options": [
+      "Welcher",
+      "Welchen",
+      "Welches",
+      "Welche"
+    ],
+    "correct": "Welcher",
+    "explanation_de": "Nominativ maskulin: welcher.",
+    "explanation_en": "Nominative masculine: welcher."
+  },
+  {
+    "id": "a1-dem-005",
+    "level": "A1",
+    "topic": "Frageartikel „welcher?“",
+    "type": "mc",
+    "prompt_de": "Welchen Mantel möchtest du? — ___.",
+    "prompt_en": "Which coat? — This one.",
+    "options": [
+      "Dieser",
+      "Diesen",
+      "Dieses",
+      "Diese"
+    ],
+    "correct": "Diesen",
+    "explanation_de": "Akkusativ maskulin: welchen → diesen.",
+    "explanation_en": "Accusative masculine: welchen → diesen."
+  },
+  {
+    "id": "a1-dem-006",
+    "level": "A1",
+    "topic": "Frageartikel „welcher?“",
+    "type": "mc",
+    "prompt_de": "Welche Schuhe gefallen dir? — ___.",
+    "prompt_en": "Which shoes do you like? — These.",
+    "options": [
+      "Dieser",
+      "Diesen",
+      "Dieses",
+      "Diese"
+    ],
+    "correct": "Diese",
+    "explanation_de": "Plural: welche → diese.",
+    "explanation_en": "Plural: welche → diese."
+  },
+  {
+    "id": "a1-dem-007",
+    "level": "A1",
+    "topic": "Frageartikel „welcher?“",
+    "type": "mc",
+    "prompt_de": "Welches Hemd passt dir? — ___.",
+    "prompt_en": "Which shirt fits you? — This one.",
+    "options": [
+      "Dieser",
+      "Diesen",
+      "Dieses",
+      "Diese"
+    ],
+    "correct": "Dieses",
+    "explanation_de": "Neutrum: welches → dieses.",
+    "explanation_en": "Neuter: welches → dieses."
+  },
+  {
+    "id": "a1-komp-001",
+    "level": "A1",
+    "topic": "Komparation: gut",
+    "type": "fill_blank",
+    "prompt_de": "Ich spiele gut, aber er spielt ___. (gut)",
+    "prompt_en": "I play well, but he plays better.",
+    "correct": "besser",
+    "explanation_de": "gut – besser – am besten.",
+    "explanation_en": "gut – besser – am besten."
+  },
+  {
+    "id": "a1-komp-002",
+    "level": "A1",
+    "topic": "Komparation: gut",
+    "type": "fill_blank",
+    "prompt_de": "Pizza schmeckt mir am ___. (gut)",
+    "prompt_en": "I like pizza best.",
+    "correct": "besten",
+    "explanation_de": "Superlativ von gut: am besten.",
+    "explanation_en": "Superlative of gut: am besten."
+  },
+  {
+    "id": "a1-komp-003",
+    "level": "A1",
+    "topic": "Komparation: viel",
+    "type": "fill_blank",
+    "prompt_de": "Ich trinke ___ Wasser als Saft. (viel)",
+    "prompt_en": "I drink more water than juice.",
+    "correct": "mehr",
+    "explanation_de": "viel – mehr – am meisten.",
+    "explanation_en": "viel – mehr – am meisten."
+  },
+  {
+    "id": "a1-komp-004",
+    "level": "A1",
+    "topic": "Komparation: viel",
+    "type": "fill_blank",
+    "prompt_de": "Er isst am ___ Obst. (viel)",
+    "prompt_en": "He eats the most fruit.",
+    "correct": "meisten",
+    "explanation_de": "Superlativ von viel: am meisten.",
+    "explanation_en": "Superlative of viel: am meisten."
+  },
+  {
+    "id": "a1-komp-005",
+    "level": "A1",
+    "topic": "Komparation: gern",
+    "type": "fill_blank",
+    "prompt_de": "Tee trinke ich gern, aber Kaffee trinke ich ___. (gern)",
+    "prompt_en": "I like tea, but I prefer coffee.",
+    "correct": "lieber",
+    "explanation_de": "gern – lieber – am liebsten.",
+    "explanation_en": "gern – lieber – am liebsten."
+  },
+  {
+    "id": "a1-komp-006",
+    "level": "A1",
+    "topic": "Komparation: gern",
+    "type": "mc",
+    "prompt_de": "Am ___ esse ich Pizza. (Lieblingsessen)",
+    "prompt_en": "I like eating pizza best of all.",
+    "options": [
+      "liebsten",
+      "lieber",
+      "gern",
+      "besten"
+    ],
+    "correct": "liebsten",
+    "explanation_de": "Superlativ von gern: am liebsten.",
+    "explanation_en": "Superlative of gern: am liebsten."
+  },
+  {
+    "id": "a1-dat-001",
+    "level": "A1",
+    "topic": "Verben mit Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Der Mantel gefällt ___. (ich)",
+    "prompt_en": "I like the coat.",
+    "correct": "mir",
+    "explanation_de": "gefallen + Dativ: ich → mir.",
+    "explanation_en": "gefallen + dative: ich → mir."
+  },
+  {
+    "id": "a1-dat-002",
+    "level": "A1",
+    "topic": "Verben mit Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Das Hemd steht ___ gut. (du)",
+    "prompt_en": "The shirt suits you.",
+    "correct": "dir",
+    "explanation_de": "stehen + Dativ: du → dir.",
+    "explanation_en": "stehen + dative: du → dir."
+  },
+  {
+    "id": "a1-dat-003",
+    "level": "A1",
+    "topic": "Verben mit Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Die Jeans passen ___. (du)",
+    "prompt_en": "The jeans fit you.",
+    "correct": "dir",
+    "explanation_de": "passen + Dativ: du → dir.",
+    "explanation_en": "passen + dative: du → dir."
+  },
+  {
+    "id": "a1-dat-004",
+    "level": "A1",
+    "topic": "Verben mit Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Biryani schmeckt ___ gut. (ich)",
+    "prompt_en": "Biryani tastes good to me.",
+    "correct": "mir",
+    "explanation_de": "schmecken + Dativ.",
+    "explanation_en": "schmecken + dative."
+  },
+  {
+    "id": "a1-dat-005",
+    "level": "A1",
+    "topic": "Verben mit Dativ",
+    "type": "fill_blank",
+    "prompt_de": "Das Buch gehört ___. (er)",
+    "prompt_en": "The book belongs to him.",
+    "correct": "ihm",
+    "explanation_de": "gehören + Dativ: er → ihm.",
+    "explanation_en": "gehören + dative: er → ihm."
+  },
+  {
+    "id": "a1-dat-006",
+    "level": "A1",
+    "topic": "Verben mit Dativ",
+    "type": "mc",
+    "prompt_de": "Die Hemden ___ mir.",
+    "prompt_en": "I like the shirts.",
+    "options": [
+      "gefällt",
+      "gefallen",
+      "gefällst",
+      "gefalle"
+    ],
+    "correct": "gefallen",
+    "explanation_de": "Plural: die Hemden gefallen.",
+    "explanation_en": "Plural: die Hemden gefallen."
+  },
+  {
+    "id": "a1-hoef-001",
+    "level": "A1",
+    "topic": "Höfliche Aufforderung",
+    "type": "fill_blank",
+    "prompt_de": "___ Sie mir bitte das Geld zurückgeben? (würden)",
+    "prompt_en": "Would you please give me the money back?",
+    "correct": "Würden",
+    "explanation_de": "Höflich: Würden Sie … + Infinitiv.",
+    "explanation_en": "Polite: Würden Sie … + infinitive."
+  },
+  {
+    "id": "a1-hoef-002",
+    "level": "A1",
+    "topic": "Höfliche Aufforderung",
+    "type": "fill_blank",
+    "prompt_de": "___ du mir bitte helfen? (können, höflich)",
+    "prompt_en": "Could you please help me?",
+    "correct": "Könntest",
+    "explanation_de": "Höflich im Du: Könntest du …?",
+    "explanation_en": "Polite with du: Könntest du …?"
+  },
+  {
+    "id": "a1-hoef-003",
+    "level": "A1",
+    "topic": "Höfliche Aufforderung",
+    "type": "mc",
+    "prompt_de": "Was ist höflicher?",
+    "prompt_en": "Which is more polite?",
+    "options": [
+      "Würdest du mir bitte helfen?",
+      "Hilf mir!",
+      "Du hilfst mir.",
+      "Hilfst du mir!"
+    ],
+    "correct": "Würdest du mir bitte helfen?",
+    "explanation_de": "Konjunktiv II (würdest/könntest) + bitte ist höflich.",
+    "explanation_en": "Konjunktiv II (würdest/könntest) + bitte is polite."
+  },
+  {
+    "id": "a1-ord-001",
+    "level": "A1",
+    "topic": "Ordinalzahlen",
+    "type": "fill_blank",
+    "prompt_de": "Mein Geburtstag ist am ___ (3.) April.",
+    "prompt_en": "My birthday is on 3 April.",
+    "correct": "dritten",
+    "explanation_de": "3. = dritte → am dritten.",
+    "explanation_en": "3rd = dritte → am dritten."
+  },
+  {
+    "id": "a1-ord-002",
+    "level": "A1",
+    "topic": "Ordinalzahlen",
+    "type": "fill_blank",
+    "prompt_de": "Ich gehe am ___ (5.) Oktober nach Pakistan.",
+    "prompt_en": "I am going to Pakistan on 5 October.",
+    "correct": "fünften",
+    "explanation_de": "5. → fünften.",
+    "explanation_en": "5th → fünften."
+  },
+  {
+    "id": "a1-ord-003",
+    "level": "A1",
+    "topic": "Ordinalzahlen",
+    "type": "fill_blank",
+    "prompt_de": "Der Kurs ist am ___ (2.) Mai.",
+    "prompt_en": "The course is on 2 May.",
+    "correct": "zweiten",
+    "explanation_de": "2. → zweiten.",
+    "explanation_en": "2nd → zweiten."
+  },
+  {
+    "id": "a1-ord-004",
+    "level": "A1",
+    "topic": "Ordinalzahlen",
+    "type": "fill_blank",
+    "prompt_de": "Das Fest ist am ___ (20.) Juni.",
+    "prompt_en": "The party is on 20 June.",
+    "correct": "zwanzigsten",
+    "explanation_de": "Ab 20.: -ste → am zwanzigsten.",
+    "explanation_en": "From 20th: -ste → am zwanzigsten."
+  },
+  {
+    "id": "a1-ord-005",
+    "level": "A1",
+    "topic": "Ordinalzahlen",
+    "type": "fill_blank",
+    "prompt_de": "Vom zweiten bis zum ___ (20.) Mai.",
+    "prompt_en": "From 2 to 20 May.",
+    "correct": "zwanzigsten",
+    "explanation_de": "Ab 20.: -ste.",
+    "explanation_en": "From 20th: -ste."
+  },
+  {
+    "id": "a1-ord-006",
+    "level": "A1",
+    "topic": "Ordinalzahlen",
+    "type": "mc",
+    "prompt_de": "Am ___ (7.) Januar beginne ich.",
+    "prompt_en": "I start on 7 January.",
+    "options": [
+      "siebten",
+      "sieben",
+      "siebte",
+      "siebtem"
+    ],
+    "correct": "siebten",
+    "explanation_de": "7. → siebten (am siebten Januar).",
+    "explanation_en": "7th → siebten (am siebten Januar)."
+  },
+  {
+    "id": "a1-ord-007",
+    "level": "A1",
+    "topic": "Ordinalzahlen",
+    "type": "mc",
+    "prompt_de": "Am ___ (21.) März ist der Frühling da.",
+    "prompt_en": "Spring is here on 21 March.",
+    "options": [
+      "einundzwanzigsten",
+      "einundzwanzigten",
+      "einundzwanzigste",
+      "einundzwanzig"
+    ],
+    "correct": "einundzwanzigsten",
+    "explanation_de": "Ab 20.: -sten.",
+    "explanation_en": "From 20th: -sten."
+  },
+  {
+    "id": "a1-wort-001",
+    "level": "A1",
+    "topic": "Wortbildung: Berufe",
+    "type": "fill_blank",
+    "prompt_de": "der Arzt → die ___",
+    "prompt_en": "the doctor (m) → the doctor (f)",
+    "correct": "Ärztin",
+    "explanation_de": "Weibliche Form: -in (mit Umlaut bei Arzt).",
+    "explanation_en": "Feminine form: -in (with umlaut for Arzt)."
+  },
+  {
+    "id": "a1-wort-002",
+    "level": "A1",
+    "topic": "Wortbildung: Berufe",
+    "type": "fill_blank",
+    "prompt_de": "der Mechatroniker → die Mechatroniker___ (Plural feminin)",
+    "prompt_en": "the mechatronics engineers (f)",
+    "correct": "innen",
+    "accept": [
+      "Mechatronikerinnen"
+    ],
+    "explanation_de": "Plural von -in: -innen.",
+    "explanation_en": "Plural of -in: -innen."
+  },
+  {
+    "id": "a1-wort-003",
+    "level": "A1",
+    "topic": "Wortbildung: Berufe",
+    "type": "fill_blank",
+    "prompt_de": "der Hausmann → die ___",
+    "prompt_en": "the househusband → the housewife",
+    "correct": "Hausfrau",
+    "explanation_de": "Besondere Form: Hausmann → Hausfrau.",
+    "explanation_en": "Special form: Hausmann → Hausfrau."
+  },
+  {
+    "id": "a1-wort-004",
+    "level": "A1",
+    "topic": "Wortbildung: Berufe",
+    "type": "mc",
+    "prompt_de": "der Krankenpfleger → die ___",
+    "prompt_en": "the male nurse → the female nurse",
+    "options": [
+      "Krankenpflegerin",
+      "Krankenschwester",
+      "Krankenfrau",
+      "Krankenpflegern"
+    ],
+    "correct": "Krankenschwester",
+    "explanation_de": "Besondere Form: Krankenschwester.",
+    "explanation_en": "Special form: Krankenschwester."
+  },
+  {
+    "id": "a1-zwei-001",
+    "level": "A1",
+    "topic": "Verben mit Dativ und Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich kaufe ___ einen Kuli. (du)",
+    "prompt_en": "I buy you a pen.",
+    "correct": "dir",
+    "explanation_de": "Person = Dativ: du → dir.",
+    "explanation_en": "Person = dative: du → dir."
+  },
+  {
+    "id": "a1-zwei-002",
+    "level": "A1",
+    "topic": "Verben mit Dativ und Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich schreibe ___ einen Brief. (er)",
+    "prompt_en": "I write him a letter.",
+    "correct": "ihm",
+    "explanation_de": "Person = Dativ: er → ihm.",
+    "explanation_en": "Person = dative: er → ihm."
+  },
+  {
+    "id": "a1-zwei-003",
+    "level": "A1",
+    "topic": "Verben mit Dativ und Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Wir geben ___ Bücher. (ihr)",
+    "prompt_en": "We give you (all) books.",
+    "correct": "euch",
+    "explanation_de": "Dativ von ihr: euch.",
+    "explanation_en": "Dative of ihr: euch."
+  },
+  {
+    "id": "a1-zwei-004",
+    "level": "A1",
+    "topic": "Verben mit Dativ und Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich erkläre ___ die Strukturen. (Sie, formell)",
+    "prompt_en": "I explain the structures to you.",
+    "correct": "Ihnen",
+    "explanation_de": "Dativ formell: Ihnen.",
+    "explanation_en": "Formal dative: Ihnen."
+  },
+  {
+    "id": "a1-zwei-005",
+    "level": "A1",
+    "topic": "Verben mit Dativ und Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Du schenkst ___ eine Uhr. (ich)",
+    "prompt_en": "You give me a watch as a present.",
+    "correct": "mir",
+    "explanation_de": "Dativ von ich: mir.",
+    "explanation_en": "Dative of ich: mir."
+  },
+  {
+    "id": "a1-zwei-006",
+    "level": "A1",
+    "topic": "Verben mit Dativ und Akkusativ",
+    "type": "word_order",
+    "prompt_de": "Ordne die Wörter: (ich / dir / kaufe / einen Kuli)",
+    "prompt_en": "Arrange: (I / you / buy / a pen)",
+    "options": [
+      "ich",
+      "dir",
+      "kaufe",
+      "einen Kuli"
+    ],
+    "correct": [
+      "Ich",
+      "kaufe",
+      "dir",
+      "einen Kuli"
+    ],
+    "explanation_de": "Merksatz: Subjekt + Verb + Dativ (Person) + Akkusativ (Sache).",
+    "explanation_en": "Rule: subject + verb + dative (person) + accusative (thing)."
+  },
+  {
+    "id": "a1-einkauf-001",
+    "level": "A1",
+    "topic": "Einkaufsdeklination",
+    "type": "fill_blank",
+    "prompt_de": "Ich kaufe Fleisch in der ___.",
+    "prompt_en": "I buy meat at the butcher’s.",
+    "correct": "Metzgerei",
+    "explanation_de": "In der Metzgerei kauft man Fleisch.",
+    "explanation_en": "You buy meat at the Metzgerei."
+  },
+  {
+    "id": "a1-einkauf-002",
+    "level": "A1",
+    "topic": "Einkaufsdeklination",
+    "type": "mc",
+    "prompt_de": "Ich kaufe Brot in der ___.",
+    "prompt_en": "I buy bread at the bakery.",
+    "options": [
+      "Bäckerei",
+      "Metzgerei",
+      "Supermarkt",
+      "Markt"
+    ],
+    "correct": "Bäckerei",
+    "explanation_de": "In der Bäckerei kauft man Brot.",
+    "explanation_en": "You buy bread at the Bäckerei."
+  },
+  {
+    "id": "a1-einkauf-003",
+    "level": "A1",
+    "topic": "Einkaufsdeklination",
+    "type": "fill_blank",
+    "prompt_de": "Ich kaufe Käse ___ Supermarkt. (in + dem)",
+    "prompt_en": "I buy cheese at the supermarket.",
+    "correct": "im",
+    "explanation_de": "in + dem = im.",
+    "explanation_en": "in + dem = im."
+  },
+  {
+    "id": "a1-einkauf-004",
+    "level": "A1",
+    "topic": "Einkaufsdeklination",
+    "type": "fill_blank",
+    "prompt_de": "Ich kaufe Bananen ___ dem Markt.",
+    "prompt_en": "I buy bananas at the market.",
+    "correct": "auf",
+    "explanation_de": "auf dem Markt.",
+    "explanation_en": "auf dem Markt."
+  },
+  {
+    "id": "a1-einkauf-005",
+    "level": "A1",
+    "topic": "Einkaufsdeklination: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Der Apfel ist frisch. Ich kaufe ___ Apfel. (kein)",
+    "prompt_en": "The apple is fresh. I do not buy an apple.",
+    "correct": "keinen",
+    "explanation_de": "Akkusativ maskulin: keinen.",
+    "explanation_en": "Accusative masculine: keinen."
+  },
+  {
+    "id": "a1-einkauf-006",
+    "level": "A1",
+    "topic": "Einkaufsdeklination: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich koche ___ Fleisch. (das)",
+    "prompt_en": "I cook the meat.",
+    "correct": "das",
+    "explanation_de": "Neutrum bleibt im Akkusativ: das Fleisch.",
+    "explanation_en": "Neuter stays the same in the accusative: das Fleisch."
+  },
+  {
+    "id": "a1-einkauf-007",
+    "level": "A1",
+    "topic": "Einkaufsdeklination: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich mache ___ Salat. (ein)",
+    "prompt_en": "I make a salad.",
+    "correct": "einen",
+    "explanation_de": "Akkusativ maskulin: einen Salat.",
+    "explanation_en": "Accusative masculine: einen Salat."
+  },
+  {
+    "id": "a1-einkauf-008",
+    "level": "A1",
+    "topic": "Einkaufsdeklination: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich koche ___ Reis. (kein)",
+    "prompt_en": "I am not cooking any rice.",
+    "correct": "keinen",
+    "explanation_de": "Akkusativ maskulin: keinen Reis.",
+    "explanation_en": "Accusative masculine: keinen Reis."
+  },
+  {
+    "id": "a1-einkauf-009",
+    "level": "A1",
+    "topic": "Einkaufsdeklination: Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Die Gurke ist billig. Ich kaufe ___ Gurke. (eine)",
+    "prompt_en": "The cucumber is cheap. I buy a cucumber.",
+    "correct": "eine",
+    "explanation_de": "Feminin: eine Gurke.",
+    "explanation_en": "Feminine: eine Gurke."
+  },
+  {
+    "id": "a1-einkauf-010",
+    "level": "A1",
+    "topic": "Mahlzeiten",
+    "type": "mc",
+    "prompt_de": "Das ___ esse ich morgens um sieben.",
+    "prompt_en": "I eat breakfast at seven in the morning.",
+    "options": [
+      "Frühstück",
+      "Mittagessen",
+      "Abendessen",
+      "Wochenende"
+    ],
+    "correct": "Frühstück",
+    "explanation_de": "das Frühstück = Morgenmahlzeit.",
+    "explanation_en": "das Frühstück = morning meal."
+  },
+  {
+    "id": "a1-preis-001",
+    "level": "A1",
+    "topic": "Preise",
+    "type": "fill_blank",
+    "prompt_de": "1,20 Euro = ein Euro ___",
+    "prompt_en": "€1.20",
+    "correct": "zwanzig",
+    "explanation_de": "1,20 € = ein Euro zwanzig.",
+    "explanation_en": "€1.20 = ein Euro zwanzig."
+  },
+  {
+    "id": "a1-preis-002",
+    "level": "A1",
+    "topic": "Preise",
+    "type": "mc",
+    "prompt_de": "3,50 Euro =",
+    "prompt_en": "€3.50 =",
+    "options": [
+      "drei Euro fünfzig",
+      "dreißig Euro fünf",
+      "drei Cent fünfzig",
+      "fünf Euro drei"
+    ],
+    "correct": "drei Euro fünfzig",
+    "explanation_de": "3,50 € = drei Euro fünfzig.",
+    "explanation_en": "€3.50 = drei Euro fünfzig."
+  },
+  {
+    "id": "a1-preis-003",
+    "level": "A1",
+    "topic": "Preise",
+    "type": "fill_blank",
+    "prompt_de": "0,99 Euro = 99 ___",
+    "prompt_en": "€0.99 = 99 cents",
+    "correct": "Cent",
+    "explanation_de": "99 Cent.",
+    "explanation_en": "99 Cent."
+  },
+  {
+    "id": "a1-preis-004",
+    "level": "A1",
+    "topic": "Preise: kosten",
+    "type": "fill_blank",
+    "prompt_de": "Was ___ der Apfelsaft? (kosten)",
+    "prompt_en": "How much is the apple juice?",
+    "correct": "kostet",
+    "explanation_de": "Singular: er kostet.",
+    "explanation_en": "Singular: er kostet."
+  },
+  {
+    "id": "a1-preis-005",
+    "level": "A1",
+    "topic": "Preise: kosten",
+    "type": "fill_blank",
+    "prompt_de": "Was ___ die Bücher? (kosten)",
+    "prompt_en": "How much are the books?",
+    "correct": "kosten",
+    "explanation_de": "Plural: sie kosten.",
+    "explanation_en": "Plural: sie kosten."
+  },
+  {
+    "id": "a1-preis-006",
+    "level": "A1",
+    "topic": "Einkaufsdialog",
+    "type": "mc",
+    "prompt_de": "Was möchten Sie, bitte? — Ich ___ ein Brot und zwei Brötchen.",
+    "prompt_en": "What would you like? — I would like a loaf of bread and two rolls.",
+    "options": [
+      "möchte",
+      "möchtest",
+      "möchtet",
+      "möchten"
+    ],
+    "correct": "möchte",
+    "explanation_de": "ich → möchte.",
+    "explanation_en": "ich → möchte."
+  },
+  {
+    "id": "a1-preis-007",
+    "level": "A1",
+    "topic": "Einkaufsdialog",
+    "type": "mc",
+    "prompt_de": "Das macht 5,80 Euro. — ___",
+    "prompt_en": "That comes to €5.80. — …",
+    "options": [
+      "Hier, bitte.",
+      "Gern geschehen.",
+      "Guten Appetit.",
+      "Wie bitte?"
+    ],
+    "correct": "Hier, bitte.",
+    "explanation_de": "Beim Bezahlen sagt man: „Hier, bitte.“",
+    "explanation_en": "When paying you say: \"Hier, bitte.\""
+  },
+  {
+    "id": "a1-preis-008",
+    "level": "A1",
+    "topic": "Einkaufsdialog",
+    "type": "fill_blank",
+    "prompt_de": "Sonst noch etwas? — Nein, das ___ alles. (sein)",
+    "prompt_en": "Anything else? — No, that is all.",
+    "correct": "ist",
+    "explanation_de": "Das ist alles.",
+    "explanation_en": "Das ist alles."
+  },
+  {
+    "id": "a1-akk-001",
+    "level": "A1",
+    "topic": "treffen, einladen, anrufen + Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich treffe meinen Freund. → Ich treffe ___.",
+    "prompt_en": "I meet my friend. → I meet him.",
+    "correct": "ihn",
+    "explanation_de": "Akkusativ von er: ihn.",
+    "explanation_en": "Accusative of er: ihn."
+  },
+  {
+    "id": "a1-akk-002",
+    "level": "A1",
+    "topic": "treffen, einladen, anrufen + Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ihr trefft ___. (wir)",
+    "prompt_en": "You (all) meet us.",
+    "correct": "uns",
+    "explanation_de": "Akkusativ von wir: uns.",
+    "explanation_en": "Accusative of wir: uns."
+  },
+  {
+    "id": "a1-akk-003",
+    "level": "A1",
+    "topic": "treffen, einladen, anrufen + Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Du lädst ___ ein. (ich)",
+    "prompt_en": "You invite me.",
+    "correct": "mich",
+    "explanation_de": "Akkusativ von ich: mich.",
+    "explanation_en": "Accusative of ich: mich."
+  },
+  {
+    "id": "a1-akk-004",
+    "level": "A1",
+    "topic": "treffen, einladen, anrufen + Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich lade dich ___. (einladen)",
+    "prompt_en": "I invite you.",
+    "correct": "ein",
+    "explanation_de": "einladen → Ich lade … ein.",
+    "explanation_en": "einladen → Ich lade … ein."
+  },
+  {
+    "id": "a1-akk-005",
+    "level": "A1",
+    "topic": "treffen, einladen, anrufen + Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Ich rufe dich ___. (anrufen)",
+    "prompt_en": "I call you.",
+    "correct": "an",
+    "explanation_de": "anrufen → Ich rufe … an.",
+    "explanation_en": "anrufen → Ich rufe … an."
+  },
+  {
+    "id": "a1-akk-006",
+    "level": "A1",
+    "topic": "treffen, einladen, anrufen + Akkusativ",
+    "type": "fill_blank",
+    "prompt_de": "Das Kind ist allein. Ich frage ___. (das Kind)",
+    "prompt_en": "The child is alone. I ask it.",
+    "correct": "es",
+    "explanation_de": "das Kind → es (Akkusativ).",
+    "explanation_en": "das Kind → es (accusative)."
+  },
+  {
+    "id": "a1-akk-007",
+    "level": "A1",
+    "topic": "treffen, einladen, anrufen + Akkusativ",
+    "type": "mc",
+    "prompt_de": "Die Leute sind nett. Ich lade ___ ein.",
+    "prompt_en": "The people are nice. I invite them.",
+    "options": [
+      "sie",
+      "ihnen",
+      "ihr",
+      "es"
+    ],
+    "correct": "sie",
+    "explanation_de": "Plural Akkusativ: sie (einladen + Akkusativ).",
+    "explanation_en": "Plural accusative: sie (einladen + accusative)."
   }
 ]
