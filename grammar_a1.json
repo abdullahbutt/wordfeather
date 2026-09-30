@@ -448,9 +448,12 @@
     "level": "A1",
     "topic": "Verben mit Akkusativ und Dativ",
     "type": "fill_blank",
-    "prompt_de": "Ich gebe ___ (mein Bruder) das Buch.",
+    "prompt_de": "Ich gebe ___ (mein) Bruder das Buch.",
     "prompt_en": "I give my brother the book.",
-    "correct": "meinem Bruder",
+    "correct": "meinem",
+    "accept": [
+      "meinem Bruder"
+    ],
     "explanation_de": "'geben' hat zwei Objekte: Dativ (Person) + Akkusativ (Sache). Dativ maskulin: meinem Bruder.",
     "explanation_en": "'geben' takes two objects: dative (person) + accusative (thing). Dative masculine: meinem Bruder."
   },

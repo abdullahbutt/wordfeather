@@ -214,7 +214,7 @@
     "level": "B1",
     "topic": "Passiv mit Modalverb",
     "type": "fill_blank",
-    "prompt_de": "Die Arbeit muss heute ___ (machen).",
+    "prompt_de": "Die Arbeit muss heute ___ (machen → Passiv-Infinitiv).",
     "prompt_en": "The work must be done today.",
     "correct": "gemacht werden",
     "explanation_de": "Passiv mit Modalverb: Modalverb (muss) + Partizip II + werden (Infinitiv Passiv) am Satzende.",

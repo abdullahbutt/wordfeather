@@ -91,6 +91,7 @@
     function foldGerman(s) {
         return (s || '').toLowerCase()
             .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+            .replace(/\s+/g, ' ')
             .trim();
     }
 
@@ -180,7 +181,8 @@
             var submit = document.getElementById('gqSubmitBtn');
             function check() {
                 if (state.answered) return;
-                var isCorrect = foldGerman(input.value) === foldGerman(q.correct);
+                var accepted = [q.correct].concat(q.accept || []).map(foldGerman);
+                var isCorrect = accepted.indexOf(foldGerman(input.value)) !== -1;
                 input.disabled = true;
                 submit.disabled = true;
                 showFeedback(isCorrect, q);
