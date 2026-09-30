@@ -37,9 +37,12 @@
     "level": "C2",
     "topic": "Genitivverben: gedenken",
     "type": "fill_blank",
-    "prompt_de": "Die Familie gedachte ___ (die Opfer) der Katastrophe.",
+    "prompt_de": "Die Familie gedachte ___ (die) Opfer der Katastrophe.",
     "prompt_en": "The family commemorated the victims of the disaster.",
-    "correct": "der Opfer",
+    "correct": "der",
+    "accept": [
+      "der Opfer"
+    ],
     "explanation_de": "'gedenken' verlangt Genitiv; Genitiv Plural: der Opfer.",
     "explanation_en": "'gedenken' takes the genitive case; genitive plural: der Opfer."
   },
@@ -48,9 +51,12 @@
     "level": "C2",
     "topic": "Genitivverben: sich bewusst sein",
     "type": "fill_blank",
-    "prompt_de": "Er ist sich ___ (die Gefahr) durchaus bewusst.",
+    "prompt_de": "Er ist sich ___ (die) Gefahr durchaus bewusst.",
     "prompt_en": "He is well aware of the danger.",
-    "correct": "der Gefahr",
+    "correct": "der",
+    "accept": [
+      "der Gefahr"
+    ],
     "explanation_de": "'sich bewusst sein' verlangt Genitiv; Genitiv feminin: der Gefahr.",
     "explanation_en": "'sich bewusst sein' takes the genitive; genitive feminine: der Gefahr."
   },
@@ -86,9 +92,12 @@
     "level": "C2",
     "topic": "Genitivpräpositionen: innerhalb",
     "type": "fill_blank",
-    "prompt_de": "Innerhalb ___ (eine Woche) muss die Arbeit fertig sein.",
+    "prompt_de": "Innerhalb ___ (eine) Woche muss die Arbeit fertig sein.",
     "prompt_en": "Within a week, the work must be finished.",
-    "correct": "einer Woche",
+    "correct": "einer",
+    "accept": [
+      "einer Woche"
+    ],
     "explanation_de": "'innerhalb' verlangt Genitiv; Genitiv feminin: einer Woche.",
     "explanation_en": "'innerhalb' takes the genitive; genitive feminine: einer Woche."
   },
@@ -183,9 +192,12 @@
     "level": "C2",
     "topic": "Genitivverben: bedürfen",
     "type": "fill_blank",
-    "prompt_de": "Dieses Problem bedarf ___ (eine gründliche Analyse).",
+    "prompt_de": "Dieses Problem bedarf ___ (eine gründliche) Analyse.",
     "prompt_en": "This problem requires a thorough analysis.",
-    "correct": "einer gründlichen Analyse",
+    "correct": "einer gründlichen",
+    "accept": [
+      "einer gründlichen Analyse"
+    ],
     "explanation_de": "'bedürfen' verlangt Genitiv; Genitiv feminin: einer gründlichen Analyse.",
     "explanation_en": "'bedürfen' takes the genitive; genitive feminine: einer gründlichen Analyse."
   },

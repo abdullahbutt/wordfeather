@@ -216,6 +216,9 @@
     "prompt_de": "___ er half, ging er einfach weg.",
     "prompt_en": "Instead of helping, he just walked away.",
     "correct": "Anstatt dass",
+    "accept": [
+      "Statt dass"
+    ],
     "explanation_de": "'Anstatt dass' leitet einen Kontrastsatz ein (etwas Erwartetes geschieht nicht).",
     "explanation_en": "'Anstatt dass' introduces a contrastive clause (an expected action doesn't happen)."
   },

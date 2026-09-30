@@ -109,9 +109,12 @@
     "level": "A2",
     "topic": "Kasus: Dativ",
     "type": "fill_blank",
-    "prompt_de": "Ich gebe ___ (der Mann) das Buch.",
+    "prompt_de": "Ich gebe ___ (der) Mann das Buch.",
     "prompt_en": "I give the man the book.",
     "correct": "dem",
+    "accept": [
+      "dem Mann"
+    ],
     "explanation_de": "Dativ maskulin: der → dem.",
     "explanation_en": "Dative masculine: der → dem."
   },
