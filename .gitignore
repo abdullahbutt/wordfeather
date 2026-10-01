@@ -18,3 +18,6 @@ sdist/
 md_to_html_converter.py
 requirements.txt
 setup_Version2.sh
+
+# EnvKit — per-project PHP error log (do not commit)
+php_error.log

@@ -42,6 +42,10 @@ self.addEventListener('fetch', function(event) {
   var request = event.request;
   var url = new URL(request.url);
 
+  // Never intercept API traffic or non-GET requests: they go straight to the network
+  // (no caching of API responses, which can be personal and must always be fresh).
+  if (request.method !== 'GET' || url.hostname.indexOf('api.') === 0) { return; }
+
   // HTML pages and own assets: network-first
   if (request.mode === 'navigate' ||
       (url.origin === self.location.origin && url.pathname.startsWith(BASE))) {
