@@ -29,6 +29,8 @@
     [data-bs-theme="dark"] .gq-feedback.correct{background:rgba(74,222,128,.12);color:#4ade80}
     [data-bs-theme="dark"] .gq-feedback.incorrect{background:rgba(248,113,113,.12);color:#f87171}
     .gq-en-hint{color:var(--muted);font-style:italic;font-size:.85rem;margin-top:.3rem}
+    .gq-nav{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem}
+    .gq-review-tag{font-size:.75rem;color:var(--muted);margin-bottom:.4rem}
     .gq-progress{max-width:640px;margin:0 auto 1rem}
     .gq-level-btn{border-radius:999px;padding:.3rem .9rem;border:1.5px solid var(--card-border);background:var(--card-bg);color:var(--page-text);cursor:pointer;font-weight:600}
     .gq-level-btn.active{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
@@ -47,8 +49,13 @@
     <p class="text-center text-muted mb-4">Teste dein Sprachgefühl — Kasus, Verbformen, Satzstellung / Test your grammar — cases, verb forms, word order</p>
 
     <div class="alert alert-info text-center" style="max-width:640px;margin:0 auto 1.5rem;">
-        <div>ℹ️ Dein Ergebnis wird <strong>nicht gespeichert</strong> — es geht beim Verlassen dieser Seite verloren.</div>
-        <div style="opacity:.75">ℹ️ Your result is <strong>not saved</strong> — it's lost when you leave this page.</div>
+        <div>ℹ️ Falsch beantwortete Fragen werden <strong>in diesem Browser gespeichert</strong> (Tab „Meine Fehler“).</div>
+        <div style="opacity:.75">ℹ️ Wrongly answered questions are <strong>saved in this browser</strong> (“My mistakes” tab).</div>
+    </div>
+
+    <div class="d-flex justify-content-center gap-2 flex-wrap mb-3" id="modePicker">
+        <button class="gq-level-btn active" data-mode="practice">📐 Üben / Practice</button>
+        <button class="gq-level-btn" data-mode="mistakes">❌ Meine Fehler / My mistakes (<span id="gqMistakeCount">0</span>)</button>
     </div>
 
     <div class="d-flex justify-content-center gap-2 flex-wrap mb-4" id="levelPicker">
@@ -75,27 +82,72 @@
 
     <div id="gqCard" class="gq-card"></div>
 
-    <div class="text-center mt-4" id="gqNextWrap" style="display:none">
+    <div class="gq-nav" id="gqNav" style="display:none">
+        <button class="btn btn-outline-secondary" id="gqBackBtn">← Zurück / Back</button>
         <button class="btn btn-primary" id="gqNextBtn">Weiter / Next →</button>
     </div>
 
     <div id="gqSummary" class="gq-card text-center" style="display:none">
         <h2 class="mb-3">Fertig! / Done!</h2>
         <p id="gqSummaryText" class="fs-5"></p>
+        <button class="btn btn-outline-secondary mt-2" id="gqSummaryBackBtn">← Antworten ansehen / Review answers</button>
         <button class="btn btn-primary mt-2" id="gqRestartBtn">Nochmal / Restart</button>
+        <div class="mt-3"><button class="btn btn-link btn-sm text-muted" id="gqClearBtn">Gespeicherte Fehler löschen / Clear saved mistakes</button></div>
     </div>
 </main>
 
 <script>
 (function () {
+    // ---------------------------------------------------------------
+    // Persistence (localStorage, same approach as the Wortschatz quiz).
+    // Every storage access is wrapped in try/catch so the quiz keeps
+    // working (without saving) if storage is blocked.
+    // ---------------------------------------------------------------
+    var STORAGE_KEY = 'wf_grammar_progress_v1';
+
+    function loadProgress() {
+        try {
+            var raw = localStorage.getItem(STORAGE_KEY);
+            var p = raw ? JSON.parse(raw) : {};
+            return (p && typeof p === 'object') ? p : {};
+        } catch (e) { return {}; }
+    }
+    function saveProgress() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); return true; }
+        catch (e) { return false; }
+    }
+    var progress = loadProgress();
+
+    // A question is a "current mistake" if its last attempt was wrong
+    // (streak 0) and it was wrong at least once. A later correct answer
+    // removes it from the list automatically.
+    function isMistake(q) {
+        var e = progress[q.id];
+        return !!e && e.streak === 0 && e.timesWrong > 0;
+    }
+    function recordAnswer(q, correct) {
+        var e = progress[q.id] || { streak: 0, timesCorrect: 0, timesWrong: 0, lastSeen: 0 };
+        e.lastSeen = Date.now();
+        if (correct) { e.streak++; e.timesCorrect++; }
+        else { e.streak = 0; e.timesWrong++; }
+        progress[q.id] = e;
+        saveProgress();
+    }
+
     var state = {
         level: 'A1',
+        mode: 'practice',   // 'practice' | 'mistakes'
         count: 33,
         questions: [],
-        index: 0,
-        score: 0,
-        answered: false
+        history: [],        // per question: null or {given, ok}
+        pos: 0              // question currently displayed
     };
+    var cache = {};         // level -> question array
+
+    function $(id) { return document.getElementById(id); }
+    function esc(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
 
     function foldGerman(s) {
         return (s || '').toLowerCase()
@@ -113,13 +165,42 @@
         return a;
     }
 
-    function loadLevel(level) {
-        state.level = level;
+    function fetchLevel(level) {
+        if (cache[level]) return Promise.resolve(cache[level]);
         var file = 'grammar_' + level.toLowerCase() + '.json';
-        fetch(file)
-            .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)); })
-            .then(function (data) {
-                // Placement-test questions (marked "core": 1-96) always come first, in test order;
+        return fetch(file)
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status + ' (' + file + ')')); })
+            .then(function (data) { cache[level] = data; return data; });
+    }
+
+    function mistakeCount() {
+        return (cache[state.level] || []).filter(isMistake).length;
+    }
+    function updateMistakeBadge() {
+        $('gqMistakeCount').textContent = mistakeCount();
+    }
+
+    function score() {
+        return state.history.filter(function (h) { return h && h.ok; }).length;
+    }
+    function answeredCount() {
+        return state.history.filter(function (h) { return h; }).length;
+    }
+
+    function showError(err) {
+        $('gqCard').style.display = '';
+        $('gqCard').innerHTML = '<p class="text-danger">Fehler beim Laden: ' + esc(err.message) + '</p>';
+    }
+
+    function start() {
+        $('countPicker').style.display = state.mode === 'practice' ? '' : 'none';
+        $('gqNav').style.display = 'none';
+        fetchLevel(state.level).then(function (data) {
+            updateMistakeBadge();
+            if (state.mode === 'mistakes') {
+                state.questions = shuffle(data.filter(isMistake));
+            } else {
+                // Placement-test questions (marked "core": 1-112) always come first, in test order;
                 // all other questions follow in random order.
                 var core = data.filter(function (q) { return q.core; })
                     .sort(function (a, b) { return a.core - b.core; });
@@ -128,42 +209,107 @@
                 if (state.count > 0 && state.count < state.questions.length) {
                     state.questions = state.questions.slice(0, state.count);
                 }
-                state.index = 0;
-                state.score = 0;
-                document.getElementById('gqSummary').style.display = 'none';
-                document.getElementById('gqCard').style.display = '';
-                renderQuestion();
-            })
-            .catch(function (err) {
-                document.getElementById('gqCard').innerHTML =
-                    '<p class="text-danger">Fehler beim Laden von ' + file + ': ' + err.message + '</p>';
-            });
+            }
+            state.history = state.questions.map(function () { return null; });
+            state.pos = 0;
+            $('gqSummary').style.display = 'none';
+            if (state.questions.length === 0) {
+                showEmptyMistakes();
+                return;
+            }
+            $('gqCard').style.display = '';
+            show(0);
+        }).catch(showError);
+    }
+
+    function showEmptyMistakes() {
+        $('gqProgress').textContent = '';
+        $('gqScore').textContent = '';
+        $('gqNav').style.display = 'none';
+        $('gqCard').style.display = '';
+        $('gqCard').innerHTML =
+            '<div class="text-center">' +
+            '<div class="fs-5">Keine aktuellen Fehler auf diesem Niveau — gut gemacht! 🎉</div>' +
+            '<div class="gq-en-hint">No current mistakes at this level — well done! Questions you answer wrongly in practice will appear here.</div>' +
+            '</div>';
     }
 
     function updateProgress() {
-        document.getElementById('gqProgress').textContent =
-            'Frage ' + (state.index + 1) + ' / ' + state.questions.length;
-        document.getElementById('gqScore').textContent =
-            '✅ ' + state.score + ' / ' + state.index + (state.answered ? '' : '');
+        $('gqProgress').textContent = 'Frage ' + (state.pos + 1) + ' / ' + state.questions.length;
+        $('gqScore').textContent = '✅ ' + score() + ' / ' + answeredCount();
     }
 
-    function renderQuestion() {
-        state.answered = false;
-        document.getElementById('gqNextWrap').style.display = 'none';
+    function updateNav() {
+        var h = state.history[state.pos];
+        $('gqNav').style.display = '';
+        $('gqBackBtn').style.display = state.pos > 0 ? '' : 'none';
+        $('gqNextBtn').style.display = h ? '' : 'none';
+    }
+
+    // Show question i: unanswered -> live; answered -> read-only review.
+    function show(i) {
+        state.pos = i;
+        $('gqSummary').style.display = 'none';
+        $('gqCard').style.display = '';
         updateProgress();
-        var q = state.questions[state.index];
-        var card = document.getElementById('gqCard');
-        var html = '<div class="gq-topic">' + q.topic + ' · ' + q.level + '</div>';
+        if (state.history[i]) renderReview(i); else renderQuestion(i);
+        updateNav();
+    }
+
+    function header(q) {
+        var html = '<div class="gq-topic">' + esc(q.topic) + ' · ' + q.level + '</div>';
         html += '<div class="gq-prompt">' + q.prompt_de.replace('___', '<u>____</u>') + '</div>';
         html += '<div class="gq-en-hint">' + q.prompt_en + '</div>';
+        return html;
+    }
+
+    function correctText(q) {
+        return Array.isArray(q.correct) ? q.correct.join(' ') : q.correct;
+    }
+
+    function feedbackHtml(ok, q, given, review) {
+        var reveal = '';
+        if (!ok && q.type !== 'mc') {
+            reveal = '<div class="mt-2"><b>Richtig / Correct:</b> ' + esc(correctText(q)) + '</div>';
+        }
+        var yours = review
+            ? '<div class="mb-1"><b>Deine Antwort / Your answer:</b> ' + (given ? esc(given) : '<i>—</i>') + '</div>'
+            : '';
+        return '<div class="gq-feedback ' + (ok ? 'correct' : 'incorrect') + '">' +
+            (ok ? '✅ Richtig! / Correct!' : '❌ Nicht ganz. / Not quite.') +
+            '<div class="mt-1">' + yours + '</div>' +
+            '<div>' + q.explanation_de + '</div>' +
+            '<div class="gq-en-hint">' + q.explanation_en + '</div>' +
+            reveal + '</div>';
+    }
+
+    // Read-only view of an already answered question.
+    function renderReview(i) {
+        var q = state.questions[i], h = state.history[i];
+        var html = '<div class="gq-review-tag">📖 Wiederholung / Review</div>' + header(q);
+        if (q.type === 'mc') {
+            html += '<div class="gq-mc-options mt-2">';
+            q.options.forEach(function (opt) {
+                var cls = opt === q.correct ? ' correct' : (opt === h.given ? ' incorrect' : '');
+                html += '<button type="button" class="gq-mc-btn' + cls + '" disabled>' + opt + '</button>';
+            });
+            html += '</div>';
+        }
+        html += '<div id="gqFeedback">' + feedbackHtml(h.ok, q, h.given, q.type !== 'mc') + '</div>';
+        $('gqCard').innerHTML = html;
+    }
+
+    function renderQuestion(i) {
+        var q = state.questions[i];
+        var html = header(q);
 
         if (q.type === 'fill_blank') {
             html += '<div class="mt-3"><input type="text" id="gqInput" class="gq-blank-input" autocomplete="off" autocapitalize="off" placeholder="…"></div>';
             html += '<button class="btn btn-primary mt-3" id="gqSubmitBtn">Prüfen / Check</button>';
         } else if (q.type === 'mc') {
             html += '<div class="gq-mc-options mt-2">';
-            q.options.forEach(function (opt, i) {
-                html += '<button type="button" class="gq-mc-btn" data-opt="' + i + '">' + opt + '</button>';
+            q.options.forEach(function (opt, k) {
+                html += '<button type="button" class="gq-mc-btn" data-opt="' + k + '">' + opt + '</button>';
             });
             html += '</div>';
         } else if (q.type === 'word_order') {
@@ -174,49 +320,39 @@
         }
 
         html += '<div id="gqFeedback"></div>';
-        card.innerHTML = html;
-        wireQuestionEvents(q);
+        $('gqCard').innerHTML = html;
+        wireQuestionEvents(q, i);
     }
 
-    function showFeedback(isCorrect, q) {
-        state.answered = true;
-        if (isCorrect) state.score++;
+    function showFeedback(isCorrect, q, given, i) {
+        state.history[i] = { given: given, ok: isCorrect };
+        recordAnswer(q, isCorrect);
+        updateMistakeBadge();
         updateProgress();
-        var fb = document.getElementById('gqFeedback');
-        var reveal = '';
-        if (!isCorrect && q.type !== 'mc') {
-            var ans = Array.isArray(q.correct) ? q.correct.join(' ') : q.correct;
-            reveal = '<div class="mt-2"><b>Richtig / Correct:</b> ' + ans + '</div>';
-        }
-        fb.innerHTML =
-            '<div class="gq-feedback ' + (isCorrect ? 'correct' : 'incorrect') + '">' +
-            (isCorrect ? '✅ Richtig! / Correct!' : '❌ Nicht ganz. / Not quite.') +
-            '<div class="mt-1">' + q.explanation_de + '</div>' +
-            '<div class="gq-en-hint">' + q.explanation_en + '</div>' +
-            reveal +
-            '</div>';
-        document.getElementById('gqNextWrap').style.display = '';
+        $('gqFeedback').innerHTML = feedbackHtml(isCorrect, q, given, false);
+        updateNav();
     }
 
-    function wireQuestionEvents(q) {
+    function wireQuestionEvents(q, i) {
+        function answered() { return !!state.history[i]; }
         if (q.type === 'fill_blank') {
-            var input = document.getElementById('gqInput');
-            var submit = document.getElementById('gqSubmitBtn');
-            function check() {
-                if (state.answered) return;
+            var input = $('gqInput');
+            var submit = $('gqSubmitBtn');
+            var check = function () {
+                if (answered()) return;
                 var accepted = [q.correct].concat(q.accept || []).map(foldGerman);
                 var isCorrect = accepted.indexOf(foldGerman(input.value)) !== -1;
                 input.disabled = true;
                 submit.disabled = true;
-                showFeedback(isCorrect, q);
-            }
+                showFeedback(isCorrect, q, input.value.trim(), i);
+            };
             submit.addEventListener('click', check);
             input.addEventListener('keydown', function (e) { if (e.key === 'Enter') check(); });
             input.focus();
         } else if (q.type === 'mc') {
             document.querySelectorAll('.gq-mc-btn').forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    if (state.answered) return;
+                    if (answered()) return;
                     var chosen = q.options[parseInt(btn.getAttribute('data-opt'), 10)];
                     var isCorrect = chosen === q.correct;
                     document.querySelectorAll('.gq-mc-btn').forEach(function (b) {
@@ -224,116 +360,142 @@
                         if (b.textContent === q.correct) b.classList.add('correct');
                         else if (b === btn) b.classList.add('incorrect');
                     });
-                    showFeedback(isCorrect, q);
+                    showFeedback(isCorrect, q, chosen, i);
                 });
             });
         } else if (q.type === 'word_order') {
-            var pool = document.getElementById('gqWoPool');
-            var answer = document.getElementById('gqWoAnswer');
-            var submit = document.getElementById('gqSubmitBtn');
+            var pool = $('gqWoPool');
+            var answer = $('gqWoAnswer');
+            var submitWo = $('gqSubmitBtn');
             var chunks = shuffle(q.options);
-            var chosen = [];
+            var chosenW = [];
 
-            function renderChunks() {
+            var renderChunks = function () {
                 pool.innerHTML = '';
-                chunks.forEach(function (chunk, i) {
+                chunks.forEach(function (chunk, k) {
                     var el = document.createElement('span');
                     el.className = 'gq-wo-chunk';
                     el.textContent = chunk;
                     el.addEventListener('click', function () {
-                        if (state.answered) return;
-                        chosen.push(chunk);
-                        chunks.splice(i, 1);
+                        if (answered()) return;
+                        chosenW.push(chunk);
+                        chunks.splice(k, 1);
                         renderChunks();
                         renderAnswer();
                     });
                     pool.appendChild(el);
                 });
-            }
-            function renderAnswer() {
+            };
+            var renderAnswer = function () {
                 answer.innerHTML = '';
-                chosen.forEach(function (chunk, i) {
+                chosenW.forEach(function (chunk, k) {
                     var el = document.createElement('span');
                     el.className = 'gq-wo-chunk';
                     el.style.background = '#16a34a';
                     el.textContent = chunk;
                     el.addEventListener('click', function () {
-                        if (state.answered) return;
-                        chosen.splice(i, 1);
+                        if (answered()) return;
+                        chosenW.splice(k, 1);
                         chunks.push(chunk);
                         renderChunks();
                         renderAnswer();
                     });
                     answer.appendChild(el);
                 });
-                submit.disabled = chosen.length !== q.correct.length;
-            }
-            submit.addEventListener('click', function () {
-                if (state.answered) return;
+                submitWo.disabled = chosenW.length !== q.correct.length;
+            };
+            submitWo.addEventListener('click', function () {
+                if (answered()) return;
                 var orderKey = function (arr) { return arr.map(foldGerman).join('|'); };
                 var okOrders = [q.correct].concat(q.accept_orders || []).map(orderKey);
-                var isCorrect = okOrders.indexOf(orderKey(chosen)) !== -1;
-                submit.disabled = true;
-                showFeedback(isCorrect, q);
+                var isCorrect = okOrders.indexOf(orderKey(chosenW)) !== -1;
+                submitWo.disabled = true;
+                showFeedback(isCorrect, q, chosenW.join(' '), i);
             });
             renderChunks();
             renderAnswer();
         }
     }
 
-    document.getElementById('gqNextBtn').addEventListener('click', function () {
-        state.index++;
-        if (state.index >= state.questions.length) {
-            document.getElementById('gqCard').style.display = 'none';
-            document.getElementById('gqNextWrap').style.display = 'none';
-            document.getElementById('gqProgress').textContent = '';
-            document.getElementById('gqSummary').style.display = '';
-            document.getElementById('gqSummaryText').textContent =
-                'Du hast ' + state.score + ' von ' + state.questions.length + ' richtig beantwortet. / ' +
-                'You answered ' + state.score + ' out of ' + state.questions.length + ' correctly.';
-        } else {
-            renderQuestion();
+    function showSummary() {
+        $('gqCard').style.display = 'none';
+        $('gqNav').style.display = 'none';
+        $('gqProgress').textContent = '';
+        $('gqSummary').style.display = '';
+        var n = state.questions.length, s = score();
+        var wrong = n - s;
+        var txt = 'Du hast ' + s + ' von ' + n + ' richtig beantwortet. / ' +
+            'You answered ' + s + ' out of ' + n + ' correctly.';
+        if (wrong > 0) {
+            txt += '<div class="small mt-2">❌ ' + wrong + ' Fehler gespeichert — übe sie im Tab „Meine Fehler“. / ' +
+                wrong + ' mistake' + (wrong === 1 ? '' : 's') + ' saved — practise them in the “My mistakes” tab.</div>';
         }
-    });
+        $('gqSummaryText').innerHTML = txt;
+        $('gqSummaryBackBtn').style.display = n > 0 ? '' : 'none';
+        updateMistakeBadge();
+    }
 
-    document.getElementById('gqRestartBtn').addEventListener('click', function () {
-        loadLevel(state.level);
+    $('gqNextBtn').addEventListener('click', function () {
+        if (state.pos + 1 >= state.questions.length) showSummary();
+        else show(state.pos + 1);
+    });
+    $('gqBackBtn').addEventListener('click', function () {
+        if (state.pos > 0) show(state.pos - 1);
+    });
+    $('gqSummaryBackBtn').addEventListener('click', function () {
+        show(state.questions.length - 1);
+    });
+    $('gqRestartBtn').addEventListener('click', start);
+
+    $('gqClearBtn').addEventListener('click', function () {
+        if (!window.confirm('Alle gespeicherten Fehler und Fortschritte löschen? / Delete all saved mistakes and progress?')) return;
+        progress = {};
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+        start();
     });
 
     document.querySelectorAll('#levelPicker button').forEach(function (btn) {
         btn.addEventListener('click', function () {
-            if (btn.disabled) return;
             document.querySelectorAll('#levelPicker button').forEach(function (b) { b.classList.remove('active'); });
             btn.classList.add('active');
-            loadLevel(btn.getAttribute('data-level'));
+            state.level = btn.getAttribute('data-level');
+            start();
         });
     });
 
-    document.querySelectorAll('#countPicker button').forEach(function (btn) {
+    document.querySelectorAll('#countPicker button[data-count]').forEach(function (btn) {
         btn.addEventListener('click', function () {
-            document.querySelectorAll('#countPicker button').forEach(function (b) { b.classList.remove('active'); });
+            document.querySelectorAll('#countPicker button[data-count]').forEach(function (b) { b.classList.remove('active'); });
             btn.classList.add('active');
             state.count = parseInt(btn.getAttribute('data-count'), 10) || 0;
-            loadLevel(state.level);
+            start();
         });
     });
 
-    var saved = localStorage.getItem('theme') || 'light';
+    document.querySelectorAll('#modePicker button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('#modePicker button').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            state.mode = btn.getAttribute('data-mode');
+            start();
+        });
+    });
+
+    var saved = 'light';
+    try { saved = localStorage.getItem('theme') || 'light'; } catch (e) { /* ignore */ }
     document.documentElement.setAttribute('data-bs-theme', saved);
 
     // Support linking directly into a specific level from an external page
-    // (e.g. "grammar-quiz.html?level=B1" from B1/02_Grammatik.html), so a
-    // "Test what you just learned" link lands the user on the relevant
-    // content instead of always defaulting to A1 regardless of referrer.
+    // (e.g. "grammar-quiz.html?level=B1" from B1/02_Grammatik.html).
     var VALID_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
     var urlLevel = new URLSearchParams(window.location.search).get('level');
-    var startLevel = VALID_LEVELS.indexOf((urlLevel || '').toUpperCase()) > -1
+    state.level = VALID_LEVELS.indexOf((urlLevel || '').toUpperCase()) > -1
         ? urlLevel.toUpperCase() : 'A1';
 
     document.querySelectorAll('#levelPicker button').forEach(function (btn) {
-        btn.classList.toggle('active', btn.getAttribute('data-level') === startLevel);
+        btn.classList.toggle('active', btn.getAttribute('data-level') === state.level);
     });
-    loadLevel(startLevel);
+    start();
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
