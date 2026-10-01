@@ -17,12 +17,19 @@ Thank you for helping improve these German learning materials! Contributions of 
 
 For small fixes (typos, broken links), a Pull Request is enough. For larger changes (new files, restructuring), please open an **Issue** first to discuss the idea before investing time in it.
 
+## Where things live
+
+- **Vocabulary** is stored in `words_final.json` (structure: [SCHEMA.md](SCHEMA.md)). The dictionary and the Wortschatz pages are generated from it, so fix a word or a translation there rather than in the generated HTML. After editing, run `python3 build.py --audit` to check the data, then `python3 build.py --all` to regenerate the pages.
+- **Other level content** (Grammatik, Sätze, Lesen, Hören, Sprechen, Schreiben, Musterprüfung, telc format) is plain HTML in the level folders (`A1/` … `C2/`) and can be edited directly.
+- The original Markdown versions of the level materials are no longer maintained; they are kept in the `v1.0.0` tag for reference only.
+
 ## Guidelines
 
-- Keep the bilingual approach consistent — A1, A2, B1 files should include English alongside German; B2, C1, C2 files should be German only (with English only in vocabulary tables)
-- Match the existing file naming convention (`01_Wortschatz.md`, `02_Grammatik.md` etc.)
+- Keep the bilingual approach consistent — A1, A2, B1 pages should include English alongside German; B2, C1, C2 pages should be German only (with English only in vocabulary tables)
+- Match the existing file naming convention (`01_Wortschatz.html`, `02_Grammatik.html` etc.)
 - Stick to the Goethe-Zertifikat exam format — content should align with official exam standards
 - Use clear, learner-friendly language appropriate to the level
+- Contributions are published under the project's license (CC BY-NC 4.0)
 
 ## Reporting mistakes
 
@@ -31,4 +38,3 @@ If you spot an error but don't want to submit a Pull Request, simply open an **I
 ---
 
 Danke für deine Hilfe! 🇩🇪
-```
