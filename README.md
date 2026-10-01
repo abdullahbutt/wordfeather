@@ -12,7 +12,7 @@
 **👉 Most people should just use [wordfeather.com](https://wordfeather.com/) — no need to browse this repo's files.**
 *Die meisten sollten einfach [wordfeather.com](https://wordfeather.com/) benutzen — ein Durchstöbern dieses Repos ist nicht nötig.*
 
-This repository is the source material behind [wordfeather.com](https://wordfeather.com/): a free, open-source study platform for all CEFR levels (A1–C2) preparing for the Goethe and telc exams. The website is the finished, interactive product — searchable, with audio, and installable as an app. The files in this repo are the raw content it's built from, useful if you want to read offline, fork it, or contribute.
+This repository contains the files behind [wordfeather.com](https://wordfeather.com/): a free, open-source study platform for all CEFR levels (A1–C2) preparing for the Goethe and telc exams. The website is the finished, interactive product — searchable, with audio, and installable as an app. The repo holds its pages, its vocabulary dataset and the scripts that build parts of the site, so you can fork it, reuse the data under the license below, or contribute.
 
 ---
 
@@ -31,21 +31,18 @@ No login, no ads, works offline as an installable app (PWA).
 
 ## 📂 What's in this repo
 
-Each level folder (`A1/` … `C2/`) contains the source content for that level's pages on the site:
+| Path | What it is |
+|---|---|
+| `A1/` … `C2/` | The level pages the site serves — Wortschatz, Grammatik, Sätze, Lesen, Hören, Sprechen, Schreiben, Musterprüfung and the telc exam format (files `01_` to `09_`), plus a few extras such as course notes, and each level's `index.html` |
+| `dictionary.html`, `dictionary-*.html` | The dictionary: a search page plus one page per letter (generated) |
+| `quiz.html`, `grammar-quiz.html`, `placement-test.html` | The vocabulary / listening / reading quiz, the grammar quiz and the placement test |
+| `words_final.json` | The vocabulary dataset (5,243 entries) — the single source for the dictionary and the Wortschatz pages. Its structure is described in [SCHEMA.md](SCHEMA.md) |
+| `conjugations.json`, `person-sentences.json`, `dictionary-index.json`, `grammar_*.json` | Data files used by the site (most are generated from the dataset) |
+| `build.py` and helper scripts | Regenerate the Wortschatz pages, the dictionary and the generated data files: `python3 build.py --audit`, then `python3 build.py --all` |
 
-| File | Content | On the site as |
-|---|---|---|
-| `01_Wortschatz.md` | Vocabulary, organized by theme | part of the live [Dictionary](https://wordfeather.com/dictionary.html), plus the level's own Wortschatz page |
-| `02_Grammatik.md` | Grammar rules, tables, exercises | the level's Grammatik page, and [grammar-quiz.html](https://wordfeather.com/grammar-quiz.html) |
-| `03_Saetze.md` | Example sentences, A–Z | the level's Sätze page |
-| `04_Lesen.md` | Reading comprehension, Goethe-format | the level's Lesen page, and the Quiz's Leseverstehen mode |
-| `05_Hoeren.md` | Listening exercises, transcripts | the level's Hören page, and the Quiz's Hörverstehen mode |
-| `06_Sprechen.md` | Speaking prompts and Redemittel | the level's Sprechen page, with audio |
-| `07_Schreiben.md` | Writing tasks with model answers | the level's Schreiben page |
-| `08_Musterpruefung.md` | A complete sample exam with answer key | the level's Musterprüfung page |
-| `09_telc_Pruefungsformat.md` | telc exam format, task types, scoring | the level's own page |
+Looking for the original Markdown (`.md`) versions of the level materials? They are preserved in the frozen snapshot of the project as of 01.10.2026: [tag `v1.0.0`](https://github.com/abdullahbutt/wordfeather/tree/v1.0.0). They are no longer maintained.
 
-Each `.md` file has a matching `.html` file — that's the actual page the site serves; the Markdown is the plain-text source it's generated from. A few levels also have extra pages not listed above (e.g. course notes, a cheat sheet) — open a level's `index.html` or visit its page on the site to see everything available for it.
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 **5,243 vocabulary entries · 6 levels · all 4 exam skills, every level**
 
