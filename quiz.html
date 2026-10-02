@@ -91,6 +91,13 @@
     color: var(--muted, #64748b);
     border-color: var(--word-border, #d1d5db);
   }
+  #bookmarkBtn { font-size: 0.8rem; color: var(--muted, #64748b); border-color: var(--word-border, #d1d5db); }
+  #bookmarkBtn.is-on { color: #b45309; border-color: #f59e0b; background: #fef3c7; }
+  [data-bs-theme="dark"] #bookmarkBtn { color: #94a3b8; border-color: #334155; }
+  [data-bs-theme="dark"] #bookmarkBtn.is-on { color: #fbbf24; border-color: #f59e0b; background: rgba(245,158,11,.15); }
+  .bm-item { border: 1px solid var(--word-border, #e5e7eb); border-radius: .5rem; padding: .75rem 1rem; margin-bottom: .6rem; }
+  [data-bs-theme="dark"] .bm-item { border-color: #334155; }
+  .bm-level { font-weight: 700; margin: 1rem 0 .4rem; }
   #reportBtn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
   #quitQuizBtn:hover { color: var(--bad); border-color: var(--bad); background: #fef2f2; }
   [data-bs-theme="dark"] #reportBtn,
@@ -300,6 +307,12 @@
               <span class="d-block small" style="font-weight:400;">My mistakes</span>
             </button>
           </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-bookmarks" data-mode="bookmarks" role="tab" aria-selected="false" aria-controls="bookmarksOptions">
+              <span class="d-block">⭐ Lesezeichen (<span id="bookmarkTabCount">0</span>)</span>
+              <span class="d-block small" style="font-weight:400;">Bookmarks</span>
+            </button>
+          </li>
         </ul>
 
         <!-- Placement/level tests — kept in their own small group, deliberately
@@ -392,6 +405,12 @@
           <p class="text-muted small" style="opacity:.75">These are words you most recently got wrong. Once you answer them correctly, they automatically leave this list.</p>
         </div>
 
+        <!-- Bookmarks panel -->
+        <div id="bookmarksOptions" class="hidden" role="tabpanel" aria-labelledby="tab-bookmarks" tabindex="0">
+          <div class="alert alert-info" id="bookmarksInfo"></div>
+          <div id="bookmarksList"></div>
+        </div>
+
         <button class="btn btn-primary btn-lg w-100" id="startBtn">Quiz starten →</button>
         <button class="btn btn-link w-100 mt-2" id="viewProgressBtn">📊 Meinen Fortschritt anzeigen / View my progress</button>
       </div>
@@ -406,7 +425,10 @@
       </div>
       <div class="d-flex justify-content-between align-items-center mb-4">
         <p class="text-muted small mb-0" id="quizProgressText">Frage 1 / 20</p>
-        <button type="button" class="btn btn-outline-secondary btn-sm" id="quitQuizBtn">✕ Beenden <span style="opacity:.75">/ Quit</span></button>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-outline-secondary btn-sm" id="bookmarkBtn" aria-pressed="false">☆ Merken <span style="opacity:.75">/ Bookmark</span></button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" id="quitQuizBtn">✕ Beenden <span style="opacity:.75">/ Quit</span></button>
+        </div>
       </div>
 
       <!-- Vocab (Wortschatz) card — shown for kind='vocab' -->
@@ -746,6 +768,126 @@
     return mistakes;
   }
 
+
+
+  // ---------------------------------------------------------------
+  // Bookmarks — same localStorage approach as the progress data above
+  // (try/catch around every access). Each bookmark stores a small
+  // snapshot of the item so the list can be shown without rebuilding it.
+  // ---------------------------------------------------------------
+  var BOOKMARK_KEY = 'wf_quiz_bookmarks_v1';
+
+  function loadBookmarks() {
+    try {
+      var raw = localStorage.getItem(BOOKMARK_KEY);
+      var b = raw ? JSON.parse(raw) : {};
+      return (b && typeof b === 'object') ? b : {};
+    } catch (e) { return {}; }
+  }
+  function saveBookmarks() {
+    try { localStorage.setItem(BOOKMARK_KEY, JSON.stringify(bookmarks)); return true; }
+    catch (e) { return false; }
+  }
+  var bookmarks = loadBookmarks();
+
+  function bookmarkKeyFor(q) {
+    return (q.kind === 'lesen' || q.kind === 'hoeren') ? questionKey(q) : questionKey(q.word);
+  }
+  function bookmarkSnapshot(q) {
+    if (q.kind === 'lesen' || q.kind === 'hoeren') {
+      return {
+        kind: q.kind, level: q.level, itemTitle: q.itemTitle || '', prompt: q.prompt,
+        answer: q.answerField, explanation: q.explanation || '',
+        passage: q.kind === 'lesen' ? (q.passage || []) : undefined,
+        script: q.kind === 'hoeren' ? (q.script || '') : undefined,
+        added: Date.now()
+      };
+    }
+    var w = q.word;
+    return {
+      kind: 'vocab', level: w.level, de: w.de, en: w.en,
+      example: w.example || '', example_en: w.example_en || '', added: Date.now()
+    };
+  }
+  function bookmarkCount() { return Object.keys(bookmarks).length; }
+  function toggleBookmark(q) {
+    var key = bookmarkKeyFor(q);
+    if (bookmarks[key]) delete bookmarks[key];
+    else bookmarks[key] = bookmarkSnapshot(q);
+    saveBookmarks();
+    refreshBookmarkUi(q);
+  }
+  function refreshBookmarkUi(q) {
+    document.getElementById('bookmarkTabCount').textContent = bookmarkCount();
+    var btn = document.getElementById('bookmarkBtn');
+    if (!btn || !q) return;
+    var on = !!bookmarks[bookmarkKeyFor(q)];
+    btn.classList.toggle('is-on', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.innerHTML = on
+      ? '★ Gemerkt <span style="opacity:.75">/ Bookmarked</span>'
+      : '☆ Merken <span style="opacity:.75">/ Bookmark</span>';
+  }
+  function bmEsc(t) {
+    return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function renderBookmarks() {
+    var keys = Object.keys(bookmarks);
+    var info = document.getElementById('bookmarksInfo');
+    var list = document.getElementById('bookmarksList');
+    document.getElementById('bookmarkTabCount').textContent = keys.length;
+    if (!keys.length) {
+      info.innerHTML =
+        '<div>Noch keine Lesezeichen. Tippe im Quiz auf „☆ Merken“, um eine Frage hier zu speichern.</div>' +
+        '<div style="opacity:.75">No bookmarks yet. Tap “☆ Bookmark” during a quiz to save a question here.</div>';
+      list.innerHTML = '';
+      return;
+    }
+    info.innerHTML =
+      '<div>' + keys.length + ' Lesezeichen — gespeichert in diesem Browser.</div>' +
+      '<div style="opacity:.75">' + keys.length + ' bookmark' + (keys.length === 1 ? '' : 's') + ' — saved in this browser.</div>';
+    var order = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    var html = '';
+    order.concat(['?']).forEach(function (lvl) {
+      var items = keys.filter(function (k) { return (bookmarks[k].level || '?') === lvl; })
+        .sort(function (a, b) { return (bookmarks[a].added || 0) - (bookmarks[b].added || 0); });
+      if (!items.length) return;
+      html += '<div class="bm-level">' + bmEsc(lvl) + ' <span class="text-muted fw-normal">(' + items.length + ')</span></div>';
+      items.forEach(function (k) {
+        var b = bookmarks[k], body;
+        if (b.kind === 'vocab') {
+          body = '<div class="fw-semibold">' + bmEsc(b.de) + '</div><div>' + bmEsc(b.en) + '</div>' +
+            (b.example ? '<div class="small mt-1">' + bmEsc(b.example) +
+              (b.example_en ? '<br><span class="text-muted">' + bmEsc(b.example_en) + '</span>' : '') + '</div>' : '');
+        } else {
+          body = '<div class="small text-muted">' + (b.kind === 'lesen' ? '📰 Lesen' : '🎧 Hören') +
+            (b.itemTitle ? ' · ' + bmEsc(b.itemTitle) : '') + '</div>' +
+            (b.passage && b.passage.length ? '<div class="small mt-1">' + b.passage.map(bmEsc).join('<br>') + '</div>' : '') +
+            (b.script ? '<div class="small mt-1 fst-italic">' + bmEsc(b.script) + '</div>' : '') +
+            '<div class="fw-semibold mt-1">' + bmEsc(b.prompt) + '</div>' +
+            '<div>✓ ' + bmEsc(b.answer) + '</div>' +
+            (b.explanation ? '<div class="small text-muted mt-1">' + bmEsc(b.explanation) + '</div>' : '');
+        }
+        html += '<div class="bm-item d-flex justify-content-between align-items-start gap-3" data-key="' + bmEsc(k) + '">' +
+          '<div>' + body + '</div>' +
+          '<button type="button" class="btn btn-outline-danger btn-sm bm-remove flex-shrink-0">🗑 Entfernen <span style="opacity:.75">/ Remove</span></button></div>';
+      });
+    });
+    list.innerHTML = html;
+  }
+  document.getElementById('bookmarksList').addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.bm-remove') : null;
+    if (!btn) return;
+    var key = btn.parentNode.getAttribute('data-key');
+    delete bookmarks[key];
+    saveBookmarks();
+    renderBookmarks();
+  });
+  document.getElementById('bookmarkBtn').addEventListener('click', function () {
+    if (!currentQuiz) return;
+    toggleBookmark(currentQuiz.questions[currentQuiz.index]);
+  });
+  document.getElementById('bookmarkTabCount').textContent = bookmarkCount();
 
 
   var LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -1585,6 +1727,7 @@ var LESEN_PRACTICE_DATA = {
   document.getElementById('tab-lesen').addEventListener('click', function () { switchMode('lesen'); });
   document.getElementById('tab-placement').addEventListener('click', function () { switchMode('placement'); });
   document.getElementById('tab-mistakes').addEventListener('click', function () { switchMode('mistakes'); });
+  document.getElementById('tab-bookmarks').addEventListener('click', function () { switchMode('bookmarks'); });
 
   // ARIA tab pattern: Left/Right (and Home/End) move keyboard focus between
   // tabs; the user still presses Enter/Space (native <button> behaviour) or
@@ -1616,16 +1759,22 @@ var LESEN_PRACTICE_DATA = {
     document.getElementById('tab-lesen').classList.toggle('active', mode === 'lesen');
     document.getElementById('tab-placement').classList.toggle('active', mode === 'placement');
     document.getElementById('tab-mistakes').classList.toggle('active', mode === 'mistakes');
+    document.getElementById('tab-bookmarks').classList.toggle('active', mode === 'bookmarks');
     document.getElementById('tab-practice').setAttribute('aria-selected', mode === 'practice');
     document.getElementById('tab-hoeren').setAttribute('aria-selected', mode === 'hoeren');
     document.getElementById('tab-lesen').setAttribute('aria-selected', mode === 'lesen');
     document.getElementById('tab-placement').setAttribute('aria-selected', mode === 'placement');
     document.getElementById('tab-mistakes').setAttribute('aria-selected', mode === 'mistakes');
+    document.getElementById('tab-bookmarks').setAttribute('aria-selected', mode === 'bookmarks');
     document.getElementById('practiceOptions').classList.toggle('hidden', mode !== 'practice');
     document.getElementById('hoerenOptions').classList.toggle('hidden', mode !== 'hoeren');
     document.getElementById('lesenOptions').classList.toggle('hidden', mode !== 'lesen');
     document.getElementById('placementOptions').classList.toggle('hidden', mode !== 'placement');
     document.getElementById('mistakesOptions').classList.toggle('hidden', mode !== 'mistakes');
+    document.getElementById('bookmarksOptions').classList.toggle('hidden', mode !== 'bookmarks');
+    document.getElementById('startBtn').classList.toggle('hidden', mode === 'bookmarks');
+    document.getElementById('viewProgressBtn').classList.toggle('hidden', mode === 'bookmarks');
+    if (mode === 'bookmarks') renderBookmarks();
 
     if (mode === 'mistakes') {
       var count = getMistakeWords().length;
@@ -2051,6 +2200,7 @@ var LESEN_PRACTICE_DATA = {
     document.getElementById('feedbackBox').className = 'feedback-box mb-3';
     document.getElementById('feedbackBox').innerHTML = '';
     document.getElementById('nextBtn').classList.add('hidden');
+    refreshBookmarkUi(q);
   }
 
   function handleOptionClick(clickedBtn, q) {
