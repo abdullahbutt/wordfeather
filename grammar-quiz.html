@@ -90,12 +90,14 @@
 
     <div class="gq-nav" id="gqNav" style="display:none">
         <button class="btn btn-outline-secondary" id="gqBackBtn">← Zurück / Back</button>
+        <button class="btn btn-outline-secondary" id="gqSkipBtn">Überspringen / Skip →</button>
         <button class="btn btn-primary" id="gqNextBtn">Weiter / Next →</button>
     </div>
 
     <div id="gqSummary" class="gq-card text-center" style="display:none">
         <h2 class="mb-3">Fertig! / Done!</h2>
         <p id="gqSummaryText" class="fs-5"></p>
+        <button class="btn btn-warning mt-2" id="gqSummarySkippedBtn" style="display:none">Übersprungene Fragen / Go to skipped questions</button>
         <button class="btn btn-outline-secondary mt-2" id="gqSummaryBackBtn">← Antworten ansehen / Review answers</button>
         <button class="btn btn-primary mt-2" id="gqRestartBtn">Nochmal / Restart</button>
         <div class="mt-3"><button class="btn btn-link btn-sm text-muted" id="gqClearBtn">Gespeicherte Fehler löschen / Clear saved mistakes</button></div>
@@ -162,6 +164,7 @@
         count: 33,
         questions: [],
         history: [],        // per question: null or {given, ok}
+        skipped: [],        // per question: true once the learner skipped it (it stays unanswered until answered)
         pos: 0              // question currently displayed
     };
     var cache = {};         // level -> question array
@@ -277,6 +280,14 @@
     function answeredCount() {
         return state.history.filter(function (h) { return h; }).length;
     }
+    // Questions the learner skipped and has not answered since. They are not answers and never count as mistakes.
+    function skippedCount() {
+        return state.history.filter(function (h, i) { return !h && state.skipped[i]; }).length;
+    }
+    function firstUnanswered() {
+        for (var i = 0; i < state.history.length; i++) { if (!state.history[i]) return i; }
+        return -1;
+    }
 
     function showError(err) {
         $('gqCard').style.display = '';
@@ -305,6 +316,7 @@
                 }
             }
             state.history = state.questions.map(function () { return null; });
+            state.skipped = state.questions.map(function () { return false; });
             state.pos = 0;
             $('gqSummary').style.display = 'none';
             if (state.questions.length === 0) {
@@ -330,13 +342,15 @@
 
     function updateProgress() {
         $('gqProgress').textContent = 'Frage ' + (state.pos + 1) + ' / ' + state.questions.length;
-        $('gqScore').textContent = '✅ ' + score() + ' / ' + answeredCount();
+        var skipped = skippedCount();
+        $('gqScore').textContent = '✅ ' + score() + ' / ' + answeredCount() + (skipped ? '  ·  ⏭ ' + skipped : '');
     }
 
     function updateNav() {
         var h = state.history[state.pos];
         $('gqNav').style.display = '';
         $('gqBackBtn').style.display = state.pos > 0 ? '' : 'none';
+        $('gqSkipBtn').style.display = h ? 'none' : '';   // an unanswered question can be skipped and answered later
         $('gqNextBtn').style.display = h ? '' : 'none';
     }
 
@@ -516,10 +530,16 @@
         $('gqNav').style.display = 'none';
         $('gqProgress').textContent = '';
         $('gqSummary').style.display = '';
-        var n = state.questions.length, s = score();
-        var wrong = n - s;
+        var n = state.questions.length, s = score(), answered = answeredCount();
+        var wrong = answered - s;       // skipped questions are not mistakes
+        var skipped = n - answered;     // everything still unanswered here was skipped
         var txt = 'Du hast ' + s + ' von ' + n + ' richtig beantwortet. / ' +
             'You answered ' + s + ' out of ' + n + ' correctly.';
+        if (skipped > 0) {
+            txt += '<div class="small mt-2">⏭ ' + skipped + ' übersprungen — du kannst sie noch beantworten. / ' +
+                skipped + ' skipped — you can still answer ' + (skipped === 1 ? 'it' : 'them') + '.</div>';
+        }
+        $('gqSummarySkippedBtn').style.display = skipped > 0 ? '' : 'none';
         if (wrong > 0) {
             txt += '<div class="small mt-2">❌ ' + wrong + ' Fehler gespeichert — übe sie im Tab „Meine Fehler“. / ' +
                 wrong + ' mistake' + (wrong === 1 ? '' : 's') + ' saved — practise them in the “My mistakes” tab.</div>';
@@ -535,6 +555,16 @@
     });
     $('gqBackBtn').addEventListener('click', function () {
         if (state.pos > 0) show(state.pos - 1);
+    });
+    $('gqSkipBtn').addEventListener('click', function () {
+        if (state.history[state.pos]) return;   // answered questions cannot be skipped
+        state.skipped[state.pos] = true;
+        if (state.pos + 1 >= state.questions.length) showSummary();
+        else show(state.pos + 1);
+    });
+    $('gqSummarySkippedBtn').addEventListener('click', function () {
+        var i = firstUnanswered();
+        if (i >= 0) show(i);
     });
     $('gqSummaryBackBtn').addEventListener('click', function () {
         show(state.questions.length - 1);
