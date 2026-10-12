@@ -211,6 +211,21 @@
   }
 
   .hidden { display: none !important; }
+
+  /* Setup steps of the vocabulary practice: numbered, the later ones locked (greyed out) until the earlier ones are filled in. */
+  .step-lockable { position: relative; }
+  fieldset.step-fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  fieldset.step-fieldset:disabled { opacity: .5; }
+  .step-lock { display: none; position: absolute; inset: 0; z-index: 2; cursor: not-allowed; }
+  .step-note { display: none; position: absolute; left: 0; right: 0; top: .25rem; z-index: 3; margin: 0; box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2); }
+  #startWrap { position: relative; }
+  #startLock { display: none; position: absolute; inset: 0; z-index: 2; cursor: not-allowed; }
+  #startNote { display: none; position: absolute; left: 0; right: 0; bottom: calc(100% + .35rem); z-index: 3; margin: 0; box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2); }
+  .topic-list { max-height: 18rem; overflow-y: auto; border: 1px solid var(--bs-border-color); border-radius: .5rem; padding: .25rem; }
+  .topic-row { display: grid; grid-template-columns: auto 1fr; column-gap: .6rem; align-items: center; padding: .4rem .6rem; border-radius: .4rem; cursor: pointer; margin: 0; }
+  .topic-row:hover { background: var(--bs-tertiary-bg); }
+  .topic-row .topic-name { font-weight: 600; }
+  .topic-row .topic-fig { grid-column: 2; color: var(--bs-secondary-color); font-size: .8rem; }
 </style>
 </head>
 <body>
@@ -337,28 +352,51 @@
 
         <!-- Practice-by-level options (vocab) -->
         <div id="practiceOptions" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
-          <label class="form-label fw-semibold">Niveau(s) auswählen <span class="text-muted fw-normal">/ Choose level(s)</span></label>
+          <label class="form-label fw-semibold">1. Niveau(s) auswählen <span class="text-muted fw-normal">/ Choose level(s)</span></label>
           <div class="d-flex gap-2 flex-wrap mb-4" id="levelChecks">
             <!-- filled by JS -->
           </div>
 
-          <label class="form-label fw-semibold">Richtung <span class="text-muted fw-normal">/ Direction</span></label>
-          <div class="btn-group direction-toggle mb-4 w-100" role="group">
-            <input type="radio" class="btn-check" name="direction" id="dirDeEn" value="de-en" checked>
-            <label class="btn btn-outline-secondary" for="dirDeEn">DE → EN</label>
-            <input type="radio" class="btn-check" name="direction" id="dirEnDe" value="en-de">
-            <label class="btn btn-outline-secondary" for="dirEnDe">EN → DE</label>
-            <input type="radio" class="btn-check" name="direction" id="dirMixed" value="mixed">
-            <label class="btn btn-outline-secondary" for="dirMixed">Gemischt <span style="opacity:.75">/ Mixed (DE &harr; EN)</span></label>
+          <!-- Step 2: topics (word.category). Every topic is ticked at first, which is the same as no restriction. -->
+          <div class="step-lockable">
+            <fieldset class="step-fieldset" id="topicStep">
+              <label class="form-label fw-semibold">2. Themen <span class="text-muted fw-normal">/ Topics</span></label>
+              <p class="small text-muted mb-1">Es werden nur Wörter aus den gewählten Themen gefragt. Abdeckung = schon geübte Wörter, Genauigkeit = deine Trefferquote.</p>
+              <p class="small text-muted mb-2" style="opacity:.75">Only words from the chosen topics are asked. Coverage = words already practised, accuracy = your hit rate.</p>
+              <div class="d-flex gap-2 mb-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="topicsAllBtn">Alle / All</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="topicsNoneBtn">Keine / None</button>
+              </div>
+              <div class="topic-list mb-2" id="topicList"></div>
+              <p class="small text-muted mb-4" id="topicSummary"></p>
+            </fieldset>
+            <div class="step-lock" id="topicLock" aria-hidden="true"></div>
+            <div class="alert alert-warning small py-2 step-note" id="topicNote" role="status"></div>
           </div>
 
-          <label class="form-label fw-semibold">Anzahl Fragen <span class="text-muted fw-normal">/ Number of questions</span></label>
-          <select class="form-select mb-4" id="questionCount">
-            <option value="10">10</option>
-            <option value="20" selected>20</option>
-            <option value="30">30</option>
-            <option value="50">50</option>
-          </select>
+          <div class="step-lockable">
+            <fieldset class="step-fieldset" id="restStep">
+              <label class="form-label fw-semibold">3. Richtung <span class="text-muted fw-normal">/ Direction</span></label>
+              <div class="btn-group direction-toggle mb-4 w-100" role="group">
+                <input type="radio" class="btn-check" name="direction" id="dirDeEn" value="de-en" checked>
+                <label class="btn btn-outline-secondary" for="dirDeEn">DE → EN</label>
+                <input type="radio" class="btn-check" name="direction" id="dirEnDe" value="en-de">
+                <label class="btn btn-outline-secondary" for="dirEnDe">EN → DE</label>
+                <input type="radio" class="btn-check" name="direction" id="dirMixed" value="mixed">
+                <label class="btn btn-outline-secondary" for="dirMixed">Gemischt <span style="opacity:.75">/ Mixed (DE &harr; EN)</span></label>
+              </div>
+
+              <label class="form-label fw-semibold">4. Anzahl Fragen <span class="text-muted fw-normal">/ Number of questions</span></label>
+              <select class="form-select mb-4" id="questionCount">
+                <option value="10">10</option>
+                <option value="20" selected>20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+              </select>
+            </fieldset>
+            <div class="step-lock" id="restLock" aria-hidden="true"></div>
+            <div class="alert alert-warning small py-2 step-note" id="restNote" role="status"></div>
+          </div>
         </div>
 
         <!-- Hören practice options -->
@@ -411,7 +449,11 @@
           <div id="bookmarksList"></div>
         </div>
 
-        <button class="btn btn-primary btn-lg w-100" id="startBtn">Quiz starten →</button>
+        <div id="startWrap">
+          <button class="btn btn-primary btn-lg w-100" id="startBtn">Quiz starten →</button>
+          <div id="startLock" aria-hidden="true"></div>
+          <div class="alert alert-warning small py-2" id="startNote" role="status"></div>
+        </div>
         <button class="btn btn-link w-100 mt-2" id="viewProgressBtn">📊 Meinen Fortschritt anzeigen / View my progress</button>
       </div>
     </div>
@@ -1689,12 +1731,163 @@ var LESEN_PRACTICE_DATA = {
   }
 
   function buildLevelChecks() {
-    buildLevelTiles('levelChecks');
+    buildLevelTiles('levelChecks', function () { refreshPracticeSetup(); });
+    refreshPracticeSetup();
   }
 
   function getSelectedLevels() {
     return Array.prototype.slice.call(document.querySelectorAll('#levelChecks input:checked')).map(function (cb) { return cb.value; });
   }
+
+
+  // ---------------------------------------------------------------
+  // 3b. Setup of the vocabulary practice: topics and locked steps
+  // ---------------------------------------------------------------
+  // Step 2 lets the learner limit the words to topics (word.category). It only narrows the candidate pool before
+  // buildPracticeQuiz() chooses: the order of that choice (due words, most overdue first) is not touched. With every topic ticked,
+  // which is the state at first, the pool is exactly the pool of the levels. Coverage and accuracy come from this browser's own
+  // progress (progressData); nothing is sent anywhere.
+  var topicChecked = {};   // category -> true/false; a category not seen before counts as ticked
+  var topicNames = [];     // the categories shown, in the order of the list
+
+  function topicOf(w) { return w.category || 'Allgemein'; }
+
+  function wordsOfSelectedLevels() {
+    var out = [];
+    getSelectedLevels().forEach(function (lvl) { out = out.concat(wordsByLevel[lvl] || []); });
+    return out;
+  }
+
+  function topicStats() {
+    var stats = {};
+    wordsOfSelectedLevels().forEach(function (w) {
+      var s = stats[topicOf(w)] || (stats[topicOf(w)] = { words: 0, seen: 0, right: 0, wrong: 0 });
+      s.words++;
+      var e = getEntry(w);
+      if (e) { s.seen++; s.right += e.timesCorrect || 0; s.wrong += e.timesWrong || 0; }
+    });
+    return stats;
+  }
+
+  function pct(n, d) { return d ? Math.round(n / d * 100) + ' %' : '–'; }
+
+  function renderTopics() {
+    var stats = topicStats();
+    topicNames = Object.keys(stats).sort(function (a, b) {
+      if (a === 'Allgemein') return 1;          // the general words last
+      if (b === 'Allgemein') return -1;
+      return a.localeCompare(b, 'de');
+    });
+    var list = document.getElementById('topicList');
+    list.innerHTML = '';
+    topicNames.forEach(function (name, i) {
+      var s = stats[name];
+      var row = document.createElement('label');
+      row.className = 'topic-row';
+      var input = document.createElement('input');
+      input.type = 'checkbox';
+      input.className = 'form-check-input';
+      input.setAttribute('data-topic', String(i));
+      input.checked = topicChecked[name] !== false;
+      var title = document.createElement('span');
+      title.className = 'topic-name';
+      title.textContent = name;
+      var fig = document.createElement('span');
+      fig.className = 'topic-fig';
+      fig.textContent = s.words + ' Wörter / words · Abdeckung / coverage ' + pct(s.seen, s.words) +
+        ' · Genauigkeit / accuracy ' + pct(s.right, s.right + s.wrong);
+      row.appendChild(input); row.appendChild(title); row.appendChild(fig);
+      list.appendChild(row);
+    });
+    updateTopicSummary();
+  }
+
+  function checkedTopicNames() {
+    return topicNames.filter(function (name) { return topicChecked[name] !== false; });
+  }
+
+  // null = no restriction (every topic shown is ticked); otherwise the ticked topics.
+  function getSelectedTopics() {
+    var checked = checkedTopicNames();
+    return checked.length === topicNames.length ? null : checked;
+  }
+
+  function updateTopicSummary() {
+    var stats = topicStats();
+    var checked = checkedTopicNames();
+    var words = checked.reduce(function (sum, name) { return sum + (stats[name] ? stats[name].words : 0); }, 0);
+    document.getElementById('topicSummary').textContent = checked.length
+      ? checked.length + ' von ' + topicNames.length + ' Themen gewählt, ' + words + ' Wörter. / ' +
+        checked.length + ' of ' + topicNames.length + ' topics chosen, ' + words + ' words.'
+      : 'Wähle mindestens ein Thema. / Choose at least one topic.';
+  }
+
+  var NOTE_NO_LEVEL = 'Wähle zuerst mindestens ein Niveau in Schritt 1. / First choose at least one level in step 1.';
+  var NOTE_NO_TOPIC = 'Wähle zuerst mindestens ein Thema in Schritt 2. / First choose at least one topic in step 2.';
+  var lockReason = { topic: null, rest: null, start: null };   // the note a locked part shows
+
+  // Locks what cannot be used yet: a locked control gets no pointer events of its own, so a cover over it shows the note
+  // on hover and on a click or tap (the cover is only there while the part is locked).
+  function applyPracticeLocks() {
+    var practice = currentMode === 'practice';
+    var hasLevel = getSelectedLevels().length > 0;
+    var hasTopic = hasLevel && checkedTopicNames().length > 0;
+    document.getElementById('topicStep').disabled = !hasLevel;
+    document.getElementById('restStep').disabled = !hasTopic;
+    document.getElementById('topicLock').style.display = hasLevel ? 'none' : 'block';
+    document.getElementById('restLock').style.display = hasTopic ? 'none' : 'block';
+    lockReason.topic = hasLevel ? null : NOTE_NO_LEVEL;
+    lockReason.rest = hasTopic ? null : (hasLevel ? NOTE_NO_TOPIC : NOTE_NO_LEVEL);
+    var startLocked = practice && !hasTopic;
+    lockReason.start = startLocked ? (hasLevel ? NOTE_NO_TOPIC : NOTE_NO_LEVEL) : null;
+    document.getElementById('startLock').style.display = startLocked ? 'block' : 'none';
+    if (practice) document.getElementById('startBtn').disabled = startLocked;
+    if (!startLocked) hideNote('startNote');
+    if (hasLevel) hideNote('topicNote');
+    if (hasTopic) hideNote('restNote');
+  }
+
+  var noteTimers = {};
+  function showNote(noteId, text, clicked) {
+    var el = document.getElementById(noteId);
+    el.textContent = text;
+    el.style.display = 'block';
+    clearTimeout(noteTimers[noteId]);
+    if (clicked) noteTimers[noteId] = setTimeout(function () { el.style.display = 'none'; }, 4000);   // no mouseleave on a touch screen
+  }
+  function hideNote(noteId) {
+    clearTimeout(noteTimers[noteId]);
+    document.getElementById(noteId).style.display = 'none';
+  }
+  [['topicLock', 'topicNote', 'topic'], ['restLock', 'restNote', 'rest'], ['startLock', 'startNote', 'start']].forEach(function (p) {
+    var lock = document.getElementById(p[0]);
+    lock.addEventListener('mouseenter', function () { if (lockReason[p[2]]) showNote(p[1], lockReason[p[2]], false); });
+    lock.addEventListener('mouseleave', function () { hideNote(p[1]); });
+    lock.addEventListener('click', function () { if (lockReason[p[2]]) showNote(p[1], lockReason[p[2]], true); });
+  });
+
+  var setupReady = false;   // true once the words are loaded and the topics are shown
+  function refreshPracticeSetup() {
+    setupReady = true;
+    renderTopics();
+    applyPracticeLocks();
+  }
+
+  document.getElementById('topicList').addEventListener('change', function (e) {
+    var input = e.target.closest('input[data-topic]');
+    if (!input) return;
+    topicChecked[topicNames[parseInt(input.getAttribute('data-topic'), 10)]] = input.checked;
+    updateTopicSummary();
+    applyPracticeLocks();
+  });
+  document.getElementById('topicsAllBtn').addEventListener('click', function () {
+    topicNames.forEach(function (name) { topicChecked[name] = true; });
+    refreshPracticeSetup();
+  });
+  document.getElementById('topicsNoneBtn').addEventListener('click', function () {
+    topicNames.forEach(function (name) { topicChecked[name] = false; });
+    refreshPracticeSetup();
+  });
 
   var selectedHoerenLevel = 'A1';
   var selectedLesenLevel = 'A1';
@@ -1794,6 +1987,7 @@ var LESEN_PRACTICE_DATA = {
     } else {
       document.getElementById('startBtn').disabled = false;
     }
+    if (setupReady) applyPracticeLocks();
   }
 
   // ---------------------------------------------------------------
@@ -1932,6 +2126,9 @@ var LESEN_PRACTICE_DATA = {
     if (!levels.length) { alert('Bitte mindestens ein Niveau auswählen.\nPlease select at least one level.'); return null; }
     var pool = [];
     levels.forEach(function (lvl) { pool = pool.concat(wordsByLevel[lvl] || []); });
+    // Step 2 (topics): only narrows the pool. The choice below (due words, most overdue first) is the baseline and stays as it is.
+    var topics = getSelectedTopics();
+    if (topics) pool = pool.filter(function (w) { return topics.indexOf(topicOf(w)) !== -1; });
     if (!pool.length) { alert('Keine Wörter für dieses Niveau gefunden.\nNo words found for this level.'); return null; }
 
     var count = Math.min(parseInt(document.getElementById('questionCount').value, 10), pool.length);
