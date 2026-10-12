@@ -1,5 +1,149 @@
 [
   {
+    "id": "a2-dativ-pron-001",
+    "level": "A2",
+    "topic": "Kasus: Dativ (Personalpronomen)",
+    "core": 9,
+    "type": "mc",
+    "prompt_de": "Der Stift gehört ____!",
+    "prompt_en": "The pen belongs to me!",
+    "options": [
+      "mich",
+      "meinen Bruder",
+      "meine Schwester",
+      "mir"
+    ],
+    "correct": "mir",
+    "explanation_de": "'Gehören' verlangt den Dativ: <b>mir</b> (Dativ von ich).",
+    "explanation_en": "'Gehören' (to belong to) governs the dative case: <b>mir</b> (dative of ich)."
+  },
+  {
+    "id": "a2-wortschatz-einkaufen-001",
+    "level": "A2",
+    "topic": "Wortschatz: Einkaufen",
+    "core": 10,
+    "type": "mc",
+    "prompt_de": "Welche ____ haben Sie? Bei Schuhen habe ich 42.",
+    "prompt_en": "What size do you take? For shoes I take 42.",
+    "options": [
+      "Zahl",
+      "Farbe",
+      "Größe",
+      "Jacke"
+    ],
+    "correct": "Größe",
+    "explanation_de": "'Größe' bedeutet die Kleider- oder Schuhgröße, passend zum Kontext.",
+    "explanation_en": "'Größe' means size, matching the context of a shoe size."
+  },
+  {
+    "id": "a2-partizip-adj-001",
+    "level": "A2",
+    "topic": "Partizip II als Adjektiv",
+    "core": 11,
+    "type": "mc",
+    "prompt_de": "Die Ärztin schreibt mich krank. Ich bin ____.",
+    "prompt_en": "The doctor signs me off sick. I am signed off sick.",
+    "options": [
+      "krankschreiben",
+      "krankenschrift",
+      "krankenschreiben",
+      "krankgeschrieben"
+    ],
+    "correct": "krankgeschrieben",
+    "explanation_de": "Das Partizip II 'krankgeschrieben' wirkt hier als prädikatives Adjektiv und beschreibt den entstandenen Zustand.",
+    "explanation_en": "The past participle 'krankgeschrieben' functions as a predicate adjective here, describing the resulting state."
+  },
+  {
+    "id": "a2-verb-praep-001",
+    "level": "A2",
+    "topic": "Verben mit Präposition",
+    "core": 12,
+    "type": "mc",
+    "prompt_de": "Ich möchte mich für den Kurs ____.",
+    "prompt_en": "I would like to register for the course.",
+    "options": [
+      "beantragen",
+      "ablegen",
+      "anmelden",
+      "finden"
+    ],
+    "correct": "anmelden",
+    "explanation_de": "'Sich anmelden für' bedeutet, sich für etwas einzutragen.",
+    "explanation_en": "'Sich anmelden für' means to register/sign up for something."
+  },
+  {
+    "id": "a2-ind-frage-001",
+    "level": "A2",
+    "topic": "Indirekte Frage: W-Wort",
+    "core": 13,
+    "type": "mc",
+    "prompt_de": "Ich möchte wissen, ____ die Post ist.",
+    "prompt_en": "I would like to know where the post office is.",
+    "options": [
+      "wann",
+      "wo",
+      "wer",
+      "ob"
+    ],
+    "correct": "wo",
+    "explanation_de": "'Wo' fragt nach dem Ort — genau das, wonach hier gesucht wird (die Post).",
+    "explanation_en": "'Wo' asks about location, matching what's being sought (the post office's location)."
+  },
+  {
+    "id": "a2-trennbar-perfekt-001",
+    "level": "A2",
+    "topic": "Trennbare Verben (Perfekt)",
+    "core": 14,
+    "type": "mc",
+    "prompt_de": "Herr Schmidt ____ die Tür ____.",
+    "prompt_en": "Mr. Schmidt closed the door.",
+    "options": [
+      "hast/zumachen",
+      "hat/zumacht",
+      "hat/zugemacht",
+      "habe/zumachst"
+    ],
+    "correct": "hat/zugemacht",
+    "explanation_de": "Perfekt des trennbaren Verbs 'zumachen': <b>hat...zugemacht</b> (Hilfsverb 'hat' + Partizip mit 'ge-' zwischen Präfix und Stamm).",
+    "explanation_en": "Perfekt tense of the separable verb 'zumachen': <b>hat...zugemacht</b> (auxiliary 'hat' + past participle with 'ge-' inserted between the prefix and stem)."
+  },
+  {
+    "id": "a2-adj-dekl-best-001",
+    "level": "A2",
+    "topic": "Adjektivdeklination: bestimmter Artikel",
+    "core": 15,
+    "type": "mc",
+    "prompt_de": "Das sind die ____ Preise.",
+    "prompt_en": "These are the current prices.",
+    "options": [
+      "aktuellen",
+      "aktuelles",
+      "aktuelle",
+      "aktueller"
+    ],
+    "correct": "aktuellen",
+    "explanation_de": "Nach dem bestimmten Artikel 'die' (Plural) gilt die schwache Deklination, die im Plural für alle Genera/Kasus die Endung <b>-en</b> nimmt.",
+    "explanation_en": "After the definite article 'die' (plural), weak adjective declension applies, taking the ending <b>-en</b> for all genders/cases in the plural."
+  },
+  {
+    "id": "a2-adj-dekl-poss-001",
+    "level": "A2",
+    "topic": "Adjektivdeklination: Possessivartikel",
+    "core": 16,
+    "type": "mc",
+    "prompt_de": "Übernachten Sie in unserem ____ Hotelzimmer.",
+    "prompt_en": "Stay overnight in our new hotel room.",
+    "options": [
+      "neuen",
+      "neuem",
+      "neuer",
+      "neues"
+    ],
+    "correct": "neuen",
+    "explanation_de": "Nach dem Possessivartikel 'unserem' (Dativ, Neutrum) nimmt das Adjektiv die schwache Endung <b>-en</b>, da 'unserem' die Kasusmarkierung bereits trägt.",
+    "explanation_en": "After the possessive 'unserem' (dative, neuter — das Hotelzimmer), the adjective takes the weak dative ending <b>-en</b>, since 'unserem' already carries the case marking."
+  },
+  {
     "id": "a2-praet-001",
     "level": "A2",
     "topic": "Präteritum",
@@ -320,150 +464,6 @@
     "correct": "schnellste",
     "explanation_de": "Superlativ mit -ste-Endung: der schnellste.",
     "explanation_en": "Superlative with -ste ending: der schnellste."
-  },
-  {
-    "id": "a2-dativ-pron-001",
-    "level": "A2",
-    "topic": "Kasus: Dativ (Personalpronomen)",
-    "core": 9,
-    "type": "mc",
-    "prompt_de": "Der Stift gehört ____!",
-    "prompt_en": "The pen belongs to me!",
-    "options": [
-      "mich",
-      "meinen Bruder",
-      "meine Schwester",
-      "mir"
-    ],
-    "correct": "mir",
-    "explanation_de": "'Gehören' verlangt den Dativ: <b>mir</b> (Dativ von ich).",
-    "explanation_en": "'Gehören' (to belong to) governs the dative case: <b>mir</b> (dative of ich)."
-  },
-  {
-    "id": "a2-wortschatz-einkaufen-001",
-    "level": "A2",
-    "topic": "Wortschatz: Einkaufen",
-    "core": 10,
-    "type": "mc",
-    "prompt_de": "Welche ____ haben Sie? Bei Schuhen habe ich 42.",
-    "prompt_en": "What size do you take? For shoes I take 42.",
-    "options": [
-      "Zahl",
-      "Farbe",
-      "Größe",
-      "Jacke"
-    ],
-    "correct": "Größe",
-    "explanation_de": "'Größe' bedeutet die Kleider- oder Schuhgröße, passend zum Kontext.",
-    "explanation_en": "'Größe' means size, matching the context of a shoe size."
-  },
-  {
-    "id": "a2-partizip-adj-001",
-    "level": "A2",
-    "topic": "Partizip II als Adjektiv",
-    "core": 11,
-    "type": "mc",
-    "prompt_de": "Die Ärztin schreibt mich krank. Ich bin ____.",
-    "prompt_en": "The doctor signs me off sick. I am signed off sick.",
-    "options": [
-      "krankschreiben",
-      "krankenschrift",
-      "krankenschreiben",
-      "krankgeschrieben"
-    ],
-    "correct": "krankgeschrieben",
-    "explanation_de": "Das Partizip II 'krankgeschrieben' wirkt hier als prädikatives Adjektiv und beschreibt den entstandenen Zustand.",
-    "explanation_en": "The past participle 'krankgeschrieben' functions as a predicate adjective here, describing the resulting state."
-  },
-  {
-    "id": "a2-verb-praep-001",
-    "level": "A2",
-    "topic": "Verben mit Präposition",
-    "core": 12,
-    "type": "mc",
-    "prompt_de": "Ich möchte mich für den Kurs ____.",
-    "prompt_en": "I would like to register for the course.",
-    "options": [
-      "beantragen",
-      "ablegen",
-      "anmelden",
-      "finden"
-    ],
-    "correct": "anmelden",
-    "explanation_de": "'Sich anmelden für' bedeutet, sich für etwas einzutragen.",
-    "explanation_en": "'Sich anmelden für' means to register/sign up for something."
-  },
-  {
-    "id": "a2-ind-frage-001",
-    "level": "A2",
-    "topic": "Indirekte Frage: W-Wort",
-    "core": 13,
-    "type": "mc",
-    "prompt_de": "Ich möchte wissen, ____ die Post ist.",
-    "prompt_en": "I would like to know where the post office is.",
-    "options": [
-      "wann",
-      "wo",
-      "wer",
-      "ob"
-    ],
-    "correct": "wo",
-    "explanation_de": "'Wo' fragt nach dem Ort — genau das, wonach hier gesucht wird (die Post).",
-    "explanation_en": "'Wo' asks about location, matching what's being sought (the post office's location)."
-  },
-  {
-    "id": "a2-trennbar-perfekt-001",
-    "level": "A2",
-    "topic": "Trennbare Verben (Perfekt)",
-    "core": 14,
-    "type": "mc",
-    "prompt_de": "Herr Schmidt ____ die Tür ____.",
-    "prompt_en": "Mr. Schmidt closed the door.",
-    "options": [
-      "hast/zumachen",
-      "hat/zumacht",
-      "hat/zugemacht",
-      "habe/zumachst"
-    ],
-    "correct": "hat/zugemacht",
-    "explanation_de": "Perfekt des trennbaren Verbs 'zumachen': <b>hat...zugemacht</b> (Hilfsverb 'hat' + Partizip mit 'ge-' zwischen Präfix und Stamm).",
-    "explanation_en": "Perfekt tense of the separable verb 'zumachen': <b>hat...zugemacht</b> (auxiliary 'hat' + past participle with 'ge-' inserted between the prefix and stem)."
-  },
-  {
-    "id": "a2-adj-dekl-best-001",
-    "level": "A2",
-    "topic": "Adjektivdeklination: bestimmter Artikel",
-    "core": 15,
-    "type": "mc",
-    "prompt_de": "Das sind die ____ Preise.",
-    "prompt_en": "These are the current prices.",
-    "options": [
-      "aktuellen",
-      "aktuelles",
-      "aktuelle",
-      "aktueller"
-    ],
-    "correct": "aktuellen",
-    "explanation_de": "Nach dem bestimmten Artikel 'die' (Plural) gilt die schwache Deklination, die im Plural für alle Genera/Kasus die Endung <b>-en</b> nimmt.",
-    "explanation_en": "After the definite article 'die' (plural), weak adjective declension applies, taking the ending <b>-en</b> for all genders/cases in the plural."
-  },
-  {
-    "id": "a2-adj-dekl-poss-001",
-    "level": "A2",
-    "topic": "Adjektivdeklination: Possessivartikel",
-    "core": 16,
-    "type": "mc",
-    "prompt_de": "Übernachten Sie in unserem ____ Hotelzimmer.",
-    "prompt_en": "Stay overnight in our new hotel room.",
-    "options": [
-      "neuen",
-      "neuem",
-      "neuer",
-      "neues"
-    ],
-    "correct": "neuen",
-    "explanation_de": "Nach dem Possessivartikel 'unserem' (Dativ, Neutrum) nimmt das Adjektiv die schwache Endung <b>-en</b>, da 'unserem' die Kasusmarkierung bereits trägt.",
-    "explanation_en": "After the possessive 'unserem' (dative, neuter — das Hotelzimmer), the adjective takes the weak dative ending <b>-en</b>, since 'unserem' already carries the case marking."
   },
   {
     "id": "a2-praet-mod-001",
