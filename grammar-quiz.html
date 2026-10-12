@@ -39,6 +39,15 @@
     .gq-progress{max-width:640px;margin:0 auto 1rem}
     .gq-level-btn{border-radius:999px;padding:.3rem .9rem;border:1.5px solid var(--card-border);background:var(--card-bg);color:var(--page-text);cursor:pointer;font-weight:600}
     .gq-level-btn.active{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+    .gq-topics{display:grid;gap:.35rem}
+    .gq-topic-btn{display:grid;grid-template-columns:2.2rem 1fr;column-gap:.6rem;align-items:center;width:100%;text-align:left;padding:.5rem .7rem;border:1px solid var(--card-border);border-radius:.5rem;background:var(--card-bg);color:var(--page-text);cursor:pointer}
+    .gq-topic-btn:hover{border-color:#1d4ed8}
+    .gq-topic-no{grid-row:span 3;font-weight:700;color:#1d4ed8;text-align:center}
+    .gq-topic-name{font-weight:600}
+    .gq-topic-fig{color:var(--muted);font-size:.8rem}
+    .gq-topic-bar{display:block;height:.3rem;border-radius:999px;background:var(--card-border);overflow:hidden;margin-top:.25rem}
+    .gq-topic-bar i{display:block;height:100%;background:#16a34a}
+    .gq-topic-head{max-width:640px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
 </style>
 </head>
 <body>
@@ -60,6 +69,7 @@
 
     <div class="d-flex justify-content-center gap-2 flex-wrap mb-3" id="modePicker">
         <button class="gq-level-btn active" data-mode="practice">📐 Üben / Practice</button>
+        <button class="gq-level-btn" data-mode="topics">📚 Nach Thema / By topic</button>
         <button class="gq-level-btn" data-mode="mistakes">❌ Meine Fehler / My mistakes (<span id="gqMistakeCount">0</span>)</button>
         <button class="gq-level-btn" data-mode="bookmarks">⭐ Lesezeichen / Bookmarks (<span id="gqBookmarkCount">0</span>)</button>
     </div>
@@ -73,6 +83,11 @@
         <button class="gq-level-btn" data-level="C2">C2</button>
     </div>
 
+    <div class="text-center mb-3" id="topicPicker" style="display:none">
+        <label class="small text-muted me-2" for="topicFilter">Thema / Topic:</label>
+        <select id="topicFilter" class="form-select form-select-sm d-inline-block w-auto" style="max-width:100%"></select>
+    </div>
+
     <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-4" id="countPicker">
         <span class="small text-muted">Fragen / Questions:</span>
         <button class="gq-level-btn active" data-count="33">33</button>
@@ -80,6 +95,8 @@
         <button class="gq-level-btn" data-count="99">99</button>
         <button class="gq-level-btn" data-count="0">Alle / All</button>
     </div>
+
+    <div id="gqTopicHead" class="gq-topic-head" style="display:none"></div>
 
     <div class="gq-progress d-flex justify-content-between align-items-center">
         <span id="gqProgress" class="text-muted small"></span>
@@ -100,6 +117,7 @@
         <button class="btn btn-warning mt-2" id="gqSummarySkippedBtn" style="display:none">Übersprungene Fragen / Go to skipped questions</button>
         <button class="btn btn-outline-secondary mt-2" id="gqSummaryBackBtn">← Antworten ansehen / Review answers</button>
         <button class="btn btn-primary mt-2" id="gqRestartBtn">Nochmal / Restart</button>
+        <button class="btn btn-outline-secondary mt-2" id="gqSummaryTopicsBtn" style="display:none">← Alle Themen / All topics</button>
         <div class="mt-3"><button class="btn btn-link btn-sm text-muted" id="gqClearBtn">Gespeicherte Fehler löschen / Clear saved mistakes</button></div>
     </div>
 </main>
@@ -160,8 +178,10 @@
 
     var state = {
         level: 'A1',
-        mode: 'practice',   // 'practice' | 'mistakes' | 'bookmarks'
+        mode: 'practice',   // 'practice' | 'topics' | 'mistakes' | 'bookmarks'
         count: 33,
+        topic: null,        // practice and mistakes: only the questions of this section of the grammar page (null: all)
+        section: null,      // "by topic": the section whose round is running (null: the list of topics is shown)
         questions: [],
         history: [],        // per question: null or {given, ok}
         skipped: [],        // per question: true once the learner skipped it (it stays unanswered until answered)
@@ -196,6 +216,57 @@
         return fetch(file)
             .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status + ' (' + file + ')')); })
             .then(function (data) { cache[level] = data; return data; });
+    }
+
+    // The numbered sections of the grammar pages A1/02_Grammatik.html and A2/02_Grammatik.html (grammar_sections.json). They are
+    // an extra: if the file cannot be loaded, the quiz works as before without the topic dropdown and the section names.
+    var sectionsData = null;
+    function fetchSections() {
+        if (sectionsData) return Promise.resolve(sectionsData);
+        return fetch('grammar_sections.json')
+            .then(function (r) { return r.ok ? r.json() : {}; })
+            .catch(function () { return {}; })
+            .then(function (d) { sectionsData = d || {}; return sectionsData; });
+    }
+    function sectionsFor(level) { return (sectionsData && sectionsData[level]) || []; }
+    function sectionOf(q) {
+        var list = sectionsFor(q.level);
+        for (var i = 0; i < list.length; i++) { if (list[i].no === q.section) return list[i]; }
+        return null;
+    }
+    function sectionName(s) { return (s.page ? s.no + '. ' : '') + s.de; }
+
+    // One round of a topic: what has not been answered yet comes first, then what was answered wrongly, then the rest (the longest
+    // ago first); the chosen ones are asked from easy to hard (multiple choice, fill in, word order).
+    var TOPIC_ROUND = 10;
+    var TYPE_ORDER = { mc: 0, fill_blank: 1, word_order: 2 };
+    function typeRank(q) { return TYPE_ORDER[q.type] === undefined ? 9 : TYPE_ORDER[q.type]; }
+    function answerRank(q) { return !progress[q.id] ? 0 : (isMistake(q) ? 1 : 2); }
+    function lastSeen(q) { return (progress[q.id] && progress[q.id].lastSeen) || 0; }
+    function buildTopic(data, section) {
+        var pool = data.map(function (q, i) { return { q: q, i: i }; })
+            .filter(function (x) { return x.q.section === section; });
+        pool.sort(function (a, b) {
+            var d = answerRank(a.q) - answerRank(b.q);
+            if (d) return d;
+            if (answerRank(a.q) === 2) { d = lastSeen(a.q) - lastSeen(b.q); if (d) return d; }
+            return a.i - b.i;
+        });
+        var chosen = pool.slice(0, TOPIC_ROUND);
+        chosen.sort(function (a, b) { return (typeRank(a.q) - typeRank(b.q)) || (a.i - b.i); });
+        return chosen.map(function (x) { return x.q; });
+    }
+    // How far the learner is in each section: total questions, answered, last answer right.
+    function sectionStats(data) {
+        var stats = {};
+        data.forEach(function (q) {
+            if (q.section === undefined) return;
+            var s = stats[q.section] || (stats[q.section] = { total: 0, tried: 0, right: 0 });
+            s.total++;
+            var e = progress[q.id];
+            if (e) { s.tried++; if (e.streak > 0) s.right++; }
+        });
+        return stats;
     }
 
     function mistakeCount() {
@@ -268,7 +339,78 @@
         if (e.target.closest('#gqBookmarkBtn') && state.mode !== 'bookmarks') {
             toggleBookmark(state.questions[state.pos]);
         }
+        var topicBtn = e.target.closest('.gq-topic-btn');
+        if (topicBtn) {                      // a topic of the list: start its round
+            state.section = parseInt(topicBtn.getAttribute('data-section'), 10);
+            start();
+        }
     });
+    function backToTopics() { state.section = null; start(); }
+    $('gqTopicHead').addEventListener('click', function (e) { if (e.target.closest('#gqTopicsBackBtn')) backToTopics(); });
+    $('gqSummaryTopicsBtn').addEventListener('click', backToTopics);
+    $('topicFilter').addEventListener('change', function () {
+        state.topic = this.value === '' ? null : parseInt(this.value, 10);
+        start();
+    });
+
+    function renderTopics(data) {
+        $('gqProgress').textContent = '';
+        $('gqScore').textContent = '';
+        $('gqNav').style.display = 'none';
+        $('gqSummary').style.display = 'none';
+        $('gqTopicHead').style.display = 'none';
+        $('gqCard').style.display = '';
+        var list = sectionsFor(state.level);
+        if (!list.length) {
+            $('gqCard').innerHTML = '<div class="text-center"><div class="fs-5">Themen gibt es für A1 und A2. Wähle eines dieser Niveaus.</div>' +
+                '<div class="gq-en-hint">Topics are available for A1 and A2. Choose one of these levels.</div></div>';
+            return;
+        }
+        var stats = sectionStats(data);
+        var html = '<p class="text-muted small">Wähle ein Thema der Grammatikseite. Jede Runde hat bis zu ' + TOPIC_ROUND +
+            ' Fragen: zuerst neue, dann falsch beantwortete, von leicht nach schwer. / Choose a topic from the grammar page. Each round has up to ' +
+            TOPIC_ROUND + ' questions: new ones first, then those you got wrong, from easy to hard.</p>';
+        [true, false].forEach(function (onPage) {
+            var items = list.filter(function (s) { return !!s.page === onPage; });
+            if (!items.length) return;
+            if (!onPage) html += '<div class="gq-bm-level">Weitere Themen / More topics</div>';
+            html += '<div class="gq-topics">';
+            items.forEach(function (s) {
+                var st = stats[s.no] || { total: 0, tried: 0, right: 0 };
+                var pct = st.total ? Math.round(st.right / st.total * 100) : 0;
+                html += '<button type="button" class="gq-topic-btn" data-section="' + s.no + '">' +
+                    '<span class="gq-topic-no">' + (s.page ? s.no : '•') + '</span>' +
+                    '<span class="gq-topic-name">' + esc(s.de) + '</span>' +
+                    '<span class="gq-topic-fig">' + st.total + ' Fragen · ' + st.tried + ' beantwortet · ' + st.right + ' richtig / ' +
+                    st.total + ' questions · ' + st.tried + ' answered · ' + st.right + ' right</span>' +
+                    '<span class="gq-topic-bar"><i style="width:' + pct + '%"></i></span></button>';
+            });
+            html += '</div>';
+        });
+        $('gqCard').innerHTML = html;
+    }
+
+    function showTopicHead() {
+        var s = sectionsFor(state.level).filter(function (x) { return x.no === state.section; })[0];
+        $('gqTopicHead').innerHTML = '<strong>' + esc(s ? sectionName(s) : '') + '</strong>' +
+            '<button type="button" class="btn btn-outline-secondary btn-sm" id="gqTopicsBackBtn">← Alle Themen / All topics</button>';
+        $('gqTopicHead').style.display = '';
+    }
+
+    // The dropdown of practice and mistakes: all topics, or one section of the grammar page.
+    function fillTopicPicker(data) {
+        var list = sectionsFor(state.level);
+        var show = (state.mode === 'practice' || state.mode === 'mistakes') && list.length > 0;
+        $('topicPicker').style.display = show ? '' : 'none';
+        if (!show) return;
+        var stats = sectionStats(data);
+        var html = '<option value="">Alle Themen / All topics</option>';
+        list.forEach(function (s) {
+            html += '<option value="' + s.no + '"' + (state.topic === s.no ? ' selected' : '') + '>' + esc(sectionName(s)) + ' (' +
+                ((stats[s.no] || {}).total || 0) + ')</option>';
+        });
+        $('topicFilter').innerHTML = html;
+    }
 
     function updateMistakeBadge() {
         $('gqMistakeCount').textContent = mistakeCount();
@@ -294,25 +436,49 @@
         $('gqCard').innerHTML = '<p class="text-danger">Fehler beim Laden: ' + esc(err.message) + '</p>';
     }
 
+    // The rows of the pickers have Bootstrap's d-flex, which forces "display:flex !important": hide them with an important rule too.
+    function setShown(el, shown) {
+        if (shown) el.style.removeProperty('display');
+        else el.style.setProperty('display', 'none', 'important');
+    }
+
     function start() {
-        $('countPicker').style.display = state.mode === 'practice' ? '' : 'none';
-        $('levelPicker').style.display = state.mode === 'bookmarks' ? 'none' : '';
+        setShown($('countPicker'), state.mode === 'practice');
+        setShown($('levelPicker'), state.mode !== 'bookmarks');
         $('gqNav').style.display = 'none';
+        $('gqTopicHead').style.display = 'none';
         updateBookmarkBadge();
-        if (state.mode === 'bookmarks') { state.questions = []; state.history = []; renderBookmarks(); return; }
-        fetchLevel(state.level).then(function (data) {
+        if (state.mode === 'bookmarks') {
+            $('topicPicker').style.display = 'none';
+            state.questions = []; state.history = []; renderBookmarks(); return;
+        }
+        Promise.all([fetchLevel(state.level), fetchSections()]).then(function (loaded) {
+            var data = loaded[0];
             updateMistakeBadge();
-            if (state.mode === 'mistakes') {
-                state.questions = shuffle(data.filter(isMistake));
+            fillTopicPicker(data);
+            if (state.mode === 'topics') {
+                if (state.section === null) {      // no topic chosen yet: show the list
+                    state.questions = []; state.history = []; state.skipped = [];
+                    renderTopics(data);
+                    return;
+                }
+                state.questions = buildTopic(data, state.section);
+                showTopicHead();
             } else {
-                // Placement-test questions (marked "core": 1-112) always come first, in test order;
-                // all other questions follow in random order.
-                var core = data.filter(function (q) { return q.core; })
-                    .sort(function (a, b) { return a.core - b.core; });
-                var rest = data.filter(function (q) { return !q.core; });
-                state.questions = core.concat(shuffle(rest));
-                if (state.count > 0 && state.count < state.questions.length) {
-                    state.questions = state.questions.slice(0, state.count);
+                // practice and mistakes may be limited to one section of the grammar page
+                var pool = state.topic === null ? data : data.filter(function (q) { return q.section === state.topic; });
+                if (state.mode === 'mistakes') {
+                    state.questions = shuffle(pool.filter(isMistake));
+                } else {
+                    // Placement-test questions (marked "core": 1-96) always come first, in test order;
+                    // all other questions follow in random order.
+                    var core = pool.filter(function (q) { return q.core; })
+                        .sort(function (a, b) { return a.core - b.core; });
+                    var rest = pool.filter(function (q) { return !q.core; });
+                    state.questions = core.concat(shuffle(rest));
+                    if (state.count > 0 && state.count < state.questions.length) {
+                        state.questions = state.questions.slice(0, state.count);
+                    }
                 }
             }
             state.history = state.questions.map(function () { return null; });
@@ -365,7 +531,15 @@
     }
 
     function header(q) {
-        var html = bmBtnHtml(q) + '<div class="gq-topic">' + esc(q.topic) + ' · ' + q.level + '</div>';
+        // the section of the grammar page this question belongs to, linked to its explanation (A1 and A2)
+        var s = sectionOf(q), label = '';
+        if (s) {
+            var name = esc(sectionName(s));
+            label = (s.page && s.anchor
+                ? '<a href="' + esc(q.level) + '/02_Grammatik.html#' + esc(s.anchor) + '" target="_blank" rel="noopener">' + name + '</a>'
+                : name) + ' › ';
+        }
+        var html = bmBtnHtml(q) + '<div class="gq-topic">' + label + esc(q.topic) + ' · ' + q.level + '</div>';
         html += '<div class="gq-prompt">' + q.prompt_de.replace('___', '<u>____</u>') + '</div>';
         html += '<div class="gq-en-hint">' + q.prompt_en + '</div>';
         return html;
@@ -545,6 +719,9 @@
                 wrong + ' mistake' + (wrong === 1 ? '' : 's') + ' saved — practise them in the “My mistakes” tab.</div>';
         }
         $('gqSummaryText').innerHTML = txt;
+        var byTopic = state.mode === 'topics';
+        $('gqRestartBtn').textContent = byTopic ? 'Nächste Runde / Next round' : 'Nochmal / Restart';
+        $('gqSummaryTopicsBtn').style.display = byTopic ? '' : 'none';
         $('gqSummaryBackBtn').style.display = n > 0 ? '' : 'none';
         updateMistakeBadge();
     }
@@ -583,6 +760,7 @@
             document.querySelectorAll('#levelPicker button').forEach(function (b) { b.classList.remove('active'); });
             btn.classList.add('active');
             state.level = btn.getAttribute('data-level');
+            state.topic = null; state.section = null;       // the sections belong to a level
             start();
         });
     });
@@ -601,6 +779,7 @@
             document.querySelectorAll('#modePicker button').forEach(function (b) { b.classList.remove('active'); });
             btn.classList.add('active');
             state.mode = btn.getAttribute('data-mode');
+            state.section = null;
             start();
         });
     });
@@ -619,6 +798,16 @@
     document.querySelectorAll('#levelPicker button').forEach(function (btn) {
         btn.classList.toggle('active', btn.getAttribute('data-level') === state.level);
     });
+
+    // A link such as "grammar-quiz.html?level=A1&section=10" (the "Practise this topic" button of the grammar pages) opens that topic.
+    var urlSection = parseInt(new URLSearchParams(window.location.search).get('section'), 10);
+    if (!isNaN(urlSection)) {
+        state.mode = 'topics';
+        state.section = urlSection;
+        document.querySelectorAll('#modePicker button').forEach(function (btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-mode') === 'topics');
+        });
+    }
     start();
 })();
 </script>
