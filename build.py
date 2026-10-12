@@ -58,7 +58,7 @@ def update_service_worker_cache_name():
         return
 
     new_content = pattern.sub(rf"\g<1>{new_cache_name}\g<2>", content)
-    with open(SW_JS_PATH, 'w', encoding='utf-8') as f:
+    with open(SW_JS_PATH, 'w', encoding='utf-8', newline='\n') as f:
         f.write(new_content)
     print(f"  ✅ sw.js — CACHE_NAME updated to {new_cache_name}")
 
@@ -94,7 +94,7 @@ def update_footer_copyright():
         return
 
     new_content = pattern.sub(rf"\g<1>{year_text}\g<2>", content)
-    with open(FOOTER_HTML_PATH, 'w', encoding='utf-8') as f:
+    with open(FOOTER_HTML_PATH, 'w', encoding='utf-8', newline='\n') as f:
         f.write(new_content)
     print(f"  ✅ footer.html — Copyright year set to {year_text}")
 
@@ -125,7 +125,7 @@ def update_footer_last_updated():
         return
 
     new_content = pattern.sub(rf"\g<1>{today}\g<2>", content)
-    with open(FOOTER_HTML_PATH, 'w', encoding='utf-8') as f:
+    with open(FOOTER_HTML_PATH, 'w', encoding='utf-8', newline='\n') as f:
         f.write(new_content)
     print(f"  ✅ footer.html — Last updated date set to {today}")
 
@@ -2221,7 +2221,7 @@ def build_person_sentences(words):
         if ps and len(ps) == 6:
             result[f"{w['de'].lower()}|{w['level']}"] = ps
     out_path = os.path.join(REPO, 'person-sentences.json')
-    with open(out_path, 'w', encoding='utf-8') as f:
+    with open(out_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(result, f, ensure_ascii=False, separators=(',', ':'))
     size_kb = os.path.getsize(out_path) / 1024
     print(f"  ✅ person-sentences.json — {len(result)} words, {size_kb:.0f} KB")
@@ -2255,7 +2255,7 @@ def build_conjugations(words):
             skipped += 1
             print(f"  ⚠️  conjugation error for '{w['de']}': {e}")
     out_path = os.path.join(REPO, 'conjugations.json')
-    with open(out_path, 'w', encoding='utf-8') as f:
+    with open(out_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(result, f, ensure_ascii=False, indent=1)
     print(f"  ✅ conjugations.json — {len(result)} verbs, {en_covered} with English"
           f"{f', {skipped} errors' if skipped else ''}")
@@ -2293,7 +2293,7 @@ def main():
             level_words = [w for w in words if w['level'] == level]
             page = build_wortschatz_page(level, level_words)
             out  = os.path.join(REPO, level, '01_Wortschatz.html')
-            with open(out, 'w', encoding='utf-8') as f:
+            with open(out, 'w', encoding='utf-8', newline='\n') as f:
                 f.write(page)
             print(f"  ✅ {level}/01_Wortschatz.html — {len(level_words)} words")
         build_dictionary(words)
@@ -2308,7 +2308,7 @@ def main():
                 with open(page_path, encoding='utf-8') as f:
                     pg = f.read()
                 pg = inject_install_banner(pg)
-                with open(page_path, 'w', encoding='utf-8') as f:
+                with open(page_path, 'w', encoding='utf-8', newline='\n') as f:
                     f.write(pg)
                 print(f"  ✅ banner → {os.path.relpath(page_path, REPO)}")
         update_service_worker_cache_name()
@@ -2323,7 +2323,7 @@ def main():
             level_words = [w for w in words if w['level'] == level]
             page = build_wortschatz_page(level, level_words)
             out  = os.path.join(REPO, level, '01_Wortschatz.html')
-            with open(out, 'w', encoding='utf-8') as f:
+            with open(out, 'w', encoding='utf-8', newline='\n') as f:
                 f.write(page)
             print(f"  ✅ {level}/01_Wortschatz.html — {len(level_words)} words")
 
