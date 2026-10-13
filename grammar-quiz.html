@@ -93,21 +93,24 @@
 })();
 </script>
 
+<div id="quiz-bar" data-page="grammar"></div>
+<script src="/quiz-bar.js"></script>
+
 <main class="container py-4 py-lg-5">
     <p class="mb-4"><a href="/">Home</a> <span class="text-muted">/</span> <a href="quiz.html">Quiz</a> <span class="text-muted">/</span> <span class="text-muted">Grammatik-Test</span></p>
     <h1 class="h2 text-center mb-1">📐 Grammatik-Test</h1>
     <p class="text-center text-muted mb-4">Teste dein Sprachgefühl — Kasus, Verbformen, Satzstellung / Test your grammar — cases, verb forms, word order</p>
 
     <div class="alert alert-info text-center" style="max-width:640px;margin:0 auto 1.5rem;">
-        <div>ℹ️ Falsch beantwortete Fragen werden <strong>in diesem Browser gespeichert</strong> (Tab „Meine Fehler“).</div>
-        <div style="opacity:.75">ℹ️ Wrongly answered questions are <strong>saved in this browser</strong> (“My mistakes” tab).</div>
+        <div>ℹ️ Falsch beantwortete Fragen werden <strong>in diesem Browser gespeichert</strong> (Tab „Meine Grammatik-Fehler“).</div>
+        <div style="opacity:.75">ℹ️ Wrongly answered questions are <strong>saved in this browser</strong> (“My grammar mistakes” tab).</div>
     </div>
 
     <div class="d-flex justify-content-center gap-2 flex-wrap mb-3" id="modePicker">
         <button class="gq-level-btn active" data-mode="practice">📐 Üben / Practice</button>
         <button class="gq-level-btn" data-mode="topics">📚 Nach Thema / By topic</button>
-        <button class="gq-level-btn" data-mode="mistakes">❌ Meine Fehler / My mistakes (<span id="gqMistakeCount">0</span>)</button>
-        <button class="gq-level-btn" data-mode="bookmarks">⭐ Lesezeichen / Bookmarks (<span id="gqBookmarkCount">0</span>)</button>
+        <button class="gq-level-btn" data-mode="mistakes">❌ Meine Grammatik-Fehler / My grammar mistakes (<span id="gqMistakeCount">0</span>)</button>
+        <button class="gq-level-btn" data-mode="bookmarks">⭐ Grammatik-Lesezeichen / Grammar bookmarks (<span id="gqBookmarkCount">0</span>)</button>
     </div>
 
     <div class="d-flex justify-content-center gap-2 flex-wrap mb-4" id="levelPicker">
