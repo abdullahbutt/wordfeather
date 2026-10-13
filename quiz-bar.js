@@ -27,22 +27,26 @@
     } catch (e) { return 0; }
   }
 
+  // Wide screens (1200px and up): one centred row. Narrower screens: a grid of 4 columns x 2 rows, so every tab is visible and nothing
+  // has to scroll sideways.
   var css = '#quiz-bar{background:var(--bs-tertiary-bg);border-bottom:1px solid var(--bs-border-color)}' +
-    '#quiz-bar ul{display:flex;gap:.25rem;list-style:none;margin:0 auto;padding:0 .75rem;max-width:1140px;overflow-x:auto;scrollbar-width:thin}' +
-    '#quiz-bar li{flex:0 0 auto}' +
-    '#quiz-bar .qb-item{display:block;background:none;border:0;border-bottom:3px solid transparent;border-radius:0;padding:.5rem .75rem;text-align:center;' +
-    'white-space:nowrap;line-height:1.2;color:var(--bs-link-color);text-decoration:none;cursor:pointer;font:inherit}' +
+    '#quiz-bar ul{display:flex;flex-wrap:wrap;justify-content:center;gap:0;list-style:none;margin:0 auto;padding:0 .5rem;max-width:1140px}' +
+    '#quiz-bar li{flex:1 0 25%;min-width:0}' +
+    '#quiz-bar .qb-item{display:block;width:100%;background:none;border:0;border-bottom:3px solid transparent;border-radius:0;padding:.45rem .25rem;text-align:center;' +
+    'line-height:1.2;font-size:.8rem;color:var(--bs-link-color);text-decoration:none;cursor:pointer;font-family:inherit}' +
     '#quiz-bar .qb-item:hover{color:var(--bs-link-hover-color)}' +
     '#quiz-bar .qb-item:focus-visible{outline:2px solid var(--bs-primary);outline-offset:-2px}' +
     '#quiz-bar .qb-item.active{border-bottom-color:var(--bs-primary);font-weight:600}' +
-    '#quiz-bar .qb-en{display:block;font-size:.72rem;font-weight:400;color:var(--bs-secondary-color)}';
+    '#quiz-bar .qb-ic{display:block;font-size:1.1rem;line-height:1.25}' +
+    '#quiz-bar .qb-en{display:block;font-size:.72rem;font-weight:400;color:var(--bs-secondary-color)}' +
+    '@media (min-width:1200px){#quiz-bar li{flex:0 0 auto}#quiz-bar .qb-item{width:auto;white-space:nowrap;padding:.5rem .6rem;font-size:.92rem}#quiz-bar .qb-ic{display:inline;font-size:inherit}}';
   var style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
 
   var html = '<ul id="modeTabs" role="tablist" aria-label="Quiz-Modus wählen / Choose quiz mode">';
   items.forEach(function (it) {
-    var label = it.icon + ' ' + it.de + (it.count ? ' (<span id="bookmarkTabCount">' + bookmarkCount() + '</span>)' : '') +
+    var label = '<span class="qb-ic">' + it.icon + '</span> ' + it.de + (it.count ? ' (<span id="bookmarkTabCount">' + bookmarkCount() + '</span>)' : '') +
       '<span class="qb-en">' + it.en + '</span>';
     var active = page === 'quiz' ? it.key === 'practice' : activeOnOtherPages[page] === it.key;
     if (it.mode && page === 'quiz') {
@@ -56,4 +60,5 @@
   mount.innerHTML = html + '</ul>';
   mount.setAttribute('role', 'navigation');
   mount.setAttribute('aria-label', 'Quiz');
+
 })();
