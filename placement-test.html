@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Einstufungstest / Placement Test — WordFeather</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="/wf-lang.js"></script>
 <style>
     :root{--page-bg:#f8fafc;--page-text:#1e293b;--muted:#64748b;--card-bg:#ffffff;--card-border:#e2e8f0}
     [data-bs-theme="dark"]{--page-bg:#0f172a;--page-text:#e2e8f0;--muted:#94a3b8;--card-bg:#1e293b;--card-border:#334155}
@@ -74,12 +75,12 @@
 
 <main class="container py-4 py-lg-5">
     <p class="mb-4"><a href="/">Home</a> <span class="text-muted">/</span> <a href="quiz.html">Quiz</a> <span class="text-muted">/</span> <span class="text-muted">Einstufungstest</span></p>
-    <h1 class="h2 text-center mb-1">🎯 Einstufungstest</h1>
-    <p class="text-center text-muted mb-4">Finde dein Sprachniveau in wenigen Fragen / Find your level in a few questions</p>
+    <h1 class="h2 text-center mb-1">🎯 <span class="wf-pair"><span class="wf-de">Einstufungstest</span> <span class="wf-en">Placement test</span></span></h1>
+    <p class="text-center text-muted mb-4"><span class="wf-pair"><span class="wf-de">Finde dein Sprachniveau in wenigen Fragen</span> <span class="wf-en">Find your level in a few questions</span></span></p>
 
     <div class="alert alert-info text-center" style="max-width:640px;margin:0 auto 1.5rem;">
-        <div>ℹ️ Dein Ergebnis wird <strong>nicht gespeichert</strong> — es geht beim Verlassen dieser Seite verloren.</div>
-        <div style="opacity:.75">ℹ️ Your result is <strong>not saved</strong> — it's lost when you leave this page.</div>
+        <div class="wf-de">ℹ️ Dein Ergebnis wird <strong>nicht gespeichert</strong> — es geht beim Verlassen dieser Seite verloren.</div>
+        <div class="wf-en" style="opacity:.75">ℹ️ Your result is <strong>not saved</strong> — it's lost when you leave this page.</div>
     </div>
 
     <div class="pt-band-track" id="ptBandTrack">
@@ -94,26 +95,26 @@
     </div>
 
     <div id="ptIntro" class="pt-card text-center">
-        <p class="fs-5">Du bekommst nacheinander Fragen aus drei Stufen. Je nachdem, wie gut du abschneidest, wirst du zur nächsten Stufe weitergeleitet oder der Test endet mit deiner Einstufung.</p>
-        <p class="text-muted">You'll get questions from three bands in sequence. Depending on how well you do, you'll move up to the next band or the test will end with your placement.</p>
-        <button class="btn btn-primary btn-lg mt-2" id="ptStartBtn">Test starten / Start test</button>
+        <p class="fs-5 wf-de">Du bekommst nacheinander Fragen aus drei Stufen. Je nachdem, wie gut du abschneidest, wirst du zur nächsten Stufe weitergeleitet oder der Test endet mit deiner Einstufung.</p>
+        <p class="text-muted wf-en">You'll get questions from three bands in sequence. Depending on how well you do, you'll move up to the next band or the test will end with your placement.</p>
+        <button class="btn btn-primary btn-lg mt-2" id="ptStartBtn"><span class="wf-pair"><span class="wf-de">Test starten</span> <span class="wf-en">Start test</span></span></button>
     </div>
 
     <div id="ptCard" class="pt-card" style="display:none"></div>
 
     <div class="text-center mt-4" id="ptNextWrap" style="display:none">
-        <button class="btn btn-primary" id="ptNextBtn">Weiter / Next →</button>
+        <button class="btn btn-primary" id="ptNextBtn"><span class="wf-pair"><span class="wf-de">Weiter →</span> <span class="wf-en">Next →</span></span></button>
     </div>
 
     <div id="ptResult" class="pt-card text-center" style="display:none">
-        <p class="text-muted mb-1">Empfohlenes Niveau / Recommended level</p>
+        <p class="text-muted mb-1"><span class="wf-pair"><span class="wf-de">Empfohlenes Niveau</span> <span class="wf-en">Recommended level</span></span></p>
         <div class="pt-result-badge" id="ptResultLevel"></div>
         <p id="ptResultDetail" class="fs-6 text-muted"></p>
         <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
-            <a href="#" id="ptGrammarLink" class="btn btn-primary">Grammatik üben / Practice grammar</a>
-            <a href="quiz.html" class="btn btn-outline-secondary">Wortschatz üben / Practice vocabulary</a>
+            <a href="#" id="ptGrammarLink" class="btn btn-primary"><span class="wf-pair"><span class="wf-de">Grammatik üben</span> <span class="wf-en">Practice grammar</span></span></a>
+            <a href="quiz.html" class="btn btn-outline-secondary"><span class="wf-pair"><span class="wf-de">Wortschatz üben</span> <span class="wf-en">Practice vocabulary</span></span></a>
         </div>
-        <button class="btn btn-link mt-3" id="ptRestartBtn">Test wiederholen / Retake test</button>
+        <button class="btn btn-link mt-3" id="ptRestartBtn"><span class="wf-pair"><span class="wf-de">Test wiederholen</span> <span class="wf-en">Retake test</span></span></button>
     </div>
 </main>
 
@@ -185,8 +186,9 @@
 
     function updateProgress() {
         var band = BANDS[state.bandIndex];
-        document.getElementById('ptProgress').textContent =
-            band.name + ' — Frage ' + (state.qIndex + 1) + ' / ' + state.questions.length;
+        document.getElementById('ptProgress').innerHTML = WF_LANG.bi(
+            band.name + ' — Frage ' + (state.qIndex + 1) + ' / ' + state.questions.length,
+            band.name + ' — Question ' + (state.qIndex + 1) + ' / ' + state.questions.length);
         document.getElementById('ptScore').textContent = '✅ ' + state.correct + ' / ' + state.qIndex;
     }
 
@@ -202,7 +204,7 @@
 
         if (q.type === 'fill_blank') {
             html += '<div class="mt-3"><input type="text" id="ptInput" class="pt-blank-input" autocomplete="off" autocapitalize="off"></div>';
-            html += '<button class="btn btn-primary mt-3" id="ptSubmitBtn">Prüfen / Check</button>';
+            html += '<button class="btn btn-primary mt-3" id="ptSubmitBtn">' + WF_LANG.bi('Prüfen', 'Check') + '</button>';
         } else if (q.type === 'mc') {
             html += '<div class="pt-mc-options mt-2">';
             q.options.forEach(function (opt, i) {
@@ -210,10 +212,10 @@
             });
             html += '</div>';
         } else if (q.type === 'word_order') {
-            html += '<p class="text-muted small mt-2">Klicke die Wörter in der richtigen Reihenfolge / Click the words in the correct order</p>';
+            html += '<p class="text-muted small mt-2">' + WF_LANG.bi('Klicke die Wörter in der richtigen Reihenfolge', 'Click the words in the correct order') + '</p>';
             html += '<div class="pt-wo-answer mb-2" id="ptWoAnswer"></div>';
             html += '<div class="pt-wo-pool" id="ptWoPool"></div>';
-            html += '<button class="btn btn-primary mt-3" id="ptSubmitBtn" disabled>Prüfen / Check</button>';
+            html += '<button class="btn btn-primary mt-3" id="ptSubmitBtn" disabled>' + WF_LANG.bi('Prüfen', 'Check') + '</button>';
         }
         card.innerHTML = html;
         wireQuestionEvents(q);
@@ -320,9 +322,9 @@
         document.getElementById('ptScore').textContent = '';
         document.getElementById('ptResult').style.display = '';
         document.getElementById('ptResultLevel').textContent = level;
-        document.getElementById('ptResultDetail').textContent =
-            'Letzte Stufe: ' + band.name + ' (' + Math.round(pct * 100) + '% richtig) / ' +
-            'Last band: ' + band.name + ' (' + Math.round(pct * 100) + '% correct)';
+        document.getElementById('ptResultDetail').innerHTML = WF_LANG.bi(
+            'Letzte Stufe: ' + band.name + ' (' + Math.round(pct * 100) + '% richtig)',
+            'Last band: ' + band.name + ' (' + Math.round(pct * 100) + '% correct)');
         document.getElementById('ptGrammarLink').href = 'grammar-quiz.html?level=' + level;
     }
 

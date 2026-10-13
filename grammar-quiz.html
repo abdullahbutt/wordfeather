@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grammatik-Test / Grammar Test — WordFeather</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="/wf-lang.js"></script>
 <style>
     :root{--page-bg:#f8fafc;--page-text:#1e293b;--muted:#64748b;--card-bg:#ffffff;--card-border:#e2e8f0}
     [data-bs-theme="dark"]{--page-bg:#0f172a;--page-text:#e2e8f0;--muted:#94a3b8;--card-bg:#1e293b;--card-border:#334155}
@@ -98,19 +99,19 @@
 
 <main class="container py-4 py-lg-5">
     <p class="mb-4"><a href="/">Home</a> <span class="text-muted">/</span> <a href="quiz.html">Quiz</a> <span class="text-muted">/</span> <span class="text-muted">Grammatik-Test</span></p>
-    <h1 class="h2 text-center mb-1">📐 Grammatik-Test</h1>
-    <p class="text-center text-muted mb-4">Teste dein Sprachgefühl — Kasus, Verbformen, Satzstellung / Test your grammar — cases, verb forms, word order</p>
+    <h1 class="h2 text-center mb-1">📐 <span class="wf-pair"><span class="wf-de">Grammatik-Test</span> <span class="wf-en">Grammar test</span></span></h1>
+    <p class="text-center text-muted mb-4"><span class="wf-pair"><span class="wf-de">Teste dein Sprachgefühl — Kasus, Verbformen, Satzstellung</span> <span class="wf-en">Test your grammar — cases, verb forms, word order</span></span></p>
 
     <div class="alert alert-info text-center" style="max-width:640px;margin:0 auto 1.5rem;">
-        <div>ℹ️ Falsch beantwortete Fragen werden <strong>in diesem Browser gespeichert</strong> (Tab „Meine Grammatik-Fehler“).</div>
-        <div style="opacity:.75">ℹ️ Wrongly answered questions are <strong>saved in this browser</strong> (“My grammar mistakes” tab).</div>
+        <div class="wf-de">ℹ️ Falsch beantwortete Fragen werden <strong>in diesem Browser gespeichert</strong> (Tab „Meine Grammatik-Fehler“).</div>
+        <div class="wf-en" style="opacity:.75">ℹ️ Wrongly answered questions are <strong>saved in this browser</strong> (“My grammar mistakes” tab).</div>
     </div>
 
     <div class="d-flex justify-content-center gap-2 flex-wrap mb-3" id="modePicker">
-        <button class="gq-level-btn active" data-mode="practice">📐 Üben / Practice</button>
-        <button class="gq-level-btn" data-mode="topics">📚 Nach Thema / By topic</button>
-        <button class="gq-level-btn" data-mode="mistakes">❌ Meine Grammatik-Fehler / My grammar mistakes (<span id="gqMistakeCount">0</span>)</button>
-        <button class="gq-level-btn" data-mode="bookmarks">⭐ Grammatik-Lesezeichen / Grammar bookmarks (<span id="gqBookmarkCount">0</span>)</button>
+        <button class="gq-level-btn active" data-mode="practice">📐 <span class="wf-pair"><span class="wf-de">Üben</span> <span class="wf-en">Practice</span></span></button>
+        <button class="gq-level-btn" data-mode="topics">📚 <span class="wf-pair"><span class="wf-de">Nach Thema</span> <span class="wf-en">By topic</span></span></button>
+        <button class="gq-level-btn" data-mode="mistakes">❌ <span class="wf-pair"><span class="wf-de">Meine Grammatik-Fehler</span> <span class="wf-en">My grammar mistakes</span></span> (<span id="gqMistakeCount">0</span>)</button>
+        <button class="gq-level-btn" data-mode="bookmarks">⭐ <span class="wf-pair"><span class="wf-de">Grammatik-Lesezeichen</span> <span class="wf-en">Grammar bookmarks</span></span> (<span id="gqBookmarkCount">0</span>)</button>
     </div>
 
     <div class="d-flex justify-content-center gap-2 flex-wrap mb-4" id="levelPicker">
@@ -123,16 +124,16 @@
     </div>
 
     <div class="text-center mb-3" id="topicPicker" style="display:none">
-        <label class="small text-muted me-2" for="topicFilter">Thema / Topic:</label>
+        <label class="small text-muted me-2" for="topicFilter"><span class="wf-pair"><span class="wf-de">Thema</span> <span class="wf-en">Topic</span></span>:</label>
         <select id="topicFilter" class="form-select form-select-sm d-inline-block w-auto" style="max-width:100%"></select>
     </div>
 
     <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-4" id="countPicker">
-        <span class="small text-muted">Fragen / Questions:</span>
+        <span class="small text-muted"><span class="wf-pair"><span class="wf-de">Fragen</span> <span class="wf-en">Questions</span></span>:</span>
         <button class="gq-level-btn active" data-count="33">33</button>
         <button class="gq-level-btn" data-count="66">66</button>
         <button class="gq-level-btn" data-count="99">99</button>
-        <button class="gq-level-btn" data-count="0">Alle / All</button>
+        <button class="gq-level-btn" data-count="0"><span class="wf-pair"><span class="wf-de">Alle</span> <span class="wf-en">All</span></span></button>
     </div>
 
     <div id="gqTopicHead" class="gq-topic-head" style="display:none"></div>
@@ -145,19 +146,19 @@
     <div id="gqCard" class="gq-card"></div>
 
     <div class="gq-nav" id="gqNav" style="display:none">
-        <button class="btn btn-outline-secondary" id="gqBackBtn">← Zurück / Back</button>
-        <button class="btn btn-outline-secondary" id="gqSkipBtn">Überspringen / Skip →</button>
-        <button class="btn btn-primary" id="gqNextBtn">Weiter / Next →</button>
+        <button class="btn btn-outline-secondary" id="gqBackBtn"><span class="wf-pair"><span class="wf-de">← Zurück</span> <span class="wf-en">Back</span></span></button>
+        <button class="btn btn-outline-secondary" id="gqSkipBtn"><span class="wf-pair"><span class="wf-de">Überspringen</span> <span class="wf-en">Skip →</span></span></button>
+        <button class="btn btn-primary" id="gqNextBtn"><span class="wf-pair"><span class="wf-de">Weiter →</span> <span class="wf-en">Next →</span></span></button>
     </div>
 
     <div id="gqSummary" class="gq-card text-center" style="display:none">
-        <h2 class="mb-3">Fertig! / Done!</h2>
+        <h2 class="mb-3"><span class="wf-pair"><span class="wf-de">Fertig!</span> <span class="wf-en">Done!</span></span></h2>
         <p id="gqSummaryText" class="fs-5"></p>
-        <button class="btn btn-warning mt-2" id="gqSummarySkippedBtn" style="display:none">Übersprungene Fragen / Go to skipped questions</button>
-        <button class="btn btn-outline-secondary mt-2" id="gqSummaryBackBtn">← Antworten ansehen / Review answers</button>
-        <button class="btn btn-primary mt-2" id="gqRestartBtn">Nochmal / Restart</button>
-        <button class="btn btn-outline-secondary mt-2" id="gqSummaryTopicsBtn" style="display:none">← Alle Themen / All topics</button>
-        <div class="mt-3"><button class="btn btn-link btn-sm text-muted" id="gqClearBtn">Gespeicherte Fehler löschen / Clear saved mistakes</button></div>
+        <button class="btn btn-warning mt-2" id="gqSummarySkippedBtn" style="display:none"><span class="wf-pair"><span class="wf-de">Übersprungene Fragen</span> <span class="wf-en">Go to skipped questions</span></span></button>
+        <button class="btn btn-outline-secondary mt-2" id="gqSummaryBackBtn"><span class="wf-pair"><span class="wf-de">← Antworten ansehen</span> <span class="wf-en">Review answers</span></span></button>
+        <button class="btn btn-primary mt-2" id="gqRestartBtn"><span class="wf-pair"><span class="wf-de">Nochmal</span> <span class="wf-en">Restart</span></span></button>
+        <button class="btn btn-outline-secondary mt-2" id="gqSummaryTopicsBtn" style="display:none"><span class="wf-pair"><span class="wf-de">← Alle Themen</span> <span class="wf-en">All topics</span></span></button>
+        <div class="mt-3"><button class="btn btn-link btn-sm text-muted" id="gqClearBtn"><span class="wf-pair"><span class="wf-de">Gespeicherte Fehler löschen</span> <span class="wf-en">Clear saved mistakes</span></span></button></div>
     </div>
 </main>
 
@@ -329,7 +330,7 @@
     function bmBtnHtml(q) {
         var on = !!bookmarks[q.id];
         return '<button type="button" class="gq-bm-btn' + (on ? ' on' : '') + '" id="gqBookmarkBtn" aria-pressed="' + on + '">' +
-            (on ? '★ Gemerkt / Bookmarked' : '☆ Merken / Bookmark') + '</button>';
+            (on ? WF_LANG.bi('★ Gemerkt', 'Bookmarked') : WF_LANG.bi('☆ Merken', 'Bookmark')) + '</button>';
     }
     function toggleBookmark(q) {
         if (bookmarks[q.id]) delete bookmarks[q.id];
@@ -354,12 +355,12 @@
         updateBookmarkBadge();
         var keys = Object.keys(bookmarks);
         if (!keys.length) {
-            $('gqCard').innerHTML = '<div class="text-center"><div class="fs-5">Noch keine Lesezeichen.</div>' +
-                '<div class="gq-en-hint">No bookmarks yet. Tap “☆ Bookmark” on a question to save it here.</div></div>';
+            $('gqCard').innerHTML = '<div class="text-center"><div class="fs-5 wf-de">Noch keine Lesezeichen.</div>' +
+                '<div class="gq-en-hint wf-en">No bookmarks yet. Tap “☆ Bookmark” on a question to save it here.</div></div>';
             return;
         }
-        var html = '<div class="mb-2"><b>' + keys.length + '</b> Lesezeichen / bookmark' + (keys.length === 1 ? '' : 's') +
-            ' <span class="text-muted small">— in diesem Browser gespeichert / saved in this browser</span></div>';
+        var html = '<div class="mb-2">' + WF_LANG.bi('<b>' + keys.length + '</b> Lesezeichen', '<b>' + keys.length + '</b> bookmark' + (keys.length === 1 ? '' : 's')) +
+            ' <span class="text-muted small">' + WF_LANG.bi('— in diesem Browser gespeichert', '— saved in this browser') + '</span></div>';
         ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].forEach(function (lvl) {
             var items = keys.filter(function (k) { return bookmarks[k].level === lvl; })
                 .sort(function (a, b) { return (bookmarks[a].added || 0) - (bookmarks[b].added || 0); });
@@ -374,7 +375,7 @@
                     '<div class="mt-1">✓ <b>' + esc(b.correct) + '</b></div>' +
                     '<div class="small mt-1">' + b.explanation_de + '</div>' +
                     '<div class="gq-en-hint">' + b.explanation_en + '</div></div>' +
-                    '<button type="button" class="btn btn-outline-danger btn-sm gq-bm-remove flex-shrink-0">🗑 Entfernen / Remove</button></div>';
+                    '<button type="button" class="btn btn-outline-danger btn-sm gq-bm-remove flex-shrink-0">' + WF_LANG.bi('🗑 Entfernen', 'Remove') + '</button></div>';
             });
         });
         $('gqCard').innerHTML = html;
@@ -413,18 +414,18 @@
         $('gqCard').style.display = '';
         var list = sectionsFor(state.level);
         if (!list.length) {
-            $('gqCard').innerHTML = '<div class="text-center"><div class="fs-5">Themen gibt es für A1 und A2. Wähle eines dieser Niveaus.</div>' +
-                '<div class="gq-en-hint">Topics are available for A1 and A2. Choose one of these levels.</div></div>';
+            $('gqCard').innerHTML = '<div class="text-center"><div class="fs-5 wf-de">Themen gibt es für A1 und A2. Wähle eines dieser Niveaus.</div>' +
+                '<div class="gq-en-hint wf-en">Topics are available for A1 and A2. Choose one of these levels.</div></div>';
             return;
         }
         var stats = sectionStats(data);
-        var html = '<p class="text-muted small">Wähle ein Thema der Grammatikseite. Jede Runde hat bis zu ' + TOPIC_ROUND +
-            ' Fragen: zuerst neue, dann falsch beantwortete, von leicht nach schwer. / Choose a topic from the grammar page. Each round has up to ' +
-            TOPIC_ROUND + ' questions: new ones first, then those you got wrong, from easy to hard.</p>';
+        var html = '<p class="text-muted small">' + WF_LANG.bi(
+            'Wähle ein Thema der Grammatikseite. Jede Runde hat bis zu ' + TOPIC_ROUND + ' Fragen: zuerst neue, dann falsch beantwortete, von leicht nach schwer.',
+            'Choose a topic from the grammar page. Each round has up to ' + TOPIC_ROUND + ' questions: new ones first, then those you got wrong, from easy to hard.') + '</p>';
         [true, false].forEach(function (onPage) {
             var items = list.filter(function (s) { return !!s.page === onPage; });
             if (!items.length) return;
-            if (!onPage) html += '<div class="gq-bm-level">Weitere Themen / More topics</div>';
+            if (!onPage) html += '<div class="gq-bm-level">' + WF_LANG.bi('Weitere Themen', 'More topics') + '</div>';
             html += '<div class="gq-topics">';
             items.forEach(function (s) {
                 var st = stats[s.no] || { total: 0, tried: 0, right: 0 };
@@ -432,8 +433,8 @@
                 html += '<button type="button" class="gq-topic-btn" data-section="' + s.no + '">' +
                     '<span class="gq-topic-no">' + (s.page ? s.no : '•') + '</span>' +
                     '<span class="gq-topic-name">' + esc(s.de) + '</span>' +
-                    '<span class="gq-topic-fig">' + st.total + ' Fragen · ' + st.tried + ' beantwortet · ' + st.right + ' richtig / ' +
-                    st.total + ' questions · ' + st.tried + ' answered · ' + st.right + ' right</span>' +
+                    '<span class="gq-topic-fig">' + WF_LANG.bi(st.total + ' Fragen · ' + st.tried + ' beantwortet · ' + st.right + ' richtig',
+                        st.total + ' questions · ' + st.tried + ' answered · ' + st.right + ' right') + '</span>' +
                     '<span class="gq-topic-bar"><i style="width:' + pct + '%"></i></span></button>';
             });
             html += '</div>';
@@ -444,7 +445,7 @@
     function showTopicHead() {
         var s = sectionsFor(state.level).filter(function (x) { return x.no === state.section; })[0];
         $('gqTopicHead').innerHTML = '<strong>' + esc(s ? sectionName(s) : '') + '</strong>' +
-            '<button type="button" class="btn btn-outline-secondary btn-sm" id="gqTopicsBackBtn">← Alle Themen / All topics</button>';
+            '<button type="button" class="btn btn-outline-secondary btn-sm" id="gqTopicsBackBtn">' + WF_LANG.bi('← Alle Themen', 'All topics') + '</button>';
         $('gqTopicHead').style.display = '';
     }
 
@@ -455,7 +456,7 @@
         $('topicPicker').style.display = show ? '' : 'none';
         if (!show) return;
         var stats = sectionStats(data);
-        var html = '<option value="">Alle Themen / All topics</option>';
+        var html = '<option value="">' + WF_LANG.s('Alle Themen', 'All topics') + '</option>';
         list.forEach(function (s) {
             html += '<option value="' + s.no + '"' + (state.topic === s.no ? ' selected' : '') + '>' + esc(sectionName(s)) + ' (' +
                 ((stats[s.no] || {}).total || 0) + ')</option>';
@@ -484,7 +485,7 @@
 
     function showError(err) {
         $('gqCard').style.display = '';
-        $('gqCard').innerHTML = '<p class="text-danger">Fehler beim Laden: ' + esc(err.message) + '</p>';
+        $('gqCard').innerHTML = '<p class="text-danger">' + WF_LANG.bi('Fehler beim Laden:', 'Error while loading:') + ' ' + esc(err.message) + '</p>';
     }
 
     // The rows of the pickers have Bootstrap's d-flex, which forces "display:flex !important": hide them with an important rule too.
@@ -552,13 +553,13 @@
         $('gqCard').style.display = '';
         $('gqCard').innerHTML =
             '<div class="text-center">' +
-            '<div class="fs-5">Keine aktuellen Fehler auf diesem Niveau — gut gemacht! 🎉</div>' +
-            '<div class="gq-en-hint">No current mistakes at this level — well done! Questions you answer wrongly in practice will appear here.</div>' +
+            '<div class="fs-5 wf-de">Keine aktuellen Fehler auf diesem Niveau — gut gemacht! 🎉</div>' +
+            '<div class="gq-en-hint wf-en">No current mistakes at this level — well done! Questions you answer wrongly in practice will appear here.</div>' +
             '</div>';
     }
 
     function updateProgress() {
-        $('gqProgress').textContent = 'Frage ' + (state.pos + 1) + ' / ' + state.questions.length;
+        $('gqProgress').innerHTML = WF_LANG.bi('Frage ' + (state.pos + 1) + ' / ' + state.questions.length, 'Question ' + (state.pos + 1) + ' / ' + state.questions.length);
         var skipped = skippedCount();
         $('gqScore').textContent = '✅ ' + score() + ' / ' + answeredCount() + (skipped ? '  ·  ⏭ ' + skipped : '');
     }
@@ -603,13 +604,13 @@
     function feedbackHtml(ok, q, given, review) {
         var reveal = '';
         if (!ok && q.type !== 'mc') {
-            reveal = '<div class="mt-2"><b>Richtig / Correct:</b> ' + esc(correctText(q)) + '</div>';
+            reveal = '<div class="mt-2"><b>' + WF_LANG.bi('Richtig:', 'Correct:') + '</b> ' + esc(correctText(q)) + '</div>';
         }
         var yours = review
-            ? '<div class="mb-1"><b>Deine Antwort / Your answer:</b> ' + (given ? esc(given) : '<i>—</i>') + '</div>'
+            ? '<div class="mb-1"><b>' + WF_LANG.bi('Deine Antwort:', 'Your answer:') + '</b> ' + (given ? esc(given) : '<i>—</i>') + '</div>'
             : '';
         return '<div class="gq-feedback ' + (ok ? 'correct' : 'incorrect') + '">' +
-            (ok ? '✅ Richtig! / Correct!' : '❌ Nicht ganz. / Not quite.') +
+            (ok ? WF_LANG.bi('✅ Richtig!', 'Correct!') : WF_LANG.bi('❌ Nicht ganz.', 'Not quite.')) +
             '<div class="mt-1">' + yours + '</div>' +
             '<div>' + q.explanation_de + '</div>' +
             '<div class="gq-en-hint">' + q.explanation_en + '</div>' +
@@ -619,7 +620,7 @@
     // Read-only view of an already answered question.
     function renderReview(i) {
         var q = state.questions[i], h = state.history[i];
-        var html = '<div class="gq-review-tag">📖 Wiederholung / Review</div>' + header(q);
+        var html = '<div class="gq-review-tag">' + WF_LANG.bi('📖 Wiederholung', 'Review') + '</div>' + header(q);
         if (q.type === 'mc') {
             html += '<div class="gq-mc-options mt-2">';
             q.options.forEach(function (opt) {
@@ -638,7 +639,7 @@
 
         if (q.type === 'fill_blank') {
             html += '<div class="mt-3"><input type="text" id="gqInput" class="gq-blank-input" autocomplete="off" autocapitalize="off" placeholder="…"></div>';
-            html += '<button class="btn btn-primary mt-3" id="gqSubmitBtn">Prüfen / Check</button>';
+            html += '<button class="btn btn-primary mt-3" id="gqSubmitBtn">' + WF_LANG.bi('Prüfen', 'Check') + '</button>';
         } else if (q.type === 'mc') {
             html += '<div class="gq-mc-options mt-2">';
             q.options.forEach(function (opt, k) {
@@ -646,10 +647,10 @@
             });
             html += '</div>';
         } else if (q.type === 'word_order') {
-            html += '<p class="text-muted small mt-2">Klicke die Wörter in der richtigen Reihenfolge / Click the words in the correct order</p>';
+            html += '<p class="text-muted small mt-2">' + WF_LANG.bi('Klicke die Wörter in der richtigen Reihenfolge', 'Click the words in the correct order') + '</p>';
             html += '<div class="gq-wo-answer mb-2" id="gqWoAnswer"></div>';
             html += '<div class="gq-wo-pool" id="gqWoPool"></div>';
-            html += '<button class="btn btn-primary mt-3" id="gqSubmitBtn" disabled>Prüfen / Check</button>';
+            html += '<button class="btn btn-primary mt-3" id="gqSubmitBtn" disabled>' + WF_LANG.bi('Prüfen', 'Check') + '</button>';
         }
 
         html += '<div id="gqFeedback"></div>';
@@ -758,20 +759,19 @@
         var n = state.questions.length, s = score(), answered = answeredCount();
         var wrong = answered - s;       // skipped questions are not mistakes
         var skipped = n - answered;     // everything still unanswered here was skipped
-        var txt = 'Du hast ' + s + ' von ' + n + ' richtig beantwortet. / ' +
-            'You answered ' + s + ' out of ' + n + ' correctly.';
+        var txt = WF_LANG.bi('Du hast ' + s + ' von ' + n + ' richtig beantwortet.', 'You answered ' + s + ' out of ' + n + ' correctly.');
         if (skipped > 0) {
-            txt += '<div class="small mt-2">⏭ ' + skipped + ' übersprungen — du kannst sie noch beantworten. / ' +
-                skipped + ' skipped — you can still answer ' + (skipped === 1 ? 'it' : 'them') + '.</div>';
+            txt += '<div class="small mt-2">' + WF_LANG.bi('⏭ ' + skipped + ' übersprungen — du kannst sie noch beantworten.',
+                skipped + ' skipped — you can still answer ' + (skipped === 1 ? 'it' : 'them') + '.') + '</div>';
         }
         $('gqSummarySkippedBtn').style.display = skipped > 0 ? '' : 'none';
         if (wrong > 0) {
-            txt += '<div class="small mt-2">❌ ' + wrong + ' Fehler gespeichert — übe sie im Tab „Meine Fehler“. / ' +
-                wrong + ' mistake' + (wrong === 1 ? '' : 's') + ' saved — practise them in the “My mistakes” tab.</div>';
+            txt += '<div class="small mt-2">' + WF_LANG.bi('❌ ' + wrong + ' Fehler gespeichert — übe sie im Tab „Meine Fehler“.',
+                wrong + ' mistake' + (wrong === 1 ? '' : 's') + ' saved — practise them in the “My mistakes” tab.') + '</div>';
         }
         $('gqSummaryText').innerHTML = txt;
         var byTopic = state.mode === 'topics';
-        $('gqRestartBtn').textContent = byTopic ? 'Nächste Runde / Next round' : 'Nochmal / Restart';
+        $('gqRestartBtn').innerHTML = byTopic ? WF_LANG.bi('Nächste Runde', 'Next round') : WF_LANG.bi('Nochmal', 'Restart');
         $('gqSummaryTopicsBtn').style.display = byTopic ? '' : 'none';
         $('gqSummaryBackBtn').style.display = n > 0 ? '' : 'none';
         updateMistakeBadge();
@@ -800,7 +800,7 @@
     $('gqRestartBtn').addEventListener('click', start);
 
     $('gqClearBtn').addEventListener('click', function () {
-        if (!window.confirm('Alle gespeicherten Fehler und Fortschritte löschen? / Delete all saved mistakes and progress?')) return;
+        if (!window.confirm(WF_LANG.t('Alle gespeicherten Fehler und Fortschritte löschen?', 'Delete all saved mistakes and progress?'))) return;
         progress = {};
         try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
         start();
