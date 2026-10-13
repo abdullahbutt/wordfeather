@@ -167,13 +167,6 @@
   }
   [data-bs-theme="dark"] .option-letter { background: #334155; }
 
-  /* Mode-tab subtitles (English translation under the German label): needs
-     to stay legible against BOTH the plain-card background (inactive tab)
-     and the solid blue fill (active tab) — a single "text-muted" grey looks
-     fine on white but goes low-contrast on blue. */
-  #modeTabs .nav-link .small { color: #64748b; }
-  #modeTabs .nav-link.active .small { color: rgba(255, 255, 255, 0.85); }
-
   .feedback-box {
     border-radius: 0.75rem;
     padding: 1rem 1.25rem;
@@ -272,6 +265,9 @@
 })();
 </script>
 
+<div id="quiz-bar" data-page="quiz"></div>
+<script src="/quiz-bar.js"></script>
+
 <main class="container py-4">
 
   <p class="mb-4"><a href="/">Home</a> <span class="text-muted">/</span> <span class="text-muted">Quiz</span></p>
@@ -279,76 +275,12 @@
   <!-- ============ SCREEN 1: Mode & options selection ============ -->
   <section id="setupScreen">
     <div class="text-center mb-4">
-      <h1 class="h3">🧠 Vokabel-Quiz</h1>
-      <p class="text-muted">Teste dein Deutsch — wähle ein Niveau oder finde dein aktuelles CEFR-Level.</p>
+      <h1 class="h3" id="pageTitle">📚 Wortschatz üben</h1>
+      <p class="text-muted mb-0" id="pageSub">Wähle Niveau, Themen und Richtung. <span class="opacity-75">/ Choose level, topics and direction.</span></p>
     </div>
 
     <div class="card quiz-card">
       <div class="card-body p-4">
-
-        <!-- Wortschatz üben is the site's core, most-used feature, so it
-             gets its own prominent featured button rather than sitting at
-             equal weight in a flat row with everything else. Same element,
-             same id/data-mode/aria wiring as before — switchMode() doesn't
-             need to change at all. -->
-        <ul class="nav nav-pills nav-fill mb-3 flex-wrap" id="modeTabs" role="tablist" aria-label="Quiz-Modus wählen / Choose quiz mode">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="tab-practice" data-mode="practice" role="tab" aria-selected="true" aria-controls="practiceOptions">
-              <span class="d-block">📚 Wortschatz üben</span>
-              <span class="d-block small" style="font-weight:400;">Vocabulary</span>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-hoeren" data-mode="hoeren" role="tab" aria-selected="false" aria-controls="hoerenOptions">
-              <span class="d-block">🎧 Hören üben</span>
-              <span class="d-block small" style="font-weight:400;">Listening</span>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-lesen" data-mode="lesen" role="tab" aria-selected="false" aria-controls="lesenOptions">
-              <span class="d-block">📰 Lesen üben</span>
-              <span class="d-block small" style="font-weight:400;">Reading</span>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" href="grammar-quiz.html" title="Öffnet den Grammatik-Test / Opens the grammar test">
-              <span class="d-block">🔤 Grammatik-Test ↗</span>
-              <span class="d-block small" style="font-weight:400;">Grammar practice</span>
-            </a>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-mistakes" data-mode="mistakes" role="tab" aria-selected="false" aria-controls="mistakesOptions">
-              <span class="d-block">❌ Meine Fehler</span>
-              <span class="d-block small" style="font-weight:400;">My mistakes</span>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-bookmarks" data-mode="bookmarks" role="tab" aria-selected="false" aria-controls="bookmarksOptions">
-              <span class="d-block">⭐ Lesezeichen (<span id="bookmarkTabCount">0</span>)</span>
-              <span class="d-block small" style="font-weight:400;">Bookmarks</span>
-            </button>
-          </li>
-        </ul>
-
-        <!-- Placement/level tests — kept in their own small group, deliberately
-             separate from the practice-mode tablist above. These two always
-             render side by side regardless of viewport width, since it's a
-             fixed 2-item flex row rather than part of the larger nav-fill bar
-             (which redistributes items per row based on available width and
-             would otherwise split this pair apart unpredictably). -->
-        <div class="mb-4">
-          <p class="small text-muted fw-semibold mb-2">Einstufungstests <span class="text-muted fw-normal">/ Level tests</span></p>
-          <div class="d-flex gap-2 flex-wrap nav nav-pills">
-            <button class="nav-link border rounded flex-fill" id="tab-placement" data-mode="placement" style="min-width:200px;text-align:center;">
-              <span class="d-block">🎯 Niveau (Wortschatz)</span>
-              <span class="d-block small" style="font-weight:400;">Level test — vocabulary</span>
-            </button>
-            <a class="nav-link border rounded flex-fill" href="placement-test.html" title="Öffnet den Grammatik-Einstufungstest / Opens the grammar placement test" style="min-width:200px;text-align:center;">
-              <span class="d-block">🎯 Niveau (Grammatik) ↗</span>
-              <span class="d-block small" style="font-weight:400;">Level test — grammar</span>
-            </a>
-          </div>
-        </div>
 
         <!-- Practice-by-level options (vocab) -->
         <div id="practiceOptions" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
@@ -1915,12 +1847,36 @@ var LESEN_PRACTICE_DATA = {
   // 4. Mode tabs
   // ---------------------------------------------------------------
   var currentMode = 'practice';
+  // Heading and one-line hint follow the tab that is open (the bar above is the navigation, the heading says where you are).
+  var MODE_HEADINGS = {
+    practice: ['📚 Wortschatz üben', 'Wähle Niveau, Themen und Richtung.', 'Choose level, topics and direction.'],
+    hoeren: ['🎧 Hören üben', 'Hörtexte nach Niveau.', 'Listening texts by level.'],
+    lesen: ['📰 Lesen üben', 'Lesetexte nach Niveau.', 'Reading texts by level.'],
+    placement: ['🎯 Niveau-Test: Wortschatz', 'Finde dein aktuelles CEFR-Niveau.', 'Find your current CEFR level.'],
+    mistakes: ['❌ Meine Fehler', 'Wörter, die du zuletzt falsch hattest.', 'Words you most recently got wrong.'],
+    bookmarks: ['⭐ Lesezeichen', 'Deine gespeicherten Fragen.', 'Your saved questions.']
+  };
+  function showModeHeading(mode) {
+    var h = MODE_HEADINGS[mode];
+    if (!h) return;
+    document.getElementById('pageTitle').textContent = h[0];
+    document.getElementById('pageSub').innerHTML = h[1] + ' <span class="opacity-75">/ ' + h[2] + '</span>';
+  }
+
   document.getElementById('tab-practice').addEventListener('click', function () { switchMode('practice'); });
   document.getElementById('tab-hoeren').addEventListener('click', function () { switchMode('hoeren'); });
   document.getElementById('tab-lesen').addEventListener('click', function () { switchMode('lesen'); });
   document.getElementById('tab-placement').addEventListener('click', function () { switchMode('placement'); });
   document.getElementById('tab-mistakes').addEventListener('click', function () { switchMode('mistakes'); });
   document.getElementById('tab-bookmarks').addEventListener('click', function () { switchMode('bookmarks'); });
+
+  // Links from the other quiz pages (quiz.html#hoeren, #lesen, #placement, #mistakes, #bookmarks) open that mode.
+  function modeFromHash() {
+    var m = location.hash.replace('#', '');
+    if (['practice', 'hoeren', 'lesen', 'placement', 'mistakes', 'bookmarks'].indexOf(m) !== -1) switchMode(m);
+  }
+  window.addEventListener('hashchange', modeFromHash);
+  modeFromHash();
 
   // ARIA tab pattern: Left/Right (and Home/End) move keyboard focus between
   // tabs; the user still presses Enter/Space (native <button> behaviour) or
@@ -1947,6 +1903,7 @@ var LESEN_PRACTICE_DATA = {
 
   function switchMode(mode) {
     currentMode = mode;
+    showModeHeading(mode);
     document.getElementById('tab-practice').classList.toggle('active', mode === 'practice');
     document.getElementById('tab-hoeren').classList.toggle('active', mode === 'hoeren');
     document.getElementById('tab-lesen').classList.toggle('active', mode === 'lesen');
