@@ -2783,5 +2783,24 @@ var LESEN_PRACTICE_DATA = {
 </script>
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(function(reg) {
+            // Check for updates on every page load
+            reg.update();
+            // When a new SW is found, activate it immediately
+            reg.addEventListener('updatefound', function() {
+                var newWorker = reg.installing;
+                newWorker.addEventListener('statechange', function() {
+                    if (newWorker.state === 'activated') {
+                        console.log('App updated to latest version');
+                    }
+                });
+            });
+        })
+        .catch(function(err) { console.log('SW failed:', err); });
+}
+</script>
 </body>
 </html>
