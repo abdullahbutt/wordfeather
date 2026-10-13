@@ -1863,19 +1863,48 @@ var LESEN_PRACTICE_DATA = {
     document.getElementById('pageSub').innerHTML = h[1] + ' <span class="opacity-75">/ ' + h[2] + '</span>';
   }
 
-  document.getElementById('tab-practice').addEventListener('click', function () { switchMode('practice'); });
-  document.getElementById('tab-hoeren').addEventListener('click', function () { switchMode('hoeren'); });
-  document.getElementById('tab-lesen').addEventListener('click', function () { switchMode('lesen'); });
-  document.getElementById('tab-placement').addEventListener('click', function () { switchMode('placement'); });
-  document.getElementById('tab-mistakes').addEventListener('click', function () { switchMode('mistakes'); });
-  document.getElementById('tab-bookmarks').addEventListener('click', function () { switchMode('bookmarks'); });
+  // The bar is always on screen, also while a quiz, its result or the progress overview is shown. A tab therefore has to bring the setup
+  // screen back (and ask first when a quiz is running), and the address follows the tab, so a reload or a shared link opens the same mode.
+  var pendingMode = null; // the tab clicked while a quiz was running, waiting for the answer of the quit dialog
+  function showSetupOnly() {
+    ['quizScreen', 'resultsScreen', 'placementResultScreen', 'placementTransitionScreen', 'progressScreen'].forEach(function (id) {
+      document.getElementById(id).classList.add('hidden');
+    });
+    document.getElementById('setupScreen').classList.remove('hidden');
+  }
+  function openMode(mode) {
+    showSetupOnly();
+    switchMode(mode);
+    try { history.replaceState(null, '', '#' + mode); } catch (e) { /* the address stays as it is */ }
+  }
+  function chooseMode(mode) {
+    var running = !document.getElementById('quizScreen').classList.contains('hidden') ||
+      !document.getElementById('placementTransitionScreen').classList.contains('hidden');
+    if (!running) { openMode(mode); return; }
+    if (quitConfirmModal) {
+      pendingMode = mode;
+      quitConfirmModal.show();
+    } else if (window.confirm(   // fallback if bootstrap.bundle.min.js ever fails to load
+      'Quiz abbrechen? Dein Fortschritt in dieser Runde geht verloren.\n' +
+      'Quit this quiz? Your progress in this round will be lost.'
+    )) {
+      doQuitQuiz();
+      openMode(mode);
+    }
+  }
+  ['practice', 'hoeren', 'lesen', 'placement', 'mistakes', 'bookmarks'].forEach(function (mode) {
+    document.getElementById('tab-' + mode).addEventListener('click', function () { chooseMode(mode); });
+  });
 
   // Links from the other quiz pages (quiz.html#hoeren, #lesen, #placement, #mistakes, #bookmarks) open that mode.
   function modeFromHash() {
     var m = location.hash.replace('#', '');
     if (['practice', 'hoeren', 'lesen', 'placement', 'mistakes', 'bookmarks'].indexOf(m) !== -1) switchMode(m);
   }
-  window.addEventListener('hashchange', modeFromHash);
+  window.addEventListener('hashchange', function () {
+    var m = location.hash.replace('#', '');
+    if (['practice', 'hoeren', 'lesen', 'placement', 'mistakes', 'bookmarks'].indexOf(m) !== -1) chooseMode(m);
+  });
   modeFromHash();
 
   // ARIA tab pattern: Left/Right (and Home/End) move keyboard focus between
@@ -2191,7 +2220,9 @@ var LESEN_PRACTICE_DATA = {
   document.getElementById('quitConfirmOkBtn').addEventListener('click', function () {
     if (quitConfirmModal) quitConfirmModal.hide();
     doQuitQuiz();
+    if (pendingMode) { openMode(pendingMode); pendingMode = null; } // the quit was asked for by a tab of the bar
   });
+  quitConfirmModalEl.addEventListener('hidden.bs.modal', function () { pendingMode = null; }); // cancelled: stay in the quiz
 
   function buildHoerenPracticeQuiz() {
     var questions = buildHoerenPracticeQuestions(selectedHoerenLevel);
