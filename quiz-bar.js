@@ -34,6 +34,7 @@
     '#quiz-bar li{flex:1 0 25%;min-width:0}' +
     '#quiz-bar .qb-item{display:block;width:100%;background:none;border:0;border-bottom:3px solid transparent;border-radius:0;padding:.45rem .25rem;text-align:center;' +
     'line-height:1.2;font-size:.8rem;color:var(--bs-link-color);text-decoration:none;cursor:pointer;font-family:inherit}' +
+    'html:not([data-bs-theme="dark"]) #quiz-bar .qb-item{color:#0a58ca}' +
     '#quiz-bar .qb-item:hover{color:var(--bs-link-hover-color)}' +
     '#quiz-bar .qb-item:focus-visible{outline:2px solid var(--bs-primary);outline-offset:-2px}' +
     '#quiz-bar .qb-item.active{border-bottom-color:var(--bs-primary);font-weight:600}' +
@@ -44,17 +45,17 @@
   style.textContent = css;
   document.head.appendChild(style);
 
-  var html = '<ul id="modeTabs" role="tablist" aria-label="Quiz-Modus wählen / Choose quiz mode">';
+  var html = '<ul id="modeTabs">';
   items.forEach(function (it) {
-    var label = '<span class="qb-ic">' + it.icon + '</span> ' + it.de + (it.count ? ' (<span id="bookmarkTabCount">' + bookmarkCount() + '</span>)' : '') +
-      '<span class="qb-en">' + it.en + '</span>';
+    var label = '<span class="qb-ic" aria-hidden="true">' + it.icon + '</span> <span lang="de">' + it.de + (it.count ? ' (<span id="bookmarkTabCount">' + bookmarkCount() + '</span>)' : '') +
+      '</span><span class="qb-en" lang="en">' + it.en + '</span>';
     var active = page === 'quiz' ? it.key === 'practice' : activeOnOtherPages[page] === it.key;
     if (it.mode && page === 'quiz') {
-      html += '<li role="presentation"><button type="button" class="qb-item' + (active ? ' active' : '') + '" id="tab-' + it.key + '" data-mode="' + it.key +
-        '" role="tab" aria-selected="' + active + '" aria-controls="' + it.key + 'Options">' + label + '</button></li>';
+      html += '<li><button type="button" class="qb-item' + (active ? ' active' : '') + '" id="tab-' + it.key + '" data-mode="' + it.key +
+        '"' + (active ? ' aria-current="true"' : '') + ' aria-controls="' + it.key + 'Options">' + label + '</button></li>';
     } else {
       var href = it.mode ? '/quiz.html#' + it.key : it.href;
-      html += '<li role="presentation"><a class="qb-item' + (active ? ' active' : '') + '" href="' + href + '"' + (active ? ' aria-current="page"' : '') + '>' + label + '</a></li>';
+      html += '<li><a class="qb-item' + (active ? ' active' : '') + '" href="' + href + '"' + (active ? ' aria-current="page"' : '') + '>' + label + '</a></li>';
     }
   });
   mount.innerHTML = html + '</ul>';

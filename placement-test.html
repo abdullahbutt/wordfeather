@@ -16,6 +16,7 @@
 <link rel="manifest" href="/manifest.json">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="/wf-lang.js"></script>
+<script src="/wf-a11y.js"></script>
 <style>
     :root{--page-bg:#f8fafc;--page-text:#1e293b;--muted:#64748b;--card-bg:#ffffff;--card-border:#e2e8f0}
     [data-bs-theme="dark"]{--page-bg:#0f172a;--page-text:#e2e8f0;--muted:#94a3b8;--card-bg:#1e293b;--card-border:#334155}
@@ -38,6 +39,7 @@
 </style>
 </head>
 <body>
+<a class="wf-skip" href="#mainContent" onclick="document.getElementById('mainContent').focus();return false;"><span class="wf-de">Zum Inhalt springen</span><span class="wf-en">Skip to content</span></a>
 <div id="header-placeholder"></div>
 <script>
 (function () {
@@ -83,7 +85,7 @@
 <div id="quiz-bar" data-page="placement"></div>
 <script src="/quiz-bar.js"></script>
 
-<main class="container py-4 py-lg-5">
+<main class="container py-4 py-lg-5" id="mainContent" tabindex="-1">
     <p class="mb-4"><a href="/">Home</a> <span class="text-muted">/</span> <a href="quiz.html">Quiz</a> <span class="text-muted">/</span> <span class="text-muted">Einstufungstest</span></p>
     <h1 class="h2 text-center mb-1">🎯 <span class="wf-pair"><span class="wf-de">Einstufungstest</span> <span class="wf-en">Placement test</span></span></h1>
     <p class="text-center text-muted mb-4"><span class="wf-pair"><span class="wf-de">Finde dein Sprachniveau in wenigen Fragen</span> <span class="wf-en">Find your level in a few questions</span></span></p>
@@ -213,7 +215,7 @@
         html += '<div class="text-muted small mb-2">' + q.prompt_en + '</div>';
 
         if (q.type === 'fill_blank') {
-            html += '<div class="mt-3"><input type="text" id="ptInput" class="pt-blank-input" autocomplete="off" autocapitalize="off"></div>';
+            html += '<div class="mt-3"><input type="text" id="ptInput" class="pt-blank-input" autocomplete="off" autocapitalize="off" aria-label="' + WF_LANG.t('Deine Antwort', 'Your answer') + '"></div>';
             html += '<button class="btn btn-primary mt-3" id="ptSubmitBtn">' + WF_LANG.bi('Prüfen', 'Check') + '</button>';
         } else if (q.type === 'mc') {
             html += '<div class="pt-mc-options mt-2">';
@@ -228,6 +230,7 @@
             html += '<button class="btn btn-primary mt-3" id="ptSubmitBtn" disabled>' + WF_LANG.bi('Prüfen', 'Check') + '</button>';
         }
         card.innerHTML = html;
+        WF_A11Y.focus(card); // the question is read out; a text field takes the focus itself below
         wireQuestionEvents(q);
     }
 
@@ -236,6 +239,7 @@
         if (isCorrect) state.correct++;
         updateProgress();
         document.getElementById('ptNextWrap').style.display = '';
+        document.getElementById('ptNextBtn').focus(); // the answer disabled the controls: the focus continues at "Next"
     }
 
     function wireQuestionEvents(q) {
@@ -331,6 +335,7 @@
         document.getElementById('ptProgress').textContent = '';
         document.getElementById('ptScore').textContent = '';
         document.getElementById('ptResult').style.display = '';
+        WF_A11Y.focus(document.getElementById('ptResult'));
         document.getElementById('ptResultLevel').textContent = level;
         document.getElementById('ptResultDetail').innerHTML = WF_LANG.bi(
             'Letzte Stufe: ' + band.name + ' (' + Math.round(pct * 100) + '% richtig)',
