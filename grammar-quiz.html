@@ -770,6 +770,7 @@
         $('gqNav').style.display = 'none';
         $('gqProgress').textContent = '';
         $('gqSummary').style.display = '';
+        WF_A11Y.focus($('gqSummary')); // the result is read out; the controls that had the focus are gone
         var n = state.questions.length, s = score(), answered = answeredCount();
         var wrong = answered - s;       // skipped questions are not mistakes
         var skipped = n - answered;     // everything still unanswered here was skipped
