@@ -80,6 +80,9 @@
   [data-bs-theme="dark"] .filter-label { color: #adb5bd !important; }
   [data-bs-theme="dark"] .btn-outline-secondary { --bs-btn-color: #adb5bd; --bs-btn-border-color: #adb5bd; }
   [data-bs-theme="dark"] .btn-outline-primary { --bs-btn-color: #6ea8fe; --bs-btn-border-color: #6ea8fe; }
+  /* red outline buttons: a lighter red as text in the dark scheme, and a darker red when they fill on hover (white text on Bootstrap's red is 4.49 : 1) */
+  [data-bs-theme="dark"] .btn-outline-danger { --bs-btn-color: #ea868f; --bs-btn-border-color: #ea868f; }
+  .btn-outline-danger { --bs-btn-hover-bg: #c82333; --bs-btn-hover-border-color: #c82333; --bs-btn-active-bg: #b02a37; --bs-btn-active-border-color: #b02a37; }
   [data-bs-theme="dark"] [style*="color:#1d4ed8" i] { color: #8ab4ff !important; }
   [data-bs-theme="dark"] [style*="color:#C00000" i],
   [data-bs-theme="dark"] [style*="color:#EE0000" i],
@@ -119,6 +122,21 @@
   html:not([data-bs-theme="dark"]) details > summary:not([style*="color" i]) { color: #0a58ca; }
   [data-bs-theme="dark"] details > summary:not([style*="color" i]) { color: #6ea8fe; }
   html:not([data-bs-theme="dark"]) tbody .datC, html:not([data-bs-theme="dark"]) p .datC { color: #8f4c06; }
+  html:not([data-bs-theme="dark"]) tbody .akkC { color: #0a58ca; }
+  /* the level colours as text (headings of the vocabulary pages): the next darker shade on the light page */
+  html:not([data-bs-theme="dark"]) [style*="color:#16a34a" i] { color: #15803d !important; }
+  html:not([data-bs-theme="dark"]) [style*="color:#0d9488" i] { color: #0f766e !important; }
+  html:not([data-bs-theme="dark"]) [style*="color:#ea580c" i] { color: #c2410c !important; }
+  html:not([data-bs-theme="dark"]) .ws-pos-footnote { opacity: 1; color: #566069; }
+  /* the same level colours as text on the dark page: a lighter shade */
+  [data-bs-theme="dark"] [style*="color:#16a34a" i] { color: #4ade80 !important; }
+  [data-bs-theme="dark"] [style*="color:#0d9488" i] { color: #2dd4bf !important; }
+  [data-bs-theme="dark"] [style*="color:#ea580c" i] { color: #fb923c !important; }
+  [data-bs-theme="dark"] .conj-toggle-ws { background: #7c3aed !important; }
+  [data-bs-theme="dark"] .conj-toggle-ws:hover { background: #6d28d9 !important; }
+  /* the sidebar of the notes pages keeps a dark panel in the dark scheme (its light panel colour came from a variable that was not set) */
+  [data-bs-theme="dark"] .jump-bar { background: rgba(30, 41, 59, 0.95); border-color: #334155; }
+  [data-bs-theme="dark"] th[style*="background:#d9e2f3" i][style*="color:#c" i] { color: #a40000 !important; }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
     <div class="container">
