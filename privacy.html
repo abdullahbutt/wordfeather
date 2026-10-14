@@ -131,6 +131,7 @@
       transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
     .lang-tabs button:hover { background: var(--panel-bg); }
+    [data-bs-theme="dark"] .lang-tabs button.active { background: #2563eb; border-color: #2563eb; }
     .lang-tabs button.active {
       background: var(--primary);
       color: #fff;
@@ -220,7 +221,7 @@
   })();
 </script>
 
-<div class="hero-banner">
+<div class="hero-banner" role="region" aria-label="Willkommen / Welcome">
   <h1>🔒 Privacy &amp; Impressum</h1>
   <p>Datenschutz &amp; rechtliche Hinweise — transparent und kurz.</p>
 </div>

@@ -63,6 +63,62 @@
   #siteNavbar .nav-link.ext-highlight.active::after {
     display: none; /* the pill fill itself is the active indicator here */
   }
+
+  /* ── Accessibility: text and badge colours that reach the 4.5 : 1 contrast of WCAG 2.2 AA, in the light and the dark scheme.
+        This block is injected into every page with the header; it overrides the colours that the pages set themselves
+        (Bootstrap's grey text, inline colours of the converted tables, the level colours of the badges). ── */
+  html:not([data-bs-theme="dark"]) .text-secondary,
+  html:not([data-bs-theme="dark"]) .text-muted { color: #566069 !important; }
+  html:not([data-bs-theme="dark"]) .btn-outline-secondary { --bs-btn-color: #566069; --bs-btn-border-color: #566069; }
+  html:not([data-bs-theme="dark"]) .art-n { color: #15803d; }
+  html:not([data-bs-theme="dark"]) [style*="color:#FFC000" i] { color: #946200 !important; }
+  html:not([data-bs-theme="dark"]) [style*="color:#00B050" i] { color: #007a39 !important; }
+  html:not([data-bs-theme="dark"]) [style*="color:#EE0000" i],
+  html:not([data-bs-theme="dark"]) [style*="color:#FF0000" i] { color: #c00000 !important; }
+  [data-bs-theme="dark"] .text-secondary,
+  [data-bs-theme="dark"] .text-muted,
+  [data-bs-theme="dark"] .filter-label { color: #adb5bd !important; }
+  [data-bs-theme="dark"] .btn-outline-secondary { --bs-btn-color: #adb5bd; --bs-btn-border-color: #adb5bd; }
+  [data-bs-theme="dark"] .btn-outline-primary { --bs-btn-color: #6ea8fe; --bs-btn-border-color: #6ea8fe; }
+  [data-bs-theme="dark"] [style*="color:#1d4ed8" i] { color: #8ab4ff !important; }
+  [data-bs-theme="dark"] [style*="color:#C00000" i],
+  [data-bs-theme="dark"] [style*="color:#EE0000" i],
+  [data-bs-theme="dark"] [style*="color:#FF0000" i] { color: #ff8a8a !important; }
+  [data-bs-theme="dark"] [style*="color:#0070C0" i] { color: #6cb6ff !important; }
+  /* the level colours of the badges and buttons (white text on them): the next darker shade */
+  .badge[style*="background:#16a34a" i], .badge-a.panel-badge, .level-filter button[data-level="A1"].active { background: #15803d !important; border-color: #15803d !important; }
+  .badge[style*="background:#ea580c" i], .level-filter button[data-level="B2"].active { background: #c2410c !important; border-color: #c2410c !important; }
+  .badge[style*="background:#0d9488" i], .level-filter button[data-level="C2"].active, #categoryFilter { background: #0f766e !important; border-color: #0f766e !important; }
+  .badge[style*="background:#22c55e" i] { background: #15803d !important; }
+  [data-bs-theme="dark"] .conj-toggle { background: #7c3aed !important; }
+  [data-bs-theme="dark"] .conj-toggle:hover { background: #6d28d9 !important; }
+  /* touch targets of at least 24 x 24 px: the A-Z links of the dictionary */
+  .az-link, .alpha-nav a { display: inline-flex; align-items: center; justify-content: center; min-height: 24px; min-width: 24px; }
+  /* the exercise buttons of the notes pages (show the answer, listen) */
+  .eye-btn, .practice-toggle-btn, .d-tts { min-width: 24px; min-height: 24px; }
+  /* colours that the converted pages (grammar, notes, cheat sheet) set inline or in their own style block */
+  [style*="background:#d9e2f3" i] { color: #1e293b !important; }
+  html:not([data-bs-theme="dark"]) [style*="color:#b4650a" i] { color: #8f4c06 !important; }
+  html:not([data-bs-theme="dark"]) [style*="color:#00a651" i] { color: #007a3d !important; }
+  html:not([data-bs-theme="dark"]) [style*="color:#6c757d" i] { color: #566069 !important; }
+  [data-bs-theme="dark"] [style*="color:#6c757d" i] { color: #adb5bd !important; }
+  [data-bs-theme="dark"] [style*="color:#b4650a" i] { color: #f4a259 !important; }
+  [data-bs-theme="dark"] [style*="color:#cc0000" i],
+  [data-bs-theme="dark"] [style*="color:#c00;" i] { color: #ff8a8a !important; }
+  [data-bs-theme="dark"] [style*="color:#1d5fae" i] { color: #8ab4ff !important; }
+  [data-bs-theme="dark"] .markdown-content .lead-sub,
+  [data-bs-theme="dark"] .markdown-content .lead-sub em { color: #adb5bd !important; }
+  [data-bs-theme="dark"] .markdown-content h2.part-heading,
+  [data-bs-theme="dark"] .conj-details summary { color: #8ab4ff !important; }
+  [data-bs-theme="dark"] .practice-toggle-btn { color: #6ea8fe; }
+  [data-bs-theme="dark"] { --muted-text: #adb5bd; }
+  /* the coloured case headers of the cheat sheet (blue cells): white text */
+  thead .nomC, thead .akkC, thead .datC, thead .genC { color: #ffffff !important; }
+  [data-bs-theme="dark"] [style*="background:#d9e2f3" i] [style*="color" i] { color: #a40000 !important; }
+  [data-bs-theme="dark"] .table-eye-btn, [data-bs-theme="dark"] .section-eye-btn { color: #6ea8fe; }
+  html:not([data-bs-theme="dark"]) details > summary:not([style*="color" i]) { color: #0a58ca; }
+  [data-bs-theme="dark"] details > summary:not([style*="color" i]) { color: #6ea8fe; }
+  html:not([data-bs-theme="dark"]) tbody .datC, html:not([data-bs-theme="dark"]) p .datC { color: #8f4c06; }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
     <div class="container">
