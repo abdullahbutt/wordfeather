@@ -10,7 +10,7 @@
      hovered/active — on a solid blue background that reads as faint/blurry
      rather than crisp. Override to fully opaque for legibility. */
   #siteNavbar .nav-link {
-    color: rgba(255, 255, 255, 0.92);
+    color: #ffffff;
     font-weight: 500;
   }
   #siteNavbar .nav-link:hover,
@@ -42,17 +42,16 @@
   #siteNavbar .nav-link.ext-highlight {
     font-weight: 700;
   }
-  #siteNavbar .nav-link.quiz-highlight {
-    color: #fde68a !important;
-  }
-  #siteNavbar .nav-link.quiz-highlight:hover {
-    color: #fef3c7 !important;
-  }
+  /* white on the blue bar is the only colour that reaches the 4.5 : 1 contrast (WCAG 2.2 AA); the accent is an underline instead */
+  #siteNavbar .nav-link.quiz-highlight,
   #siteNavbar .nav-link.leben-highlight {
-    color: #a7f3d0 !important;
+    color: #ffffff !important;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
   }
-  #siteNavbar .nav-link.leben-highlight:hover {
-    color: #d1fae5 !important;
+  #siteNavbar .btn-outline-light {
+    --bs-btn-color: #ffffff;
   }
   #siteNavbar .nav-link.ext-highlight.active {
     background: #ffffff;

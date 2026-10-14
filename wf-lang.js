@@ -1,5 +1,5 @@
-/* Language choice of the quiz pages (quiz.html, grammar-quiz.html, placement-test.html): German and English together (the default),
-   German only, or English only. The choice is kept in localStorage ('wf_ui_lang') and set as data-ui-lang on <html> before the page is
+/* Language choice of the quiz pages (quiz.html, grammar-quiz.html, placement-test.html): German or English. Without a choice the language
+   of the browser decides (German -> German, anything else -> English). The choice is kept in localStorage ('wf_ui_lang') and set as data-ui-lang on <html> before the page is
    drawn; the stylesheet below hides the language that is not wanted, so switching is instant and needs no redraw.
 
    In the page:   <span class="wf-pair"><span class="wf-de">Alle</span> <span class="wf-en">All</span></span>   (one line, "/" between)
@@ -9,14 +9,18 @@
    The bar of the quiz pages (quiz-bar.js) and the names of the exercises always show both languages, as in the app. */
 (function () {
   var KEY = 'wf_ui_lang';
-  var MODES = ['both', 'de', 'en'];
+  var MODES = ['de', 'en'];
   var root = document.documentElement;
 
+  function detect() {
+    var l = String(navigator.language || 'de').toLowerCase();
+    return l.indexOf('de') === 0 ? 'de' : 'en';
+  }
   function get() {
     try {
       var v = localStorage.getItem(KEY);
-      return MODES.indexOf(v) !== -1 ? v : 'both';
-    } catch (e) { return 'both'; }
+      return MODES.indexOf(v) !== -1 ? v : detect();
+    } catch (e) { return detect(); }
   }
   function apply(mode) {
     root.setAttribute('data-ui-lang', mode);
@@ -25,7 +29,6 @@
   apply(get());
 
   var css = 'html[data-ui-lang="de"] .wf-en,html[data-ui-lang="en"] .wf-de{display:none!important}' +
-    'html[data-ui-lang="both"] .wf-pair>.wf-en::before{content:"/ "}' +
     // one language alone: it gets the look of the main text, not the muted look of the second language
     'html[data-ui-lang="en"] .wf-en{opacity:1!important}' +
     'html[data-ui-lang="en"] .wf-pair>.wf-en{color:inherit!important;font-weight:inherit!important}' +
@@ -35,8 +38,8 @@
   style.textContent = css;
   document.head.appendChild(style);
 
-  var LABELS = { both: 'DE · EN', de: 'DE', en: 'EN' };
-  var TITLES = { both: 'Deutsch und English / German and English', de: 'Nur Deutsch / German only', en: 'English only / Nur Englisch' };
+  var LABELS = { de: 'DE', en: 'EN' };
+  var TITLES = { de: 'Deutsch / German', en: 'English / Englisch' };
 
   function syncSwitch() {
     var box = document.getElementById('wfLangSwitch');
@@ -75,6 +78,7 @@
       b.setAttribute('data-mode', mode);
       b.title = TITLES[mode];
       b.textContent = LABELS[mode];
+      b.setAttribute('lang', mode);
       b.addEventListener('click', function () { set(mode); });
       box.appendChild(b);
     });
@@ -97,14 +101,12 @@
     bi: function (de, en) {
       return '<span class="wf-pair"><span class="wf-de">' + de + '</span> <span class="wf-en">' + en + '</span></span>';
     },
-    // for <option> and other places that take text only: "de / en" on one line when both are chosen
+    // for <option> and other places that take text only
     s: function (de, en) {
-      var m = get();
-      return m === 'de' ? de : m === 'en' ? en : de + ' / ' + en;
+      return get() === 'de' ? de : en;
     },
     t: function (de, en) {
-      var m = get();
-      return m === 'de' ? de : m === 'en' ? en : de + '\n' + en;
+      return get() === 'de' ? de : en;
     }
   };
 })();
