@@ -260,7 +260,7 @@ INSTALL_BANNER_CARDS = (
 # in its own full-width container.
 INSTALL_BANNER = (
     '\n    <!-- App Install Banner -->\n'
-    '    <div id="installBanner" class="install-banner-wrap" style="display:none;">\n'
+    '    <div id="installBanner" class="install-banner-wrap" style="display:none;" role="region" aria-label="App installieren / Install the app">\n'
     '        <div class="container">\n'
     '            <div class="install-banner">\n'
     '                <div class="install-banner-bar">\n'
@@ -284,7 +284,7 @@ INSTALL_BANNER = (
 # so the search box stays the first visible element.
 INSTALL_BANNER_DICT = (
     '                <!-- App Install Banner -->\n'
-    '                <div id="installBanner" class="install-banner-wrap mb-3" style="display:none;">\n'
+    '                <div id="installBanner" class="install-banner-wrap mb-3" style="display:none;" role="region" aria-label="App installieren / Install the app">\n'
     '                    <div class="install-banner">\n'
     '                        <div class="install-banner-bar">\n'
     '                            <span class="install-banner-icon">📱</span>\n'
