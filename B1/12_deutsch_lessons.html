@@ -169,6 +169,9 @@
         .overview-list a{text-decoration:none}
         .sec-head{font-size:1.15rem;font-weight:700;margin-top:1.75rem;padding:.35rem .8rem;border-radius:.5rem;color:#fff}
         .sec-count{font-weight:400;font-size:.85rem;opacity:.9;margin-left:.5rem}
+        .noun-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 1.25rem;margin-top:.5rem}
+        @media(max-width:700px){.noun-cols{grid-template-columns:1fr}}
+        .noun-col .col-art{text-align:center;font-weight:800;font-size:1.25rem;padding:.3rem 0;background:var(--table-stripe);border-radius:.5rem;border-bottom:3px solid currentColor}
         .word-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 1.25rem}
         @media(max-width:991px){.word-grid{grid-template-columns:1fr 1fr}}
         @media(max-width:640px){.word-grid{grid-template-columns:1fr}}
@@ -449,6 +452,10 @@
                 <div class="markdown-content">
 <h1 id="b1-deutsch-lektionen">B1 Deutsch Lektionen: Notizen zur Videoserie</h1>
 <p class="lead-sub"><em>Notizen zur YouTube-Serie "German Course - B1" von Desi Learn German (59 Videos). Wortschatz mit englischer Übersetzung und einfachen Beispielsätzen im Format des Wörterbuchs. / Notes on the video series: vocabulary with English translation and easy example sentences, in the dictionary format. Translations and example sentences are our own, based on the word lists shown in the videos; please check them against the dictionary.</em></p>
+<div class="notice-text" id="quelle">
+<strong>🎬 Quelle / Source:</strong> Diese Notizen folgen der YouTube-Serie <strong>"German Course - B1"</strong> von <strong>Desi Learn German</strong>. Alle Rechte an den Videos liegen beim Kanal. Schau die Videos dort an und unterstütze den Kanal! / These notes follow the YouTube series "German Course - B1" by Desi Learn German. All rights to the videos belong to the channel. Please watch the videos there and support the channel. <a href="https://www.youtube.com/playlist?list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN" target="_blank" rel="noopener"><strong>▶ Ganze Playlist ansehen / Watch the whole playlist ↗</strong></a><br>
+<small>Korrekturen oder Löschwünsche / corrections or removal requests: <a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener">GitHub Issues</a>.</small>
+</div>
 <h2 id="kursuebersicht">Kursübersicht / Course overview (59 Videos)</h2>
 <p class="lead-sub"><em>Notizen zur Playlist "German Course - B1" von Desi Learn German. ✅ = Notizen fertig, ⏳ = folgt.</em></p>
 <details class="overview-details"><summary>Alle 59 Videos anzeigen / show all (1 von 59 mit Notizen)</summary>
@@ -528,7 +535,8 @@
 <div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 English verbergen / hide English</button></div>
 <div class="lesson-block">
 <div class="sec-head" style="background:#a33a00">Nomen 1<span class="sec-count">15</span></div>
-<div class="word-grid">
+<div class="noun-cols">
+<div class="noun-col"><div class="col-art art-m">der</div>
 <div class="word-card" data-de="der gang" data-en="corridor, hallway">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="der Gang"><span class="art-m">der</span> Gang, ¨-e</span><span class="badge word-level">B1</span></div>
@@ -569,6 +577,8 @@
   </div>
 </div>
 
+</div>
+<div class="noun-col"><div class="col-art art-f">die</div>
 <div class="word-card" data-de="die couch" data-en="couch, sofa">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="die Couch"><span class="art-f">die</span> Couch, -s</span><span class="badge word-level">B1</span></div>
@@ -609,6 +619,8 @@
   </div>
 </div>
 
+</div>
+<div class="noun-col"><div class="col-art art-n">das</div>
 <div class="word-card" data-de="das recht" data-en="right; law">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="das Recht"><span class="art-n">das</span> Recht, -e</span><span class="badge word-level">B1</span></div>
@@ -650,8 +662,10 @@
 </div>
 
 </div>
+</div>
 <div class="sec-head" style="background:#a33a00">Nomen 2<span class="sec-count">15</span></div>
-<div class="word-grid">
+<div class="noun-cols">
+<div class="noun-col"><div class="col-art art-m">der</div>
 <div class="word-card" data-de="der strom" data-en="electricity, power">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="der Strom"><span class="art-m">der</span> Strom</span><span class="badge word-level">B1</span></div>
@@ -692,6 +706,8 @@
   </div>
 </div>
 
+</div>
+<div class="noun-col"><div class="col-art art-f">die</div>
 <div class="word-card" data-de="die anlage" data-en="complex, facility, system">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="die Anlage"><span class="art-f">die</span> Anlage, -n</span><span class="badge word-level">B1</span></div>
@@ -732,6 +748,8 @@
   </div>
 </div>
 
+</div>
+<div class="noun-col"><div class="col-art art-n">das</div>
 <div class="word-card" data-de="das haustier" data-en="pet">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="das Haustier"><span class="art-n">das</span> Haustier, -e</span><span class="badge word-level">B1</span></div>
@@ -773,8 +791,10 @@
 </div>
 
 </div>
+</div>
 <div class="sec-head" style="background:#a33a00">Nomen 3<span class="sec-count">15</span></div>
-<div class="word-grid">
+<div class="noun-cols">
+<div class="noun-col"><div class="col-art art-m">der</div>
 <div class="word-card" data-de="der brand" data-en="fire">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="der Brand"><span class="art-m">der</span> Brand, ¨-e</span><span class="badge word-level">B1</span></div>
@@ -815,6 +835,8 @@
   </div>
 </div>
 
+</div>
+<div class="noun-col"><div class="col-art art-f">die</div>
 <div class="word-card" data-de="die diele" data-en="hallway, entrance hall">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="die Diele"><span class="art-f">die</span> Diele, -n</span><span class="badge word-level">B1</span></div>
@@ -855,6 +877,8 @@
   </div>
 </div>
 
+</div>
+<div class="noun-col"><div class="col-art art-n">das</div>
 <div class="word-card" data-de="das risiko" data-en="risk">
   <div class="word-main">
     <div class="word-de-wrap"><span class="word-de" data-say="das Risiko"><span class="art-n">das</span> Risiko, -s</span><span class="badge word-level">B1</span></div>
@@ -895,6 +919,7 @@
   </div>
 </div>
 
+</div>
 </div>
 <div class="sec-head" style="background:#2f55a0">Verben<span class="sec-count">18</span></div>
 <div class="word-grid">
