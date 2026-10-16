@@ -143,7 +143,15 @@
         .practice-toggle-btn svg{width:13px;height:13px;}
         h3.has-toggle, h2.has-toggle{display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;}
 
-        /* Lesson notes: dictionary word cards (see dictionary-*.html) */
+        /* Lesson notes: language switch, dictionary word cards (see dictionary-*.html) */
+        html[data-lang="en"] .t-de{display:none!important}
+        html[data-lang="de"] .t-en{display:none!important}
+        .lang-switch{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;margin:.25rem 0 1rem;padding:.4rem .6rem;border:1px solid var(--alpha-border);border-radius:.75rem;width:fit-content}
+        .lang-switch .lang-label{font-size:.85rem;color:var(--muted-text);margin-right:.25rem}
+        .lang-switch button{border:1px solid #1d4ed8;background:transparent;color:#1d4ed8;border-radius:999px;padding:.2rem .9rem;font-size:.88rem;font-weight:600;cursor:pointer}
+        .lang-switch button[aria-pressed="true"]{background:#1d4ed8;color:#fff}
+        [data-bs-theme="dark"] .lang-switch button{border-color:#93c5fd;color:#93c5fd}
+        [data-bs-theme="dark"] .lang-switch button[aria-pressed="true"]{background:#93c5fd;color:#0f172a}
         /* left menu: all 59 lessons; a lesson becomes a link when its notes exist */
         .lesson-nav summary{cursor:pointer;font-weight:600;color:#1d4ed8;list-style:none}
         .lesson-nav summary::-webkit-details-marker{display:none}
@@ -164,7 +172,12 @@
         .overview-list{list-style:none;padding:0;margin:.25rem 0 0}
         .overview-list li{display:flex;gap:.6rem;align-items:baseline;padding:.2rem 0;border-bottom:1px solid var(--alpha-border);font-size:.92rem}
         .overview-list .no{min-width:2rem;font-weight:700;color:var(--muted-text)}
-        .overview-list .dur{margin-left:auto;color:var(--muted-text);font-size:.8rem;white-space:nowrap}
+        .overview-list .dur{color:var(--muted-text);font-size:.8rem;white-space:nowrap;min-width:3.2rem;text-align:right}
+        .overview-list .ttl{flex:1}
+        .overview-list .yt{margin-left:auto;font-size:.75rem;white-space:nowrap;padding:.05rem .5rem;border:1px solid #dc2626;color:#dc2626;border-radius:999px;font-weight:600}
+        .overview-list .yt:hover{background:#dc2626;color:#fff}
+        [data-bs-theme="dark"] .overview-list .yt{border-color:#f87171;color:#f87171}
+        [data-bs-theme="dark"] .overview-list .yt:hover{background:#f87171;color:#0f172a}
         .overview-list .st{min-width:1.4rem;text-align:center}
         .overview-list a{text-decoration:none}
         .sec-head{font-size:1.15rem;font-weight:700;margin-top:1.75rem;padding:.35rem .8rem;border-radius:.5rem;color:#fff}
@@ -192,6 +205,7 @@
         .lesson-tools button{border:1px solid #adb5bd;background:none;border-radius:999px;padding:.2rem .8rem;font-size:.82rem;cursor:pointer;color:#0d6efd}
         .lesson-tools button.on{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
     </style>
+    <script>(function(){var l="en";try{l=localStorage.getItem("wf_lessons_lang");if(l!=="de"&&l!=="en"){var n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();l=n.indexOf("de")===0?"de":"en";}}catch(e){l="en";}document.documentElement.setAttribute("data-lang",l);})();</script>
 </head>
 <body id="top">
     <div id="header-placeholder"></div>
@@ -380,9 +394,9 @@
                 </a>
 
                 <div class="jump-layout">
-                <div id="jump-bar-placeholder"><div class="jump-bar"><details class="lesson-nav" id="lessonNav"><summary>📚 Inhalt / Lektionen (1 von 59)</summary>
-<a class="ln done" href="#kursuebersicht"><span class="n">☰</span><span>Kursübersicht</span></a>
-<div class="ln-group">Wortschatz</div>
+                <div id="jump-bar-placeholder"><div class="jump-bar"><details class="lesson-nav" id="lessonNav"><summary>📚 <span class="t-de">Inhalt / Lektionen (1 von 59)</span><span class="t-en">Contents / lessons (1 of 59)</span></summary>
+<a class="ln done" href="#kursuebersicht"><span class="n">☰</span><span><span class="t-de">Kursübersicht</span><span class="t-en">Course overview</span></span></a>
+<div class="ln-group"><span class="t-de">Wortschatz</span><span class="t-en">Vocabulary</span></div>
 <a class="ln done" href="#video-01-rund-ums-wohnen" title="Rund ums Wohnen (Lesson 17)"><span class="n">1</span><span>Rund ums Wohnen (Lesson 17)</span></a>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">2</span><span>Einkaufen (Lesson 18)</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">3</span><span>Essen &amp; Trinken (Lesson 19)</span></span>
@@ -394,7 +408,7 @@
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">9</span><span>Mixed (Lesson 25)</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">10</span><span>50 Adjective Opposites (Lesson 26)</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">11</span><span>50 Adjective Synonyms (Lesson 27)</span></span>
-<div class="ln-group">Grammatik</div>
+<div class="ln-group"><span class="t-de">Grammatik</span><span class="t-en">Grammar</span></div>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">12</span><span>German Cases (revision A2/B1)</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">13</span><span>German Verb Position in Sentences</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">14</span><span>Personal Pronouns: Intensive Training</span></span>
@@ -425,18 +439,18 @@
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">39</span><span>German Passive (Präsens, Präteritum, Perfekt, Futur I)</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">40</span><span>n-Deklination</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">41</span><span>Top 20 Adjectives with Prepositions</span></span>
-<div class="ln-group">Lesen &amp; Schreiben</div>
+<div class="ln-group"><span class="t-de">Lesen &amp; Schreiben</span><span class="t-en">Reading &amp; writing</span></div>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">42</span><span>Text verstehen</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">43</span><span>Letter Writing: Tips &amp; Phrases</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">44</span><span>Eine Wohnung mieten (Brief schreiben)</span></span>
-<div class="ln-group">Prüfungssätze</div>
+<div class="ln-group"><span class="t-de">Prüfungssätze</span><span class="t-en">Exam papers</span></div>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">45</span><span>Zertifikat B1 Modellsatz, Part 1: Lesen &amp; Hören</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">46</span><span>Zertifikat B1 Modellsatz, Part 2: Schreiben &amp; Sprechen</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">47</span><span>Zertifikat B1 Übungssatz, Part 1: Lesen</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">48</span><span>Zertifikat B1 Übungssatz, Part 2: Hören</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">49</span><span>Zertifikat B1 Übungssatz, Part 3: Schreiben</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">50</span><span>Zertifikat B1 Übungssatz, Part 4: Sprechen</span></span>
-<div class="ln-group">Sprechen</div>
+<div class="ln-group"><span class="t-de">Sprechen</span><span class="t-en">Speaking</span></div>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">51</span><span>Gemeinsam etwas planen: Eine Kochaktion planen (Goethe, Sprechen Teil 1)</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">52</span><span>Ein Thema präsentieren (Goethe, Sprechen Teil 2 und 3)</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">53</span><span>Gemeinsam etwas planen: Redemittel (telc DTZ)</span></span>
@@ -445,96 +459,97 @@
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">56</span><span>Gemeinsam etwas planen 3: Zur Hochzeit gehen</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">57</span><span>Gemeinsam etwas planen: DLG Speaking Practice (telc Deutsch B1)</span></span>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">58</span><span>Ein Klassentreffen planen (telc Deutsch B1)</span></span>
-<div class="ln-group">Ausblick</div>
+<div class="ln-group"><span class="t-de">Ausblick</span><span class="t-en">Outlook</span></div>
 <span class="ln todo" title="Notizen folgen / notes to follow"><span class="n">59</span><span>Done with B1 &amp; unhappy with German conversations?</span></span>
 </details></div></div>
 
                 <div class="markdown-content">
-<h1 id="b1-deutsch-lektionen">B1 Deutsch Lektionen: Notizen zur Videoserie</h1>
-<p class="lead-sub"><em>Notizen zur YouTube-Serie "German Course - B1" von Desi Learn German (59 Videos). Wortschatz mit englischer Übersetzung und einfachen Beispielsätzen im Format des Wörterbuchs. / Notes on the video series: vocabulary with English translation and easy example sentences, in the dictionary format. Translations and example sentences are our own, based on the word lists shown in the videos; please check them against the dictionary.</em></p>
+<h1 id="b1-deutsch-lektionen"><span class="t-de">B1 Deutsch Lektionen: Notizen zur Videoserie</span><span class="t-en">B1 German lessons: notes on the video series</span></h1>
+<div class="lang-switch" role="group" aria-label="Sprache / Language"><span class="lang-label">🌐 <span class="t-de">Sprache</span><span class="t-en">Language</span></span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
+<p class="lead-sub"><em><span class="t-de">Notizen zur YouTube-Serie „German Course - B1“ von Desi Learn German (59 Videos). Wortschatz mit englischer Übersetzung und einfachen Beispielsätzen im Format des Wörterbuchs. Übersetzungen und Beispielsätze sind eigene, auf Grundlage der in den Videos gezeigten Wortlisten; bitte mit dem Wörterbuch abgleichen.</span><span class="t-en">Notes on the YouTube series "German Course - B1" by Desi Learn German (59 videos). Vocabulary with English translations and easy example sentences, in the dictionary format. Translations and example sentences are our own, based on the word lists shown in the videos; please check them against the dictionary.</span></em></p>
 <div class="notice-text" id="quelle">
-<strong>🎬 Quelle / Source:</strong> Diese Notizen folgen der YouTube-Serie <strong>"German Course - B1"</strong> von <strong>Desi Learn German</strong>. Alle Rechte an den Videos liegen beim Kanal. Schau die Videos dort an und unterstütze den Kanal! / These notes follow the YouTube series "German Course - B1" by Desi Learn German. All rights to the videos belong to the channel. Please watch the videos there and support the channel. <a href="https://www.youtube.com/playlist?list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN" target="_blank" rel="noopener"><strong>▶ Ganze Playlist ansehen / Watch the whole playlist ↗</strong></a><br>
-<small>Korrekturen oder Löschwünsche / corrections or removal requests: <a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener">GitHub Issues</a>.</small>
+<strong>🎬 <span class="t-de">Quelle:</span><span class="t-en">Source:</span></strong> <span class="t-de">Diese Notizen folgen der YouTube-Serie <strong>„German Course - B1“</strong> von <strong>Desi Learn German</strong>. Alle Rechte an den Videos liegen beim Kanal. Schau die Videos dort an und unterstütze den Kanal!</span><span class="t-en">These notes follow the YouTube series <strong>"German Course - B1"</strong> by <strong>Desi Learn German</strong>. All rights to the videos belong to the channel. Please watch the videos there and support the channel.</span> <a href="https://www.youtube.com/playlist?list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN" target="_blank" rel="noopener"><strong>▶ <span class="t-de">Ganze Playlist ansehen ↗</span><span class="t-en">Watch the whole playlist ↗</span></strong></a><br>
+<small><span class="t-de">Korrekturen oder Löschwünsche:</span><span class="t-en">Corrections or removal requests:</span> <a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener">GitHub Issues</a>.</small>
 </div>
-<h2 id="kursuebersicht">Kursübersicht / Course overview (59 Videos)</h2>
-<p class="lead-sub"><em>Notizen zur Playlist "German Course - B1" von Desi Learn German. ✅ = Notizen fertig, ⏳ = folgt.</em></p>
-<details class="overview-details"><summary>Alle 59 Videos anzeigen / show all (1 von 59 mit Notizen)</summary>
-<div class="overview-group">Wortschatz</div><ul class="overview-list">
-<li><span class="st">✅</span><span class="no">1</span><span><a href="#video-01-rund-ums-wohnen">Rund ums Wohnen (Lesson 17)</a></span><span class="dur">16:40</span></li>
-<li><span class="st">⏳</span><span class="no">2</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=2" target="_blank" rel="noopener">Einkaufen (Lesson 18)</a></span><span class="dur">17:05</span></li>
-<li><span class="st">⏳</span><span class="no">3</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=3" target="_blank" rel="noopener">Essen &amp; Trinken (Lesson 19)</a></span><span class="dur">17:22</span></li>
-<li><span class="st">⏳</span><span class="no">4</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=4" target="_blank" rel="noopener">Umwelt &amp; Energie (Lesson 20)</a></span><span class="dur">26:02</span></li>
-<li><span class="st">⏳</span><span class="no">5</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=5" target="_blank" rel="noopener">Gesund bleiben (Lesson 21)</a></span><span class="dur">20:14</span></li>
-<li><span class="st">⏳</span><span class="no">6</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=6" target="_blank" rel="noopener">Arbeit (Lesson 22)</a></span><span class="dur">19:03</span></li>
-<li><span class="st">⏳</span><span class="no">7</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=7" target="_blank" rel="noopener">Mediennutzung (Lesson 23)</a></span><span class="dur">14:33</span></li>
-<li><span class="st">⏳</span><span class="no">8</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=8" target="_blank" rel="noopener">Jung &amp; Alt (Lesson 24)</a></span><span class="dur">11:50</span></li>
-<li><span class="st">⏳</span><span class="no">9</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=9" target="_blank" rel="noopener">Mixed (Lesson 25)</a></span><span class="dur">14:32</span></li>
-<li><span class="st">⏳</span><span class="no">10</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=10" target="_blank" rel="noopener">50 Adjective Opposites (Lesson 26)</a></span><span class="dur">8:22</span></li>
-<li><span class="st">⏳</span><span class="no">11</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=11" target="_blank" rel="noopener">50 Adjective Synonyms (Lesson 27)</a></span><span class="dur">9:38</span></li>
+<h2 id="kursuebersicht"><span class="t-de">Kursübersicht (59 Videos)</span><span class="t-en">Course overview (59 videos)</span></h2>
+<p class="lead-sub"><em><span class="t-de">Notizen zur Playlist „German Course - B1“ von Desi Learn German. ✅ = Notizen fertig, ⏳ = folgt. Mit ▶ YouTube öffnest du das Video.</span><span class="t-en">Notes on the playlist "German Course - B1" by Desi Learn German. ✅ = notes ready, ⏳ = coming soon. ▶ YouTube opens the video.</span></em></p>
+<details class="overview-details"><summary><span class="t-de">Alle 59 Videos anzeigen (1 von 59 mit Notizen)</span><span class="t-en">Show all 59 videos (1 of 59 with notes)</span></summary>
+<div class="overview-group"><span class="t-de">Wortschatz</span><span class="t-en">Vocabulary</span></div><ul class="overview-list">
+<li><span class="st">✅</span><span class="no">1</span><span class="ttl"><a href="#video-01-rund-ums-wohnen">Rund ums Wohnen (Lesson 17)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=1" target="_blank" rel="noopener" title="Video 1 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">16:40</span></li>
+<li><span class="st">⏳</span><span class="no">2</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=2" target="_blank" rel="noopener">Einkaufen (Lesson 18)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=2" target="_blank" rel="noopener" title="Video 2 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">17:05</span></li>
+<li><span class="st">⏳</span><span class="no">3</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=3" target="_blank" rel="noopener">Essen &amp; Trinken (Lesson 19)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=3" target="_blank" rel="noopener" title="Video 3 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">17:22</span></li>
+<li><span class="st">⏳</span><span class="no">4</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=4" target="_blank" rel="noopener">Umwelt &amp; Energie (Lesson 20)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=4" target="_blank" rel="noopener" title="Video 4 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">26:02</span></li>
+<li><span class="st">⏳</span><span class="no">5</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=5" target="_blank" rel="noopener">Gesund bleiben (Lesson 21)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=5" target="_blank" rel="noopener" title="Video 5 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">20:14</span></li>
+<li><span class="st">⏳</span><span class="no">6</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=6" target="_blank" rel="noopener">Arbeit (Lesson 22)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=6" target="_blank" rel="noopener" title="Video 6 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">19:03</span></li>
+<li><span class="st">⏳</span><span class="no">7</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=7" target="_blank" rel="noopener">Mediennutzung (Lesson 23)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=7" target="_blank" rel="noopener" title="Video 7 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">14:33</span></li>
+<li><span class="st">⏳</span><span class="no">8</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=8" target="_blank" rel="noopener">Jung &amp; Alt (Lesson 24)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=8" target="_blank" rel="noopener" title="Video 8 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">11:50</span></li>
+<li><span class="st">⏳</span><span class="no">9</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=9" target="_blank" rel="noopener">Mixed (Lesson 25)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=9" target="_blank" rel="noopener" title="Video 9 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">14:32</span></li>
+<li><span class="st">⏳</span><span class="no">10</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=10" target="_blank" rel="noopener">50 Adjective Opposites (Lesson 26)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=10" target="_blank" rel="noopener" title="Video 10 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">8:22</span></li>
+<li><span class="st">⏳</span><span class="no">11</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=11" target="_blank" rel="noopener">50 Adjective Synonyms (Lesson 27)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=11" target="_blank" rel="noopener" title="Video 11 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">9:38</span></li>
 </ul>
-<div class="overview-group">Grammatik</div><ul class="overview-list">
-<li><span class="st">⏳</span><span class="no">12</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=12" target="_blank" rel="noopener">German Cases (revision A2/B1)</a></span><span class="dur">27:59</span></li>
-<li><span class="st">⏳</span><span class="no">13</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=13" target="_blank" rel="noopener">German Verb Position in Sentences</a></span><span class="dur">22:21</span></li>
-<li><span class="st">⏳</span><span class="no">14</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=14" target="_blank" rel="noopener">Personal Pronouns: Intensive Training</a></span><span class="dur">20:29</span></li>
-<li><span class="st">⏳</span><span class="no">15</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=15" target="_blank" rel="noopener">Adjectives as Nouns</a></span><span class="dur">12:40</span></li>
-<li><span class="st">⏳</span><span class="no">16</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=16" target="_blank" rel="noopener">All About Possessive Pronouns</a></span><span class="dur">16:20</span></li>
-<li><span class="st">⏳</span><span class="no">17</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=17" target="_blank" rel="noopener">All About Prepositions</a></span><span class="dur">17:35</span></li>
-<li><span class="st">⏳</span><span class="no">18</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=18" target="_blank" rel="noopener">Wechselpräpositionen</a></span><span class="dur">18:00</span></li>
-<li><span class="st">⏳</span><span class="no">19</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=19" target="_blank" rel="noopener">100 German Verbs: Accusative or Dative?</a></span><span class="dur">27:25</span></li>
-<li><span class="st">⏳</span><span class="no">20</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=20" target="_blank" rel="noopener">70 German Questions for Fluent Speaking</a></span><span class="dur">26:26</span></li>
-<li><span class="st">⏳</span><span class="no">21</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=21" target="_blank" rel="noopener">70 German Prepositions for Correct Sentences</a></span><span class="dur">37:19</span></li>
-<li><span class="st">⏳</span><span class="no">22</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=22" target="_blank" rel="noopener">Top 100 Verbs with Fixed Prepositions</a></span><span class="dur">42:05</span></li>
-<li><span class="st">⏳</span><span class="no">23</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=23" target="_blank" rel="noopener">100 German Phrases for Speaking &amp; Writing</a></span><span class="dur">35:31</span></li>
-<li><span class="st">⏳</span><span class="no">24</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=24" target="_blank" rel="noopener">Das Präteritum, Part 2</a></span><span class="dur">17:21</span></li>
-<li><span class="st">⏳</span><span class="no">25</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=25" target="_blank" rel="noopener">Reflexive Verben (mich, dich, sich, mir, dir)</a></span><span class="dur">21:03</span></li>
-<li><span class="st">⏳</span><span class="no">26</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=26" target="_blank" rel="noopener">Talking About Past Events (Perfekt, Präteritum, Plusquamperfekt)</a></span><span class="dur">21:40</span></li>
-<li><span class="st">⏳</span><span class="no">27</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=27" target="_blank" rel="noopener">Negation in German (nicht, kein, ohne)</a></span><span class="dur">20:11</span></li>
-<li><span class="st">⏳</span><span class="no">28</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=28" target="_blank" rel="noopener">Direkte und indirekte Fragen</a></span><span class="dur">12:00</span></li>
-<li><span class="st">⏳</span><span class="no">29</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=29" target="_blank" rel="noopener">Wo- &amp; Da-Compounds</a></span><span class="dur">12:47</span></li>
-<li><span class="st">⏳</span><span class="no">30</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=30" target="_blank" rel="noopener">Relativsätze, Part II</a></span><span class="dur">6:30</span></li>
-<li><span class="st">⏳</span><span class="no">31</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=31" target="_blank" rel="noopener">zuerst, dann, bevor, nachdem, zuletzt</a></span><span class="dur">5:25</span></li>
-<li><span class="st">⏳</span><span class="no">32</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=32" target="_blank" rel="noopener">Two-Part Connectors (entweder ... oder)</a></span><span class="dur">11:06</span></li>
-<li><span class="st">⏳</span><span class="no">33</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=33" target="_blank" rel="noopener">Joining Sentences in 15 Ways</a></span><span class="dur">28:29</span></li>
-<li><span class="st">⏳</span><span class="no">34</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=34" target="_blank" rel="noopener">5 Important Rules of Complex Sentences</a></span><span class="dur">26:20</span></li>
-<li><span class="st">⏳</span><span class="no">35</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=35" target="_blank" rel="noopener">10 Helpful Uses of German Verbs</a></span><span class="dur">31:49</span></li>
-<li><span class="st">⏳</span><span class="no">36</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=36" target="_blank" rel="noopener">10 Uses of the Verb werden</a></span><span class="dur">22:50</span></li>
-<li><span class="st">⏳</span><span class="no">37</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=37" target="_blank" rel="noopener">Konjunktiv II (hätte, würde, könnte)</a></span><span class="dur">9:30</span></li>
-<li><span class="st">⏳</span><span class="no">38</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=38" target="_blank" rel="noopener">Aktiv - Passiv, Part 1</a></span><span class="dur">12:51</span></li>
-<li><span class="st">⏳</span><span class="no">39</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=39" target="_blank" rel="noopener">German Passive (Präsens, Präteritum, Perfekt, Futur I)</a></span><span class="dur">9:55</span></li>
-<li><span class="st">⏳</span><span class="no">40</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=40" target="_blank" rel="noopener">n-Deklination</a></span><span class="dur">11:17</span></li>
-<li><span class="st">⏳</span><span class="no">41</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=41" target="_blank" rel="noopener">Top 20 Adjectives with Prepositions</a></span><span class="dur">11:40</span></li>
+<div class="overview-group"><span class="t-de">Grammatik</span><span class="t-en">Grammar</span></div><ul class="overview-list">
+<li><span class="st">⏳</span><span class="no">12</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=12" target="_blank" rel="noopener">German Cases (revision A2/B1)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=12" target="_blank" rel="noopener" title="Video 12 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">27:59</span></li>
+<li><span class="st">⏳</span><span class="no">13</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=13" target="_blank" rel="noopener">German Verb Position in Sentences</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=13" target="_blank" rel="noopener" title="Video 13 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">22:21</span></li>
+<li><span class="st">⏳</span><span class="no">14</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=14" target="_blank" rel="noopener">Personal Pronouns: Intensive Training</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=14" target="_blank" rel="noopener" title="Video 14 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">20:29</span></li>
+<li><span class="st">⏳</span><span class="no">15</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=15" target="_blank" rel="noopener">Adjectives as Nouns</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=15" target="_blank" rel="noopener" title="Video 15 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">12:40</span></li>
+<li><span class="st">⏳</span><span class="no">16</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=16" target="_blank" rel="noopener">All About Possessive Pronouns</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=16" target="_blank" rel="noopener" title="Video 16 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">16:20</span></li>
+<li><span class="st">⏳</span><span class="no">17</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=17" target="_blank" rel="noopener">All About Prepositions</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=17" target="_blank" rel="noopener" title="Video 17 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">17:35</span></li>
+<li><span class="st">⏳</span><span class="no">18</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=18" target="_blank" rel="noopener">Wechselpräpositionen</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=18" target="_blank" rel="noopener" title="Video 18 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">18:00</span></li>
+<li><span class="st">⏳</span><span class="no">19</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=19" target="_blank" rel="noopener">100 German Verbs: Accusative or Dative?</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=19" target="_blank" rel="noopener" title="Video 19 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">27:25</span></li>
+<li><span class="st">⏳</span><span class="no">20</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=20" target="_blank" rel="noopener">70 German Questions for Fluent Speaking</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=20" target="_blank" rel="noopener" title="Video 20 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">26:26</span></li>
+<li><span class="st">⏳</span><span class="no">21</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=21" target="_blank" rel="noopener">70 German Prepositions for Correct Sentences</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=21" target="_blank" rel="noopener" title="Video 21 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">37:19</span></li>
+<li><span class="st">⏳</span><span class="no">22</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=22" target="_blank" rel="noopener">Top 100 Verbs with Fixed Prepositions</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=22" target="_blank" rel="noopener" title="Video 22 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">42:05</span></li>
+<li><span class="st">⏳</span><span class="no">23</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=23" target="_blank" rel="noopener">100 German Phrases for Speaking &amp; Writing</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=23" target="_blank" rel="noopener" title="Video 23 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">35:31</span></li>
+<li><span class="st">⏳</span><span class="no">24</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=24" target="_blank" rel="noopener">Das Präteritum, Part 2</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=24" target="_blank" rel="noopener" title="Video 24 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">17:21</span></li>
+<li><span class="st">⏳</span><span class="no">25</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=25" target="_blank" rel="noopener">Reflexive Verben (mich, dich, sich, mir, dir)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=25" target="_blank" rel="noopener" title="Video 25 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">21:03</span></li>
+<li><span class="st">⏳</span><span class="no">26</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=26" target="_blank" rel="noopener">Talking About Past Events (Perfekt, Präteritum, Plusquamperfekt)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=26" target="_blank" rel="noopener" title="Video 26 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">21:40</span></li>
+<li><span class="st">⏳</span><span class="no">27</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=27" target="_blank" rel="noopener">Negation in German (nicht, kein, ohne)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=27" target="_blank" rel="noopener" title="Video 27 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">20:11</span></li>
+<li><span class="st">⏳</span><span class="no">28</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=28" target="_blank" rel="noopener">Direkte und indirekte Fragen</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=28" target="_blank" rel="noopener" title="Video 28 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">12:00</span></li>
+<li><span class="st">⏳</span><span class="no">29</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=29" target="_blank" rel="noopener">Wo- &amp; Da-Compounds</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=29" target="_blank" rel="noopener" title="Video 29 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">12:47</span></li>
+<li><span class="st">⏳</span><span class="no">30</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=30" target="_blank" rel="noopener">Relativsätze, Part II</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=30" target="_blank" rel="noopener" title="Video 30 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">6:30</span></li>
+<li><span class="st">⏳</span><span class="no">31</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=31" target="_blank" rel="noopener">zuerst, dann, bevor, nachdem, zuletzt</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=31" target="_blank" rel="noopener" title="Video 31 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">5:25</span></li>
+<li><span class="st">⏳</span><span class="no">32</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=32" target="_blank" rel="noopener">Two-Part Connectors (entweder ... oder)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=32" target="_blank" rel="noopener" title="Video 32 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">11:06</span></li>
+<li><span class="st">⏳</span><span class="no">33</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=33" target="_blank" rel="noopener">Joining Sentences in 15 Ways</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=33" target="_blank" rel="noopener" title="Video 33 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">28:29</span></li>
+<li><span class="st">⏳</span><span class="no">34</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=34" target="_blank" rel="noopener">5 Important Rules of Complex Sentences</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=34" target="_blank" rel="noopener" title="Video 34 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">26:20</span></li>
+<li><span class="st">⏳</span><span class="no">35</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=35" target="_blank" rel="noopener">10 Helpful Uses of German Verbs</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=35" target="_blank" rel="noopener" title="Video 35 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">31:49</span></li>
+<li><span class="st">⏳</span><span class="no">36</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=36" target="_blank" rel="noopener">10 Uses of the Verb werden</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=36" target="_blank" rel="noopener" title="Video 36 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">22:50</span></li>
+<li><span class="st">⏳</span><span class="no">37</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=37" target="_blank" rel="noopener">Konjunktiv II (hätte, würde, könnte)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=37" target="_blank" rel="noopener" title="Video 37 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">9:30</span></li>
+<li><span class="st">⏳</span><span class="no">38</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=38" target="_blank" rel="noopener">Aktiv - Passiv, Part 1</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=38" target="_blank" rel="noopener" title="Video 38 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">12:51</span></li>
+<li><span class="st">⏳</span><span class="no">39</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=39" target="_blank" rel="noopener">German Passive (Präsens, Präteritum, Perfekt, Futur I)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=39" target="_blank" rel="noopener" title="Video 39 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">9:55</span></li>
+<li><span class="st">⏳</span><span class="no">40</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=40" target="_blank" rel="noopener">n-Deklination</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=40" target="_blank" rel="noopener" title="Video 40 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">11:17</span></li>
+<li><span class="st">⏳</span><span class="no">41</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=41" target="_blank" rel="noopener">Top 20 Adjectives with Prepositions</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=41" target="_blank" rel="noopener" title="Video 41 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">11:40</span></li>
 </ul>
-<div class="overview-group">Lesen &amp; Schreiben</div><ul class="overview-list">
-<li><span class="st">⏳</span><span class="no">42</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=42" target="_blank" rel="noopener">Text verstehen</a></span><span class="dur">10:00</span></li>
-<li><span class="st">⏳</span><span class="no">43</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=43" target="_blank" rel="noopener">Letter Writing: Tips &amp; Phrases</a></span><span class="dur">34:49</span></li>
-<li><span class="st">⏳</span><span class="no">44</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=44" target="_blank" rel="noopener">Eine Wohnung mieten (Brief schreiben)</a></span><span class="dur">11:37</span></li>
+<div class="overview-group"><span class="t-de">Lesen &amp; Schreiben</span><span class="t-en">Reading &amp; writing</span></div><ul class="overview-list">
+<li><span class="st">⏳</span><span class="no">42</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=42" target="_blank" rel="noopener">Text verstehen</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=42" target="_blank" rel="noopener" title="Video 42 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">10:00</span></li>
+<li><span class="st">⏳</span><span class="no">43</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=43" target="_blank" rel="noopener">Letter Writing: Tips &amp; Phrases</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=43" target="_blank" rel="noopener" title="Video 43 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">34:49</span></li>
+<li><span class="st">⏳</span><span class="no">44</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=44" target="_blank" rel="noopener">Eine Wohnung mieten (Brief schreiben)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=44" target="_blank" rel="noopener" title="Video 44 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">11:37</span></li>
 </ul>
-<div class="overview-group">Prüfungssätze</div><ul class="overview-list">
-<li><span class="st">⏳</span><span class="no">45</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=45" target="_blank" rel="noopener">Zertifikat B1 Modellsatz, Part 1: Lesen &amp; Hören</a></span><span class="dur">1:55:09</span></li>
-<li><span class="st">⏳</span><span class="no">46</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=46" target="_blank" rel="noopener">Zertifikat B1 Modellsatz, Part 2: Schreiben &amp; Sprechen</a></span><span class="dur">30:00</span></li>
-<li><span class="st">⏳</span><span class="no">47</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=47" target="_blank" rel="noopener">Zertifikat B1 Übungssatz, Part 1: Lesen</a></span><span class="dur">1:06:32</span></li>
-<li><span class="st">⏳</span><span class="no">48</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=48" target="_blank" rel="noopener">Zertifikat B1 Übungssatz, Part 2: Hören</a></span><span class="dur">37:00</span></li>
-<li><span class="st">⏳</span><span class="no">49</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=49" target="_blank" rel="noopener">Zertifikat B1 Übungssatz, Part 3: Schreiben</a></span><span class="dur">15:00</span></li>
-<li><span class="st">⏳</span><span class="no">50</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=50" target="_blank" rel="noopener">Zertifikat B1 Übungssatz, Part 4: Sprechen</a></span><span class="dur">18:50</span></li>
+<div class="overview-group"><span class="t-de">Prüfungssätze</span><span class="t-en">Exam papers</span></div><ul class="overview-list">
+<li><span class="st">⏳</span><span class="no">45</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=45" target="_blank" rel="noopener">Zertifikat B1 Modellsatz, Part 1: Lesen &amp; Hören</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=45" target="_blank" rel="noopener" title="Video 45 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">1:55:09</span></li>
+<li><span class="st">⏳</span><span class="no">46</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=46" target="_blank" rel="noopener">Zertifikat B1 Modellsatz, Part 2: Schreiben &amp; Sprechen</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=46" target="_blank" rel="noopener" title="Video 46 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">30:00</span></li>
+<li><span class="st">⏳</span><span class="no">47</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=47" target="_blank" rel="noopener">Zertifikat B1 Übungssatz, Part 1: Lesen</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=47" target="_blank" rel="noopener" title="Video 47 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">1:06:32</span></li>
+<li><span class="st">⏳</span><span class="no">48</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=48" target="_blank" rel="noopener">Zertifikat B1 Übungssatz, Part 2: Hören</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=48" target="_blank" rel="noopener" title="Video 48 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">37:00</span></li>
+<li><span class="st">⏳</span><span class="no">49</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=49" target="_blank" rel="noopener">Zertifikat B1 Übungssatz, Part 3: Schreiben</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=49" target="_blank" rel="noopener" title="Video 49 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">15:00</span></li>
+<li><span class="st">⏳</span><span class="no">50</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=50" target="_blank" rel="noopener">Zertifikat B1 Übungssatz, Part 4: Sprechen</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=50" target="_blank" rel="noopener" title="Video 50 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">18:50</span></li>
 </ul>
-<div class="overview-group">Sprechen</div><ul class="overview-list">
-<li><span class="st">⏳</span><span class="no">51</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=51" target="_blank" rel="noopener">Gemeinsam etwas planen: Eine Kochaktion planen (Goethe, Sprechen Teil 1)</a></span><span class="dur">15:31</span></li>
-<li><span class="st">⏳</span><span class="no">52</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=52" target="_blank" rel="noopener">Ein Thema präsentieren (Goethe, Sprechen Teil 2 und 3)</a></span><span class="dur">9:38</span></li>
-<li><span class="st">⏳</span><span class="no">53</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=53" target="_blank" rel="noopener">Gemeinsam etwas planen: Redemittel (telc DTZ)</a></span><span class="dur">21:47</span></li>
-<li><span class="st">⏳</span><span class="no">54</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=54" target="_blank" rel="noopener">Gemeinsam etwas planen: Einen Fahrradausflug machen (A2)</a></span><span class="dur">8:24</span></li>
-<li><span class="st">⏳</span><span class="no">55</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=55" target="_blank" rel="noopener">Gemeinsam etwas planen 2: Eine Party organisieren</a></span><span class="dur">10:23</span></li>
-<li><span class="st">⏳</span><span class="no">56</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=56" target="_blank" rel="noopener">Gemeinsam etwas planen 3: Zur Hochzeit gehen</a></span><span class="dur">13:27</span></li>
-<li><span class="st">⏳</span><span class="no">57</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=57" target="_blank" rel="noopener">Gemeinsam etwas planen: DLG Speaking Practice (telc Deutsch B1)</a></span><span class="dur">6:58</span></li>
-<li><span class="st">⏳</span><span class="no">58</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=58" target="_blank" rel="noopener">Ein Klassentreffen planen (telc Deutsch B1)</a></span><span class="dur">8:06</span></li>
+<div class="overview-group"><span class="t-de">Sprechen</span><span class="t-en">Speaking</span></div><ul class="overview-list">
+<li><span class="st">⏳</span><span class="no">51</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=51" target="_blank" rel="noopener">Gemeinsam etwas planen: Eine Kochaktion planen (Goethe, Sprechen Teil 1)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=51" target="_blank" rel="noopener" title="Video 51 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">15:31</span></li>
+<li><span class="st">⏳</span><span class="no">52</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=52" target="_blank" rel="noopener">Ein Thema präsentieren (Goethe, Sprechen Teil 2 und 3)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=52" target="_blank" rel="noopener" title="Video 52 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">9:38</span></li>
+<li><span class="st">⏳</span><span class="no">53</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=53" target="_blank" rel="noopener">Gemeinsam etwas planen: Redemittel (telc DTZ)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=53" target="_blank" rel="noopener" title="Video 53 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">21:47</span></li>
+<li><span class="st">⏳</span><span class="no">54</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=54" target="_blank" rel="noopener">Gemeinsam etwas planen: Einen Fahrradausflug machen (A2)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=54" target="_blank" rel="noopener" title="Video 54 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">8:24</span></li>
+<li><span class="st">⏳</span><span class="no">55</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=55" target="_blank" rel="noopener">Gemeinsam etwas planen 2: Eine Party organisieren</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=55" target="_blank" rel="noopener" title="Video 55 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">10:23</span></li>
+<li><span class="st">⏳</span><span class="no">56</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=56" target="_blank" rel="noopener">Gemeinsam etwas planen 3: Zur Hochzeit gehen</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=56" target="_blank" rel="noopener" title="Video 56 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">13:27</span></li>
+<li><span class="st">⏳</span><span class="no">57</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=57" target="_blank" rel="noopener">Gemeinsam etwas planen: DLG Speaking Practice (telc Deutsch B1)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=57" target="_blank" rel="noopener" title="Video 57 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">6:58</span></li>
+<li><span class="st">⏳</span><span class="no">58</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=58" target="_blank" rel="noopener">Ein Klassentreffen planen (telc Deutsch B1)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=58" target="_blank" rel="noopener" title="Video 58 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">8:06</span></li>
 </ul>
-<div class="overview-group">Ausblick</div><ul class="overview-list">
-<li><span class="st">⏳</span><span class="no">59</span><span><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=59" target="_blank" rel="noopener">Done with B1 &amp; unhappy with German conversations?</a></span><span class="dur">19:21</span></li>
+<div class="overview-group"><span class="t-de">Ausblick</span><span class="t-en">Outlook</span></div><ul class="overview-list">
+<li><span class="st">⏳</span><span class="no">59</span><span class="ttl"><a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=59" target="_blank" rel="noopener">Done with B1 &amp; unhappy with German conversations?</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=59" target="_blank" rel="noopener" title="Video 59 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">19:21</span></li>
 </ul></details>
 <h2 id="video-01-rund-ums-wohnen" class="part-heading">1. Rund ums Wohnen</h2>
-<p class="lesson-meta">Video 1 (Lesson 17): B1 vocabulary about housing: 45 nouns, 18 verbs, 18 adjectives · <a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=1" target="_blank" rel="noopener">Video 1 ansehen ↗ / watch</a> · 81 Wörter</p>
-<div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 English verbergen / hide English</button></div>
+<p class="lesson-meta"><span class="t-de">Video 1 (Lesson 17): B1-Wortschatz rund ums Wohnen: 45 Nomen, 18 Verben, 18 Adjektive</span><span class="t-en">Video 1 (Lesson 17): B1 vocabulary about housing: 45 nouns, 18 verbs, 18 adjectives</span> · <a href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=1" target="_blank" rel="noopener"><span class="t-de">Video 1 ansehen ↗</span><span class="t-en">Watch video 1 ↗</span></a> · <span class="t-de">81 Wörter</span><span class="t-en">81 words</span></p>
+<div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 <span class="t-de">Englisch verbergen</span><span class="t-en">Hide English</span></button></div>
 <div class="lesson-block">
-<div class="sec-head" style="background:#a33a00">Nomen 1<span class="sec-count">15</span></div>
+<div class="sec-head" style="background:#a33a00"><span class="t-de">Nomen 1</span><span class="t-en">Nouns 1</span><span class="sec-count">15</span></div>
 <div class="noun-cols">
 <div class="noun-col"><div class="col-art art-m">der</div>
 <div class="word-card" data-de="der gang" data-en="corridor, hallway">
@@ -663,7 +678,7 @@
 
 </div>
 </div>
-<div class="sec-head" style="background:#a33a00">Nomen 2<span class="sec-count">15</span></div>
+<div class="sec-head" style="background:#a33a00"><span class="t-de">Nomen 2</span><span class="t-en">Nouns 2</span><span class="sec-count">15</span></div>
 <div class="noun-cols">
 <div class="noun-col"><div class="col-art art-m">der</div>
 <div class="word-card" data-de="der strom" data-en="electricity, power">
@@ -792,7 +807,7 @@
 
 </div>
 </div>
-<div class="sec-head" style="background:#a33a00">Nomen 3<span class="sec-count">15</span></div>
+<div class="sec-head" style="background:#a33a00"><span class="t-de">Nomen 3</span><span class="t-en">Nouns 3</span><span class="sec-count">15</span></div>
 <div class="noun-cols">
 <div class="noun-col"><div class="col-art art-m">der</div>
 <div class="word-card" data-de="der brand" data-en="fire">
@@ -921,7 +936,7 @@
 
 </div>
 </div>
-<div class="sec-head" style="background:#2f55a0">Verben<span class="sec-count">18</span></div>
+<div class="sec-head" style="background:#2f55a0"><span class="t-de">Verben</span><span class="t-en">Verbs</span><span class="sec-count">18</span></div>
 <div class="word-grid">
 <div class="word-card" data-de="decken" data-en="to cover; den tisch decken = to set the table">
   <div class="word-main">
@@ -965,7 +980,7 @@
 
 <div class="word-card" data-de="aufstellen" data-en="to set up, put up">
   <div class="word-main">
-    <div class="word-de-wrap"><span class="word-de" data-say="aufstellen">aufstellen</span><span class="badge word-level">B1</span><span class="word-tag">trennbar</span></div>
+    <div class="word-de-wrap"><span class="word-de" data-say="aufstellen">aufstellen</span><span class="badge word-level">B1</span><span class="word-tag"><span class="t-de">trennbar</span><span class="t-en">separable</span></span></div>
     <div class="word-en"><span>to set up, put up</span></div>
     <div class="word-example"><span class="ex-de" data-say="Wir stellen das Regal im Flur auf.">Wir stellen das Regal im Flur auf.</span><br><span class="ex-en">We put up the shelf in the hallway.</span></div>
   </div>
@@ -973,7 +988,7 @@
 
 <div class="word-card" data-de="einrichten" data-en="to furnish, set up">
   <div class="word-main">
-    <div class="word-de-wrap"><span class="word-de" data-say="einrichten">einrichten</span><span class="badge word-level">B1</span><span class="word-tag">trennbar</span></div>
+    <div class="word-de-wrap"><span class="word-de" data-say="einrichten">einrichten</span><span class="badge word-level">B1</span><span class="word-tag"><span class="t-de">trennbar</span><span class="t-en">separable</span></span></div>
     <div class="word-en"><span>to furnish, set up</span></div>
     <div class="word-example"><span class="ex-de" data-say="Wir richten die neue Wohnung gerade ein.">Wir richten die neue Wohnung gerade ein.</span><br><span class="ex-en">We are furnishing the new flat right now.</span></div>
   </div>
@@ -1005,7 +1020,7 @@
 
 <div class="word-card" data-de="umziehen" data-en="to move (house); to change clothes">
   <div class="word-main">
-    <div class="word-de-wrap"><span class="word-de" data-say="umziehen">umziehen</span><span class="badge word-level">B1</span><span class="word-tag">trennbar</span></div>
+    <div class="word-de-wrap"><span class="word-de" data-say="umziehen">umziehen</span><span class="badge word-level">B1</span><span class="word-tag"><span class="t-de">trennbar</span><span class="t-en">separable</span></span></div>
     <div class="word-en"><span>to move (house); to change clothes</span></div>
     <div class="word-example"><span class="ex-de" data-say="Wir ziehen nächsten Monat um.">Wir ziehen nächsten Monat um.</span><br><span class="ex-en">We are moving next month.</span></div>
   </div>
@@ -1021,7 +1036,7 @@
 
 <div class="word-card" data-de="einschalten" data-en="to switch on">
   <div class="word-main">
-    <div class="word-de-wrap"><span class="word-de" data-say="einschalten">einschalten</span><span class="badge word-level">B1</span><span class="word-tag">trennbar</span></div>
+    <div class="word-de-wrap"><span class="word-de" data-say="einschalten">einschalten</span><span class="badge word-level">B1</span><span class="word-tag"><span class="t-de">trennbar</span><span class="t-en">separable</span></span></div>
     <div class="word-en"><span>to switch on</span></div>
     <div class="word-example"><span class="ex-de" data-say="Schalten Sie bitte das Licht ein.">Schalten Sie bitte das Licht ein.</span><br><span class="ex-en">Please switch on the light.</span></div>
   </div>
@@ -1029,7 +1044,7 @@
 
 <div class="word-card" data-de="auslaufen" data-en="to run out, leak; to expire">
   <div class="word-main">
-    <div class="word-de-wrap"><span class="word-de" data-say="auslaufen">auslaufen</span><span class="badge word-level">B1</span><span class="word-tag">trennbar</span></div>
+    <div class="word-de-wrap"><span class="word-de" data-say="auslaufen">auslaufen</span><span class="badge word-level">B1</span><span class="word-tag"><span class="t-de">trennbar</span><span class="t-en">separable</span></span></div>
     <div class="word-en"><span>to run out, leak; to expire</span></div>
     <div class="word-example"><span class="ex-de" data-say="Mein Mietvertrag läuft im Dezember aus.">Mein Mietvertrag läuft im Dezember aus.</span><br><span class="ex-en">My rental contract expires in December.</span></div>
   </div>
@@ -1037,7 +1052,7 @@
 
 <div class="word-card" data-de="sich wohlfühlen" data-en="to feel at ease, feel comfortable">
   <div class="word-main">
-    <div class="word-de-wrap"><span class="word-de" data-say="sich wohlfühlen">sich wohlfühlen</span><span class="badge word-level">B1</span><span class="word-tag">reflexiv, trennbar</span></div>
+    <div class="word-de-wrap"><span class="word-de" data-say="sich wohlfühlen">sich wohlfühlen</span><span class="badge word-level">B1</span><span class="word-tag"><span class="t-de">reflexiv, trennbar</span><span class="t-en">reflexive, separable</span></span></div>
     <div class="word-en"><span>to feel at ease, feel comfortable</span></div>
     <div class="word-example"><span class="ex-de" data-say="In meiner neuen Wohnung fühle ich mich sehr wohl.">In meiner neuen Wohnung fühle ich mich sehr wohl.</span><br><span class="ex-en">I feel very comfortable in my new flat.</span></div>
   </div>
@@ -1045,7 +1060,7 @@
 
 <div class="word-card" data-de="ausmachen" data-en="to switch off; to agree on, arrange">
   <div class="word-main">
-    <div class="word-de-wrap"><span class="word-de" data-say="ausmachen">ausmachen</span><span class="badge word-level">B1</span><span class="word-tag">trennbar</span></div>
+    <div class="word-de-wrap"><span class="word-de" data-say="ausmachen">ausmachen</span><span class="badge word-level">B1</span><span class="word-tag"><span class="t-de">trennbar</span><span class="t-en">separable</span></span></div>
     <div class="word-en"><span>to switch off; to agree on, arrange</span></div>
     <div class="word-example"><span class="ex-de" data-say="Machen Sie bitte das Licht aus, wenn Sie gehen.">Machen Sie bitte das Licht aus, wenn Sie gehen.</span><br><span class="ex-en">Please switch off the light when you leave.</span></div>
   </div>
@@ -1068,7 +1083,7 @@
 </div>
 
 </div>
-<div class="sec-head" style="background:#c88a00">Adjektive<span class="sec-count">18</span></div>
+<div class="sec-head" style="background:#c88a00"><span class="t-de">Adjektive</span><span class="t-en">Adjectives</span><span class="sec-count">18</span></div>
 <div class="word-grid">
 <div class="word-card" data-de="üblich" data-en="usual, customary">
   <div class="word-main">
@@ -1271,8 +1286,20 @@
     </script>
 
     <script>
-    // Speaker buttons + hide-English practice (cards of this page only)
+    // Language switch, speaker buttons and hide-English practice (this page only)
     (function () {
+        function setLang(l, save) {
+            document.documentElement.setAttribute('data-lang', l);
+            if (save) { try { localStorage.setItem('wf_lessons_lang', l); } catch (e) {} }
+            document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+                b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === l ? 'true' : 'false');
+            });
+        }
+        setLang(document.documentElement.getAttribute('data-lang') || 'en', false);
+        document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+            b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); });
+        });
+
         var synth = window.speechSynthesis, active = null;
         var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
         function speak(text, btn) {
@@ -1292,7 +1319,7 @@
             document.querySelectorAll('[data-say]').forEach(function (el) {
                 if (el.nextElementSibling && el.nextElementSibling.classList.contains('d-tts')) return;
                 var b = document.createElement('button');
-                b.type = 'button'; b.className = 'd-tts'; b.title = 'Anhören'; b.innerHTML = svg;
+                b.type = 'button'; b.className = 'd-tts'; b.title = 'Anhören / Listen'; b.innerHTML = svg;
                 b.addEventListener('click', function (e) { e.preventDefault(); speak(el.getAttribute('data-say'), b); });
                 el.insertAdjacentElement('afterend', b);
             });
