@@ -1,11 +1,10 @@
 // WordFeather - Service Worker
 // CACHE_NAME below is auto-updated by build.py on every run — do not edit by hand.
 // AUTO-CACHE-VERSION-START
-<<<<<<< HEAD
-const CACHE_NAME = 'deutsch-lernen-v20261017-224417';
+const CACHE_NAME = 'deutsch-lernen-v20261018-080707';
 =======
-const CACHE_NAME = 'deutsch-lernen-v20261018-075854';
->>>>>>> 95c7e4a (B1 Deutsch Lektionen: fix YouTube links (each row now opens its own video instead of the first in the playlist); release stamp)
+const CACHE_NAME = 'deutsch-lernen-v20261018-080400';
+>>>>>>> 7a3ec93 (B1 Deutsch Lektionen: click-to-play YouTube embed (youtube-nocookie, no load cost until clicked) and open-on-YouTube fallback in each lesson; release stamp)
 // AUTO-CACHE-VERSION-END
 const BASE = '/';
 
