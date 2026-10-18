@@ -180,6 +180,8 @@
         [data-bs-theme="dark"] .overview-list .yt:hover{background:#f87171;color:#0f172a}
         .overview-list .st{min-width:1.4rem;text-align:center}
         .overview-list a{text-decoration:none}
+        .print-brand{display:none}
+        @media print{@page{margin:16mm 14mm 18mm;@bottom-left{content:url(/icons/32.png);width:12mm;vertical-align:middle}@bottom-center{content:"WordFeather · wordfeather.com · " counter(page) " / " counter(pages);font-size:8pt;color:#64748b}}body.print-one #installBanner{display:none!important}body.print-one .print-brand{display:flex;align-items:center;gap:.6rem;font-size:10pt;color:#334155}body.print-one .print-head{padding-bottom:2mm;margin-bottom:4mm;border-bottom:2px solid #1d4ed8}body.print-one .print-head small{color:#64748b}body.print-one .print-foot{margin-top:6mm;padding-top:2mm;border-top:1px solid #94a3b8;font-size:8.5pt;justify-content:center}body.print-one .navbar,body.print-one .breadcrumb,body.print-one .page-header,body.print-one a[href*="dictionary"],body.print-one #jump-bar-placeholder,body.print-one #footer-placeholder,body.print-one #backToTop,body.print-one .lesson-tools,body.print-one .lesson-pager,body.print-one .d-tts,body.print-one .markdown-content>*:not(.print-this){display:none!important}body.print-one .jump-layout{display:block}body.print-one .lesson-block{break-inside:avoid}body.print-one .content-card{border:0;box-shadow:none}}
         .print-btn{border:1px solid var(--alpha-border);background:transparent;color:inherit;border-radius:999px;padding:.2rem .9rem;font-size:.88rem;font-weight:600;cursor:pointer;margin-left:.4rem}
         @media print{body.print-one .navbar,body.print-one .breadcrumb,body.print-one .page-header,body.print-one a[href*="dictionary"],body.print-one #jump-bar-placeholder,body.print-one #footer-placeholder,body.print-one #backToTop,body.print-one .lesson-tools,body.print-one .lesson-pager,body.print-one .d-tts,body.print-one .markdown-content>*:not(.print-this){display:none!important}body.print-one .jump-layout{display:block}body.print-one .lesson-block{break-inside:avoid}body.print-one .content-card{border:0;box-shadow:none}}
         .progress-line{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;font-weight:600;margin:.5rem 0 .15rem}
@@ -398,6 +400,7 @@
     <main class="container py-4 py-lg-5">
         <div class="card content-card">
             <div class="card-body p-4 p-lg-5">
+                <div class="print-brand print-head"><img src="/icons/96.png" width="40" height="40" alt="" loading="lazy"><span><strong>WordFeather</strong><br><small>Goethe-Zertifikat A1 to C2 · wordfeather.com</small></span></div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb small mb-3">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -12481,6 +12484,7 @@
                 </div>
                 </div>
 
+                    <div class="print-brand print-foot"><img src="/icons/32.png" width="16" height="16" alt="" loading="lazy"> <strong>WordFeather</strong> · wordfeather.com/B1/12_deutsch_lessons.html · Lernhilfe zum B1-Kurs / study aid for the B1 course</div>
                     <div id="footer-placeholder"></div>
             </div>
         </div>
@@ -12647,6 +12651,7 @@
     // print one extra section as PDF (browser print dialog)
     document.querySelectorAll('[data-print]').forEach(function (b) {
         b.addEventListener('click', function () {
+            new Image().src = '/icons/96.png'; new Image().src = '/icons/32.png';
             var h = b.closest('.lesson-tools').previousElementSibling, marked = [];
             while (h && h.tagName !== 'H2') h = h.previousElementSibling;
             for (var e = h; e && (e === h || e.tagName !== 'H2'); e = e.nextElementSibling) { e.classList.add('print-this'); marked.push(e); }
