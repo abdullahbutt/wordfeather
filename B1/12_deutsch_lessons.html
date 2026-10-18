@@ -182,6 +182,22 @@
         .overview-list a{text-decoration:none}
         .print-brand{display:none}
         @media print{@page{margin:16mm 14mm 18mm;@bottom-left{content:url(/icons/32.png);width:12mm;vertical-align:middle}@bottom-center{content:"WordFeather · wordfeather.com · " counter(page) " / " counter(pages);font-size:8pt;color:#64748b}}body.print-one #installBanner{display:none!important}body.print-one .print-brand{display:flex;align-items:center;gap:.6rem;font-size:10pt;color:#334155}body.print-one .print-head{padding-bottom:2mm;margin-bottom:4mm;border-bottom:2px solid #1d4ed8}body.print-one .print-head small{color:#64748b}body.print-one .print-foot{margin-top:6mm;padding-top:2mm;border-top:1px solid #94a3b8;font-size:8.5pt;justify-content:center}body.print-one .navbar,body.print-one .breadcrumb,body.print-one .page-header,body.print-one a[href*="dictionary"],body.print-one #jump-bar-placeholder,body.print-one #footer-placeholder,body.print-one #backToTop,body.print-one .lesson-tools,body.print-one .lesson-pager,body.print-one .d-tts,body.print-one .markdown-content>*:not(.print-this){display:none!important}body.print-one .jump-layout{display:block}body.print-one .lesson-block{break-inside:avoid}body.print-one .content-card{border:0;box-shadow:none}}
+        .practice-btn,.practice-all-btn{border:1px solid #1d4ed8;background:transparent;color:#1d4ed8;border-radius:999px;padding:.2rem .9rem;font-size:.88rem;font-weight:600;cursor:pointer;margin-left:.4rem}
+        .practice-btn[aria-pressed="true"]{background:#1d4ed8;color:#fff}
+        .practice-all-btn[hidden]{display:none}
+        [data-bs-theme="dark"] .practice-btn,[data-bs-theme="dark"] .practice-all-btn{border-color:#93c5fd;color:#93c5fd}
+        [data-bs-theme="dark"] .practice-btn[aria-pressed="true"]{background:#93c5fd;color:#0f172a}
+        .practice-cell{display:contents}
+        .practice-cell .eye-btn,.table-eye-btn{display:none}
+        .practice-on .practice-cell{display:inline-flex;align-items:flex-start;gap:.4rem}
+        .practice-on .practice-cell .eye-btn{display:inline-block;background:none;border:0;padding:0;cursor:pointer;color:#6c757d;line-height:1;flex-shrink:0}
+        .practice-on .practice-cell .eye-btn svg{width:15px;height:15px;display:block}
+        .practice-on .table-eye-btn{display:inline-flex;align-items:center;gap:.35rem;background:none;border:1px solid #adb5bd;border-radius:999px;padding:.15rem .6rem;margin:.4rem 0 .3rem;cursor:pointer;color:#1d4ed8;font-size:.78rem}
+        .practice-on .table-eye-btn svg{width:14px;height:14px}
+        .practice-on .practice-cell:not(.revealed) .masked-content{background:#dfe4ea;color:transparent!important;border-radius:.3rem;padding:.05rem .5rem;user-select:none;display:inline-block;min-width:2.2rem;pointer-events:none}
+        .practice-on .practice-cell:not(.revealed) .masked-content *{color:transparent!important;visibility:hidden}
+        [data-bs-theme="dark"] .practice-on .practice-cell:not(.revealed) .masked-content{background:#3a4250}
+        @media print{.practice-cell{display:contents!important}.practice-cell .eye-btn,.table-eye-btn,.practice-btn,.practice-all-btn{display:none!important}.practice-on .practice-cell .masked-content{background:none!important;color:inherit!important;padding:0!important;pointer-events:auto!important}.practice-on .practice-cell .masked-content *{color:inherit!important;visibility:visible!important}}
         .print-btn{border:1px solid var(--alpha-border);background:transparent;color:inherit;border-radius:999px;padding:.2rem .9rem;font-size:.88rem;font-weight:600;cursor:pointer;margin-left:.4rem}
         @media print{body.print-one .navbar,body.print-one .breadcrumb,body.print-one .page-header,body.print-one a[href*="dictionary"],body.print-one #jump-bar-placeholder,body.print-one #footer-placeholder,body.print-one #backToTop,body.print-one .lesson-tools,body.print-one .lesson-pager,body.print-one .d-tts,body.print-one .markdown-content>*:not(.print-this){display:none!important}body.print-one .jump-layout{display:block}body.print-one .lesson-block{break-inside:avoid}body.print-one .content-card{border:0;box-shadow:none}}
         .progress-line{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;font-weight:600;margin:.5rem 0 .15rem}
@@ -12396,7 +12412,7 @@
 <h2 id="extra-1-grammatik" class="part-heading"><span class="t-de">Zusatz 1: Grammatik in 5 Minuten (ein Satz erklärt alles)</span><span class="t-en">Extra 1: 5-minute grammar refresher (one sentence explains everything)</span></h2>
 <p class="lesson-meta"><span class="t-de">Eine Grammatik-Wiederholung für A2/B1. Passt zu den Lektionen 12–14, 16–18, 25–29 und 31–34.</span><span class="t-en">A grammar revision for A2/B1. Goes with lessons 12–14, 16–18, 25–29 and 31–34.</span></p>
 <div class="lesson-note"><span class="t-de"><strong>Woher kommt dieser Teil?</strong> Das ist kein Video von Desi Learn German. Es ist eine Lernhilfe, die ein Freund geteilt hat. Ich habe sie für diese Seite neu gemacht. Bitte vergleiche wichtige Dinge mit dem Wörterbuch. Prüfungsaufgaben sind hier nur kurz in eigenen Worten erklärt.</span><span class="t-en"><strong>Where does this part come from?</strong> This is not a video by Desi Learn German. It is a study aid shared by a friend, rebuilt for this page. Please check important things against the dictionary. Exam tasks are only summarised briefly in our own words.</span></div>
-<div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 <span class="t-de">Englisch verbergen</span><span class="t-en">Hide English</span></button><button type="button" class="print-btn" data-print="1">🖨 <span class="t-de">Drucken / als PDF speichern</span><span class="t-en">Print / save as PDF</span></button></div>
+<div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 <span class="t-de">Englisch verbergen</span><span class="t-en">Hide English</span></button><button type="button" class="practice-btn" aria-pressed="false">🧠 <span class="t-de">Üben: Antworten verstecken</span><span class="t-en">Practice: hide answers</span></button><button type="button" class="practice-all-btn" hidden><span class="t-de">Alle anzeigen</span><span class="t-en">Show all</span></button><button type="button" class="print-btn" data-print="1">🖨 <span class="t-de">Drucken / als PDF speichern</span><span class="t-en">Print / save as PDF</span></button></div>
 <div class="lesson-note"><span class="t-de"><strong>0. Der eine Satz:</strong> <span class="ex-de" data-say="Mein Bruder kauft heute einen Computer.">Mein Bruder kauft heute einen Computer.</span> <span class="ex-en">My brother buys a computer today.</span><br>Jede Regel unten zeigst du mit demselben Satz, nur ein Teil ändert sich. Lerne den Satz, dann hast du die Grammatik immer dabei. <strong>Die Frage für Nominativ oder Akkusativ:</strong> Wer macht es? = Nominativ. Was oder wen macht man es? = Akkusativ.</span><span class="t-en"><strong>0. The one sentence:</strong> <span class="ex-de" data-say="Mein Bruder kauft heute einen Computer.">Mein Bruder kauft heute einen Computer.</span> <span class="ex-en">My brother buys a computer today.</span><br>Every rule below is shown by changing only this sentence. Learn the sentence and you carry the grammar with you. <strong>The question that decides Nominativ or Akkusativ:</strong> who does it? = Nominativ. What or whom do they do it to? = Akkusativ.</span></div>
 <div class="lesson-block"><div class="sec-head" style="background:#2b50a0"><span class="t-de">Der Satz in Teilen</span><span class="t-en">The sentence in pieces</span><span class="sec-count">4</span></div><div class="table-responsive"><table class="table table-bordered table-sm align-top vp-table"><thead><tr><th><span class="t-de">Teil</span><span class="t-en">Piece</span></th><th><span class="t-de">Was ist das?</span><span class="t-en">What it is</span></th></tr></thead><tbody><tr><td><span class="ex-de" data-say="Mein Bruder">Mein Bruder</span></td><td><span class="t-de">Nominativ (das Subjekt, wer es macht) + Possessivwort</span><span class="t-en">Nominativ (the subject, the doer) plus a possessive word</span></td></tr><tr><td><span class="ex-de" data-say="kauft">kauft</span></td><td><span class="t-de">das konjugierte Verb, immer auf Position 2</span><span class="t-en">the conjugated verb, always in position 2</span></td></tr><tr><td><span class="ex-de" data-say="heute">heute</span></td><td><span class="t-de">Zeitwort</span><span class="t-en">time word</span></td></tr><tr><td><span class="ex-de" data-say="einen Computer">einen Computer</span></td><td><span class="t-de">Akkusativ (das Objekt)</span><span class="t-en">Akkusativ (the object, the thing acted on)</span></td></tr></tbody></table></div></div>
 <div class="lesson-note"><span class="t-de"><strong>1. Artikel: die ganze Tabelle.</strong> Alle Wörter unten heißen auf Englisch „the“. Das deutsche Wort ändert sich mit Genus und Kasus.</span><span class="t-en"><strong>1. Articles: the whole table.</strong> All the words below mean “the” in English. The German word changes with gender and case.</span></div>
@@ -12674,6 +12690,65 @@
             window.print();
         });
     });
+    // practice mode (grammar extra): hide table cells from the 2nd column on, click the eye to reveal
+    (function () {
+        var EYE_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+        var EYE_CLOSED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.86 21.86 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a21.86 21.86 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+        function setCell(cell, on) { cell.classList.toggle('revealed', on); var b = cell.querySelector('.eye-btn'); if (b) b.innerHTML = on ? EYE_OPEN : EYE_CLOSED; }
+        function setTableBtn(btn, on) { btn.dataset.open = on ? '1' : '0'; btn.innerHTML = (on ? EYE_OPEN : EYE_CLOSED) + '<span class="t-de">' + (on ? 'Tabelle verstecken' : 'Tabelle anzeigen') + '</span><span class="t-en">' + (on ? 'Hide table' : 'Show table') + '</span>'; }
+        function wrap(td) {
+            var w = document.createElement('span'); w.className = 'practice-cell';
+            var m = document.createElement('span'); m.className = 'masked-content';
+            while (td.firstChild) m.appendChild(td.firstChild);
+            var b = document.createElement('button'); b.type = 'button'; b.className = 'eye-btn'; b.innerHTML = EYE_CLOSED;
+            b.setAttribute('aria-label', 'Antwort anzeigen / show answer');
+            b.addEventListener('click', function () { setCell(w, !w.classList.contains('revealed')); });
+            w.appendChild(m); w.appendChild(b); td.appendChild(w);
+        }
+        function build(els) {
+            els.forEach(function (root) {
+                root.querySelectorAll('table').forEach(function (table) {
+                    var any = false;
+                    table.querySelectorAll('tbody tr').forEach(function (row) {
+                        var cells = Array.prototype.slice.call(row.children);
+                        var skip = /^[0-9]+$/.test(cells[0].textContent.trim()) ? 2 : 1;
+                        cells.forEach(function (td, i) {
+                            if (i < skip || td.classList.contains('no-mask') || !td.textContent.trim()) return;
+                            wrap(td); any = true;
+                        });
+                    });
+                    if (!any) return;
+                    var tb = document.createElement('button'); tb.type = 'button'; tb.className = 'table-eye-btn';
+                    setTableBtn(tb, false);
+                    tb.addEventListener('click', function () {
+                        var on = tb.dataset.open !== '1'; setTableBtn(tb, on);
+                        table.querySelectorAll('.practice-cell').forEach(function (c) { setCell(c, on); });
+                    });
+                    var host = table.closest('.table-responsive') || table;
+                    host.parentNode.insertBefore(tb, host);
+                });
+            });
+        }
+        document.querySelectorAll('.practice-btn').forEach(function (btn) {
+            var tools = btn.closest('.lesson-tools'), all = tools.querySelector('.practice-all-btn'), els = null, built = false, allOn = false;
+            function sect() { if (!els) { els = []; for (var e = tools.nextElementSibling; e && e.tagName !== 'H2'; e = e.nextElementSibling) els.push(e); } return els; }
+            function reveal(on) {
+                allOn = on;
+                sect().forEach(function (r) { r.querySelectorAll('.practice-cell').forEach(function (c) { setCell(c, on); }); r.querySelectorAll('.table-eye-btn').forEach(function (b) { setTableBtn(b, on); }); });
+                all.innerHTML = on ? '<span class="t-de">Alle verstecken</span><span class="t-en">Hide all</span>' : '<span class="t-de">Alle anzeigen</span><span class="t-en">Show all</span>';
+            }
+            btn.addEventListener('click', function () {
+                var on = btn.getAttribute('aria-pressed') !== 'true';
+                btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+                if (on && !built) { build(sect()); built = true; }
+                sect().forEach(function (r) { r.classList.toggle('practice-on', on); });
+                all.hidden = !on;
+                if (on) reveal(false);
+                btn.innerHTML = on ? '🧠 <span class="t-de">Üben beenden</span><span class="t-en">Stop practising</span>' : '🧠 <span class="t-de">Üben: Antworten verstecken</span><span class="t-en">Practice: hide answers</span>';
+            });
+            all.addEventListener('click', function () { reveal(!allOn); });
+        });
+    })();
     // search over the menu and the overview
     var input = document.getElementById('lessonSearch');
     if (!input) return;
