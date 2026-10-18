@@ -180,6 +180,20 @@
         [data-bs-theme="dark"] .overview-list .yt:hover{background:#f87171;color:#0f172a}
         .overview-list .st{min-width:1.4rem;text-align:center}
         .overview-list a{text-decoration:none}
+        .progress-line{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;font-weight:600;margin:.5rem 0 .15rem}
+        .pbar{flex:1;min-width:8rem;max-width:22rem;height:.55rem;border-radius:999px;background:var(--alpha-border);overflow:hidden}
+        .pbar>span{display:block;height:100%;background:#1d4ed8;border-radius:999px}
+        [data-bs-theme="dark"] .pbar>span{background:#93c5fd}
+        .legend{color:var(--muted-text);margin:0 0 .25rem}
+        .lesson-search{margin:.75rem 0}
+        .lesson-search input{width:100%;max-width:32rem;padding:.45rem .8rem;border:1px solid var(--alpha-border);border-radius:999px;background:transparent;color:inherit;font-size:.95rem}
+        .resume-box{display:flex;align-items:center;gap:.5rem;margin:.5rem 0;padding:.5rem .9rem;border:1px solid #1d4ed8;border-radius:.6rem;background:rgba(29,78,216,.08)}
+        .resume-box[hidden],#searchNone[hidden]{display:none}
+        .resume-box a{flex:1;font-weight:600;text-decoration:none}
+        .resume-box button{border:0;background:transparent;font-size:1.2rem;line-height:1;color:inherit;cursor:pointer}
+        .lesson-pager{display:flex;gap:.5rem;justify-content:space-between;flex-wrap:wrap;margin:1.25rem 0 2rem;padding-top:.6rem;border-top:1px solid var(--alpha-border);font-size:.88rem}
+        .lesson-pager a{text-decoration:none;font-weight:600;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        @media(min-width:576px){.lesson-pager a{max-width:48%}}
         .yt-embed{aspect-ratio:16/9;max-width:720px;margin:.75rem 0 .25rem;background:#111;border-radius:.5rem;overflow:hidden;contain:content}
         .yt-embed iframe{width:100%;height:100%;border:0;display:block}
         .yt-play{width:100%;height:100%;border:0;background:linear-gradient(135deg,#1f2937,#111);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;font-weight:600;cursor:pointer}
@@ -481,14 +495,17 @@
                 <div class="markdown-content">
 <h1 id="b1-deutsch-lektionen"><span class="t-de">B1 Deutsch Lektionen: Notizen zur Videoserie</span><span class="t-en">B1 German lessons: notes on the video series</span></h1>
 <div class="lang-switch" role="group" aria-label="Sprache / Language"><span class="lang-label">🌐 <span class="t-de">Sprache</span><span class="t-en">Language</span></span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
-<p class="lead-sub"><em><span class="t-de">Notizen zur YouTube-Serie „German Course - B1“ von Desi Learn German (59 Videos). Wortschatz mit englischer Übersetzung und einfachen Beispielsätzen, wie im Wörterbuch. Die Übersetzungen und Beispielsätze sind von mir, nach den Wortlisten in den Videos. Bitte vergleiche sie mit dem Wörterbuch.</span><span class="t-en">Notes on the YouTube series "German Course - B1" by Desi Learn German (59 videos). Vocabulary with English translations and easy example sentences, in the dictionary format. Translations and example sentences are our own, based on the word lists shown in the videos; please check them against the dictionary.</span></em></p>
+<p class="lead-sub"><em><span class="t-de">Notizen zur YouTube-Serie „German Course - B1“ von Desi Learn German (59 Videos): Wortschatz, Grammatik und Prüfungsübungen mit englischer Übersetzung. So geht es: Such dir eine Lektion aus, sieh das Video an und lies die Notizen. Mit „Englisch verbergen“ kannst du dich selbst testen. Die Übersetzungen und Beispielsätze sind von mir. Bitte vergleiche sie mit dem Wörterbuch.</span><span class="t-en">Notes on the YouTube series "German Course - B1" by Desi Learn German (59 videos): vocabulary, grammar and exam practice with English translations. How to use it: pick a lesson, watch the video and read the notes. Use "Hide English" to test yourself. The translations and example sentences are our own; please check them against the dictionary.</span></em></p>
 <div class="notice-text" id="quelle">
 <strong>🎬 <span class="t-de">Quelle:</span><span class="t-en">Source:</span></strong> <span class="t-de">Diese Notizen gehören zur YouTube-Serie <strong>„German Course - B1“</strong> von <strong>Desi Learn German</strong>. Alle Rechte an den Videos hat der Kanal. Die Videos laufen über den offiziellen YouTube-Player und bleiben auf YouTube. Schau die Videos dort an und unterstütze den Kanal!</span><span class="t-en">These notes follow the YouTube series <strong>"German Course - B1"</strong> by <strong>Desi Learn German</strong>. All rights to the videos belong to the channel. The videos are embedded via the official YouTube player and remain hosted on YouTube. Please watch them there and support the channel.</span> <a href="https://www.youtube.com/playlist?list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN" target="_blank" rel="noopener"><strong>▶ <span class="t-de">Ganze Playlist ansehen ↗</span><span class="t-en">Watch the whole playlist ↗</span></strong></a><br>
 <small><span class="t-de">Fehler melden oder Inhalte löschen lassen:</span><span class="t-en">Corrections or removal requests:</span> <a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener">GitHub Issues</a>.</small>
 </div>
+<div class="resume-box" id="resumeBox" hidden><a id="resumeLink" href="#"></a><button type="button" id="resumeClose" aria-label="Schließen / Close">×</button></div>
+<div class="lesson-search"><input type="search" id="lessonSearch" placeholder="🔍 Lektion suchen / Search lessons (z. B. Passiv, Konjunktiv, Brief)" aria-label="Lektion suchen / Search lessons" autocomplete="off"><p id="searchNone" class="small" hidden><span class="t-de">Keine Lektion gefunden.</span><span class="t-en">No lesson found.</span></p></div>
 <h2 id="kursuebersicht"><span class="t-de">Kursübersicht (59 Videos)</span><span class="t-en">Course overview (59 videos)</span></h2>
-<p class="lead-sub"><em><span class="t-de">Notizen zur Playlist „German Course - B1“ von Desi Learn German. ✅ = Notizen fertig, ⏳ = folgt. Mit ▶ YouTube öffnest du das Video.</span><span class="t-en">Notes on the playlist "German Course - B1" by Desi Learn German. ✅ = notes ready, ⏳ = coming soon. ▶ YouTube opens the video.</span></em></p>
-<details class="overview-details"><summary><span class="t-de">Alle 59 Videos anzeigen (57 von 59 mit Notizen)</span><span class="t-en">Show all 59 videos (57 of 59 with notes)</span></summary>
+<div class="progress-line" id="progressLine"><span class="t-de">57 von 59 Lektionen mit Notizen</span><span class="t-en">57 of 59 lessons with notes</span><span class="pbar" aria-hidden="true"><span id="pbarFill" style="width:96%"></span></span></div>
+<p class="small legend"><span class="t-de">✅ = Notizen fertig · ⏳ = folgt · ▶ YouTube öffnet das Video</span><span class="t-en">✅ = notes ready · ⏳ = coming soon · ▶ YouTube opens the video</span></p>
+<details class="overview-details"><summary><span class="t-de">Alle 59 Videos anzeigen</span><span class="t-en">Show all 59 videos</span></summary>
 <div class="overview-group"><span class="t-de">Wortschatz</span><span class="t-en">Vocabulary</span></div><ul class="overview-list">
 <li><span class="st">✅</span><span class="no">1</span><span class="ttl"><a href="#video-01-rund-ums-wohnen">Rund ums Wohnen (Lesson 17)</a></span><a class="yt" href="https://www.youtube.com/watch?v=CR-9ItADYS0&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=1" target="_blank" rel="noopener" title="Video 1 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">16:40</span></li>
 <li><span class="st">✅</span><span class="no">2</span><span class="ttl"><a href="#video-02-einkaufen">Einkaufen (Lesson 18)</a></span><a class="yt" href="https://www.youtube.com/watch?v=NT3o2SeVItI&list=PLLJudIguvdsgiKagl6JBP8ETS1dYQgWbN&index=2" target="_blank" rel="noopener" title="Video 2 auf YouTube ansehen / watch on YouTube">▶ YouTube</a><span class="dur">17:05</span></li>
@@ -12474,6 +12491,84 @@
     <script>
     document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.yt-play');if(!b)return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.dataset.yt)+'?autoplay=1&rel=0';f.title='YouTube video player';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.referrerPolicy='strict-origin-when-cross-origin';f.allowFullscreen=true;b.parentNode.replaceChildren(f);});
     </script>
+<script>
+// Page helpers: lesson search, continue-where-you-stopped, previous/next links, progress bar
+(function () {
+    var heads = Array.prototype.slice.call(document.querySelectorAll('h2.part-heading'));
+    function lang() { return document.documentElement.getAttribute('data-lang') === 'de' ? 'de' : 'en'; }
+    function bi(de, en) { return '<span class="t-de">' + de + '</span><span class="t-en">' + en + '</span>'; }
+
+    // progress bar from the menu
+    var total = document.querySelectorAll('#lessonNav .ln[title], #lessonNav .ln:not([href="#kursuebersicht"])').length;
+    var done = document.querySelectorAll('#lessonNav a.ln.done[href^="#video-"]').length;
+    var fill = document.getElementById('pbarFill');
+    if (fill && total) fill.style.width = Math.round(done * 100 / total) + '%';
+
+    // previous / next links at the end of every lesson
+    heads.forEach(function (h, i) {
+        var d = document.createElement('div');
+        d.className = 'lesson-pager';
+        var html = '';
+        if (i > 0) html += '<a href="#' + heads[i - 1].id + '">← ' + heads[i - 1].innerHTML + '</a>';
+        else html += '<span></span>';
+        html += '<a href="#kursuebersicht">↑ ' + bi('Übersicht', 'Overview') + '</a>';
+        if (i < heads.length - 1) html += '<a href="#' + heads[i + 1].id + '">' + heads[i + 1].innerHTML + ' →</a>';
+        else html += '<span></span>';
+        d.innerHTML = html;
+        if (i < heads.length - 1) heads[i + 1].parentNode.insertBefore(d, heads[i + 1]);
+        else h.parentNode.appendChild(d);
+    });
+
+    // continue where you stopped (stored only in this browser)
+    var KEY = 'wf_lessons_last';
+    function store(id) { try { localStorage.setItem(KEY, id); } catch (e) {} }
+    var last = null;
+    try { last = localStorage.getItem(KEY); } catch (e) {}
+    var box = document.getElementById('resumeBox'), link = document.getElementById('resumeLink');
+    var target = last && document.getElementById(last);
+    if (box && link && target && !location.hash && target.getBoundingClientRect().top + window.scrollY > 600) {
+        link.href = '#' + last;
+        link.innerHTML = bi('▶ Weiter bei Lektion ', '▶ Continue with lesson ') + target.innerHTML;
+        box.hidden = false;
+        document.getElementById('resumeClose').addEventListener('click', function () { box.hidden = true; });
+    }
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) store(e.target.id); });
+        }, { rootMargin: '0px 0px -75% 0px' });
+        heads.forEach(function (h) { io.observe(h); });
+    }
+
+    // search over the menu and the overview
+    var input = document.getElementById('lessonSearch');
+    if (!input) return;
+    function norm(t) { return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+    var none = document.getElementById('searchNone');
+    var details = document.querySelector('.overview-details');
+    var items = Array.prototype.slice.call(document.querySelectorAll('#lessonNav .ln:not([href="#kursuebersicht"]), .overview-list li'));
+    var texts = items.map(function (el) { return norm(el.textContent); });
+    var groups = Array.prototype.slice.call(document.querySelectorAll('#lessonNav .ln-group, .overview-group'));
+    input.addEventListener('input', function () {
+        var q = norm(input.value.trim()), shown = 0;
+        items.forEach(function (el, i) {
+            var ok = !q || texts[i].indexOf(q) !== -1;
+            el.style.display = ok ? '' : 'none';
+            if (ok && q && el.tagName === 'LI') shown++;
+        });
+        groups.forEach(function (g) {
+            var any = !q, n = g.classList.contains('overview-group') ? g.nextElementSibling : g.nextElementSibling;
+            while (!any && n && !n.classList.contains('ln-group') && !n.classList.contains('overview-group')) {
+                if (n.tagName === 'UL') { any = Array.prototype.some.call(n.children, function (li) { return li.style.display !== 'none'; }); }
+                else if (n.classList.contains('ln') && n.style.display !== 'none') any = true;
+                n = n.nextElementSibling;
+            }
+            g.style.display = any ? '' : 'none';
+        });
+        if (q && details) details.open = true;
+        if (none) none.hidden = !q || shown > 0;
+    });
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
