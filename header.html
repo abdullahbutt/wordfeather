@@ -3,6 +3,13 @@
      sticky "Inhalt"/Quick-Jump sidebar (.jump-bar / .alphabet-nav, z-index
      1020) — without this, the Levels/Modules dropdown renders visually
      underneath that sidebar instead of on top of it. */
+  /* The navbar is .sticky-top (z-index 1020), which makes it its own
+     stacking context: the dropdown's 1040 only counts inside it, so a later
+     sibling at 1020 (the .jump-bar) still painted over open dropdowns.
+     Raise the navbar itself above the jump-bar. */
+  .navbar.sticky-top {
+    z-index: 1040;
+  }
   #siteNavbar .dropdown-menu {
     z-index: 1040;
   }
