@@ -93,46 +93,31 @@
             text-decoration: underline;
         }
 
-        .alphabet-nav {
+        .jump-bar {
             z-index: 1020;
             background: var(--alpha-bg);
             border: 1px solid var(--alpha-border);
             border-radius: 0.75rem;
             padding: 0.75rem;
             backdrop-filter: blur(4px);
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .jump-layout {
             display: block;
         }
 
-        .jump-links {
-            align-items: center;
-        }
-
         @media (min-width: 992px) {
             .jump-layout {
                 display: grid;
-                grid-template-columns: 4rem minmax(0, 1fr);
-                gap: 1rem;
+                grid-template-columns: 15rem minmax(0, 1fr);
+                gap: 1.5rem;
             }
 
-            .alphabet-nav {
+            .jump-bar {
                 position: sticky;
                 top: 6rem;
-                width: 100%;
-                margin-bottom: 0 !important;
-            }
-
-            .alphabet-nav .jump-links {
-                display: flex !important;
-                flex-direction: column;
-                gap: 0.4rem !important;
-            }
-
-            .alphabet-nav .btn {
-                width: 2.2rem;
-                padding: 0.2rem 0;
             }
 
             .jump-layout .markdown-content {
@@ -1028,50 +1013,17 @@
             backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
         });
 
-        function setupJumpCollapse() {
-            var THRESHOLD = 8;
-            var nav = document.querySelector('.alphabet-nav');
-            if (!nav) return;
-            var existing = nav.querySelector('.jump-more-btn');
-            if (existing) existing.remove();
-            var links = Array.from(nav.querySelectorAll('.jump-links a.btn'));
-            links.forEach(function (l) { l.style.display = ''; });
-            if (window.innerWidth < 992 || links.length <= THRESHOLD) return;
-            var firstBatch = links.slice(0, THRESHOLD);
-            var lastBatch = links.slice(THRESHOLD);
-            var moreBtn = document.createElement('button');
-            moreBtn.className = 'btn btn-sm btn-outline-secondary jump-more-btn';
-            moreBtn.textContent = '\u2026';
-            moreBtn.title = 'Show more buttons';
-            var isExpanded = false;
-            var toggleDisplay = function () {
-                isExpanded = !isExpanded;
-                if (isExpanded) {
-                    lastBatch.forEach(function (l) { l.style.display = ''; });
-                    moreBtn.textContent = '\u25B2';
-                    moreBtn.title = 'Show fewer';
-                } else {
-                    lastBatch.forEach(function (l) { l.style.display = 'none'; });
-                    moreBtn.textContent = '\u2026';
-                    moreBtn.title = 'Show more buttons';
-                }
-            };
-            moreBtn.addEventListener('click', toggleDisplay);
-            lastBatch.forEach(function (l) { l.style.display = 'none'; });
-            nav.querySelector('.jump-links').appendChild(moreBtn);
-        }
-
-        window.addEventListener('resize', setupJumpCollapse);
-
         (function () {
             var buttons = '';
-                    document.querySelectorAll('h2[id]').forEach(function (h) {
-                        var m = h.id.match(/^(\d+)-/);
-                        if (m) { buttons += '<a href="#' + h.id + '" data-section="' + m[1] + '" class="btn btn-sm btn-outline-primary">' + m[1] + '</a>'; }
-                    });
-                    document.getElementById('jump-bar-placeholder').innerHTML =
-                        '<section class="alphabet-nav mb-4"><p class="small text-muted mb-2">Quick jump:</p><div class="jump-links d-flex flex-wrap gap-2">' + buttons + '</div></section>';
-                    setupJumpCollapse();
+            document.querySelectorAll('h2[id]').forEach(function (h) {
+                var m = h.id.match(/^(\d+)-/);
+                if (!m) return;
+                var full = h.textContent.replace(/^\d+\.\s*/, '');
+                var label = full.length > 34 ? full.slice(0, 33) + '\u2026' : full;
+                buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="' + full.replace(/"/g, '&quot;') + '">' + m[1] + '. ' + label + '</a>';
+            });
+            document.getElementById('jump-bar-placeholder').innerHTML =
+                '<div class="jump-bar"><div class="fw-semibold small mb-2" style="color:#1d4ed8">\ud83d\udcda Inhalt</div><div class="jump-links d-flex flex-column">' + buttons + '</div></div>';
         })();
     </script>
     <script>
