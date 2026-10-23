@@ -1,0 +1,1377 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Kompakter Spickzettel und Selbsttest für B1-Grammatik — Nebensätze, Konjunktiv II, Passiv, Adjektivdeklination, Relativsätze — zum täglichen Wiederholen für Goethe- und telc-Prüfung.">
+    <meta name="keywords" content="Deutsch lernen, Deutsch B1 Spickzettel, Cheat Sheet, Goethe Prüfung, telc Prüfung, B1 Deutsch">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: canonical + robots -->
+    <link rel="canonical" href="https://wordfeather.com/B1/11_cheat_sheet.html">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cheat Sheet — B1 Spickzettel | WordFeather">
+    <meta property="og:description" content="Condensed B1 grammar cheat sheet and self-test, built from Grammatik and Unterrichtsnotizen, for daily review.">
+    <meta property="og:url" content="https://wordfeather.com/B1/11_cheat_sheet.html">
+    <meta property="og:image" content="https://wordfeather.com/og-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WordFeather">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cheat Sheet — B1 Spickzettel | WordFeather">
+    <meta name="twitter:description" content="Condensed B1 grammar cheat sheet and self-test, built from Grammatik and Unterrichtsnotizen, for daily review.">
+    <meta name="twitter:image" content="https://wordfeather.com/og-image.png">
+    
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="WordFeather">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>11 Cheat Sheet - B1</title>
+    <link href="/vendor/bootstrap/5.3.3/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'JameelNooriNastaleeq';
+            src: url('../fonts/JameelNooriNastaleeq.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        .urdu {
+            font-family: 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif;
+            direction: rtl;
+            unicode-bidi: embed;
+            font-size: 1.15em;
+            line-height: 2.1;
+        }
+        :root {
+            --page-bg: #f5f7fb;
+            --page-text: #1f2937;
+            --muted-text: #334155;
+            --card-bg: #ffffff;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+            --alpha-bg: rgba(245, 247, 251, 0.95);
+            --alpha-border: #e5e7eb;
+            --table-bg: #ffffff;
+            --table-stripe: #f8fafc;
+            --table-hover: #eaf3ff;
+        }
+
+        [data-bs-theme="dark"] {
+            --page-bg: #0f172a;
+            --page-text: #e2e8f0;
+            --muted-text: #cbd5e1;
+            --card-bg: #111827;
+            --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35);
+            --alpha-bg: rgba(17, 24, 39, 0.95);
+            --alpha-border: #374151;
+            --table-bg: #111827;
+            --table-stripe: #172033;
+            --table-hover: #1f2a44;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 4.5rem;
+        }
+
+        body {
+            background: var(--page-bg);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--page-text);
+        }
+
+        .content-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .jump-bar {
+            z-index: 1020;
+            background: var(--alpha-bg);
+            border: 1px solid var(--alpha-border);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            backdrop-filter: blur(4px);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* Bootstrap's default dropdown z-index (1000) sits below this page's
+           sticky Quick Jump bar (1020) and sticky navbar — without this, the
+           "Levels"/"... Modules" dropdown renders visually underneath the
+           Quick Jump buttons instead of on top of them. */
+        .navbar .dropdown-menu {
+            z-index: 1040;
+        }
+
+        .jump-layout {
+            display: block;
+        }
+
+        @media (min-width: 992px) {
+            .jump-layout {
+                display: grid;
+                grid-template-columns: 15rem minmax(0, 1fr);
+                gap: 1.5rem;
+            }
+
+            .jump-bar {
+                position: sticky;
+                top: 6rem;
+            }
+
+            .jump-layout .markdown-content {
+                max-width: none;
+            }
+        }
+
+        .markdown-content h2[id] {
+            scroll-margin-top: 4.5rem;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .markdown-content {
+            max-width: 78ch;
+        }
+
+        .markdown-content p,
+        .markdown-content li {
+            color: var(--muted-text);
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            display: block;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            background: var(--table-bg);
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #dee2e6;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+
+        .markdown-content thead th {
+            background: #0d6efd;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .markdown-content tbody tr:nth-child(odd) {
+            background: var(--table-stripe);
+        }
+
+        .markdown-content tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+        .markdown-content code {
+            background: #f1f3f5;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+
+        .markdown-content pre {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .site-footer {
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 1030;
+            display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle {
+            min-width: 5.8rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.65rem;
+        }
+    
+        .site-footer {
+            background: var(--page-bg, #f1f3f5);
+            color: var(--page-text, #1f2937);
+        }
+        [data-bs-theme="dark"] .site-footer {
+            background: #1e293b !important;
+            color: #e2e8f0;
+            border-color: #374151 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .text-secondary {
+            color: #94a3b8 !important;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary {
+            color: #94a3b8;
+            border-color: #475569;
+        }
+        [data-bs-theme="dark"] .site-footer .btn-outline-secondary:hover {
+            background: #334155;
+            color: #e2e8f0;
+        }
+        .d-tts{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:none;background:none;cursor:pointer;opacity:.35;transition:opacity .2s;padding:0;margin-left:3px;vertical-align:middle;border-radius:50%;font-size:13px}
+        .d-tts:hover{opacity:.8;background:rgba(29,78,216,.1)}.d-tts.playing{opacity:1;color:#1d4ed8;background:rgba(29,78,216,.15)}
+        [data-bs-theme="dark"] .d-tts:hover{background:rgba(99,102,241,.2)}[data-bs-theme="dark"] .d-tts.playing{color:#818cf8;background:rgba(99,102,241,.25)}
+
+        /* Case color-coding, used consistently across every table and note */
+        .nomC { color: #343a40; font-weight: 700; }
+        .akkC { color: #0d6efd; font-weight: 700; }
+        .datC { color: #b4650a; font-weight: 700; }
+        .genC { color: #7c3aed; font-weight: 700; }
+        [data-bs-theme="dark"] .nomC { color: #e2e8f0; }
+        [data-bs-theme="dark"] .akkC { color: #6ea8fe; }
+        [data-bs-theme="dark"] .datC { color: #e8a854; }
+        [data-bs-theme="dark"] .genC { color: #b79cf5; }
+
+        /* Highlighted rule/note boxes — "Merke", "Achtung" etc. */
+        .rule {
+            background: #fff8e6;
+            border-left: 4px solid #b4650a;
+            padding: 0.6rem 0.9rem;
+            margin: 0.7rem 0;
+            border-radius: 0 0.4rem 0.4rem 0;
+            color: var(--page-text);
+        }
+        .rule em { color: var(--muted-text); }
+        [data-bs-theme="dark"] .rule {
+            background: rgba(180, 101, 10, 0.15);
+        }
+
+        /* Self-test boxes — question then answer on its own line/box */
+        .quiz-box {
+            margin-top: 0.9rem;
+            background: var(--table-stripe);
+            border: 1px dashed #adb5bd;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+        }
+        .quiz-box summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #0d6efd;
+            list-style: none;
+        }
+        .quiz-box summary::-webkit-details-marker { display: none; }
+        .quiz-box .q {
+            margin: 0.7rem 0 0.25rem;
+            color: var(--page-text) !important;
+        }
+        .quiz-box .q:first-of-type { margin-top: 0.6rem; }
+        .quiz-box .a {
+            margin: 0 0 0.3rem;
+            color: #146c2e;
+            background: rgba(25, 135, 84, 0.12);
+            padding: 0.35rem 0.6rem;
+            border-radius: 0.35rem;
+            display: inline-block;
+        }
+        [data-bs-theme="dark"] .quiz-box .a {
+            color: #75d998;
+            background: rgba(25, 135, 84, 0.25);
+        }
+
+        /* Quick-jump bar lives in a sticky sidebar (desktop) via .jump-bar,
+           same pattern as 10_notes.html and the Wortschatz pages — on mobile
+           .jump-layout falls back to a plain block, so the bar behaves as an
+           ordinary (non-fixed) list above the content and never eats the
+           viewport, which is what the earlier top-pinned bar used to do. */
+
+        /* Practice mode: masked table cells + eye toggles */
+        .practice-cell {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .practice-cell .eye-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            color: #6c757d;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .practice-cell .eye-btn svg { width: 15px; height: 15px; display: block; }
+        .practice-cell .masked-content {
+            background: #dfe4ea;
+            color: transparent;
+            border-radius: 0.3rem;
+            padding: 0.05rem 0.5rem;
+            user-select: none;
+            display: inline-block;
+            min-width: 2.2rem;
+        }
+        [data-bs-theme="dark"] .practice-cell .masked-content {
+            background: #3a4250;
+        }
+        .practice-cell.revealed .masked-content {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            user-select: text;
+        }
+        /* Some cells contain inline-colored spans (e.g. red adjective endings
+           with style="color:#c00") to highlight grammar. An inline style on a
+           descendant always overrides the inherited "color: transparent" from
+           .masked-content above, so those colored spans stayed visibly
+           readable even while "masked". Force transparency onto every
+           descendant too, but ONLY while not yet revealed — once revealed,
+           no rule targets the descendants here, so their own inline colors
+           (e.g. the red endings) reappear correctly on their own. */
+        .practice-cell:not(.revealed) .masked-content,
+        .practice-cell:not(.revealed) .masked-content * {
+            color: transparent !important;
+        }
+        .section-eye-btn {
+            background: none;
+            border: 1px solid #adb5bd;
+            border-radius: 999px;
+            padding: 0.2rem 0.6rem;
+            cursor: pointer;
+            color: #0d6efd;
+            font-size: 0.78rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-left: 0.6rem;
+            vertical-align: middle;
+        }
+        .section-eye-btn svg { width: 14px; height: 14px; }
+
+        /* Section 5 (Modalverben) has 7 columns; with every conjugated form
+           masked by default the fixed min-width per masked cell can push the
+           table wider than the content column on desktop. Tighten the masked
+           placeholder just for this table so it never needs horizontal scroll. */
+        /* table-layout:auto (the previous approach) doesn't wrap columns
+           evenly — it tries to keep everything on one line first, and only
+           wraps the MINIMUM number of cells needed to fit, in a
+           browser-dependent order. That's why only one header wrapped while
+           others (e.g. "möchten (would like)") stayed unbroken and still
+           overflowed. table-layout:fixed forces every column to share the
+           SAME width up front, so every header cell wraps consistently
+           rather than leaving it to unpredictable per-browser squeezing. */
+        .wide-table { width: 100%; table-layout: fixed; font-size: 0.92rem; }
+        .wide-table th:first-child, .wide-table td:first-child { width: 12%; }
+        .wide-table td { white-space: nowrap; }
+        .wide-table th { white-space: normal; word-break: normal; overflow-wrap: break-word; }
+        .wide-table .practice-cell .masked-content { min-width: 1.4rem; padding: 0.05rem 0.3rem; }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        // Apply saved theme immediately to prevent flash
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        // Detect depth and current level
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html','12_deutsch_lessons.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat','10 Kursnotizen (Notes)','11 Spickzettel (Cheat Sheet)','12 B1 Deutsch Kurs (Lesson Notes)'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../app/" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                var lvLi = document.getElementById('nav-levels');
+                lvLi = lvLi ? lvLi.closest('li') : null;
+                if (lvLi && lvLi.nextSibling) {
+                    lvLi.parentNode.insertBefore(li, lvLi.nextSibling);
+                } else if (nav) {
+                    nav.appendChild(li);
+                }
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+
+    <main class="container py-4 py-lg-5">
+        <div class="card content-card">
+            <div class="card-body p-4 p-lg-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small mb-3">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/B1/">B1</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">11 Cheat Sheet</li>
+                    </ol>
+                </nav>
+
+                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <h1 class="h2 mb-0">11 Cheat Sheet</h1>
+                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">B1</span>
+                </div>
+
+                <div class="jump-layout">
+                <div id="quickjump-placeholder"></div>
+
+                <div class="markdown-content">
+<h1 id="spickzettel-cheat-sheet">B1 Spickzettel &amp; Selbsttest / Cheat Sheet &amp; Self-Test</h1>
+<p>Kompakte Übersicht der wichtigsten B1-Regeln aus <strong>02 Grammatik</strong> und <strong>10 Unterrichtsnotizen</strong>, zum täglichen Wiederholen. Klicke auf das Auge, um eine Antwort zu zeigen, oder auf „Test dich selbst“, um dein Gedächtnis zu prüfen.<br>
+<em>A condensed overview of the key B1 rules from 02 Grammatik and 10 Unterrichtsnotizen, for daily review. Click the eye to reveal an answer; every section ends with a click-to-reveal self-test.</em></p>
+<p><span class="nomC">■ Nominativ</span> Subjekt / subject &nbsp;&nbsp; <span class="akkC">■ Akkusativ</span> direktes Objekt / direct object &nbsp;&nbsp; <span class="datC">■ Dativ</span> indirektes Objekt / indirect object &nbsp;&nbsp; <span class="genC">■ Genitiv</span> Besitz / possession</p>
+<hr>
+
+<h2 id="1-satzstellung-sentence-structure">1. Satzstellung / Sentence Structure</h2>
+<p><em>The position of the verb is the most important skill at B1.</em></p>
+<table>
+<thead><tr><th>Satztyp / Clause</th><th>Position des Verbs</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>Hauptsatz <em>(main clause)</em></td><td>Position 2</td><td>Ich lerne heute Deutsch. / Heute lerne ich Deutsch.</td></tr>
+<tr><td>W-Frage <em>(question word)</em></td><td>W-Wort + Verb + Subjekt</td><td>Warum lernst du Deutsch?</td></tr>
+<tr><td>Ja/Nein-Frage</td><td>Verb auf Position 1</td><td>Lernst du Deutsch?</td></tr>
+<tr><td>Nebensatz <em>(subordinate)</em></td><td>Verb am Ende</td><td>…, weil ich in Deutschland arbeiten möchte.</td></tr>
+<tr><td>Nebensatz zuerst</td><td>Verb + Subjekt direkt nach dem Komma</td><td>Weil ich Geld brauche, arbeite ich.</td></tr>
+<tr><td>Zwei Verben <em>(2 verbs)</em></td><td>Konjugiert: Position 2 · Infinitiv/Partizip: Ende</td><td>Ich habe gestern Deutsch gelernt.</td></tr>
+<tr><td>Relativsatz</td><td>Verb am Ende, mit Komma</td><td>Das ist der Mann, den ich kenne.</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Position 0 (aber, denn, und, oder, sondern) ändert die Wortstellung nicht. Subordinators (weil, wenn, obwohl, dass, ob) schicken das Verb ans Ende.<br>
+<em>Position-0 words (aber, denn, und, oder, sondern) do not change word order. Subordinators send the verb to the end.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (4 Fragen)</summary>
+<p class="q"><strong>1.</strong> Bilde den Satz: ich / arbeiten / nicht / , / obwohl / ich / Geld / brauchen</p><p class="a">Ich arbeite nicht, obwohl ich Geld brauche.</p>
+<p class="q"><strong>2.</strong> Beginne mit „Weil“: Ich lerne Deutsch, weil ich in Deutschland arbeiten möchte.</p><p class="a">Weil ich in Deutschland arbeiten möchte, lerne ich Deutsch.</p>
+<p class="q"><strong>3.</strong> Verbposition im Nebensatz?</p><p class="a">am Ende</p>
+<p class="q"><strong>4.</strong> Was ändert „denn“ an der Wortstellung?</p><p class="a">Nichts — Position 0, das Verb bleibt auf Position 2.</p>
+</details>
+<hr>
+
+<h2 id="2-konnektoren-connectors">2. Konnektoren / Connectors</h2>
+<table>
+<thead><tr><th>Konnektor</th><th>Bedeutung / Meaning</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>weil</td><td>because (reason)</td><td>Ich bleibe zu Hause, weil ich krank bin.</td></tr>
+<tr><td>denn</td><td>because (main clause)</td><td>Ich bleibe zu Hause, denn ich bin krank.</td></tr>
+<tr><td>obwohl</td><td>although</td><td>Ich gehe zur Arbeit, obwohl ich müde bin.</td></tr>
+<tr><td>wenn</td><td>when, whenever, if</td><td>Wenn ich Zeit habe, besuche ich dich.</td></tr>
+<tr><td>dass</td><td>that</td><td>Ich weiß, dass du Deutsch lernst.</td></tr>
+<tr><td>ob</td><td>whether, if (yes/no)</td><td>Ich will wissen, ob du verheiratet bist.</td></tr>
+<tr><td>damit</td><td>so that (2 subjects)</td><td>Ich gebe dir Geld, damit du Bücher kaufst.</td></tr>
+<tr><td>um … zu</td><td>in order to (1 subject)</td><td>Ich komme, um dir zu helfen.</td></tr>
+<tr><td>je … desto</td><td>the more … the more</td><td>Je mehr ich lese, desto besser schreibe ich.</td></tr>
+<tr><td>aber</td><td>but (Position 0)</td><td>Ich will ein Auto. Aber es ist teuer.</td></tr>
+<tr><td>trotzdem</td><td>nevertheless (Position 1 + Verb)</td><td>Es regnet. Trotzdem gehe ich spazieren.</td></tr>
+<tr><td>deshalb</td><td>therefore (Position 1 + Verb)</td><td>Ich habe Zeit. Deshalb besuche ich dich.</td></tr>
+</tbody>
+</table>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (5 Fragen)</summary>
+<p class="q"><strong>1.</strong> Ich lerne Deutsch, ___ ich in Deutschland leben will. (Grund)</p><p class="a">weil</p>
+<p class="q"><strong>2.</strong> Er arbeitet, ___ er krank ist. (Gegensatz)</p><p class="a">obwohl</p>
+<p class="q"><strong>3.</strong> Ich gehe zum Supermarkt, ___ Lebensmittel ___ kaufen.</p><p class="a">um … zu</p>
+<p class="q"><strong>4.</strong> Ich schicke dir das Buch, ___ du es lesen kannst.</p><p class="a">damit</p>
+<p class="q"><strong>5.</strong> Je früher du kommst, ___ besser.</p><p class="a">desto</p>
+</details>
+<hr>
+
+<h2 id="3-perfekt-praeteritum-present-perfect-simple-past">3. Perfekt &amp; Präteritum / Present Perfect &amp; Simple Past</h2>
+<table>
+<thead><tr><th>Zeit</th><th>Bildung / Formation</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>Perfekt <em>(Gespräch / spoken)</em></td><td>haben/sein (Pos. 2) + Partizip II (Ende)</td><td>Ich habe Tee getrunken. Ich bin nach Berlin gefahren.</td></tr>
+<tr><td>Präteritum <em>(Text / written)</em></td><td>Stamm + -te / neuer Stamm + Endung</td><td>Ich trank Tee. Ich ging nach Berlin.</td></tr>
+<tr><td>Plusquamperfekt <em>(past perfect)</em></td><td>hatte/war (Pos. 2) + Partizip II (Ende)</td><td>Ich hatte Tee getrunken. Ich war nach Berlin gegangen.</td></tr>
+<tr><td>Futur I</td><td>werden (Pos. 2) + Infinitiv (Ende)</td><td>Ich werde morgen meinen Freund besuchen.</td></tr>
+</tbody>
+</table>
+<table>
+<thead><tr><th>Person</th><th>regelmäßig: sagen</th><th>unregelmäßig: gehen</th></tr></thead>
+<tbody>
+<tr><td>ich</td><td>sagte</td><td>ging</td></tr>
+<tr><td>du</td><td>sagtest</td><td>gingst</td></tr>
+<tr><td>er/sie/es/man</td><td>sagte</td><td>ging</td></tr>
+<tr><td>wir</td><td>sagten</td><td>gingen</td></tr>
+<tr><td>ihr</td><td>sagtet</td><td>gingt</td></tr>
+<tr><td>sie/Sie</td><td>sagten</td><td>gingen</td></tr>
+</tbody>
+</table>
+<table>
+<thead><tr><th>Infinitiv</th><th>Präteritum</th><th>Partizip II</th></tr></thead>
+<tbody>
+<tr><td>sehen</td><td>sah</td><td>gesehen</td></tr>
+<tr><td>essen</td><td>aß</td><td>gegessen</td></tr>
+<tr><td>schreiben</td><td>schrieb</td><td>geschrieben</td></tr>
+<tr><td>finden</td><td>fand</td><td>gefunden</td></tr>
+<tr><td>bringen</td><td>brachte</td><td>gebracht</td></tr>
+<tr><td>denken</td><td>dachte</td><td>gedacht</td></tr>
+<tr><td>wissen</td><td>wusste</td><td>gewusst</td></tr>
+<tr><td>beginnen</td><td>begann</td><td>begonnen</td></tr>
+<tr><td>tun</td><td>tat</td><td>getan</td></tr>
+<tr><td>bekommen</td><td>bekam</td><td>bekommen</td></tr>
+<tr><td>trinken</td><td>trank</td><td>getrunken</td></tr>
+<tr><td>rufen / anrufen</td><td>rief / rief an</td><td>gerufen / angerufen</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> sein, haben und die Modalverben benutzt man auch im Gespräch im Präteritum (ich war, ich hatte, ich konnte).<br>
+<em>sein, haben and the modal verbs use the Präteritum even in speech (ich war, ich hatte, ich konnte).</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (5 Fragen)</summary>
+<p class="q"><strong>1.</strong> Präteritum von „gehen“, ich:</p><p class="a">ich ging</p>
+<p class="q"><strong>2.</strong> Perfekt: Ich ___ nach Hause ___. (fahren)</p><p class="a">bin … gefahren</p>
+<p class="q"><strong>3.</strong> Plusquamperfekt: Ich ___ Tee ___. (trinken)</p><p class="a">hatte … getrunken</p>
+<p class="q"><strong>4.</strong> Präteritum von „arbeiten“, er:</p><p class="a">er arbeitete</p>
+<p class="q"><strong>5.</strong> Futur I: Morgen ___ ich meinen Freund ___. (besuchen)</p><p class="a">werde … besuchen</p>
+</details>
+<hr>
+
+<h2 id="4-modalverben-modal-verbs">4. Modalverben / Modal Verbs</h2>
+<table>
+<thead><tr><th>Infinitiv</th><th>Präteritum</th><th>Konjunktiv II</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>können</td><td>konnte</td><td>könnte</td><td>could / would be able to</td></tr>
+<tr><td>müssen</td><td>musste</td><td>müsste</td><td>had to / would have to</td></tr>
+<tr><td>dürfen</td><td>durfte</td><td>dürfte</td><td>was allowed / might</td></tr>
+<tr><td>wollen</td><td>wollte</td><td>wollte</td><td>wanted (no change)</td></tr>
+<tr><td>sollen</td><td>sollte</td><td>sollte</td><td>should (no change)</td></tr>
+<tr><td>mögen</td><td>mochte</td><td>möchte</td><td>liked / would like</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Perfekt mit Modalverb: haben + Infinitiv + Modalverb (Doppel-Infinitiv am Ende): <strong>Ich habe gestern nicht arbeiten können.</strong><br>
+<em>Perfect of a modal verb: double infinitive at the end — “I could not work yesterday.”</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (4 Fragen)</summary>
+<p class="q"><strong>1.</strong> Präteritum von „müssen“, ich:</p><p class="a">ich musste</p>
+<p class="q"><strong>2.</strong> Konjunktiv II von „dürfen“, ich:</p><p class="a">ich dürfte</p>
+<p class="q"><strong>3.</strong> Perfekt: Ich ___ gestern viel arbeiten ___.</p><p class="a">habe … müssen</p>
+<p class="q"><strong>4.</strong> Welche Modalverben ändern sich im Konjunktiv II nicht?</p><p class="a">wollen, sollen</p>
+</details>
+<hr>
+
+<h2 id="5-konjunktiv-ii-subjunctive-ii">5. Konjunktiv II / Subjunctive II</h2>
+<table>
+<thead><tr><th>Person</th><th>sein → wäre</th><th>haben → hätte</th><th>andere Verben → würde + Infinitiv</th></tr></thead>
+<tbody>
+<tr><td>ich</td><td>wäre</td><td>hätte</td><td>würde kaufen</td></tr>
+<tr><td>du</td><td>wär(e)st</td><td>hättest</td><td>würdest kaufen</td></tr>
+<tr><td>er/sie/es/man</td><td>wäre</td><td>hätte</td><td>würde kaufen</td></tr>
+<tr><td>wir</td><td>wären</td><td>hätten</td><td>würden kaufen</td></tr>
+<tr><td>ihr</td><td>wär(e)t</td><td>hättet</td><td>würdet kaufen</td></tr>
+<tr><td>sie/Sie</td><td>wären</td><td>hätten</td><td>würden kaufen</td></tr>
+</tbody>
+</table>
+<table>
+<thead><tr><th>Verwendung / Use</th><th>Muster</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>Höfliche Bitte <em>(polite request)</em></td><td>Könnten / Würden / Dürfte …</td><td>Könnten Sie mir bitte helfen? Würden Sie mir das Buch geben?</td></tr>
+<tr><td>Irreale Bedingung <em>(unreal, present)</em></td><td>Wenn + Konj. II …, würde + Inf.</td><td>Wenn ich Geld hätte, würde ich ein Auto kaufen.</td></tr>
+<tr><td>Irreale Bedingung <em>(unreal, past)</em></td><td>hätte/wäre + Partizip II</td><td>Wenn ich gelernt hätte, hätte ich die Prüfung bestanden.</td></tr>
+<tr><td>Wunsch <em>(wish)</em></td><td>Ich wäre gern / Ich hätte gern …</td><td>Ich wäre gern Arzt.</td></tr>
+<tr><td>Ratschlag <em>(advice)</em></td><td>Du solltest / Du könntest …</td><td>Du solltest mehr Deutsch sprechen.</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Realität: „Ich habe kein Geld.“ → Irreal: „Wenn ich Geld <strong>hätte</strong>, <strong>würde</strong> ich …“. Der Nebensatz mit „wenn“ steht vor oder nach dem Hauptsatz.<br>
+<em>Reality: “I have no money.” → Unreal: “If I had money, I would …”.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (4 Fragen)</summary>
+<p class="q"><strong>1.</strong> Wenn ich ein Arzt ___, ___ ich den Kranken helfen. (sein / helfen)</p><p class="a">wäre … würde</p>
+<p class="q"><strong>2.</strong> Ich habe kein Auto. → Wenn ich ein Auto ___, ___ ich nach Berlin fahren. (haben / fahren)</p><p class="a">hätte … würde</p>
+<p class="q"><strong>3.</strong> Höflich: ___ du mir bitte einen Kuli geben? (können)</p><p class="a">Könntest</p>
+<p class="q"><strong>4.</strong> Vergangenheit: Wenn ich gelernt ___, ___ ich bestanden. (haben)</p><p class="a">hätte … hätte</p>
+</details>
+<hr>
+
+<h2 id="6-konjunktiv-i-indirekte-rede-reported-speech">6. Konjunktiv I — Indirekte Rede / Reported Speech</h2>
+<table>
+<thead><tr><th>Verb</th><th>er / sie / es (Konj. I)</th><th>sie / wir (Konj. II, wenn Konj. I = Indikativ)</th></tr></thead>
+<tbody>
+<tr><td>sein</td><td>er sei</td><td>sie seien</td></tr>
+<tr><td>haben</td><td>er habe</td><td>sie hätten</td></tr>
+<tr><td>können</td><td>er könne</td><td>sie könnten</td></tr>
+<tr><td>müssen</td><td>er müsse</td><td>sie müssten</td></tr>
+<tr><td>wollen</td><td>er wolle</td><td>sie wollten</td></tr>
+<tr><td>sollen</td><td>er solle</td><td>sie sollten</td></tr>
+<tr><td>arbeiten</td><td>er arbeite</td><td>sie arbeiteten / würden arbeiten</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Beispiel:</strong> Ali sagt: „Ich bin müde.“ → Ali sagt, er <strong>sei</strong> müde. / Ali sagt, dass er müde <strong>sei</strong>.<br>
+<em>Ali says: “I am tired.” → Ali says he is tired. Konjunktiv I = infinitive stem + -e.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (4 Fragen)</summary>
+<p class="q"><strong>1.</strong> Mia sagt: „Ich habe keine Zeit.“ → Mia sagt, sie ___ keine Zeit.</p><p class="a">habe</p>
+<p class="q"><strong>2.</strong> Jonas sagt: „Ich bin krank.“ → Jonas sagt, er ___ krank.</p><p class="a">sei</p>
+<p class="q"><strong>3.</strong> Die Leute sagen: „Wir haben keine Arbeit.“ → Sie sagen, sie ___ keine Arbeit.</p><p class="a">hätten</p>
+<p class="q"><strong>4.</strong> Tom sagt: „Ich muss arbeiten.“ → Tom sagt, er ___ arbeiten.</p><p class="a">müsse</p>
+</details>
+<hr>
+
+<h2 id="7-infinitiv-mit-zu-lassen-um-zu">7. Infinitiv mit „zu“, lassen &amp; um … zu</h2>
+<table>
+<thead><tr><th>Muster / Pattern</th><th>Beispiel</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>vorhaben / planen / versuchen + zu</td><td>Ich habe vor, Deutsch zu lernen.</td><td>I intend to learn German.</td></tr>
+<tr><td>Lust haben + zu</td><td>Ich habe keine Lust, Pizza zu essen.</td><td>I don’t feel like eating pizza.</td></tr>
+<tr><td>Es ist + Adjektiv + zu</td><td>Es ist schön, dich zu treffen.</td><td>It is nice to meet you.</td></tr>
+<tr><td>trennbares Verb: zu in der Mitte</td><td>Ich habe vor, dich anzurufen.</td><td>I intend to call you.</td></tr>
+<tr><td>brauchen + nicht/nur/kein … zu</td><td>Du brauchst nicht zu bezahlen.</td><td>You don’t have to pay.</td></tr>
+<tr><td>um … zu (Zweck)</td><td>Ich komme, um mit dir zu lernen.</td><td>I come in order to study with you.</td></tr>
+<tr><td>lassen + Infinitiv</td><td>Ich lasse mein Auto reparieren.</td><td>I have my car repaired.</td></tr>
+<tr><td>lassen im Perfekt</td><td>Ich habe mein Auto reparieren lassen.</td><td>I had my car repaired.</td></tr>
+<tr><td>Modalverb + Inf. + lassen</td><td>Ich muss mein Hemd bügeln lassen.</td><td>I have to have my shirt ironed.</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Konjugation:</strong> lassen: ich lasse · du lässt · er lässt · wir lassen · ihr lasst · sie lassen</div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (5 Fragen)</summary>
+<p class="q"><strong>1.</strong> Ich habe vor, dich ___. (anrufen)</p><p class="a">anzurufen</p>
+<p class="q"><strong>2.</strong> Es ist gut, Deutsch ___ lernen.</p><p class="a">zu</p>
+<p class="q"><strong>3.</strong> Ich repariere mein Auto. → Ich ___ mein Auto ___.</p><p class="a">lasse … reparieren</p>
+<p class="q"><strong>4.</strong> Perfekt: Ich ___ meine Haare schneiden ___.</p><p class="a">habe … lassen</p>
+<p class="q"><strong>5.</strong> Du lässt … → wir ___.</p><p class="a">lassen</p>
+</details>
+<hr>
+
+<h2 id="8-passiv-passive-voice">8. Passiv / Passive Voice</h2>
+<table>
+<thead><tr><th>Zeit</th><th>Formel</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>Präsens</td><td>werden + Partizip II</td><td>Die Arbeit wird (von mir) gemacht.</td></tr>
+<tr><td>Präteritum</td><td>wurde + Partizip II</td><td>Die Arbeit wurde (von mir) gemacht.</td></tr>
+<tr><td>Perfekt</td><td>ist + Partizip II + worden</td><td>Die Arbeit ist (von mir) gemacht worden.</td></tr>
+<tr><td>Modalverb</td><td>Modalverb + Partizip II + werden</td><td>Die Arbeit kann (von mir) gemacht werden.</td></tr>
+<tr><td>Futur</td><td>wird + Partizip II + werden</td><td>Die Arbeit wird gemacht werden.</td></tr>
+<tr><td>Dativ-Verb</td><td>Dativ bleibt: Dir wird geholfen.</td><td>Mir ist geholfen worden.</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Aktiv-Subjekt → <strong>von + Dativ</strong> (von mir, von ihm). Aktiv-Akkusativ → Passiv-Subjekt. <em>Active subject → “von + dative”; active object → passive subject.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (5 Fragen)</summary>
+<p class="q"><strong>1.</strong> Passiv Präsens: Ich koche das Fleisch. → Das Fleisch ___ (von mir) ___.</p><p class="a">wird … gekocht</p>
+<p class="q"><strong>2.</strong> Passiv Präteritum: Er kaufte den Kuli. → Der Kuli ___ (von ihm) ___.</p><p class="a">wurde … gekauft</p>
+<p class="q"><strong>3.</strong> Passiv Perfekt: Ich habe die Arbeit gemacht. → Die Arbeit ___ (von mir) ___ ___.</p><p class="a">ist … gemacht worden</p>
+<p class="q"><strong>4.</strong> Passiv Modalverb: Ich muss das Fleisch kochen. → Das Fleisch muss ___ ___.</p><p class="a">gekocht werden</p>
+<p class="q"><strong>5.</strong> Ich helfe dir. → Dir ___ ___.</p><p class="a">wird geholfen</p>
+</details>
+<hr>
+
+<h2 id="9-adjektivdeklination-adjective-declension">9. Adjektivdeklination / Adjective Declension</h2>
+<p><strong>Nach bestimmtem Artikel</strong> <em>(after der / die / das)</em></p>
+<table>
+<thead><tr><th></th><th>maskulin</th><th>neutrum</th><th>feminin</th><th>Plural</th></tr></thead>
+<tbody>
+<tr><td class="nomC"><span class="nomC">Nominativ</span></td><td>der gut<strong>e</strong> Mann</td><td>das gut<strong>e</strong> Kind</td><td>die gut<strong>e</strong> Frau</td><td>die gut<strong>en</strong> Leute</td></tr>
+<tr><td class="akkC"><span class="akkC">Akkusativ</span></td><td>den gut<strong>en</strong> Mann</td><td>das gut<strong>e</strong> Kind</td><td>die gut<strong>e</strong> Frau</td><td>die gut<strong>en</strong> Leute</td></tr>
+<tr><td class="datC"><span class="datC">Dativ</span></td><td>dem gut<strong>en</strong> Mann</td><td>dem gut<strong>en</strong> Kind</td><td>der gut<strong>en</strong> Frau</td><td>den gut<strong>en</strong> Leuten</td></tr>
+</tbody>
+</table>
+<p><strong>Nach unbestimmtem Artikel</strong> <em>(after ein / kein / mein)</em></p>
+<table>
+<thead><tr><th></th><th>maskulin</th><th>neutrum</th><th>feminin</th><th>Plural (keine)</th></tr></thead>
+<tbody>
+<tr><td class="nomC"><span class="nomC">Nominativ</span></td><td>ein gut<strong>er</strong> Mann</td><td>ein gut<strong>es</strong> Kind</td><td>eine gut<strong>e</strong> Frau</td><td>keine gut<strong>en</strong> Leute</td></tr>
+<tr><td class="akkC"><span class="akkC">Akkusativ</span></td><td>einen gut<strong>en</strong> Mann</td><td>ein gut<strong>es</strong> Kind</td><td>eine gut<strong>e</strong> Frau</td><td>keine gut<strong>en</strong> Leute</td></tr>
+<tr><td class="datC"><span class="datC">Dativ</span></td><td>einem gut<strong>en</strong> Mann</td><td>einem gut<strong>en</strong> Kind</td><td>einer gut<strong>en</strong> Frau</td><td>keinen gut<strong>en</strong> Leuten</td></tr>
+</tbody>
+</table>
+<p><strong>Ohne Artikel</strong> <em>(no article)</em></p>
+<table>
+<thead><tr><th></th><th>maskulin</th><th>neutrum</th><th>feminin</th><th>Plural</th></tr></thead>
+<tbody>
+<tr><td class="nomC"><span class="nomC">Nominativ</span></td><td>gut<strong>er</strong> Wein</td><td>kalt<strong>es</strong> Wasser</td><td>frisch<strong>e</strong> Milch</td><td>gut<strong>e</strong> Bücher</td></tr>
+<tr><td class="akkC"><span class="akkC">Akkusativ</span></td><td>gut<strong>en</strong> Wein</td><td>kalt<strong>es</strong> Wasser</td><td>frisch<strong>e</strong> Milch</td><td>gut<strong>e</strong> Bücher</td></tr>
+<tr><td class="datC"><span class="datC">Dativ</span></td><td>gut<strong>em</strong> Wein</td><td>kalt<strong>em</strong> Wasser</td><td>frisch<strong>er</strong> Milch</td><td>gut<strong>en</strong> Büchern</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Nach „der/die/das“ nur <strong>-e</strong> oder <strong>-en</strong>. Fehlt der Artikel-Hinweis, zeigt das Adjektiv das Geschlecht (-er, -es, -em, -er).<br>
+<em>After der/die/das only -e or -en. Where the article does not show the gender, the adjective does.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (5 Fragen)</summary>
+<p class="q"><strong>1.</strong> Das ist ein gut___ Student. (Nom., m.)</p><p class="a">guter</p>
+<p class="q"><strong>2.</strong> Ich sehe den neu___ Film. (Akk.)</p><p class="a">neuen</p>
+<p class="q"><strong>3.</strong> Ich trinke kalt___ Wasser. (Akk., n.)</p><p class="a">kaltes</p>
+<p class="q"><strong>4.</strong> Ich helfe der alt___ Frau. (Dat.)</p><p class="a">alten</p>
+<p class="q"><strong>5.</strong> Die schön___ Kinder spielen. (Nom., Pl.)</p><p class="a">schönen</p>
+</details>
+<hr>
+
+<h2 id="10-komparativ-superlativ-comparison">10. Komparativ &amp; Superlativ / Comparison</h2>
+<table>
+<thead><tr><th>Positiv</th><th>Komparativ</th><th>Superlativ</th></tr></thead>
+<tbody>
+<tr><td>gut</td><td>besser</td><td>am besten</td></tr>
+<tr><td>viel</td><td>mehr</td><td>am meisten</td></tr>
+<tr><td>gern</td><td>lieber</td><td>am liebsten</td></tr>
+<tr><td>hoch</td><td>höher</td><td>am höchsten</td></tr>
+<tr><td>groß</td><td>größer</td><td>am größten</td></tr>
+<tr><td>teuer</td><td>teurer</td><td>am teuersten</td></tr>
+<tr><td>billig</td><td>billiger</td><td>am billigsten</td></tr>
+<tr><td>schön</td><td>schöner</td><td>am schönsten</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Vergleich: <strong>als</strong> (Ungleichheit) · <strong>so … wie</strong> (Gleichheit). Mein Bruder ist besser <strong>als</strong> ich. Er ist so alt <strong>wie</strong> ich.<br>
+<em>als after a comparative, so … wie for equality.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (4 Fragen)</summary>
+<p class="q"><strong>1.</strong> Komparativ von „hoch“:</p><p class="a">höher</p>
+<p class="q"><strong>2.</strong> Superlativ von „gern“:</p><p class="a">am liebsten</p>
+<p class="q"><strong>3.</strong> Mein Bruder ist besser ___ ich. (als / wie)</p><p class="a">als</p>
+<p class="q"><strong>4.</strong> Wolfgang ist der ___ Student. (gut, Superlativ)</p><p class="a">beste</p>
+</details>
+<hr>
+
+<h2 id="11-partizip-i-ii-als-adjektiv-participles-as-adjectives">11. Partizip I &amp; II als Adjektiv / Participles as Adjectives</h2>
+<table>
+<thead><tr><th>Form</th><th>Bildung</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>Partizip I</td><td>Infinitiv + d</td><td>spielen → das spielende Kind · steigen → die steigenden Preise</td></tr>
+<tr><td>Partizip II</td><td>ge-…-t / ge-…-en</td><td>kochen → das gekochte Ei · lesen → das gelesene Buch</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Partizip I = aktiv, gleichzeitig <em>(is doing)</em>. Partizip II = Passiv, abgeschlossen <em>(has been done)</em>. Beide werden wie Adjektive dekliniert.</div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (3 Fragen)</summary>
+<p class="q"><strong>1.</strong> Die Frau kocht. → die ___ Frau</p><p class="a">kochende</p>
+<p class="q"><strong>2.</strong> Das Ei wurde gekocht. → das ___ Ei</p><p class="a">gekochte</p>
+<p class="q"><strong>3.</strong> Die Preise steigen. → die ___ Preise</p><p class="a">steigenden</p>
+</details>
+<hr>
+
+<h2 id="12-genitiv-praepositionen-genitive-prepositions">12. Genitiv &amp; Präpositionen / Genitive &amp; Prepositions</h2>
+<table>
+<thead><tr><th>Nominativ</th><th>Genitiv</th><th>Beispiel</th></tr></thead>
+<tbody>
+<tr><td>der Vater</td><td class="genC"><span class="genC">des Vaters</span></td><td>das Auto des Vaters / meines Vaters</td></tr>
+<tr><td>das Kind</td><td class="genC"><span class="genC">des Kindes</span></td><td>das Spielzeug des Kindes</td></tr>
+<tr><td>die Mutter</td><td class="genC"><span class="genC">der Mutter</span></td><td>das Haus der Mutter / meiner Mutter</td></tr>
+<tr><td>die Leute</td><td class="genC"><span class="genC">der Leute</span></td><td>das Haus der Leute</td></tr>
+<tr><td>Ali (Name)</td><td class="genC"><span class="genC">Alis</span></td><td>Alis Haus</td></tr>
+</tbody>
+</table>
+<table>
+<thead><tr><th>Kasus</th><th>Präpositionen</th></tr></thead>
+<tbody>
+<tr><td class="genC"><span class="genC">+ Genitiv</span></td><td>wegen, trotz, während, außerhalb, innerhalb, statt</td></tr>
+<tr><td class="datC"><span class="datC">+ Dativ</span></td><td>ab, aus, bei, mit, nach, seit, von, zu, bis zu, außer, gegenüber</td></tr>
+<tr><td class="akkC"><span class="akkC">+ Akkusativ</span></td><td>durch, für, gegen, ohne, um, bis</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Genitiv: <strong>der/das → des + -(e)s</strong>; <strong>die → der</strong>. Wessen Auto? — Das Auto meines Vaters. <em>Whose car? — My father’s car.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (5 Fragen)</summary>
+<p class="q"><strong>1.</strong> der Lehrer → das Buch ___ Lehrers</p><p class="a">des</p>
+<p class="q"><strong>2.</strong> die Frau → das Auto ___ Frau</p><p class="a">der</p>
+<p class="q"><strong>3.</strong> ___ des schlechten Wetters bleibe ich zu Hause. (because of)</p><p class="a">Wegen</p>
+<p class="q"><strong>4.</strong> Während ___ Arbeit höre ich Musik. (die Arbeit)</p><p class="a">der</p>
+<p class="q"><strong>5.</strong> Wessen Buch ist das? (mein Onkel)</p><p class="a">Das ist das Buch meines Onkels.</p>
+</details>
+<hr>
+
+<h2 id="13-wechselpraepositionen-two-way-prepositions">13. Wechselpräpositionen / Two-Way Prepositions</h2>
+<table>
+<thead><tr><th>Wo? → Dativ</th><th>Wohin? → Akkusativ</th></tr></thead>
+<tbody>
+<tr><td>Das Buch <strong>liegt</strong> auf dem Tisch.</td><td>Ich <strong>lege</strong> das Buch auf den Tisch.</td></tr>
+<tr><td>Die Flasche <strong>steht</strong> neben dem Laptop.</td><td>Ich <strong>stelle</strong> die Flasche neben den Laptop.</td></tr>
+<tr><td>Das Bild <strong>hängt</strong> an der Wand.</td><td>Ich <strong>hänge</strong> das Bild an die Wand.</td></tr>
+<tr><td>Er ist <strong>im</strong> Zimmer.</td><td>Er geht <strong>ins</strong> Zimmer.</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Die 9 Präpositionen:</strong> in · auf · an · hinter · unter · neben · vor · zwischen · über — Wo? = Dativ, Wohin? = Akkusativ.</div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (4 Fragen)</summary>
+<p class="q"><strong>1.</strong> Das Buch liegt ___ Tisch. (auf, der Tisch)</p><p class="a">auf dem</p>
+<p class="q"><strong>2.</strong> Ich lege das Buch ___ Tisch.</p><p class="a">auf den</p>
+<p class="q"><strong>3.</strong> Wo? oder Wohin? Er geht ins Zimmer.</p><p class="a">Wohin? (Akkusativ)</p>
+<p class="q"><strong>4.</strong> Das Bild hängt ___ Wand. (an, die Wand)</p><p class="a">an der</p>
+</details>
+<hr>
+
+<h2 id="14-verben-mit-praepositionen-verbs-with-prepositions">14. Verben mit Präpositionen / Verbs with Prepositions</h2>
+<table>
+<thead><tr><th>Verb + Präposition</th><th>Kasus</th><th>Frage</th><th>Pronominaladverb</th></tr></thead>
+<tbody>
+<tr><td>warten auf</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Worauf? / Auf wen?</td><td>darauf / auf ihn</td></tr>
+<tr><td>denken an</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Woran? / An wen?</td><td>daran / an ihn</td></tr>
+<tr><td>sich interessieren für</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Wofür? / Für wen?</td><td>dafür / für ihn</td></tr>
+<tr><td>sich freuen auf (Zukunft)</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Worauf?</td><td>darauf</td></tr>
+<tr><td>sich freuen über (Gegenwart)</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Worüber?</td><td>darüber</td></tr>
+<tr><td>sich ärgern über</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Worüber?</td><td>darüber</td></tr>
+<tr><td>sprechen / reden über</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Worüber?</td><td>darüber</td></tr>
+<tr><td>sich vorbereiten auf</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Worauf?</td><td>darauf</td></tr>
+<tr><td>sich bewerben um</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Worum?</td><td>darum</td></tr>
+<tr><td>achten auf</td><td class="akkC"><span class="akkC">Akk.</span></td><td>Worauf?</td><td>darauf</td></tr>
+<tr><td>teilnehmen an</td><td class="datC"><span class="datC">Dat.</span></td><td>Woran?</td><td>daran</td></tr>
+<tr><td>suchen nach</td><td class="datC"><span class="datC">Dat.</span></td><td>Wonach? / Nach wem?</td><td>danach / nach ihm</td></tr>
+<tr><td>sich erkundigen nach</td><td class="datC"><span class="datC">Dat.</span></td><td>Wonach?</td><td>danach</td></tr>
+<tr><td>sich unterscheiden von</td><td class="datC"><span class="datC">Dat.</span></td><td>Wovon?</td><td>davon</td></tr>
+<tr><td>gehören zu</td><td class="datC"><span class="datC">Dat.</span></td><td>Wozu?</td><td>dazu</td></tr>
+<tr><td>Angst haben vor</td><td class="datC"><span class="datC">Dat.</span></td><td>Wovor?</td><td>davor</td></tr>
+<tr><td>sich beschäftigen mit</td><td class="datC"><span class="datC">Dat.</span></td><td>Womit?</td><td>damit</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Sachen: wo(r)- / da(r)- + Präposition · Personen: Präposition + wen/wem · ihn/ihm. <em>Things: wo-/da- compounds; people: preposition + pronoun.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (5 Fragen)</summary>
+<p class="q"><strong>1.</strong> Ich warte ___ den Bus. → ___ wartest du?</p><p class="a">auf … Worauf</p>
+<p class="q"><strong>2.</strong> Ich interessiere mich ___ Sport. → Ich interessiere mich ___.</p><p class="a">für … dafür</p>
+<p class="q"><strong>3.</strong> Ich nehme ___ dem Kurs teil.</p><p class="a">an</p>
+<p class="q"><strong>4.</strong> Ich freue mich ___ das Geschenk (es ist schon da).</p><p class="a">über</p>
+<p class="q"><strong>5.</strong> Auf wen wartest du? — Ich warte ___ (Jonas).</p><p class="a">auf ihn</p>
+</details>
+<hr>
+
+<h2 id="15-reflexivpronomen-reflexive-pronouns">15. Reflexivpronomen / Reflexive Pronouns</h2>
+<table>
+<thead><tr><th>Person</th><th>Akkusativ</th><th>Dativ</th></tr></thead>
+<tbody>
+<tr><td>ich</td><td>mich</td><td>mir</td></tr>
+<tr><td>du</td><td>dich</td><td>dir</td></tr>
+<tr><td>er/sie/es/man</td><td>sich</td><td>sich</td></tr>
+<tr><td>wir</td><td>uns</td><td>uns</td></tr>
+<tr><td>ihr</td><td>euch</td><td>euch</td></tr>
+<tr><td>sie/Sie</td><td>sich</td><td>sich</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Ich wasche <strong>mich</strong> (Akk.). — Ich wasche <strong>mir</strong> die Hände (Dativ + Körperteil). <em>With a body part or other object: dative.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (4 Fragen)</summary>
+<p class="q"><strong>1.</strong> Ich wasche ___ die Hände.</p><p class="a">mir</p>
+<p class="q"><strong>2.</strong> Du ziehst ___ an.</p><p class="a">dich</p>
+<p class="q"><strong>3.</strong> Wir erinnern ___ an den Urlaub.</p><p class="a">uns</p>
+<p class="q"><strong>4.</strong> Er putzt ___ die Zähne.</p><p class="a">sich</p>
+</details>
+<hr>
+
+<h2 id="16-relativpronomen-relative-pronouns">16. Relativpronomen / Relative Pronouns</h2>
+<table>
+<thead><tr><th></th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead>
+<tbody>
+<tr><td class="nomC"><span class="nomC">Nominativ</span></td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
+<tr><td class="akkC"><span class="akkC">Akkusativ</span></td><td>den</td><td>die</td><td>das</td><td>die</td></tr>
+<tr><td class="datC"><span class="datC">Dativ</span></td><td>dem</td><td>der</td><td>dem</td><td>denen</td></tr>
+<tr><td class="genC"><span class="genC">Genitiv</span></td><td>dessen</td><td>deren</td><td>dessen</td><td>deren</td></tr>
+</tbody>
+</table>
+<div class="rule"><strong>Merke:</strong> Geschlecht/Zahl vom Bezugswort, Kasus aus dem Relativsatz. Mit Präposition: <strong>Das ist der Mann, auf den ich warte.</strong><br>
+<em>Gender/number from the noun it refers to; case from the role in the relative clause. The verb goes to the end.</em></div>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (5 Fragen)</summary>
+<p class="q"><strong>1.</strong> Das ist mein Freund, ___ ein Arzt ist.</p><p class="a">der</p>
+<p class="q"><strong>2.</strong> Das ist meine Mutter, ___ ich anrufe.</p><p class="a">die</p>
+<p class="q"><strong>3.</strong> Das ist mein Freund, ___ ich ein Buch schenke.</p><p class="a">dem</p>
+<p class="q"><strong>4.</strong> Das sind die Leute, ___ Autos ich habe.</p><p class="a">deren</p>
+<p class="q"><strong>5.</strong> Das ist der Kurs, an ___ ich teilnehme.</p><p class="a">dem</p>
+</details>
+<hr>
+
+<h2 id="17-artikelwoerter-als-pronomen-articles-as-pronouns">17. Artikelwörter als Pronomen / Articles as Pronouns</h2>
+<table>
+<thead><tr><th>Nomen</th><th>Pronomen</th></tr></thead>
+<tbody>
+<tr><td>der Kuli (Nom.)</td><td>einer / keiner / meiner</td></tr>
+<tr><td>den Kuli (Akk.)</td><td>einen / keinen / meinen</td></tr>
+<tr><td>dem Kuli (Dat.)</td><td>einem / keinem / meinem</td></tr>
+<tr><td>die Uhr (Nom./Akk.)</td><td>eine / keine / meine</td></tr>
+<tr><td>das Buch (Nom./Akk.)</td><td>eins / keins / meins</td></tr>
+<tr><td>die Bücher (Nom./Akk.)</td><td>welche / keine / meine</td></tr>
+</tbody>
+</table>
+<details class="quiz-box">
+<summary>▸ Test dich selbst (4 Fragen)</summary>
+<p class="q"><strong>1.</strong> Hast du einen Kuli? — Ja, ich habe ___.</p><p class="a">einen</p>
+<p class="q"><strong>2.</strong> Ist das dein Buch? — Ja, das ist ___.</p><p class="a">meins</p>
+<p class="q"><strong>3.</strong> Sind hier Bücher? — Nein, hier sind ___.</p><p class="a">keine</p>
+<p class="q"><strong>4.</strong> Hast du eine Uhr? — Nein, ich habe ___.</p><p class="a">keine</p>
+</details>
+<hr>
+
+</div>
+</div>
+
+<div id="footer-placeholder"></div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+
+    <script src="/vendor/bootstrap/5.3.3/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+        });
+
+        (function () {
+            var buttons = '';
+                    document.querySelectorAll('h2[id]').forEach(function (h) {
+                        var m = h.id.match(/^(\d+)-/);
+                        if (!m) return;
+                        // Full readable label INCLUDING the section number, matching
+                        // how the heading itself appears in the body (before the
+                        // " / " English half).
+                        var label = m[1] + '. ' + h.textContent.replace(/^\d+\.\s*/, '').split(' / ')[0].trim();
+                        var full = label;
+                        if (label.length > 34) label = label.slice(0, 33) + '\u2026';
+                        buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="' + full.replace(/"/g, '&quot;') + '">' + label + '</a>';
+                    });
+                    document.getElementById('quickjump-placeholder').innerHTML =
+                        '<div class="jump-bar"><div class="fw-semibold small mb-2" style="color:#1d4ed8">\ud83d\udcda Inhalt</div><div class="jump-links d-flex flex-column">' + buttons + '</div></div>';
+        })();
+    </script>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\\/g, '/');
+            var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+            var prefix = levelMatch ? '../' : '';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/wordfeather" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="../privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div></div></footer>';
+            fetch(prefix + 'footer.html?v=' + Date.now())
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { var html = footerFallback.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; });
+        })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function(reg) {
+                // Check for updates on every page load
+                reg.update();
+                // When a new SW is found, activate it immediately
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
+
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+(function() {
+    var EYE_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+    var EYE_CLOSED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.86 21.86 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a21.86 21.86 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+
+    function makeCellToggle(el) {
+        var wrap = document.createElement('span');
+        wrap.className = 'practice-cell';
+
+        var masked = document.createElement('span');
+        masked.className = 'masked-content';
+
+        // Move the *actual* child nodes into the masked wrapper instead of
+        // reading/reassigning innerHTML as a string. innerHTML round-tripping
+        // reparses markup into brand-new elements, which silently drops any
+        // JS event handlers already attached (e.g. the TTS speaker button's
+        // onclick) — that was the cause of the speaker button going dead
+        // once a cell was wrapped for masking.
+        while (el.firstChild) {
+            masked.appendChild(el.firstChild);
+        }
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'eye-btn';
+        btn.setAttribute('aria-label', 'Antwort anzeigen / show answer');
+        btn.innerHTML = EYE_CLOSED;
+
+        btn.addEventListener('click', function() {
+            var revealed = wrap.classList.toggle('revealed');
+            btn.innerHTML = revealed ? EYE_OPEN : EYE_CLOSED;
+        });
+
+        wrap.appendChild(masked);
+        wrap.appendChild(btn);
+        el.appendChild(wrap);
+    }
+
+    // Shared helper: reveal/hide every .practice-cell inside a container,
+    // and keep any nested table-level toggle buttons in sync so their icon
+    // and label always reflect the true current state (used by both the
+    // per-table button and the per-section master button).
+    function setRevealed(container, revealed) {
+        container.querySelectorAll('.practice-cell').forEach(function(cell) {
+            cell.classList.toggle('revealed', revealed);
+            var eb = cell.querySelector('.eye-btn');
+            if (eb) eb.innerHTML = revealed ? EYE_OPEN : EYE_CLOSED;
+        });
+        container.querySelectorAll('.table-eye-btn').forEach(function(btn) {
+            btn.dataset.expanded = revealed ? '1' : '0';
+            btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                '<span>' + (revealed ? 'Tabelle verstecken' : 'Tabelle anzeigen') + '</span>';
+        });
+        // addTableToggle() inserts its button as a preceding SIBLING of the
+        // table, not a descendant — so when this function is called with the
+        // table itself as the container (e.g. from the section-level "Alle
+        // anzeigen" master button), the querySelectorAll above never finds
+        // it. Check for that sibling explicitly so both the per-table click
+        // and the section-wide master toggle keep this button's label and
+        // icon in sync with the table's actual state.
+        if (container.previousElementSibling &&
+            container.previousElementSibling.classList &&
+            container.previousElementSibling.classList.contains('table-eye-btn')) {
+            var sibBtn = container.previousElementSibling;
+            sibBtn.dataset.expanded = revealed ? '1' : '0';
+            sibBtn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                '<span>' + (revealed ? 'Tabelle verstecken' : 'Tabelle anzeigen') + '</span>';
+        }
+    }
+
+    function addTableToggle(table) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'section-eye-btn table-eye-btn';
+        btn.dataset.expanded = '0';
+        btn.innerHTML = EYE_CLOSED + '<span>Tabelle anzeigen</span>';
+        btn.setAttribute('aria-label', 'Antworten in dieser Tabelle anzeigen/verstecken');
+
+        // This button lives BEFORE the table (a sibling), not inside it — so
+        // setRevealed(table, ...) can't find/update it via its own internal
+        // ".table-eye-btn" lookup (that lookup only searches *inside* the
+        // given container). Manage this button's own label/state directly
+        // here instead of relying on setRevealed to do it.
+        btn.addEventListener('click', function() {
+            var revealed = btn.dataset.expanded !== '1';
+            btn.dataset.expanded = revealed ? '1' : '0';
+            setRevealed(table, revealed);
+            btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                '<span>' + (revealed ? 'Tabelle verstecken' : 'Tabelle anzeigen') + '</span>';
+        });
+
+        table.parentNode.insertBefore(btn, table);
+    }
+
+    function maskTables() {
+        document.querySelectorAll('.markdown-content table').forEach(function(table) {
+            var anyMasked = false;
+            // Header row (th cells) stays fully visible — it's the prompt labels
+            table.querySelectorAll('tbody tr').forEach(function(row) {
+                var cells = Array.prototype.slice.call(row.children);
+                cells.forEach(function(td, idx) {
+                    // A .mask-target span marks the specific answer portion of
+                    // a cell that should be masked, regardless of which column
+                    // it's in — this covers tables where even the first column
+                    // holds a real answer (e.g. "können → konnte (could)" /
+                    // "müssen → musste (had to)"), not just a fixed row label.
+                    var targets = td.querySelectorAll('.mask-target');
+                    if (targets.length) {
+                        targets.forEach(function(t) {
+                            if (!t.textContent.trim()) return;
+                            makeCellToggle(t);
+                            anyMasked = true;
+                        });
+                        return;
+                    }
+
+                    // Without an explicit .mask-target, the first cell in each
+                    // body row is the row label / prompt and stays visible.
+                    if (idx === 0) return;
+
+                    // Cells explicitly marked "no-mask" always stay fully
+                    // visible (e.g. a pronoun-label column, or a value that
+                    // should never be hidden even though it isn't the row's
+                    // first cell).
+                    if (td.classList.contains('no-mask')) return;
+
+                    // Skip empty cells (some tables have trailing blank <td></td>)
+                    if (!td.textContent.trim()) return;
+                    makeCellToggle(td);
+                    anyMasked = true;
+                });
+            });
+            // Only add a per-table toggle if this table actually has masked
+            // cells — a few tables are single-column reference lists with
+            // nothing to hide.
+            if (anyMasked) addTableToggle(table);
+        });
+    }
+
+    function maskQuizAnswers() {
+        // Questions (.q) stay visible; only the answer (.a) is masked, same
+        // pattern as table cells, so the "Test dich selbst" boxes also work
+        // as individual click-to-reveal flashcards instead of all-at-once.
+        document.querySelectorAll('.quiz-box .a').forEach(function(a) {
+            if (!a.textContent.trim()) return;
+            makeCellToggle(a);
+        });
+    }
+
+    function addSectionToggles() {
+        document.querySelectorAll('.markdown-content h2[id]').forEach(function(h2) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'section-eye-btn';
+            btn.dataset.expanded = '0';
+            btn.innerHTML = EYE_CLOSED + '<span>Alle anzeigen</span>';
+            btn.setAttribute('aria-label', 'Alle Antworten in diesem Abschnitt anzeigen/verstecken');
+
+            btn.addEventListener('click', function() {
+                var revealed = btn.dataset.expanded !== '1';
+                btn.dataset.expanded = revealed ? '1' : '0';
+                var el = h2.nextElementSibling;
+                while (el && el.tagName !== 'H2') {
+                    if (el.tagName === 'TABLE' || el.tagName === 'DETAILS') {
+                        // DETAILS covers the "Test dich selbst" quiz boxes;
+                        // open it too so the now-revealed answers are visible
+                        // rather than hidden behind an unopened <details>.
+                        if (el.tagName === 'DETAILS' && revealed) el.open = true;
+                        setRevealed(el, revealed);
+                    }
+                    el = el.nextElementSibling;
+                }
+                btn.innerHTML = (revealed ? EYE_OPEN : EYE_CLOSED) +
+                    '<span>' + (revealed ? 'Alle verstecken' : 'Alle anzeigen') + '</span>';
+            });
+
+            h2.appendChild(btn);
+        });
+    }
+
+    window.initPracticeMode = function() {
+        maskTables();
+        maskQuizAnswers();
+        addSectionToggles();
+    };
+})();
+</script>
+<script>
+// TTS — same engine as dictionary.html / 10_notes.html, extended to also
+// handle this page's inline pattern: German sentence followed by an
+// <em>(English translation)</em>, used throughout the prose/list sections
+// rather than in tables.
+(function() {
+    if (!('speechSynthesis' in window)) return;
+    var synth = window.speechSynthesis;
+    var activeBtn = null;
+    var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+    function mkBtn(text, lang) {
+        var b = document.createElement('button');
+        b.className = 'd-tts'; b.innerHTML = svg;
+        b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
+        b.onclick = function(e) {
+            e.preventDefault(); e.stopPropagation();
+            synth.cancel();
+            if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
+            if (activeBtn) activeBtn.classList.remove('playing');
+            var clean = text.replace(/\s+/g,' ').trim();
+            if (!clean) return;
+            var u = new SpeechSynthesisUtterance(clean);
+            u.lang = lang; u.rate = 0.9;
+            var voices = synth.getVoices();
+            var lp = lang.split('-')[0];
+            for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
+            b.classList.add('playing'); activeBtn = b;
+            u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
+            synth.speak(u);
+        };
+        return b;
+    }
+    var SKIP_HEADERS = ['english','englisch','urdu','اردو'];
+    var initialized = false;
+    function initTables() {
+        document.querySelectorAll('table').forEach(function(table) {
+            var ths = table.querySelectorAll('thead th');
+            var headers = Array.prototype.map.call(ths, function(th) { return th.textContent.trim().toLowerCase(); });
+            table.querySelectorAll('tbody tr').forEach(function(row) {
+                var cells = row.querySelectorAll('td');
+                cells.forEach(function(cell, i) {
+                    var header = headers[i] || '';
+                    var text = cell.textContent.trim();
+                    if (!text || cell.querySelector('.d-tts')) return;
+                    var isEnglish = /english|englisch/.test(header);
+                    if (SKIP_HEADERS.some(function(s){ return header.indexOf(s) > -1; }) && !isEnglish) return;
+                    var lang = isEnglish ? 'en-US' : 'de-DE';
+                    cell.appendChild(mkBtn(text, lang));
+                });
+            });
+        });
+    }
+    function initProse() {
+        // Handles "German sentence <em>(English translation)</em>" pattern
+        // found in <p> and <li> elements outside tables.
+        document.querySelectorAll('main li, main p').forEach(function(el) {
+            if (el.closest('table')) return;
+            if (el.querySelector('.d-tts')) return;
+            var ems = el.querySelectorAll('em');
+            if (!ems.length) return;
+            ems.forEach(function(em) {
+                var raw = em.textContent.trim();
+                var m = raw.match(/^\(([\s\S]+)\)$/);
+                if (!m) return; // only handle the "(...)" translation convention
+                var enText = m[1].trim();
+                if (!enText) return;
+                var enBtn = mkBtn(enText, 'en-US');
+                em.parentNode.insertBefore(enBtn, em.nextSibling);
+                // German: the text content of em's previous sibling run back to
+                // the last sentence boundary (., —, or start of element/line).
+                var node = em.previousSibling;
+                var pieces = [];
+                while (node) {
+                    if (node.nodeType === 3) { pieces.unshift(node.textContent); }
+                    else if (node.nodeName === 'BR') { break; }
+                    else if (node.nodeName === 'STRONG' || node.nodeName === 'SPAN') { pieces.unshift(node.textContent); }
+                    else { break; }
+                    node = node.previousSibling;
+                }
+                var segment = pieces.join('');
+                var deMatch = segment.match(/(?:^|[.—]|→)\s*([^.—→]*)$/);
+                var deText = deMatch ? deMatch[1].trim() : segment.trim();
+                deText = deText.replace(/^-+\s*/, '').trim();
+                if (deText) {
+                    var deBtn = mkBtn(deText, 'de-DE');
+                    em.parentNode.insertBefore(deBtn, em);
+                }
+            });
+        });
+    }
+    function initProseFallback() {
+        // Catches lines that are pure German with no <em>(English)</em> tag —
+        // e.g. dialogue turns (Was möchten Sie? — Ich möchte ...) and pattern
+        // drills (Ich treffe ihn.) in sections like 23/24 that initProse skips.
+        document.querySelectorAll('main li, main p').forEach(function(el) {
+            if (el.closest('table')) return;
+            if (el.querySelector('.d-tts')) return;
+            var text = el.textContent.trim();
+            if (!text || text.length < 2) return;
+            // skip pure fill-in-the-blank lines with no real words to speak
+            if (/^[-_\s.,0-9]+$/.test(text)) return;
+            el.appendChild(mkBtn(text, 'de-DE'));
+        });
+    }
+    function init() {
+        if (initialized) return;
+        initialized = true;
+        initTables();
+        initProse();
+        initProseFallback();
+        if (window.initPracticeMode) window.initPracticeMode();
+    }
+    if (synth.getVoices().length > 0) init();
+    else { synth.addEventListener('voiceschanged', function once() { init(); synth.removeEventListener('voiceschanged', once); }); setTimeout(function() { if (!initialized) init(); }, 500); }
+})();
+</script>
+</body>
+</html>
+

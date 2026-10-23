@@ -288,12 +288,12 @@
         var modules = {
             A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
             A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
-            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html','12_deutsch_lessons.html'],
             B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
             C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
             C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
         };
-        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../quiz.html" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat','10 Kursnotizen (Notes)','11 Spickzettel (Cheat Sheet)','12 B1 Deutsch Kurs (Lesson Notes)'];        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../quiz.html" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
 
         function renderHeader(html) {
             html = html.replace(/BASE\//g, prefix);
@@ -813,6 +813,182 @@
 </tbody>
 </table>
 <hr />
+<h2 id="23-nebensaetze-und-indirekte-fragen-subordinate-clauses-and-indirect-ques">23. Nebensätze und indirekte Fragen / Subordinate Clauses and Indirect Questions</h2>
+<p>Nach <strong>weil, wenn, obwohl, dass, ob</strong> steht das konjugierte Verb am Ende.<br />
+<em>After weil, wenn, obwohl, dass, ob the conjugated verb goes to the end of the clause.</em></p>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Konnektor</th><th>Beispiel</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>weil</td><td>Ich lerne Deutsch, weil ich in Deutschland arbeiten möchte.</td><td>I learn German because I would like to work in Germany.</td></tr>
+<tr><td>obwohl</td><td>Obwohl ich Geld brauche, arbeite ich nicht.</td><td>Although I need money, I do not work.</td></tr>
+<tr><td>wenn</td><td>Wenn ich Zeit habe, besuche ich dich.</td><td>When/If I have time, I visit you.</td></tr>
+<tr><td>dass</td><td>Ich nehme an, dass mein Freund bald kommen wird.</td><td>I assume that my friend will come soon.</td></tr>
+<tr><td>damit</td><td>Ich gebe dir das Geld, damit du die Bücher kaufst.</td><td>I give you the money so that you buy the books.</td></tr>
+</tbody>
+</table>
+<p><strong>Achtung / Note:</strong> Steht der Nebensatz zuerst, folgt direkt danach das Verb des Hauptsatzes: <em>Weil ich Geld brauche, arbeite ich.</em> <em>aber, denn, und, oder, sondern</em> verändern die Wortstellung nicht (Position 0).<br />
+<em>If the subordinate clause comes first, the verb of the main clause follows immediately. aber, denn, und, oder, sondern do not change the word order.</em></p>
+<h3 id="indirekte-fragen-indirect-questions">Indirekte Fragen / Indirect Questions</h3>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Direkte Frage</th><th>Indirekte Frage</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Was sind Sie von Beruf?</td><td>Bitte sagen Sie, was Sie von Beruf sind.</td><td>Please tell me what your profession is.</td></tr>
+<tr><td>Wo wohnen Sie?</td><td>Bitte sagen Sie, wo Sie wohnen.</td><td>Please tell me where you live.</td></tr>
+<tr><td>Sind Sie verheiratet?</td><td>Ich will wissen, ob Sie verheiratet sind.</td><td>I want to know whether you are married.</td></tr>
+<tr><td>Haben Sie Kinder?</td><td>Ich will wissen, ob Sie Kinder haben.</td><td>I want to know whether you have children.</td></tr>
+</tbody>
+</table>
+<p>W-Frage → Fragewort bleibt. Ja/Nein-Frage → <strong>ob</strong>. <em>W-question: keep the question word. Yes/no question: use ob.</em></p>
+<h3 id="je-desto-umso">je … desto / umso</h3>
+<p><strong>Je</strong> + Komparativ … Verb (Ende), <strong>desto</strong> + Komparativ + Verb + Subjekt.<br />
+<em>The + comparative … , the + comparative …</em></p>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Beispiel</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Je früher Sie kommen, desto besser lernen Sie.</td><td>The earlier you come, the better you learn.</td></tr>
+<tr><td>Je mehr ich spazieren gehe, desto gesünder bleibe ich.</td><td>The more I go for walks, the healthier I stay.</td></tr>
+<tr><td>Je mehr Zeit ich habe, desto besser kann ich lernen.</td><td>The more time I have, the better I can learn.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="24-lassen-infinitiv-lassen-infinitive">24. lassen + Infinitiv / lassen + Infinitive</h2>
+<p><strong>lassen</strong> + Infinitiv bedeutet: etwas machen lassen (von jemand anderem). <em>lassen + infinitive means to have something done (by someone else) or to let someone do something.</em></p>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Konjugation</th><th></th></tr></thead>
+<tbody>
+<tr><td>ich lasse</td><td>wir lassen</td></tr>
+<tr><td>du lässt</td><td>ihr lasst</td></tr>
+<tr><td>er/sie/es/man lässt</td><td>sie/Sie lassen</td></tr>
+</tbody>
+</table>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Form</th><th>Beispiel</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Präsens</td><td>Ich lasse mein Auto reparieren.</td><td>I am having my car repaired.</td></tr>
+<tr><td>Perfekt (Doppel-Infinitiv)</td><td>Ich habe mein Auto reparieren lassen.</td><td>I had my car repaired.</td></tr>
+<tr><td>mit Modalverb</td><td>Ich muss mein Hemd bügeln lassen.</td><td>I have to have my shirt ironed.</td></tr>
+<tr><td>Haare</td><td>Ich lasse meine Haare schneiden.</td><td>I am having my hair cut.</td></tr>
+<tr><td>Vollverb: lassen – ließ – gelassen</td><td>Ich habe mein Hemd auf dem Tisch gelassen.</td><td>I left my shirt on the table.</td></tr>
+<tr><td>sich scheiden lassen</td><td>Er hat sich scheiden lassen.</td><td>He got divorced.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="25-modalverben-praeteritum-konjunktiv-ii-und-perfekt-modal-verbs-simple-p">25. Modalverben: Präteritum, Konjunktiv II und Perfekt / Modal Verbs: Simple Past, Subjunctive II and Perfect</h2>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Infinitiv</th><th>Präteritum</th><th>Konjunktiv II</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>können</td><td>konnte</td><td>könnte</td><td>could / would be able to</td></tr>
+<tr><td>müssen</td><td>musste</td><td>müsste</td><td>had to / would have to</td></tr>
+<tr><td>dürfen</td><td>durfte</td><td>dürfte</td><td>was allowed to / would be allowed to</td></tr>
+<tr><td>wollen</td><td>wollte</td><td>wollte</td><td>wanted to (no change)</td></tr>
+<tr><td>sollen</td><td>sollte</td><td>sollte</td><td>was supposed to (no change)</td></tr>
+<tr><td>mögen</td><td>mochte</td><td>möchte</td><td>liked / would like</td></tr>
+</tbody>
+</table>
+<p><strong>Perfekt mit Modalverb:</strong> haben + Infinitiv + Modalverb (Infinitiv): <em>Ich habe gestern nicht arbeiten können.</em> <em>The perfect of a modal verb uses a double infinitive at the end: I could not work yesterday.</em></p>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Beispiel</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Ich konnte gestern nicht arbeiten.</td><td>I could not work yesterday.</td></tr>
+<tr><td>Ich durfte in Deutschland arbeiten, weil ich einen Job hatte.</td><td>I was allowed to work in Germany because I had a job.</td></tr>
+<tr><td>Ich dürfte in Deutschland arbeiten, wenn ich einen Job hätte.</td><td>I would be allowed to work in Germany if I had a job.</td></tr>
+<tr><td>Ich habe dich treffen wollen.</td><td>I wanted to meet you.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="26-wechselpraepositionen-und-positionsverben-two-way-prepositions-and-pos">26. Wechselpräpositionen und Positionsverben / Two-Way Prepositions and Position Verbs</h2>
+<p><strong>in, auf, an, hinter, unter, neben, vor, zwischen, über</strong> — Wo? → Dativ, Wohin? → Akkusativ.<br />
+<em>Where? → dative; Where to? → accusative.</em></p>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Wo? (Dativ)</th><th>Wohin? (Akkusativ)</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Das Buch <strong>liegt</strong> auf dem Tisch.</td><td>Ich <strong>lege</strong> das Buch auf den Tisch.</td><td>The book lies on the table. / I put the book on the table.</td></tr>
+<tr><td>Die Flasche <strong>steht</strong> neben dem Laptop.</td><td>Ich <strong>stelle</strong> die Flasche neben den Laptop.</td><td>The bottle stands next to the laptop. / I put the bottle next to the laptop.</td></tr>
+<tr><td>Das Bild <strong>hängt</strong> an der Wand.</td><td>Ich <strong>hänge</strong> das Bild an die Wand.</td><td>The picture hangs on the wall. / I hang the picture on the wall.</td></tr>
+<tr><td>Die Lampe hängt über dem Tisch.</td><td>Ich hänge die Lampe über den Tisch.</td><td>The lamp hangs above the table. / I hang the lamp above the table.</td></tr>
+<tr><td>Er ist im Zimmer.</td><td>Er geht ins Zimmer.</td><td>He is in the room. / He goes into the room.</td></tr>
+</tbody>
+</table>
+<p><strong>Merke / Remember:</strong> liegen–legen, stehen–stellen, hängen–hängen, sitzen–setzen. Dativ: ab, bis zu, nach, seit, vor (Zeit), z. B. <em>Seit meinem Umzug unternehme ich viel. Nach der Arbeit gehe ich nach Hause.</em><br />
+<em>Verb pairs: state (Dativ) vs. movement (Akkusativ). Time prepositions with the dative: ab, bis zu, nach, seit, vor.</em></p>
+<hr />
+<h2 id="27-reflexive-verben-und-reflexivpronomen-reflexive-verbs-and-pronouns">27. Reflexive Verben und Reflexivpronomen / Reflexive Verbs and Pronouns</h2>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Person</th><th>Akkusativ</th><th>Dativ</th></tr></thead>
+<tbody>
+<tr><td>ich</td><td>mich</td><td>mir</td></tr>
+<tr><td>du</td><td>dich</td><td>dir</td></tr>
+<tr><td>er/sie/es/man</td><td>sich</td><td>sich</td></tr>
+<tr><td>wir</td><td>uns</td><td>uns</td></tr>
+<tr><td>ihr</td><td>euch</td><td>euch</td></tr>
+<tr><td>sie/Sie</td><td>sich</td><td>sich</td></tr>
+</tbody>
+</table>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Beispiel</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Ich wasche mich. / Ich wasche mir die Hände.</td><td>I wash myself. / I wash my hands. (body part → Dativ)</td></tr>
+<tr><td>Ich ziehe mich an. / Ich ziehe mir das Hemd an.</td><td>I get dressed. / I put on the shirt.</td></tr>
+<tr><td>Ich putze mir die Zähne.</td><td>I brush my teeth.</td></tr>
+<tr><td>Ich erinnere mich an den Urlaub.</td><td>I remember the holiday.</td></tr>
+<tr><td>Ich muss mich schnell umziehen.</td><td>I have to change quickly.</td></tr>
+</tbody>
+</table>
+<p>Ohne weiteres Objekt: Akkusativ (mich). Mit Körperteil oder Kleidung: Dativ (mir).<br />
+<em>No other object: accusative. With a body part or clothing: dative.</em></p>
+<hr />
+<h2 id="28-partizip-perfekt-als-adjektiv-past-participle-as-adjective">28. Partizip Perfekt als Adjektiv / Past Participle as Adjective</h2>
+<p>Das Partizip II beschreibt etwas, das gemacht <em>worden ist</em> (Passiv-Bedeutung). <em>The past participle describes something that has been done.</em></p>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Satz im Passiv</th><th>Partizip als Adjektiv</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Das Ei wurde gekocht.</td><td>das gekochte Ei / ein gekochtes Ei</td><td>the boiled egg</td></tr>
+<tr><td>Das Buch wurde gelesen.</td><td>das gelesene Buch</td><td>the book that has been read</td></tr>
+<tr><td>Die Rechnung wurde bezahlt.</td><td>die bezahlte Rechnung</td><td>the paid bill</td></tr>
+<tr><td>Das Haus wurde verkauft.</td><td>das verkaufte Haus</td><td>the sold house</td></tr>
+<tr><td>Das Geld wurde überwiesen.</td><td>das überwiesene Geld</td><td>the transferred money</td></tr>
+</tbody>
+</table>
+<p>Partizip II wird wie ein Adjektiv dekliniert: <em>der gekochte Reis, ein gekochtes Ei</em>. Vergleiche Abschnitt 10 (Partizip Präsens). <em>It is declined like any adjective — compare section 10 for the present participle.</em></p>
+<hr />
+<h2 id="29-konjunktiv-i-und-indirekte-rede-subjunctive-i-and-reported-speech">29. Konjunktiv I und indirekte Rede / Subjunctive I and Reported Speech</h2>
+<p>Konjunktiv I = Stamm + <strong>-e</strong> (er/sie/es). Ist die Form gleich dem Indikativ, benutzt man Konjunktiv II.<br />
+<em>Subjunctive I = stem + -e (he/she/it). If the form is identical to the indicative, use subjunctive II.</em></p>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Direkte Rede</th><th>Indirekte Rede</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Ali sagt: „Ich arbeite heute nicht.“</td><td>Ali sagt, er arbeite heute nicht.</td><td>Ali says he is not working today.</td></tr>
+<tr><td>Jonas sagt: „Ich bin sehr müde.“</td><td>Jonas sagt, er sei sehr müde.</td><td>Jonas says he is very tired.</td></tr>
+<tr><td>Mia sagt: „Ich habe keine Zeit.“</td><td>Mia sagt, sie habe keine Zeit.</td><td>Mia says she has no time.</td></tr>
+<tr><td>Ali sagt: „Ich kann nicht schwimmen.“</td><td>Ali sagt, er könne nicht schwimmen.</td><td>Ali says he cannot swim.</td></tr>
+<tr><td>Die Leute sagen: „Wir haben keine Arbeit.“</td><td>Die Leute sagen, sie hätten keine Arbeit.</td><td>The people say they have no work. (hätten = Konj. II)</td></tr>
+<tr><td>Die Leute sagen: „Wir sind nach London geflogen.“</td><td>Die Leute sagen, sie seien nach London geflogen.</td><td>The people say they flew to London.</td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="30-artikelwoerter-als-pronomen-articles-as-pronouns">30. Artikelwörter als Pronomen / Articles as Pronouns</h2>
+<p>Der Artikel ersetzt das Nomen: <em>Hast du einen Kuli? — Ja, ich habe einen.</em><br />
+<em>The article replaces the noun: Do you have a pen? — Yes, I have one.</em></p>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Nomen</th><th>ein / kein / mein als Pronomen</th></tr></thead>
+<tbody>
+<tr><td>der Kuli (Nominativ)</td><td>einer / keiner / meiner</td></tr>
+<tr><td>den Kuli (Akkusativ)</td><td>einen / keinen / meinen</td></tr>
+<tr><td>dem Kuli (Dativ)</td><td>einem / keinem / meinem</td></tr>
+<tr><td>die Uhr (Nom./Akk.) · der Uhr (Dat.)</td><td>eine / keine / meine · einer / keiner / meiner</td></tr>
+<tr><td>das Buch (Nom./Akk.) · dem Buch (Dat.)</td><td>eins / keins / meins · einem / keinem / meinem</td></tr>
+<tr><td>die Bücher (Nom./Akk.) · den Büchern (Dat.)</td><td>welche / keine / meine · welchen / keinen / meinen</td></tr>
+</tbody>
+</table>
+<table class="table table-bordered table-sm">
+<thead><tr><th>Beispiel</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Ist das dein Auto? — Ja, das ist meins.</td><td>Is that your car? — Yes, that is mine.</td></tr>
+<tr><td>Sind hier Bücher? — Ja, hier sind welche. / Nein, hier sind keine.</td><td>Are there books here? — Yes, there are some. / No, there are none.</td></tr>
+<tr><td>Fährst du mit deinem Auto? — Ja, ich fahre mit meinem.</td><td>Are you driving with your car? — Yes, with mine.</td></tr>
+</tbody>
+</table>
+<hr />
 <h2 id="ubungen-exercises">Übungen / Exercises</h2>
 <h3 id="ubung-1-konjunktiv-ii">Übung 1: Konjunktiv II</h3>
 <p>Formulieren Sie irreale Bedingungen. <em>Form unreal conditions.</em></p>
@@ -825,6 +1001,15 @@
 <li>Man repariert das Auto. → <strong>Das Auto wird repariert.</strong> <em>(The car is being repaired.)</em></li>
 <li>Man hat die Tür geschlossen. → <strong>Die Tür ist geschlossen worden.</strong> <em>(The door has been closed.)</em></li>
 <li>Man muss die Hausaufgaben machen. → <strong>Die Hausaufgaben müssen gemacht werden.</strong> <em>(The homework must be done.)</em></li>
+</ol>
+<h3 id="ubung-3-lassen-und-wechselpraepositionen">Übung 3: lassen und Wechselpräpositionen / lassen and two-way prepositions</h3>
+<p>Ergänzen Sie. <em>Fill in the blanks.</em></p>
+<ol>
+<li>Ich repariere mein Auto nicht selbst. → <strong>Ich lasse mein Auto reparieren.</strong> <em>(I have my car repaired.)</em></li>
+<li>Perfekt: Ich habe mein Auto ___ ___. → <strong>reparieren lassen</strong> <em>(double infinitive at the end)</em></li>
+<li>Das Buch liegt ___ Tisch. → <strong>auf dem Tisch</strong> <em>(Wo? → Dativ)</em></li>
+<li>Ich lege das Buch ___ Tisch. → <strong>auf den Tisch</strong> <em>(Wohin? → Akkusativ)</em></li>
+<li>Ich wasche ___ die Hände. → <strong>mir</strong> <em>(body part → Dativ)</em></li>
 </ol>
                 </div>
                 </div>
