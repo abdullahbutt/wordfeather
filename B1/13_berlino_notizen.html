@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -142,6 +142,7 @@
         .practice-cell .masked-content{background:#dfe4ea;color:transparent;border-radius:.3rem;padding:.05rem .5rem;user-select:none;display:inline-block;min-width:2rem;}
         [data-bs-theme="dark"] .practice-cell .masked-content{background:#3a4250;}
         .practice-cell.revealed .masked-content{background:transparent;color:inherit;padding:0;user-select:text;}
+        .hw-answer .practice-cell.revealed .masked-content{text-decoration:underline;text-underline-offset:3px;font-weight:600;}
         .practice-toggle-btn{background:none;border:1px solid #adb5bd;border-radius:999px;padding:.15rem .55rem;cursor:pointer;color:#0d6efd;font-size:.72rem;display:inline-flex;align-items:center;gap:.3rem;margin-left:.5rem;vertical-align:middle;}
         .practice-toggle-btn svg{width:13px;height:13px;}
         h3.has-toggle, h2.has-toggle{display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;}
@@ -168,7 +169,7 @@
             C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
         };
         var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat','10 Kursnotizen (Notes)','11 Spickzettel (Cheat Sheet)','12 B1 Deutsch Kurs (Lesson Notes)','13 Berlino Notizen (Berlino Notes)'];
-        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../quiz.html" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../app/" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
 
         function renderHeader(html) {
             html = html.replace(/BASE\//g, prefix);
@@ -345,7 +346,7 @@
 <tr><td>Motiv, Lektion 1 bis 8</td><td>Motiv, lessons 1 to 8: level A1</td></tr>
 <tr><td>Motiv, Lektion 9 bis 17/18</td><td>Motiv, lessons 9 to 17/18: level A2</td></tr>
 <tr><td>Motiv, Lektion 19 bis 30</td><td>Motiv, lessons 19 to 30: level B1 (this page)</td></tr>
-<tr><td>Bis jetzt: 22.10.2026 und 24.10.2026, beide Lektion 19 („Idole“)</td><td>So far: 22.10.2026 and 24.10.2026, both lesson 19 (“idols”)</td></tr>
+<tr><td>Bis jetzt: 22.10.2026, 24.10.2026 und 27.10.2026, alle Lektion 19 („Idole“)</td><td>So far: 22.10.2026, 24.10.2026 and 27.10.2026, all lesson 19 (“idols”)</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <h2 id="teil-a-lektion-19-22-10-2026" class="part-heading">Unterricht 1 (Class 1) — 22.10.2026: Lektion 19, Idole und Vorbilder</h2>
@@ -752,7 +753,7 @@
 <div class="table-responsive"><table class="table table-bordered table-sm align-top">
 <thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
-<tr><td>Arbeitsbuch Lektion 19, Aufgabe 7 (a und b): Lesen Sie die Texte und ergänzen Sie die Verben im Präteritum. Beantworten Sie dann die Fragen (1 und 2).</td><td>Workbook lesson 19, task 7 (a and b): Read the texts and complete the verbs in the Präteritum. Then answer the questions (1 and 2). The blanks are left empty on purpose.</td></tr>
+<tr><td>Arbeitsbuch Lektion 19, Aufgabe 7 (a und b): Lesen Sie die Texte und ergänzen Sie die Verben im Präteritum. Beantworten Sie dann die Fragen (1 und 2).</td><td>Workbook lesson 19, task 7 (a and b): Read the texts and complete the verbs in the Präteritum. Then answer the questions (1 and 2). The answers are hidden: click the eye or the button to show them.</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <h3 id="hausaufgabe-7a">Aufgabe 7a: Marlene Dietrich</h3>
@@ -760,22 +761,22 @@
 <thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
 <tr><td>Ihre erste große Rolle (bekommen) bekam Marlene Dietrich im Jahr 1929.</td><td>Marlene Dietrich got her first big role in 1929. (example is given)</td></tr>
-<tr><td>Niemand (kennen) ________ damals die 28-jährige Schauspielerin, die die Hauptrolle in dem Film „Der blaue Engel“ spielen (sollen) ________.</td><td>Nobody knew back then the 28-year-old actress who was supposed to play the leading role in the film “The Blue Angel”.</td></tr>
-<tr><td>Dietrichs erfolgreicher und berühmter Kollege Emil Jannings, der in dem Film auch (mitspielen) ________, (finden) ________ die Idee gar nicht gut.</td><td>Dietrich’s successful and famous colleague Emil Jannings, who also played in the film, did not like the idea at all.</td></tr>
-<tr><td>Doch die Journalisten (sein) ________ begeistert.</td><td>But the journalists were enthusiastic.</td></tr>
-<tr><td>Emil Jannings (reagieren) ________ darauf ziemlich unfreundlich.</td><td>Emil Jannings reacted rather unfriendly to that.</td></tr>
-<tr><td>Denn nicht er (sein) ________ der Star des Films, sondern seine junge Kollegin, die mit dem Film und ihrem Lied „Ich bin von Kopf bis Fuß auf Liebe eingestellt“ weltberühmt (werden) ________.</td><td>Because he was not the star of the film, but his young colleague, who became world famous with the film and her song “Ich bin von Kopf bis Fuß auf Liebe eingestellt” (“Falling in Love Again”).</td></tr>
+<tr><td>Niemand (kennen) <span class="blank-fill hw-answer">kannte</span> damals die 28-jährige Schauspielerin, die die Hauptrolle in dem Film „Der blaue Engel“ spielen (sollen) <span class="blank-fill hw-answer">sollte</span>.</td><td>Nobody knew back then the 28-year-old actress who was supposed to play the leading role in the film “The Blue Angel”.</td></tr>
+<tr><td>Dietrichs erfolgreicher und berühmter Kollege Emil Jannings, der in dem Film auch (mitspielen) <span class="blank-fill hw-answer">mitspielte</span>, (finden) <span class="blank-fill hw-answer">fand</span> die Idee gar nicht gut.</td><td>Dietrich’s successful and famous colleague Emil Jannings, who also played in the film, did not like the idea at all.</td></tr>
+<tr><td>Doch die Journalisten (sein) <span class="blank-fill hw-answer">waren</span> begeistert.</td><td>But the journalists were enthusiastic.</td></tr>
+<tr><td>Emil Jannings (reagieren) <span class="blank-fill hw-answer">reagierte</span> darauf ziemlich unfreundlich.</td><td>Emil Jannings reacted rather unfriendly to that.</td></tr>
+<tr><td>Denn nicht er (sein) <span class="blank-fill hw-answer">war</span> der Star des Films, sondern seine junge Kollegin, die mit dem Film und ihrem Lied „Ich bin von Kopf bis Fuß auf Liebe eingestellt“ weltberühmt (werden) <span class="blank-fill hw-answer">wurde</span>.</td><td>Because he was not the star of the film, but his young colleague, who became world famous with the film and her song “Ich bin von Kopf bis Fuß auf Liebe eingestellt” (“Falling in Love Again”).</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
 <h3 id="hausaufgabe-7b">Aufgabe 7b: Albert Einstein</h3>
 <div class="table-responsive"><table class="table table-bordered table-sm align-top">
 <thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
-<tr><td>Einstein (verbringen) ________ seine Kindheit in München, in Italien und in der Schweiz.</td><td>Einstein spent his childhood in Munich, in Italy and in Switzerland.</td></tr>
-<tr><td>In der Schule (interessieren) ________ er sich vor allem für Naturwissenschaften, in den Sprachen (sein) ________ er nicht so gut.</td><td>At school he was mainly interested in natural sciences; in languages he was not so good.</td></tr>
-<tr><td>Bei seinem Abitur in der Schweiz (erhalten) ________ er aber überall sehr gute Noten.</td><td>But in his school-leaving exam in Switzerland he received very good grades everywhere.</td></tr>
-<tr><td>Einstein (sein) ________ also kein schlechter Schüler, wie viele Menschen glauben.</td><td>So Einstein was not a bad pupil, as many people believe.</td></tr>
-<tr><td>Sein erster Biograf (kennen) ________ einfach das Schweizer Notensystem nicht und (denken) ________, eine Sechs ist eine schlechte Note.</td><td>His first biographer simply did not know the Swiss grading system and thought that a six is a bad grade.</td></tr>
+<tr><td>Einstein (verbringen) <span class="blank-fill hw-answer">verbrachte</span> seine Kindheit in München, in Italien und in der Schweiz.</td><td>Einstein spent his childhood in Munich, in Italy and in Switzerland.</td></tr>
+<tr><td>In der Schule (interessieren) <span class="blank-fill hw-answer">interessierte</span> er sich vor allem für Naturwissenschaften, in den Sprachen (sein) <span class="blank-fill hw-answer">war</span> er nicht so gut.</td><td>At school he was mainly interested in natural sciences; in languages he was not so good.</td></tr>
+<tr><td>Bei seinem Abitur in der Schweiz (erhalten) <span class="blank-fill hw-answer">erhielt</span> er aber überall sehr gute Noten.</td><td>But in his school-leaving exam in Switzerland he received very good grades everywhere.</td></tr>
+<tr><td>Einstein (sein) <span class="blank-fill hw-answer">war</span> also kein schlechter Schüler, wie viele Menschen glauben.</td><td>So Einstein was not a bad pupil, as many people believe.</td></tr>
+<tr><td>Sein erster Biograf (kennen) <span class="blank-fill hw-answer">kannte</span> einfach das Schweizer Notensystem nicht und (denken) <span class="blank-fill hw-answer">dachte</span>, eine Sechs ist eine schlechte Note.</td><td>His first biographer simply did not know the Swiss grading system and thought that a six is a bad grade.</td></tr>
 <tr><td>In der Schweiz ist das aber die beste Note.</td><td>But in Switzerland that is the best grade.</td></tr>
 </tbody></table></div>
 <div class="spacer"></div>
@@ -783,9 +784,260 @@
 <div class="table-responsive"><table class="table table-bordered table-sm align-top">
 <thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
-<tr><td>1  Wann wurde Marlene Dietrich ein erfolgreicher Star?   Antwort: ________</td><td>1  When did Marlene Dietrich become a successful star?   Answer: ________</td></tr>
-<tr><td>2  War Albert Einstein ein schlechter Schüler?   Antwort: ________</td><td>2  Was Albert Einstein a bad pupil?   Answer: ________</td></tr>
+<tr><td>1  Wann wurde Marlene Dietrich ein erfolgreicher Star?   Antwort: <span class="blank-fill hw-answer">Sie wurde 1929 mit dem Film „Der blaue Engel“ ein Star.</span></td><td>1  When did Marlene Dietrich become a successful star?   Answer: <span class="blank-fill hw-answer">She became a star in 1929 with the film “The Blue Angel”.</span></td></tr>
+<tr><td>2  War Albert Einstein ein schlechter Schüler?   Antwort: <span class="blank-fill hw-answer">Nein, er war kein schlechter Schüler. Er erhielt im Abitur überall sehr gute Noten.</span></td><td>2  Was Albert Einstein a bad pupil?   Answer: <span class="blank-fill hw-answer">No, he was not a bad pupil. He received very good grades everywhere in his school-leaving exam.</span></td></tr>
 </tbody></table></div>
+<div class="spacer"></div>
+<h2 id="teil-c-als-wenn-27-10-2026" class="part-heading">Unterricht 3 (Class 3) — 27.10.2026: Lektion 19, als und wenn, das Plusquamperfekt</h2>
+<h2 id="c1-als-wenn">3.1 Nebensätze mit als und (immer) wenn (Subordinate Clauses with als and (immer) wenn)</h2>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Wort</th><th style="background:#d9e2f3;">Wann benutzt man es? (einfach erklärt)</th><th style="background:#d9e2f3;">Beispiel</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>als</td><td>Etwas passiert einmal oder dauert länger in der Vergangenheit.</td><td><span class="blank-fill">Als heute Morgen der Wecker geklingelt hat, habe ich einfach weitergeschlafen. / Als ich klein war, wohnte ich in Berlin.</span></td><td>als: something happened once, or lasted longer, in the past. Example: When the alarm clock rang this morning, I simply kept sleeping. / When I was small, I lived in Berlin.</td></tr>
+<tr><td>(immer) wenn</td><td>Etwas passiert öfter, in der Gegenwart oder in der Vergangenheit.</td><td><span class="blank-fill">Immer wenn ich laufen gehen will, denke ich an Waltraud. / Immer wenn ich am Abend zu lange fernsehe, kann ich am Morgen danach nicht aufstehen.</span></td><td>(immer) wenn: something happens repeatedly, in the present or in the past. Example: Whenever I want to go running, I think of Waltraud. / Whenever I watch TV too long in the evening, I cannot get up the next morning.</td></tr>
+<tr><td>wenn (Bedingung)</td><td>Wenn kann auch „falls“ bedeuten: eine Bedingung. Der Lehrer hat das Wort „Bedingung“ dazugeschrieben.</td><td><span class="blank-fill">Wenn ich Zeit habe, fahre ich nach Berlin.</span></td><td>wenn can also mean “if”: a condition (the teacher wrote the word “Bedingung” next to it). Example: If I have time, I go to Berlin.</td></tr>
+<tr><td>Merke</td><td>Nach als und wenn steht das Verb am Ende (Nebensatz). Danach beginnt der Hauptsatz mit dem Verb (Position 1).</td><td><span class="blank-fill">Der Wecker hat heute Morgen geklingelt. Ich habe weitergeschlafen. → Als heute Morgen der Wecker geklingelt hat, habe ich einfach weitergeschlafen. / Ich will laufen gehen. Ich denke an Waltraud. → Immer wenn ich laufen gehen will, denke ich an Waltraud.</span></td><td>Remember: after als and wenn the verb goes to the end (subordinate clause). The main clause then starts with its verb (position 1). Example: The alarm clock rang this morning. I kept sleeping. → When the alarm clock rang this morning, I simply kept sleeping.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h3 id="c1-als-drei-bedeutungen">Das Wort „als“ hat noch zwei andere Bedeutungen (The Word “als” Has Two Other Meanings)</h3>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Bedeutung</th><th style="background:#d9e2f3;">Beispiel vom Lehrer</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>als = in der Rolle von (as)</td><td><span class="blank-fill">Ich arbeite als Arzt im Krankenhaus. Ich war als Tourist in Deutschland.</span></td><td>I work as a doctor in the hospital. I was in Germany as a tourist.</td></tr>
+<tr><td>als nach dem Komparativ (than)</td><td><span class="blank-fill">Berlin ist größer als Frankfurt. Mein Bruder ist älter als meine Schwester.</span></td><td>Berlin is bigger than Frankfurt. My brother is older than my sister.</td></tr>
+<tr><td>als = Nebensatz (when, past)</td><td><span class="blank-fill">Als ich in Berlin wohnte, war ich sehr glücklich. Als ich 5 Jahre alt war, wohnten wir in Islamabad.</span></td><td>When I lived in Berlin, I was very happy. When I was 5 years old, we lived in Islamabad.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h2 id="c2-arbeitsbuch-b2">3.2 Arbeitsbuch B2: Selbstkontrolle und Vorbilder (Workbook B2: Self-Control and Role Models)</h2>
+<p class="notice-text"><em>Aufgabe a (listening): Hören Sie und beantworten Sie die Fragen. The answers to these three questions were not written down in class.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Nr.</th><th style="background:#d9e2f3;">Frage (Deutsch)</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Wer wollte am Morgen joggen gehen?</td><td>Who wanted to go jogging in the morning?</td></tr>
+<tr><td>2</td><td>Wer war wirklich joggen?</td><td>Who really went jogging?</td></tr>
+<tr><td>3</td><td>Warum denkt Nadine an ihre Tante, wenn sie Sport treiben möchte?</td><td>Why does Nadine think of her aunt when she wants to do sport?</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<p class="notice-text"><em>Aufgabe b: Hören Sie noch einmal. Was passt? Ordnen Sie zu. Wer sagt was? Nadine (N), Jennifer (J), Marcel (M). Example 1 is given: M, c. In class the teacher circled als in 1, 3 and 5 and wrote the letters. The speakers for 2 to 5 were not written down.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Nr.</th><th style="background:#d9e2f3;">Satz (Deutsch), Lösung mit Buchstabe</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><span class="blank-fill">Als heute Morgen der Wecker geklingelt hat, habe ich einfach weitergeschlafen. (c, Marcel, Beispiel)</span></td><td>When the alarm clock rang this morning, I simply kept sleeping. (Marcel, the example)</td></tr>
+<tr><td>2</td><td><span class="blank-fill">Immer wenn ich am Abend zu lange fernsehe, kann ich am Morgen danach nicht aufstehen. (e)</span></td><td>Whenever I watch TV too long in the evening, I cannot get up the next morning.</td></tr>
+<tr><td>3</td><td><span class="blank-fill">Als ihr um Viertel vor sieben noch nicht da wart, bin ich alleine gelaufen. (b)</span></td><td>When you were still not there at a quarter to seven, I ran alone.</td></tr>
+<tr><td>4</td><td><span class="blank-fill">Immer wenn ich laufen gehen will, denke ich an Waltraud. (a)</span></td><td>Whenever I want to go running, I think of Waltraud.</td></tr>
+<tr><td>5</td><td><span class="blank-fill">Als ich dann an Waltraud gedacht habe, war es plötzlich kein Problem mehr aufzustehen. (d)</span></td><td>When I then thought of Waltraud, it was suddenly no problem any more to get up.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h2 id="c3-aufgabe-6-als-wenn">3.3 Aufgabe 6: als oder wenn, Arbeit (A) oder Sport (S) (Task 6: als or wenn, Work or Sport)</h2>
+<p class="notice-text"><em>Tipp Grammatik (book): (immer) wenn = something happens more often, in the present or in the past. als = something happens once or lasts longer in the past. The teacher underlined the verbs: Präteritum or Perfekt = als (once), Präsens or a repeated action = wenn.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Nr.</th><th style="background:#d9e2f3;">Satz (Deutsch), Lösung mit A / S</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>a</td><td><span class="blank-fill">Als die Kunden schließlich die neuen Pläne sahen, waren sie sehr zufrieden. (A, Beispiel)</span></td><td>When the customers finally saw the new plans, they were very satisfied. (once in the past → als)</td></tr>
+<tr><td>b</td><td><span class="blank-fill">Wenn ich nicht allein joggen gehen möchte, rufe ich Martin an. (S)</span></td><td>If/Whenever I do not want to go jogging alone, I call Martin. (repeated → wenn)</td></tr>
+<tr><td>c</td><td><span class="blank-fill">Immer wenn ich Mittagspause machen möchte, klingelt das Telefon. (A)</span></td><td>Whenever I want to take a lunch break, the phone rings. (immer wenn)</td></tr>
+<tr><td>d</td><td><span class="blank-fill">Als wir beim Tennisplatz ankamen, begann es zu regnen. (S)</span></td><td>When we arrived at the tennis court, it began to rain. (once → als)</td></tr>
+<tr><td>e</td><td><span class="blank-fill">Wir waren sehr traurig, als wir das letzte Spiel in der Saison verloren haben. (S)</span></td><td>We were very sad when we lost the last game of the season. (once → als)</td></tr>
+<tr><td>f</td><td><span class="blank-fill">Als ich als Erzieherin arbeitete, war ich häufig krank. (A)</span></td><td>When I worked as a kindergarten teacher, I was often ill. (a longer period in the past → als; the second “als” means “as”)</td></tr>
+<tr><td>g</td><td><span class="blank-fill">Der Verkäufer musste das Kleid zurücknehmen, als die Kundin ihm die Flecken darauf zeigte. (A)</span></td><td>The salesman had to take the dress back when the customer showed him the stains on it. (once → als)</td></tr>
+<tr><td>h</td><td><span class="blank-fill">Wenn man eine Rauchpause machen möchte, muss man nach draußen gehen. (A)</span></td><td>If/Whenever you want to take a smoking break, you have to go outside. (general → wenn)</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h2 id="c4-aufgabe-7-saetze">3.4 Aufgabe 7: Persönliche Sätze (Task 7: Personal Sentences)</h2>
+<p class="notice-text"><em>Schreiben Sie mindestens fünf persönliche Sätze. The rows without an example were not done in class.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Satzanfang (Buch)</th><th style="background:#d9e2f3;">Beispiel aus dem Kurs</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Als ich mein erstes Fahrrad / Moped / Auto / Handy / Gehalt / … bekommen habe, …</td><td></td><td>When I got my first bike / moped / car / mobile phone / salary / …, …</td></tr>
+<tr><td>Immer wenn ich ins Ausland gefahren bin / fahre, …</td><td><span class="blank-fill">Immer wenn ich ins Ausland gefahren bin, war ich immer sehr begeistert. / Immer wenn ich ins Ausland fahre, nehme ich 500 Euro mit.</span></td><td>Whenever I went abroad, I was always very enthusiastic. / Whenever I go abroad, I take 500 euros with me.</td></tr>
+<tr><td>Als ich zum ersten Mal in … war, …</td><td><span class="blank-fill">Als ich zum ersten Mal in … war, war ich sehr glücklich.</span></td><td>When I was in … for the first time, I was very happy.</td></tr>
+<tr><td>Als ich zum ersten Mal … gegessen habe / mit … gefahren bin / …, …</td><td><span class="blank-fill">Als ich zum ersten Mal … gegessen habe, war es sehr lecker.</span></td><td>When I ate … for the first time, it was very tasty.</td></tr>
+<tr><td>Immer wenn das Wetter schlecht / gut war / ist, …</td><td><span class="blank-fill">Immer wenn das Wetter schlecht war, konnte ich nicht mehr Fußball spielen.</span></td><td>Whenever the weather was bad, I could not play football any more.</td></tr>
+<tr><td>Immer wenn ich Tennis / Fußball / … gespielt habe / spiele, …</td><td><span class="blank-fill">Immer wenn ich Fußball spiele, bin ich müde. / Immer wenn ich Fußball gespielt habe, war ich müde. / … hatte ich viel Spaß.</span></td><td>Whenever I play football, I am tired. / Whenever I played football, I was tired. / … I had a lot of fun.</td></tr>
+<tr><td>Als ich meinen Schulabschluss / achtzehnten Geburtstag / Silvester / … gefeiert habe, …</td><td></td><td>When I celebrated my school-leaving exam / eighteenth birthday / New Year’s Eve / …, …</td></tr>
+<tr><td>Ich war glücklich / zufrieden / müde / traurig / …, als …</td><td></td><td>I was happy / satisfied / tired / sad / …, when …</td></tr>
+<tr><td>Immer wenn ich ein Problem / Angst / … hatte / habe, …</td><td><span class="blank-fill">Immer wenn ich ein Problem habe, habe ich Stress. / Immer wenn ich ein Problem hatte, hatte ich Angst.</span></td><td>Whenever I have a problem, I have stress. / Whenever I had a problem, I was afraid.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h2 id="c5-ein-schlechter-tag">3.5 B3: Ein schlechter Tag … (B3: A Bad Day …)</h2>
+<p class="notice-text"><em>Aufgabe a: Für Jennifer und Marcel hat der Tag schlecht begonnen. Ergänzen Sie die Sätze im Präteritum wie im Beispiel. Use each cue once; the example “Marcel / ein bisschen weiterschlafen” is already crossed out.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top" data-toggle="english">
+<thead><tr><th style="background:#d9e2f3;">Stichwort (Deutsch)</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>die Steckdose / nicht funktionieren</td><td><span class="blank-fill" data-start="shown">the socket / not to work</span></td></tr>
+<tr><td>kein warmes Wasser / kommen</td><td><span class="blank-fill" data-start="shown">no warm water / to come</span></td></tr>
+<tr><td>es / einen Fleck haben</td><td><span class="blank-fill" data-start="shown">it (the shirt) / to have a stain</span></td></tr>
+<tr><td>sie / keine Streichhölzer haben</td><td><span class="blank-fill" data-start="shown">she / to have no matches</span></td></tr>
+<tr><td>er / keine saubere Pfanne finden können</td><td><span class="blank-fill" data-start="shown">he / not to be able to find a clean pan</span></td></tr>
+<tr><td>sie / die Zahnbürste nicht finden können</td><td><span class="blank-fill" data-start="shown">she / not to be able to find the toothbrush</span></td></tr>
+<tr><td>Marcel / ein bisschen weiterschlafen (Beispiel)</td><td><span class="blank-fill" data-start="shown">Marcel / to sleep a little longer (the example)</span></td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Nr.</th><th style="background:#d9e2f3;">Satz (Deutsch)</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Als der Wecker klingelte, <span class="blank-fill">schlief Marcel ein bisschen weiter.</span></td><td>When the alarm clock rang, Marcel slept a little longer. (the example)</td></tr>
+<tr><td>2</td><td>Als Marcel sein Lieblingshemd anziehen wollte, <span class="blank-fill">hatte es einen Fleck.</span></td><td>When Marcel wanted to put on his favourite shirt, it had a stain.</td></tr>
+<tr><td>3</td><td>Als Jennifer ihre Zähne putzen wollte, <span class="blank-fill">konnte sie die Zahnbürste nicht finden.</span></td><td>When Jennifer wanted to brush her teeth, she could not find the toothbrush.</td></tr>
+<tr><td>4</td><td>Als Marcel sich duschen wollte, <span class="blank-fill">kam kein warmes Wasser.</span></td><td>When Marcel wanted to take a shower, no warm water came.</td></tr>
+<tr><td>5</td><td>Als Jennifer die Kaffeemaschine einschalten wollte, <span class="blank-fill">funktionierte die Steckdose nicht.</span></td><td>When Jennifer wanted to switch on the coffee machine, the socket did not work.</td></tr>
+<tr><td>6</td><td>Als Marcel Eier mit Speck braten wollte, <span class="blank-fill">konnte er keine saubere Pfanne finden.</span></td><td>When Marcel wanted to fry eggs with bacon, he could not find a clean pan.</td></tr>
+<tr><td>7</td><td>Als Jennifer das Gas für den Herd anzünden wollte, <span class="blank-fill">hatte sie keine Streichhölzer.</span></td><td>When Jennifer wanted to light the gas for the stove, she had no matches.</td></tr>
+<tr><td>–</td><td>Als beide schließlich den Bus versäumten, wussten sie: Das war nicht ihr Tag.</td><td>When both finally missed the bus, they knew: This was not their day.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<p class="notice-text"><em>Aufgabe b (partner work): Auch Sie hatten keinen guten Tag. Schreiben Sie in sechs Minuten möglichst viele Sätze mit „als“. My example from class: Als ich zur Bushaltestelle kam, fuhr der Bus gerade ab. Als …</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td><span class="blank-fill">Als ich zur Bushaltestelle kam, fuhr der Bus gerade ab.</span></td><td>When I came to the bus stop, the bus was just leaving.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h2 id="c6-wortschatz-experiment">3.6 Wortschatz: Aufgabe 8, das Experiment (Vocabulary: Task 8, the Experiment)</h2>
+<p class="notice-text"><em>Aufgabe 8: Was wissen Sie noch? Lesen Sie noch einmal (KB S. 153, B4a) und ergänzen Sie. Only the word box was seen in class (the picture shows a person cycling for 15 minutes and a person resting for 5 minutes); the gaps were not filled in the notes. “wirken” is crossed out as the example.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top" data-toggle="english">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>entwickeln — sie entwickelten</td><td><span class="blank-fill" data-start="shown">to develop — they developed</span></td></tr>
+<tr><td>aufgeben — sie gaben … auf</td><td><span class="blank-fill" data-start="shown">to give up — they gave up</span></td></tr>
+<tr><td>die Versuchsperson, die Versuchspersonen</td><td><span class="blank-fill" data-start="shown">test subject, test subjects</span></td></tr>
+<tr><td>eindeutig</td><td><span class="blank-fill" data-start="shown">clear, unambiguous</span></td></tr>
+<tr><td>wirken (Beispiel)</td><td><span class="blank-fill" data-start="shown">to have an effect, to seem (the example)</span></td></tr>
+<tr><td>beeinflussen</td><td><span class="blank-fill" data-start="shown">to influence</span></td></tr>
+<tr><td>die Selbstkontrolle</td><td><span class="blank-fill" data-start="shown">self-control</span></td></tr>
+<tr><td>zusammendrücken</td><td><span class="blank-fill" data-start="shown">to squeeze together</span></td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h2 id="c7-onlinechat">3.7 Lesetext: Im Gespräch – Der Onlinechat (Reading Text: The Online Chat)</h2>
+<p class="notice-text"><em>Aktuelles Thema: Welche Menschen und welche Ereignisse haben Ihre Meinungen, Ansichten oder Ihren Lebensweg beeinflusst? Erzählen Sie von Lebenssituationen, die Sie verändert haben. (Current topic: Which people and which events have influenced your opinions, views or your path in life? Tell about life situations that changed you.)</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Nr.</th><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>A<br>Gast_0039</td><td>Ich hatte eigentlich nie daran gedacht, im Ausland zu studieren. Aber als meine Freundin Klara mir erzählt hat, dass sie nach London gehen will, war für mich alles klar. Ich wusste, das mache ich jetzt auch. Ich habe sie begleitet. Klara war ja schon öfter im Ausland gewesen, für mich war es eine neue Erfahrung. Heute muss ich sagen, es hat sich gelohnt. Meine Englischkenntnisse haben mir geholfen, einen tollen Job zu bekommen. Ich arbeite heute bei einer internationalen Firma.</td><td>I had actually never thought of studying abroad. But when my friend Klara told me that she wants to go to London, everything was clear to me. I knew I would do that now too. I accompanied her. Klara had already been abroad more often, for me it was a new experience. Today I have to say it was worth it. My English skills helped me to get a great job. Today I work for an international company.</td></tr>
+<tr><td>B<br>Tabu12</td><td>Mein Freund Alex hat mir in einer sehr schwierigen Situation geholfen. Ich war geschieden, arbeitslos und hatte ein Alkoholproblem. Es ging wirklich bergab mit mir, aber Alex hat mir den Weg zurück gezeigt. Er war so wie ich ganz unten gewesen, aber er hatte seine Situation nicht akzeptiert. Es war ihm gelungen, seine Berufsausbildung abzuschließen und sein Leben in den Griff zu bekommen. Das hat auch mir geholfen. Es hat mir gezeigt, dass man es schaffen kann.</td><td>My friend Alex helped me in a very difficult situation. I was divorced, unemployed and had an alcohol problem. Things were really going downhill for me, but Alex showed me the way back. He had been right at the bottom like me, but he had not accepted his situation. He had succeeded in finishing his vocational training and getting his life under control. That helped me too. It showed me that you can make it.</td></tr>
+<tr><td>C<br>Babypause</td><td>Vor einem halben Jahr ist unser Sohn Paul auf die Welt gekommen, und da hat wirklich ein neuer Lebensabschnitt für uns begonnen. Mein Mann und ich hatten uns fest entschlossen, beruflich weiterzukommen. Wir hatten nur an unsere Karriere und unser Einkommen gedacht. Kinder hatten wir ausgeschlossen. Doch dann kam Paul. Heute sind wir glücklich, dass er da ist. Auch wenn es anders gekommen ist, als wir gedacht hatten.</td><td>Half a year ago our son Paul was born, and a new phase of life really began for us. My husband and I had firmly decided to get ahead in our careers. We had only thought about our career and our income. We had ruled out children. But then Paul came. Today we are happy that he is here. Even if it turned out differently from what we had thought.</td></tr>
+<tr><td>D<br>Sandra02</td><td>Ich hatte mich nie für Fußball interessiert und mich beim Fußball überhaupt nicht ausgekannt. Aber dann habe ich Michael kennengelernt. Er war ein riesiger Fußballfan und hat mich ins Stadion mitgenommen. Da hat mich das Fußballfieber endgültig gepackt. Heute bin ich sogar bei den Auswärtsspielen unserer Mannschaft dabei.</td><td>I had never been interested in football and did not know anything about it at all. But then I met Michael. He was a huge football fan and took me to the stadium. That is when football fever finally got me. Today I even go to the away games of our team.</td></tr>
+<tr><td>E<br>Prima_Ballerina</td><td>Ich hatte als kleines Mädchen Ballettunterricht gehabt, hatte das Tanzen aber wieder aufgegeben. Und dann habe ich im Kino den Film „Pina“ von Wim Wenders gesehen, einen Film über die Choreografin Pina Bausch. Nachdem ich den Film gesehen hatte, war mein Berufswunsch klar. Ich wusste: „Ich will wieder tanzen, ich will Tänzerin werden.“</td><td>As a little girl I had had ballet lessons, but had given up dancing again. And then I saw the film “Pina” by Wim Wenders in the cinema, a film about the choreographer Pina Bausch. After I had seen the film, my career wish was clear. I knew: “I want to dance again, I want to become a dancer.”</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h3 id="c7-fussnoten">Wörter aus dem Text (Footnotes from the Book)</h3>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top" data-toggle="english">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>das Ereignis, die Ereignisse = das, was passiert ist</td><td><span class="blank-fill" data-start="shown">event = what has happened</span></td></tr>
+<tr><td>begleiten = mit jmdm. mitgehen oder -fahren</td><td><span class="blank-fill" data-start="shown">to accompany = to go or travel with someone</span></td></tr>
+<tr><td>sich lohnen = etw. ist sehr gut für die Person</td><td><span class="blank-fill" data-start="shown">to be worth it = something is very good for the person</span></td></tr>
+<tr><td>gelingen = etw. funktioniert, wie man es möchte</td><td><span class="blank-fill" data-start="shown">to succeed = something works the way you want it to</span></td></tr>
+<tr><td>etw. in den Griff bekommen = zurechtkommen, ein normales Leben führen</td><td><span class="blank-fill" data-start="shown">to get something under control = to cope, to lead a normal life</span></td></tr>
+<tr><td>fest entschlossen sein = den Plan haben, etw. zu tun</td><td><span class="blank-fill" data-start="shown">to be firmly determined = to have the plan to do something</span></td></tr>
+<tr><td>das Einkommen = das, was man verdient</td><td><span class="blank-fill" data-start="shown">income = what you earn</span></td></tr>
+<tr><td>ausschließen = gar nicht wollen</td><td><span class="blank-fill" data-start="shown">to rule out = not to want at all</span></td></tr>
+<tr><td>sich auskennen = etw. genau wissen</td><td><span class="blank-fill" data-start="shown">to know one’s way around = to know something exactly</span></td></tr>
+<tr><td>riesig = sehr groß</td><td><span class="blank-fill" data-start="shown">huge = very big</span></td></tr>
+<tr><td>endgültig = man kann etw. nicht mehr verändern</td><td><span class="blank-fill" data-start="shown">final, for good = you cannot change it any more</span></td></tr>
+<tr><td>der Ballettunterricht</td><td><span class="blank-fill" data-start="shown">ballet lessons</span></td></tr>
+<tr><td>geschieden</td><td><span class="blank-fill" data-start="shown">divorced</span></td></tr>
+<tr><td>es geht bergab mit mir</td><td><span class="blank-fill" data-start="shown">things are going downhill for me</span></td></tr>
+<tr><td>arbeitslos = ohne Arbeit sein (auch: erfolglos, bargeldlos, kinderlos, kostenlos, …)</td><td><span class="blank-fill" data-start="shown">unemployed = without work (the ending -los means “without”: unsuccessful, cashless, childless, free of charge)</span></td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h3 id="c7-aufgaben">Aufgabe C1 a und b: Themen und Personen (Topics and People)</h3>
+<p class="notice-text"><em>C1 a: Lesen Sie und hören Sie. Über welche Themen (1–5) schreiben die Personen (A–E)? Themen: 1 Traumberuf, 2 Sport, 3 Alkoholprobleme, 4 Auslandsstudium, 5 Geburt. C1 b: Wer sagt was? Only example 1 (Sandra02) was written in class; the other solutions below I worked out from the texts. The teacher’s phrase for such answers: „Absatz …, in diesem Absatz / Text geht es um …“</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Nr.</th><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>a</td><td>Absatz A: <span class="blank-fill">In diesem Absatz geht es um das Auslandsstudium (4).</span></td><td>Paragraph A: This paragraph is about studying abroad (4).</td></tr>
+<tr><td>a</td><td>Absatz B: <span class="blank-fill">In diesem Absatz geht es um Alkoholprobleme (3).</span></td><td>Paragraph B: This paragraph is about alcohol problems (3).</td></tr>
+<tr><td>a</td><td>Absatz C: <span class="blank-fill">In diesem Absatz geht es um die Geburt (5).</span></td><td>Paragraph C: This paragraph is about the birth (5).</td></tr>
+<tr><td>a</td><td>Absatz D: <span class="blank-fill">In diesem Absatz geht es um Sport (2).</span></td><td>Paragraph D: This paragraph is about sport (2).</td></tr>
+<tr><td>a</td><td>Absatz E: <span class="blank-fill">In diesem Absatz geht es um den Traumberuf (1).</span></td><td>Paragraph E: This paragraph is about the dream job (1).</td></tr>
+<tr><td>b 1</td><td><span class="blank-fill">Sandra02</span>: „Ich habe zum ersten Mal ein Livespiel gesehen.“</td><td>Sandra02: “I saw a live game for the first time.” (the example, written in class)</td></tr>
+<tr><td>b 2</td><td><span class="blank-fill">Tabu12</span>: „Mein Freund hat mir aus einer schwierigen Lebenssituation geholfen.“</td><td>Tabu12: “My friend helped me out of a difficult life situation.”</td></tr>
+<tr><td>b 3</td><td><span class="blank-fill">Prima_Ballerina</span>: „Ein Kinobesuch hat mir klar gemacht, was ich werden will.“</td><td>Prima_Ballerina: “A visit to the cinema made clear to me what I want to become.”</td></tr>
+<tr><td>b 4</td><td><span class="blank-fill">Gast_0039</span>: „Ich bin mit meiner Freundin ins Ausland gegangen.“</td><td>Gast_0039: “I went abroad with my friend.”</td></tr>
+<tr><td>b 5</td><td><span class="blank-fill">Babypause</span>: „Wir haben einen Sohn bekommen.“</td><td>Babypause: “We had a son.”</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h2 id="c8-plusquamperfekt">3.8 Das Plusquamperfekt (The Past Perfect)</h2>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Regel</th><th style="background:#d9e2f3;">Beispiel</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Plusquamperfekt mit haben: <span class="blank-fill">hatte + Partizip II</span></td><td><span class="blank-fill">Ich hatte nie daran gedacht, im Ausland zu studieren.</span></td><td>Past perfect with haben: hatte + participle II. Example: I had never thought of studying abroad.</td></tr>
+<tr><td>Plusquamperfekt mit sein: <span class="blank-fill">war + Partizip II</span></td><td><span class="blank-fill">Klara war schon öfter im Ausland gewesen.</span></td><td>Past perfect with sein: war + participle II. Example: Klara had already been abroad several times.</td></tr>
+<tr><td>Mit nachdem</td><td><span class="blank-fill">Nachdem ich den Film gesehen hatte, war mein Berufswunsch klar.</span></td><td>With nachdem: After I had seen the film, my career wish was clear.</td></tr>
+<tr><td>Wann benutzt man es? (Tipp Grammatik)</td><td>Etwas ist in der Vergangenheit passiert. Sie erzählen die Geschichte in der Vergangenheit (Perfekt oder Präteritum). Wenn Sie etwas erzählen möchten, was davor passiert ist, verwenden Sie das Plusquamperfekt.</td><td>Something happened in the past. You tell the story in the past (Perfekt or Präteritum). If you want to tell what happened before that, use the Plusquamperfekt.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h3 id="c8-zeitleiste">Die Zeitleiste (The Timeline)</h3>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">davor (Plusquamperfekt)</th><th style="background:#d9e2f3;">früher (Perfekt / Präteritum)</th><th style="background:#d9e2f3;">heute (Präsens)</th></tr></thead>
+<tbody>
+<tr><td>Ich hatte nie daran gedacht, im Ausland zu studieren.</td><td>Ich habe Klara begleitet. (auch: Ich begleitete Klara.)</td><td>Ich arbeite heute bei einer internationalen Firma.</td></tr>
+<tr><td>I had never thought of studying abroad.</td><td>I accompanied Klara.</td><td>Today I work for an international company.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h2 id="hw-27-10-2026">3.9 Hausaufgabe vom 27.10.2026 (Homework)</h2>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Arbeitsbuch Lektion 19, Seite 152 (C1 bis C4): Ergänzen Sie, ordnen Sie zu, unterstreichen Sie das Plusquamperfekt und lesen Sie den Text „Der falsche Polizist“.</td><td>Workbook lesson 19, page 152 (C1 to C4): Complete, match, underline the Plusquamperfekt and read the text “The False Policeman”. The blanks are left empty on purpose; only the examples given in the book and in class are filled in.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h3 id="hw-27-c1">C1: Was wissen Sie noch? (What Do You Still Know?)</h3>
+<p class="notice-text"><em>Lesen Sie noch einmal (KB S. 154, C1a) und ergänzen Sie. Ordnen Sie dann die Sätze 1–5 den Sätzen a–e zu. Wörter: gelungen, Einkommen, endgültig, fest entschlossen, bergab, ausgekannt, Ballettunterricht, begleitet (Beispiel), aufgegeben, gelohnt, ausgeschlossen, Lebensabschnitt, Stadion. Example: a = 1.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>a  1  Gast_0039: Ich habe meine Freundin Klara als Studentin nach London begleitet. (Beispiel)</td><td>a  1  Gast_0039: I accompanied my friend Klara to London as a student. (example)</td></tr>
+<tr><td>b  ____  Tabu12: Es ging ________ mit mir, aber mein Freund hat mir aus einer schwierigen Situation geholfen.</td><td>b  Tabu12: Things went ________ for me, but my friend helped me out of a difficult situation.</td></tr>
+<tr><td>c  ____  Babypause: Mein Mann und ich hatten nur an unsere Karriere und unser ________ gedacht, Kinder hatten wir ________.</td><td>c  Babypause: My husband and I had only thought of our career and our ________, we had ________ children.</td></tr>
+<tr><td>d  ____  Sandra02: Michael hat mich ins ________ zu einem Fußballspiel mitgenommen, und da hat mich das Fußballfieber ________ gepackt.</td><td>d  Sandra02: Michael took me to a football game at the ________, and there football fever ________ got me.</td></tr>
+<tr><td>e  ____  Prima_Ballerina: Als kleines Mädchen hatte ich ________ gehabt. Ich hatte das Tanzen aber wieder ________.</td><td>e  Prima_Ballerina: As a little girl I had had ________. But I had ________ dancing again.</td></tr>
+<tr><td>1  Eigentlich hatte ich nie daran gedacht, ins Ausland zu gehen, aber es hat sich ________.</td><td>1  Actually I had never thought of going abroad, but it has been ________.</td></tr>
+<tr><td>2  Aber dann ist Paul auf die Welt gekommen, und jetzt hat ein neuer ________ für uns begonnen.</td><td>2  But then Paul was born, and now a new ________ has begun for us.</td></tr>
+<tr><td>3  Doch dann habe ich den Film „Pina“ gesehen und war ________, Balletttänzerin zu werden.</td><td>3  But then I saw the film “Pina” and was ________ to become a ballet dancer.</td></tr>
+<tr><td>4  Ich hatte mich früher nie für Fußball interessiert und mich auch nicht ________.</td><td>4  Earlier I had never been interested in football and did not ________ either.</td></tr>
+<tr><td>5  Er war so wie ich ganz unten gewesen, aber es war ihm ________, sein Leben in den Griff zu bekommen.</td><td>5  He had been right at the bottom like me, but he had ________ in getting his life under control.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h3 id="hw-27-c2">C2: Was ist davor passiert? (What Happened Before?)</h3>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Unterstreichen Sie in den Sätzen in 1 das Plusquamperfekt. In Satz 1 ist es schon unterstrichen: hatte … gedacht. Die Sätze 2 bis 5 bleiben offen.</td><td>Underline the Plusquamperfekt in the sentences in 1. In sentence 1 it is already underlined: hatte … gedacht. Sentences 2 to 5 are left open.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h3 id="hw-27-c3">C3: Der falsche Polizist (The False Policeman)</h3>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>Valerie K. musste zweimal hinsehen. Mitten auf der Kreuzung stand ein Polizist, der den Autofahrern zeigte, wohin sie fahren sollten. Das war noch normal. An der Kreuzung standen oft Verkehrspolizisten. Doch dieser Polizist war ihr Nachbar, und sie wusste, dass er nicht bei der Polizei war. Manfred R. arbeitete als Installateur und war im Moment arbeitslos. Sie rief ihm etwas zu, und er erkannte sie. Gleich danach passierte der Unfall. Zum Glück hatten die beiden Autofahrer nur leichte Verletzungen.</td><td>Valerie K. had to look twice. In the middle of the crossing stood a policeman who showed the drivers where they should go. That was still normal. Traffic policemen often stood at the crossing. But this policeman was her neighbour, and she knew that he was not with the police. Manfred R. worked as a plumber and was unemployed at the moment. She called something out to him, and he recognised her. Right after that the accident happened. Luckily the two drivers only had slight injuries.</td></tr>
+<tr><td>Der Polizei erzählte Manfred R. später, wie es zu der Situation gekommen war. Er wollte schon immer Polizist werden. Er hatte die Aufnahmeprüfung an der Polizeischule gemacht, hatte sie aber nicht bestanden. Die Uniform hatte er aus dem Schrank seines Freundes genommen, der Polizist war. Dann hatte er sich einfach in die Mitte der Kreuzung gestellt. Anfangs war alles gut gegangen. Doch dann hatte ihn seine Nachbarin gerufen. Manfred R. hatte sich eine Sekunde lang nicht konzentriert, und der Unfall war passiert.</td><td>Later Manfred R. told the police how the situation had come about. He had always wanted to become a policeman. He had taken the entrance exam at the police school but had not passed it. He had taken the uniform from the wardrobe of his friend, who was a policeman. Then he had simply placed himself in the middle of the crossing. At first everything had gone well. But then his neighbour had called him. Manfred R. had not concentrated for one second, and the accident had happened.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<p class="notice-text"><em>C3: In welcher Reihenfolge sind die Ereignisse passiert? Ergänzen Sie die Namen in den Sätzen (a–g) und ordnen Sie die Sätze dann. M = Manfred, V = Valerie. Example: e = 1, M.</em></p>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Deutsch</th><th style="background:#d9e2f3;">English</th></tr></thead>
+<tbody>
+<tr><td>a  ____  ____ leiht die Uniform aus.</td><td>a  ____ borrows the uniform.</td></tr>
+<tr><td>b  ____  ____ erkennt ihren Nachbarn.</td><td>b  ____ recognises her neighbour.</td></tr>
+<tr><td>c  ____  Die Polizei befragt ____.</td><td>c  The police question ____.</td></tr>
+<tr><td>d  ____  ____ stellt sich in die Mitte der Kreuzung.</td><td>d  ____ places himself in the middle of the crossing.</td></tr>
+<tr><td>e  1  M  besteht die Aufnahmeprüfung nicht. (Beispiel)</td><td>e  1  M  does not pass the entrance exam. (example)</td></tr>
+<tr><td>f  ____  ____ ruft ihrem Nachbarn etwas zu.</td><td>f  ____ calls something out to her neighbour.</td></tr>
+<tr><td>g  ____  ____ konzentriert sich nicht, und ein Unfall passiert.</td><td>g  ____ does not concentrate, and an accident happens.</td></tr>
+</tbody></table></div>
+<div class="spacer"></div>
+<h3 id="hw-27-c4">C4: Das Plusquamperfekt im Text (The Plusquamperfekt in the Text)</h3>
+<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<thead><tr><th style="background:#d9e2f3;">Präteritum von „haben“ oder „sein“</th><th style="background:#d9e2f3;">Partizip II</th></tr></thead>
+<tbody>
+<tr><td>war</td><td>gekommen (Beispiel)</td></tr>
+<tr><td>________</td><td>________</td></tr>
+<tr><td>________</td><td>________</td></tr>
+</tbody></table></div>
+<p class="notice-text"><em>Unterstreichen Sie im Text in C3 das Plusquamperfekt und schreiben Sie. (Underline the Plusquamperfekt in the text in C3 and write it in the table.)</em></p>
 <div class="spacer"></div>
 
 </div>
@@ -837,7 +1089,7 @@
             var path = window.location.pathname.replace(/\\/g, '/');
             var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
             var prefix = levelMatch ? '../' : '';
-            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/wordfeather" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a><a href="https://www.paypal.com/paypalme/abdullahbuttde" class="btn btn-sm fw-semibold" style="background:#ffdd00;border-color:#ffdd00;color:#1a1a1a;" target="_blank" rel="noopener">☕ Buy me a Coffee</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="../privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div></div></footer>';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/wordfeather" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="../privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div></div></footer>';
             fetch(prefix + 'footer.html?v=' + Date.now())
                 .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
                 .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
