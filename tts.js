@@ -4,6 +4,13 @@
  * Uses the browser's built-in Web Speech API — free, no API keys needed.
  */
 (function () {
+  // The guard for a missing German voice (german-voice.js) is loaded next to this file, once.
+  if (!window.__wfGermanVoice && document.currentScript && document.currentScript.src) {
+    var guard = document.createElement('script');
+    guard.src = document.currentScript.src.replace(/tts\.js(\?.*)?$/, 'german-voice.js?v=1');
+    document.head.appendChild(guard);
+  }
+
   // Check browser support
   if (!('speechSynthesis' in window)) return;
 

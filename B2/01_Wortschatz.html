@@ -2676,7 +2676,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
     fetch(prefix+'footer.html').then(function(r){return r.ok?r.text():Promise.reject();}).then(function(html){html=html.replace(/BASE\//g,prefix);document.getElementById('footer-placeholder').innerHTML=html;}).catch(function(){document.getElementById('footer-placeholder').innerHTML=fFb.replace(/BASE\//g,prefix);});
 })();
 </script>
-<script src="../tts.js?v=7"></script>
+<script src="../tts.js?v=8"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').then(function(r){r.update();}).catch(function(){});}</script>
 <script>
