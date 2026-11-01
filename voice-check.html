@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Voice check</title>
+<style>
+  :root { --bg:#fff; --fg:#1b1f23; --muted:#5a6672; --line:#d0d7de; --accent:#0b5fff; --ok:#0a7a3b; --bad:#b42318; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14181d; --fg:#e8ecef; --muted:#9aa7b3; --line:#2f3942; --accent:#6ea2ff; --ok:#4cc38a; --bad:#ff7b72; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, sans-serif; }
+  main { max-width:42rem; margin:0 auto; padding:16px; }
+  h1 { font-size:1.4rem; margin:.4em 0; }
+  h2 { font-size:1.05rem; margin:1.4em 0 .4em; }
+  p, li { color:var(--muted); }
+  button { font:inherit; padding:.7em 1em; margin:.25em .25em .25em 0; border:1px solid var(--accent); background:transparent; color:var(--accent); border-radius:8px; min-height:44px; }
+  button.primary { background:var(--accent); color:var(--bg); }
+  table { border-collapse:collapse; width:100%; font-size:.9rem; }
+  th, td { text-align:left; border-bottom:1px solid var(--line); padding:.3em .4em; vertical-align:top; word-break:break-word; }
+  .ok { color:var(--ok); font-weight:600; } .bad { color:var(--bad); font-weight:600; }
+  pre { white-space:pre-wrap; word-break:break-word; border:1px solid var(--line); border-radius:8px; padding:.6em; font-size:.85rem; }
+  #log { max-height:14rem; overflow:auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Voice check</h1>
+  <p>Tests whether this browser can read German aloud. Nothing is sent anywhere; the report stays on this page.</p>
+
+  <h2>1. This device</h2>
+  <table id="device"></table>
+
+  <h2>2. Voices the browser lists</h2>
+  <p id="voiceSummary"></p>
+  <table id="voices"></table>
+
+  <h2>3. Listen</h2>
+  <p>Turn the volume up and the silent switch off. Tap a button and note what you hear.</p>
+  <button class="primary" id="de">Read a German sentence</button>
+  <button id="en">Read an English sentence</button>
+  <button id="stop">Stop</button>
+  <pre id="log" aria-live="polite">No test yet.</pre>
+
+  <h2>4. Report</h2>
+  <p>After the tests, tell the person who asked what you heard, or copy this text.</p>
+  <label for="heard">What did you hear?</label><br>
+  <select id="heard">
+    <option value="">(choose)</option>
+    <option>German, clear</option>
+    <option>German, but with an English-sounding voice</option>
+    <option>Nothing, no sound</option>
+    <option>A box with install steps appeared</option>
+  </select>
+  <pre id="report"></pre>
+  <button id="copy">Copy report</button>
+</main>
+
+<script src="german-voice.js"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var synth = window.speechSynthesis;
+  var events = [];
+
+  function row(a, b, cls) { return '<tr><th>' + a + '</th><td' + (cls ? ' class="' + cls + '"' : '') + '>' + b + '</td></tr>'; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  function isGerman(v) { var l = String(v.lang || '').toLowerCase().replace('_', '-'); return l === 'de' || l.indexOf('de-') === 0; }
+
+  function platform() {
+    var ua = navigator.userAgent || '';
+    if (/android/i.test(ua)) return 'Android';
+    if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) return 'iOS / iPadOS';
+    if (/windows/i.test(ua)) return 'Windows';
+    if (/mac os x|macintosh/i.test(ua)) return 'macOS';
+    if (/linux|x11/i.test(ua)) return 'Linux';
+    return 'unknown';
+  }
+
+  function browser() {
+    var ua = navigator.userAgent || '';
+    var m = ua.match(/(Edg|OPR|SamsungBrowser|Firefox|FxiOS|CriOS|Chrome|Version)\/([\d.]+)/);
+    if (!m) return 'unknown';
+    var n = { Edg: 'Edge', OPR: 'Opera', SamsungBrowser: 'Samsung Internet', FxiOS: 'Firefox (iOS)', CriOS: 'Chrome (iOS)', Version: 'Safari' }[m[1]] || m[1];
+    return n + ' ' + m[2];
+  }
+
+  function voices() { return synth ? synth.getVoices() || [] : []; }
+  function germanVoices() { return voices().filter(isGerman); }
+
+  function renderDevice() {
+    $('device').innerHTML =
+      row('System', esc(platform())) +
+      row('Browser', esc(browser())) +
+      row('Browser language', esc(navigator.language || '-') + ' (' + esc((navigator.languages || []).join(', ')) + ')') +
+      row('Speech synthesis in the browser', synth && typeof SpeechSynthesisUtterance !== 'undefined' ? 'yes' : 'NO', synth ? 'ok' : 'bad');
+  }
+
+  function renderVoices() {
+    var all = voices(), de = germanVoices();
+    var state = !synth ? 'no speech synthesis' : !all.length ? 'the browser lists no voices (reading is tried anyway)' : de.length ? 'a German voice exists' : 'voices are listed, none is German';
+    $('voiceSummary').innerHTML = 'Voices listed: <b>' + all.length + '</b>, German: <b class="' + (de.length ? 'ok' : (all.length ? 'bad' : '')) + '">' + de.length + '</b> (' + esc(state) + ').';
+    var html = '<tr><th>Name</th><th>Language</th><th>Kind</th></tr>';
+    var shown = de.concat(all.filter(function (v) { return !isGerman(v); }).slice(0, 8));
+    shown.forEach(function (v) { html += '<tr><td>' + esc(v.name) + (v.default ? ' (default)' : '') + '</td><td>' + esc(v.lang) + '</td><td>' + (v.localService ? 'on device' : 'online') + '</td></tr>'; });
+    $('voices').innerHTML = shown.length ? html : '';
+    renderReport();
+  }
+
+  function log(line) {
+    events.push(line);
+    $('log').textContent = events.join('\n');
+    renderReport();
+  }
+
+  function speak(text, lang, label) {
+    if (!synth) { log(label + ': no speech synthesis in this browser'); return; }
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    var started = Date.now();
+    u.onstart = function () { log(label + ': started after ' + (Date.now() - started) + ' ms'); };
+    u.onend = function () { log(label + ': finished after ' + (Date.now() - started) + ' ms'); };
+    u.onerror = function (e) { log(label + ': ERROR ' + (e && e.error ? e.error : 'unknown')); };
+    log(label + ': requested');
+    synth.speak(u);
+    setTimeout(function () { if (!events.some(function (l) { return l.indexOf(label + ': started') === 0 || l.indexOf(label + ': ERROR') === 0; })) log(label + ': no start event after 3 s'); }, 3000);
+  }
+
+  function report() {
+    var de = germanVoices();
+    return [
+      'Voice check ' + new Date().toISOString().slice(0, 16).replace('T', ' '),
+      'System: ' + platform(),
+      'Browser: ' + browser(),
+      'Speech synthesis: ' + (synth ? 'yes' : 'no'),
+      'Voices listed: ' + voices().length + ', German: ' + de.length + (de.length ? ' (' + de.slice(0, 3).map(function (v) { return v.name + ' ' + v.lang; }).join('; ') + ')' : ''),
+      'Heard: ' + ($('heard').value || '(not chosen)'),
+      'Events:',
+      events.length ? events.join('\n') : '(no test yet)'
+    ].join('\n');
+  }
+  function renderReport() { $('report').textContent = report(); }
+
+  $('de').addEventListener('click', function () { speak('Der Hund läuft schnell durch den Park.', 'de-DE', 'German'); });
+  $('en').addEventListener('click', function () { speak('The dog runs quickly through the park.', 'en-US', 'English'); });
+  $('stop').addEventListener('click', function () { if (synth) synth.cancel(); log('stopped'); });
+  $('heard').addEventListener('change', renderReport);
+  $('copy').addEventListener('click', function () {
+    var text = report();
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function () { $('copy').textContent = 'Copied'; }, function () { $('copy').textContent = 'Copy failed, select the text'; }); }
+    else { $('copy').textContent = 'Select the text and copy it'; }
+  });
+
+  renderDevice();
+  renderVoices();
+  if (synth) {
+    if (synth.addEventListener) synth.addEventListener('voiceschanged', renderVoices);
+    else synth.onvoiceschanged = renderVoices;
+    setTimeout(renderVoices, 1000);
+    setTimeout(renderVoices, 3000);
+  }
+})();
+</script>
+</body>
+</html>
