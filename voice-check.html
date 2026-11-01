@@ -18,6 +18,7 @@
   table { border-collapse:collapse; width:100%; font-size:.9rem; }
   th, td { text-align:left; border-bottom:1px solid var(--line); padding:.3em .4em; vertical-align:top; word-break:break-word; }
   #voices th:nth-child(2), #voices td:nth-child(2), #voices th:nth-child(3), #voices td:nth-child(3) { white-space:nowrap; word-break:normal; }
+  @media (max-width:370px) { #voices { display:block; overflow-x:auto; } #voices th, #voices td { white-space:nowrap; word-break:normal; } }
   .ok { color:var(--ok); font-weight:600; } .bad { color:var(--bad); font-weight:600; }
   pre { white-space:pre-wrap; word-break:break-word; border:1px solid var(--line); border-radius:8px; padding:.6em; font-size:.85rem; }
   #log { max-height:14rem; overflow:auto; }
