@@ -73,7 +73,7 @@
         'background:#fef3c7;color:#451a03;border:1px solid #f59e0b;border-radius:10px;padding:12px 14px;' +
         'font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.25);}' +
       '.wf-voice[hidden]{display:none;}' +
-      '.wf-voice p{margin:0 0 6px;}' +
+      '.wf-voice p{margin:0 0 6px;color:inherit;}' +
       '.wf-voice .wf-voice-en{opacity:.85;}' +
       '.wf-voice details{margin:6px 0;}' +
       '.wf-voice summary{cursor:pointer;font-weight:600;}' +
