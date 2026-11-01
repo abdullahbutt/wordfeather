@@ -17,10 +17,10 @@
   button.primary { background:var(--accent); color:var(--bg); }
   table { border-collapse:collapse; width:100%; font-size:.9rem; }
   th, td { text-align:left; border-bottom:1px solid var(--line); padding:.3em .4em; vertical-align:top; word-break:break-word; }
-  #voices th:nth-child(2), #voices td:nth-child(2), #voices th:nth-child(3), #voices td:nth-child(3) { white-space:nowrap; word-break:normal; }
-  @media (max-width:370px) { #voices { display:block; overflow-x:auto; } #voices th, #voices td { white-space:nowrap; word-break:normal; } }
   .ok { color:var(--ok); font-weight:600; } .bad { color:var(--bad); font-weight:600; }
   pre { white-space:pre-wrap; word-break:break-word; border:1px solid var(--line); border-radius:8px; padding:.6em; font-size:.85rem; }
+  #voices th:nth-child(2), #voices td:nth-child(2), #voices th:nth-child(3), #voices td:nth-child(3) { white-space:nowrap; word-break:normal; }
+  @media (max-width:370px) { #voices { display:block; overflow-x:auto; } #voices th, #voices td { white-space:nowrap; word-break:normal; } }
   #log { max-height:14rem; overflow:auto; }
 </style>
 </head>
@@ -42,6 +42,9 @@
   <button class="primary" id="de">Read a German sentence</button>
   <button id="en">Read an English sentence</button>
   <button id="stop">Stop</button>
+  <p>Recorded sentences (synthetic voice, played from the audio site the same way as on the WordFeather pages):</p>
+  <button id="rec1">Play recorded A1 sentence</button>
+  <button id="rec2">Play recorded C2 sentence</button>
   <pre id="log" aria-live="polite">No test yet.</pre>
 
   <h2>4. Report</h2>
@@ -130,6 +133,32 @@
     setTimeout(function () { if (!events.some(function (l) { return l.indexOf(label + ': started') === 0 || l.indexOf(label + ': ERROR') === 0; })) log(label + ': no start event after 3 s'); }, 3000);
   }
 
+  // Same steps as tts.js: the audio element is started inside the tap, the file is fetched, then played from a blob.
+  var AUDIO = 'https://abdullahbutt.github.io/wordfeather-audio/audio/de/';
+  var SILENCE = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+  var player = null;
+  function playFile(key, label) {
+    player = player || new Audio();
+    player.onplaying = player.onended = player.onerror = null;
+    player.pause();
+    player.src = SILENCE;
+    var unlock = player.play();
+    if (unlock && unlock.catch) unlock.catch(function () {});
+    var started = Date.now();
+    log(label + ': requested');
+    fetch(AUDIO + key + '.mp3').then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.blob();
+    }).then(function (blob) {
+      log(label + ': file loaded (' + blob.size + ' bytes)');
+      player.onplaying = function () { log(label + ': started after ' + (Date.now() - started) + ' ms'); };
+      player.onended = function () { log(label + ': finished after ' + (Date.now() - started) + ' ms'); };
+      player.onerror = function () { log(label + ': ERROR (audio element)'); };
+      player.src = URL.createObjectURL(blob);
+      return player.play();
+    }).catch(function (e) { log(label + ': ERROR ' + (e && e.name ? e.name : '') + ' ' + (e && e.message ? e.message : e)); });
+  }
+
   function report() {
     var de = germanVoices();
     return [
@@ -138,6 +167,7 @@
       'Browser: ' + browser(),
       'Speech synthesis: ' + (synth ? 'yes' : 'no'),
       'Voices listed: ' + voices().length + ', German: ' + de.length + (de.length ? ' (' + de.slice(0, 4).map(function (v) { return v.name + ' ' + v.lang + ' ' + (v.voiceURI || ''); }).join('; ') + ')' : ''),
+      'Device voice natural: ' + (window.wfGermanVoiceNatural ? (window.wfGermanVoiceNatural() ? 'yes' : 'no (recorded files are used)') : '-'),
       'Used by WordFeather: ' + (window.wfPickGermanVoice && window.wfPickGermanVoice() ? window.wfPickGermanVoice().name + ' ' + (window.wfPickGermanVoice().voiceURI || '') : '-'),
       'Heard: ' + ($('heard').value || '(not chosen)'),
       'Events:',
@@ -148,7 +178,9 @@
 
   $('de').addEventListener('click', function () { speak('Der Hund läuft schnell durch den Park.', 'de-DE', 'German'); });
   $('en').addEventListener('click', function () { speak('The dog runs quickly through the park.', 'en-US', 'English'); });
-  $('stop').addEventListener('click', function () { if (synth) synth.cancel(); log('stopped'); });
+  $('rec1').addEventListener('click', function () { playFile('2ba9ae4cdaf4e045', 'Recorded A1'); });
+  $('rec2').addEventListener('click', function () { playFile('4f59e6cd61cd47a1', 'Recorded C2'); });
+  $('stop').addEventListener('click', function () { if (synth) synth.cancel(); if (player) player.pause(); log('stopped'); });
   $('heard').addEventListener('change', renderReport);
   $('copy').addEventListener('click', function () {
     var text = report();

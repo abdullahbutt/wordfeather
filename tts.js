@@ -7,7 +7,7 @@
   // The guard for a missing German voice (german-voice.js) is loaded next to this file, once.
   if (!window.__wfGermanVoice && document.currentScript && document.currentScript.src) {
     var guard = document.createElement('script');
-    guard.src = document.currentScript.src.replace(/tts\.js(\?.*)?$/, 'german-voice.js?v=3');
+    guard.src = document.currentScript.src.replace(/tts\.js(\?.*)?$/, 'german-voice.js?v=0.00.02');
     document.head.appendChild(guard);
   }
 
@@ -58,6 +58,8 @@
   function speak(text, lang, btn) {
     // Stop any current speech
     synth.cancel();
+    audioTurn++;
+    if (player) { player.onended = null; player.onerror = null; player.pause(); }
 
     // If clicking the same button that's playing, just stop
     if (activeBtn === btn) {
@@ -79,6 +81,63 @@
 
     if (!cleanText) return;
 
+    btn.classList.add('playing');
+    activeBtn = btn;
+
+    // The voice of the device is used when it reads German naturally. When it does not (a compact voice, a robot voice or none), a German
+    // sentence with a recorded audio file (tools/sentence_audio) is played from the file; a sentence without a file is read by the voice.
+    if (lang.indexOf('de') === 0 && window.wfGermanVoiceNatural && !window.wfGermanVoiceNatural() && window.Audio && window.crypto && window.crypto.subtle) {
+      var turn = ++audioTurn;
+      unlockPlayer();
+      playSentenceFile(text, btn, function () { return turn === audioTurn; }, function () { speakWithVoice(cleanText, lang, btn); });
+      return;
+    }
+    speakWithVoice(cleanText, lang, btn);
+  }
+
+  var audioTurn = 0;
+  var player = null;
+  var unlocked = false;
+  var SILENCE = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+
+  // Safari (iPhone) lets an audio element play later only if it started a sound inside a tap. The file is fetched after the tap, so the
+  // element is made and started (silently) here, inside the tap, once.
+  function unlockPlayer() {
+    player = player || new Audio();
+    if (unlocked) return;
+    unlocked = true;
+    player.src = SILENCE;
+    var started = player.play();
+    if (started && started.catch) started.catch(function () {});
+  }
+
+  function sentenceKey(text) {
+    var clean = text.replace(/\s+/g, ' ').trim();
+    return window.crypto.subtle.digest('SHA-1', new TextEncoder().encode(clean)).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('').slice(0, 16);
+    });
+  }
+
+  function playSentenceFile(text, btn, current, fallback) {
+    var base = window.WF_AUDIO_BASE || 'https://abdullahbutt.github.io/wordfeather-audio/audio/de/';
+    sentenceKey(text).then(function (key) {
+      return fetch(base + key + '.mp3').then(function (res) {
+        if (!res.ok) throw new Error('no file');
+        return res.blob();
+      });
+    }).then(function (blob) {
+      if (!current()) return;
+      player = player || new Audio();
+      var url = URL.createObjectURL(blob);
+      var rest = function () { URL.revokeObjectURL(url); if (activeBtn === btn) { btn.classList.remove('playing'); activeBtn = null; } };
+      player.onended = rest;
+      player.onerror = function () { rest(); if (current()) fallback(); };
+      player.src = url;
+      return player.play();
+    }).catch(function () { if (current()) fallback(); });
+  }
+
+  function speakWithVoice(cleanText, lang, btn) {
     var utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = lang;
     utterance.rate = 0.9; // Slightly slower for learners
@@ -99,9 +158,6 @@
       }
     }
     if (bestVoice) utterance.voice = bestVoice;
-
-    btn.classList.add('playing');
-    activeBtn = btn;
 
     utterance.onend = function () {
       btn.classList.remove('playing');

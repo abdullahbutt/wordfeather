@@ -1,9 +1,13 @@
 // WordFeather - Service Worker
 // CACHE_NAME below is auto-updated by build.py on every run — do not edit by hand.
 // AUTO-CACHE-VERSION-START
-const CACHE_NAME = 'deutsch-lernen-v20261101-224434';
+const CACHE_NAME = 'deutsch-lernen-v20261101-230443';
 // AUTO-CACHE-VERSION-END
 const BASE = '/';
+
+// Recorded sentence audio (from this site or a separate audio site): kept in its own cache so that a new page version does not delete it.
+// A file never changes for the same name; change AUDIO_CACHE when the sentences are recorded again.
+const AUDIO_CACHE = 'wf-audio-v1';
 
 // Static assets that rarely change (cache-first)
 const STATIC_ASSETS = [
@@ -27,7 +31,7 @@ self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(names) {
       return Promise.all(
-        names.filter(function(name) { return name !== CACHE_NAME; })
+        names.filter(function(name) { return name !== CACHE_NAME && name !== AUDIO_CACHE; })
              .map(function(name) { return caches.delete(name); })
       );
     })
@@ -41,6 +45,22 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
   var request = event.request;
   var url = new URL(request.url);
+
+  // Sentence audio: cache-first (a played file is available offline afterwards)
+  if (url.pathname.indexOf('/audio/de/') > -1 && /\.mp3$/.test(url.pathname)) {
+    event.respondWith(
+      caches.open(AUDIO_CACHE).then(function(cache) {
+        return cache.match(request).then(function(hit) {
+          if (hit) { return hit; }
+          return fetch(request).then(function(res) {
+            if (res && res.status === 200) { cache.put(request, res.clone()); }
+            return res;
+          });
+        });
+      })
+    );
+    return;
+  }
 
   // HTML pages and own assets: network-first
   if (request.mode === 'navigate' ||

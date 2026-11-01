@@ -126,7 +126,7 @@
 
   // Quality of a voice from its name and voiceURI (the same voice name can appear twice, for example Anna compact and Anna enhanced on
   // iOS, and then only the voiceURI tells them apart). Higher is better; the tiers are far apart so that language and local only break ties.
-  function voiceScore(voice) {
+  function voiceQuality(voice) {
     var id = (String(voice.name || '') + ' ' + String(voice.voiceURI || '')).toLowerCase();
     var quality = 2; // a standard voice
     if (id.indexOf('premium') > -1) quality = 6;
@@ -135,8 +135,13 @@
     else if (id.indexOf('google') > -1) quality = 3; // online voice of Chrome
     else if (id.indexOf('super-compact') > -1) quality = 0; // the smallest iOS voice, below the compact one
     else if (id.indexOf('compact') > -1) quality = 1;
+    else if (id.indexOf('espeak') > -1) quality = 0; // the robot voice of Linux
+    return quality;
+  }
+
+  function voiceScore(voice) {
     var lang = String(voice.lang || '').toLowerCase().replace('_', '-');
-    return quality * 10 + (lang === 'de-de' ? 2 : lang === 'de' ? 1 : 0) + (voice.localService ? 1 : 0);
+    return voiceQuality(voice) * 10 + (lang === 'de-de' ? 2 : lang === 'de' ? 1 : 0) + (voice.localService ? 1 : 0);
   }
 
   // The best German voice of the device (Premium, Natural, Enhanced, online, standard, compact; de-DE before de-AT and de-CH), or null.
@@ -153,6 +158,15 @@
     return best;
   }
   window.wfPickGermanVoice = pickGermanVoice;
+
+  // Does the device read German naturally? False when the best German voice is a compact one (iPhone without a downloaded Enhanced or
+  // Premium voice) or a robot voice, and when there is no German voice at all: then the pages play the recorded sentence files (when
+  // the sentence has one). True when the browser lists no voices (it is tried anyway) or the best voice is a standard one or better.
+  window.wfGermanVoiceNatural = function () {
+    var best = pickGermanVoice();
+    if (best) return voiceQuality(best) >= 2;
+    return voiceState() === 'unknown';
+  };
 
   proto.speak = function (utterance) {
     if (utterance && isGerman(utterance) && voiceState() === 'yes') {
