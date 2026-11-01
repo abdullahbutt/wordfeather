@@ -7,7 +7,7 @@
   // The guard for a missing German voice (german-voice.js) is loaded next to this file, once.
   if (!window.__wfGermanVoice && document.currentScript && document.currentScript.src) {
     var guard = document.createElement('script');
-    guard.src = document.currentScript.src.replace(/tts\.js(\?.*)?$/, 'german-voice.js?v=1');
+    guard.src = document.currentScript.src.replace(/tts\.js(\?.*)?$/, 'german-voice.js?v=2');
     document.head.appendChild(guard);
   }
 

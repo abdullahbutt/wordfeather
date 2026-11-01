@@ -101,9 +101,10 @@
     var all = voices(), de = germanVoices();
     var state = !synth ? 'no speech synthesis' : !all.length ? 'the browser lists no voices (reading is tried anyway)' : de.length ? 'a German voice exists' : 'voices are listed, none is German';
     $('voiceSummary').innerHTML = 'Voices listed: <b>' + all.length + '</b>, German: <b class="' + (de.length ? 'ok' : (all.length ? 'bad' : '')) + '">' + de.length + '</b> (' + esc(state) + ').';
-    var html = '<tr><th>Name</th><th>Language</th><th>Kind</th></tr>';
+    var chosen = window.wfPickGermanVoice ? window.wfPickGermanVoice() : null;
+    var html = '<tr><th>Name</th><th>Language</th><th>Kind</th><th>Voice id</th></tr>';
     var shown = de.concat(all.filter(function (v) { return !isGerman(v); }).slice(0, 8));
-    shown.forEach(function (v) { html += '<tr><td>' + esc(v.name) + (v.default ? ' (default)' : '') + '</td><td>' + esc(v.lang) + '</td><td>' + (v.localService ? 'on device' : 'online') + '</td></tr>'; });
+    shown.forEach(function (v) { html += '<tr><td>' + esc(v.name) + (v.default ? ' (default)' : '') + (chosen === v ? ' <b class="ok">(used by WordFeather)</b>' : '') + '</td><td>' + esc(v.lang) + '</td><td>' + (v.localService ? 'on device' : 'online') + '</td><td>' + esc(v.voiceURI || '') + '</td></tr>'; });
     $('voices').innerHTML = shown.length ? html : '';
     renderReport();
   }
@@ -134,7 +135,8 @@
       'System: ' + platform(),
       'Browser: ' + browser(),
       'Speech synthesis: ' + (synth ? 'yes' : 'no'),
-      'Voices listed: ' + voices().length + ', German: ' + de.length + (de.length ? ' (' + de.slice(0, 3).map(function (v) { return v.name + ' ' + v.lang; }).join('; ') + ')' : ''),
+      'Voices listed: ' + voices().length + ', German: ' + de.length + (de.length ? ' (' + de.slice(0, 4).map(function (v) { return v.name + ' ' + v.lang + ' ' + (v.voiceURI || ''); }).join('; ') + ')' : ''),
+      'Used by WordFeather: ' + (window.wfPickGermanVoice && window.wfPickGermanVoice() ? window.wfPickGermanVoice().name + ' ' + (window.wfPickGermanVoice().voiceURI || '') : '-'),
       'Heard: ' + ($('heard').value || '(not chosen)'),
       'Events:',
       events.length ? events.join('\n') : '(no test yet)'

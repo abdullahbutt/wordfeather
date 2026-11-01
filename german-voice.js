@@ -124,7 +124,40 @@
     if (box && voiceState() !== 'no') box.hidden = true;
   });
 
+  // Quality of a voice from its name and voiceURI (the same voice name can appear twice, for example Anna compact and Anna enhanced on
+  // iOS, and then only the voiceURI tells them apart). Higher is better; the tiers are far apart so that language and local only break ties.
+  function voiceScore(voice) {
+    var id = (String(voice.name || '') + ' ' + String(voice.voiceURI || '')).toLowerCase();
+    var quality = 2; // a standard voice
+    if (id.indexOf('premium') > -1) quality = 6;
+    else if (id.indexOf('natural') > -1 || id.indexOf('neural') > -1) quality = 5;
+    else if (id.indexOf('enhanced') > -1) quality = 4;
+    else if (id.indexOf('google') > -1) quality = 3; // online voice of Chrome
+    else if (id.indexOf('compact') > -1) quality = 1;
+    var lang = String(voice.lang || '').toLowerCase().replace('_', '-');
+    return quality * 10 + (lang === 'de-de' ? 2 : lang === 'de' ? 1 : 0) + (voice.localService ? 1 : 0);
+  }
+
+  // The best German voice of the device (Premium, Natural, Enhanced, online, standard, compact; de-DE before de-AT and de-CH), or null.
+  function pickGermanVoice(voices) {
+    var list = voices || synth.getVoices() || [];
+    var best = null;
+    var bestScore = -1;
+    for (var i = 0; i < list.length; i++) {
+      var lang = String(list[i].lang || '').toLowerCase().replace('_', '-');
+      if (lang !== 'de' && lang.indexOf('de-') !== 0) continue;
+      var score = voiceScore(list[i]);
+      if (score > bestScore) { best = list[i]; bestScore = score; }
+    }
+    return best;
+  }
+  window.wfPickGermanVoice = pickGermanVoice;
+
   proto.speak = function (utterance) {
+    if (utterance && isGerman(utterance) && voiceState() === 'yes') {
+      var best = pickGermanVoice();
+      if (best && (!utterance.voice || voiceScore(best) >= voiceScore(utterance.voice))) utterance.voice = best;
+    }
     if (utterance && isGerman(utterance) && voiceState() === 'no') {
       showBox();
       // The page's own code waits for the end or the error of the utterance to reset its button: tell it, without speaking.
