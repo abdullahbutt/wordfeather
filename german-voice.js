@@ -133,6 +133,7 @@
     else if (id.indexOf('natural') > -1 || id.indexOf('neural') > -1) quality = 5;
     else if (id.indexOf('enhanced') > -1) quality = 4;
     else if (id.indexOf('google') > -1) quality = 3; // online voice of Chrome
+    else if (id.indexOf('super-compact') > -1) quality = 0; // the smallest iOS voice, below the compact one
     else if (id.indexOf('compact') > -1) quality = 1;
     var lang = String(voice.lang || '').toLowerCase().replace('_', '-');
     return quality * 10 + (lang === 'de-de' ? 2 : lang === 'de' ? 1 : 0) + (voice.localService ? 1 : 0);
