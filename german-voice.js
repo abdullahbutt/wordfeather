@@ -168,6 +168,41 @@
     return voiceState() === 'unknown';
   };
 
+  // The silent switch of an iPhone mutes the voice of the device (not recorded audio files), and no web page can change that. The
+  // learner would think the page is broken, so the first time the voice is used in a visit a short hint says what to check.
+  var hintShown = false;
+  function onIos() {
+    var ua = navigator.userAgent || '';
+    return /iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+  }
+
+  function showSilentHint() {
+    if (hintShown || !onIos() || !document.body) return;
+    hintShown = true;
+    try { if (sessionStorage.getItem('wfSilentHint')) return; sessionStorage.setItem('wfSilentHint', '1'); } catch (e) { /* shown once per page then */ }
+    var style = document.createElement('style');
+    style.textContent =
+      '.wf-silent{position:fixed;left:12px;right:12px;top:12px;max-width:36rem;margin:0 auto;z-index:2147483000;background:#e0f2fe;color:#0c2a43;' +
+        'border:1px solid #0284c7;border-radius:10px;padding:10px 12px;font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;' +
+        'box-shadow:0 6px 24px rgba(0,0,0,.25);}' +
+      '.wf-silent[hidden]{display:none;}.wf-silent p{margin:0 0 4px;color:inherit;}.wf-silent .wf-silent-en{opacity:.85;}' +
+      '.wf-silent button{font:inherit;border:1px solid #075985;background:#fff;color:#0c2a43;border-radius:6px;padding:4px 10px;margin-top:4px;cursor:pointer;min-height:32px;}' +
+      '.wf-silent button:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px;}' +
+      '[data-bs-theme="dark"] .wf-silent{background:#0c2a43;color:#e0f2fe;border-color:#38bdf8;}' +
+      '[data-bs-theme="dark"] .wf-silent button{background:#082032;color:#e0f2fe;border-color:#38bdf8;}';
+    document.head.appendChild(style);
+    var hint = document.createElement('div');
+    hint.className = 'wf-silent';
+    hint.setAttribute('role', 'status');
+    hint.innerHTML =
+      '<p lang="de"><strong>Kein Ton?</strong> Der Stumm-Schalter des iPhones (Seitenschalter) muss auf Klingeln stehen, sonst ist die Sprachausgabe stumm.</p>' +
+      '<p lang="en" class="wf-silent-en"><strong>No sound?</strong> The silent switch of the iPhone must be set to ring, otherwise the voice is muted.</p>' +
+      '<button type="button"><span lang="de">Verstanden</span> / <span lang="en">Got it</span></button>';
+    hint.querySelector('button').addEventListener('click', function () { hint.hidden = true; });
+    document.body.appendChild(hint);
+    setTimeout(function () { hint.hidden = true; }, 12000);
+  }
+
   proto.speak = function (utterance) {
     if (utterance && isGerman(utterance) && voiceState() === 'yes') {
       var best = pickGermanVoice();
@@ -181,6 +216,7 @@
       }, 0);
       return;
     }
+    if (utterance && utterance.text && utterance.volume !== 0) showSilentHint();
     return original.apply(this, arguments);
   };
 })();
