@@ -200,6 +200,20 @@
         [data-bs-theme="dark"] .tbl-blanks{color:#93c5fd}
         @media print{.tbl-blanks{display:none!important}}
         .practice-on .table-eye-btn svg{width:14px;height:14px}
+        /*ul-start*/
+        .ul-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:.5rem 0 .3rem}
+        .ul-btn,.ul-row-reset{display:inline-flex;align-items:center;gap:.3rem;background:none;border:1px solid #adb5bd;border-radius:999px;padding:.3rem .8rem;min-height:36px;cursor:pointer;color:#1d4ed8;font-size:.8rem;line-height:1}
+        .ul-btn[aria-pressed="true"]{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+        .ul-btn[hidden],.ul-row-reset[hidden]{display:none}
+        .ul-hint{font-size:.75rem;color:#6c757d}
+        .ul-row-reset{margin-left:.4rem;padding:.2rem .6rem;min-height:32px;font-size:.75rem}
+        .ul-mark{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:#d9480f;background:rgba(255,212,0,.35);border-radius:2px}
+        .ul-on .ex-de{cursor:pointer;outline:1px dashed #adb5bd;outline-offset:2px;-webkit-user-select:text;user-select:text}
+        [data-bs-theme="dark"] .ul-btn,[data-bs-theme="dark"] .ul-row-reset{color:#93c5fd}
+        [data-bs-theme="dark"] .ul-btn[aria-pressed="true"]{background:#1d4ed8;color:#fff}
+        [data-bs-theme="dark"] .ul-mark{text-decoration-color:#ffa94d;background:rgba(255,212,0,.28)}
+        @media print{.ul-bar,.ul-row-reset{display:none!important}.ul-on .ex-de{outline:none}}
+/*ul-end*/
         .practice-on .practice-cell:not(.revealed) .masked-content{background:#dfe4ea;color:transparent!important;border-radius:.3rem;padding:.05rem .5rem;user-select:none;display:inline-block;min-width:2.2rem;pointer-events:none}
         .practice-on .practice-cell:not(.revealed) .masked-content *{color:transparent!important;visibility:hidden}
         [data-bs-theme="dark"] .practice-on .practice-cell:not(.revealed) .masked-content{background:#3a4250}
@@ -13059,6 +13073,140 @@
     });
 })();
 </script>
+<script>/*ul-js-start*/
+(function () {
+    // Underline tool for Extra 8: situation texts and ad texts (German only), per row and per table. Stored in this browser only.
+    var h = document.getElementById('extra-8-telc-lesen-beispiele'); if (!h) return;
+    var hs = document.querySelectorAll('h2.part-heading'), next = null;
+    for (var i = 0; i < hs.length; i++) { if (hs[i] === h) { next = hs[i + 1] || null; break; } }
+    function inSec(e) { return (h.compareDocumentPosition(e) & 4) && (!next || (next.compareDocumentPosition(e) & 2)); }
+    var KEY = 'wf-extra8-underline-v1', store = {};
+    try { store = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { store = {}; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+    function bi(de, en) { return '<span class="t-de">' + de + '</span><span class="t-en">' + en + '</span>'; }
+    var WORD = /[\p{L}\p{N}€%\-]/u;
+    var mouseDown = false;
+    document.addEventListener('mousedown', function () { mouseDown = true; }, true);
+    document.addEventListener('mouseup', function () { mouseDown = false; }, true);
+
+    var tables = [];
+    document.querySelectorAll('table').forEach(function (t) {
+        if (!inSec(t)) return;
+        var ths = t.querySelectorAll('thead th'), col = -1;
+        ths.forEach(function (th, idx) {
+            var d = th.querySelector('.t-de');
+            if (d && /^(Situation|Anzeigentext)$/.test(d.textContent.trim())) col = idx;
+        });
+        if (col < 0) return;
+        var ti = tables.length, rows = [];
+        t.querySelectorAll('tbody tr').forEach(function (tr, ri) {
+            var td = tr.children[col], el = td && td.querySelector('.ex-de'); if (!el) return;
+            var row = { el: el, td: td, key: ti + ':' + ri, text: el.textContent };
+            row.btn = document.createElement('button'); row.btn.type = 'button'; row.btn.className = 'ul-row-reset'; row.btn.hidden = true;
+            row.btn.title = 'Unterstreichung dieser Zeile zurücksetzen / Reset this row'; row.btn.innerHTML = '↺ ' + bi('Zeile', 'Row');
+            row.btn.addEventListener('click', function () { delete store[row.key]; save(); render(row); sync(info); });
+            td.appendChild(row.btn);
+            rows.push(row);
+        });
+        var info = { table: t, rows: rows };
+        var bar = document.createElement('div'); bar.className = 'ul-bar';
+        info.on = document.createElement('button'); info.on.type = 'button'; info.on.className = 'ul-btn'; info.on.setAttribute('aria-pressed', 'false');
+        info.on.innerHTML = '✏️ ' + bi('Unterstreichen', 'Underline');
+        info.all = document.createElement('button'); info.all.type = 'button'; info.all.className = 'ul-btn'; info.all.hidden = true;
+        info.all.innerHTML = '↺ ' + bi('Ganze Tabelle zurücksetzen', 'Reset whole table');
+        var hint = document.createElement('span'); hint.className = 'ul-hint';
+        hint.innerHTML = bi('Tippe auf ein Wort oder markiere eine Stelle. Tippe auf Unterstrichenes, um es zu entfernen.', 'Tap a word or select a passage. Tap something underlined to remove it.');
+        bar.appendChild(info.on); bar.appendChild(info.all); bar.appendChild(hint);
+        var host = t.closest('.table-responsive') || t; host.parentNode.insertBefore(bar, host);
+        info.on.addEventListener('click', function () {
+            var on = info.on.getAttribute('aria-pressed') !== 'true';
+            info.on.setAttribute('aria-pressed', on ? 'true' : 'false'); t.classList.toggle('ul-on', on);
+        });
+        info.all.addEventListener('click', function () { rows.forEach(function (r) { delete store[r.key]; render(r); }); save(); sync(info); });
+        t.addEventListener('click', function (ev) { if (t.classList.contains('ul-on')) onClick(ev, info); });
+        tables.push(info);
+        rows.forEach(render);
+        sync(info);
+    });
+    if (!tables.length) return;
+
+    function ranges(row) { return (store[row.key] || []); }
+    function render(row) {
+        var iv = ranges(row), el = row.el, text = row.text, pos = 0;
+        el.textContent = '';
+        iv.forEach(function (p) {
+            if (p[0] > pos) el.appendChild(document.createTextNode(text.slice(pos, p[0])));
+            var m = document.createElement('mark'); m.className = 'ul-mark'; m.textContent = text.slice(p[0], p[1]); el.appendChild(m); pos = p[1];
+        });
+        if (pos < text.length) el.appendChild(document.createTextNode(text.slice(pos)));
+        row.btn.hidden = !iv.length;
+    }
+    function sync(info) {
+        info.all.hidden = !info.rows.some(function (r) { return ranges(r).length; });
+    }
+    function setRanges(row, iv) {
+        iv.sort(function (a, b) { return a[0] - b[0]; });
+        var out = [];
+        iv.forEach(function (p) {
+            var l = out[out.length - 1];
+            if (l && p[0] <= l[1]) l[1] = Math.max(l[1], p[1]); else out.push([p[0], p[1]]);
+        });
+        if (out.length) store[row.key] = out; else delete store[row.key];
+        save(); render(row);
+    }
+    function rowOf(info, node) {
+        var e = node && (node.nodeType === 3 ? node.parentNode : node), x = e && e.closest && e.closest('.ex-de');
+        if (!x) return null;
+        for (var i = 0; i < info.rows.length; i++) if (info.rows[i].el === x) return info.rows[i];
+        return null;
+    }
+    function offsetOf(row, node, off) {
+        var r = document.createRange(); r.selectNodeContents(row.el); r.setEnd(node, off); return r.toString().length;
+    }
+    function caretAt(x, y) {
+        if (document.caretPositionFromPoint) { var p = document.caretPositionFromPoint(x, y); return p ? { n: p.offsetNode, o: p.offset } : null; }
+        if (document.caretRangeFromPoint) { var r = document.caretRangeFromPoint(x, y); return r ? { n: r.startContainer, o: r.startOffset } : null; }
+        return null;
+    }
+    function applySelection(info) {
+        var sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !sel.rangeCount) return false;
+        var r = sel.getRangeAt(0), a = rowOf(info, r.startContainer), b = rowOf(info, r.endContainer);
+        if (!a || a !== b) return false;
+        var s = offsetOf(a, r.startContainer, r.startOffset), e = offsetOf(a, r.endContainer, r.endOffset);
+        while (s < e && /\s/.test(a.text.charAt(s))) s++;
+        while (e > s && /\s/.test(a.text.charAt(e - 1))) e--;
+        sel.removeAllRanges();
+        if (e <= s) return true;
+        setRanges(a, ranges(a).concat([[s, e]])); sync(info);
+        return true;
+    }
+    function onClick(ev, info) {
+        if (applySelection(info)) return;
+        var c = caretAt(ev.clientX, ev.clientY), row = c && rowOf(info, c.n); if (!row) return;
+        var p = offsetOf(row, c.n, c.o), t = row.text;
+        var iv = ranges(row), hit = -1;
+        iv.forEach(function (q, i) { if (p >= q[0] && p <= q[1] && hit < 0) hit = i; });
+        if (hit >= 0) { iv = iv.filter(function (q, i) { return i !== hit; }); setRanges(row, iv); sync(info); return; }
+        if (!(p < t.length && WORD.test(t.charAt(p)))) p = p - 1;
+        if (p < 0 || !WORD.test(t.charAt(p))) return;
+        var s = p, e = p + 1;
+        while (s > 0 && WORD.test(t.charAt(s - 1))) s--;
+        while (e < t.length && WORD.test(t.charAt(e))) e++;
+        setRanges(row, iv.concat([[s, e]])); sync(info);
+    }
+    // touch screens: a selection made with the long press has no click afterwards, so it is taken when it stays still
+    var timer = null;
+    document.addEventListener('selectionchange', function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            if (mouseDown) return;
+            var sel = window.getSelection(); if (!sel || sel.isCollapsed || !sel.rangeCount) return;
+            tables.forEach(function (info) { if (info.table.classList.contains('ul-on') && info.table.contains(sel.anchorNode)) applySelection(info); });
+        }, 800);
+    });
+})();
+/*ul-js-end*/</script>
 <script src="../german-voice.js?v=0.00.04"></script>
 </body>
 </html>
