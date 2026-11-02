@@ -74,7 +74,7 @@
         'font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.25);}' +
       '.wf-voice[hidden]{display:none;}' +
       '.wf-voice p{margin:0 0 6px;color:inherit;}' +
-      '.wf-voice .wf-voice-en{opacity:.85;}' +
+      '.wf-voice .wf-voice-de{opacity:.85;}' +
       '.wf-voice details{margin:6px 0;}' +
       '.wf-voice summary{cursor:pointer;font-weight:600;}' +
       '.wf-voice button{font:inherit;border:1px solid #92400e;background:#fff;color:#451a03;border-radius:6px;padding:4px 10px;margin:6px 8px 0 0;cursor:pointer;min-height:32px;}' +
@@ -91,17 +91,17 @@
     box.className = 'wf-voice';
     box.setAttribute('role', 'status');
     box.innerHTML =
-      '<p lang="de"><strong>Keine deutsche Stimme gefunden.</strong> Auf diesem Gerät ist keine deutsche Sprachausgabe installiert. ' +
-        'Mit einer anderen Stimme würde das Deutsch falsch klingen, deshalb wird nichts vorgelesen.</p>' +
-      '<p lang="en" class="wf-voice-en"><strong>No German voice found.</strong> No German text-to-speech voice is installed on this device. ' +
+      '<p lang="en"><strong>No German voice found.</strong> No German text-to-speech voice is installed on this device. ' +
         'German would sound wrong with another voice, so nothing is read aloud.</p>' +
-      '<details><summary><span lang="de">So installieren Sie eine deutsche Stimme</span> / <span lang="en">How to install a German voice</span></summary>' +
-        '<p lang="de"></p><p lang="en" class="wf-voice-en"></p></details>' +
-      '<button type="button" data-act="recheck"><span lang="de">Erneut prüfen</span> / <span lang="en">Check again</span></button>' +
-      '<button type="button" data-act="close"><span lang="de">Schließen</span> / <span lang="en">Close</span></button>';
+      '<p lang="de" class="wf-voice-de"><strong>Keine deutsche Stimme gefunden.</strong> Auf diesem Gerät ist keine deutsche Sprachausgabe installiert. ' +
+        'Mit einer anderen Stimme würde das Deutsch falsch klingen, deshalb wird nichts vorgelesen.</p>' +
+      '<details><summary><span lang="en">How to install a German voice</span> / <span lang="de">So installieren Sie eine deutsche Stimme</span></summary>' +
+        '<p lang="en"></p><p lang="de" class="wf-voice-de"></p></details>' +
+      '<button type="button" data-act="recheck"><span lang="en">Check again</span> / <span lang="de">Erneut prüfen</span></button>' +
+      '<button type="button" data-act="close"><span lang="en">Close</span> / <span lang="de">Schließen</span></button>';
     var texts = box.querySelectorAll('details p');
-    texts[0].textContent = steps.de;
-    texts[1].textContent = steps.en;
+    texts[0].textContent = steps.en;
+    texts[1].textContent = steps.de;
     box.addEventListener('click', function (e) {
       var act = e.target.closest ? e.target.closest('button') : null;
       if (!act) return;
@@ -185,7 +185,7 @@
       '.wf-silent{position:fixed;left:12px;right:12px;top:12px;max-width:36rem;margin:0 auto;z-index:2147483000;background:#e0f2fe;color:#0c2a43;' +
         'border:1px solid #0284c7;border-radius:10px;padding:10px 12px;font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;' +
         'box-shadow:0 6px 24px rgba(0,0,0,.25);}' +
-      '.wf-silent[hidden]{display:none;}.wf-silent p{margin:0 0 4px;color:inherit;}.wf-silent .wf-silent-en{opacity:.85;}' +
+      '.wf-silent[hidden]{display:none;}.wf-silent p{margin:0 0 4px;color:inherit;}.wf-silent .wf-silent-de{opacity:.85;}' +
       '.wf-silent button{font:inherit;border:1px solid #075985;background:#fff;color:#0c2a43;border-radius:6px;padding:4px 10px;margin-top:4px;cursor:pointer;min-height:32px;}' +
       '.wf-silent button:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px;}' +
       '[data-bs-theme="dark"] .wf-silent{background:#0c2a43;color:#e0f2fe;border-color:#38bdf8;}' +
@@ -195,9 +195,9 @@
     hint.className = 'wf-silent';
     hint.setAttribute('role', 'status');
     hint.innerHTML =
-      '<p lang="de"><strong>Kein Ton?</strong> Der Stumm-Schalter des iPhones (Seitenschalter) muss auf Klingeln stehen, sonst ist die Sprachausgabe stumm.</p>' +
-      '<p lang="en" class="wf-silent-en"><strong>No sound?</strong> The silent switch of the iPhone must be set to ring, otherwise the voice is muted.</p>' +
-      '<button type="button"><span lang="de">Verstanden</span> / <span lang="en">Got it</span></button>';
+      '<p lang="en"><strong>No sound?</strong> The silent switch of the iPhone must be set to ring, otherwise the voice is muted.</p>' +
+      '<p lang="de" class="wf-silent-de"><strong>Kein Ton?</strong> Der Stumm-Schalter des iPhones (Seitenschalter) muss auf Klingeln stehen, sonst ist die Sprachausgabe stumm.</p>' +
+      '<button type="button"><span lang="en">Got it</span> / <span lang="de">Verstanden</span></button>';
     hint.querySelector('button').addEventListener('click', function () { hint.hidden = true; });
     document.body.appendChild(hint);
     setTimeout(function () { hint.hidden = true; }, 12000);
