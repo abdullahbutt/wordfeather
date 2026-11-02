@@ -13075,7 +13075,7 @@
 </script>
 <script>/*ul-js-start*/
 (function () {
-    // Underline tool for Extra 8: situation texts and ad texts (German only), per row and per table. Stored in this browser only.
+    // Underline tool for Extra 8: German situations, ads, headings, reading texts and questions (Teil 1, 2, 3), per row and per table. Stored in this browser only.
     var h = document.getElementById('extra-8-telc-lesen-beispiele'); if (!h) return;
     var hs = document.querySelectorAll('h2.part-heading'), next = null;
     for (var i = 0; i < hs.length; i++) { if (hs[i] === h) { next = hs[i + 1] || null; break; } }
@@ -13089,19 +13089,20 @@
     document.addEventListener('mousedown', function () { mouseDown = true; }, true);
     document.addEventListener('mouseup', function () { mouseDown = false; }, true);
 
-    var tables = [];
+    var tables = [], legacy = 0, extra = 0;
     document.querySelectorAll('table').forEach(function (t) {
         if (!inSec(t)) return;
-        var ths = t.querySelectorAll('thead th'), col = -1;
+        var ths = t.querySelectorAll('thead th'), col = -1, label = '';
         ths.forEach(function (th, idx) {
-            var d = th.querySelector('.t-de');
-            if (d && /^(Situation|Anzeigentext)$/.test(d.textContent.trim())) col = idx;
+            var d = th.querySelector('.t-de'), l = (d || th).textContent.trim();
+            if (/^(Situation|Anzeigentext|Überschrift|Deutsch|Frage und Optionen)$/.test(l)) { col = idx; label = l; }
         });
         if (col < 0) return;
-        var ti = tables.length, rows = [];
+        // Situation/ad tables keep their first numbering (0:1, 1:3 ...), so what was underlined before stays where it was
+        var isOld = /^(Situation|Anzeigentext)$/.test(label), ti = isOld ? legacy++ : 'n' + extra++, rows = [];
         t.querySelectorAll('tbody tr').forEach(function (tr, ri) {
             var td = tr.children[col], el = td && td.querySelector('.ex-de'); if (!el) return;
-            var row = { el: el, td: td, key: ti + ':' + ri, text: el.textContent };
+            var row = { el: el, td: td, key: ti + ':' + ri, text: el.textContent, html: el.innerHTML };
             row.btn = document.createElement('button'); row.btn.type = 'button'; row.btn.className = 'ul-row-reset'; row.btn.hidden = true;
             row.btn.title = 'Unterstreichung dieser Zeile zurücksetzen / Reset this row'; row.btn.innerHTML = '↺ ' + bi('Zeile', 'Row');
             row.btn.addEventListener('click', function () { delete store[row.key]; save(); render(row); sync(info); });
@@ -13132,14 +13133,25 @@
 
     function ranges(row) { return (store[row.key] || []); }
     function render(row) {
-        var iv = ranges(row), el = row.el, text = row.text, pos = 0;
-        el.textContent = '';
-        iv.forEach(function (p) {
-            if (p[0] > pos) el.appendChild(document.createTextNode(text.slice(pos, p[0])));
-            var m = document.createElement('mark'); m.className = 'ul-mark'; m.textContent = text.slice(p[0], p[1]); el.appendChild(m); pos = p[1];
-        });
-        if (pos < text.length) el.appendChild(document.createTextNode(text.slice(pos)));
+        var iv = ranges(row), el = row.el;
+        el.innerHTML = row.html;
         row.btn.hidden = !iv.length;
+        if (!iv.length) return;
+        // the text nodes keep their tags (strong, br); a mark is put around each piece of a text node that lies inside an interval
+        var wk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [], n, pos = 0;
+        while ((n = wk.nextNode())) { nodes.push({ n: n, s: pos, e: pos + n.length }); pos += n.length; }
+        nodes.forEach(function (x) {
+            var cuts = [];
+            iv.forEach(function (p) { var a = Math.max(p[0], x.s), b = Math.min(p[1], x.e); if (a < b) cuts.push([a - x.s, b - x.s]); });
+            if (!cuts.length) return;
+            var t = x.n.data, frag = document.createDocumentFragment(), at = 0;
+            cuts.forEach(function (c) {
+                if (c[0] > at) frag.appendChild(document.createTextNode(t.slice(at, c[0])));
+                var m = document.createElement('mark'); m.className = 'ul-mark'; m.textContent = t.slice(c[0], c[1]); frag.appendChild(m); at = c[1];
+            });
+            if (at < t.length) frag.appendChild(document.createTextNode(t.slice(at)));
+            x.n.parentNode.replaceChild(frag, x.n);
+        });
     }
     function sync(info) {
         info.all.hidden = !info.rows.some(function (r) { return ranges(r).length; });
@@ -13184,16 +13196,18 @@
     function onClick(ev, info) {
         if (applySelection(info)) return;
         var c = caretAt(ev.clientX, ev.clientY), row = c && rowOf(info, c.n); if (!row) return;
-        var p = offsetOf(row, c.n, c.o), t = row.text;
-        var iv = ranges(row), hit = -1;
+        if (c.n.nodeType !== 3) return;
+        var base = offsetOf(row, c.n, 0), p = base + c.o, iv = ranges(row), hit = -1;
         iv.forEach(function (q, i) { if (p >= q[0] && p <= q[1] && hit < 0) hit = i; });
         if (hit >= 0) { iv = iv.filter(function (q, i) { return i !== hit; }); setRanges(row, iv); sync(info); return; }
-        if (!(p < t.length && WORD.test(t.charAt(p)))) p = p - 1;
-        if (p < 0 || !WORD.test(t.charAt(p))) return;
-        var s = p, e = p + 1;
+        // a word never reaches over the edge of a text node, so "Staaten" and the "a)" after the line break stay apart
+        var t = c.n.data, k = c.o;
+        if (!(k < t.length && WORD.test(t.charAt(k)))) k = k - 1;
+        if (k < 0 || !WORD.test(t.charAt(k))) return;
+        var s = k, e = k + 1;
         while (s > 0 && WORD.test(t.charAt(s - 1))) s--;
         while (e < t.length && WORD.test(t.charAt(e))) e++;
-        setRanges(row, iv.concat([[s, e]])); sync(info);
+        setRanges(row, iv.concat([[base + s, base + e]])); sync(info);
     }
     // touch screens: a selection made with the long press has no click afterwards, so it is taken when it stays still
     var timer = null;
