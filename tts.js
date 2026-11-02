@@ -41,7 +41,8 @@
     '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>' +
     '</svg>';
 
-  // recorded: the text is an example sentence, so a recorded file may exist (words and phrases have none and are read at once).
+  // recorded: the text is an example sentence or a word of the vocabulary list, so a recorded file may exist (other texts have none and are
+  // read at once, inside the tap).
   function createBtn(text, lang, recorded) {
     var btn = document.createElement('button');
     btn.className = 'tts-btn';
@@ -369,7 +370,8 @@
     var span = document.createElement('span');
     span.innerHTML = cell.innerHTML;
     wrapper.appendChild(span);
-    wrapper.appendChild(createBtn(text, lang));
+    // The Deutsch column of the vocabulary pages has recorded files; the German cells of other tables have none and are read at once.
+    wrapper.appendChild(createBtn(text, lang, lang === 'de-DE' && /Wortschatz/.test(location.pathname)));
     cell.innerHTML = '';
     cell.appendChild(wrapper);
   }
