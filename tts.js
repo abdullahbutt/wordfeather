@@ -41,7 +41,8 @@
     '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>' +
     '</svg>';
 
-  function createBtn(text, lang) {
+  // recorded: the text is an example sentence, so a recorded file may exist (words and phrases have none and are read at once).
+  function createBtn(text, lang, recorded) {
     var btn = document.createElement('button');
     btn.className = 'tts-btn';
     btn.innerHTML = speakerSVG;
@@ -50,12 +51,12 @@
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
-      speak(text, lang, btn);
+      speak(text, lang, btn, recorded);
     });
     return btn;
   }
 
-  function speak(text, lang, btn) {
+  function speak(text, lang, btn, recorded) {
     // Stop any current speech
     synth.cancel();
     audioTurn++;
@@ -86,7 +87,7 @@
 
     // The voice of the device is used when it reads German naturally. When it does not (a compact voice, a robot voice or none), a German
     // sentence with a recorded audio file (tools/sentence_audio) is played from the file; a sentence without a file is read by the voice.
-    if (lang.indexOf('de') === 0 && window.wfGermanVoiceNatural && !window.wfGermanVoiceNatural() && window.Audio && window.crypto && window.crypto.subtle) {
+    if (recorded && lang.indexOf('de') === 0 && window.wfGermanVoiceNatural && !window.wfGermanVoiceNatural() && window.Audio && window.crypto && window.crypto.subtle) {
       var turn = ++audioTurn;
       unlockPlayer();
       playSentenceFile(text, btn, function () { return turn === audioTurn; }, function () { speakWithVoice(cleanText, lang, btn); });
@@ -105,6 +106,11 @@
   function unlockPlayer() {
     player = player || new Audio();
     if (unlocked) return;
+    try {
+      var hush = new SpeechSynthesisUtterance('');
+      hush.volume = 0;
+      synth.speak(hush); // Safari also lets a later read by the voice start only if a speech began inside a tap
+    } catch (e) { /* the read by the voice then needs its own tap */ }
     unlocked = true;
     player.src = SILENCE;
     var started = player.play();
@@ -142,19 +148,17 @@
     utterance.lang = lang;
     utterance.rate = 0.9; // Slightly slower for learners
 
-    // Try to find a good voice for the language
+    // A voice is chosen here only when the device has a clearly better one (Enhanced, Premium, Natural). Otherwise the browser's own
+    // default voice for the language is used: it is the natural one of the device (on an iPhone the last voice of the list, which this
+    // code used to take, was a poor one). German is chosen in german-voice.js.
     var voices = synth.getVoices();
     var langPrefix = lang.split('-')[0];
     var bestVoice = null;
     for (var i = 0; i < voices.length; i++) {
-      if (voices[i].lang.indexOf(langPrefix) === 0) {
+      if (voices[i].lang.replace('_', '-').toLowerCase().indexOf(langPrefix) === 0 &&
+          (voices[i].name.indexOf('Enhanced') > -1 || voices[i].name.indexOf('Premium') > -1 || voices[i].name.indexOf('Natural') > -1)) {
         bestVoice = voices[i];
-        // Prefer non-compact/enhanced voices
-        if (voices[i].name.indexOf('Enhanced') > -1 ||
-            voices[i].name.indexOf('Premium') > -1 ||
-            voices[i].name.indexOf('Natural') > -1) {
-          break;
-        }
+        break;
       }
     }
     if (bestVoice) utterance.voice = bestVoice;
@@ -191,7 +195,7 @@
     if (el.nextElementSibling && el.nextElementSibling.classList.contains('tts-btn')) return;
     var text = el.textContent.trim();
     if (!text || text === '—' || text === '-') return;
-    el.parentNode.insertBefore(createBtn(text, lang), el.nextSibling);
+    el.parentNode.insertBefore(createBtn(text, lang, true), el.nextSibling);
   }
 
   function addButtonsToPersonDrills() {

@@ -47,7 +47,23 @@
   <button id="rec2">Play recorded C2 sentence</button>
   <pre id="log" aria-live="polite">No test yet.</pre>
 
-  <h2>4. Report</h2>
+  <h2>4. Silent mode (iPhone)</h2>
+  <p>On an iPhone the ring/silent switch can mute the voice of the device but not the recorded sentences. Test: switch the phone to silent,
+    tap <b>Read a German sentence</b> (nothing is heard?), then tap <b>Set audio session to playback</b> and tap <b>Read a German sentence</b> again.</p>
+  <label for="silent">Silent switch during this test</label>
+  <select id="silent">
+    <option value="">(choose)</option>
+    <option>on (silent)</option>
+    <option>off</option>
+  </select><br>
+  <button id="sessOn">Set audio session to playback</button>
+  <button id="sessOff">Set audio session to auto</button>
+  <p>Second test: tap <b>Start silent sound</b> (a silent audio loop plays), then tap <b>Read a German sentence</b> with the switch on silent.
+    Tap <b>Stop silent sound</b> when done.</p>
+  <button id="loopOn">Start silent sound</button>
+  <button id="loopOff">Stop silent sound</button>
+
+  <h2>5. Report</h2>
   <p>After the tests, tell the person who asked what you heard, or copy this text.</p>
   <label for="heard">What did you hear?</label><br>
   <select id="heard">
@@ -99,6 +115,7 @@
       row('System', esc(platform())) +
       row('Browser', esc(browser())) +
       row('Browser language', esc(navigator.language || '-') + ' (' + esc((navigator.languages || []).join(', ')) + ')') +
+      row('Audio session API (silent mode setting)', navigator.audioSession ? 'yes (type: ' + esc(navigator.audioSession.type) + ')' : 'no') +
       row('Speech synthesis in the browser', synth && typeof SpeechSynthesisUtterance !== 'undefined' ? 'yes' : 'NO', synth ? 'ok' : 'bad');
   }
 
@@ -169,6 +186,9 @@
       'Voices listed: ' + voices().length + ', German: ' + de.length + (de.length ? ' (' + de.slice(0, 4).map(function (v) { return v.name + ' ' + v.lang + ' ' + (v.voiceURI || ''); }).join('; ') + ')' : ''),
       'Device voice natural: ' + (window.wfGermanVoiceNatural ? (window.wfGermanVoiceNatural() ? 'yes' : 'no (recorded files are used)') : '-'),
       'Used by WordFeather: ' + (window.wfPickGermanVoice && window.wfPickGermanVoice() ? window.wfPickGermanVoice().name + ' ' + (window.wfPickGermanVoice().voiceURI || '') : '-'),
+      'Silent switch: ' + ($('silent').value || '(not chosen)'),
+      'Silent sound loop: ' + (loop && !loop.paused ? 'running' : 'off'),
+      'Audio session type: ' + (navigator.audioSession ? navigator.audioSession.type : 'not available'),
       'Heard: ' + ($('heard').value || '(not chosen)'),
       'Events:',
       events.length ? events.join('\n') : '(no test yet)'
@@ -182,6 +202,30 @@
   $('rec2').addEventListener('click', function () { playFile('4f59e6cd61cd47a1', 'Recorded C2'); });
   $('stop').addEventListener('click', function () { if (synth) synth.cancel(); if (player) player.pause(); log('stopped'); });
   $('heard').addEventListener('change', renderReport);
+  $('silent').addEventListener('change', renderReport);
+  function session(type) {
+    if (!navigator.audioSession) { log('Audio session: not available in this browser'); return; }
+    try { navigator.audioSession.type = type; log('Audio session set to ' + type + ' (now: ' + navigator.audioSession.type + ')'); }
+    catch (e) { log('Audio session: ERROR ' + e.name + ' ' + e.message); }
+  }
+  // One second of silence as a WAV file (8 kHz, 8 bit, mono), played in a loop.
+  var loop = null;
+  function silentWav() {
+    var n = 8000, buf = new ArrayBuffer(44 + n), v = new DataView(buf);
+    function str(o, t) { for (var i = 0; i < t.length; i++) v.setUint8(o + i, t.charCodeAt(i)); }
+    str(0, 'RIFF'); v.setUint32(4, 36 + n, true); str(8, 'WAVE'); str(12, 'fmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true);
+    v.setUint16(22, 1, true); v.setUint32(24, 8000, true); v.setUint32(28, 8000, true); v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+    str(36, 'data'); v.setUint32(40, n, true);
+    for (var i = 0; i < n; i++) v.setUint8(44 + i, 128);
+    return new Blob([buf], { type: 'audio/wav' });
+  }
+  $('loopOn').addEventListener('click', function () {
+    if (!loop) { loop = new Audio(URL.createObjectURL(silentWav())); loop.loop = true; }
+    loop.play().then(function () { log('Silent sound: running'); }, function (e) { log('Silent sound: ERROR ' + e.name); });
+  });
+  $('loopOff').addEventListener('click', function () { if (loop) loop.pause(); log('Silent sound: stopped'); });
+  $('sessOn').addEventListener('click', function () { session('playback'); });
+  $('sessOff').addEventListener('click', function () { session('auto'); });
   $('copy').addEventListener('click', function () {
     var text = report();
     if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function () { $('copy').textContent = 'Copied'; }, function () { $('copy').textContent = 'Copy failed, select the text'; }); }
