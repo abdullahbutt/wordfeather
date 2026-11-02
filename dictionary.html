@@ -946,7 +946,8 @@ window.addEventListener('load', function () {
         var synth = window.speechSynthesis;
         var activeBtn = null;
         var svg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
-        function mkBtn(text, lang) {
+        // kind: 'word' or 'sentence' when the text has a recorded file (recorded-audio.js), nothing for texts that have none.
+        function mkBtn(text, lang, kind) {
             var b = document.createElement('button');
             b.className = 'd-tts'; b.innerHTML = svg;
             b.title = lang === 'de-DE' ? 'Anhören' : 'Listen';
@@ -954,18 +955,30 @@ window.addEventListener('load', function () {
             b.onclick = function(e) {
                 e.preventDefault(); e.stopPropagation();
                 synth.cancel();
+                if (window.wfRecorded) window.wfRecorded.stop();
                 if (activeBtn === b) { if (activeBtn) activeBtn.classList.remove('playing'); activeBtn = null; return; }
                 if (activeBtn) activeBtn.classList.remove('playing');
                 var clean = text.replace(/\s*[,]\s*-\w+/g,'').replace(/[—–]/g,'').replace(/\(.*?\)/g,'').replace(/\s+/g,' ').trim();
                 if (!clean) return;
+                if (kind && lang === 'de-DE' && window.wfRecorded) {
+                    // the verbs of the vocabulary list are recorded with the link text of the conjugation table after the word
+                    var texts = kind === 'word' ? [text, text + String.fromCharCode(0xD83D, 0xDCD6) + ' Konjugation'] : [text];
+                    var finish = function() { b.classList.remove('playing'); if (activeBtn === b) activeBtn = null; };
+                    b.classList.add('playing'); activeBtn = b;
+                    if (window.wfRecorded.play(texts, finish, function() { say(); })) return;
+                }
+                say();
+                function say() {
                 var u = new SpeechSynthesisUtterance(clean);
                 u.lang = lang; u.rate = 0.9;
                 var voices = synth.getVoices();
                 var lp = lang.split('-')[0];
-                for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0) { u.voice=voices[i]; if (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Natural')>-1) break; } }
+                // a voice is picked here only when the device has a clearly better one (otherwise its default voice for the language is used)
+                for (var i=0;i<voices.length;i++) { if (voices[i].lang.indexOf(lp)===0 && (voices[i].name.indexOf('Enhanced')>-1||voices[i].name.indexOf('Premium')>-1||voices[i].name.indexOf('Natural')>-1)) { u.voice=voices[i]; break; } }
                 b.classList.add('playing'); activeBtn = b;
                 u.onend = u.onerror = function() { b.classList.remove('playing'); activeBtn = null; };
                 synth.speak(u);
+                }
             };
             return b;
         }
@@ -977,12 +990,12 @@ window.addEventListener('load', function () {
                 var deEl = card.querySelector('.word-de');
                 var enEl = card.querySelector('.word-en');
                 var exEl = card.querySelector('.word-example');
-                if (deEl && deEl.textContent.trim()) deEl.parentNode.insertBefore(mkBtn(deEl.textContent.trim(), 'de-DE'), deEl.nextSibling);
+                if (deEl && deEl.textContent.trim()) deEl.parentNode.insertBefore(mkBtn(deEl.textContent.trim(), 'de-DE', 'word'), deEl.nextSibling);
                 if (enEl && enEl.textContent.trim()) enEl.appendChild(mkBtn(enEl.textContent.trim(), 'en-US'));
                 if (exEl) {
                     var exDe = exEl.querySelector('.ex-de');
                     var exEn = exEl.querySelector('.ex-en');
-                    if (exDe && exDe.textContent.trim()) exDe.appendChild(mkBtn(exDe.textContent.trim(), 'de-DE'));
+                    if (exDe && exDe.textContent.trim()) exDe.appendChild(mkBtn(exDe.textContent.trim(), 'de-DE', 'sentence'));
                     if (exEn && exEn.textContent.trim()) exEn.appendChild(mkBtn(exEn.textContent.trim(), 'en-US'));
                 }
             });
@@ -1311,5 +1324,6 @@ window.addEventListener('load', function () {
     })();
     </script>
 <script src="german-voice.js?v=0.00.04"></script>
+<script src="recorded-audio.js?v=0.00.01"></script>
 </body>
 </html>
