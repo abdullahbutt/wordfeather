@@ -1547,7 +1547,7 @@
 <div class="spacer"></div>
 <h2 id="e8-fragen-konjunktiv">5.8 Fragen mit Konjunktiv II (Questions with Konjunktiv II)</h2>
 <p class="notice-text"><em>The teacher’s Word document “Konjunktiv II”: questions to ask each other and answer with <em>Wenn ich … wäre / hätte, würde ich …</em> (number 7 is missing in the document; the names are as typed there, “Rolando” is Ronaldo). The teacher typed answers to 1, 4, 5, 6 and 8 (red). The answers to 2, 3, 9, 10, 11, 12, 13 and 14 are sample answers that I wrote; replace them with your own. The English is mine.</em></p>
-<div class="table-responsive"><table class="table table-bordered table-sm align-top">
+<div class="table-responsive"><table class="table table-bordered table-sm align-top speak-after-open">
 <thead><tr><th style="background:#d9e2f3;">Nr.</th><th style="background:#d9e2f3;">Frage</th><th style="background:#d9e2f3;">Antwort vom Lehrer</th><th style="background:#d9e2f3;">English</th></tr></thead>
 <tbody>
 <tr><td>1</td><td>Was würdest du tun/machen, wenn du Supermann wärst?</td><td><span class="blank-fill">Wenn ich Supermann wäre, würde ich viel reisen.</span></td><td>What would you do if you were Superman?<br><span class="blank-fill">If I were Superman, I would travel a lot.</span></td></tr>
@@ -2164,6 +2164,21 @@
     })();
     </script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+// 5.8 (table.speak-after-open): the speaker of an answer stays hidden until that answer is opened, because it would read the hidden answer aloud
+(function () {
+    function sync(table) {
+        table.querySelectorAll('td').forEach(function (td) {
+            var pc = td.querySelector('.practice-cell'), sp = td.querySelector(':scope > .d-tts');
+            if (pc && sp) sp.style.display = pc.classList.contains('revealed') ? '' : 'none';
+        });
+    }
+    document.querySelectorAll('table.speak-after-open').forEach(function (table) {
+        new MutationObserver(function () { sync(table); }).observe(table, { subtree: true, attributes: true, attributeFilter: ['class'], childList: true });
+        sync(table);
+    });
+})();
+</script>
 <script src="../german-voice.js?v=0.00.04"></script>
 </body>
 </html>
