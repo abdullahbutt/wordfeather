@@ -55,6 +55,8 @@
         .tx-bar .spacer { flex: 1 1 auto; }
         .tx-clock { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.1rem; min-width: 4.2rem; text-align: center; }
         .tx-clock.over { color: var(--bs-danger); }
+        .tx-cbox { display: inline-flex; align-items: center; gap: .4rem; padding: .15rem .5rem; border: 1px solid var(--bs-border-color); border-radius: .5rem; }
+        .tx-clbl { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--bs-secondary-color); font-weight: 700; }
         .tx-count { font-size: .9rem; color: var(--bs-secondary-color); white-space: nowrap; }
         .tx-box { border: 1px solid var(--bs-border-color); border-radius: .6rem; padding: .85rem 1rem; margin-bottom: 1rem; background: var(--bs-body-bg); }
         .tx-box .lbl { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--bs-secondary-color); font-weight: 700; margin-bottom: .4rem; }
@@ -406,7 +408,8 @@ window.wfUl = (function () {
     try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { store = {}; }
     function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
     var MIN = {"1": 15, "2": 15, "3": 25}, PTS = {"1": 5, "2": 5, "3": 2.5}, INSTR = {"1": "Lesen Sie die Überschriften a–j und die Texte 1–5. Welche Überschrift passt zu welchem Text? Jede Überschrift passt nur einmal. Fünf Überschriften bleiben übrig.", "2": "Lesen Sie den Text und die Aufgaben 6–10 dazu. Welche Lösung (a, b oder c) ist jeweils richtig?", "3": "Lesen Sie die Situationen 11–20 und die Anzeigen a–l. Welche Anzeige passt zu welcher Situation? Sie können jede Anzeige nur einmal benutzen. Wenn keine Anzeige passt, markieren Sie X."}, HOW = ["3 parts (Teile), 75 points. Each Teil is worth 25 points.", "Teil 1: 5 short texts, 10 headings. Teil 2: one long text, 5 questions with a, b, c. Teil 3: 10 situations, 12 ads.", "Reading and Sprachbausteine share 90 minutes. You choose the order.", "Best order: Teil 3 (25 min) → Teil 1 (15 min) → Sprachbausteine (10 + 10 min) → Teil 2 last (15 min). About 15 min stay for the answer sheet.", "Teil 2 goes last because it is the hardest and costs the most time.", "Never leave a blank. A wrong answer costs nothing."], TRICKS = {"1": ["Read the 10 headings. Circle the \"who\": Kinder, Frauen, Männer, Firma ...", "Read each text's first sentence first. The answer was there in 69% of texts.", "Same word = warning, not proof. In 84 of 90 texts, a wrong heading repeats a word from the text. The right heading often uses other words.", "Who check: children or adults? One person or a group?", "Each heading is used once. 5 headings stay unused."], "2": ["Read the questions first. They follow the text order (true 80 of 85 times): question 6 is near the start, question 10 near the end.", "Pick a hunting word (a name, a number, a noun). Find it in the text. Read only the 2 sentences around it.", "Options with nur, nie, immer, alle, nicht, kein were wrong 77% of the time. Warning, not law.", "The option that copies the most text words was right only 31% of the time. The right option says it in other words.", "Still not sure? Guess a or b (c was right least often). Never leave a blank."], "3": ["Read the situations first. Underline what the person wants and one limit: place, day, age or price.", "Give each ad a 2-3 word label: the thing + offers or seeks.", "Match the thing first. This decided 125 of 180 items.", "Then check the limit (place, day, age).", "Then check who looks for whom. You seek a babysitter? The ad must offer one, not seek one.", "Each ad is used once. This was true in all 18 exams.", "Expect about 2 X (no matching ad). 14 of 18 exams had exactly 2. X usually means no ad offers that thing. Got 0 or 4+ X? Check again.", "Words: suchen (seek) · bieten (offer) · verkaufen (sell) · vermieten (rent out) · mieten (rent)"]};
-    function st(no) { return store[no] || (store[no] = { a: {}, done: false, left: { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }, best: null, tries: 0 }); }
+    function st(no) { var x = store[no] || (store[no] = { a: {}, done: false, left: { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }, best: null, tries: 0 }); if (x.main == null) x.main = 0; if (!x.fin) x.fin = {}; return x; }
+    function totalSecs(ex) { var m = 0; Object.keys(ex.teile).forEach(function (t) { m += MIN[t] * 60; }); return m; }
     function detailsBox(title, arr, open) {
         var d = el('details', 'tx-box'); if (open) d.open = true;
         var s = el('summary', null, title); s.style.cursor = 'pointer'; s.style.fontWeight = '700'; d.appendChild(s);
@@ -430,8 +433,8 @@ window.wfUl = (function () {
         });
         return { per: per, tot: tot, max: maxPts(ex) };
     }
-    var timer = null, running = null;
-    function stopClock() { running = null; if (timer) { clearInterval(timer); timer = null; } }
+    var timer = null, running = null, mainOn = false;
+    function stopClock() { running = null; mainOn = false; if (timer) { clearInterval(timer); timer = null; } }
 
     function showList() {
         stopClock(); root.textContent = '';
@@ -471,35 +474,54 @@ window.wfUl = (function () {
         var s = st(no), tl = Object.keys(ex.teile), all = []; tl.forEach(function (t) { all = all.concat(ids(ex, t)); });
         var view = { teil: tl[0], confirm: false };
         document.title = 'Prüfung ' + ex.no + ' ' + ex.title + ' - telc B1 Lesen';
-        var bar, clock, countEl, subBtn, startBtn, panel, resultBox;
+        var bar, clock, mainClock, mainBtn, finBtn, teilLabel, countEl, subBtn, startBtn, panel, resultBox;
         function answered() { var n = 0; all.forEach(function (i) { if (s.a[i]) n++; }); return n; }
+        function unfinished() { return tl.filter(function (t) { return !s.fin[t]; }); }
+        function paintClocks() {
+            var mleft = totalSecs(ex) - s.main, tleft = s.left[view.teil];
+            mainClock.textContent = fmt(mleft); mainClock.className = 'tx-clock' + (mleft <= 0 ? ' over' : '');
+            clock.textContent = fmt(tleft); clock.className = 'tx-clock' + (tleft <= 0 ? ' over' : '');
+        }
         function refreshBar() {
             countEl.textContent = answered() + '/' + all.length + ' answered';
             tl.forEach(function (t) {
                 var b = bar.querySelector('[data-teil="' + t + '"]'), k = 0, a = ids(ex, t);
                 a.forEach(function (i) { if (s.a[i]) k++; });
-                b.textContent = 'Teil ' + t + ' · ' + k + '/' + a.length;
-                b.className = 'btn btn-sm ' + (view.teil === t ? 'btn-primary' : 'btn-outline-secondary');
+                b.textContent = 'Teil ' + t + ' · ' + k + '/' + a.length + (s.fin[t] ? ' ✔' : '');
+                b.className = 'btn btn-sm ' + (view.teil === t ? 'btn-primary' : (s.fin[t] ? 'btn-outline-success' : 'btn-outline-secondary'));
             });
-            var left = s.left[view.teil];
-            clock.textContent = fmt(left); clock.className = 'tx-clock' + (left <= 0 ? ' over' : '');
-            clock.title = 'Time left in Teil ' + view.teil + ' (' + MIN[view.teil] + ' min)';
-            startBtn.style.display = s.done ? 'none' : '';
-            startBtn.textContent = running === view.teil ? '⏸ Pause' : (left < MIN[view.teil] * 60 ? '▶ Resume' : '▶ Start clock');
-            subBtn.textContent = s.done ? 'Try again' : (view.confirm ? 'Submit anyway' : 'Submit');
+            paintClocks();
+            teilLabel.textContent = 'Teil ' + view.teil + ' (' + MIN[view.teil] + ' min)';
+            mainBtn.style.display = s.done ? 'none' : '';
+            mainBtn.textContent = mainOn ? '⏸ Pause exam' : (s.main > 0 ? '▶ Resume exam' : '▶ Start exam');
+            var fin = !!s.fin[view.teil];
+            startBtn.style.display = s.done || fin ? 'none' : '';
+            startBtn.textContent = running === view.teil ? '⏸ Pause Teil' : (s.left[view.teil] < MIN[view.teil] * 60 ? '▶ Resume Teil' : '▶ Start Teil');
+            finBtn.style.display = s.done ? 'none' : '';
+            finBtn.textContent = fin ? '↺ Reopen Teil ' + view.teil : '✔ Finish Teil ' + view.teil;
+            finBtn.className = 'btn btn-sm ' + (fin ? 'btn-outline-secondary' : 'btn-outline-success');
+            var un = unfinished();
+            subBtn.textContent = s.done ? 'Try again' : (view.confirm ? (un.length ? 'Submit anyway (Teil ' + un.join(', ') + ' not finished)' : 'Stop total time and submit') : 'Submit exam');
             subBtn.className = 'btn btn-sm ' + (s.done ? 'btn-outline-primary' : 'btn-success');
         }
-        function startClock() {
-            if (s.done || running === view.teil) return;
-            stopClock(); var t = view.teil; running = t;
-            timer = setInterval(function () { s.left[t]--; if (view.teil === t) { clock.textContent = fmt(s.left[t]); clock.className = 'tx-clock' + (s.left[t] <= 0 ? ' over' : ''); } if (s.left[t] % 10 === 0) save(); }, 1000);
-            refreshBar();
+        function tick() {
+            if (mainOn) s.main++;
+            if (running) { s.left[running]--; }
+            paintClocks();
+            if (s.main % 10 === 0) save();
         }
-        function pauseClock() { stopClock(); save(); refreshBar(); }
+        function ensureTimer() { if (!timer) timer = setInterval(tick, 1000); }
+        function startMain() { if (s.done) return; mainOn = true; ensureTimer(); refreshBar(); }
+        function pauseMain() { stopClock(); save(); refreshBar(); }
+        function startClock() {
+            if (s.done || s.fin[view.teil] || running === view.teil) return;
+            running = view.teil; mainOn = true; ensureTimer(); refreshBar();
+        }
+        function pauseClock() { running = null; save(); refreshBar(); }
         function setAns(i, v) {
             if (s.done) return;
             if (!v) delete s.a[i]; else s.a[i] = v;
-            view.confirm = false; if (!running) startClock(); save(); refreshBar();
+            view.confirm = false; if (!mainOn) startMain(); if (!running && !s.fin[view.teil]) startClock(); save(); refreshBar();
         }
         function feedback(box, t, i, given) {
             var A = ex.teile[t].ans[i], ok = given === A.a, fb = el('div', 'fb');
@@ -616,7 +638,7 @@ window.wfUl = (function () {
             panel.appendChild(nav);
             wfUl.apply();
         }
-        function go(t) { var was = running; view.teil = t; if (was) { running = null; stopClock(); } renderPanel(); refreshBar(); window.scrollTo(0, 0); }
+        function go(t) { running = null; view.teil = t; renderPanel(); refreshBar(); window.scrollTo(0, 0); }
         function renderResult() {
             resultBox.textContent = ''; resultBox.className = '';
             if (!s.done) return;
@@ -624,6 +646,7 @@ window.wfUl = (function () {
             resultBox.className = 'tx-result ' + (pct >= 60 ? 'pass' : 'fail');
             resultBox.appendChild(el('div', 'big', r.tot + ' / ' + r.max + ' points (' + pct + ' %)'));
             resultBox.appendChild(el('div', null, Object.keys(r.per).map(function (t) { var p = r.per[t]; var used = MIN[t] * 60 - s.left[t]; return 'Teil ' + t + ': ' + p.ok + '/' + p.n + ' right = ' + p.pts + ' points · ' + fmt(Math.max(used, 0)) + ' used'; }).join('  |  ')));
+            resultBox.appendChild(el('div', null, 'Total time: ' + fmt(s.main) + ' (limit ' + fmt(totalSecs(ex)) + ')'));
             resultBox.appendChild(el('div', 'tx-note mt-1', (pct >= 60 ? '60 % or more, the usual pass mark in telc. ' : 'Below 60 %. ') + 'Open “Why?” under each item to see the trick and the line in the text.'));
             if (ex.notes && ex.notes.length) ex.notes.forEach(function (n) { resultBox.appendChild(el('div', 'tx-note', 'Note: ' + n)); });
         }
@@ -635,16 +658,29 @@ window.wfUl = (function () {
         var tabs = el('div', 'tabs');
         tl.forEach(function (t) { var b = el('button', 'btn btn-sm', ''); b.type = 'button'; b.dataset.teil = t; b.addEventListener('click', function () { go(t); }); tabs.appendChild(b); });
         bar.appendChild(tabs); bar.appendChild(el('span', 'spacer'));
-        clock = el('span', 'tx-clock', ''); bar.appendChild(clock);
+        var mbox = el('span', 'tx-cbox'); mbox.appendChild(el('span', 'tx-clbl', 'Exam'));
+        mainClock = el('span', 'tx-clock', ''); mainClock.title = 'Main clock: all Teile together (' + fmt(totalSecs(ex)) + ')'; mbox.appendChild(mainClock);
+        mainBtn = el('button', 'btn btn-sm btn-outline-secondary'); mainBtn.type = 'button';
+        mainBtn.addEventListener('click', function () { if (mainOn) pauseMain(); else startMain(); });
+        mbox.appendChild(mainBtn); bar.appendChild(mbox);
+        var tbox = el('span', 'tx-cbox'); teilLabel = el('span', 'tx-clbl'); tbox.appendChild(teilLabel);
+        clock = el('span', 'tx-clock', ''); clock.title = 'Clock of the Teil you are on'; tbox.appendChild(clock);
         startBtn = el('button', 'btn btn-sm btn-outline-secondary'); startBtn.type = 'button';
         startBtn.addEventListener('click', function () { if (running === view.teil) pauseClock(); else startClock(); });
-        bar.appendChild(startBtn);
+        tbox.appendChild(startBtn);
+        finBtn = el('button', 'btn btn-sm btn-outline-success'); finBtn.type = 'button';
+        finBtn.addEventListener('click', function () {
+            var t = view.teil; if (s.done) return;
+            if (s.fin[t]) { delete s.fin[t]; } else { s.fin[t] = true; if (running === t) running = null; }
+            view.confirm = false; save(); refreshBar();
+        });
+        tbox.appendChild(finBtn); bar.appendChild(tbox);
         countEl = el('span', 'tx-count'); bar.appendChild(countEl);
         var ulBtn = el('button', 'btn btn-sm btn-outline-secondary', '✏️ Underline'); ulBtn.type = 'button'; ulBtn.setAttribute('aria-pressed', 'false'); ulBtn.title = 'Underline words in the German and the English text'; ulBtn.addEventListener('click', function () { var o = ulBtn.getAttribute('aria-pressed') !== 'true'; ulBtn.setAttribute('aria-pressed', String(o)); ulBtn.className = 'btn btn-sm ' + (o ? 'btn-warning' : 'btn-outline-secondary'); wfUl.setOn(o); }); bar.appendChild(ulBtn);
         subBtn = el('button', 'btn btn-sm btn-success'); subBtn.type = 'button';
         subBtn.addEventListener('click', function () {
-            if (s.done) { s.a = {}; s.done = false; s.left = { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }; view.confirm = false; save(); renderResult(); renderPanel(); refreshBar(); return; }
-            if (answered() < all.length && !view.confirm) { view.confirm = true; refreshBar(); return; }
+            if (s.done) { s.a = {}; s.done = false; s.main = 0; s.fin = {}; s.left = { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }; view.confirm = false; save(); renderResult(); renderPanel(); refreshBar(); return; }
+            if (!view.confirm) { view.confirm = true; refreshBar(); return; }
             stopClock(); s.done = true; s.tries = (s.tries || 0) + 1;
             var r = score(ex); if (!s.best || r.tot >= s.best.score) s.best = { score: r.tot, max: r.max };
             save(); renderResult(); renderPanel(); refreshBar(); resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -655,7 +691,7 @@ window.wfUl = (function () {
         wfUl.init({ root: root, panel: function () { return panel; }, selectors: '.lz-item .de, .lz-item .en, .lz-head > span:not(.l):not(.lz-used), .lz-ad > span:not(.l):not(.lz-used), .lz-head .en, .lz-ad .en, .lz-para, .lz-para .en, .tx-instr', scope: function () { return ex.no + '-' + view.teil; }, storeKey: 'wf_telc_lesen_ul_v1', hint: hint }); wfUl.setOn(false);
 
         renderResult(); renderPanel(); refreshBar();
-        root.appendChild(el('p', 'tx-note', 'Tip: each Teil has its own clock. It starts with your first answer or with “Start clock”, and it shows + when you are over time. In the real exam the 90 minutes are shared with Sprachbausteine; here only the three Lesen Teile run.'));
+        root.appendChild(el('p', 'tx-note', 'How the clocks work: the Exam clock (all three Teile together) starts with your first answer or with “Start exam” and keeps running. For the Teil you are on, press “Start Teil” to run its own clock (15, 15 or 25 minutes); “Finish Teil” stops that clock and marks the Teil done. Go to the next Teil and start its clock the same way. “Submit exam” stops the total time. A clock shows + when you are over time. In the real exam the 90 minutes are shared with Sprachbausteine; here only the three Lesen Teile run.'));
     }
     function route() { if (location.hash === '#tips') { stopClock(); save(); return; } var m = /^#exam-(\d+)$/.exec(location.hash); if (m) showExam(parseInt(m[1], 10)); else showList(); window.scrollTo(0, 0); }
     window.addEventListener('hashchange', route);
