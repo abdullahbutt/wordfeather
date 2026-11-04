@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="telc B1 Schreiben: Aufgabe, Zeitplan (30 Minuten), Schreibfeld mit Wortzähler und Vorlagen für den Brief. Kostenlos im Browser.">
+    <meta name="keywords" content="telc B1 Schreiben, Brief schreiben B1, telc Prüfung, Deutsch B1, Vorlagen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: canonical + robots -->
+    <link rel="canonical" href="https://wordfeather.com/B1/16_telc_schreiben.html">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="telc B1 Schreiben | WordFeather">
+    <meta property="og:description" content="telc B1 writing: the task, a 30-minute clock, a practice box with word count and letter templates. Free in your browser.">
+    <meta property="og:url" content="https://wordfeather.com/B1/16_telc_schreiben.html">
+    <meta property="og:image" content="https://wordfeather.com/og-image-small.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="WordFeather: German learning A1 to C2">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WordFeather">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="telc B1 Schreiben | WordFeather">
+    <meta name="twitter:description" content="telc B1 writing: the task, a 30-minute clock, a practice box with word count and letter templates. Free in your browser.">
+    <meta name="twitter:image" content="https://wordfeather.com/og-image-small.jpg">
+
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="WordFeather">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>16 telc Schreiben - B1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tx { max-width: 1000px; margin: 0 auto; padding: 1.25rem 16px 4rem; }
+        .tx h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+        .tx h2 { font-size: 1.15rem; margin: 1.6rem 0 .6rem; }
+        .tx .lead-s { color: var(--bs-secondary-color); margin-bottom: 1rem; }
+        .tx-box { border: 1px solid var(--bs-border-color); border-radius: .6rem; padding: .85rem 1rem; margin-bottom: 1rem; background: var(--bs-body-bg); }
+        .tx-box .lbl { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--bs-secondary-color); font-weight: 700; margin-bottom: .4rem; }
+        .tx-box ul { margin-bottom: 0; padding-left: 1.2rem; }
+        .tx-note { font-size: .85rem; color: var(--bs-secondary-color); }
+        .tx-clockbox { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: center; }
+        .tx-time { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 2.4rem; line-height: 1; min-width: 6.5rem; }
+        .tx-time.over { color: var(--bs-danger); }
+        .tx-phase { font-weight: 700; }
+        .tx-seg { display: flex; height: .7rem; border-radius: 999px; overflow: hidden; background: var(--bs-secondary-bg); width: 100%; margin-top: .5rem; }
+        .tx-seg > div { height: 100%; position: relative; border-right: 2px solid var(--bs-body-bg); }
+        .tx-seg > div > i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--bs-primary); }
+        .tx-seg > div.cur > i { background: var(--bs-success); }
+        .tx-seglbl { display: flex; width: 100%; font-size: .78rem; color: var(--bs-secondary-color); margin-top: .2rem; }
+        .tx-seglbl > span { text-align: center; overflow: hidden; white-space: nowrap; }
+        .tx-wc { font-weight: 700; }
+        .tx-wc.ok { color: var(--bs-success); }
+        .tx-wc.warn { color: var(--bs-warning-text-emphasis); }
+        textarea.tx-write { width: 100%; min-height: 16rem; font-size: 1.05rem; line-height: 1.55; }
+        .tx-check { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .25rem .75rem; }
+        .tx-check label { display: flex; gap: .5rem; align-items: flex-start; font-size: .95rem; }
+        .tx-laps { margin: .5rem 0 0; padding-left: 1.2rem; }
+        .tx-links a { margin-right: .75rem; white-space: nowrap; }
+        .rf-tools { display: flex; gap: .5rem; flex-wrap: wrap; margin: 0 0 .75rem; }
+        .rf-meta { color: var(--bs-secondary-color); }
+        .rf-note { border-left: 4px solid var(--bs-primary); background: var(--bs-secondary-bg); border-radius: .3rem; padding: .5rem .75rem; margin: .5rem 0; font-size: .92rem; }
+        .rf-block { border: 1px solid var(--bs-border-color); border-radius: .6rem; margin-bottom: .6rem; background: var(--bs-body-bg); }
+        .rf-block > summary { cursor: pointer; padding: .6rem .9rem; font-weight: 700; }
+        .rf-block > summary .enx, .tx th .enx { display: inline; margin-left: .4rem; font-weight: 400; color: var(--bs-secondary-color); }
+        .rf-body { padding: 0 .9rem .8rem; overflow-x: auto; }
+        .rf-body table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+        .rf-body th, .rf-body td { border: 1px solid var(--bs-border-color); padding: .35rem .5rem; vertical-align: top; }
+        .rf-body th { background: var(--bs-secondary-bg); text-align: left; }
+        .enx { display: block; color: var(--bs-secondary-color); font-size: .9em; }
+        .exen { color: var(--bs-secondary-color); }
+        #rf-root.hide-en .exen, #rf-root.hide-en .enx { display: none; }
+        #rf-root.hide-en th .enx { display: none; }
+        @media print { .tx-clockbox button, .rf-tools { display: none !important; } }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html','12_deutsch_lessons.html','13_berlino_notizen.html','14_telc_hoeren.html','15_telc_lesen.html','16_telc_schreiben.html','17_telc_sprechen.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat','10 Kursnotizen (Notes)','11 Spickzettel (Cheat Sheet)','12 B1 Deutsch Kurs (Lesson Notes)','13 Berlino Notizen (Berlino Notes)','14 telc Hören Prüfungen (Exams)','15 telc Lesen Prüfungen (Exams)','16 telc Schreiben (Reference)','17 telc Sprechen (Reference)'];
+        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../app/" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                var lvLi = document.getElementById('nav-levels');
+                lvLi = lvLi ? lvLi.closest('li') : null;
+                if (lvLi && lvLi.nextSibling) {
+                    lvLi.parentNode.insertBefore(li, lvLi.nextSibling);
+                } else if (nav) {
+                    nav.appendChild(li);
+                }
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+    <main class="tx" id="tx-main">
+        <noscript><p>This page needs JavaScript.</p></noscript>
+        <div id="rf-root">
+        <h1>telc B1 Schreiben: Aufgabe, Uhr und Vorlagen</h1>
+        <p class="lead-s">Writing cannot be scored by a page, so this is a reference page: the facts, a 30-minute clock, a text box to practise in and the templates.</p>
+        <div class="rf-tools"><button type="button" class="btn btn-sm btn-outline-secondary" id="rf-hide" aria-pressed="false">🙈 Hide English</button></div>
+        <div class="tx-box"><div class="lbl">The exam (Schriftlicher Ausdruck)</div><ul>
+            <li>You get a letter or e-mail from a friend and <strong>4 Leitpunkte</strong> (points you must answer). You write the answer by hand.</li>
+            <li><strong>30 minutes</strong>: 5 minutes plan, 18 minutes write, 7 minutes check.</li>
+            <li>Write about <strong>all 4 points</strong>, 2–3 sentences each. A missing point costs many marks.</li>
+            <li>About <strong>120–160 words</strong>. No dictionary.</li></ul>
+            <p class="tx-note mt-2 mb-0">Source: the study aid in Extra 2 of the Deutsch lessons page. Check important details against the official telc material.</p></div>
+        <div class="tx-box"><div class="lbl">The clock</div>
+            <div class="tx-clockbox"><div class="tx-time" id="sc-time">30:00</div>
+            <div class="tx-phase" id="sc-phase">Ready: 30 minutes</div>
+            <button type="button" class="btn btn-sm btn-success" id="sc-go">▶ Start</button><button type="button" class="btn btn-sm btn-outline-secondary" id="sc-reset">Reset</button></div>
+            <div class="tx-seg" id="sc-seg"></div>
+            <div class="tx-seglbl"><span style="width:16.67%">Planen 5</span><span style="width:60%">Schreiben 18</span><span style="width:23.33%">Kontrollieren 7</span></div></div>
+        <div class="tx-box"><div class="lbl">Practice area (stays in this browser)</div>
+            <textarea class="form-control tx-write" id="sc-text" spellcheck="false" placeholder="Liebe Anna, …" aria-label="Your letter"></textarea>
+            <div class="d-flex flex-wrap gap-2 align-items-center mt-2"><span class="tx-wc" id="sc-wc"></span><span class="flex-grow-1"></span>
+            <button type="button" class="btn btn-sm btn-outline-secondary" id="sc-copy">Copy text</button><button type="button" class="btn btn-sm btn-outline-secondary" id="sc-clear">Clear</button></div>
+            <div class="lbl mt-3">Checklist</div><div class="tx-check"><label><input type="checkbox" data-k="anrede"> <span>Anrede (Liebe Anna, / Lieber Thomas,)</span></label><label><input type="checkbox" data-k="anfang"> <span>Anfang: vielen Dank für deinen Brief …</span></label><label><input type="checkbox" data-k="p1"> <span>Punkt 1: 2–3 Sätze</span></label><label><input type="checkbox" data-k="p2"> <span>Punkt 2: 2–3 Sätze</span></label><label><input type="checkbox" data-k="p3"> <span>Punkt 3: 2–3 Sätze</span></label><label><input type="checkbox" data-k="p4"> <span>Punkt 4: 2–3 Sätze</span></label><label><input type="checkbox" data-k="schluss"> <span>Schluss: Lass bald wieder von dir hören.</span></label><label><input type="checkbox" data-k="gruss"> <span>Gruß: Viele Grüße + Name</span></label><label><input type="checkbox" data-k="verb"> <span>Verb am Ende nach dass / weil</span></label><label><input type="checkbox" data-k="nomen"> <span>Nomen großgeschrieben, kleiner Buchstabe nach „Liebe Anna,“</span></label></div></div>
+        <h2>Templates and ready sentences</h2>
+        <p class="rf-meta"><span class="de">Lernhilfe zur schriftlichen Prüfung (telc Deutsch B1). Passt zu den Lektionen 43, 44, 46 und 49.</span><span class="enx">Study aid for the written exam (telc Deutsch B1). Goes with lessons 43, 44, 46 and 49.</span></p>
+<div class="rf-note"><span class="de"><strong>Woher kommt dieser Teil?</strong> Das ist kein Video von Desi Learn German. Es ist eine Lernhilfe, die ein Freund geteilt hat. Ich habe sie für diese Seite neu gemacht. Bitte vergleiche wichtige Dinge mit dem Wörterbuch. Die Situationen sind hier nur kurz in eigenen Worten erklärt, die Leitpunkte stehen im Originaltext.</span><span class="enx"><strong>Where does this part come from?</strong> This is not a video by Desi Learn German. It is a study aid shared by a friend, rebuilt for this page. Please check important things against the dictionary. The situations are only summarised briefly in our own words, the points are in the original German.</span></div>
+<div class="rf-note"><span class="de"><strong>So geht die schriftliche Prüfung:</strong> Du bekommst einen Brief oder eine E-Mail von einem Freund und 4 Leitpunkte. Du schreibst die Antwort mit der Hand. Du hast 30 Minuten: 5 Minuten planen, 18 Minuten schreiben, 7 Minuten kontrollieren. Schreibe zu allen 4 Punkten, je 2–3 Sätze. Ein fehlender Punkt kostet viele Punkte. Schreibe etwa 120–160 Wörter. Ein Wörterbuch ist nicht erlaubt.</span><span class="enx"><strong>How the writing test works:</strong> You get one letter or e-mail from a friend and 4 points (Leitpunkte). You write your answer by hand. You have 30 minutes: 5 minutes to plan, 18 to write, 7 to check. Write about all 4 points, 2–3 sentences each. A missing point costs a lot of marks. Write about 120–160 words. No dictionary.</span></div>
+<details class="rf-block" open><summary><span class="de">Schritt 1: Das Briefgerüst (in jedem Brief gleich)</span><span class="enx">Step 1: the letter shell (the same in every letter)</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Teil</span><span class="enx">Part</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>Betreff (wenn die Aufgabe es verlangt)</td><td><span class="exde">Betreff: …</span></td><td><span class="exen">Subject: …</span></td></tr><tr><td>Anrede</td><td><span class="exde">Liebe Anna, / Lieber Thomas,</span></td><td><span class="exen">Dear Anna, / Dear Thomas, (Liebe for a woman, Lieber for a man)</span></td></tr><tr><td>Anfang</td><td><span class="exde">vielen Dank für deinen Brief. Ich habe mich sehr gefreut.</span></td><td><span class="exen">Many thanks for your letter. I was very happy.</span></td></tr><tr><td>Auf Neuigkeiten reagieren</td><td><span class="exde">Schön, dass … / Es tut mir leid, dass …</span></td><td><span class="exen">It is nice that … / I am sorry that …</span></td></tr><tr><td>Schluss</td><td><span class="exde">Lass bald wieder von dir hören.</span></td><td><span class="exen">Let me hear from you again soon.</span></td></tr><tr><td>Gruß</td><td><span class="exde">Viele Grüße [dein Name]</span></td><td><span class="exen">Best wishes [your name]</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de">Nach „Liebe Anna,“ beginnt die nächste Zeile mit einem kleinen Buchstaben: „vielen Dank …“.</span><span class="enx">After “Liebe Anna,” the next line starts with a small letter: “vielen Dank …”.</span></div>
+<div class="rf-note"><span class="de"><strong>Schritt 2: Die 10 Arten von Punkten.</strong> Jeder Punkt in jeder Aufgabe gehört zu einer dieser 10 Arten. Lies den Punkt und frage dich: „Welche Art ist das?“ Nimm dann den fertigen Satz und schreibe deine eigenen Details. Die Arten 1–4 sind etwa drei Viertel aller Punkte.</span><span class="enx"><strong>Step 2: The 10 kinds of points.</strong> Every point in every task is one of these 10 kinds. Read a point, ask “which kind is this?”, and use that kind’s ready line with your own details. Kinds 1–4 cover about three quarters of all points.</span></div>
+<details class="rf-block"><summary><span class="de">Die 10 Arten mit fertigen Sätzen</span><span class="enx">The 10 kinds with ready lines</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Art</span><span class="enx">Kind</span></th><th><span class="de">So steht es in der Aufgabe</span><span class="enx">How it looks in the task</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td><strong>1. Über dich</strong></td><td>Hobbys, Freizeit, Wohnung, Arbeit, Lieblingsstadt, Pläne</td><td><span class="exde">Zurzeit arbeite ich als Softwareentwickler, und meine Wohnung liegt sehr zentral.</span></td><td><span class="exen">At the moment I work as a software developer, and my flat is very central. (Use your own job.)</span></td></tr><tr><td></td><td></td><td><span class="exde">Am Wochenende koche ich gern für meine Familie.</span></td><td><span class="exen">At the weekend I like cooking for my family.</span></td></tr><tr><td><strong>2. Reagieren</strong></td><td>Reaktion auf …, ob du kommst</td><td><span class="exde">Was für eine tolle Nachricht! Ich freue mich sehr für dich.</span></td><td><span class="exen">What great news! I am very happy for you.</span></td></tr><tr><td></td><td></td><td><span class="exde">Ich komme sehr gern, weil ich dich lange nicht gesehen habe.</span></td><td><span class="exen">I would love to come, because I have not seen you for a long time.</span></td></tr><tr><td></td><td></td><td><span class="exde">Leider kann ich nicht kommen, weil ich an diesem Tag arbeiten muss.</span></td><td><span class="exen">Unfortunately I cannot come, because I have to work that day.</span></td></tr><tr><td><strong>3. Ein Treffen vorschlagen</strong></td><td>Treffen, Unternehmung, wann, wo</td><td><span class="exde">Wie wäre es, wenn wir uns am Samstag treffen? Wir könnten zusammen ins Kino gehen.</span></td><td><span class="exen">How about if we meet on Saturday? We could go to the cinema together.</span></td></tr><tr><td><strong>4. Einen Tipp geben</strong></td><td>Tipp, Vorschlag, was tun bei …</td><td><span class="exde">Ich schlage vor, dass du in einen Verein gehst. Dort lernst du schnell neue Leute kennen.</span></td><td><span class="exen">I suggest that you join a club. There you will quickly get to know new people.</span></td></tr><tr><td></td><td></td><td><span class="exde">An deiner Stelle würde ich mit dem Nachbarn sprechen.</span></td><td><span class="exen">If I were you, I would talk to the neighbour.</span></td></tr><tr><td><strong>5. Deine Neuigkeiten</strong></td><td>Was es Neues bei dir gibt</td><td><span class="exde">Bei mir gibt es Neuigkeiten: Ich lerne jetzt Deutsch, weil ich bald eine Prüfung mache.</span></td><td><span class="exen">I have news: I am learning German now, because I have an exam soon.</span></td></tr><tr><td><strong>6. Eine Frage stellen</strong></td><td>Frage zu …, was du wissen willst</td><td><span class="exde">Wie gefällt dir deine neue Arbeit? Sind deine Kollegen nett?</span></td><td><span class="exen">How do you like your new job? Are your colleagues nice?</span></td></tr><tr><td><strong>7. Anreise</strong></td><td>anreisen, Zug oder Auto, Weg</td><td><span class="exde">Ich komme mit dem Zug. Kannst du mich vom Bahnhof abholen?</span></td><td><span class="exen">I am coming by train. Can you pick me up from the station?</span></td></tr><tr><td><strong>8. Jemanden mitbringen</strong></td><td>jemanden mitbringen</td><td><span class="exde">Darf ich meine Frau mitbringen? Sie möchte dich auch gern kennenlernen.</span></td><td><span class="exen">May I bring my wife? She would also like to meet you.</span></td></tr><tr><td><strong>9. Sich entschuldigen</strong></td><td>warum du nicht geschrieben hast</td><td><span class="exde">Es tut mir leid, dass ich so lange nicht geschrieben habe. Ich hatte sehr viel Arbeit.</span></td><td><span class="exen">I am sorry that I have not written for so long. I had a lot of work.</span></td></tr><tr><td><strong>10. Übernachten</strong></td><td>Übernachtung, übernachten</td><td><span class="exde">Kann ich bei dir übernachten, oder soll ich lieber ein Hotel buchen?</span></td><td><span class="exen">Can I stay at your place, or should I rather book a hotel?</span></td></tr></tbody></table></div></details>
+<details class="rf-block"><summary><span class="de">Für den Notfall: ein formeller Text (Sie)</span><span class="enx">Just in case: one formal paragraph (Sie)</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td><span class="exde">Sehr geehrte Damen und Herren, ich schreibe Ihnen, weil ich mich für Ihren Deutschkurs interessiere. Ich möchte gerne wissen, ob es noch freie Plätze gibt. Könnten Sie mir bitte weitere Informationen schicken? Mit freundlichen Grüßen</span></td><td><span class="exen">Dear Sir or Madam, I am writing to you because I am interested in your German course. I would like to know whether there are still free places. Could you please send me more information? Kind regards</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de">Alle Übungsaufgaben unten sind Briefe an einen Freund (du). Wenn die echte Prüfung einen formellen Brief verlangt, nimm den Text oben. Mehr zu formellen Briefen: Lektion 43 und Lektion 44.</span><span class="enx">All practice tasks below are letters to a friend (du). If the real exam asks for a formal letter, use the paragraph above. More on formal letters: lesson 43 and lesson 44.</span></div>
+<div class="rf-note"><span class="de"><strong>Schritt 3: 18 Übungsbriefe.</strong> Die Tabelle zeigt jede Situation kurz. Die Zahl in Klammern zeigt, welche der 10 Arten der Punkt ist. So weißt du gleich, welchen fertigen Satz du nehmen kannst.</span><span class="enx"><strong>Step 3: 18 practice letters.</strong> The table summarises each situation briefly. The number in brackets shows which of the 10 kinds the point is. That way you know at once which ready line you can use.</span></div>
+<details class="rf-block"><summary><span class="de">18 Übungsbriefe (Kurzfassung, English)</span><span class="enx">18 practice letters (short summary)</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Name</span><span class="enx">Name</span></th><th><span class="de">Situation</span><span class="enx">Situation</span></th><th><span class="de">Die 4 Punkte (Art)</span><span class="enx">The 4 points (kind)</span></th></tr></thead><tbody><tr><td><strong>Petra</strong></td><td><span class="exen">Her uncle lends her a holiday house in the Black Forest for free. She invites you, your family and friends.</span></td><td><span class="exde">Warum Sie gern nach Deutschland kommen möchten (2) · Wie Sie anreisen wollen (7) · Was Sie gemeinsam machen könnten (3) · Wen Sie mitbringen möchten (8)</span><br><span class="exen">why you would like to come (2) · how you will travel (7) · what you could do together (3) · whom you want to bring (8)</span></td></tr><tr><td><strong>Eva</strong></td><td><span class="exen">She got her dream job as a journalist at a magazine. She asks about your German and your dream job.</span></td><td><span class="exde">Fortschritte beim Deutsch Lernen (1) · Auf Evas neue Stelle reagieren (2) · Was es Neues bei Ihnen gibt (5) · Ihr Traumberuf (1)</span><br><span class="exen">your progress in learning German (1) · react to Eva’s new job (2) · your news (5) · your dream job (1)</span></td></tr><tr><td><strong>Sophie</strong></td><td><span class="exen">She moved to Würzburg for a new job. She knows nobody and asks for tips. She invites you for a weekend.</span></td><td><span class="exde">Was es Neues bei Ihnen gibt (5) · Was Sie selbst gerne in Ihrer Freizeit machen (1) · Tipps für Sophie (4) · Reaktion auf den Vorschlag (2)</span><br><span class="exen">your news (5) · what you like to do in your free time (1) · tips for Sophie (4) · react to her suggestion (2)</span></td></tr><tr><td><strong>Nadja</strong></td><td><span class="exen">She found a big garden at the edge of town and asks if you want to share it.</span></td><td><span class="exde">Reaktion auf den Vorschlag (2) · Fragen zum Garten (6) · Weg zum Garten (7) · Was es bei Ihnen Neues gibt (5)</span><br><span class="exen">react to the suggestion (2) · questions about the garden (6) · how to get to the garden (7) · your news (5)</span></td></tr><tr><td><strong>Nicole</strong></td><td><span class="exen">Her older brother visits for two months and watches sport on TV all day. She does not know what to do.</span></td><td><span class="exde">Eigene Erfahrungen mit Geschwistern, Freunden (1) · Tipps für Nicole (4) · Was Sie über den Bruder denken (2) · Was Sie selbst gern gemeinsam mit anderen machen (1)</span><br><span class="exen">your own experience with siblings or friends (1) · tips for Nicole (4) · what you think about the brother (2) · what you like to do with others (1)</span></td></tr><tr><td><strong>Andreas</strong></td><td><span class="exen">He is back from holiday with lots of work. A new colleague from Spain knows nobody.</span></td><td><span class="exde">Vorschlag, wie Andreas seinem Arbeitskollegen helfen kann (4) · Wie Sie am liebsten arbeiten (alleine oder mit Kollegen) (1) · Was Sie nach dem Urlaub gemacht haben (1) · Was es bei Ihnen Neues gibt (5)</span><br><span class="exen">a suggestion how Andreas can help the colleague (4) · how you like to work, alone or with colleagues (1) · what you did after your holiday (1) · your news (5)</span></td></tr><tr><td><strong>Annika</strong></td><td><span class="exen">It rained all weekend. She wants to travel with you in summer, cheaply.</span></td><td><span class="exde">Was Sie am Wochenende unternommen haben (1) · Wohin Sie gerne reisen würden (1) · Was Sie im Urlaub gerne machen (1) · Wie man beim Reisen Geld sparen kann (4)</span><br><span class="exen">what you did at the weekend (1) · where you would like to travel (1) · what you like to do on holiday (1) · how to save money when travelling (4)</span></td></tr><tr><td><strong>Iris</strong></td><td><span class="exen">She finished her German exam and must organise a class party. She asks about the place and the music.</span></td><td><span class="exde">Reaktion auf die Prüfung (2) · Wo feiern? Restaurant – Ihre Meinung (4) · Welche Musik (4) · Urlaubspläne (1)</span><br><span class="exen">react to the exam (2) · where to celebrate, restaurant: your opinion (4) · which music (4) · holiday plans (1)</span></td></tr><tr><td><strong>Sonja</strong></td><td><span class="exen">She invites you to an open-air music festival near Mainz. Train or car? Sleep at the festival site?</span></td><td><span class="exde">Was sonst noch machen? (3) · Wie zum Festival reisen? (7) · Jemanden mitbringen? (8) · Übernachten: Reaktion auf Sonjas Vorschlag (10)</span><br><span class="exen">what else to do (3) · how to travel to the festival (7) · bring someone? (8) · overnight stay: react to Sonja’s suggestion (10)</span></td></tr><tr><td><strong>Carolina</strong></td><td><span class="exen">A 16-year-old student from your country will stay with her family for two weeks. She asks about habits and food.</span></td><td><span class="exde">Reaktion auf den Besuch der Schülerin (2) · Vorschlag zu Essen und Trinken (4) · Warum Sie so lange nicht geschrieben haben (9) · Unternehmungen/Programm mit der Schülerin (3)</span><br><span class="exen">react to the student’s visit (2) · a suggestion about food and drink (4) · why you have not written for so long (9) · activities with the student (3)</span></td></tr><tr><td><strong>Vera</strong></td><td><span class="exen">She has a new job. The bus is slow, there are no bike lanes, and she takes her son to kindergarten.</span></td><td><span class="exde">Was es bei Ihnen Neues gibt (5) · Wie Sie zur Arbeit kommen (7) · Was Sie über Veras neue Stelle wissen wollen (6) · Vorschlag für gemeinsame Unternehmung (3)</span><br><span class="exen">your news (5) · how you get to work (7) · what you want to know about Vera’s new job (6) · a suggestion for doing something together (3)</span></td></tr><tr><td><strong>Jennifer</strong></td><td><span class="exen">Her sister Janine is getting married in October.</span></td><td><span class="exde">Reaktion auf Neuigkeit (2) · Übernachtungsmöglichkeit (10) · Sie möchten zur Hochzeit kommen (2) · Hochzeitsgeschenk (6)</span><br><span class="exen">react to the news (2) · a place to stay overnight (10) · say you would like to come to the wedding (2) · a wedding gift (6)</span></td></tr><tr><td><strong>Andreas 2</strong></td><td><span class="exen">He moved into a bigger flat with a study and a computer. He invites you for the summer.</span></td><td><span class="exde">Ihre Erfahrungen mit dem Computer (1) · Etwas über Ihre Wohnung (1) · Ob Sie Andreas besuchen möchten (2) · Was es bei Ihnen Neues gibt (5)</span><br><span class="exen">your experiences with computers (1) · something about your flat (1) · whether you want to visit Andreas (2) · your news (5)</span></td></tr><tr><td><strong>Thomas</strong></td><td><span class="exen">He organises the yearly group trip by bus and boat, because he broke his leg playing basketball.</span></td><td><span class="exde">Alternativvorschlag für schlechtes Wetter (3) · Einladung annehmen (2) · Was Sie noch über den Ausflug wissen wollen (6) · Auf Sportunfall reagieren (2)</span><br><span class="exen">an alternative idea for bad weather (3) · accept the invitation (2) · what else you want to know about the trip (6) · react to the sports accident (2)</span></td></tr><tr><td><strong>Tamara</strong></td><td><span class="exen">She changed jobs and travels a lot. She will soon be near you and wants to meet you and your family.</span></td><td><span class="exde">Vorschlag zum Treffen (3) · Jemanden mitbringen (8) · Frage zur neuen Arbeitsstelle (6) · Warum Sie nicht geschrieben haben (9)</span><br><span class="exen">a suggestion for meeting (3) · bring someone (8) · a question about the new job (6) · why you have not written (9)</span></td></tr><tr><td><strong>Jan</strong></td><td><span class="exen">He writes from a holiday in Rome: museums, food and a rock concert.</span></td><td><span class="exde">Ihre Lieblingsstadt (1) · Welche Musik Sie mögen (1) · Ihre Pläne für den nächsten Urlaub (1) · Treffen mit Jan (3)</span><br><span class="exen">your favourite city (1) · what music you like (1) · your plans for the next holiday (1) · meeting Jan (3)</span></td></tr><tr><td><strong>Viktor</strong></td><td><span class="exen">He writes from a holiday in Malta and sends you a book about Malta.</span></td><td><span class="exde">Ihre Hobbys (1) · Reaktion auf das Buch (2) · Ihre Pläne für den nächsten Urlaub (1) · Treffen mit Viktor (3)</span><br><span class="exen">your hobbies (1) · react to the book (2) · your plans for the next holiday (1) · meeting Viktor (3)</span></td></tr><tr><td><strong>Rita</strong></td><td><span class="exen">She got married. They got money for the honeymoon but do not know where to go. She asks about your new job.</span></td><td><span class="exde">Ihre neue Arbeitsstelle (1) · Wie man in Ihrem Land heiratet (1) · Vorschlag für Ritas Hochzeitsreise (4) · Rita und Karl besuchen? (2)</span><br><span class="exen">your new job (1) · how people marry in your country (1) · a suggestion for Rita’s honeymoon (4) · visit Rita and Karl (2)</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Schritt 4: Beispiel, der Sophie-Brief.</strong> Die Aufgabe (kurz): Sophie ist vor zwei Monaten nach Würzburg gezogen. Ihr Job gefällt ihr, aber sie kennt sonst niemanden und ist oft allein. Sie fragt nach Tipps, wie sie Leute kennenlernt, und lädt dich für ein Wochenende ein. Die 4 Punkte: deine Neuigkeiten (5) · was du gern in deiner Freizeit machst (1) · Tipps für Sophie (4) · Reaktion auf die Einladung (2).</span><span class="enx"><strong>Step 4: Example, the Sophie letter.</strong> The task (short): Sophie moved to Würzburg two months ago. She likes her job, but she knows nobody else and is often alone. She asks for tips to meet people and invites you to visit her one weekend. The 4 points: your news (5) · what you like to do in your free time (1) · tips for Sophie (4) · reaction to the invitation (2).</span></div>
+<details class="rf-block"><summary><span class="de">Beispielbrief: Sophie</span><span class="enx">Example letter: Sophie</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Teil</span><span class="enx">Part</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>Betreff</td><td><span class="exde">Betreff: Deine E-Mail</span></td><td><span class="exen"></span></td></tr><tr><td>Anrede</td><td><span class="exde">Liebe Sophie,</span></td><td><span class="exen"></span></td></tr><tr><td>Anfang</td><td><span class="exde">vielen Dank für deine E-Mail. Ich habe mich sehr gefreut. Schön, dass dir dein neuer Job so gut gefällt.</span></td><td><span class="exen">Many thanks for your e-mail. I was very happy. It is nice that you like your new job so much.</span></td></tr><tr><td>Art 5</td><td><span class="exde">Bei mir gibt es Neuigkeiten: Ich lerne jetzt Deutsch, weil ich bald eine Prüfung mache. Das ist viel Arbeit, aber es macht mir Spaß.</span></td><td><span class="exen">I have news: I am learning German now, because I have an exam soon. It is a lot of work, but I enjoy it.</span></td></tr><tr><td>Art 1</td><td><span class="exde">Am Wochenende koche ich gern für meine Familie. Außerdem gehe ich oft im Park spazieren.</span></td><td><span class="exen">At the weekend I like cooking for my family. I also often go for walks in the park.</span></td></tr><tr><td>Art 4</td><td><span class="exde">Du fragst, wie du neue Leute kennenlernen kannst. Ich schlage vor, dass du in einen Verein gehst. Dort lernst du schnell neue Leute kennen. Du könntest auch einen Sprachkurs besuchen.</span></td><td><span class="exen">You ask how you can meet new people. I suggest that you join a club. There you will quickly get to know new people. You could also take a language course.</span></td></tr><tr><td>Art 2</td><td><span class="exde">Deine Einladung finde ich super. Ich komme sehr gern, weil ich dich lange nicht gesehen habe. Ich würde mich freuen, wenn wir uns zusammen die Stadt ansehen.</span></td><td><span class="exen">I think your invitation is great. I would love to come, because I have not seen you for a long time. I would be happy if we looked at the city together.</span></td></tr><tr><td>Schluss</td><td><span class="exde">Lass bald wieder von dir hören.</span></td><td><span class="exen">Let me hear from you again soon.</span></td></tr><tr><td>Gruß</td><td><span class="exde">Viele Grüße [dein Name]</span></td><td><span class="exen">Best wishes [your name]</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Ergebnis:</strong> etwa 125 Wörter, alle 4 Punkte, und das meiste weißt du aus dem Kopf. Nur kleine Teile sind neu.<br><strong>Hinweis:</strong> In der Vorlage stand „…, dass du einem Verein beitrittst“. Das Verb „beitreten“ ist schwerer als B1. Darum steht hier „…, dass du in einen Verein gehst“.</span><span class="enx"><strong>Result:</strong> about 125 words, all 4 points, and most of it comes from memory. Only small parts are new.<br><strong>Note:</strong> the original template said “…, dass du einem Verein beitrittst”. The verb “beitreten” is harder than B1, so here it says “…, dass du in einen Verein gehst”.</span></div>
+<div class="rf-note"><span class="de"><strong>B1-Checkliste:</strong><br>1. Schreibe einen Satz mit <em>weil</em> und einen mit <em>dass</em> oder <em>wenn</em>. Das Verb steht am Ende: „…, weil ich bald eine Prüfung mache.“<br>2. Schreibe einen Satz mit <em>würde</em> oder <em>könnte</em>: „Ich würde mich freuen, wenn …“<br>3. Fange nicht jeden Satz mit „Ich“ an. Nimm auch <em>Deshalb, Außerdem, Dann, Leider</em> und setze das Verb an Position 2: „Außerdem gehe ich …“<br>4. Schreibe alle Nomen groß.<br>5. Benutze „du“ im ganzen Brief.<br>6. Kontrolle am Ende: Verb am Ende nach <em>weil</em> und <em>dass</em>, Nomen groß, alle 4 Punkte erledigt.</span><span class="enx"><strong>B1 grammar checklist:</strong><br>1. Use one <em>weil</em> sentence and one <em>dass</em> or <em>wenn</em> sentence. The verb goes to the end: “…, weil ich bald eine Prüfung mache.”<br>2. Use one sentence with <em>würde</em> or <em>könnte</em>: “Ich würde mich freuen, wenn …”<br>3. Do not start every sentence with “Ich”. Also start with <em>Deshalb, Außerdem, Dann, Leider</em> and put the verb second: “Außerdem gehe ich …”<br>4. Write all nouns with a capital letter.<br>5. Use “du” the same way all through the letter.<br>6. Final check: verb at the end after <em>weil</em> and <em>dass</em>, capital letters on nouns, all 4 points ticked off.</span></div>
+<div class="rf-note"><span class="de"><strong>Wenn du den Brief des Freundes nicht verstehst:</strong> 1. Lies zuerst die 4 Punkte. Sie sind kurz und sagen dir, was du schreiben sollst. 2. Suche im Brief nur die wichtigen Informationen: den Namen, den Ort und was der Freund vorschlägt. 3. Benutze deine fertigen Sätze. Ihre Grammatik ist schon richtig. 4. Schreibe kurze Sätze: Subjekt + Verb + Rest, zum Beispiel „Ich habe kein Auto.“ 5. Schreibe Wörter aus der Aufgabe ab. So hast du die richtige Schreibweise und den richtigen Artikel, zum Beispiel „den Garten“.</span><span class="enx"><strong>If you do not understand the friend’s letter:</strong> 1. Read the 4 points first. They are short and tell you what to write. 2. In the letter, find only the key facts: the name, the place and what the friend suggests. 3. Use your ready lines. Their grammar is already correct. 4. Keep your sentences short: subject + verb + rest, like “Ich habe kein Auto.” 5. Copy words from the task. They give you the right spelling and gender, for example “den Garten”.</span></div>
+        <h2>More on the Deutsch lessons page</h2>
+        <p class="tx-links tx-note"><a href="12_deutsch_lessons.html#extra-2-telc-schreiben">Extra 2: tasks and templates</a> <a href="12_deutsch_lessons.html#extra-5-telc-schreiben-woche-1">Extra 5: week 1 to memorise</a> <a href="12_deutsch_lessons.html#extra-7-telc-schreiben-beispiele">Extra 7: worked examples</a></p>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\\/g, '/');
+            var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+            var prefix = levelMatch ? '../' : '';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/wordfeather" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="../privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div></div></footer>';
+            fetch(prefix + 'footer.html?v=' + Date.now())
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { var html = footerFallback.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; });
+        })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function(reg) {
+                reg.update();
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
+<script>
+function wfFmt(s) { var neg = s < 0; s = Math.abs(Math.round(s)); var m = Math.floor(s / 60), r = s % 60; return (neg ? '+' : '') + (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
+// a clock that counts down from `total` seconds; keeps the time with Date.now() so a background tab does not drift
+function wfClock(total, onTick) {
+    var left = total, t0 = 0, base = total, timer = null;
+    var c = {
+        get left() { return left; }, get running() { return !!timer; },
+        start: function () { if (timer) return; t0 = Date.now(); base = left; timer = setInterval(function () { left = base - (Date.now() - t0) / 1000; onTick(left); }, 250); },
+        pause: function () { if (!timer) return; clearInterval(timer); timer = null; },
+        reset: function () { c.pause(); left = total; onTick(left); }
+    };
+    return c;
+}
+function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+function wfHideEn(root) {
+    var b = document.getElementById('rf-hide'); if (!b) return;
+    b.addEventListener('click', function () { var on = !root.classList.contains('hide-en'); root.classList.toggle('hide-en', on); b.textContent = on ? '🌐 Show English' : '🙈 Hide English'; b.setAttribute('aria-pressed', String(on)); });
+}
+
+(function () {
+    var root = document.getElementById('rf-root'); wfHideEn(root);
+    var PH = [['Planen', 'plan', 5], ['Schreiben', 'write', 18], ['Kontrollieren', 'check', 7]], TOTAL = 30 * 60;
+    var time = document.getElementById('sc-time'), phase = document.getElementById('sc-phase'), seg = document.getElementById('sc-seg'), go = document.getElementById('sc-go'), rs = document.getElementById('sc-reset');
+    PH.forEach(function (p) { var d = wfEl('div'); d.style.width = (p[2] / 30 * 100) + '%'; d.appendChild(wfEl('i')); seg.appendChild(d); });
+    function paint(left) {
+        var used = TOTAL - left, acc = 0, cur = -1;
+        time.textContent = wfFmt(left); time.className = 'tx-time' + (left <= 0 ? ' over' : '');
+        PH.forEach(function (p, i) {
+            var d = seg.children[i], len = p[2] * 60, f = Math.min(Math.max((used - acc) / len, 0), 1);
+            d.firstChild.style.width = (f * 100) + '%'; d.classList.toggle('cur', used >= acc && used < acc + len);
+            if (used >= acc && used < acc + len) cur = i; acc += len;
+        });
+        if (left <= 0) phase.textContent = 'Time is up. Put the pen down.';
+        else if (cur < 0) phase.textContent = 'Ready: 30 minutes';
+        else { var a2 = 0; for (var k = 0; k < cur; k++) a2 += PH[k][2] * 60; phase.textContent = PH[cur][0] + ' (' + PH[cur][1] + '): ' + wfFmt(a2 + PH[cur][2] * 60 - used) + ' left in this phase'; }
+    }
+    var clock = wfClock(TOTAL, function (l) { paint(l); if (l <= 0) { clock.pause(); go.textContent = '▶ Start'; } });
+    go.addEventListener('click', function () { if (clock.running) { clock.pause(); go.textContent = '▶ Resume'; } else { if (clock.left <= 0) clock.reset(); clock.start(); go.textContent = '⏸ Pause'; } });
+    rs.addEventListener('click', function () { clock.reset(); go.textContent = '▶ Start'; });
+    paint(TOTAL);
+
+    // practice area: text box with word count and checklist, kept in this browser only
+    var KEY = 'wf_telc_schreiben_v1', S = {}; try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { S = {}; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+    var ta = document.getElementById('sc-text'), wc = document.getElementById('sc-wc');
+    ta.value = S.text || '';
+    function count() { var n = (ta.value.trim().match(/\S+/g) || []).length; wc.textContent = n + ' words (aim: 120–160)'; wc.className = 'tx-wc ' + (n >= 120 && n <= 160 ? 'ok' : (n ? 'warn' : '')); }
+    ta.addEventListener('input', function () { S.text = ta.value; save(); count(); }); count();
+    document.querySelectorAll('.tx-check input').forEach(function (cb) { cb.checked = !!(S.chk && S.chk[cb.dataset.k]); cb.addEventListener('change', function () { S.chk = S.chk || {}; S.chk[cb.dataset.k] = cb.checked; save(); }); });
+    document.getElementById('sc-clear').addEventListener('click', function () { if (!ta.value || ta.dataset.arm === '1') { ta.value = ''; S = {}; save(); count(); document.querySelectorAll('.tx-check input').forEach(function (c) { c.checked = false; }); ta.dataset.arm = ''; this.textContent = 'Clear'; } else { ta.dataset.arm = '1'; this.textContent = 'Click again to clear'; } });
+    document.getElementById('sc-copy').addEventListener('click', function () { var b = this; if (navigator.clipboard) navigator.clipboard.writeText(ta.value).then(function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy text'; }, 1500); }); });
+})();
+</script>
+</body>
+</html>

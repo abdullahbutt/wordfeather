@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="telc B1 Sprechen: Ablauf, Vorbereitungs- und Sprechuhr und Vorlagen für Teil 1 bis 3. Kostenlos im Browser.">
+    <meta name="keywords" content="telc B1 Sprechen, mündliche Prüfung B1, telc Prüfung, Deutsch B1, Vorlagen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: canonical + robots -->
+    <link rel="canonical" href="https://wordfeather.com/B1/17_telc_sprechen.html">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="telc B1 Sprechen | WordFeather">
+    <meta property="og:description" content="telc B1 speaking: the format, a preparation clock, a speaking clock and templates for parts 1 to 3. Free in your browser.">
+    <meta property="og:url" content="https://wordfeather.com/B1/17_telc_sprechen.html">
+    <meta property="og:image" content="https://wordfeather.com/og-image-small.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="WordFeather: German learning A1 to C2">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WordFeather">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="telc B1 Sprechen | WordFeather">
+    <meta name="twitter:description" content="telc B1 speaking: the format, a preparation clock, a speaking clock and templates for parts 1 to 3. Free in your browser.">
+    <meta name="twitter:image" content="https://wordfeather.com/og-image-small.jpg">
+
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="WordFeather">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>17 telc Sprechen - B1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tx { max-width: 1000px; margin: 0 auto; padding: 1.25rem 16px 4rem; }
+        .tx h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+        .tx h2 { font-size: 1.15rem; margin: 1.6rem 0 .6rem; }
+        .tx .lead-s { color: var(--bs-secondary-color); margin-bottom: 1rem; }
+        .tx-box { border: 1px solid var(--bs-border-color); border-radius: .6rem; padding: .85rem 1rem; margin-bottom: 1rem; background: var(--bs-body-bg); }
+        .tx-box .lbl { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--bs-secondary-color); font-weight: 700; margin-bottom: .4rem; }
+        .tx-box ul { margin-bottom: 0; padding-left: 1.2rem; }
+        .tx-note { font-size: .85rem; color: var(--bs-secondary-color); }
+        .tx-clockbox { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: center; }
+        .tx-time { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 2.4rem; line-height: 1; min-width: 6.5rem; }
+        .tx-time.over { color: var(--bs-danger); }
+        .tx-phase { font-weight: 700; }
+        .tx-seg { display: flex; height: .7rem; border-radius: 999px; overflow: hidden; background: var(--bs-secondary-bg); width: 100%; margin-top: .5rem; }
+        .tx-seg > div { height: 100%; position: relative; border-right: 2px solid var(--bs-body-bg); }
+        .tx-seg > div > i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--bs-primary); }
+        .tx-seg > div.cur > i { background: var(--bs-success); }
+        .tx-seglbl { display: flex; width: 100%; font-size: .78rem; color: var(--bs-secondary-color); margin-top: .2rem; }
+        .tx-seglbl > span { text-align: center; overflow: hidden; white-space: nowrap; }
+        .tx-wc { font-weight: 700; }
+        .tx-wc.ok { color: var(--bs-success); }
+        .tx-wc.warn { color: var(--bs-warning-text-emphasis); }
+        textarea.tx-write { width: 100%; min-height: 16rem; font-size: 1.05rem; line-height: 1.55; }
+        .tx-check { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .25rem .75rem; }
+        .tx-check label { display: flex; gap: .5rem; align-items: flex-start; font-size: .95rem; }
+        .tx-laps { margin: .5rem 0 0; padding-left: 1.2rem; }
+        .tx-links a { margin-right: .75rem; white-space: nowrap; }
+        .rf-tools { display: flex; gap: .5rem; flex-wrap: wrap; margin: 0 0 .75rem; }
+        .rf-meta { color: var(--bs-secondary-color); }
+        .rf-note { border-left: 4px solid var(--bs-primary); background: var(--bs-secondary-bg); border-radius: .3rem; padding: .5rem .75rem; margin: .5rem 0; font-size: .92rem; }
+        .rf-block { border: 1px solid var(--bs-border-color); border-radius: .6rem; margin-bottom: .6rem; background: var(--bs-body-bg); }
+        .rf-block > summary { cursor: pointer; padding: .6rem .9rem; font-weight: 700; }
+        .rf-block > summary .enx, .tx th .enx { display: inline; margin-left: .4rem; font-weight: 400; color: var(--bs-secondary-color); }
+        .rf-body { padding: 0 .9rem .8rem; overflow-x: auto; }
+        .rf-body table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+        .rf-body th, .rf-body td { border: 1px solid var(--bs-border-color); padding: .35rem .5rem; vertical-align: top; }
+        .rf-body th { background: var(--bs-secondary-bg); text-align: left; }
+        .enx { display: block; color: var(--bs-secondary-color); font-size: .9em; }
+        .exen { color: var(--bs-secondary-color); }
+        #rf-root.hide-en .exen, #rf-root.hide-en .enx { display: none; }
+        #rf-root.hide-en th .enx { display: none; }
+        @media print { .tx-clockbox button, .rf-tools { display: none !important; } }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html','12_deutsch_lessons.html','13_berlino_notizen.html','14_telc_hoeren.html','15_telc_lesen.html','16_telc_schreiben.html','17_telc_sprechen.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat','10 Kursnotizen (Notes)','11 Spickzettel (Cheat Sheet)','12 B1 Deutsch Kurs (Lesson Notes)','13 Berlino Notizen (Berlino Notes)','14 telc Hören Prüfungen (Exams)','15 telc Lesen Prüfungen (Exams)','16 telc Schreiben (Reference)','17 telc Sprechen (Reference)'];
+        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../app/" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                var lvLi = document.getElementById('nav-levels');
+                lvLi = lvLi ? lvLi.closest('li') : null;
+                if (lvLi && lvLi.nextSibling) {
+                    lvLi.parentNode.insertBefore(li, lvLi.nextSibling);
+                } else if (nav) {
+                    nav.appendChild(li);
+                }
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+    <main class="tx" id="tx-main">
+        <noscript><p>This page needs JavaScript.</p></noscript>
+        <div id="rf-root">
+        <h1>telc B1 Sprechen: Ablauf, Uhr und Vorlagen</h1>
+        <p class="lead-s">Speaking cannot be scored by a page, so this is a reference page: the facts, a preparation clock, a speaking clock with a lap for each Teil and the templates.</p>
+        <div class="rf-tools"><button type="button" class="btn btn-sm btn-outline-secondary" id="rf-hide" aria-pressed="false">🙈 Hide English</button></div>
+        <div class="tx-box"><div class="lbl">The exam (Mündlicher Ausdruck)</div><ul>
+            <li>You take it <strong>with a partner</strong>. It lasts about <strong>15 minutes</strong>. Before it you have <strong>20 minutes</strong> to prepare.</li>
+            <li><strong>Teil 1:</strong> you get to know each other (name, country, family, work, hobbies, why you learn German). Ask questions too.</li>
+            <li><strong>Teil 2:</strong> each of you gets a card with one person's opinion. You present your card, say your opinion and ask your partner.</li>
+            <li><strong>Teil 3:</strong> you both get the same card (for example a party or a trip) and plan together.</li></ul>
+            <p class="tx-note mt-2 mb-0">Source: the study aid in Extra 3 of the Deutsch lessons page. Check important details against the official telc material.</p></div>
+        <div class="tx-box"><div class="lbl">Preparation clock (20 minutes)</div>
+            <div class="tx-clockbox"><div class="tx-time" id="pr-time">20:00</div>
+            <button type="button" class="btn btn-sm btn-success" id="pr-go">▶ Start</button><button type="button" class="btn btn-sm btn-outline-secondary" id="pr-reset">Reset</button></div></div>
+        <div class="tx-box"><div class="lbl">Speaking clock (about 15 minutes)</div>
+            <div class="tx-clockbox"><div class="tx-time" id="sp-time">15:00</div>
+            <button type="button" class="btn btn-sm btn-success" id="sp-go">▶ Start</button><button type="button" class="btn btn-sm btn-outline-secondary" id="sp-reset">Reset</button>
+            <button type="button" class="btn btn-sm btn-primary" id="sp-lap">Teil 1 done</button></div>
+            <ol class="tx-laps" id="sp-laps"></ol>
+            <p class="tx-note mt-2 mb-0">Press “Teil … done” at the end of each Teil: the page shows how long each Teil took, so you can see where you are slow. The 15 minutes are for the pair together, so this is a practice guide, not a rule for each Teil.</p></div>
+        <h2>Templates and ready sentences</h2>
+        <p class="rf-meta"><span class="de">Lernhilfe zur mündlichen Prüfung (telc Deutsch B1). Passt zu den Lektionen 50–58.</span><span class="enx">Study aid for the oral exam (telc Deutsch B1). Goes with lessons 50–58.</span></p>
+<div class="rf-note"><span class="de"><strong>Woher kommt dieser Teil?</strong> Das ist kein Video von Desi Learn German. Es ist eine Lernhilfe, die ein Freund geteilt hat. Ich habe sie für diese Seite neu gemacht. Bitte vergleiche wichtige Dinge mit dem Wörterbuch. Prüfungsaufgaben sind hier nur kurz in eigenen Worten erklärt.</span><span class="enx"><strong>Where does this part come from?</strong> This is not a video by Desi Learn German. It is a study aid shared by a friend, rebuilt for this page. Please check important things against the dictionary. Exam tasks are only summarised briefly in our own words.</span></div>
+<div class="rf-note"><span class="de"><strong>So geht die mündliche Prüfung:</strong> Du machst sie mit einem Partner. Sie dauert etwa 15 Minuten. Vorher hast du 20 Minuten zur Vorbereitung. Lerne die Vorlagen auswendig und benutze sie für jedes Thema. Ändere die Details so, dass sie zu deinem Leben passen.<br><strong>Teil 1:</strong> Ihr lernt euch kennen (Name, Land, Familie, Arbeit, Hobbys, warum du Deutsch lernst). Stelle auch Fragen.<br><strong>Teil 2:</strong> Jeder bekommt eine Karte mit der Meinung einer Person. Du stellst deine Karte vor, sagst deine Meinung und fragst den Partner.<br><strong>Teil 3:</strong> Ihr bekommt beide dieselbe Karte (zum Beispiel eine Party oder eine Reise) und plant zusammen.</span><span class="enx"><strong>How the speaking test works:</strong> You take it with a partner. It lasts about 15 minutes. Before it you get 20 minutes to prepare. Learn the templates by heart and use them for every topic. Change the details to fit your own life.<br><strong>Part 1:</strong> You get to know each other (name, country, family, work, hobbies, why you learn German). Ask questions too.<br><strong>Part 2:</strong> Each of you gets a card with a person’s opinion. You present your card, give your opinion and ask your partner.<br><strong>Part 3:</strong> You both get the same card (for example a party or a trip) and plan together.</span></div>
+<details class="rf-block" open><summary><span class="de">Teil 2: Die 6 Einleitungen (sie passen zu jedem Thema)</span><span class="enx">Part 2: the 6 openers (they work for every topic)</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Zeile</span><span class="enx">Line</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Beispielsatz</span><span class="enx">Example sentence</span></th><th><span class="de">Einfach erklärt</span><span class="enx">Simply explained</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>1 Thema</td><td><span class="exde">Es geht um das Thema …</span></td><td><span class="exde">Es geht um das Thema „Handy in der Schule“.</span></td><td><span class="exde">So beginnst du. Du sagst das Thema der Aufgabe.</span><br><span class="exen">This is how you start. You say the topic of the task.</span></td></tr><tr><td>2 Deine Karte</td><td><span class="exde">Auf meinem Aufgabenblatt sagt eine junge Frau, dass …</span></td><td><span class="exde">Auf meinem Aufgabenblatt sagt eine junge Frau, dass Kinder in der Schule kein Handy brauchen.</span></td><td><span class="exde">Du erklärst, was auf deiner Karte steht. Nach „dass“ steht das Verb am Ende. Du kannst die Person ändern: ein junger Mann, eine ältere Frau.</span><br><span class="exen">You explain what is on your card. After “dass” the verb goes at the end. You can change the person: a young man, an older woman.</span></td></tr><tr><td>3 Grund</td><td><span class="exde">Diese Meinung finde ich interessant, weil …</span></td><td><span class="exde">Diese Meinung finde ich interessant, weil viele Eltern das auch denken.</span></td><td><span class="exde">Du nennst einen Grund. Nach „weil“ steht das Verb am Ende.</span><br><span class="exen">You give a reason. After “weil” the verb goes at the end.</span></td></tr><tr><td>4 Deine Meinung</td><td><span class="exde">Meiner Meinung nach …</span></td><td><span class="exde">Meiner Meinung nach ist das Handy in der Schule nützlich, aber nur in der Pause.</span></td><td><span class="exde">Jetzt sagst du deine eigene Meinung. Danach kommt zuerst das Verb: Meiner Meinung nach ist …</span><br><span class="exen">Now you give your own opinion. The verb comes first after it: In my opinion … is …</span></td></tr><tr><td>5 Deine Erfahrung</td><td><span class="exde">Ich habe die Erfahrung gemacht, dass …</span></td><td><span class="exde">Ich habe die Erfahrung gemacht, dass ich ohne Handy besser lerne.</span></td><td><span class="exde">Du erzählst von deinem Leben. Nach „dass“ steht das Verb am Ende.</span><br><span class="exen">You tell something from your own life. After “dass” the verb goes at the end.</span></td></tr><tr><td>6 Frage an den Partner</td><td><span class="exde">Was meinst du? Wie ist das bei dir?</span></td><td><span class="exde">Was meinst du? Wie ist das bei dir? Benutzt du dein Handy auch im Unterricht?</span></td><td><span class="exde">Du fragst deinen Partner nach seiner Meinung. So ist das Gespräch fair.</span><br><span class="exen">You ask your partner for their opinion. That keeps the conversation fair.</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Merkkette:</strong> Thema → Karte → Grund → Meinung → Erfahrung → Heimatland → Frage.<br><strong>Zeile 2:</strong> Passe die Person an deine Karte an: <em>eine junge Frau, ein junger Mann, eine ältere Frau</em>.<br><strong>Grammatik:</strong> Nach <em>dass</em> und <em>weil</em> steht das Verb am Ende.</span><span class="enx"><strong>Memory chain:</strong> topic → card → reason → opinion → experience → home country → question.<br><strong>Line 2:</strong> match the person on your card: <em>eine junge Frau</em> (a young woman), <em>ein junger Mann</em> (a young man), <em>eine ältere Frau</em> (an older woman).<br><strong>Grammar:</strong> after <em>dass</em> and <em>weil</em> the verb goes to the end.</span></div>
+<div class="rf-note"><span class="de"><strong>Schritt 2: 3 Sätze für jede der 6 Themenfamilien.</strong> Alle 55 Themen gehören zu einer dieser Familien. Jede Familie hat 3 fertige Sätze: Meinung (bei Einleitung 4), Erfahrung (bei Einleitung 5) und Heimatland (vor der Frage). Passt ein Satz nicht ganz, dann ändere ein oder zwei Nomen.</span><span class="enx"><strong>Step 2: 3 lines for each of the 6 topic families.</strong> All 55 topics belong to one of these families. Each family has 3 ready lines: opinion (at opener 4), experience (at opener 5) and home country (before the question). If a line does not fit exactly, change one or two nouns.</span></div>
+<details class="rf-block"><summary><span class="de">Die 3 fertigen Sätze pro Familie</span><span class="enx">The 3 ready lines per family</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Familie</span><span class="enx">Family</span></th><th><span class="de">Art</span><span class="enx">Type</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td><strong>1. Technik und Medien</strong></td><td>Meinung</td><td><span class="exde">Meiner Meinung nach ist das Handy praktisch, aber man sollte es nicht zu oft benutzen.</span></td></tr><tr><td></td><td>Erfahrung</td><td><span class="exde">Ich habe die Erfahrung gemacht, dass ich ohne Handy besser schlafe und mehr Zeit für meine Familie habe.</span></td></tr><tr><td></td><td>Heimatland</td><td><span class="exde">In meinem Heimatland benutzen fast alle jungen Leute den ganzen Tag ihr Handy.</span></td></tr><tr><td><strong>2. Familie, Freunde, Feiern</strong></td><td>Meinung</td><td><span class="exde">Meiner Meinung nach ist die Familie wichtiger als Geld oder Karriere.</span></td></tr><tr><td></td><td>Erfahrung</td><td><span class="exde">Ich habe die Erfahrung gemacht, dass man mit zwei Kindern viel Hilfe von der Familie braucht.</span></td></tr><tr><td></td><td>Heimatland</td><td><span class="exde">In meinem Heimatland feiern wir oft mit der ganzen Familie, manchmal mit über hundert Gästen.</span></td></tr><tr><td><strong>3. Wohnen</strong></td><td>Meinung</td><td><span class="exde">Meiner Meinung nach ist eine ruhige Lage wichtiger als eine große Wohnung.</span></td></tr><tr><td></td><td>Erfahrung</td><td><span class="exde">Ich habe die Erfahrung gemacht, dass Wohnungen in München sehr teuer sind.</span></td></tr><tr><td></td><td>Heimatland</td><td><span class="exde">In meinem Heimatland wohnen die Kinder meistens bei den Eltern, bis sie heiraten.</span></td></tr><tr><td><strong>4. Freizeit und Reisen</strong></td><td>Meinung</td><td><span class="exde">Meiner Meinung nach braucht jeder Mensch Zeit für seine Hobbys.</span></td></tr><tr><td></td><td>Erfahrung</td><td><span class="exde">Ich habe die Erfahrung gemacht, dass ich nach einem langen Spaziergang viel entspannter bin.</span></td></tr><tr><td></td><td>Heimatland</td><td><span class="exde">In meinem Heimatland verbringen viele Leute ihre Freizeit mit der Familie.</span></td></tr><tr><td><strong>5. Geld, Arbeit, Einkaufen, Verkehr</strong></td><td>Meinung</td><td><span class="exde">Meiner Meinung nach ist Qualität wichtiger als der Preis.</span></td></tr><tr><td></td><td>Erfahrung</td><td><span class="exde">Ich habe die Erfahrung gemacht, dass Bus und Bahn in der Stadt oft schneller sind als das Auto.</span></td></tr><tr><td></td><td>Heimatland</td><td><span class="exde">In meinem Heimatland fahren die meisten Leute mit dem Auto oder mit dem Motorrad.</span></td></tr><tr><td><strong>6. Gesundheit und Essen</strong></td><td>Meinung</td><td><span class="exde">Meiner Meinung nach ist Gesundheit wichtiger als alles andere.</span></td></tr><tr><td></td><td>Erfahrung</td><td><span class="exde">Ich habe die Erfahrung gemacht, dass ich mit dem täglichen Spaziergang weniger Stress habe.</span></td></tr><tr><td></td><td>Heimatland</td><td><span class="exde">In meinem Heimatland ist das Essen sehr scharf, und wir kochen fast jeden Tag frisch.</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Ideen für die Lücken:</strong> Handy / Internet / Computer; Familie / Gesundheit / Freunde; zwei Kindern / einem Kind / drei Kindern; München / Berlin / der Stadt; einem langen Spaziergang / einem Film / dem Schwimmen; dem Auto / dem Bus / dem Fahrrad; sehr scharf / sehr süß / sehr gesund. Nimm, was zu deinem Leben passt.</span><span class="enx"><strong>Ideas for the blanks:</strong> mobile phone / internet / computer; family / health / friends; two children / one child / three children; Munich / Berlin / the city; a long walk / a film / swimming; the car / the bus / the bike; very spicy / very sweet / very healthy. Take what fits your life.</span></div>
+<div class="rf-note"><span class="de"><strong>Tausch-Trick:</strong> Behalte „Meiner Meinung nach ist ___ wichtiger als ___“ und tausche nur die zwei Nomen, zum Beispiel Zeit, Geld, Gesundheit, Familie, Arbeit, Qualität, der Preis.</span><span class="enx"><strong>Swap trick:</strong> keep “Meiner Meinung nach ist ___ wichtiger als ___” and only change the two nouns, for example time, money, health, family, work, quality, the price.</span></div>
+<div class="rf-note"><span class="de"><strong>Schritt 3: Die 55 Themen nach Familie.</strong> Die Liste stammt aus der Sammlung eines Lernenden. In deiner Prüfung können die Themen anders sein. Übe mit den Familien, nicht nur mit einzelnen Themen.</span><span class="enx"><strong>Step 3: The 55 topics, by family.</strong> The list comes from a learner’s collection. In your exam the topics can be different. Practise with the families, not only with single topics.</span></div>
+<details class="rf-block"><summary><span class="de">1. Technik und Medien</span><span class="enx">1. Technology and media</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Thema Nr.</span><span class="enx">Topic no.</span></th><th><span class="de">Thema</span><span class="enx">Topic</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>9</td><td><span class="exde">Gefahren im Internet</span></td></tr><tr><td>14</td><td><span class="exde">Fernsehen</span></td></tr><tr><td>15</td><td><span class="exde">Bücher hören</span></td></tr><tr><td>31</td><td><span class="exde">Brief oder E-Mail</span></td></tr><tr><td>32</td><td><span class="exde">Smartphone in der Schule</span></td></tr><tr><td>33</td><td><span class="exde">Handynutzung in öffentlichen Verkehrsmitteln</span></td></tr><tr><td>34</td><td><span class="exde">Im Internet bestellen</span></td></tr><tr><td>36</td><td><span class="exde">TikTok</span></td></tr><tr><td>40</td><td><span class="exde">Serie oder Film</span></td></tr><tr><td>44</td><td><span class="exde">Smartphone (Kleinkinder)</span></td></tr><tr><td>50</td><td><span class="exde">Immer online</span></td></tr><tr><td>52</td><td><span class="exde">Handy</span></td></tr></tbody></table></div></details>
+<details class="rf-block"><summary><span class="de">2. Familie, Freunde, Feiern</span><span class="enx">2. Family, friends, celebrations</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Thema Nr.</span><span class="enx">Topic no.</span></th><th><span class="de">Thema</span><span class="enx">Topic</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>7</td><td><span class="exde">Beste Freunde</span></td></tr><tr><td>12</td><td><span class="exde">Heiraten / Hochzeit</span></td></tr><tr><td>16</td><td><span class="exde">Verwandtschaft</span></td></tr><tr><td>21</td><td><span class="exde">Geburtstag feiern</span></td></tr><tr><td>25</td><td><span class="exde">Gastfreundschaft</span></td></tr><tr><td>28</td><td><span class="exde">Kinder im Freizeitstress / ehrgeizige Eltern</span></td></tr><tr><td>29</td><td><span class="exde">Großeltern</span></td></tr><tr><td>37</td><td><span class="exde">Eine große Feier veranstalten</span></td></tr><tr><td>46</td><td><span class="exde">Klassentreffen</span></td></tr></tbody></table></div></details>
+<details class="rf-block"><summary><span class="de">3. Wohnen</span><span class="enx">3. Living, housing</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Thema Nr.</span><span class="enx">Topic no.</span></th><th><span class="de">Thema</span><span class="enx">Topic</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>4</td><td><span class="exde">Schöner Wohnen</span></td></tr><tr><td>10</td><td><span class="exde">Hauskauf oder Mieten</span></td></tr><tr><td>18</td><td><span class="exde">Wohngemeinschaft (WG)</span></td></tr><tr><td>20</td><td><span class="exde">Ausziehen oder bei den Eltern wohnen</span></td></tr><tr><td>27</td><td><span class="exde">Nachbarn</span></td></tr><tr><td>30</td><td><span class="exde">Allein wohnen</span></td></tr><tr><td>35</td><td><span class="exde">Gemeinschaftsgarten</span></td></tr><tr><td>42</td><td><span class="exde">Umzug</span></td></tr><tr><td>55</td><td><span class="exde">Wohnen in der Stadt oder auf dem Land</span></td></tr></tbody></table></div></details>
+<details class="rf-block"><summary><span class="de">4. Freizeit und Reisen</span><span class="enx">4. Free time and travel</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Thema Nr.</span><span class="enx">Topic no.</span></th><th><span class="de">Thema</span><span class="enx">Topic</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>8</td><td><span class="exde">Tanzen</span></td></tr><tr><td>13</td><td><span class="exde">Urlaub mit Freunden</span></td></tr><tr><td>19</td><td><span class="exde">Sammlungen und sammeln</span></td></tr><tr><td>23</td><td><span class="exde">Der ideale Urlaub</span></td></tr><tr><td>24</td><td><span class="exde">Haustier</span></td></tr><tr><td>47</td><td><span class="exde">An Wochenenden etwas unternehmen</span></td></tr><tr><td>49</td><td><span class="exde">Rapmusik</span></td></tr><tr><td>53</td><td><span class="exde">Abenteuer</span></td></tr></tbody></table></div></details>
+<details class="rf-block"><summary><span class="de">5. Geld, Arbeit, Einkaufen, Verkehr</span><span class="enx">5. Money, work, shopping, transport</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Thema Nr.</span><span class="enx">Topic no.</span></th><th><span class="de">Thema</span><span class="enx">Topic</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>1</td><td><span class="exde">Arbeitszeiten in der Gastronomie</span></td></tr><tr><td>2</td><td><span class="exde">Geld</span></td></tr><tr><td>5</td><td><span class="exde">Lebenslanges Lernen</span></td></tr><tr><td>17</td><td><span class="exde">Kleidung und Mode</span></td></tr><tr><td>26</td><td><span class="exde">Auto kaufen</span></td></tr><tr><td>38</td><td><span class="exde">Öffentliche Verkehrsmittel</span></td></tr><tr><td>43</td><td><span class="exde">Auto oder Bus und Bahn</span></td></tr><tr><td>48</td><td><span class="exde">Führerschein</span></td></tr><tr><td>51</td><td><span class="exde">Kleidung</span></td></tr></tbody></table></div></details>
+<details class="rf-block"><summary><span class="de">6. Gesundheit und Essen</span><span class="enx">6. Health and food</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Thema Nr.</span><span class="enx">Topic no.</span></th><th><span class="de">Thema</span><span class="enx">Topic</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>3</td><td><span class="exde">Stress</span></td></tr><tr><td>6</td><td><span class="exde">Sport treiben</span></td></tr><tr><td>11</td><td><span class="exde">Essen</span></td></tr><tr><td>22</td><td><span class="exde">Essen kochen</span></td></tr><tr><td>39</td><td><span class="exde">Gemeinsame Mahlzeiten</span></td></tr><tr><td>41</td><td><span class="exde">Bauernmarkt</span></td></tr><tr><td>45</td><td><span class="exde">Sport im Fitnessstudio</span></td></tr><tr><td>54</td><td><span class="exde">Rauchen</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Beispiel Teil 2: Thema 7 „Beste Freunde“ (Familie 2).</strong> Die Karte (kurz): Eine junge Frau, 23, Studentin, kennt ihre beste Freundin seit der Kindheit. Sie wohnen weit weg, sprechen aber oft, erzählen sich alles und streiten nie. Zeile 1–3 ändern sich bei jeder Karte. Zeile 4–6 weißt du aus dem Kopf.</span><span class="enx"><strong>Example part 2: topic 7 “best friends” (family 2).</strong> The card (short): a young woman, 23, a student, has known her best friend since childhood. They live far apart but talk often, tell each other everything and never argue. Lines 1–3 change with each card. Lines 4–6 come from memory.</span></div>
+<details class="rf-block"><summary><span class="de">Beispiel: Thema 7 „Beste Freunde“</span><span class="enx">Example: topic 7 “best friends”</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Zeile</span><span class="enx">Line</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>1 Thema</td><td><span class="exde">Es geht um das Thema „Beste Freunde“.</span></td></tr><tr><td>2 Karte</td><td><span class="exde">Auf meinem Aufgabenblatt sagt eine junge Frau, dass sie ihre beste Freundin schon seit ihrer Kindheit kennt.</span></td></tr><tr><td>3 Grund</td><td><span class="exde">Diese Meinung finde ich interessant, weil alte Freunde einen sehr gut kennen.</span></td></tr><tr><td>4 Meinung</td><td><span class="exde">Meiner Meinung nach sind gute Freunde wichtiger als Geld oder Karriere.</span></td></tr><tr><td>5 Erfahrung</td><td><span class="exde">Ich habe die Erfahrung gemacht, dass gute Freunde in schweren Zeiten sehr wichtig sind.</span></td></tr><tr><td>Heimatland</td><td><span class="exde">In meinem Heimatland feiern wir oft mit der ganzen Familie, manchmal mit über hundert Gästen. Unsere Freunde sind immer dabei.</span></td></tr><tr><td>6 Frage</td><td><span class="exde">Was meinst du? Wie ist das bei dir?</span></td></tr></tbody></table></div></details>
+<details class="rf-block"><summary><span class="de">Teil 3: Die 7 kurzen Sätze</span><span class="enx">Part 3: the 7 short phrases</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Wofür</span><span class="enx">Use</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Beispielsatz</span><span class="enx">Example sentence</span></th><th><span class="de">Einfach erklärt</span><span class="enx">Simply explained</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>Vorschlagen</td><td><span class="exde">Wir könnten …</span></td><td><span class="exde">Wir könnten am Samstag schwimmen gehen.</span></td><td><span class="exde">Du machst einen Vorschlag. Nach „könnten“ steht das zweite Verb am Ende: Wir könnten schwimmen gehen.</span><br><span class="exen">You make a suggestion. After “könnten” the second verb goes at the end.</span></td></tr><tr><td>Vorschlagen</td><td><span class="exde">Ich schlage vor, dass wir … (Verb am Ende)</span></td><td><span class="exde">Ich schlage vor, dass wir einen Film sehen.</span></td><td><span class="exde">Du machst einen Vorschlag mit „dass“. Das Verb steht am Ende des Satzes.</span><br><span class="exen">You make a suggestion with “dass”. The verb is at the end of the sentence.</span></td></tr><tr><td>Zustimmen</td><td><span class="exde">Gute Idee!</span></td><td><span class="exde">Gute Idee! Dann treffen wir uns um zehn Uhr.</span></td><td><span class="exde">Du sagst: Der Vorschlag gefällt mir. Das ist kurz und freundlich.</span><br><span class="exen">You say: I like the suggestion. It is short and friendly.</span></td></tr><tr><td>Zustimmen</td><td><span class="exde">Da hast du recht.</span></td><td><span class="exde">Da hast du recht, mit dem Zug ist es billiger.</span></td><td><span class="exde">Du sagst: Ich denke wie du. Du stimmst deinem Partner zu.</span><br><span class="exen">You say: I think like you. You agree with your partner.</span></td></tr><tr><td>Nicht zustimmen</td><td><span class="exde">Das finde ich nicht so gut, weil …</span></td><td><span class="exde">Das finde ich nicht so gut, weil es am Sonntag regnen soll.</span></td><td><span class="exde">Du sagst höflich: Ich bin nicht einverstanden. Nach „weil“ nennst du den Grund, das Verb steht am Ende.</span><br><span class="exen">You politely say: I do not agree. After “weil” you give the reason, and the verb goes at the end.</span></td></tr><tr><td>Nicht zustimmen</td><td><span class="exde">Im Prinzip ja, aber …</span></td><td><span class="exde">Im Prinzip ja, aber ich habe am Samstag keine Zeit.</span></td><td><span class="exde">Du stimmst ein bisschen zu, aber du hast ein Problem. Nach „aber“ sagst du das Problem.</span><br><span class="exen">You partly agree, but you have a problem. After “aber” you say the problem.</span></td></tr><tr><td>Entscheiden</td><td><span class="exde">Also machen wir es so: …</span></td><td><span class="exde">Also machen wir es so: Wir treffen uns um zehn Uhr am Hauptbahnhof.</span></td><td><span class="exde">Ihr habt alles besprochen. Jetzt sagst du das Ergebnis: Tag, Uhrzeit und Ort.</span><br><span class="exen">You have discussed everything. Now you say the result: day, time and place.</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Die 6 Fragen:</strong> Fast jede Planungskarte fragt dasselbe. Lerne einen Satz für jede Frage und ändere nur die Details (Tag, Ort, Sache).</span><span class="enx"><strong>The 6-question frame:</strong> almost every planning card asks about the same things. Learn one line for each and change only the details (day, place, thing).</span></div>
+<details class="rf-block"><summary><span class="de">Der 6-Fragen-Rahmen</span><span class="enx">The 6-question frame</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Frage</span><span class="enx">Question</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>Wann?</td><td><span class="exde">Wie wäre es mit Samstag um zehn Uhr?</span></td></tr><tr><td>Wo?</td><td><span class="exde">Wir könnten uns am Hauptbahnhof treffen.</span></td></tr><tr><td>Wie hinkommen?</td><td><span class="exde">Ich schlage vor, dass wir mit dem Zug fahren. Das ist billiger.</span></td></tr><tr><td>Was machen?</td><td><span class="exde">Zuerst könnten wir schwimmen gehen, und danach sehen wir zusammen einen Film.</span></td></tr><tr><td>Wer macht was?</td><td><span class="exde">Ich kümmere mich um das Essen. Kannst du die Tickets kaufen?</span></td></tr><tr><td>Kosten?</td><td><span class="exde">Ich finde, zwanzig Euro pro Person sind genug.</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Ideen für die Lücken:</strong> Samstag um zehn Uhr / Sonntag um elf Uhr; Hauptbahnhof / Marienplatz / Eingang; mit dem Zug / mit dem Bus / mit dem Auto (billiger / schneller / bequemer); schwimmen gehen / spazieren gehen; einen Film / eine Serie; das Essen / die Getränke / den Kuchen; die Tickets / die Getränke; zwanzig Euro / fünfzehn Euro.</span><span class="enx"><strong>Ideas for the blanks:</strong> Saturday at ten / Sunday at eleven; main station / Marienplatz / entrance; by train / by bus / by car (cheaper / faster / more comfortable); go swimming / go for a walk; a film / a series; the food / the drinks / the cake; the tickets / the drinks; twenty euros / fifteen euros.</span></div>
+<details class="rf-block"><summary><span class="de">Für jeden anderen Punkt: 4 Satzmuster</span><span class="enx">For any other point: 4 sentence shells</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Muster</span><span class="enx">Shell</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td><span class="exde">Wie wäre es mit Samstag?</span></td></tr><tr><td><span class="exde">Wir könnten schwimmen gehen.</span></td></tr><tr><td><span class="exde">Ich schlage vor, dass wir einen Film sehen. (Verb am Ende)</span></td></tr><tr><td><span class="exde">Ich kümmere mich um das Essen.</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Anfang:</strong> „Wollen wir zusammen ___?“ (Shall we ___ together?). Wenn dein Partner anfängt: „Ja, gern! Gute Idee.“<br><strong>Wichtig:</strong> Es gibt keine festen Rollen. Ihr beide macht Vorschläge und reagiert auf den anderen.</span><span class="enx"><strong>Start:</strong> “Wollen wir zusammen ___?” (Shall we ___ together?). If your partner starts: “Ja, gern! Gute Idee.”<br><strong>Important:</strong> there are no fixed roles. Both of you must make suggestions and react to the other.</span></div>
+<details class="rf-block"><summary><span class="de">Die 21 Planungsaufgaben in 3 Gruppen</span><span class="enx">The 21 planning tasks in 3 groups</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Gruppe</span><span class="enx">Group</span></th><th><span class="de">Aufgabe</span><span class="enx">Task</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td><strong>Ausflüge und Besuche</strong></td><td><span class="exde">Fahrradausflug</span></td></tr><tr><td></td><td><span class="exde">Stadtführung</span></td></tr><tr><td></td><td><span class="exde">Gruppenreise nach Berlin</span></td></tr><tr><td></td><td><span class="exde">Tierpark</span></td></tr><tr><td></td><td><span class="exde">Museum besuchen</span></td></tr><tr><td></td><td><span class="exde">Rockkonzert besuchen</span></td></tr><tr><td><strong>Feiern und Aktionen</strong></td><td><span class="exde">Abendessen</span></td></tr><tr><td></td><td><span class="exde">Fernsehabend</span></td></tr><tr><td></td><td><span class="exde">Grillparty</span></td></tr><tr><td></td><td><span class="exde">Firmenfeier</span></td></tr><tr><td></td><td><span class="exde">Kochparty zum Abschlussfest</span></td></tr><tr><td></td><td><span class="exde">Zusammen kochen</span></td></tr><tr><td></td><td><span class="exde">Abschiedsparty</span></td></tr><tr><td></td><td><span class="exde">Kinder-Lesenacht</span></td></tr><tr><td></td><td><span class="exde">Spendenaktion</span></td></tr><tr><td><strong>Kurse, Projekte und Hilfe</strong></td><td><span class="exde">Computerkurs</span></td></tr><tr><td></td><td><span class="exde">Sportkurse</span></td></tr><tr><td></td><td><span class="exde">Musikinstrument lernen</span></td></tr><tr><td></td><td><span class="exde">Haus renovieren</span></td></tr><tr><td></td><td><span class="exde">Präsentation über Berlin</span></td></tr><tr><td></td><td><span class="exde">Hilfe bei der Wohnungssuche</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Beispiel Teil 3: Grillparty am Wochenende.</strong> So sieht die Karte aus: ein Titel, eine kurze Situation und eine Liste von Punkten (hier: Wo? Wann? Was grillen? Wie viele Leute? Getränke?). Auf der Karte steht kein Dialog. Neu sind nur die Details (Garten, Sonntag, Würstchen, zehn Leute, Getränke).</span><span class="enx"><strong>Example part 3: barbecue at the weekend.</strong> This is what the card looks like: a title, a short situation and a list of points (here: where? when? what to grill? how many people? drinks?). There is no dialogue on the card. Only the details are new (garden, Sunday, sausages, ten people, drinks).</span></div>
+<details class="rf-block"><summary><span class="de">Beispielgespräch: Grillparty</span><span class="enx">Example conversation: barbecue</span></summary><div class="rf-body"><table><thead><tr><th><span class="de">Wer</span><span class="enx">Who</span></th><th><span class="de">Deutsch</span><span class="enx">German</span></th><th><span class="de">Übersetzung</span><span class="enx">Translation</span></th></tr></thead><tbody><tr><td>A</td><td><span class="exde">Wollen wir am Wochenende zusammen grillen?</span></td></tr><tr><td>A</td><td><span class="exde">1. Wo? – Wir könnten uns bei mir im Garten treffen.</span></td></tr><tr><td>B</td><td><span class="exde">Gute Idee! Dein Garten ist groß genug.</span></td></tr><tr><td>B</td><td><span class="exde">2. Wann? – Wie wäre es mit Samstag um vier Uhr?</span></td></tr><tr><td>A</td><td><span class="exde">Im Prinzip ja, aber am Samstag arbeite ich bis fünf. Wie wäre es mit Sonntag um vier Uhr?</span></td></tr><tr><td>B</td><td><span class="exde">Gute Idee! Sonntag passt mir auch.</span></td></tr><tr><td>A</td><td><span class="exde">3. Was grillen? – Wir könnten Würstchen und Gemüsespieße grillen.</span></td></tr><tr><td>B</td><td><span class="exde">Gute Idee! Gemüsespieße sind gut für die Vegetarier.</span></td></tr><tr><td>B</td><td><span class="exde">4. Wie viele Leute? – Ich schlage vor, dass wir zehn Leute einladen.</span></td></tr><tr><td>A</td><td><span class="exde">Da hast du recht. Zehn Leute passen gut in meinen Garten.</span></td></tr><tr><td>A</td><td><span class="exde">5. Getränke? – Ich kümmere mich um die Getränke. Kannst du das Fleisch kaufen?</span></td></tr><tr><td>B</td><td><span class="exde">Ja, klar. Ich kaufe das Fleisch und das Gemüse.</span></td></tr><tr><td>A</td><td><span class="exde">Schluss: Also machen wir es so: Sonntag um vier Uhr, bei mir im Garten, mit zehn Leuten.</span></td></tr><tr><td>B</td><td><span class="exde">Super, ich freue mich!</span></td></tr></tbody></table></div></details>
+<div class="rf-note"><span class="de"><strong>Wenn du ein Wort nicht kennst:</strong> 1. Lass es weg und sage, was du kannst. 2. Nimm ein einfaches Wort, zum Beispiel „viele Leute“. 3. Teile lange Wörter: Sportverein = Sport + Verein. 4. Frage: „Was bedeutet …?“ oder „Können Sie das bitte erklären?“ 5. Sprich weiter. Kleine Fehler kosten wenig. In Teil 3 kostet es Punkte, wenn du zu lange allein sprichst (Monolog).</span><span class="enx"><strong>If you do not know a word:</strong> 1. Skip it and say what you can. 2. Use a simple word, for example “viele Leute” (many people). 3. Split long words: Sportverein = Sport + Verein. 4. Ask: “Was bedeutet …?” (What does … mean?) or “Können Sie das bitte erklären?” (Can you explain that, please?) 5. Keep talking. Small mistakes cost little. In part 3, talking alone for too long (a monologue) costs marks.</span></div>
+<div class="rf-note"><span class="de"><strong>Mehr dazu auf dieser Seite:</strong> Lektion 50, Lektion 51, Lektion 52, Lektion 53, Lektion 54, Lektion 55, Lektion 56, Lektion 57, Lektion 58.</span><span class="enx"><strong>More on this page:</strong> lesson 50, lesson 51, lesson 52, lesson 53, lesson 54, lesson 55, lesson 56, lesson 57, lesson 58.</span></div>
+        <h2>More on the Deutsch lessons page</h2>
+        <p class="tx-links tx-note"><a href="12_deutsch_lessons.html#extra-3-telc-sprechen">Extra 3: topics and templates</a> <a href="12_deutsch_lessons.html#extra-4-telc-sprechen-woche-1">Extra 4: week 1 to memorise</a> <a href="12_deutsch_lessons.html#extra-6-telc-sprechen-beispiele">Extra 6: worked examples</a></p>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\\/g, '/');
+            var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+            var prefix = levelMatch ? '../' : '';
+            var footerFallback = '<footer class="site-footer mt-5 py-4 border-top"><div class="container"><div class="row g-3 align-items-center"><div class="col-lg text-center text-lg-start"><p class="mb-1 fw-semibold">🪶 WordFeather — Goethe-Zertifikat A1 to C2</p><p class="mb-0 text-secondary small">Official certification materials for German language proficiency</p></div><div class="col-lg-auto"><div class="d-flex justify-content-center gap-2 flex-wrap"><a href="https://www.goethe.de" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">Goethe-Institut ↗</a><a href="https://github.com/abdullahbutt/wordfeather" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">⭐ Star on GitHub</a></div></div></div><hr class="my-3" style="opacity:0.15;"><div class="d-flex justify-content-center gap-3 flex-wrap small"><a href="../privacy.html" class="text-secondary text-decoration-none">Privacy &amp; Impressum</a><span class="text-secondary">·</span><a href="https://github.com/abdullahbutt/wordfeather/issues" target="_blank" rel="noopener" class="text-secondary text-decoration-none">Contact (GitHub Issues)</a></div></div></footer>';
+            fetch(prefix + 'footer.html?v=' + Date.now())
+                .then(function(r) { return r.ok ? r.text() : Promise.reject(new Error('footer fetch failed')); })
+                .then(function(html) { html = html.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; })
+                .catch(function() { var html = footerFallback.replace(/BASE\//g, prefix); document.getElementById('footer-placeholder').innerHTML = html; });
+        })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function(reg) {
+                reg.update();
+                reg.addEventListener('updatefound', function() {
+                    var newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', function() {
+                        if (newWorker.state === 'activated') {
+                            console.log('App updated to latest version');
+                        }
+                    });
+                });
+            })
+            .catch(function(err) { console.log('SW failed:', err); });
+    }
+    </script>
+<script>
+function wfFmt(s) { var neg = s < 0; s = Math.abs(Math.round(s)); var m = Math.floor(s / 60), r = s % 60; return (neg ? '+' : '') + (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
+// a clock that counts down from `total` seconds; keeps the time with Date.now() so a background tab does not drift
+function wfClock(total, onTick) {
+    var left = total, t0 = 0, base = total, timer = null;
+    var c = {
+        get left() { return left; }, get running() { return !!timer; },
+        start: function () { if (timer) return; t0 = Date.now(); base = left; timer = setInterval(function () { left = base - (Date.now() - t0) / 1000; onTick(left); }, 250); },
+        pause: function () { if (!timer) return; clearInterval(timer); timer = null; },
+        reset: function () { c.pause(); left = total; onTick(left); }
+    };
+    return c;
+}
+function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+function wfHideEn(root) {
+    var b = document.getElementById('rf-hide'); if (!b) return;
+    b.addEventListener('click', function () { var on = !root.classList.contains('hide-en'); root.classList.toggle('hide-en', on); b.textContent = on ? '🌐 Show English' : '🙈 Hide English'; b.setAttribute('aria-pressed', String(on)); });
+}
+
+(function () {
+    var root = document.getElementById('rf-root'); wfHideEn(root);
+    function timerBlock(id, total, label) {
+        var time = document.getElementById(id + '-time'), go = document.getElementById(id + '-go'), rs = document.getElementById(id + '-reset');
+        function paint(l) { time.textContent = wfFmt(l); time.className = 'tx-time' + (l <= 0 ? ' over' : ''); }
+        var c = wfClock(total, function (l) { paint(l); if (l <= 0) { c.pause(); go.textContent = '▶ Start'; } });
+        go.addEventListener('click', function () { if (c.running) { c.pause(); go.textContent = '▶ Resume'; } else { if (c.left <= 0) c.reset(); c.start(); go.textContent = '⏸ Pause'; } });
+        rs.addEventListener('click', function () { c.reset(); go.textContent = '▶ Start'; });
+        paint(total); return c;
+    }
+    timerBlock('pr', 20 * 60); var sp = timerBlock('sp', 15 * 60);
+    // laps: the time since the last lap, for Teil 1, 2 and 3
+    var laps = [], lastLeft = 15 * 60, list = document.getElementById('sp-laps'), lapBtn = document.getElementById('sp-lap');
+    function drawLaps() { list.textContent = ''; laps.forEach(function (l, i) { list.appendChild(wfEl('li', null, 'Teil ' + (i + 1) + ': ' + wfFmt(l))); }); lapBtn.textContent = laps.length >= 3 ? 'All 3 Teile done' : 'Teil ' + (laps.length + 1) + ' done'; lapBtn.disabled = laps.length >= 3; }
+    lapBtn.addEventListener('click', function () { if (laps.length >= 3) return; laps.push(lastLeft - sp.left); lastLeft = sp.left; drawLaps(); });
+    document.getElementById('sp-reset').addEventListener('click', function () { laps = []; lastLeft = 15 * 60; drawLaps(); });
+    drawLaps();
+})();
+</script>
+</body>
+</html>
