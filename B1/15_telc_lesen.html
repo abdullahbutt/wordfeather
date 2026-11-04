@@ -375,10 +375,13 @@
             var shown = function (v) { return v === 'X' ? 'X (no ad fits)' : v; };
             if (ok) fb.appendChild(el('span', 'good', 'Correct: ' + shown(A.a)));
             else { fb.appendChild(el('span', 'wrong', (given ? 'Your answer: ' + shown(given) : 'No answer') + ' · ')); fb.appendChild(el('span', 'good', 'Correct: ' + shown(A.a))); }
-            var d = el('details'); d.appendChild(el('summary', null, 'Why?'));
-            d.appendChild(el('div', null, A.tip + '. ' + A.why));
-            if (A.ev && A.ev[0]) { d.appendChild(el('div', null, '“' + A.ev[0] + '”')); d.appendChild(el('div', null, A.ev[1])); }
-            fb.appendChild(d); box.appendChild(fb);
+            if (A.tip) {
+                var d = el('details'); d.appendChild(el('summary', null, 'Why?'));
+                d.appendChild(el('div', null, A.tip + '. ' + A.why));
+                if (A.ev && A.ev[0]) { d.appendChild(el('div', null, '“' + A.ev[0] + '”')); d.appendChild(el('div', null, A.ev[1])); }
+                fb.appendChild(d);
+            }
+            box.appendChild(fb);
         }
         function selectFor(t, i, opts) {
             var sel = el('select', 'form-select form-select-sm'); sel.setAttribute('aria-label', 'Answer for ' + i);
@@ -402,9 +405,9 @@
             arr.forEach(function (x) {
                 var r = el('div', t === '1' ? 'lz-head' : 'lz-ad'); r.dataset.lt = x.l;
                 r.appendChild(el('span', 'l', x.l + ')'));
-                var de = el('span', null, x.de); de.appendChild(eye(r)); r.appendChild(de);
+                var de = el('span', null, x.de); if (x.en) de.appendChild(eye(r)); r.appendChild(de);
                 var u = el('span', 'lz-used'); u.style.display = 'none'; r.appendChild(u);
-                r.appendChild(el('div', 'en', x.en)); box.appendChild(r);
+                if (x.en) r.appendChild(el('div', 'en', x.en)); box.appendChild(r);
             });
             return box;
         }
@@ -419,6 +422,7 @@
             pills.appendChild(el('span', 'tx-pill', 'book p. ' + T.pages));
             box.appendChild(pills); panel.appendChild(box);
             panel.appendChild(detailsBox('Tricks for Teil ' + t, TRICKS[t], false));
+            if (ex.short) panel.appendChild(el('p', 'tx-note', 'English: the headings, situations, questions and answer options have a translation (eye icon). The long texts and the ads are German only for now. After Submit you see the correct answers, but no explanation for this exam yet.'));
 
             var letters;
             if (t === '1') {
@@ -427,7 +431,7 @@
                 var tb = el('div', 'tx-box'); tb.appendChild(el('div', 'lbl', 'Texte'));
                 T.texts.forEach(function (x) {
                     var r = el('div', 'lz-item'); r.appendChild(el('div', 'no', x.n));
-                    var b = el('div'); var de = el('div', 'de', x.de); de.appendChild(eye(r)); b.appendChild(de); b.appendChild(el('div', 'en', x.en)); r.appendChild(b);
+                    var b = el('div'); var de = el('div', 'de', x.de); if (x.en) de.appendChild(eye(r)); b.appendChild(de); if (x.en) b.appendChild(el('div', 'en', x.en)); r.appendChild(b);
                     var pk = el('div', 'pick'); pk.appendChild(el('span', null, 'Heading:')); pk.appendChild(selectFor('1', x.n, letters)); r.appendChild(pk);
                     if (s.done) feedback(r, '1', x.n, s.a[x.n]);
                     tb.appendChild(r);
@@ -436,14 +440,14 @@
             } else if (t === '2') {
                 var pb = el('div', 'tx-box'); pb.appendChild(el('div', 'lbl', 'Text'));
                 T.paras.forEach(function (p) {
-                    var d = el('div', 'lz-para'); d.appendChild(el('span', 'pn', p.n)); d.appendChild(document.createTextNode(p.de)); d.appendChild(eye(d)); d.appendChild(el('div', 'en', p.en)); pb.appendChild(d);
+                    var d = el('div', 'lz-para'); d.appendChild(el('span', 'pn', p.n)); d.appendChild(document.createTextNode(p.de)); if (p.en) { d.appendChild(eye(d)); d.appendChild(el('div', 'en', p.en)); } pb.appendChild(d);
                 });
                 panel.appendChild(pb);
                 var qb = el('div', 'tx-box'); qb.appendChild(el('div', 'lbl', 'Aufgaben'));
                 T.qs.forEach(function (q) {
                     var r = el('div', 'lz-item'); r.appendChild(el('div', 'no', q.n));
-                    var b = el('div'); var de = el('div', 'de', q.stem); de.appendChild(eye(r)); b.appendChild(de);
-                    b.appendChild(el('div', 'en', q.stemEn + ' — ' + q.optsEn.join('  ')));
+                    var b = el('div'); var de = el('div', 'de', q.stem); if (q.stemEn && q.optsEn) de.appendChild(eye(r)); b.appendChild(de);
+                    if (q.stemEn && q.optsEn) b.appendChild(el('div', 'en', q.stemEn + ' — ' + q.optsEn.join('  ')));
                     var opts = el('div', 'lz-opts');
                     q.opts.forEach(function (o) {
                         var v = o.charAt(0), bt = el('button', null, o); bt.type = 'button'; bt.setAttribute('aria-pressed', String(s.a[q.n] === v)); bt.disabled = !!s.done;
@@ -465,7 +469,7 @@
                 var sb = el('div', 'tx-box'); sb.appendChild(el('div', 'lbl', 'Situationen'));
                 T.sits.forEach(function (x) {
                     var r = el('div', 'lz-item'); r.appendChild(el('div', 'no', x.n));
-                    var b = el('div'); var de = el('div', 'de', x.de); de.appendChild(eye(r)); b.appendChild(de); b.appendChild(el('div', 'en', x.en)); r.appendChild(b);
+                    var b = el('div'); var de = el('div', 'de', x.de); if (x.en) de.appendChild(eye(r)); b.appendChild(de); if (x.en) b.appendChild(el('div', 'en', x.en)); r.appendChild(b);
                     var pk = el('div', 'pick'); pk.appendChild(el('span', null, 'Ad:')); pk.appendChild(selectFor('3', x.n, letters)); r.appendChild(pk);
                     if (s.done) feedback(r, '3', x.n, s.a[x.n]);
                     sb.appendChild(r);
