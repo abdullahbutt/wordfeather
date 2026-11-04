@@ -9,7 +9,7 @@
  */
 (function () {
   if (window.wfRecorded) return;
-  var BASE = window.WF_AUDIO_BASE || 'https://abdullahbutt.github.io/wordfeather-audio/audio/de/';
+  var BASE = window.WF_AUDIO_BASE || 'https://audio.wordfeather.com/audio/de/';
   var SILENCE = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
   var player = null;
   var unlocked = false;

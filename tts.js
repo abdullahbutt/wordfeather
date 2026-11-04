@@ -126,7 +126,7 @@
   }
 
   function playSentenceFile(text, btn, current, fallback) {
-    var base = window.WF_AUDIO_BASE || 'https://abdullahbutt.github.io/wordfeather-audio/audio/de/';
+    var base = window.WF_AUDIO_BASE || 'https://audio.wordfeather.com/audio/de/';
     sentenceKey(text).then(function (key) {
       return fetch(base + key + '.mp3').then(function (res) {
         if (!res.ok) throw new Error('no file');
