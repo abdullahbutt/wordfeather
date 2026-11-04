@@ -925,6 +925,13 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
             box.appendChild(p);
         });
         main.appendChild(box);
+        if (T.en) {
+            var eb = wfEl('div', 'tx-box'), eh = wfEl('button', 'btn btn-sm btn-outline-secondary', '👁 Show the English'), ed = wfEl('div', 'mt-2'); eh.type = 'button'; ed.hidden = true;
+            T.en.split('\n').forEach(function (para) { ed.appendChild(wfEl('p', 'mb-2', para)); });
+            ed.appendChild(wfEl('p', 'tx-note mb-0', 'The English has the correct words filled in, shown as [gap number: word]. It gives away the answers, so open it after your own try.'));
+            eh.addEventListener('click', function () { ed.hidden = !ed.hidden; eh.textContent = ed.hidden ? '👁 Show the English' : '🙈 Hide the English'; });
+            eb.appendChild(eh); eb.appendChild(ed); main.appendChild(eb);
+        }
         var foot = wfEl('div', 'tx-box d-flex flex-wrap gap-2 align-items-center'), cnt = wfEl('span', 'tx-note'), sub = wfEl('button', 'btn btn-sm btn-success'); sub.type = 'button';
         function refreshCount() { cnt.textContent = Object.keys(s.a).length + '/10 answered'; sub.textContent = s.done ? 'Try again' : 'Submit'; }
         sub.addEventListener('click', function () {
