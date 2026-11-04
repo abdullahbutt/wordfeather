@@ -69,6 +69,11 @@
         .rf-pane .content-card { padding: 0; border: 0; box-shadow: none; background: transparent; }
         .rf-links a { margin-right: .9rem; white-space: nowrap; }
         .rf-langbar { margin: 0 0 .5rem; }
+        @media (max-width: 767.98px) {
+            .tx .btn-sm { min-height: 2.6rem; padding: .45rem .9rem; font-size: .95rem; }
+            .rf-tabs button { min-height: 2.6rem; }
+            .tx-note { font-size: .95rem; }
+        }
         @media print { .tx-clockbox button, .rf-tabs, .rf-langbar { display: none !important; } .rf-pane[hidden] { display: none !important; } }
 
         @font-face {
@@ -345,6 +350,7 @@
             .sm-nav summary { pointer-events: none; list-style: none; }
             .sm-nav summary::-webkit-details-marker { display: none; }
         }
+        @media (max-width: 767.98px) { .sm-nav a { padding-top: .6rem; padding-bottom: .6rem; } .sm-nav summary { padding: .7rem .8rem; } }
         @media print { .sm-nav { display: none !important; } .sm-wrap { display: block; } }
 
         .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem; display: none; align-items: center; justify-content: center; z-index: 1030; }
