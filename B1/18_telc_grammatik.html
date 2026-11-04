@@ -784,6 +784,17 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     function render() {
         if (clock) { clock.pause(); clock = null; }
         root.textContent = '';
+        var wrap = wfEl('div', 'sm-wrap'), nav = wfEl('nav', 'sm-nav'), main = wfEl('div', 'sm-main');
+        var det = wfEl('details'), sum = wfEl('summary', null, 'Exams'), ul = wfEl('ul'); det.appendChild(sum); det.appendChild(ul); nav.appendChild(det); det.open = window.matchMedia('(min-width: 992px)').matches;
+        D.forEach(function (x) {
+            var li = wfEl('li', 'sm-item'), a = wfEl('a', cur.no === x.no ? 'act' : '', 'Prüfung ' + x.no + ': ' + x.title), best = [1, 2].map(function (t) { var z = S[x.no + '-' + t]; return z && z.best != null ? z.best : null; }).filter(function (v) { return v != null; });
+            if (best.length) a.textContent += '  ✓ ' + best.join(' + ');
+            a.setAttribute('role', 'button'); a.tabIndex = 0;
+            function pick() { cur.no = x.no; render(); }
+            a.addEventListener('click', pick); a.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); pick(); } });
+            li.appendChild(a); ul.appendChild(li);
+        });
+        wrap.appendChild(nav); wrap.appendChild(main); root.appendChild(wrap);
         var e = ex(cur.no); if (!e) return;
         if (!e['t' + cur.t]) cur.t = teils(e)[0];
         var T = e['t' + cur.t], s = st(e.no, cur.t), first = cur.t === 1 ? 21 : 31;
@@ -798,7 +809,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         });
         var best = st(e.no, cur.t).best;
         bar.appendChild(wfEl('span', 'tx-note', best ? 'Best: ' + best + '/10' : ''));
-        root.appendChild(bar);
+        main.appendChild(bar);
 
         var head = wfEl('div', 'tx-box');
         head.appendChild(wfEl('div', 'lbl', 'Sprachbausteine, Teil ' + cur.t));
@@ -812,13 +823,13 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         go.addEventListener('click', function () { if (clock.running) { clock.pause(); go.textContent = '▶ Resume'; } else if (!s.done) { clock.start(); go.textContent = '⏸ Pause'; } });
         rs.addEventListener('click', function () { clock.reset(); go.textContent = '▶ Start'; });
         cb.appendChild(tm); cb.appendChild(go); cb.appendChild(rs); cb.appendChild(wfEl('span', 'tx-note', '10 minutes per Teil (the order tip on the Lesen page: 10 + 10 minutes)')); head.appendChild(cb);
-        root.appendChild(head);
+        main.appendChild(head);
 
         if (cur.t === 2) {
             var wl = wfEl('div', 'tx-box'); wl.appendChild(wfEl('div', 'lbl', 'Wörter'));
             var g = wfEl('div'); g.style.cssText = 'display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.25rem .75rem;font-weight:600';
             'abcdefghijklmno'.split('').forEach(function (l) { var u = wfEl('span', null, l + ') ' + T.list[l]); u.dataset.l = l; g.appendChild(u); });
-            wl.appendChild(g); root.appendChild(wl);
+            wl.appendChild(g); main.appendChild(wl);
         }
         var box = wfEl('div', 'tx-box'); box.style.lineHeight = '2.1';
         var selects = {};
@@ -846,7 +857,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
             });
             box.appendChild(p);
         });
-        root.appendChild(box);
+        main.appendChild(box);
         var foot = wfEl('div', 'tx-box d-flex flex-wrap gap-2 align-items-center'), cnt = wfEl('span', 'tx-note'), sub = wfEl('button', 'btn btn-sm btn-success'); sub.type = 'button';
         function refreshCount() { cnt.textContent = Object.keys(s.a).length + '/10 answered'; sub.textContent = s.done ? 'Try again' : 'Submit'; }
         sub.addEventListener('click', function () {
@@ -869,7 +880,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
             }
             foot.appendChild(wb);
         }
-        root.appendChild(foot); refreshCount(); used();
+        main.appendChild(foot); refreshCount(); used();
     }
     render();
 })();
