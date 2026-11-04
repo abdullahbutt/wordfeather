@@ -145,11 +145,23 @@
         }
         @media print { .sm-nav { display: none !important; } .sm-wrap { display: block; } }
 
+        .sol-en { color: var(--bs-secondary-color); font-size: .9rem; }
+        .hide-en .sol-en { display: none; }
+        .sol-q { padding: .6rem 0; border-top: 1px solid var(--bs-border-color); }
+        .sol-q:first-of-type { border-top: 0; }
+        .sol-ok { color: var(--bs-success); font-weight: 700; }
+        .sol-why { font-size: .88rem; color: var(--bs-secondary-color); margin-top: .25rem; }
+        .sol-opt { margin: .15rem 0 .15rem 1rem; }
+        .sol-opt.right { color: var(--bs-success); font-weight: 600; }
+        .sm-wrap[hidden] { display: none; }
+
         mark.ul-mark { background: transparent; color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: #e0a800; text-underline-offset: 3px; padding: 0; }
         .ul-on [data-ul] { cursor: text; }
         .ul-hint { display: none; font-size: .85rem; color: var(--bs-secondary-color); margin: -.5rem 0 .75rem; }
         .ul-hint.on { display: block; }
         .ul-hint button { border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: 999px; padding: .1rem .7rem; margin-left: .5rem; font-size: .8rem; }
+
+        .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem; display: none; align-items: center; justify-content: center; z-index: 1030; }
     </style>
 <script>(function(){var l="en";try{l=localStorage.getItem("wf_lessons_lang");if(l!=="de"&&l!=="en"){var n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();l=n.indexOf("de")===0?"de":"en";}}catch(e){l="en";}document.documentElement.setAttribute("data-lang",l);})();</script>
 </head>
@@ -241,8 +253,8 @@
     </script>
     <main class="tx" id="tx-main">
         <noscript><p>This page needs JavaScript.</p></noscript>
-        <div class="rf-switch"><a href="#" aria-current="true">Exams</a><a href="#tips" aria-current="false">Tips &amp; tricks</a></div>
-        <div id="tx-root"></div>
+        <div class="rf-switch"><a href="#" aria-current="true">Exams</a><a href="#sol-1" aria-current="false">Solutions</a><a href="#tips" aria-current="false">Tips &amp; tricks</a></div>
+        <div id="tx-exams" class="sm-wrap"><nav class="sm-nav" id="tx-nav" aria-label="Exams"></nav><div class="sm-main"><div id="tx-root"></div></div></div>
         <div id="tx-tips" hidden><div class="tp">
 <h1><span class="t-de">telc B1 Lesen: Tipps und Tricks</span><span class="t-en">telc B1 reading: tips and tricks</span></h1>
 <div class="tp-lang"><span>🌐</span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
@@ -263,6 +275,8 @@
 </div></div>
     </main>
     <div id="footer-placeholder"></div>
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+    <script>(function () { var b = document.getElementById("backToTop"); if (!b) return; window.addEventListener("scroll", function () { b.style.display = window.scrollY > 300 ? "inline-flex" : "none"; }); b.addEventListener("click", function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }); })();</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         (function() {
@@ -427,7 +441,8 @@ window.wfUl = (function () {
     var root = document.getElementById('tx-root');
     var store = {};
     try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { store = {}; }
-    function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} buildNav(); }
+    function BESTFMT(b) { return b.score + '/' + b.max; }
     var MIN = {"1": 15, "2": 15, "3": 25}, PTS = {"1": 5, "2": 5, "3": 2.5}, INSTR = {"1": "Lesen Sie die Überschriften a–j und die Texte 1–5. Welche Überschrift passt zu welchem Text? Jede Überschrift passt nur einmal. Fünf Überschriften bleiben übrig.", "2": "Lesen Sie den Text und die Aufgaben 6–10 dazu. Welche Lösung (a, b oder c) ist jeweils richtig?", "3": "Lesen Sie die Situationen 11–20 und die Anzeigen a–l. Welche Anzeige passt zu welcher Situation? Sie können jede Anzeige nur einmal benutzen. Wenn keine Anzeige passt, markieren Sie X."}, HOW = ["3 parts (Teile), 75 points. Each Teil is worth 25 points.", "Teil 1: 5 short texts, 10 headings. Teil 2: one long text, 5 questions with a, b, c. Teil 3: 10 situations, 12 ads.", "Reading and Sprachbausteine share 90 minutes. You choose the order.", "Best order: Teil 3 (25 min) → Teil 1 (15 min) → Sprachbausteine (10 + 10 min) → Teil 2 last (15 min). About 15 min stay for the answer sheet.", "Teil 2 goes last because it is the hardest and costs the most time.", "Never leave a blank. A wrong answer costs nothing."], TRICKS = {"1": ["Read the 10 headings. Circle the \"who\": Kinder, Frauen, Männer, Firma ...", "Read each text's first sentence first. The answer was there in 69% of texts.", "Same word = warning, not proof. In 84 of 90 texts, a wrong heading repeats a word from the text. The right heading often uses other words.", "Who check: children or adults? One person or a group?", "Each heading is used once. 5 headings stay unused."], "2": ["Read the questions first. They follow the text order (true 80 of 85 times): question 6 is near the start, question 10 near the end.", "Pick a hunting word (a name, a number, a noun). Find it in the text. Read only the 2 sentences around it.", "Options with nur, nie, immer, alle, nicht, kein were wrong 77% of the time. Warning, not law.", "The option that copies the most text words was right only 31% of the time. The right option says it in other words.", "Still not sure? Guess a or b (c was right least often). Never leave a blank."], "3": ["Read the situations first. Underline what the person wants and one limit: place, day, age or price.", "Give each ad a 2-3 word label: the thing + offers or seeks.", "Match the thing first. This decided 125 of 180 items.", "Then check the limit (place, day, age).", "Then check who looks for whom. You seek a babysitter? The ad must offer one, not seek one.", "Each ad is used once. This was true in all 18 exams.", "Expect about 2 X (no matching ad). 14 of 18 exams had exactly 2. X usually means no ad offers that thing. Got 0 or 4+ X? Check again.", "Words: suchen (seek) · bieten (offer) · verkaufen (sell) · vermieten (rent out) · mieten (rent)"]};
     function st(no) { var x = store[no] || (store[no] = { a: {}, done: false, left: { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }, best: null, tries: 0 }); if (x.main == null) x.main = 0; if (!x.fin) x.fin = {}; return x; }
     function totalSecs(ex) { var m = 0; Object.keys(ex.teile).forEach(function (t) { m += MIN[t] * 60; }); return m; }
@@ -714,7 +729,69 @@ window.wfUl = (function () {
         renderResult(); renderPanel(); refreshBar();
         root.appendChild(el('p', 'tx-note', 'How the clocks work: the Exam clock (all three Teile together) starts with your first answer or with “Start exam” and keeps running. For the Teil you are on, press “Start Teil” to run its own clock (15, 15 or 25 minutes); “Finish Teil” stops that clock and marks the Teil done. Go to the next Teil and start its clock the same way. “Submit exam” stops the total time. A clock shows + when you are over time. In the real exam the 90 minutes are shared with Sprachbausteine; here only the three Lesen Teile run.'));
     }
-    function route() { if (location.hash === '#tips') { stopClock(); save(); return; } var m = /^#exam-(\d+)$/.exec(location.hash); if (m) showExam(parseInt(m[1], 10)); else showList(); window.scrollTo(0, 0); }
+
+    function buildNav() {
+        var nav = document.getElementById('tx-nav'); if (!nav) return;
+        var mm = /^#(exam|sol)-(\d+)$/.exec(location.hash), mode = mm && mm[1] === 'sol' ? 'sol' : 'exam', cur = mm ? parseInt(mm[2], 10) : 0;
+        var was = nav.querySelector('details'), open = was ? was.open : window.matchMedia('(min-width: 992px)').matches;
+        nav.textContent = '';
+        var det = el('details'), ul = el('ul'); det.open = open; det.appendChild(el('summary', null, mode === 'sol' ? 'Solutions' : 'Exams')); det.appendChild(ul); nav.appendChild(det);
+        D.forEach(function (x) {
+            var li = el('li', 'sm-item'), a = el('a', cur === x.no ? 'act' : '', 'Prüfung ' + x.no + ': ' + x.title), b = store[x.no] && store[x.no].best;
+            a.href = '#' + mode + '-' + x.no; if (b && mode === 'exam') a.textContent += '  ✓ ' + BESTFMT(b);
+            li.appendChild(a); ul.appendChild(li);
+        });
+    }
+    function pair(de, en) { var d = el('div'); d.appendChild(el('div', null, de)); if (en) d.appendChild(el('div', 'sol-en', en)); return d; }
+    function solHead(ex, label, lang) {
+        root.textContent = '';
+        root.appendChild(el('h1', null, 'Prüfung ' + ex.no + ': ' + ex.title + ' · solutions'));
+        root.appendChild(el('p', 'lead-s', lang));
+        var tb = el('div', 'mb-2'), hb = el('button', 'btn btn-sm btn-outline-secondary', '🙈 Hide English'); hb.type = 'button';
+        hb.addEventListener('click', function () { var on = !root.classList.contains('hide-en'); root.classList.toggle('hide-en', on); hb.textContent = on ? '🌐 Show English' : '🙈 Hide English'; });
+        var go = el('a', 'btn btn-sm btn-primary ms-2', 'Take this exam →'); go.href = '#exam-' + ex.no; tb.appendChild(hb); tb.appendChild(go); root.appendChild(tb);
+    }
+    function teilBox(title, open) { var d = el('details', 'tx-box'); d.open = !!open; var sm = el('summary', null, title); sm.style.cssText = 'cursor:pointer;font-weight:700'; d.appendChild(sm); return d; }
+
+    function showSolutions(no) {
+        var ex = D.filter(function (e) { return e.no === no; })[0]; if (!ex) { location.hash = '#sol-1'; return; }
+        stopClock(); document.title = 'Solutions: Prüfung ' + ex.no + ' ' + ex.title + ' - telc B1 Lesen';
+        solHead(ex, '', 'The whole exam solved on one screen: the correct answers, the English and the explanation. To take the exam yourself use the Exams tab. Nothing is saved here.');
+        Object.keys(ex.teile).forEach(function (t) {
+            var T = ex.teile[t], d = teilBox('Teil ' + t + (T.de ? ' · ' + T.de : '') + ' · book p. ' + T.pages, true);
+            function why(A) { if (!A.tip && !A.why) return null; var w = el('div', 'sol-why'); w.textContent = (A.tip ? A.tip + '. ' : '') + (A.why || '') + (A.ev && A.ev[0] ? ' “' + A.ev[0] + '”' + (A.ev[1] ? ' = ' + A.ev[1] : '') : ''); return w; }
+            if (t === '1') {
+                var hl = el('div', 'mt-2'); hl.appendChild(el('strong', null, 'Headings')); T.heads.forEach(function (h) { hl.appendChild(pair(h.l + ') ' + h.de, h.en)); }); d.appendChild(hl);
+                var heads = {}; T.heads.forEach(function (h) { heads[h.l] = h; });
+                T.texts.forEach(function (x) {
+                    var A = T.ans[x.n], h = heads[A.a], q = el('div', 'sol-q');
+                    q.appendChild(el('div', 'sol-ok', 'Text ' + x.n + ' → ' + A.a + ') ' + (h ? h.de : '')));
+                    if (h && h.en) q.appendChild(el('div', 'sol-en', h.en));
+                    var w = why(A); if (w) q.appendChild(w);
+                    var tx = el('details'); tx.appendChild(el('summary', null, 'Show text')); tx.appendChild(pair(x.de, x.en)); q.appendChild(tx); d.appendChild(q);
+                });
+            } else if (t === '2') {
+                var pd = el('details', 'mt-2'); pd.appendChild(el('summary', 'fw-bold', 'The text')); T.paras.forEach(function (p) { var b = pair(p.de, p.en); b.className = 'mb-2'; pd.appendChild(b); }); d.appendChild(pd);
+                T.qs.forEach(function (qq) {
+                    var A = T.ans[qq.n], q = el('div', 'sol-q'); q.appendChild(pair(qq.n + '. ' + qq.stem, qq.stemEn));
+                    qq.opts.forEach(function (o, i) { var r = o.charAt(0) === A.a, od = el('div', 'sol-opt' + (r ? ' right' : ''), (r ? '✓ ' : '') + o); if (qq.optsEn && qq.optsEn[i]) od.appendChild(el('div', 'sol-en', qq.optsEn[i])); q.appendChild(od); });
+                    var w = why(A); if (w) q.appendChild(w); d.appendChild(q);
+                });
+            } else {
+                var ads = {}; T.ads.forEach(function (a) { ads[a.l] = a; });
+                var ad = el('details', 'mt-2'); ad.appendChild(el('summary', 'fw-bold', 'The ads')); T.ads.forEach(function (a) { var b = pair(a.l + ') ' + a.de, a.en); b.className = 'mb-2'; ad.appendChild(b); }); d.appendChild(ad);
+                T.sits.forEach(function (x) {
+                    var A = T.ans[x.n], q = el('div', 'sol-q'); q.appendChild(pair(x.n + '. ' + x.de, x.en));
+                    var a = ads[A.a]; q.appendChild(el('div', 'sol-ok', '→ ' + (A.a === 'X' ? 'X – no ad fits' : A.a + ') ' + (a ? (a.en || a.de).slice(0, 110) + ' …' : ''))));
+                    var w = why(A); if (w) q.appendChild(w); d.appendChild(q);
+                });
+            }
+            (T.notes || []).forEach(function (n) { d.appendChild(el('p', 'tx-note mt-2 mb-0', 'Note: ' + n)); });
+            root.appendChild(d);
+        });
+        if (ex.notes && ex.notes.length) ex.notes.forEach(function (n) { root.appendChild(el('p', 'tx-note', 'Note: ' + n)); });
+    }
+    function route() { if (location.hash === '#tips') { stopClock(); save(); return; } var so = /^#sol-(\d+)$/.exec(location.hash); if (so) { showSolutions(parseInt(so[1], 10)); buildNav(); window.scrollTo(0, 0); return; } var m = /^#exam-(\d+)$/.exec(location.hash); if (m) showExam(parseInt(m[1], 10)); else showList(); buildNav(); window.scrollTo(0, 0); }
     window.addEventListener('hashchange', route);
     window.addEventListener('pagehide', function () { save(); });
     route();
@@ -758,11 +835,11 @@ function wfSideMenu(pane, sel, title) {
 }
 
 (function () {
-    var root = document.getElementById('tx-root'), tips = document.getElementById('tx-tips'), links = document.querySelectorAll('.rf-switch a');
+    var root = document.getElementById('tx-exams') || document.getElementById('tx-root'), tips = document.getElementById('tx-tips'), links = document.querySelectorAll('.rf-switch a');
     function sync() {
-        var t = location.hash === '#tips';
+        var t = location.hash === '#tips', so = /^#sol-/.test(location.hash);
         root.hidden = t; tips.hidden = !t;
-        links[0].setAttribute('aria-current', String(!t)); links[1].setAttribute('aria-current', String(t));
+        links[0].setAttribute('aria-current', String(!t && !so)); links[1].setAttribute('aria-current', String(so)); links[2].setAttribute('aria-current', String(t));
         if (t) window.scrollTo(0, 0);
     }
     window.addEventListener('hashchange', sync); sync();

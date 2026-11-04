@@ -131,11 +131,23 @@
         }
         @media print { .sm-nav { display: none !important; } .sm-wrap { display: block; } }
 
+        .sol-en { color: var(--bs-secondary-color); font-size: .9rem; }
+        .hide-en .sol-en { display: none; }
+        .sol-q { padding: .6rem 0; border-top: 1px solid var(--bs-border-color); }
+        .sol-q:first-of-type { border-top: 0; }
+        .sol-ok { color: var(--bs-success); font-weight: 700; }
+        .sol-why { font-size: .88rem; color: var(--bs-secondary-color); margin-top: .25rem; }
+        .sol-opt { margin: .15rem 0 .15rem 1rem; }
+        .sol-opt.right { color: var(--bs-success); font-weight: 600; }
+        .sm-wrap[hidden] { display: none; }
+
         mark.ul-mark { background: transparent; color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: #e0a800; text-underline-offset: 3px; padding: 0; }
         .ul-on [data-ul] { cursor: text; }
         .ul-hint { display: none; font-size: .85rem; color: var(--bs-secondary-color); margin: -.5rem 0 .75rem; }
         .ul-hint.on { display: block; }
         .ul-hint button { border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: 999px; padding: .1rem .7rem; margin-left: .5rem; font-size: .8rem; }
+
+        .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem; display: none; align-items: center; justify-content: center; z-index: 1030; }
     </style>
 <script>(function(){var l="en";try{l=localStorage.getItem("wf_lessons_lang");if(l!=="de"&&l!=="en"){var n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();l=n.indexOf("de")===0?"de":"en";}}catch(e){l="en";}document.documentElement.setAttribute("data-lang",l);})();</script>
 </head>
@@ -227,8 +239,8 @@
     </script>
     <main class="tx" id="tx-main">
         <noscript><p>This page needs JavaScript.</p></noscript>
-        <div class="rf-switch"><a href="#" aria-current="true">Exams</a><a href="#tips" aria-current="false">Tips &amp; tricks</a></div>
-        <div id="tx-root"></div>
+        <div class="rf-switch"><a href="#" aria-current="true">Exams</a><a href="#sol-1" aria-current="false">Solutions</a><a href="#tips" aria-current="false">Tips &amp; tricks</a></div>
+        <div id="tx-exams" class="sm-wrap"><nav class="sm-nav" id="tx-nav" aria-label="Exams"></nav><div class="sm-main"><div id="tx-root"></div></div></div>
         <div id="tx-tips" hidden><div class="tp">
 <h1><span class="t-de">telc B1 Hören: Tipps und Tricks</span><span class="t-en">telc B1 listening: tips and tricks</span></h1>
 <div class="tp-lang"><span>🌐</span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
@@ -243,6 +255,8 @@
 </div></div>
     </main>
     <div id="footer-placeholder"></div>
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+    <script>(function () { var b = document.getElementById("backToTop"); if (!b) return; window.addEventListener("scroll", function () { b.style.display = window.scrollY > 300 ? "inline-flex" : "none"; }); b.addEventListener("click", function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }); })();</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         (function() {
@@ -407,7 +421,8 @@ window.wfUl = (function () {
     var root = document.getElementById('tx-root');
     var store = {};
     try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { store = {}; }
-    function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} buildNav(); }
+    function BESTFMT(b) { return b.score + '/' + b.total; }
     function st(no) { return store[no] || (store[no] = { a: {}, done: false, secs: 0, best: null, tries: 0 }); }
     function detailsBox(title, arr, open) {
         var d = el('details', 'tx-box'); if (open) d.open = true;
@@ -635,11 +650,54 @@ window.wfUl = (function () {
         if (!s.done && counts() === 0 && s.secs === 0) root.appendChild(el('p', 'tx-note', 'Tip: press “Start clock” when you press play. The clock also starts with your first answer.'));
     }
 
+
+    function buildNav() {
+        var nav = document.getElementById('tx-nav'); if (!nav) return;
+        var mm = /^#(exam|sol)-(\d+)$/.exec(location.hash), mode = mm && mm[1] === 'sol' ? 'sol' : 'exam', cur = mm ? parseInt(mm[2], 10) : 0;
+        var was = nav.querySelector('details'), open = was ? was.open : window.matchMedia('(min-width: 992px)').matches;
+        nav.textContent = '';
+        var det = el('details'), ul = el('ul'); det.open = open; det.appendChild(el('summary', null, mode === 'sol' ? 'Solutions' : 'Exams')); det.appendChild(ul); nav.appendChild(det);
+        D.forEach(function (x) {
+            var li = el('li', 'sm-item'), a = el('a', cur === x.no ? 'act' : '', 'Prüfung ' + x.no + ': ' + x.title), b = store[x.no] && store[x.no].best;
+            a.href = '#' + mode + '-' + x.no; if (b && mode === 'exam') a.textContent += '  ✓ ' + BESTFMT(b);
+            li.appendChild(a); ul.appendChild(li);
+        });
+    }
+    function pair(de, en) { var d = el('div'); d.appendChild(el('div', null, de)); if (en) d.appendChild(el('div', 'sol-en', en)); return d; }
+    function solHead(ex, label, lang) {
+        root.textContent = '';
+        root.appendChild(el('h1', null, 'Prüfung ' + ex.no + ': ' + ex.title + ' · solutions'));
+        root.appendChild(el('p', 'lead-s', lang));
+        var tb = el('div', 'mb-2'), hb = el('button', 'btn btn-sm btn-outline-secondary', '🙈 Hide English'); hb.type = 'button';
+        hb.addEventListener('click', function () { var on = !root.classList.contains('hide-en'); root.classList.toggle('hide-en', on); hb.textContent = on ? '🌐 Show English' : '🙈 Hide English'; });
+        var go = el('a', 'btn btn-sm btn-primary ms-2', 'Take this exam →'); go.href = '#exam-' + ex.no; tb.appendChild(hb); tb.appendChild(go); root.appendChild(tb);
+    }
+    function teilBox(title, open) { var d = el('details', 'tx-box'); d.open = !!open; var sm = el('summary', null, title); sm.style.cssText = 'cursor:pointer;font-weight:700'; d.appendChild(sm); return d; }
+
+    function showSolutions(no) {
+        var ex = D.filter(function (e) { return e.no === no; })[0]; if (!ex) { location.hash = '#sol-1'; return; }
+        stopClock(); document.title = 'Solutions: Prüfung ' + ex.no + ' ' + ex.title + ' - telc B1 Hören';
+        solHead(ex, '', 'Every statement with the correct answer and the English. There is no transcript: play the recording to check. To take the exam yourself use the Exams tab.');
+        var au = el('p', 'tx-note'); var al = el('a', null, '▶ Recording on YouTube (all 3 Teile)'); al.href = 'https://www.youtube.com/watch?v=' + ex.video; al.target = '_blank'; al.rel = 'noopener'; au.appendChild(al); root.appendChild(au);
+        Object.keys(ex.teile).forEach(function (t) {
+            var T = ex.teile[t], d = teilBox('Teil ' + t + ' · statements ' + T.items[0].n + '–' + T.items[T.items.length - 1].n + (T.fromVideo ? ' · typed from the video' : ' · book p. ' + T.page), true);
+            if (T.same && T.same.length) T.same.forEach(function (x) { d.appendChild(el('div', 'tx-note mt-1', (x.n === x.of ? 'The same ' + x.n + ' statements' : x.n + ' of ' + x.of + ' statements') + ' are also in exam ' + x.no + ' (' + x.title + ')' + (x.diff.length ? '; the key differs for ' + x.diff.join(', ') + '.' : '; the answers are the same.'))); });
+            T.items.forEach(function (it) {
+                var q = el('div', 'sol-q'); q.appendChild(pair(it.n + '. ' + it.de + (it.warn ? ' ⚠' : ''), it.en));
+                q.appendChild(el('div', 'sol-ok', it.a === '+' ? '+ richtig (true)' : '− falsch (false)'));
+                if (it.conf) q.appendChild(el('div', 'sol-why', 'The same statement is printed in exam ' + it.conf + ' with the other answer: check the recording.'));
+                d.appendChild(q);
+            });
+            root.appendChild(d);
+        });
+    }
     function route() {
         if (location.hash === '#tips') { stopClock(); return; }
+        var so = /^#sol-(\d+)$/.exec(location.hash);
+        if (so) { showSolutions(parseInt(so[1], 10)); buildNav(); window.scrollTo(0, 0); return; }
         var m = /^#exam-(\d+)$/.exec(location.hash);
         if (m) showExam(parseInt(m[1], 10)); else showList();
-        window.scrollTo(0, 0);
+        buildNav(); window.scrollTo(0, 0);
     }
     window.addEventListener('hashchange', route);
     window.addEventListener('pagehide', function () { save(); });
@@ -684,11 +742,11 @@ function wfSideMenu(pane, sel, title) {
 }
 
 (function () {
-    var root = document.getElementById('tx-root'), tips = document.getElementById('tx-tips'), links = document.querySelectorAll('.rf-switch a');
+    var root = document.getElementById('tx-exams') || document.getElementById('tx-root'), tips = document.getElementById('tx-tips'), links = document.querySelectorAll('.rf-switch a');
     function sync() {
-        var t = location.hash === '#tips';
+        var t = location.hash === '#tips', so = /^#sol-/.test(location.hash);
         root.hidden = t; tips.hidden = !t;
-        links[0].setAttribute('aria-current', String(!t)); links[1].setAttribute('aria-current', String(t));
+        links[0].setAttribute('aria-current', String(!t && !so)); links[1].setAttribute('aria-current', String(so)); links[2].setAttribute('aria-current', String(t));
         if (t) window.scrollTo(0, 0);
     }
     window.addEventListener('hashchange', sync); sync();

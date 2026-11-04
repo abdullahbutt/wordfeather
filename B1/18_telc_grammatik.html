@@ -346,6 +346,8 @@
             .sm-nav summary::-webkit-details-marker { display: none; }
         }
         @media print { .sm-nav { display: none !important; } .sm-wrap { display: block; } }
+
+        .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem; display: none; align-items: center; justify-content: center; z-index: 1030; }
     </style>
 <script>(function(){var l="en";try{l=localStorage.getItem("wf_lessons_lang");if(l!=="de"&&l!=="en"){var n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();l=n.indexOf("de")===0?"de":"en";}}catch(e){l="en";}document.documentElement.setAttribute("data-lang",l);})();</script>
 </head>
@@ -506,6 +508,8 @@
         </div>
     </main>
     <div id="footer-placeholder"></div>
+    <a href="#top" id="backToTop" class="btn btn-primary rounded-circle back-to-top" aria-label="Back to top">↑</a>
+    <script>(function () { var b = document.getElementById("backToTop"); if (!b) return; window.addEventListener("scroll", function () { b.style.display = window.scrollY > 300 ? "inline-flex" : "none"; }); b.addEventListener("click", function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }); })();</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         (function() {
@@ -536,6 +540,69 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
+<script>
+function wfSideMenu(pane, sel, title) {
+    if (!pane || pane.dataset.sm) return;
+    var hs = Array.prototype.slice.call(pane.querySelectorAll(sel)).filter(function (h) { return h.textContent.trim() && !h.classList.contains('part-heading'); });
+    if (hs.length < 3) return;
+    pane.dataset.sm = '1';
+    var wrap = document.createElement('div'); wrap.className = 'sm-wrap';
+    var main = document.createElement('div'); main.className = 'sm-main';
+    while (pane.firstChild) main.appendChild(pane.firstChild);
+    var nav = document.createElement('nav'); nav.className = 'sm-nav'; nav.setAttribute('aria-label', title);
+    var det = document.createElement('details'), sum = document.createElement('summary'), ul = document.createElement('ul');
+    sum.textContent = title; det.appendChild(sum); det.appendChild(ul); nav.appendChild(det);
+    det.open = window.matchMedia('(min-width: 992px)').matches;
+    var links = [];
+    hs.forEach(function (h, i) {
+        h.setAttribute('data-smh', String(i));
+        var c = h.cloneNode(true);
+        c.querySelectorAll('.sec-count, button, .d-tts, .eye-btn, .table-eye-btn, svg').forEach(function (x) { x.remove(); });
+        var li = document.createElement('li'), a = document.createElement('a');
+        li.className = /^H[1-6]$/.test(h.tagName) && h.tagName !== 'H2' ? 'sm-grp' : 'sm-item';
+        if (h.tagName === 'H2') li.className = 'sm-item';
+        a.innerHTML = c.innerHTML; a.setAttribute('role', 'button'); a.tabIndex = 0;
+        function go() { h.scrollIntoView({ behavior: 'smooth', block: 'start' }); mark(i); }
+        a.addEventListener('click', go);
+        a.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+        li.appendChild(a); ul.appendChild(li); links.push(a);
+    });
+    function mark(i) { links.forEach(function (a, k) { a.classList.toggle('act', k === i); }); }
+    wrap.appendChild(nav); wrap.appendChild(main); pane.appendChild(wrap);
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) mark(parseInt(e.target.getAttribute('data-smh'), 10)); });
+        }, { rootMargin: '-90px 0px -70% 0px' });
+        hs.forEach(function (h) { io.observe(h); });
+    }
+}
+
+function wfPickMenu(pane, title, getItems, onPick, isActive) {
+    if (!pane || pane.dataset.pm) return { refresh: function () {} };
+    pane.dataset.pm = '1';
+    var wrap = document.createElement('div'); wrap.className = 'sm-wrap';
+    var main = document.createElement('div'); main.className = 'sm-main';
+    while (pane.firstChild) main.appendChild(pane.firstChild);
+    var nav = document.createElement('nav'); nav.className = 'sm-nav'; nav.setAttribute('aria-label', title);
+    var det = document.createElement('details'), sum = document.createElement('summary'), ul = document.createElement('ul');
+    sum.textContent = title; det.appendChild(sum); det.appendChild(ul); nav.appendChild(det);
+    det.open = window.matchMedia('(min-width: 992px)').matches;
+    wrap.appendChild(nav); wrap.appendChild(main); pane.appendChild(wrap);
+    function refresh() {
+        ul.textContent = '';
+        getItems().forEach(function (it) {
+            var li = document.createElement('li'), a = document.createElement('a');
+            li.className = 'sm-item'; a.textContent = it.label; a.setAttribute('role', 'button'); a.tabIndex = 0;
+            if (isActive(it.id)) a.className = 'act';
+            function pick() { onPick(it.id); refresh(); }
+            a.addEventListener('click', pick); a.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+            li.appendChild(a); ul.appendChild(li);
+        });
+    }
+    refresh();
+    return { refresh: refresh };
+}
+</script>
 <script src="telc-sprachbausteine-data.js?v=1"></script>
 <script>
     // Language switch, speaker buttons and hide-English practice (this page only)
@@ -885,42 +952,6 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     render();
 })();
 </script>
-<script>
-function wfSideMenu(pane, sel, title) {
-    if (!pane || pane.dataset.sm) return;
-    var hs = Array.prototype.slice.call(pane.querySelectorAll(sel)).filter(function (h) { return h.textContent.trim() && !h.classList.contains('part-heading'); });
-    if (hs.length < 3) return;
-    pane.dataset.sm = '1';
-    var wrap = document.createElement('div'); wrap.className = 'sm-wrap';
-    var main = document.createElement('div'); main.className = 'sm-main';
-    while (pane.firstChild) main.appendChild(pane.firstChild);
-    var nav = document.createElement('nav'); nav.className = 'sm-nav'; nav.setAttribute('aria-label', title);
-    var det = document.createElement('details'), sum = document.createElement('summary'), ul = document.createElement('ul');
-    sum.textContent = title; det.appendChild(sum); det.appendChild(ul); nav.appendChild(det);
-    det.open = window.matchMedia('(min-width: 992px)').matches;
-    var links = [];
-    hs.forEach(function (h, i) {
-        h.setAttribute('data-smh', String(i));
-        var c = h.cloneNode(true);
-        c.querySelectorAll('.sec-count, button, .d-tts, .eye-btn, .table-eye-btn, svg').forEach(function (x) { x.remove(); });
-        var li = document.createElement('li'), a = document.createElement('a');
-        li.className = /^H[1-6]$/.test(h.tagName) && h.tagName !== 'H2' ? 'sm-grp' : 'sm-item';
-        if (h.tagName === 'H2') li.className = 'sm-item';
-        a.innerHTML = c.innerHTML; a.setAttribute('role', 'button'); a.tabIndex = 0;
-        function go() { h.scrollIntoView({ behavior: 'smooth', block: 'start' }); mark(i); }
-        a.addEventListener('click', go);
-        a.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
-        li.appendChild(a); ul.appendChild(li); links.push(a);
-    });
-    function mark(i) { links.forEach(function (a, k) { a.classList.toggle('act', k === i); }); }
-    wrap.appendChild(nav); wrap.appendChild(main); pane.appendChild(wrap);
-    if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (es) {
-            es.forEach(function (e) { if (e.isIntersecting) mark(parseInt(e.target.getAttribute('data-smh'), 10)); });
-        }, { rootMargin: '-90px 0px -70% 0px' });
-        hs.forEach(function (h) { io.observe(h); });
-    }
-}
-['t-templates', 't-memorise', 't-examples', 't-grammar'].forEach(function (id) { wfSideMenu(document.getElementById(id), '.sec-head, h3', 'Contents'); });</script>
+<script>['t-templates', 't-memorise', 't-examples', 't-grammar'].forEach(function (id) { wfSideMenu(document.getElementById(id), '.sec-head, h3', 'Contents'); });</script>
 </body>
 </html>
