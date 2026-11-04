@@ -888,7 +888,8 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         function paint(l) { tm.textContent = wfFmt(l); tm.className = 'tx-time' + (l <= 0 ? ' over' : ''); tm.style.fontSize = '1.6rem'; tm.style.minWidth = '4.5rem'; }
         clock = wfClock(600, function (l) { paint(l); });
         go.addEventListener('click', function () { if (clock.running) { clock.pause(); go.textContent = '▶ Resume'; } else if (!s.done) { clock.start(); go.textContent = '⏸ Pause'; } });
-        rs.addEventListener('click', function () { clock.reset(); go.textContent = '▶ Start'; });
+        rs.title = 'Reset the clock and clear your answers for this Teil';
+        rs.addEventListener('click', function () { clock.reset(); s.a = {}; s.done = false; s.score = null; save(); render(); });
         cb.appendChild(tm); cb.appendChild(go); cb.appendChild(rs); cb.appendChild(wfEl('span', 'tx-note', '10 minutes per Teil (the order tip on the Lesen page: 10 + 10 minutes)')); head.appendChild(cb);
         main.appendChild(head);
 
