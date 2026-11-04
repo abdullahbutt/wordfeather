@@ -144,6 +144,17 @@
             color: #e2e8f0;
         }
     </style>
+<style>
+.lv-hero{background:linear-gradient(135deg,#1d4ed8 0%,#6366f1 100%);color:#fff;border-radius:1rem;padding:1.6rem 1.4rem;margin-bottom:1.5rem}
+[data-bs-theme="dark"] .lv-hero{background:linear-gradient(135deg,#1e3a8a 0%,#4338ca 100%)}
+.lv-hero h1{color:#fff;margin:0 0 .25rem}.lv-hero p{margin:0;opacity:.92}
+.lv-hero .lv-badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:999px;padding:.25rem .8rem;font-weight:700}
+.lv-mod{display:flex;align-items:center;gap:.8rem;height:100%;padding:.8rem 1rem;border:1px solid var(--bs-border-color);border-radius:.75rem;text-decoration:none;color:inherit;background:var(--bs-body-bg)}
+.lv-mod:hover,.lv-mod:focus-visible{border-color:#1d4ed8;box-shadow:0 2px 10px rgba(29,78,216,.15);color:inherit}
+.lv-mod .lv-ic{font-size:1.6rem;line-height:1;flex-shrink:0}.lv-mod .lv-n{font-size:.75rem;color:var(--bs-secondary-color)}
+.lv-mod .lv-t{font-weight:700;line-height:1.2}.lv-mod .lv-d{font-size:.85rem;color:var(--bs-secondary-color)}
+.lv-exam table{font-size:.92rem}
+</style>
 </head>
 <body id="top">
     <div id="header-placeholder"></div>
@@ -183,7 +194,7 @@
 
                 var modFiles = modules[currentLevel];
                 var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
-                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><a class="dropdown-item" href="index.html">🏠 Level home</a></li>';
                 ul += '<li><hr class="dropdown-divider"></li>';
                 modFiles.forEach(function (f, i) {
                     ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
@@ -301,42 +312,63 @@
                         <li class="breadcrumb-item active" aria-current="page">C1</li>
                     </ol>
                 </nav>
-
-                <div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <div class="lv-hero d-flex flex-wrap justify-content-between align-items-center gap-3">
                     <div>
-                        <h1 class="h2 mb-1">Deutsch C1</h1>
-                        <p class="text-muted mb-0">Learning Materials</p>
+                        <h1 class="h2">Deutsch C1</h1>
+                        <p>Advanced · Goethe-Zertifikat &amp; telc C1 · Learning Materials</p>
                     </div>
-                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">C1</span>
+                    <span class="lv-badge">C1</span>
                 </div>
-
-                <h2 class="h5 mb-3">📚 Modules</h2>
-                <div class="list-group">
-                    <a href="README.html" class="list-group-item list-group-item-action fw-semibold">📖 Overview</a>
-                    <a href="01_Wortschatz.html" class="list-group-item list-group-item-action">01 Wortschatz</a>
-                    <a href="02_Grammatik.html" class="list-group-item list-group-item-action">02 Grammatik</a>
-                    <a href="03_Saetze.html" class="list-group-item list-group-item-action">03 Saetze</a>
-                    <a href="04_Lesen.html" class="list-group-item list-group-item-action">04 Lesen</a>
-                    <a href="05_Hoeren.html" class="list-group-item list-group-item-action">05 Hoeren</a>
-                    <a href="06_Sprechen.html" class="list-group-item list-group-item-action">06 Sprechen</a>
-                    <a href="07_Schreiben.html" class="list-group-item list-group-item-action">07 Schreiben</a>
-                    <a href="08_Musterpruefung.html" class="list-group-item list-group-item-action">08 Goethe Prüfung</a>
-                    <a href="09_telc_Pruefungsformat.html" class="list-group-item list-group-item-action">09 telc Prüfungsformat</a>
-                </div>
-                <!-- Dictionary Banner -->
-                <a href="../dictionary.html" class="text-decoration-none d-block mt-4">
+                <a href="../dictionary.html" class="text-decoration-none d-block mb-4">
                     <div class="card border-0 shadow-sm" style="background:linear-gradient(135deg,#0ea5e9 0%,#6366f1 100%);border-radius:0.75rem;overflow:hidden;">
                         <div class="card-body d-flex align-items-center justify-content-between flex-wrap gap-2 p-3">
-                            <div>
-                                <h3 class="h6 mb-0 text-white fw-bold">📖 Wörterbuch / Dictionary</h3>
-                                <small class="text-white-50">5,000+ words · Search · Listen · der/die/das</small>
-                            </div>
+                            <div><h3 class="h6 mb-0 text-white fw-bold">📖 Wörterbuch / Dictionary</h3>
+                            <small class="text-white-50">5,000+ words · Search · Listen · der/die/das</small></div>
                             <span class="btn btn-light btn-sm fw-semibold px-3">Open →</span>
                         </div>
-                    </div>
-                </a>
-
-                    <div id="footer-placeholder"></div>
+                    </div></a>
+                <h2 class="h5 mt-4 mb-1">Learn</h2><p class="text-muted small mb-2">Words, grammar and sentences</p><div class="row row-cols-1 row-cols-md-2 g-2"><div class="col"><a class="lv-mod" href="01_Wortschatz.html"><span class="lv-ic" aria-hidden="true">📚</span><span><span class="lv-n">01</span><br><span class="lv-t">Wortschatz</span><br><span class="lv-d">Vocabulary by topic</span></span></a></div><div class="col"><a class="lv-mod" href="02_Grammatik.html"><span class="lv-ic" aria-hidden="true">✏️</span><span><span class="lv-n">02</span><br><span class="lv-t">Grammatik</span><br><span class="lv-d">Grammar rules and exercises</span></span></a></div><div class="col"><a class="lv-mod" href="03_Saetze.html"><span class="lv-ic" aria-hidden="true">💬</span><span><span class="lv-n">03</span><br><span class="lv-t">Sätze</span><br><span class="lv-d">Example sentences A–Z</span></span></a></div></div><h2 class="h5 mt-4 mb-1">Practise the skills</h2><p class="text-muted small mb-2">Reading, listening, speaking, writing and sample exams</p><div class="row row-cols-1 row-cols-md-2 g-2"><div class="col"><a class="lv-mod" href="04_Lesen.html"><span class="lv-ic" aria-hidden="true">📖</span><span><span class="lv-n">04</span><br><span class="lv-t">Lesen</span><br><span class="lv-d">Reading exercises</span></span></a></div><div class="col"><a class="lv-mod" href="05_Hoeren.html"><span class="lv-ic" aria-hidden="true">🎧</span><span><span class="lv-n">05</span><br><span class="lv-t">Hören</span><br><span class="lv-d">Listening exercises</span></span></a></div><div class="col"><a class="lv-mod" href="06_Sprechen.html"><span class="lv-ic" aria-hidden="true">🗣️</span><span><span class="lv-n">06</span><br><span class="lv-t">Sprechen</span><br><span class="lv-d">Speaking practice</span></span></a></div><div class="col"><a class="lv-mod" href="07_Schreiben.html"><span class="lv-ic" aria-hidden="true">✍️</span><span><span class="lv-n">07</span><br><span class="lv-t">Schreiben</span><br><span class="lv-d">Writing practice</span></span></a></div><div class="col"><a class="lv-mod" href="08_Musterpruefung.html"><span class="lv-ic" aria-hidden="true">📝</span><span><span class="lv-n">08</span><br><span class="lv-t">Musterprüfung</span><br><span class="lv-d">Sample exam</span></span></a></div><div class="col"><a class="lv-mod" href="09_telc_Pruefungsformat.html"><span class="lv-ic" aria-hidden="true">🧾</span><span><span class="lv-n">09</span><br><span class="lv-t">telc Prüfungsformat</span><br><span class="lv-d">The telc exam format and tips</span></span></a></div></div>
+                
+                <details class="lv-exam mt-4 border rounded-3 p-3" open><summary class="fw-bold">📋 Prüfung / Exam overview C1</summary><h3 class="h5 mt-3" id="ubersicht-overview">Übersicht / Overview</h3>
+<p>Das Goethe-Zertifikat C1 bestätigt fachkundige Sprachkenntnisse. Sie können sich spontan und fließend ausdrücken, komplexe Texte verstehen und sich klar und detailliert zu verschiedenen Themen äußern.</p>
+<p><strong>Empfohlene Lernzeit</strong>: 800–1000 Unterrichtsstunden (kumulativ)</p>
+<h3 class="h5 mt-3" id="prufungsstruktur">Prüfungsstruktur</h3>
+<div class="table-responsive"><table class="table table-sm table-striped align-middle">
+<thead>
+<tr>
+<th>Modul</th>
+<th>Dauer</th>
+<th>Punkte</th>
+<th>Bestehen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lesen</td>
+<td>70 min</td>
+<td>100</td>
+<td>min. 60</td>
+</tr>
+<tr>
+<td>Hören</td>
+<td>40 min</td>
+<td>100</td>
+<td>min. 60</td>
+</tr>
+<tr>
+<td>Schreiben</td>
+<td>80 min</td>
+<td>100</td>
+<td>min. 60</td>
+</tr>
+<tr>
+<td>Sprechen</td>
+<td>15 min</td>
+<td>100</td>
+<td>min. 60</td>
+</tr>
+</tbody>
+</table></div></details><div id="footer-placeholder"></div>
             </div>
         </div>
     </main>
