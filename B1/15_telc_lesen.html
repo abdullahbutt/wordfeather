@@ -121,6 +121,12 @@
         .tp-lang { display: flex; gap: .35rem; align-items: center; margin: .25rem 0 1rem; font-size: .9rem; }
         .tp-lang button { border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: 999px; padding: .2rem .8rem; cursor: pointer; }
         .tp-lang button[aria-pressed="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
+
+        mark.ul-mark { background: transparent; color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: #e0a800; text-underline-offset: 3px; padding: 0; }
+        .ul-on [data-ul] { cursor: text; }
+        .ul-hint { display: none; font-size: .85rem; color: var(--bs-secondary-color); margin: -.5rem 0 .75rem; }
+        .ul-hint.on { display: block; }
+        .ul-hint button { border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: 999px; padding: .1rem .7rem; margin-left: .5rem; font-size: .8rem; }
     </style>
 <script>(function(){var l="en";try{l=localStorage.getItem("wf_lessons_lang");if(l!=="de"&&l!=="en"){var n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();l=n.indexOf("de")===0?"de":"en";}}catch(e){l="en";}document.documentElement.setAttribute("data-lang",l);})();</script>
 </head>
@@ -265,6 +271,132 @@
     }
     </script>
     <script src="telc-lesen-data.js?v=1"></script>
+    <script>
+window.wfUl = (function () {
+    var cfg = null, on = false, store = {}, mouseDown = false, timer = null, bound = null;
+    var WORD = /[\p{L}\p{N}€%\-]/u;
+    function load() { try { store = JSON.parse(localStorage.getItem(cfg.storeKey) || '{}') || {}; } catch (e) { store = {}; } }
+    function save() { try { localStorage.setItem(cfg.storeKey, JSON.stringify(store)); } catch (e) {} }
+    function textNodes(el) {
+        var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+            var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+            var b = p.closest('button, select, .eye'); if (b && el.contains(b)) return NodeFilter.FILTER_REJECT;
+            return p.closest('[data-ul]') === el ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        } }), out = [], n;
+        while ((n = w.nextNode())) out.push(n);
+        return out;
+    }
+    function textOf(el) { return textNodes(el).map(function (n) { return n.data; }).join(''); }
+    function ranges(el) { return store[el.dataset.ulKey] || []; }
+    function unwrap(el) { el.querySelectorAll('mark.ul-mark').forEach(function (m) { m.replaceWith(document.createTextNode(m.textContent)); }); el.normalize(); }
+    function render(el) {
+        unwrap(el);
+        var iv = ranges(el); if (!iv.length) return;
+        var pos = 0, nodes = textNodes(el).map(function (n) { var x = { n: n, s: pos, e: pos + n.length }; pos += n.length; return x; });
+        nodes.forEach(function (x) {
+            var cuts = [];
+            iv.forEach(function (p) { var a = Math.max(p[0], x.s), b = Math.min(p[1], x.e); if (a < b) cuts.push([a - x.s, b - x.s]); });
+            if (!cuts.length) return;
+            cuts.sort(function (a, b) { return a[0] - b[0]; });
+            var t = x.n.data, frag = document.createDocumentFragment(), at = 0;
+            cuts.forEach(function (c) {
+                if (c[0] > at) frag.appendChild(document.createTextNode(t.slice(at, c[0])));
+                var m = document.createElement('mark'); m.className = 'ul-mark'; m.textContent = t.slice(c[0], c[1]); frag.appendChild(m); at = c[1];
+            });
+            if (at < t.length) frag.appendChild(document.createTextNode(t.slice(at)));
+            x.n.replaceWith(frag);
+        });
+    }
+    function setRanges(el, iv) {
+        iv.sort(function (a, b) { return a[0] - b[0]; });
+        var out = [];
+        iv.forEach(function (p) { var l = out[out.length - 1]; if (l && p[0] <= l[1]) l[1] = Math.max(l[1], p[1]); else out.push([p[0], p[1]]); });
+        if (out.length) store[el.dataset.ulKey] = out; else delete store[el.dataset.ulKey];
+        save(); render(el); sync();
+    }
+    function targetOf(node) {
+        var e = node && (node.nodeType === 3 ? node.parentNode : node);
+        var t = e && e.closest ? e.closest('[data-ul]') : null;
+        return t && cfg.panel().contains(t) ? t : null;
+    }
+    function offsetOf(el, node, off) {
+        var pos = 0, list = textNodes(el);
+        if (node.nodeType !== 3) { // a position between nodes: the first text node after it
+            var after = node.childNodes[off], hit = null;
+            list.forEach(function (n) { if (!hit && after && (after === n || after.contains(n))) hit = n; });
+            if (!hit) return textOf(el).length;
+            node = hit; off = 0;
+        }
+        for (var i = 0; i < list.length; i++) { if (list[i] === node) return pos + off; pos += list[i].length; }
+        return pos;
+    }
+    function caretAt(x, y) {
+        if (document.caretPositionFromPoint) { var p = document.caretPositionFromPoint(x, y); return p ? { n: p.offsetNode, o: p.offset } : null; }
+        if (document.caretRangeFromPoint) { var r = document.caretRangeFromPoint(x, y); return r ? { n: r.startContainer, o: r.startOffset } : null; }
+        return null;
+    }
+    function applySelection() {
+        var sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !sel.rangeCount) return false;
+        var r = sel.getRangeAt(0), a = targetOf(r.startContainer), b = targetOf(r.endContainer);
+        if (!a || a !== b) return false;
+        var text = textOf(a), s = offsetOf(a, r.startContainer, r.startOffset), e = offsetOf(a, r.endContainer, r.endOffset);
+        while (s < e && /\s/.test(text.charAt(s))) s++;
+        while (e > s && /\s/.test(text.charAt(e - 1))) e--;
+        sel.removeAllRanges();
+        if (e > s) setRanges(a, ranges(a).concat([[s, e]]));
+        return true;
+    }
+    function onClick(ev) {
+        if (!on || ev.target.closest('button, select, a, summary, .eye')) return;
+        if (applySelection()) return;
+        var c = caretAt(ev.clientX, ev.clientY), el = c && targetOf(c.n); if (!el) return;
+        var p = offsetOf(el, c.n, c.o), iv = ranges(el), hit = -1;
+        iv.forEach(function (q, i) { if (p >= q[0] && p <= q[1] && hit < 0) hit = i; });
+        if (hit >= 0) { setRanges(el, iv.filter(function (q, i) { return i !== hit; })); return; }
+        var t = textOf(el), k = p;
+        if (!(k < t.length && WORD.test(t.charAt(k)))) k = k - 1;
+        if (k < 0 || !WORD.test(t.charAt(k))) return;
+        var s = k, e = k + 1;
+        while (s > 0 && WORD.test(t.charAt(s - 1))) s--;
+        while (e < t.length && WORD.test(t.charAt(e))) e++;
+        setRanges(el, iv.concat([[s, e]]));
+    }
+    function scopeCount() {
+        var pre = cfg.scope() + '|', n = 0;
+        Object.keys(store).forEach(function (k) { if (k.indexOf(pre) === 0) n++; });
+        return n;
+    }
+    function sync() { if (cfg && cfg.hint) { var b = cfg.hint.querySelector('button'); if (b) b.hidden = !scopeCount(); } }
+    return {
+        init: function (c) {
+            cfg = c; load();
+            if (bound !== c.root) {
+                bound = c.root;
+                c.root.addEventListener('click', onClick);
+                c.root.addEventListener('mousedown', function () { mouseDown = true; });
+                document.addEventListener('mouseup', function () { mouseDown = false; });
+                document.addEventListener('selectionchange', function () {
+                    clearTimeout(timer);
+                    timer = setTimeout(function () { if (on && !mouseDown && cfg) applySelection(); }, 800);
+                });
+            }
+        },
+        setOn: function (v) { on = v; cfg.panel().classList.toggle('ul-on', v); if (cfg.hint) cfg.hint.classList.toggle('on', v); sync(); },
+        apply: function () {
+            var els = cfg.panel().querySelectorAll(cfg.selectors), pre = cfg.scope();
+            els.forEach(function (el, i) { el.dataset.ul = '1'; el.dataset.ulKey = pre + '|' + i; });
+            els.forEach(render);
+            cfg.panel().classList.toggle('ul-on', on); sync();
+        },
+        resetScope: function () {
+            var pre = cfg.scope() + '|';
+            Object.keys(store).forEach(function (k) { if (k.indexOf(pre) === 0) delete store[k]; });
+            save(); this.apply();
+        }
+    };
+})();
+</script>
     <script>
 (function () {
     var D = window.TELC_LESEN || [];
@@ -482,6 +614,7 @@
             if (idx > 0) { var pv = el('button', 'btn btn-outline-secondary btn-sm', '← Teil ' + tl[idx - 1]); pv.type = 'button'; pv.addEventListener('click', function () { go(tl[idx - 1]); }); nav.appendChild(pv); } else nav.appendChild(el('span'));
             if (idx < tl.length - 1) { var nx = el('button', 'btn btn-primary btn-sm', 'Teil ' + tl[idx + 1] + ' →'); nx.type = 'button'; nx.addEventListener('click', function () { go(tl[idx + 1]); }); nav.appendChild(nx); }
             panel.appendChild(nav);
+            wfUl.apply();
         }
         function go(t) { var was = running; view.teil = t; if (was) { running = null; stopClock(); } renderPanel(); refreshBar(); window.scrollTo(0, 0); }
         function renderResult() {
@@ -507,6 +640,7 @@
         startBtn.addEventListener('click', function () { if (running === view.teil) pauseClock(); else startClock(); });
         bar.appendChild(startBtn);
         countEl = el('span', 'tx-count'); bar.appendChild(countEl);
+        var ulBtn = el('button', 'btn btn-sm btn-outline-secondary', '✏️ Underline'); ulBtn.type = 'button'; ulBtn.setAttribute('aria-pressed', 'false'); ulBtn.title = 'Underline words in the German and the English text'; ulBtn.addEventListener('click', function () { var o = ulBtn.getAttribute('aria-pressed') !== 'true'; ulBtn.setAttribute('aria-pressed', String(o)); ulBtn.className = 'btn btn-sm ' + (o ? 'btn-warning' : 'btn-outline-secondary'); wfUl.setOn(o); }); bar.appendChild(ulBtn);
         subBtn = el('button', 'btn btn-sm btn-success'); subBtn.type = 'button';
         subBtn.addEventListener('click', function () {
             if (s.done) { s.a = {}; s.done = false; s.left = { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }; view.confirm = false; save(); renderResult(); renderPanel(); refreshBar(); return; }
@@ -516,7 +650,10 @@
             save(); renderResult(); renderPanel(); refreshBar(); resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
         bar.appendChild(subBtn); root.appendChild(bar);
+        var hint = el('p', 'ul-hint', 'Underline mode: tap a word or select a passage, in the German or the English text. Tap an underline to remove it. Stays in this browser.'); var rb = el('button', null, '↺ Reset this Teil'); rb.type = 'button'; rb.addEventListener('click', function () { wfUl.resetScope(); }); hint.appendChild(rb); root.appendChild(hint);
         resultBox = el('div'); root.appendChild(resultBox); panel = el('div'); root.appendChild(panel);
+        wfUl.init({ root: root, panel: function () { return panel; }, selectors: '.lz-item .de, .lz-item .en, .lz-head > span:not(.l):not(.lz-used), .lz-ad > span:not(.l):not(.lz-used), .lz-head .en, .lz-ad .en, .lz-para, .lz-para .en, .tx-instr', scope: function () { return ex.no + '-' + view.teil; }, storeKey: 'wf_telc_lesen_ul_v1', hint: hint }); wfUl.setOn(false);
+
         renderResult(); renderPanel(); refreshBar();
         root.appendChild(el('p', 'tx-note', 'Tip: each Teil has its own clock. It starts with your first answer or with “Start clock”, and it shows + when you are over time. In the real exam the 90 minutes are shared with Sprachbausteine; here only the three Lesen Teile run.'));
     }
