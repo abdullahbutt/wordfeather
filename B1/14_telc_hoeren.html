@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO: canonical + robots -->
     <link rel="canonical" href="https://wordfeather.com/B1/14_telc_hoeren.html">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, nofollow">
     <!-- Open Graph -->
     <meta property="og:title" content="telc B1 Hören Prüfungen | WordFeather">
     <meta property="og:description" content="telc B1 listening exams: 17 exams with statements 41-60, answer sheet, clock, scoring and English translations. Free in your browser.">
@@ -739,6 +739,32 @@ function wfSideMenu(pane, sel, title) {
         }, { rootMargin: '-90px 0px -70% 0px' });
         hs.forEach(function (h) { io.observe(h); });
     }
+}
+
+function wfPickMenu(pane, title, getItems, onPick, isActive) {
+    if (!pane || pane.dataset.pm) return { refresh: function () {} };
+    pane.dataset.pm = '1';
+    var wrap = document.createElement('div'); wrap.className = 'sm-wrap';
+    var main = document.createElement('div'); main.className = 'sm-main';
+    while (pane.firstChild) main.appendChild(pane.firstChild);
+    var nav = document.createElement('nav'); nav.className = 'sm-nav'; nav.setAttribute('aria-label', title);
+    var det = document.createElement('details'), sum = document.createElement('summary'), ul = document.createElement('ul');
+    sum.textContent = title; det.appendChild(sum); det.appendChild(ul); nav.appendChild(det);
+    det.open = window.matchMedia('(min-width: 992px)').matches;
+    wrap.appendChild(nav); wrap.appendChild(main); pane.appendChild(wrap);
+    function refresh() {
+        ul.textContent = '';
+        getItems().forEach(function (it) {
+            var li = document.createElement('li'), a = document.createElement('a');
+            li.className = 'sm-item'; a.textContent = it.label; a.setAttribute('role', 'button'); a.tabIndex = 0;
+            if (isActive(it.id)) a.className = 'act';
+            function pick() { onPick(it.id); refresh(); }
+            a.addEventListener('click', pick); a.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+            li.appendChild(a); ul.appendChild(li);
+        });
+    }
+    refresh();
+    return { refresh: refresh };
 }
 
 (function () {
