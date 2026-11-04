@@ -382,6 +382,7 @@ window.addEventListener('load', function () {
         .install-banner-panel{padding-top:.5rem;}
         .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%;}
         .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}
+        @media (max-width:767.98px){.install-banner{padding:.2rem 2rem .2rem .1rem;}.install-banner-bar{cursor:pointer;font-size:.8rem;}.install-banner-panel{display:none;}.install-banner.open .install-banner-panel{display:block;}.install-banner-text::after{content:" \25BE";}.install-banner.open .install-banner-text::after{content:" \25B4";}}
     </style>
     <script>
     (function () {
@@ -393,6 +394,11 @@ window.addEventListener('load', function () {
         try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
         if (isStandalone || dismissed) return;
         banner.style.display = 'block';
+        var bar = banner.querySelector('.install-banner-bar'), box = banner.querySelector('.install-banner');
+        bar.setAttribute('role', 'button'); bar.setAttribute('tabindex', '0'); bar.setAttribute('aria-expanded', 'false');
+        function toggleBanner() { var o = box.classList.toggle('open'); bar.setAttribute('aria-expanded', o ? 'true' : 'false'); }
+        bar.addEventListener('click', toggleBanner);
+        bar.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleBanner(); } });
         var closeBtn = document.getElementById('installBannerClose');
         closeBtn.addEventListener('click', function (e) {
             e.stopPropagation();

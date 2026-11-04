@@ -214,6 +214,10 @@ INSTALL_BANNER_STYLE_SCRIPT = (
     '        .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;'
     'font-size:.78rem;line-height:1.4;height:100%;}\n'
     '        .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}\n'
+    '        @media (max-width:767.98px){.install-banner{padding:.2rem 2rem .2rem .1rem;}'
+    '.install-banner-bar{cursor:pointer;font-size:.8rem;}'
+    '.install-banner-panel{display:none;}.install-banner.open .install-banner-panel{display:block;}'
+    '.install-banner-text::after{content:" \\25BE";}.install-banner.open .install-banner-text::after{content:" \\25B4";}}\n'
     '    </style>\n'
     '    <script>\n'
     '    (function () {\n'
@@ -225,6 +229,11 @@ INSTALL_BANNER_STYLE_SCRIPT = (
     "        try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}\n"
     '        if (isStandalone || dismissed) return;\n'
     "        banner.style.display = 'block';\n"
+    "        var bar = banner.querySelector('.install-banner-bar'), box = banner.querySelector('.install-banner');\n"
+    "        bar.setAttribute('role', 'button'); bar.setAttribute('tabindex', '0'); bar.setAttribute('aria-expanded', 'false');\n"
+    "        function toggleBanner() { var o = box.classList.toggle('open'); bar.setAttribute('aria-expanded', o ? 'true' : 'false'); }\n"
+    "        bar.addEventListener('click', toggleBanner);\n"
+    "        bar.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleBanner(); } });\n"
     "        var closeBtn = document.getElementById('installBannerClose');\n"
     "        closeBtn.addEventListener('click', function (e) {\n"
     '            e.stopPropagation();\n'
