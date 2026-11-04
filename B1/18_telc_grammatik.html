@@ -836,6 +836,18 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         foot.appendChild(sub); foot.appendChild(cnt);
         if (s.done) { foot.appendChild(wfEl('strong', null, s.score + ' / 10 correct (' + (s.score * 10) + ' %)')); }
         (T.notes || []).forEach(function (n) { foot.appendChild(wfEl('div', 'tx-note w-100', 'Note: ' + n)); });
+        if (s.done && T.why) {
+            var wb = wfEl('details', 'w-100 mt-2'); wb.open = true; wb.appendChild(wfEl('summary', 'fw-bold', 'Why? Explanation of every gap'));
+            for (var n2 = first; n2 < first + 10; n2++) {
+                var w = T.why[n2]; if (!w) continue;
+                var ok2 = s.a[n2] === T.ans[n2], row = wfEl('div', 'mt-2');
+                row.appendChild(wfEl('div', ok2 ? 'text-success fw-bold' : 'text-danger fw-bold', n2 + ' → ' + w.w + (ok2 ? ' ✓' : ' (your answer: ' + (s.a[n2] ? (cur.t === 1 ? (T.o[n2] || [])['abc'.indexOf(s.a[n2])] : T.list[s.a[n2]]) : '–') + ')')));
+                if (w.sent) row.appendChild(wfEl('div', null, w.sent.replace(/[【】]/g, '“')));
+                row.appendChild(wfEl('div', 'tx-note', w.rule));
+                wb.appendChild(row);
+            }
+            foot.appendChild(wb);
+        }
         root.appendChild(foot); refreshCount(); used();
     }
     render();
