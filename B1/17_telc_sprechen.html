@@ -420,7 +420,7 @@
         <h1>telc B1 Sprechen: Ablauf, Uhr und Vorlagen</h1>
         <p class="lead-s">Speaking cannot be scored by a page, so this is a reference page: the facts, a preparation clock, a speaking clock with a lap for each Teil, the templates, the week 1 memorise lists and the worked examples.</p>
         <div class="rf-langbar"><div class="lang-switch" role="group" aria-label="Sprache / Language"><span class="lang-label">🌐 <span class="t-de">Sprache</span><span class="t-en">Language</span></span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div></div>
-<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-exam" aria-selected="true">Exam &amp; clock</button><button type="button" role="tab" data-pane="t-templates" aria-selected="false">Templates</button><button type="button" role="tab" data-pane="t-memorise" aria-selected="false">Week 1 to memorise</button><button type="button" role="tab" data-pane="t-examples" aria-selected="false">Worked examples</button></div><div class="rf-pane" id="t-exam">        <div class="tx-box"><div class="lbl">The exam (Mündlicher Ausdruck)</div><ul>
+<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-exam" aria-selected="true">Exam &amp; clock</button><button type="button" role="tab" data-pane="t-cards" aria-selected="false">Teil 2 topic cards</button><button type="button" role="tab" data-pane="t-templates" aria-selected="false">Templates</button><button type="button" role="tab" data-pane="t-memorise" aria-selected="false">Week 1 to memorise</button><button type="button" role="tab" data-pane="t-examples" aria-selected="false">Worked examples</button></div><div class="rf-pane" id="t-exam">        <div class="tx-box"><div class="lbl">The exam (Mündlicher Ausdruck)</div><ul>
             <li>You take it <strong>with a partner</strong>. It lasts about <strong>15 minutes</strong>. Before it you have <strong>20 minutes</strong> to prepare.</li>
             <li><strong>Teil 1:</strong> you get to know each other (name, country, family, work, hobbies, why you learn German). Ask questions too.</li>
             <li><strong>Teil 2:</strong> each of you gets a card with one person's opinion. You present your card, say your opinion and ask your partner.</li>
@@ -436,6 +436,7 @@
             <ol class="tx-laps" id="sp-laps"></ol>
             <p class="tx-note mt-2 mb-0">Press “Teil … done” at the end of each Teil: the page shows how long each Teil took, so you can see where you are slow. The 15 minutes are for the pair together, so this is a practice guide, not a rule for each Teil.</p></div>
         <p class="rf-links tx-note">Grammar is part of the exam too: <a href="18_telc_grammatik.html">18 telc Grammatik</a> · Writing: <a href="16_telc_schreiben.html">16 telc Schreiben</a> · Listening: <a href="14_telc_hoeren.html">14 telc Hören</a></p></div>
+<div class="rf-pane" id="t-cards" hidden><div class="tx-box"><div class="lbl">Teil 2: 55 topic cards</div><p class="mb-0">Pick a topic, read the two opinion cards (A and B), then present one card with the 6 openers of the Templates tab. Practise with a partner or out loud.</p></div><div id="cd-root"></div></div>
 <div class="rf-pane" id="t-templates" hidden><div class="content-card"><div class="markdown-content">
 <h2 id="extra-3-telc-sprechen" class="part-heading"><span class="t-de">Zusatz 3: telc B1 Sprechen: Themen und Vorlagen</span><span class="t-en">Extra 3: telc B1 speaking: topics and templates</span></h2>
 <p class="lesson-meta"><span class="t-de">Lernhilfe zur mündlichen Prüfung (telc Deutsch B1). Passt zu den Lektionen 50–58.</span><span class="t-en">Study aid for the oral exam (telc Deutsch B1). Goes with lessons 50–58.</span></p>
@@ -572,6 +573,7 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
+<script src="telc-sprechen-data.js?v=1"></script>
 <script>
     // Language switch, speaker buttons and hide-English practice (this page only)
     (function () {
@@ -822,6 +824,73 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     lapBtn.addEventListener('click', function () { if (laps.length >= 3) return; laps.push(lastLeft - sp.left); lastLeft = sp.left; drawLaps(); });
     document.getElementById('sp-reset').addEventListener('click', function () { laps = []; lastLeft = 15 * 60; drawLaps(); });
     drawLaps();
+})();
+
+(function () {
+    var D = window.TELC_SPRECHEN || [], root = document.getElementById('cd-root'); if (!root) return;
+    var KEY = 'wf_telc_sprechen_cards_v1', S = {}; try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { S = {}; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+    var cur = null, clock = null, filter = '';
+    var OPEN = ['Es geht um das Thema …', 'Auf meinem Aufgabenblatt sagt eine junge Frau / ein junger Mann, dass …', 'Diese Meinung finde ich interessant, weil …', 'Meiner Meinung nach …', 'Ich habe die Erfahrung gemacht, dass …', 'Was meinst du? Wie ist das bei dir?'];
+    function find(no) { return D.filter(function (c) { return c.no === no; })[0]; }
+    function list() {
+        if (clock) { clock.pause(); clock = null; }
+        root.textContent = '';
+        var done = D.filter(function (c) { return S[c.no] && S[c.no].done; }).length;
+        var top = wfEl('div', 'tx-box d-flex flex-wrap gap-2 align-items-center');
+        var q = wfEl('input', 'form-control form-control-sm'); q.type = 'search'; q.placeholder = 'Search topics (German or English)'; q.value = filter; q.style.maxWidth = '18rem';
+        var rnd = wfEl('button', 'btn btn-sm btn-primary', '🎲 Random card'); rnd.type = 'button';
+        rnd.addEventListener('click', function () { var open = D.filter(function (c) { return !(S[c.no] && S[c.no].done); }); var pool = open.length ? open : D; cur = pool[Math.floor(Math.random() * pool.length)].no; card(); });
+        top.appendChild(q); top.appendChild(rnd); top.appendChild(wfEl('span', 'tx-note', done + ' of ' + D.length + ' practised'));
+        root.appendChild(top);
+        var g = wfEl('div'); g.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.5rem';
+        function draw() {
+            g.textContent = '';
+            D.filter(function (c) { var f = filter.toLowerCase(); return !f || (c.title + ' ' + c.en).toLowerCase().indexOf(f) >= 0; }).forEach(function (c) {
+                var b = wfEl('button', 'btn btn-sm text-start ' + (S[c.no] && S[c.no].done ? 'btn-success' : 'btn-outline-secondary')); b.type = 'button';
+                b.appendChild(wfEl('div', 'fw-bold', c.no + '. ' + c.title)); b.appendChild(wfEl('div', 'small', c.en));
+                b.addEventListener('click', function () { cur = c.no; card(); });
+                g.appendChild(b);
+            });
+        }
+        q.addEventListener('input', function () { filter = q.value; draw(); });
+        draw(); root.appendChild(g);
+        root.appendChild(wfEl('p', 'tx-note mt-2', 'Source: the collection “Sprechen TEIL 2” (55 topics with two opinion cards, A and B). In the exam each of you gets one card. The cards are German only; the English is for the topic titles.'));
+    }
+    function card() {
+        if (clock) { clock.pause(); clock = null; }
+        root.textContent = '';
+        var c = find(cur), st = S[c.no] || (S[c.no] = { done: false, notes: '' });
+        var nav = wfEl('div', 'd-flex flex-wrap gap-2 mb-2');
+        var back = wfEl('button', 'btn btn-sm btn-outline-secondary', '← All topics'); back.type = 'button'; back.addEventListener('click', list);
+        var prev = wfEl('button', 'btn btn-sm btn-outline-secondary', '‹ Previous'); prev.type = 'button'; prev.addEventListener('click', function () { var i = D.indexOf(c); cur = D[(i + D.length - 1) % D.length].no; card(); });
+        var next = wfEl('button', 'btn btn-sm btn-outline-secondary', 'Next ›'); next.type = 'button'; next.addEventListener('click', function () { var i = D.indexOf(c); cur = D[(i + 1) % D.length].no; card(); });
+        nav.appendChild(back); nav.appendChild(prev); nav.appendChild(next); root.appendChild(nav);
+        var head = wfEl('div', 'tx-box'); head.appendChild(wfEl('div', 'lbl', 'Thema ' + c.no)); head.appendChild(wfEl('h2', 'h4 mb-0', '„' + c.title + '“')); head.appendChild(wfEl('div', 'tx-note', c.en)); root.appendChild(head);
+        var cards = wfEl('div'); cards.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.75rem;margin-bottom:1rem';
+        ['A', 'B'].forEach(function (k) {
+            var p = c[k], b = wfEl('div', 'tx-box mb-0'); b.appendChild(wfEl('div', 'lbl', 'Person ' + k + (p && p.who ? ' · ' + p.who : '')));
+            if (p) b.appendChild(wfEl('div', null, p.text)); else b.appendChild(wfEl('div', 'tx-note', 'This card is not printed in the collection.'));
+            cards.appendChild(b);
+        });
+        root.appendChild(cards);
+        var tb = wfEl('div', 'tx-box'); tb.appendChild(wfEl('div', 'lbl', 'Your turn: present one card (use the 6 openers)'));
+        var cb = wfEl('div', 'tx-clockbox'), tm = wfEl('div', 'tx-time', '00:00'), go = wfEl('button', 'btn btn-sm btn-success', '▶ Start'), rs = wfEl('button', 'btn btn-sm btn-outline-secondary', 'Reset'); go.type = rs.type = 'button';
+        tm.style.fontSize = '1.8rem'; tm.style.minWidth = '4.5rem';
+        var secs = 0; clock = wfClock(1e6, function (l) { secs = 1e6 - l; tm.textContent = wfFmt(secs); });
+        go.addEventListener('click', function () { if (clock.running) { clock.pause(); go.textContent = '▶ Resume'; } else { clock.start(); go.textContent = '⏸ Pause'; } });
+        rs.addEventListener('click', function () { clock.reset(); go.textContent = '▶ Start'; });
+        cb.appendChild(tm); cb.appendChild(go); cb.appendChild(rs); cb.appendChild(wfEl('span', 'tx-note', 'A stopwatch: the book gives no time per card, so see how long you need.')); tb.appendChild(cb);
+        var ol = wfEl('ol', 'mt-2 mb-0'); OPEN.forEach(function (o, i) { ol.appendChild(wfEl('li', null, o)); }); tb.appendChild(ol);
+        root.appendChild(tb);
+        var nb = wfEl('div', 'tx-box'); nb.appendChild(wfEl('div', 'lbl', 'Your notes for this topic (kept in this browser)'));
+        var ta = wfEl('textarea', 'form-control'); ta.rows = 5; ta.value = st.notes || ''; ta.setAttribute('aria-label', 'Notes'); ta.addEventListener('input', function () { st.notes = ta.value; save(); });
+        nb.appendChild(ta);
+        var dn = wfEl('label', 'd-flex gap-2 mt-2'); var cx = wfEl('input'); cx.type = 'checkbox'; cx.checked = !!st.done; cx.addEventListener('change', function () { st.done = cx.checked; save(); });
+        dn.appendChild(cx); dn.appendChild(wfEl('span', null, 'I have practised this topic')); nb.appendChild(dn); root.appendChild(nb);
+        window.scrollTo(0, 0);
+    }
+    list();
 })();
 </script>
 </body>
