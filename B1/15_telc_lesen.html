@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="telc B1 Leseverstehen: Prüfungen mit Überschriften, Multiple Choice und Anzeigen, Stoppuhr pro Teil, Auswertung und englischer Übersetzung. Kostenlos im Browser.">
+    <meta name="keywords" content="telc B1 Lesen, Leseverstehen B1, telc Prüfung, Deutsch B1, Musterprüfung">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: canonical + robots -->
+    <link rel="canonical" href="https://wordfeather.com/B1/15_telc_lesen.html">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="telc B1 Lesen Prüfungen | WordFeather">
+    <meta property="og:description" content="telc B1 reading exams: headings, multiple choice and ads, a clock for each part, scoring and English translations. Free in your browser.">
+    <meta property="og:url" content="https://wordfeather.com/B1/15_telc_lesen.html">
+    <meta property="og:image" content="https://wordfeather.com/og-image-small.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="WordFeather: German learning A1 to C2">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WordFeather">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="telc B1 Lesen Prüfungen | WordFeather">
+    <meta name="twitter:description" content="telc B1 reading exams: headings, multiple choice and ads, a clock for each part, scoring and English translations. Free in your browser.">
+    <meta name="twitter:image" content="https://wordfeather.com/og-image-small.jpg">
+
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="WordFeather">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>15 telc Lesen Prüfungen - B1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tx { max-width: 1120px; margin: 0 auto; padding: 1.25rem 16px 4rem; }
+        .tx h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+        .tx .lead-s { color: var(--bs-secondary-color); margin-bottom: 1rem; }
+        .tx-crumb { font-size: .9rem; margin-bottom: .75rem; }
+        .tx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .75rem; }
+        .tx-card { border: 1px solid var(--bs-border-color); border-radius: .6rem; background: var(--bs-body-bg); padding: .85rem 1rem; display: flex; flex-direction: column; gap: .35rem; }
+        .tx-card h2 { font-size: 1.05rem; margin: 0; }
+        .tx-card .meta { font-size: .82rem; color: var(--bs-secondary-color); }
+        .tx-card .st { font-size: .85rem; font-weight: 600; }
+        .tx-card .st.done { color: var(--bs-success); }
+        .tx-card .st.prog { color: var(--bs-warning-text-emphasis); }
+        .tx-card .btn { margin-top: auto; }
+        .tx-bar { position: sticky; top: 0; z-index: 20; background: var(--bs-body-bg); border: 1px solid var(--bs-border-color); border-radius: .6rem; padding: .5rem .75rem; margin: .5rem 0 1rem; display: flex; flex-wrap: wrap; gap: .5rem .75rem; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+        .tx-bar .tabs { display: flex; gap: .35rem; flex-wrap: wrap; }
+        .tx-bar .spacer { flex: 1 1 auto; }
+        .tx-clock { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.1rem; min-width: 4.2rem; text-align: center; }
+        .tx-clock.over { color: var(--bs-danger); }
+        .tx-count { font-size: .9rem; color: var(--bs-secondary-color); white-space: nowrap; }
+        .tx-box { border: 1px solid var(--bs-border-color); border-radius: .6rem; padding: .85rem 1rem; margin-bottom: 1rem; background: var(--bs-body-bg); }
+        .tx-box .lbl { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--bs-secondary-color); font-weight: 700; margin-bottom: .4rem; }
+        .tx-instr { font-size: .98rem; line-height: 1.55; }
+        .tx-pills { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .6rem; }
+        .tx-pill { font-size: .78rem; border-radius: 999px; padding: .15rem .6rem; background: var(--bs-secondary-bg); border: 1px solid var(--bs-border-color); }
+        .tx-note { font-size: .85rem; color: var(--bs-secondary-color); }
+        .tx-result { border: 2px solid var(--bs-border-color); border-radius: .6rem; padding: .85rem 1rem; margin-bottom: 1rem; }
+        .tx-result.pass { border-color: var(--bs-success); }
+        .tx-result.fail { border-color: var(--bs-warning); }
+        .tx-result .big { font-size: 1.5rem; font-weight: 800; }
+        .lz-item { display: grid; grid-template-columns: 2.2rem 1fr; gap: .4rem .75rem; padding: .75rem 0; border-top: 1px solid var(--bs-border-color); }
+        .lz-item:first-of-type { border-top: 0; }
+        .lz-item .no { font-weight: 700; color: var(--bs-secondary-color); padding-top: .2rem; }
+        .lz-item .de { font-size: 1.02rem; line-height: 1.5; }
+        .lz-item .en { display: none; font-size: .9rem; color: var(--bs-secondary-color); margin-top: .25rem; line-height: 1.45; }
+        .lz-item.show-en .en, .lz-head.show-en .en, .lz-ad.show-en .en { display: block; }
+        .lz-item .pick { grid-column: 2; margin-top: .35rem; display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+        .lz-item .pick select { max-width: 100%; width: auto; }
+        .eye { border: 0; background: transparent; padding: 0 .25rem; font-size: 1rem; cursor: pointer; margin-left: .25rem; opacity: .75; }
+        .eye[aria-pressed="true"] { opacity: 1; }
+        .lz-head, .lz-ad { display: grid; grid-template-columns: 1.6rem 1fr auto; gap: .2rem .6rem; padding: .35rem 0; border-top: 1px solid var(--bs-border-color); font-size: .95rem; line-height: 1.4; }
+        .lz-head:first-of-type, .lz-ad:first-of-type { border-top: 0; }
+        .lz-head .l, .lz-ad .l { font-weight: 700; color: var(--bs-primary); }
+        .lz-head .en, .lz-ad .en { grid-column: 2 / 4; display: none; font-size: .88rem; color: var(--bs-secondary-color); }
+        .lz-used { font-size: .75rem; border-radius: 999px; padding: 0 .5rem; background: var(--bs-success-bg-subtle); color: var(--bs-success-text-emphasis); align-self: start; white-space: nowrap; }
+        .lz-used.dup { background: var(--bs-warning-bg-subtle); color: var(--bs-warning-text-emphasis); }
+        .lz-head.used .l, .lz-ad.used .l { color: var(--bs-secondary-color); }
+        .lz-opts { display: grid; gap: .35rem; margin-top: .35rem; }
+        .lz-opts button { text-align: left; border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: .4rem; padding: .4rem .65rem; line-height: 1.35; cursor: pointer; }
+        .lz-opts button[aria-pressed="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
+        .lz-opts button:disabled { cursor: default; }
+        .lz-item.ok { background: rgba(25,135,84,.07); }
+        .lz-item.bad { background: rgba(220,53,69,.07); }
+        .lz-item.ok .no::after { content: " ✓"; color: var(--bs-success); }
+        .lz-item.bad .no::after { content: " ✗"; color: var(--bs-danger); }
+        .lz-item .fb { grid-column: 2; font-size: .88rem; }
+        .lz-item .fb .good { color: var(--bs-success); font-weight: 600; }
+        .lz-item .fb .wrong { color: var(--bs-danger); font-weight: 600; }
+        .lz-item .fb details { margin-top: .25rem; color: var(--bs-secondary-color); }
+        .lz-para { margin-bottom: .75rem; line-height: 1.6; font-size: 1.02rem; }
+        .lz-para .en { display: none; font-size: .9rem; color: var(--bs-secondary-color); margin-top: .2rem; }
+        .lz-para.show-en .en { display: block; }
+        .lz-para .pn { font-weight: 700; color: var(--bs-secondary-color); margin-right: .4rem; }
+        .lz-split { display: block; }
+        @media (min-width: 992px) {
+            .lz-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1rem; align-items: start; }
+            .lz-split > .lz-side { position: sticky; top: 4.5rem; max-height: calc(100vh - 5.5rem); overflow-y: auto; margin-bottom: 0; }
+        }
+        @media (max-width: 575px) { .lz-item { grid-template-columns: 1.8rem 1fr; } }
+        @media print { .tx-bar { display: none !important; } }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html','12_deutsch_lessons.html','13_berlino_notizen.html','14_telc_hoeren.html','15_telc_lesen.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat','10 Kursnotizen (Notes)','11 Spickzettel (Cheat Sheet)','12 B1 Deutsch Kurs (Lesson Notes)','13 Berlino Notizen (Berlino Notes)','14 telc Hören Prüfungen (Exams)','15 telc Lesen Prüfungen (Exams)'];
+        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../app/" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                var lvLi = document.getElementById('nav-levels');
+                lvLi = lvLi ? lvLi.closest('li') : null;
+                if (lvLi && lvLi.nextSibling) {
+                    lvLi.parentNode.insertBefore(li, lvLi.nextSibling);
+                } else if (nav) {
+                    nav.appendChild(li);
+                }
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+    <main class="tx" id="tx-main">
+        <noscript><p>This page needs JavaScript.</p></noscript>
+        <div id="tx-root"></div>
+    </main>
+    <script src="telc-lesen-data.js?v=1"></script>
+    <script>
+(function () {
+    var D = window.TELC_LESEN || [];
+    var KEY = 'wf_telc_lesen_v1';
+    var root = document.getElementById('tx-root');
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { store = {}; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+    var MIN = {"1": 15, "2": 15, "3": 25}, PTS = {"1": 5, "2": 5, "3": 2.5}, INSTR = {"1": "Lesen Sie die Überschriften a–j und die Texte 1–5. Welche Überschrift passt zu welchem Text? Jede Überschrift passt nur einmal. Fünf Überschriften bleiben übrig.", "2": "Lesen Sie den Text und die Aufgaben 6–10 dazu. Welche Lösung (a, b oder c) ist jeweils richtig?", "3": "Lesen Sie die Situationen 11–20 und die Anzeigen a–l. Welche Anzeige passt zu welcher Situation? Sie können jede Anzeige nur einmal benutzen. Wenn keine Anzeige passt, markieren Sie X."};
+    function st(no) { return store[no] || (store[no] = { a: {}, done: false, left: { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }, best: null, tries: 0 }); }
+    function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+    function fmt(s) { var neg = s < 0; s = Math.abs(s); var m = Math.floor(s / 60), r = s % 60; return (neg ? '+' : '') + (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
+    function ids(ex, t) {
+        var T = ex.teile[t];
+        if (t === '1') return T.texts.map(function (x) { return x.n; });
+        if (t === '2') return T.qs.map(function (x) { return x.n; });
+        return T.sits.map(function (x) { return x.n; });
+    }
+    function maxPts(ex) { var m = 0; Object.keys(ex.teile).forEach(function (t) { m += ids(ex, t).length * PTS[t]; }); return m; }
+    function score(ex) {
+        var s = st(ex.no), per = {}, tot = 0;
+        Object.keys(ex.teile).forEach(function (t) {
+            var k = 0, n = ids(ex, t).length;
+            ids(ex, t).forEach(function (i) { if (s.a[i] === ex.teile[t].ans[i].a) k++; });
+            per[t] = { ok: k, n: n, pts: k * PTS[t], max: n * PTS[t] }; tot += k * PTS[t];
+        });
+        return { per: per, tot: tot, max: maxPts(ex) };
+    }
+    var timer = null, running = null;
+    function stopClock() { running = null; if (timer) { clearInterval(timer); timer = null; } }
+
+    function showList() {
+        stopClock(); root.textContent = '';
+        document.title = '15 telc Lesen Prüfungen - B1';
+        root.appendChild(el('h1', null, 'telc B1 Lesen: Prüfungen'));
+        root.appendChild(el('p', 'lead-s', D.length + ' reading exams (Leseverstehen, Teil 1–3, 75 points). Each Teil has its own clock: 15, 15 and 25 minutes. Read, choose your answers, press Submit. The English translations stay hidden until you click the eye.'));
+        var g = el('div', 'tx-grid');
+        D.forEach(function (ex) {
+            var s = st(ex.no), c = el('div', 'tx-card'), n = Object.keys(s.a).length, total = 0;
+            Object.keys(ex.teile).forEach(function (t) { total += ids(ex, t).length; });
+            c.appendChild(el('div', 'meta', 'Prüfung ' + ex.no));
+            c.appendChild(el('h2', null, ex.title));
+            c.appendChild(el('div', 'meta', Object.keys(ex.teile).map(function (t) { return 'Teil ' + t; }).join(' · ') + ' · ' + total + ' items' + (Object.keys(ex.teile).length < 3 ? ' (Teil 2 missing)' : '')));
+            var status = el('div', 'st', 'Not started');
+            if (s.done && s.best) { status.className = 'st done'; status.textContent = 'Best: ' + s.best.score + '/' + s.best.max + ' points (' + Math.round(100 * s.best.score / s.best.max) + ' %)'; }
+            else if (n) { status.className = 'st prog'; status.textContent = 'In progress: ' + n + '/' + total + ' answered'; }
+            c.appendChild(status);
+            var b = el('a', 'btn btn-sm ' + (s.done ? 'btn-outline-primary' : 'btn-primary'), s.done ? 'Open again' : (n ? 'Continue' : 'Start'));
+            b.href = '#exam-' + ex.no; c.appendChild(b); g.appendChild(c);
+        });
+        root.appendChild(g);
+        root.appendChild(el('p', 'tx-note mt-3', 'Your answers and results stay in this browser only. The exams are the mock exams of the book "Prüfungs Buch Petra". The other skills: Hören has its own page.'));
+    }
+
+    function eye(box) {
+        var b = el('button', 'eye', '👁'); b.type = 'button'; b.setAttribute('aria-pressed', 'false'); b.title = 'Show / hide the English translation'; b.setAttribute('aria-label', 'Show or hide the English translation');
+        b.addEventListener('click', function () { var on = !box.classList.contains('show-en'); box.classList.toggle('show-en', on); b.setAttribute('aria-pressed', String(on)); });
+        return b;
+    }
+
+    function showExam(no) {
+        var ex = D.filter(function (e) { return e.no === no; })[0];
+        if (!ex) { location.hash = ''; return; }
+        stopClock();
+        var s = st(no), tl = Object.keys(ex.teile), all = []; tl.forEach(function (t) { all = all.concat(ids(ex, t)); });
+        var view = { teil: tl[0], confirm: false };
+        document.title = 'Prüfung ' + ex.no + ' ' + ex.title + ' - telc B1 Lesen';
+        var bar, clock, countEl, subBtn, startBtn, panel, resultBox;
+        function answered() { var n = 0; all.forEach(function (i) { if (s.a[i]) n++; }); return n; }
+        function refreshBar() {
+            countEl.textContent = answered() + '/' + all.length + ' answered';
+            tl.forEach(function (t) {
+                var b = bar.querySelector('[data-teil="' + t + '"]'), k = 0, a = ids(ex, t);
+                a.forEach(function (i) { if (s.a[i]) k++; });
+                b.textContent = 'Teil ' + t + ' · ' + k + '/' + a.length;
+                b.className = 'btn btn-sm ' + (view.teil === t ? 'btn-primary' : 'btn-outline-secondary');
+            });
+            var left = s.left[view.teil];
+            clock.textContent = fmt(left); clock.className = 'tx-clock' + (left <= 0 ? ' over' : '');
+            clock.title = 'Time left in Teil ' + view.teil + ' (' + MIN[view.teil] + ' min)';
+            startBtn.style.display = s.done ? 'none' : '';
+            startBtn.textContent = running === view.teil ? '⏸ Pause' : (left < MIN[view.teil] * 60 ? '▶ Resume' : '▶ Start clock');
+            subBtn.textContent = s.done ? 'Try again' : (view.confirm ? 'Submit anyway' : 'Submit');
+            subBtn.className = 'btn btn-sm ' + (s.done ? 'btn-outline-primary' : 'btn-success');
+        }
+        function startClock() {
+            if (s.done || running === view.teil) return;
+            stopClock(); var t = view.teil; running = t;
+            timer = setInterval(function () { s.left[t]--; if (view.teil === t) { clock.textContent = fmt(s.left[t]); clock.className = 'tx-clock' + (s.left[t] <= 0 ? ' over' : ''); } if (s.left[t] % 10 === 0) save(); }, 1000);
+            refreshBar();
+        }
+        function pauseClock() { stopClock(); save(); refreshBar(); }
+        function setAns(i, v) {
+            if (s.done) return;
+            if (!v) delete s.a[i]; else s.a[i] = v;
+            view.confirm = false; if (!running) startClock(); save(); refreshBar();
+        }
+        function feedback(box, t, i, given) {
+            var A = ex.teile[t].ans[i], ok = given === A.a, fb = el('div', 'fb');
+            box.classList.add(ok ? 'ok' : 'bad');
+            var shown = function (v) { return v === 'X' ? 'X (no ad fits)' : v; };
+            if (ok) fb.appendChild(el('span', 'good', 'Correct: ' + shown(A.a)));
+            else { fb.appendChild(el('span', 'wrong', (given ? 'Your answer: ' + shown(given) : 'No answer') + ' · ')); fb.appendChild(el('span', 'good', 'Correct: ' + shown(A.a))); }
+            var d = el('details'); d.appendChild(el('summary', null, 'Why?'));
+            d.appendChild(el('div', null, A.tip + '. ' + A.why));
+            if (A.ev && A.ev[0]) { d.appendChild(el('div', null, '“' + A.ev[0] + '”')); d.appendChild(el('div', null, A.ev[1])); }
+            fb.appendChild(d); box.appendChild(fb);
+        }
+        function selectFor(t, i, opts) {
+            var sel = el('select', 'form-select form-select-sm'); sel.setAttribute('aria-label', 'Answer for ' + i);
+            var o0 = el('option', null, '– choose –'); o0.value = ''; sel.appendChild(o0);
+            opts.forEach(function (o) { var op = el('option', null, o === 'X' ? 'X – no ad fits' : o); op.value = o; sel.appendChild(op); });
+            sel.value = s.a[i] || ''; sel.disabled = !!s.done;
+            sel.addEventListener('change', function () { setAns(i, sel.value); if (t === '1' || t === '3') markUsed(t); });
+            return sel;
+        }
+        function markUsed(t) {
+            var T = ex.teile[t], list = t === '1' ? T.heads : T.ads, use = {};
+            ids(ex, t).forEach(function (i) { var v = s.a[i]; if (v && v !== 'X') (use[v] = use[v] || []).push(i); });
+            panel.querySelectorAll('[data-lt]').forEach(function (row) {
+                var l = row.dataset.lt, u = use[l] || [], tag = row.querySelector('.lz-used');
+                row.classList.toggle('used', u.length > 0); tag.textContent = u.length ? '→ ' + u.join(', ') : ''; tag.style.display = u.length ? '' : 'none';
+                tag.classList.toggle('dup', u.length > 1);
+            });
+        }
+        function listBox(t, label, arr) {
+            var box = el('div', 'tx-box'); box.appendChild(el('div', 'lbl', label));
+            arr.forEach(function (x) {
+                var r = el('div', t === '1' ? 'lz-head' : 'lz-ad'); r.dataset.lt = x.l;
+                r.appendChild(el('span', 'l', x.l + ')'));
+                var de = el('span', null, x.de); de.appendChild(eye(r)); r.appendChild(de);
+                var u = el('span', 'lz-used'); u.style.display = 'none'; r.appendChild(u);
+                r.appendChild(el('div', 'en', x.en)); box.appendChild(r);
+            });
+            return box;
+        }
+        function renderPanel() {
+            panel.textContent = ''; var t = view.teil, T = ex.teile[t];
+            var box = el('div', 'tx-box');
+            box.appendChild(el('div', 'lbl', 'Leseverstehen, Teil ' + t + (T.de ? ' · ' + T.de : '')));
+            box.appendChild(el('div', 'tx-instr', INSTR[t]));
+            var pills = el('div', 'tx-pills');
+            pills.appendChild(el('span', 'tx-pill', '⏱ ' + MIN[t] + ' minutes'));
+            pills.appendChild(el('span', 'tx-pill', ids(ex, t).length + ' items × ' + PTS[t] + ' points = ' + ids(ex, t).length * PTS[t]));
+            pills.appendChild(el('span', 'tx-pill', 'book p. ' + T.pages));
+            box.appendChild(pills); panel.appendChild(box);
+
+            var letters;
+            if (t === '1') {
+                var split1 = el('div', 'lz-split'), side1 = listBox('1', 'Überschriften', T.heads); side1.classList.add('lz-side'); split1.appendChild(side1);
+                letters = T.heads.map(function (h) { return h.l; });
+                var tb = el('div', 'tx-box'); tb.appendChild(el('div', 'lbl', 'Texte'));
+                T.texts.forEach(function (x) {
+                    var r = el('div', 'lz-item'); r.appendChild(el('div', 'no', x.n));
+                    var b = el('div'); var de = el('div', 'de', x.de); de.appendChild(eye(r)); b.appendChild(de); b.appendChild(el('div', 'en', x.en)); r.appendChild(b);
+                    var pk = el('div', 'pick'); pk.appendChild(el('span', null, 'Heading:')); pk.appendChild(selectFor('1', x.n, letters)); r.appendChild(pk);
+                    if (s.done) feedback(r, '1', x.n, s.a[x.n]);
+                    tb.appendChild(r);
+                });
+                split1.appendChild(tb); panel.appendChild(split1);
+            } else if (t === '2') {
+                var pb = el('div', 'tx-box'); pb.appendChild(el('div', 'lbl', 'Text'));
+                T.paras.forEach(function (p) {
+                    var d = el('div', 'lz-para'); d.appendChild(el('span', 'pn', p.n)); d.appendChild(document.createTextNode(p.de)); d.appendChild(eye(d)); d.appendChild(el('div', 'en', p.en)); pb.appendChild(d);
+                });
+                panel.appendChild(pb);
+                var qb = el('div', 'tx-box'); qb.appendChild(el('div', 'lbl', 'Aufgaben'));
+                T.qs.forEach(function (q) {
+                    var r = el('div', 'lz-item'); r.appendChild(el('div', 'no', q.n));
+                    var b = el('div'); var de = el('div', 'de', q.stem); de.appendChild(eye(r)); b.appendChild(de);
+                    b.appendChild(el('div', 'en', q.stemEn + ' — ' + q.optsEn.join('  ')));
+                    var opts = el('div', 'lz-opts');
+                    q.opts.forEach(function (o) {
+                        var v = o.charAt(0), bt = el('button', null, o); bt.type = 'button'; bt.setAttribute('aria-pressed', String(s.a[q.n] === v)); bt.disabled = !!s.done;
+                        bt.addEventListener('click', function () {
+                            if (s.done) return;
+                            setAns(q.n, s.a[q.n] === v ? '' : v);
+                            opts.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(s.a[q.n] === x.textContent.charAt(0))); });
+                        });
+                        opts.appendChild(bt);
+                    });
+                    b.appendChild(opts); r.appendChild(b);
+                    if (s.done) feedback(r, '2', q.n, s.a[q.n]);
+                    qb.appendChild(r);
+                });
+                panel.appendChild(qb);
+            } else {
+                var split3 = el('div', 'lz-split'), side3 = listBox('3', 'Anzeigen', T.ads); side3.classList.add('lz-side'); split3.appendChild(side3);
+                letters = T.ads.map(function (a) { return a.l; }).concat(['X']);
+                var sb = el('div', 'tx-box'); sb.appendChild(el('div', 'lbl', 'Situationen'));
+                T.sits.forEach(function (x) {
+                    var r = el('div', 'lz-item'); r.appendChild(el('div', 'no', x.n));
+                    var b = el('div'); var de = el('div', 'de', x.de); de.appendChild(eye(r)); b.appendChild(de); b.appendChild(el('div', 'en', x.en)); r.appendChild(b);
+                    var pk = el('div', 'pick'); pk.appendChild(el('span', null, 'Ad:')); pk.appendChild(selectFor('3', x.n, letters)); r.appendChild(pk);
+                    if (s.done) feedback(r, '3', x.n, s.a[x.n]);
+                    sb.appendChild(r);
+                });
+                split3.appendChild(sb); panel.appendChild(split3);
+            }
+            if (t !== '2') markUsed(t);
+            (T.notes || []).forEach(function (n) { panel.appendChild(el('p', 'tx-note', 'Note: ' + n)); });
+            var nav = el('div', 'd-flex gap-2 justify-content-between'), idx = tl.indexOf(t);
+            if (idx > 0) { var pv = el('button', 'btn btn-outline-secondary btn-sm', '← Teil ' + tl[idx - 1]); pv.type = 'button'; pv.addEventListener('click', function () { go(tl[idx - 1]); }); nav.appendChild(pv); } else nav.appendChild(el('span'));
+            if (idx < tl.length - 1) { var nx = el('button', 'btn btn-primary btn-sm', 'Teil ' + tl[idx + 1] + ' →'); nx.type = 'button'; nx.addEventListener('click', function () { go(tl[idx + 1]); }); nav.appendChild(nx); }
+            panel.appendChild(nav);
+        }
+        function go(t) { var was = running; view.teil = t; if (was) { running = null; stopClock(); } renderPanel(); refreshBar(); window.scrollTo(0, 0); }
+        function renderResult() {
+            resultBox.textContent = ''; resultBox.className = '';
+            if (!s.done) return;
+            var r = score(ex), pct = Math.round(100 * r.tot / r.max);
+            resultBox.className = 'tx-result ' + (pct >= 60 ? 'pass' : 'fail');
+            resultBox.appendChild(el('div', 'big', r.tot + ' / ' + r.max + ' points (' + pct + ' %)'));
+            resultBox.appendChild(el('div', null, Object.keys(r.per).map(function (t) { var p = r.per[t]; var used = MIN[t] * 60 - s.left[t]; return 'Teil ' + t + ': ' + p.ok + '/' + p.n + ' right = ' + p.pts + ' points · ' + fmt(Math.max(used, 0)) + ' used'; }).join('  |  ')));
+            resultBox.appendChild(el('div', 'tx-note mt-1', (pct >= 60 ? '60 % or more, the usual pass mark in telc. ' : 'Below 60 %. ') + 'Open “Why?” under each item to see the trick and the line in the text.'));
+            if (ex.notes && ex.notes.length) ex.notes.forEach(function (n) { resultBox.appendChild(el('div', 'tx-note', 'Note: ' + n)); });
+        }
+        root.textContent = '';
+        var crumb = el('div', 'tx-crumb'), back = el('a', null, '← All exams'); back.href = '#'; crumb.appendChild(back); root.appendChild(crumb);
+        root.appendChild(el('h1', null, 'Prüfung ' + ex.no + ': ' + ex.title));
+        root.appendChild(el('p', 'lead-s', 'telc B1 · Leseverstehen · ' + tl.length + ' Teile · ' + all.length + ' items · max ' + maxPts(ex) + ' points · book p. ' + ex.book + (tl.length < 3 ? ' · Teil 2 is not in this exam yet' : '')));
+        bar = el('div', 'tx-bar');
+        var tabs = el('div', 'tabs');
+        tl.forEach(function (t) { var b = el('button', 'btn btn-sm', ''); b.type = 'button'; b.dataset.teil = t; b.addEventListener('click', function () { go(t); }); tabs.appendChild(b); });
+        bar.appendChild(tabs); bar.appendChild(el('span', 'spacer'));
+        clock = el('span', 'tx-clock', ''); bar.appendChild(clock);
+        startBtn = el('button', 'btn btn-sm btn-outline-secondary'); startBtn.type = 'button';
+        startBtn.addEventListener('click', function () { if (running === view.teil) pauseClock(); else startClock(); });
+        bar.appendChild(startBtn);
+        countEl = el('span', 'tx-count'); bar.appendChild(countEl);
+        subBtn = el('button', 'btn btn-sm btn-success'); subBtn.type = 'button';
+        subBtn.addEventListener('click', function () {
+            if (s.done) { s.a = {}; s.done = false; s.left = { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }; view.confirm = false; save(); renderResult(); renderPanel(); refreshBar(); return; }
+            if (answered() < all.length && !view.confirm) { view.confirm = true; refreshBar(); return; }
+            stopClock(); s.done = true; s.tries = (s.tries || 0) + 1;
+            var r = score(ex); if (!s.best || r.tot >= s.best.score) s.best = { score: r.tot, max: r.max };
+            save(); renderResult(); renderPanel(); refreshBar(); resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        bar.appendChild(subBtn); root.appendChild(bar);
+        resultBox = el('div'); root.appendChild(resultBox); panel = el('div'); root.appendChild(panel);
+        renderResult(); renderPanel(); refreshBar();
+        root.appendChild(el('p', 'tx-note', 'Tip: each Teil has its own clock. It starts with your first answer or with “Start clock”, and it shows + when you are over time. In the real exam the 90 minutes are shared with Sprachbausteine; here only the three Lesen Teile run.'));
+    }
+    function route() { var m = /^#exam-(\d+)$/.exec(location.hash); if (m) showExam(parseInt(m[1], 10)); else showList(); window.scrollTo(0, 0); }
+    window.addEventListener('hashchange', route);
+    window.addEventListener('pagehide', function () { save(); });
+    route();
+})();
+</script>
+</body>
+</html>
