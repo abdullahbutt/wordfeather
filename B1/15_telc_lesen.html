@@ -554,7 +554,7 @@ window.wfUl = (function () {
             pills.appendChild(el('span', 'tx-pill', 'book p. ' + T.pages));
             box.appendChild(pills); panel.appendChild(box);
             panel.appendChild(detailsBox('Tricks for Teil ' + t, TRICKS[t], false));
-            if (ex.short) panel.appendChild(el('p', 'tx-note', 'English: the headings, situations, questions and answer options have a translation (eye icon). The long texts and the ads are German only for now. After Submit you see the correct answers, but no explanation for this exam yet.'));
+            if (ex.short) panel.appendChild(el('p', 'tx-note', 'English: every text, heading, situation, question and ad has an English translation (eye icon). The translations of the long texts and ads are my own and follow the German closely, including the mistakes of the book. After Submit you see the correct answers, but no explanation for this exam yet.'));
 
             var letters;
             if (t === '1') {
