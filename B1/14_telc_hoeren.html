@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="telc B1 Hörverstehen: 17 Prüfungen mit Aussagen 41–60, Antwortbogen, Stoppuhr, Auswertung und englischer Übersetzung. Kostenlos im Browser.">
+    <meta name="keywords" content="telc B1 Hören, Hörverstehen B1, telc Prüfung, Deutsch B1, Musterprüfung">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: canonical + robots -->
+    <link rel="canonical" href="https://wordfeather.com/B1/14_telc_hoeren.html">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="telc B1 Hören Prüfungen | WordFeather">
+    <meta property="og:description" content="telc B1 listening exams: 17 exams with statements 41-60, answer sheet, clock, scoring and English translations. Free in your browser.">
+    <meta property="og:url" content="https://wordfeather.com/B1/14_telc_hoeren.html">
+    <meta property="og:image" content="https://wordfeather.com/og-image-small.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="WordFeather: German learning A1 to C2">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WordFeather">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="telc B1 Hören Prüfungen | WordFeather">
+    <meta name="twitter:description" content="telc B1 listening exams: 17 exams with statements 41-60, answer sheet, clock, scoring and English translations. Free in your browser.">
+    <meta name="twitter:image" content="https://wordfeather.com/og-image-small.jpg">
+
+    <meta name="theme-color" content="#1d4ed8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="WordFeather">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>14 telc Hören Prüfungen - B1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tx { max-width: 960px; margin: 0 auto; padding: 1.25rem 16px 4rem; }
+        .tx h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+        .tx .lead-s { color: var(--bs-secondary-color); margin-bottom: 1rem; }
+        .tx-crumb { font-size: .9rem; margin-bottom: .75rem; }
+        .tx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .75rem; }
+        .tx-card { border: 1px solid var(--bs-border-color); border-radius: .6rem; background: var(--bs-body-bg); padding: .85rem 1rem; display: flex; flex-direction: column; gap: .35rem; }
+        .tx-card h2 { font-size: 1.05rem; margin: 0; }
+        .tx-card .meta { font-size: .82rem; color: var(--bs-secondary-color); }
+        .tx-card .st { font-size: .85rem; font-weight: 600; }
+        .tx-card .st.done { color: var(--bs-success); }
+        .tx-card .st.prog { color: var(--bs-warning-text-emphasis); }
+        .tx-card .btn { margin-top: auto; }
+        .tx-bar { position: sticky; top: 0; z-index: 20; background: var(--bs-body-bg); border: 1px solid var(--bs-border-color); border-radius: .6rem; padding: .5rem .75rem; margin: .5rem 0 1rem; display: flex; flex-wrap: wrap; gap: .5rem .75rem; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+        .tx-bar .tabs { display: flex; gap: .35rem; flex-wrap: wrap; }
+        .tx-bar .spacer { flex: 1 1 auto; }
+        .tx-clock { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.1rem; min-width: 4.2rem; text-align: center; }
+        .tx-count { font-size: .9rem; color: var(--bs-secondary-color); white-space: nowrap; }
+        .tx-box { border: 1px solid var(--bs-border-color); border-radius: .6rem; padding: .85rem 1rem; margin-bottom: 1rem; background: var(--bs-body-bg); }
+        .tx-box .lbl { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--bs-secondary-color); font-weight: 700; margin-bottom: .4rem; }
+        .tx-instr { font-size: .98rem; line-height: 1.55; }
+        .tx-pills { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .6rem; }
+        .tx-pill { font-size: .78rem; border-radius: 999px; padding: .15rem .6rem; background: var(--bs-secondary-bg); border: 1px solid var(--bs-border-color); }
+        .tx-audio iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: .4rem; margin-top: .6rem; background: #000; }
+        .tx-audio .small { color: var(--bs-secondary-color); }
+        .tx-row { display: grid; grid-template-columns: 2.2rem 1fr auto; gap: .4rem .75rem; align-items: start; padding: .65rem 0; border-top: 1px solid var(--bs-border-color); }
+        .tx-row:first-of-type { border-top: 0; }
+        .tx-row .no { font-weight: 700; color: var(--bs-secondary-color); padding-top: .2rem; }
+        .tx-row .de { font-size: 1.02rem; line-height: 1.45; }
+        .tx-row .en { display: none; font-size: .9rem; color: var(--bs-secondary-color); margin-top: .2rem; }
+        .tx-row.show-en .en { display: block; }
+        .tx-row .eye { border: 0; background: transparent; padding: 0 .25rem; font-size: 1rem; cursor: pointer; margin-left: .25rem; opacity: .75; }
+        .tx-row .eye[aria-pressed="true"] { opacity: 1; }
+        .tx-ans { display: flex; gap: .35rem; }
+        .tx-ans button { min-width: 3.1rem; border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: .4rem; padding: .3rem .55rem; font-weight: 700; line-height: 1.1; cursor: pointer; }
+        .tx-ans button small { display: block; font-weight: 400; font-size: .65rem; }
+        .tx-ans button[aria-pressed="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
+        .tx-ans button:disabled { cursor: default; }
+        .tx-row.ok .no::after { content: " ✓"; color: var(--bs-success); }
+        .tx-row.bad .no::after { content: " ✗"; color: var(--bs-danger); }
+        .tx-row.ok { background: rgba(25,135,84,.07); }
+        .tx-row.bad { background: rgba(220,53,69,.07); }
+        .tx-row .fb { grid-column: 2 / 4; font-size: .85rem; }
+        .tx-row .fb .good { color: var(--bs-success); font-weight: 600; }
+        .tx-row .fb .wrong { color: var(--bs-danger); font-weight: 600; }
+        .tx-row .fb .warn { color: var(--bs-warning-text-emphasis); display: block; margin-top: .15rem; }
+        .tx-result { border: 2px solid var(--bs-border-color); border-radius: .6rem; padding: .85rem 1rem; margin-bottom: 1rem; }
+        .tx-result.pass { border-color: var(--bs-success); }
+        .tx-result.fail { border-color: var(--bs-warning); }
+        .tx-result .big { font-size: 1.5rem; font-weight: 800; }
+        .tx-note { font-size: .85rem; color: var(--bs-secondary-color); }
+        @media (max-width: 575px) {
+            .tx-row { grid-template-columns: 1.8rem 1fr; }
+            .tx-row .tx-ans { grid-column: 2; }
+            .tx-row .fb { grid-column: 2; }
+        }
+        @media print { .tx-bar, .tx-audio, .tx-ans button:not([aria-pressed="true"]) { display: none !important; } }
+    </style>
+</head>
+<body id="top">
+    <div id="header-placeholder"></div>
+    <script>
+    (function () {
+        var saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', saved);
+
+        var path = window.location.pathname.replace(/\\/g, '/');
+        var levelMatch = path.match(/\/(A1|A2|B1|B2|C1|C2)\//);
+        var prefix = levelMatch ? '../' : '';
+        var currentLevel = levelMatch ? levelMatch[1] : null;
+
+        var modules = {
+            A1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            A2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html'],
+            B1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html','09_telc_Pruefungsformat.html','10_notes.html','11_cheat_sheet.html','12_deutsch_lessons.html','13_berlino_notizen.html','14_telc_hoeren.html'],
+            B2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C1:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html'],
+            C2:['01_Wortschatz.html','02_Grammatik.html','03_Saetze.html','04_Lesen.html','05_Hoeren.html','06_Sprechen.html','07_Schreiben.html','08_Musterpruefung.html']
+        };
+        var labels = ['01 Wortschatz','02 Grammatik','03 Sätze','04 Lesen','05 Hören','06 Sprechen','07 Schreiben','08 Goethe Prüfung','09 telc Prüfungsformat','10 Kursnotizen (Notes)','11 Spickzettel (Cheat Sheet)','12 B1 Deutsch Kurs (Lesson Notes)','13 Berlino Notizen (Berlino Notes)','14 telc Hören Prüfungen (Exams)'];
+        var headerFallback = '<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"><div class="container"><a class="navbar-brand" href="../index.html">🪶 WordFeather</a><button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="siteNavbar"><ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2" id="nav-main-links"><li class="nav-item"><a class="nav-link" href="../index.html" id="nav-home">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-levels">Levels</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../A1/index.html" data-level="A1">A1 – Beginner</a></li><li><a class="dropdown-item" href="../A2/index.html" data-level="A2">A2 – Elementary</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../B1/index.html" data-level="B1">B1 – Intermediate</a></li><li><a class="dropdown-item" href="../B2/index.html" data-level="B2">B2 – Upper-Intermediate</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../C1/index.html" data-level="C1">C1 – Advanced</a></li><li><a class="dropdown-item" href="../C2/index.html" data-level="C2">C2 – Mastery</a></li></ul></li><li class="nav-item"><a class="nav-link" href="../dictionary.html" id="nav-dictionary">📖 Dictionary</a></li><li class="nav-item"><a class="nav-link ext-highlight quiz-highlight" href="../app/" id="nav-quiz">🎯 Quiz</a></li><li class="nav-item"><a class="nav-link ext-highlight leben-highlight" href="https://leben.wordfeather.com" target="_blank" rel="noopener" id="nav-leben"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 5 3" style="vertical-align:middle;margin-right:3px;border-radius:1px" aria-hidden="true"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Leben in Deutschland</a></li></ul><div class="d-flex ms-lg-3 mt-2 mt-lg-0"><button id="themeToggle" class="btn btn-outline-light btn-sm theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">🌙 Dark</button></div></div></div></nav>';
+
+        function renderHeader(html) {
+            html = html.replace(/BASE\//g, prefix);
+            document.getElementById('header-placeholder').innerHTML = html;
+
+            if (currentLevel) {
+                document.querySelectorAll('.dropdown-item[data-level]').forEach(function (el) {
+                    if (el.getAttribute('data-level') === currentLevel) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                var modFiles = modules[currentLevel];
+                var ul = '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">';
+                ul += '<li><a class="dropdown-item" href="README.html">📖 Overview</a></li>';
+                ul += '<li><hr class="dropdown-divider"></li>';
+                modFiles.forEach(function (f, i) {
+                    ul += '<li><a class="dropdown-item" href="' + f + '">' + labels[i] + '</a></li>';
+                });
+                ul += '</ul>';
+
+                var li = document.createElement('li');
+                li.className = 'nav-item dropdown';
+                li.innerHTML = '<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + currentLevel + ' Modules</a>' + ul;
+                var nav = document.getElementById('nav-main-links');
+                var lvLi = document.getElementById('nav-levels');
+                lvLi = lvLi ? lvLi.closest('li') : null;
+                if (lvLi && lvLi.nextSibling) {
+                    lvLi.parentNode.insertBefore(li, lvLi.nextSibling);
+                } else if (nav) {
+                    nav.appendChild(li);
+                }
+            } else {
+                var h = document.getElementById('nav-home');
+                if (h) {
+                    h.classList.add('active');
+                    h.setAttribute('aria-current', 'page');
+                }
+            }
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                function syncBtn() {
+                    var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                    btn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+                    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                }
+                syncBtn();
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', next);
+                    localStorage.setItem('theme', next);
+                    syncBtn();
+                });
+            }
+        }
+
+        fetch(prefix + 'header.html')
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('header fetch failed')); })
+            .then(function (html) { renderHeader(html); })
+            .catch(function () { renderHeader(headerFallback); });
+    })();
+    </script>
+    <main class="tx" id="tx-main">
+        <noscript><p>This page needs JavaScript.</p></noscript>
+        <div id="tx-root"></div>
+    </main>
+    <script src="telc-hoeren-data.js?v=1"></script>
+    <script>
+(function () {
+    var D = window.TELC_HOEREN || [];
+    var KEY = 'wf_telc_hoeren_v1';
+    var root = document.getElementById('tx-root');
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { store = {}; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+    function st(no) { return store[no] || (store[no] = { a: {}, done: false, secs: 0, best: null, tries: 0 }); }
+    function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+    function fmt(s) { var m = Math.floor(s / 60), r = s % 60; return (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
+    var INSTR = {"1": "Sie hören nun fünf kurze Texte. Dazu sollen Sie fünf Aufgaben lösen. Sie hören diese Texte nur einmal. Entscheiden Sie beim Hören, ob die Aussagen 41–45 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 41–45. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 41–45. Sie haben dazu 30 Sekunden Zeit.", "2": "Sie hören nun ein Gespräch. Dazu sollen Sie zehn Aufgaben lösen. Sie hören das Gespräch zweimal. Entscheiden Sie beim Hören, ob die Aussagen 46–55 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 46–55. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 46–55. Sie haben dazu 30 Sekunden Zeit.", "3": "Sie hören nun fünf kurze Texte. Sie hören jeden Text zweimal. Entscheiden Sie beim Hören, ob die Aussagen 56–60 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 56–60. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen."};
+    var timer = null, running = false, view = null;
+
+    function allItems(ex) { var a = []; ['1', '2', '3'].forEach(function (t) { if (ex.teile[t]) a = a.concat(ex.teile[t].items); }); return a; }
+    function stopClock() { running = false; if (timer) { clearInterval(timer); timer = null; } }
+
+    function showList() {
+        stopClock(); view = null; root.textContent = '';
+        document.title = '14 telc Hören Prüfungen - B1';
+        var h = el('h1', null, 'telc B1 Hören: Prüfungen'); root.appendChild(h);
+        root.appendChild(el('p', 'lead-s', D.length + ' listening exams (Hörverstehen, Teil 1–3, 20 statements each). Pick an exam, play the recording, mark + (richtig) or − (falsch) on the answer sheet and press Submit. The English translations stay hidden until you click the eye.'));
+        var g = el('div', 'tx-grid');
+        D.forEach(function (ex) {
+            var s = st(ex.no), items = allItems(ex), n = Object.keys(s.a).length, c = el('div', 'tx-card');
+            c.appendChild(el('div', 'meta', 'Prüfung ' + ex.no));
+            c.appendChild(el('h2', null, ex.title));
+            var teile = Object.keys(ex.teile).map(function (t) { return 'Teil ' + t; }).join(' · ');
+            c.appendChild(el('div', 'meta', teile + ' · ' + items.length + ' statements'));
+            var status = el('div', 'st', 'Not started');
+            if (s.done && s.best) { status.className = 'st done'; status.textContent = 'Best: ' + s.best.score + '/' + s.best.total + ' (' + Math.round(100 * s.best.score / s.best.total) + ' %)'; }
+            else if (n) { status.className = 'st prog'; status.textContent = 'In progress: ' + n + '/' + items.length + ' answered'; }
+            c.appendChild(status);
+            var b = el('a', 'btn btn-sm ' + (s.done ? 'btn-outline-primary' : 'btn-primary'), s.done ? 'Open again' : (n ? 'Continue' : 'Start'));
+            b.href = '#exam-' + ex.no; c.appendChild(b); g.appendChild(c);
+        });
+        root.appendChild(g);
+        root.appendChild(el('p', 'tx-note mt-3', 'Your answers and results stay in this browser only. The book prints only the statements and the answer keys; the audio is on YouTube.'));
+    }
+
+    function score(ex) {
+        var s = st(ex.no), per = {}, tot = 0, all = 0;
+        Object.keys(ex.teile).forEach(function (t) {
+            var p = 0, items = ex.teile[t].items;
+            items.forEach(function (it) { if (s.a[it.n] === it.a) p++; });
+            per[t] = [p, items.length]; tot += p; all += items.length;
+        });
+        return { per: per, tot: tot, all: all };
+    }
+
+    function showExam(no) {
+        var ex = D.filter(function (e) { return e.no === no; })[0];
+        if (!ex) { location.hash = ''; return; }
+        stopClock();
+        var s = st(no), items = allItems(ex);
+        view = { ex: ex, teil: Object.keys(ex.teile)[0], confirm: false };
+        document.title = 'Prüfung ' + ex.no + ' ' + ex.title + ' - telc B1 Hören';
+        var bar, clock, countEl, subBtn, startBtn, panel, resultBox;
+
+        function counts() {
+            var n = 0; items.forEach(function (it) { if (s.a[it.n]) n++; }); return n;
+        }
+        function refreshBar() {
+            countEl.textContent = counts() + '/' + items.length + ' answered';
+            Object.keys(ex.teile).forEach(function (t) {
+                var b = bar.querySelector('[data-teil="' + t + '"]'), k = 0;
+                ex.teile[t].items.forEach(function (it) { if (s.a[it.n]) k++; });
+                b.textContent = 'Teil ' + t + ' · ' + k + '/' + ex.teile[t].items.length;
+                b.className = 'btn btn-sm ' + (view.teil === t ? 'btn-primary' : 'btn-outline-secondary');
+            });
+            clock.textContent = fmt(s.secs);
+            startBtn.textContent = s.done ? '' : (running ? '⏸ Pause' : (s.secs ? '▶ Resume' : '▶ Start clock'));
+            startBtn.style.display = s.done ? 'none' : '';
+            subBtn.textContent = s.done ? 'Try again' : (view.confirm ? 'Submit anyway' : 'Submit');
+            subBtn.className = 'btn btn-sm ' + (s.done ? 'btn-outline-primary' : 'btn-success');
+        }
+        function startClock() {
+            if (running || s.done) return;
+            running = true;
+            timer = setInterval(function () { s.secs++; clock.textContent = fmt(s.secs); if (s.secs % 10 === 0) save(); }, 1000);
+            refreshBar();
+        }
+        function pauseClock() { stopClock(); save(); refreshBar(); }
+
+        function setAnswer(it, v, row) {
+            if (s.done) return;
+            s.a[it.n] = (s.a[it.n] === v) ? undefined : v;
+            if (!s.a[it.n]) delete s.a[it.n];
+            view.confirm = false; startClock(); save();
+            row.querySelectorAll('.tx-ans button').forEach(function (b) { b.setAttribute('aria-pressed', String(s.a[it.n] === b.dataset.v)); });
+            refreshBar();
+        }
+
+        function renderPanel() {
+            panel.textContent = '';
+            var t = view.teil, T = ex.teile[t];
+            var box = el('div', 'tx-box');
+            box.appendChild(el('div', 'lbl', 'Hörverstehen, Teil ' + t));
+            box.appendChild(el('div', 'tx-instr', INSTR[t]));
+            var pills = el('div', 'tx-pills');
+            pills.appendChild(el('span', 'tx-pill', T.once ? '🎧 you hear it once' : '🎧 you hear it twice'));
+            if (T.read) pills.appendChild(el('span', 'tx-pill', '⏱ 30 seconds to read the statements'));
+            pills.appendChild(el('span', 'tx-pill', 'statements ' + T.items[0].n + '–' + T.items[T.items.length - 1].n));
+            box.appendChild(pills);
+            panel.appendChild(box);
+
+            var a = el('div', 'tx-box tx-audio');
+            a.appendChild(el('div', 'lbl', 'The recording'));
+            var holder = el('div');
+            var load = el('button', 'btn btn-sm btn-outline-primary', '▶ Load the YouTube video (all 3 Teile)');
+            load.type = 'button';
+            load.addEventListener('click', function () {
+                var f = document.createElement('iframe');
+                f.src = 'https://www.youtube-nocookie.com/embed/' + ex.video + '?rel=0';
+                f.title = 'Prüfung ' + ex.no + ' ' + ex.title + ' Hören';
+                f.allow = 'encrypted-media; picture-in-picture'; f.setAttribute('allowfullscreen', '');
+                holder.textContent = ''; holder.appendChild(f);
+            });
+            var open = el('a', 'btn btn-sm btn-link', 'Open on YouTube ↗'); open.href = 'https://www.youtube.com/watch?v=' + ex.video; open.target = '_blank'; open.rel = 'noopener';
+            var row = el('div'); row.appendChild(load); row.appendChild(open); a.appendChild(row); a.appendChild(holder);
+            a.appendChild(el('div', 'small mt-2', 'One video holds Teil 1, 2 and 3. It shows the statements and, at the very end, the answers: do not scrub to the end before you submit. YouTube cannot enforce “you hear it only once”, so keep to that rule yourself.'));
+            panel.appendChild(a);
+
+            var list = el('div', 'tx-box');
+            list.appendChild(el('div', 'lbl', 'Antwortbogen · Teil ' + t + (T.fromVideo ? ' (typed from the video, not in the book)' : '')));
+            T.items.forEach(function (it) {
+                var r = el('div', 'tx-row');
+                r.appendChild(el('div', 'no', String(it.n)));
+                var body = el('div');
+                var de = el('div', 'de', it.de + (it.warn ? ' ⚠' : ''));
+                var eye = el('button', 'eye', '👁'); eye.type = 'button'; eye.setAttribute('aria-pressed', 'false'); eye.title = 'Show / hide the English translation'; eye.setAttribute('aria-label', 'Show or hide the English translation');
+                eye.addEventListener('click', function () { var on = !r.classList.contains('show-en'); r.classList.toggle('show-en', on); eye.setAttribute('aria-pressed', String(on)); });
+                de.appendChild(eye); body.appendChild(de); body.appendChild(el('div', 'en', it.en)); r.appendChild(body);
+                var ans = el('div', 'tx-ans');
+                [['+', 'richtig'], ['-', 'falsch']].forEach(function (p) {
+                    var b = el('button', null, p[0] === '+' ? '+' : '−'); b.type = 'button'; b.dataset.v = p[0];
+                    var sm = el('small', null, p[1]); b.appendChild(sm);
+                    b.setAttribute('aria-pressed', String(s.a[it.n] === p[0])); b.disabled = !!s.done;
+                    b.setAttribute('aria-label', it.n + ': ' + p[1]);
+                    b.addEventListener('click', function () { setAnswer(it, p[0], r); });
+                    ans.appendChild(b);
+                });
+                r.appendChild(ans);
+                if (s.done) {
+                    var ok = s.a[it.n] === it.a; r.classList.add(ok ? 'ok' : 'bad');
+                    var fb = el('div', 'fb');
+                    if (ok) fb.appendChild(el('span', 'good', 'Correct: ' + (it.a === '+' ? '+ richtig' : '− falsch')));
+                    else { fb.appendChild(el('span', 'wrong', (s.a[it.n] ? 'Your answer: ' + (s.a[it.n] === '+' ? '+' : '−') : 'No answer') + ' · ')); fb.appendChild(el('span', 'good', 'Correct: ' + (it.a === '+' ? '+ richtig' : '− falsch'))); }
+                    if (it.conf) fb.appendChild(el('span', 'warn', 'Note: the same statement is printed in exam ' + it.conf + ' with the other answer. One of the two keys is probably wrong; check it against the recording.'));
+                    if (it.warn) fb.appendChild(el('span', 'warn', 'Note: this sentence is cut off or garbled in the book. It is shown as printed.'));
+                    r.appendChild(fb);
+                }
+                list.appendChild(r);
+            });
+            panel.appendChild(list);
+            var nav = el('div', 'd-flex gap-2 justify-content-between');
+            var tl = Object.keys(ex.teile), idx = tl.indexOf(t);
+            if (idx > 0) { var pb = el('button', 'btn btn-outline-secondary btn-sm', '← Teil ' + tl[idx - 1]); pb.type = 'button'; pb.addEventListener('click', function () { go(tl[idx - 1]); }); nav.appendChild(pb); } else nav.appendChild(el('span'));
+            if (idx < tl.length - 1) { var nb = el('button', 'btn btn-primary btn-sm', 'Teil ' + tl[idx + 1] + ' →'); nb.type = 'button'; nb.addEventListener('click', function () { go(tl[idx + 1]); }); nav.appendChild(nb); }
+            panel.appendChild(nav);
+        }
+        function go(t) { view.teil = t; renderPanel(); refreshBar(); window.scrollTo(0, 0); }
+
+        function renderResult() {
+            resultBox.textContent = '';
+            if (!s.done) return;
+            var r = score(ex), pct = Math.round(100 * r.tot / r.all);
+            resultBox.className = 'tx-result ' + (pct >= 60 ? 'pass' : 'fail');
+            resultBox.appendChild(el('div', 'big', r.tot + ' / ' + r.all + ' correct (' + pct + ' %)'));
+            resultBox.appendChild(el('div', null, Object.keys(r.per).map(function (t) { return 'Teil ' + t + ': ' + r.per[t][0] + '/' + r.per[t][1]; }).join(' · ') + ' · time ' + fmt(s.secs)));
+            resultBox.appendChild(el('div', 'tx-note mt-1', pct >= 60 ? 'This is 60 % or more, the usual pass mark per exam part in telc.' : 'Below 60 %. Listen again and compare with the correct answers below.'));
+        }
+
+        root.textContent = '';
+        var crumb = el('div', 'tx-crumb'); var back = el('a', null, '← All exams'); back.href = '#'; crumb.appendChild(back); root.appendChild(crumb);
+        root.appendChild(el('h1', null, 'Prüfung ' + ex.no + ': ' + ex.title));
+        root.appendChild(el('p', 'lead-s', 'telc B1 · Hörverstehen · ' + Object.keys(ex.teile).length + ' Teile · ' + items.length + ' statements' + (ex.teile['1'] && ex.teile['1'].fromVideo ? ' · Teil 1 typed from the video' : '')));
+        bar = el('div', 'tx-bar');
+        var tabs = el('div', 'tabs');
+        Object.keys(ex.teile).forEach(function (t) { var b = el('button', 'btn btn-sm', ''); b.type = 'button'; b.dataset.teil = t; b.addEventListener('click', function () { go(t); }); tabs.appendChild(b); });
+        bar.appendChild(tabs); bar.appendChild(el('span', 'spacer'));
+        clock = el('span', 'tx-clock', fmt(s.secs)); bar.appendChild(clock);
+        startBtn = el('button', 'btn btn-sm btn-outline-secondary'); startBtn.type = 'button';
+        startBtn.addEventListener('click', function () { if (running) pauseClock(); else startClock(); });
+        bar.appendChild(startBtn);
+        countEl = el('span', 'tx-count'); bar.appendChild(countEl);
+        subBtn = el('button', 'btn btn-sm btn-success'); subBtn.type = 'button';
+        subBtn.addEventListener('click', function () {
+            if (s.done) {
+                s.a = {}; s.done = false; s.secs = 0; view.confirm = false; save(); renderResult(); renderPanel(); refreshBar(); return;
+            }
+            if (counts() < items.length && !view.confirm) { view.confirm = true; refreshBar(); return; }
+            stopClock(); s.done = true; s.tries = (s.tries || 0) + 1;
+            var r = score(ex);
+            if (!s.best || r.tot >= s.best.score) s.best = { score: r.tot, total: r.all };
+            save(); renderResult(); renderPanel(); refreshBar(); resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        bar.appendChild(subBtn);
+        root.appendChild(bar);
+        resultBox = el('div'); root.appendChild(resultBox);
+        panel = el('div'); root.appendChild(panel);
+        renderResult(); renderPanel(); refreshBar();
+        if (!s.done && counts() === 0 && s.secs === 0) root.appendChild(el('p', 'tx-note', 'Tip: press “Start clock” when you press play. The clock also starts with your first answer.'));
+    }
+
+    function route() {
+        var m = /^#exam-(\d+)$/.exec(location.hash);
+        if (m) showExam(parseInt(m[1], 10)); else showList();
+        window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', route);
+    window.addEventListener('pagehide', function () { save(); });
+    route();
+})();
+</script>
+</body>
+</html>
