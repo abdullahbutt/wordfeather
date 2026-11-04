@@ -417,13 +417,16 @@
     <main class="tx" id="tx-main">
         <noscript><p>This page needs JavaScript.</p></noscript>
         <div id="rf-root">
-        <h1>telc B1 Grammatik: in 5 Minuten</h1>
-        <p class="lead-s">Grammar tips and rules for the exam: one sentence explains each rule. The Practice button hides the answers so you can test yourself.</p>
+        <h1>telc B1 Grammatik: Sprachbausteine und Regeln</h1>
+        <p class="lead-s">Grammar is part of the exam: the Sprachbausteine exams of the book, and the 5-minute grammar refresher with a practice mode.</p>
         <div class="rf-langbar"><div class="lang-switch" role="group" aria-label="Sprache / Language"><span class="lang-label">🌐 <span class="t-de">Sprache</span><span class="t-en">Language</span></span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div></div>
-        <div class="tx-box"><div class="lbl">Why grammar is on the telc pages</div><ul>
-            <li>Grammar is tested directly in the <strong>Sprachbausteine</strong>, the gap texts that share the 90 minutes with Lesen (see the order tip on <a href="15_telc_lesen.html">15 telc Lesen</a>).</li>
-            <li>In <a href="16_telc_schreiben.html">Schreiben</a> and <a href="17_telc_sprechen.html">Sprechen</a> correct verb position, cases and connectors decide how clear your answer is: after <em>dass</em> and <em>weil</em> the verb goes at the end.</li></ul>
-            <p class="tx-note mt-2 mb-0">The section below is Extra 1 of the Deutsch lessons page, with its practice mode and the language switch.</p></div>        <div class="content-card"><div class="markdown-content">
+<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-sbexam" aria-selected="true">Sprachbausteine exams</button><button type="button" role="tab" data-pane="t-grammar" aria-selected="false">Grammar refresher (Extra 1)</button></div><div class="rf-pane" id="t-sbexam">        <div class="tx-box"><div class="lbl">Sprachbausteine: the grammar part of the exam</div><ul>
+            <li><strong>Teil 1:</strong> a text with 10 gaps (21–30), you choose a, b or c. <strong>Teil 2:</strong> a text with 10 gaps (31–40), you choose from a list of 15 words (a–o), each word only once.</li>
+            <li>The Sprachbausteine share the 90 minutes with Lesen (see the order tip on <a href="15_telc_lesen.html">15 telc Lesen</a>).</li>
+            <li>Grammar also carries <a href="16_telc_schreiben.html">Schreiben</a> and <a href="17_telc_sprechen.html">Sprechen</a>: after <em>dass</em> and <em>weil</em> the verb goes at the end.</li></ul>
+            <p class="tx-note mt-2 mb-0">The texts are the 16 Sprachbausteine of the book "Prüfungs Buch Petra" (Sonja is missing: scanned pages). The book's answer keys have a few mistakes; where the printed letter does not fit its word, the page says so.</p></div>
+        <div id="sb-root"></div></div>
+<div class="rf-pane" id="t-grammar" hidden><div class="content-card"><div class="markdown-content">
 <h2 id="extra-1-grammatik" class="part-heading"><span class="t-de">Zusatz 1: Grammatik in 5 Minuten (ein Satz erklärt alles)</span><span class="t-en">Extra 1: 5-minute grammar refresher (one sentence explains everything)</span></h2>
 <p class="lesson-meta"><span class="t-de">Eine Grammatik-Wiederholung für A2/B1. Passt zu den Lektionen 12–14, 16–18, 22, 25–29, 31–34 und 37.</span><span class="t-en">A grammar revision for A2/B1. Goes with lessons 12–14, 16–18, 22, 25–29, 31–34 and 37.</span></p>
 <div class="lesson-note"><span class="t-de"><strong>Woher kommt dieser Teil?</strong> Das ist kein Video von Desi Learn German. Es ist eine Lernhilfe, die ein Freund geteilt hat. Ich habe sie für diese Seite neu gemacht. Bitte vergleiche wichtige Dinge mit dem Wörterbuch. Prüfungsaufgaben sind hier nur kurz in eigenen Worten erklärt.</span><span class="t-en"><strong>Where does this part come from?</strong> This is not a video by Desi Learn German. It is a study aid shared by a friend, rebuilt for this page. Please check important things against the dictionary. Exam tasks are only summarised briefly in our own words.</span></div>
@@ -478,7 +481,7 @@
 
 
 
-</div></div>
+</div></div></div>
         </div>
     </main>
     <div id="footer-placeholder"></div>
@@ -512,6 +515,7 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
+<script src="telc-sprachbausteine-data.js?v=1"></script>
 <script>
     // Language switch, speaker buttons and hide-English practice (this page only)
     (function () {
@@ -709,6 +713,132 @@
             }
         });
     });
+})();
+</script>
+<script>
+function wfFmt(s) { var neg = s < 0; s = Math.abs(Math.round(s)); var m = Math.floor(s / 60), r = s % 60; return (neg ? '+' : '') + (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
+// a clock that counts down from `total` seconds; it keeps the time with Date.now(), so a background tab does not drift
+function wfClock(total, onTick) {
+    var left = total, t0 = 0, base = total, timer = null;
+    var c = {
+        get left() { return left; }, get running() { return !!timer; },
+        start: function () { if (timer) return; t0 = Date.now(); base = left; timer = setInterval(function () { left = base - (Date.now() - t0) / 1000; onTick(left); }, 250); },
+        pause: function () { if (!timer) return; clearInterval(timer); timer = null; },
+        reset: function () { c.pause(); left = total; onTick(left); }
+    };
+    return c;
+}
+function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+// tabs: the pane of the clicked tab is shown, the hash keeps the tab (#t-templates)
+(function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.rf-tabs button')), panes = Array.prototype.slice.call(document.querySelectorAll('.rf-pane'));
+    function show(id, keepScroll) {
+        var found = false;
+        tabs.forEach(function (t) { var on = t.dataset.pane === id; found = found || on; t.setAttribute('aria-selected', String(on)); });
+        if (!found) id = tabs[0].dataset.pane;
+        panes.forEach(function (p) { p.hidden = p.id !== id; });
+        tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.pane === id)); });
+        if (!keepScroll) window.scrollTo(0, 0);
+    }
+    tabs.forEach(function (t) { t.addEventListener('click', function () { history.replaceState(null, '', '#' + t.dataset.pane); show(t.dataset.pane); }); });
+    function fromHash() {
+        var h = location.hash.slice(1);
+        if (!h) return show(tabs[0].dataset.pane, true);
+        var el = document.getElementById(h), pane = el && el.closest ? el.closest('.rf-pane') : null;
+        show(pane ? pane.id : h, true); if (pane && el) el.scrollIntoView();
+    }
+    window.addEventListener('hashchange', fromHash); fromHash();
+})();
+
+(function () {
+    var D = window.TELC_SB || [], KEY = 'wf_telc_sb_v1', S = {};
+    try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { S = {}; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+    var root = document.getElementById('sb-root'); if (!root) return;
+    var cur = { no: D.length ? D[0].no : 0, t: 1 }, clock = null, over = false;
+    function st(no, t) { var k = no + '-' + t; return S[k] || (S[k] = { a: {}, done: false, best: null }); }
+    function ex(no) { return D.filter(function (e) { return e.no === no; })[0]; }
+    function teils(e) { return [1, 2].filter(function (t) { return e['t' + t]; }); }
+
+    function render() {
+        if (clock) { clock.pause(); clock = null; }
+        root.textContent = '';
+        var e = ex(cur.no); if (!e) return;
+        if (!e['t' + cur.t]) cur.t = teils(e)[0];
+        var T = e['t' + cur.t], s = st(e.no, cur.t), first = cur.t === 1 ? 21 : 31;
+        var bar = wfEl('div', 'tx-box d-flex flex-wrap gap-2 align-items-center');
+        var pick = wfEl('select', 'form-select form-select-sm'); pick.style.maxWidth = '16rem'; pick.setAttribute('aria-label', 'Exam');
+        D.forEach(function (x) { var o = wfEl('option', null, 'Prüfung ' + x.no + ': ' + x.title + (x.t1 && x.t2 ? '' : ' (Teil ' + teils(x)[0] + ' only)')); o.value = String(x.no); pick.appendChild(o); });
+        pick.value = String(e.no); pick.addEventListener('change', function () { cur.no = parseInt(pick.value, 10); render(); });
+        bar.appendChild(pick);
+        teils(e).forEach(function (t) {
+            var b = wfEl('button', 'btn btn-sm ' + (t === cur.t ? 'btn-primary' : 'btn-outline-secondary'), 'Teil ' + t + (t === 1 ? ' (a, b, c)' : ' (word list)')); b.type = 'button';
+            b.addEventListener('click', function () { cur.t = t; render(); }); bar.appendChild(b);
+        });
+        var best = st(e.no, cur.t).best;
+        bar.appendChild(wfEl('span', 'tx-note', best ? 'Best: ' + best + '/10' : ''));
+        root.appendChild(bar);
+
+        var head = wfEl('div', 'tx-box');
+        head.appendChild(wfEl('div', 'lbl', 'Sprachbausteine, Teil ' + cur.t));
+        head.appendChild(wfEl('div', null, cur.t === 1
+            ? 'Lesen Sie den Text und schließen Sie die Lücken ' + first + '–' + (first + 9) + '. Welche Lösung (a, b oder c) ist jeweils richtig?'
+            : 'Lesen Sie den Text und schließen Sie die Lücken ' + first + '–' + (first + 9) + '. Benutzen Sie die Wörter (a–o). Jedes Wort passt nur einmal.'));
+        var cb = wfEl('div', 'tx-clockbox mt-2'), tm = wfEl('div', 'tx-time', '10:00'), go = wfEl('button', 'btn btn-sm btn-success', '▶ Start'), rs = wfEl('button', 'btn btn-sm btn-outline-secondary', 'Reset');
+        go.type = rs.type = 'button'; tm.style.fontSize = '1.6rem'; tm.style.minWidth = '4.5rem';
+        function paint(l) { tm.textContent = wfFmt(l); tm.className = 'tx-time' + (l <= 0 ? ' over' : ''); tm.style.fontSize = '1.6rem'; tm.style.minWidth = '4.5rem'; }
+        clock = wfClock(600, function (l) { paint(l); });
+        go.addEventListener('click', function () { if (clock.running) { clock.pause(); go.textContent = '▶ Resume'; } else if (!s.done) { clock.start(); go.textContent = '⏸ Pause'; } });
+        rs.addEventListener('click', function () { clock.reset(); go.textContent = '▶ Start'; });
+        cb.appendChild(tm); cb.appendChild(go); cb.appendChild(rs); cb.appendChild(wfEl('span', 'tx-note', '10 minutes per Teil (the order tip on the Lesen page: 10 + 10 minutes)')); head.appendChild(cb);
+        root.appendChild(head);
+
+        if (cur.t === 2) {
+            var wl = wfEl('div', 'tx-box'); wl.appendChild(wfEl('div', 'lbl', 'Wörter'));
+            var g = wfEl('div'); g.style.cssText = 'display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.25rem .75rem;font-weight:600';
+            'abcdefghijklmno'.split('').forEach(function (l) { var u = wfEl('span', null, l + ') ' + T.list[l]); u.dataset.l = l; g.appendChild(u); });
+            wl.appendChild(g); root.appendChild(wl);
+        }
+        var box = wfEl('div', 'tx-box'); box.style.lineHeight = '2.1';
+        var selects = {};
+        function used() {
+            if (cur.t !== 2) return;
+            var u = {}; Object.keys(s.a).forEach(function (n) { u[s.a[n]] = (u[s.a[n]] || 0) + 1; });
+            root.querySelectorAll('[data-l]').forEach(function (x) { x.style.opacity = u[x.dataset.l] ? '.35' : '1'; x.style.textDecoration = u[x.dataset.l] > 1 ? 'underline wavy' : (u[x.dataset.l] ? 'line-through' : 'none'); });
+        }
+        T.text.forEach(function (para) {
+            var p = wfEl('p', 'mb-2'); var parts = para.split(/\((\d\d)\)/);
+            parts.forEach(function (part, i) {
+                if (i % 2 === 0) { p.appendChild(document.createTextNode(part)); return; }
+                var n = part, sl = wfEl('select', 'form-select form-select-sm d-inline-block w-auto mx-1'); sl.setAttribute('aria-label', 'Gap ' + n);
+                var o0 = wfEl('option', null, n + ' ▾'); o0.value = ''; sl.appendChild(o0);
+                if (cur.t === 1) { (T.o[n] || []).forEach(function (w, k) { var o = wfEl('option', null, 'abc'[k] + ') ' + w); o.value = 'abc'[k]; sl.appendChild(o); }); }
+                else { 'abcdefghijklmno'.split('').forEach(function (l) { var o = wfEl('option', null, l + ') ' + T.list[l]); o.value = l; sl.appendChild(o); }); }
+                sl.value = s.a[n] || ''; sl.disabled = !!s.done; selects[n] = sl;
+                sl.addEventListener('change', function () { if (sl.value) s.a[n] = sl.value; else delete s.a[n]; save(); used(); refreshCount(); });
+                p.appendChild(sl);
+                if (s.done) {
+                    var ok = s.a[n] === T.ans[n], sp = wfEl('span', ok ? 'text-success fw-bold' : 'text-danger fw-bold', ok ? '✓' : '✗ ' + (s.a[n] || '–') + ' → ');
+                    p.appendChild(sp);
+                    if (!ok) p.appendChild(wfEl('span', 'text-success fw-bold', T.ans[n] + ') ' + (cur.t === 1 ? (T.o[n] || [])['abc'.indexOf(T.ans[n])] : T.list[T.ans[n]])));
+                }
+            });
+            box.appendChild(p);
+        });
+        root.appendChild(box);
+        var foot = wfEl('div', 'tx-box d-flex flex-wrap gap-2 align-items-center'), cnt = wfEl('span', 'tx-note'), sub = wfEl('button', 'btn btn-sm btn-success'); sub.type = 'button';
+        function refreshCount() { cnt.textContent = Object.keys(s.a).length + '/10 answered'; sub.textContent = s.done ? 'Try again' : 'Submit'; }
+        sub.addEventListener('click', function () {
+            if (s.done) { s.a = {}; s.done = false; save(); render(); return; }
+            var ok = 0; for (var n = first; n < first + 10; n++) if (s.a[n] === T.ans[n]) ok++;
+            s.done = true; s.score = ok; if (s.best == null || ok > s.best) s.best = ok; save(); render();
+        });
+        foot.appendChild(sub); foot.appendChild(cnt);
+        if (s.done) { foot.appendChild(wfEl('strong', null, s.score + ' / 10 correct (' + (s.score * 10) + ' %)')); }
+        (T.notes || []).forEach(function (n) { foot.appendChild(wfEl('div', 'tx-note w-100', 'Note: ' + n)); });
+        root.appendChild(foot); refreshCount(); used();
+    }
+    render();
 })();
 </script>
 </body>
