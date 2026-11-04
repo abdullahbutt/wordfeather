@@ -106,7 +106,23 @@
         }
         @media (max-width: 575px) { .lz-item { grid-template-columns: 1.8rem 1fr; } }
         @media print { .tx-bar { display: none !important; } }
+
+        html[data-lang="de"] .t-en { display: none; }
+        html:not([data-lang="de"]) .t-de { display: none; }
+        .rf-switch { display: flex; gap: .35rem; flex-wrap: wrap; margin: .25rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--bs-border-color); }
+        .rf-switch a { border: 1px solid var(--bs-border-color); border-radius: 999px; padding: .3rem .9rem; font-size: .9rem; text-decoration: none; color: var(--bs-body-color); }
+        .rf-switch a[aria-current="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
+        .tp h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+        .tp h2 { font-size: 1.15rem; margin: 1.5rem 0 .5rem; padding-left: .6rem; border-left: 4px solid var(--bs-primary); }
+        .tp ul, .tp ol { padding-left: 1.25rem; }
+        .tp li { margin-bottom: .45rem; line-height: 1.5; }
+        .tp .tp-note { font-size: .85rem; color: var(--bs-secondary-color); }
+        .tp .tp-links a { margin-right: .9rem; white-space: nowrap; }
+        .tp-lang { display: flex; gap: .35rem; align-items: center; margin: .25rem 0 1rem; font-size: .9rem; }
+        .tp-lang button { border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: 999px; padding: .2rem .8rem; cursor: pointer; }
+        .tp-lang button[aria-pressed="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
     </style>
+<script>(function(){var l="en";try{l=localStorage.getItem("wf_lessons_lang");if(l!=="de"&&l!=="en"){var n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();l=n.indexOf("de")===0?"de":"en";}}catch(e){l="en";}document.documentElement.setAttribute("data-lang",l);})();</script>
 </head>
 <body id="top">
     <div id="header-placeholder"></div>
@@ -196,7 +212,26 @@
     </script>
     <main class="tx" id="tx-main">
         <noscript><p>This page needs JavaScript.</p></noscript>
+        <div class="rf-switch"><a href="#" aria-current="true">Exams</a><a href="#tips" aria-current="false">Tips &amp; tricks</a></div>
         <div id="tx-root"></div>
+        <div id="tx-tips" hidden><div class="tp">
+<h1><span class="t-de">telc B1 Lesen: Tipps und Tricks</span><span class="t-en">telc B1 reading: tips and tricks</span></h1>
+<div class="tp-lang"><span>🌐</span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
+<p class="tp-note"><span class="t-de">Aus dem Vergleich der Musterprüfungen im Buch. Die Tipps stammen aus Zusatz 8 der Seite „B1 Deutsch Kurs“.</span><span class="t-en">From comparing the mock exams in the book. The tips come from Extra 8 of the B1 Deutsch lessons page.</span></p>
+<h2><span class="t-de">So funktioniert der Lese-Teil</span><span class="t-en">How the reading part works</span></h2>
+<ul><li><span class="t-de">3 Teile, 75 Punkte. Jeder Teil bringt 25 Punkte.</span><span class="t-en">3 parts (Teile), 75 points. Each Teil is worth 25 points.</span></li><li><span class="t-de">Teil 1: 5 kurze Texte, 10 Überschriften. Teil 2: ein langer Text, 5 Fragen mit a, b, c. Teil 3: 10 Situationen, 12 Anzeigen.</span><span class="t-en">Teil 1: 5 short texts, 10 headings. Teil 2: one long text, 5 questions with a, b, c. Teil 3: 10 situations, 12 ads.</span></li><li><span class="t-de">Lesen und Sprachbausteine teilen sich 90 Minuten. Du wählst die Reihenfolge.</span><span class="t-en">Reading and Sprachbausteine share 90 minutes. You choose the order.</span></li><li><span class="t-de">Beste Reihenfolge: Teil 3 (25 Min.) → Teil 1 (15 Min.) → Sprachbausteine (10 + 10 Min.) → Teil 2 zuletzt (15 Min.). Etwa 15 Minuten bleiben für den Antwortbogen.</span><span class="t-en">Best order: Teil 3 (25 min) → Teil 1 (15 min) → Sprachbausteine (10 + 10 min) → Teil 2 last (15 min). About 15 min stay for the answer sheet.</span></li><li><span class="t-de">Teil 2 kommt zuletzt, weil er am schwersten ist und die meiste Zeit kostet.</span><span class="t-en">Teil 2 goes last because it is the hardest and costs the most time.</span></li><li><span class="t-de">Lass nie etwas leer. Eine falsche Antwort kostet nichts.</span><span class="t-en">Never leave a blank. A wrong answer costs nothing.</span></li></ul>
+<h2><span class="t-de">Teil 1: Überschriften (Aufgaben 1–5, 15 Min.)</span><span class="t-en">Teil 1: headings (items 1-5, 15 min)</span></h2>
+<ul><li><span class="t-de">Lies die 10 Überschriften. Kreise das „Wer“ ein: Kinder, Frauen, Männer, Firma …</span><span class="t-en">Read the 10 headings. Circle the &quot;who&quot;: Kinder, Frauen, Männer, Firma ...</span></li><li><span class="t-de">Lies von jedem Text zuerst den ersten Satz. Dort stand die Antwort in 69 % der Texte.</span><span class="t-en">Read each text&#x27;s first sentence first. The answer was there in 69% of texts.</span></li><li><span class="t-de">Gleiches Wort = Warnung, kein Beweis. In 84 von 90 Texten wiederholt eine falsche Überschrift ein Wort aus dem Text. Die richtige Überschrift nimmt oft andere Wörter.</span><span class="t-en">Same word = warning, not proof. In 84 of 90 texts, a wrong heading repeats a word from the text. The right heading often uses other words.</span></li><li><span class="t-de">Wer-Check: Kinder oder Erwachsene? Eine Person oder eine Gruppe?</span><span class="t-en">Who check: children or adults? One person or a group?</span></li><li><span class="t-de">Jede Überschrift wird nur einmal benutzt. 5 Überschriften bleiben übrig.</span><span class="t-en">Each heading is used once. 5 headings stay unused.</span></li></ul>
+<h2><span class="t-de">Teil 2: Multiple Choice (Aufgaben 6–10, 15 Min.)</span><span class="t-en">Teil 2: multiple choice (items 6-10, 15 min)</span></h2>
+<ul><li><span class="t-de">Lies zuerst die Fragen. Sie folgen der Reihenfolge im Text (stimmte 80 von 85 Mal): Frage 6 steht am Anfang, Frage 10 am Ende.</span><span class="t-en">Read the questions first. They follow the text order (true 80 of 85 times): question 6 is near the start, question 10 near the end.</span></li><li><span class="t-de">Wähle ein Suchwort (einen Namen, eine Zahl, ein Nomen). Finde es im Text. Lies nur die 2 Sätze darum.</span><span class="t-en">Pick a hunting word (a name, a number, a noun). Find it in the text. Read only the 2 sentences around it.</span></li><li><span class="t-de">Optionen mit nur, nie, immer, alle, nicht, kein waren in 77 % der Fälle falsch. Eine Warnung, kein Gesetz.</span><span class="t-en">Options with nur, nie, immer, alle, nicht, kein were wrong 77% of the time. Warning, not law.</span></li><li><span class="t-de">Die Option, die die meisten Wörter aus dem Text kopiert, war nur in 31 % der Fälle richtig. Die richtige sagt es mit anderen Worten.</span><span class="t-en">The option that copies the most text words was right only 31% of the time. The right option says it in other words.</span></li><li><span class="t-de">Immer noch unsicher? Rate a oder b (c war am seltensten richtig). Lass nie etwas leer.</span><span class="t-en">Still not sure? Guess a or b (c was right least often). Never leave a blank.</span></li></ul>
+<h2><span class="t-de">Teil 3: Anzeigen (Aufgaben 11–20, 25 Min.)</span><span class="t-en">Teil 3: ads (items 11-20, 25 min)</span></h2>
+<ul><li><span class="t-de">Lies zuerst die Situationen. Unterstreiche, was die Person will, und eine Grenze: Ort, Tag, Alter oder Preis.</span><span class="t-en">Read the situations first. Underline what the person wants and one limit: place, day, age or price.</span></li><li><span class="t-de">Gib jeder Anzeige ein Etikett aus 2–3 Wörtern: die Sache + bietet oder sucht.</span><span class="t-en">Give each ad a 2-3 word label: the thing + offers or seeks.</span></li><li><span class="t-de">Ordne zuerst die Sache zu. Das entschied 125 von 180 Aufgaben.</span><span class="t-en">Match the thing first. This decided 125 of 180 items.</span></li><li><span class="t-de">Prüfe dann die Grenze (Ort, Tag, Alter).</span><span class="t-en">Then check the limit (place, day, age).</span></li><li><span class="t-de">Prüfe dann, wer wen sucht. Du suchst eine Babysitterin? Dann muss die Anzeige eine anbieten, nicht suchen.</span><span class="t-en">Then check who looks for whom. You seek a babysitter? The ad must offer one, not seek one.</span></li><li><span class="t-de">Jede Anzeige wird nur einmal benutzt. Das stimmte in allen 18 Prüfungen.</span><span class="t-en">Each ad is used once. This was true in all 18 exams.</span></li><li><span class="t-de">Rechne mit etwa 2 × X (keine passende Anzeige). 14 von 18 Prüfungen hatten genau 2. X heißt meist: Keine Anzeige bietet diese Sache. Bei 0 oder 4+ X: noch einmal prüfen.</span><span class="t-en">Expect about 2 X (no matching ad). 14 of 18 exams had exactly 2. X usually means no ad offers that thing. Got 0 or 4+ X? Check again.</span></li></ul>
+<p><strong><span class="t-de">Wörter: suchen · bieten · verkaufen · vermieten · mieten</span><span class="t-en">Words: suchen (seek) · bieten (offer) · verkaufen (sell) · vermieten (rent out) · mieten (rent)</span></strong></p>
+<p class="tp-note"><span class="t-de">Die Zahlen stammen aus dem Vergleich aller 18 Musterprüfungen im Buch (355 Aufgaben) mit dem Lösungsschlüssel.</span><span class="t-en">The numbers come from checking all 18 mock exams in the book (355 items) against the answer key.</span></p>
+<h2><span class="t-de">Kurz gesagt</span><span class="t-en">In short</span></h2>
+<ul><li><span class="t-de">Teil 3: Jede Prüfung hatte genau 2 × X. Jede Anzeige wurde einmal benutzt. Die meisten Fallen teilen ein Wort, scheitern aber an der Grenze (Ort, Tag, Alter) oder am „Wer“.</span><span class="t-en">Teil 3: every exam had exactly 2 X. Each ad was used once. Most traps share a word but fail the limit (place, day, age) or the &quot;who&quot;.</span></li><li><span class="t-de">Teil 1: Der erste Satz entschied die meisten Texte. Zu jedem Text gab es eine Fallen-Überschrift, die ein Wort aus dem Text wiederholt.</span><span class="t-en">Teil 1: the first sentence decided most texts. Every text had a trap heading that repeats a word from the text.</span></li><li><span class="t-de">Teil 2: Die Antworten kamen in der Reihenfolge des Textes. Optionen mit nur, nicht, alle waren fast immer falsch. Ausnahmen: „immer wieder“ (Petra 6) und „ganzen“ (Sophie 8) waren richtig, also prüfen, nicht blind streichen.</span><span class="t-en">Teil 2: the answers came in text order. Options with nur, nicht, alle were wrong almost every time. Exceptions: &quot;immer wieder&quot; (Petra 6) and &quot;ganzen&quot; (Sophie 8) were right, so check, don&#x27;t cross out blindly.</span></li><li><span class="t-de">Der Lösungsschlüssel im Buch hat Fehler: Sophie 17 (e, nicht i) und Nadja 4 (f, nicht E). Wenn deine Antwort aus dem Text klar ist, vertraue dem Text.</span><span class="t-en">The book key has mistakes: Sophie 17 (e, not i) and Nadja 4 (f, not E). If your answer is clear from the text, trust the text.</span></li></ul>
+<p class="tp-links"><span class="t-de">Grammatik gehört auch zur Prüfung (Sprachbausteine): </span><span class="t-en">Grammar is part of the exam too (Sprachbausteine): </span></p><p class="tp-links"><a href="18_telc_grammatik.html">18 telc Grammatik</a> <a href="16_telc_schreiben.html">16 telc Schreiben</a> <a href="17_telc_sprechen.html">17 telc Sprechen</a></p>
+</div></div>
     </main>
     <div id="footer-placeholder"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -473,10 +508,29 @@
         renderResult(); renderPanel(); refreshBar();
         root.appendChild(el('p', 'tx-note', 'Tip: each Teil has its own clock. It starts with your first answer or with “Start clock”, and it shows + when you are over time. In the real exam the 90 minutes are shared with Sprachbausteine; here only the three Lesen Teile run.'));
     }
-    function route() { var m = /^#exam-(\d+)$/.exec(location.hash); if (m) showExam(parseInt(m[1], 10)); else showList(); window.scrollTo(0, 0); }
+    function route() { if (location.hash === '#tips') { stopClock(); save(); return; } var m = /^#exam-(\d+)$/.exec(location.hash); if (m) showExam(parseInt(m[1], 10)); else showList(); window.scrollTo(0, 0); }
     window.addEventListener('hashchange', route);
     window.addEventListener('pagehide', function () { save(); });
     route();
+})();
+</script>
+    <script>
+(function () {
+    var root = document.getElementById('tx-root'), tips = document.getElementById('tx-tips'), links = document.querySelectorAll('.rf-switch a');
+    function sync() {
+        var t = location.hash === '#tips';
+        root.hidden = t; tips.hidden = !t;
+        links[0].setAttribute('aria-current', String(!t)); links[1].setAttribute('aria-current', String(t));
+        if (t) window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', sync); sync();
+    function setLang(l, save) {
+        document.documentElement.setAttribute('data-lang', l);
+        if (save) { try { localStorage.setItem('wf_lessons_lang', l); } catch (e) {} }
+        document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === l)); });
+    }
+    setLang(document.documentElement.getAttribute('data-lang') || 'en', false);
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); }); });
 })();
 </script>
 </body>

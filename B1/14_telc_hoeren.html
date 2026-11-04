@@ -94,7 +94,23 @@
             .tx-row .fb { grid-column: 2; }
         }
         @media print { .tx-bar, .tx-audio, .tx-ans button:not([aria-pressed="true"]) { display: none !important; } }
+
+        html[data-lang="de"] .t-en { display: none; }
+        html:not([data-lang="de"]) .t-de { display: none; }
+        .rf-switch { display: flex; gap: .35rem; flex-wrap: wrap; margin: .25rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--bs-border-color); }
+        .rf-switch a { border: 1px solid var(--bs-border-color); border-radius: 999px; padding: .3rem .9rem; font-size: .9rem; text-decoration: none; color: var(--bs-body-color); }
+        .rf-switch a[aria-current="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
+        .tp h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+        .tp h2 { font-size: 1.15rem; margin: 1.5rem 0 .5rem; padding-left: .6rem; border-left: 4px solid var(--bs-primary); }
+        .tp ul, .tp ol { padding-left: 1.25rem; }
+        .tp li { margin-bottom: .45rem; line-height: 1.5; }
+        .tp .tp-note { font-size: .85rem; color: var(--bs-secondary-color); }
+        .tp .tp-links a { margin-right: .9rem; white-space: nowrap; }
+        .tp-lang { display: flex; gap: .35rem; align-items: center; margin: .25rem 0 1rem; font-size: .9rem; }
+        .tp-lang button { border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: 999px; padding: .2rem .8rem; cursor: pointer; }
+        .tp-lang button[aria-pressed="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
     </style>
+<script>(function(){var l="en";try{l=localStorage.getItem("wf_lessons_lang");if(l!=="de"&&l!=="en"){var n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();l=n.indexOf("de")===0?"de":"en";}}catch(e){l="en";}document.documentElement.setAttribute("data-lang",l);})();</script>
 </head>
 <body id="top">
     <div id="header-placeholder"></div>
@@ -184,7 +200,20 @@
     </script>
     <main class="tx" id="tx-main">
         <noscript><p>This page needs JavaScript.</p></noscript>
+        <div class="rf-switch"><a href="#" aria-current="true">Exams</a><a href="#tips" aria-current="false">Tips &amp; tricks</a></div>
         <div id="tx-root"></div>
+        <div id="tx-tips" hidden><div class="tp">
+<h1><span class="t-de">telc B1 Hören: Tipps und Tricks</span><span class="t-en">telc B1 listening: tips and tricks</span></h1>
+<div class="tp-lang"><span>🌐</span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
+<p class="tp-note"><span class="t-de">Aus den Musterprüfungen im Buch. Die Tipps stammen aus Zusatz 9 der Seite „B1 Deutsch Kurs“.</span><span class="t-en">From the mock exams in the book. The tips come from Extra 9 of the B1 Deutsch lessons page.</span></p>
+<h2><span class="t-de">So funktioniert der Hörteil</span><span class="t-en">How the listening part works</span></h2>
+<ul><li><span class="t-de">Der Hörteil hat 3 Teile mit zusammen 20 Aussagen (41–60). Bei jeder Aussage entscheidest du: richtig oder falsch.</span><span class="t-en">The listening part has 3 parts (Teile) with 20 statements (41-60) in all. For every statement you decide: true or false.</span></li><li><span class="t-de">Auf dem Antwortbogen markierst du PLUS (+) für richtig und MINUS (−) für falsch.</span><span class="t-en">On the answer sheet you mark PLUS (+) for true and MINUS (−) for false.</span></li><li><span class="t-de">Teil 1 (41–45): 5 kurze Texte, jeder von einer Person. Du hörst sie nur einmal. Vorher hast du 30 Sekunden Zeit, die Aufgaben zu lesen.</span><span class="t-en">Teil 1 (41-45): 5 short texts, each by one person. You hear them only once. Before that you have 30 seconds to read the tasks.</span></li><li><span class="t-de">Teil 2 (46–55): ein Gespräch mit 10 Aussagen. Du hörst es zweimal. Vorher hast du 30 Sekunden zum Lesen.</span><span class="t-en">Teil 2 (46-55): one conversation with 10 statements. You hear it twice. Before that you have 30 seconds to read.</span></li><li><span class="t-de">Teil 3 (56–60): 5 kurze Texte (zum Beispiel Durchsagen, Wetter, Nachrichten). Du hörst jeden Text zweimal. Im Buch steht hier keine Lesezeit.</span><span class="t-en">Teil 3 (56-60): 5 short texts (for example announcements, weather, news). You hear each text twice. The book names no reading time here.</span></li><li><span class="t-de">Mein Tipp: Nutze die 30 Sekunden und unterstreiche die wichtigen Wörter in jeder Aussage (Namen, Zahlen, Zeiten, „nicht“, „nur“, „immer“).</span><span class="t-en">My tip: use the 30 seconds and underline the key words in every statement (names, numbers, times, “nicht”, “nur”, “immer”).</span></li></ul>
+<h2><span class="t-de">Was die 17 Prüfungen zeigen</span><span class="t-en">What the 17 exams show</span></h2>
+<ul><li><span class="t-de">340 Aussagen in 17 Prüfungen: 161 sind richtig (+), 179 falsch (−), das sind 47 % richtig. Rate nicht nur „falsch“ oder „richtig“: Das Verhältnis ist fast ausgeglichen.</span><span class="t-en">340 statements in 17 exams: 161 are true (+), 179 false (−), that is 47 % true. Do not just guess one answer for everything: the mix is nearly even.</span></li><li><span class="t-de">Teil 1: 41 von 85 richtig. Teil 2: 80 von 170 richtig. Teil 3: 40 von 85 richtig.</span><span class="t-en">Teil 1: 41 of 85 true. Teil 2: 80 of 170 true. Teil 3: 40 of 85 true.</span></li><li><span class="t-de">Das Buch benutzt Teile mehrfach: In 17 Fällen stehen (fast) dieselben Aussagen eines Teils in zwei Prüfungen (siehe unten). Wenn du eine Prüfung schon kennst, kennst du auch diese Aussagen.</span><span class="t-en">The book reuses parts: in 17 cases (almost) the same statements of a Teil are in two exams (see below). If you already know one exam, you also know those statements.</span></li><li><span class="t-de">In 2 dieser Fälle sind die Lösungen verschieden (Teil 3: Eva und Nadja, Aufgabe 58, 60; Teil 3: Eva und Carolina, Aufgabe 58, 60). Eine der beiden Lösungen ist wahrscheinlich falsch: prüfe sie mit der Aufnahme.</span><span class="t-en">In 2 of these cases the answers differ (Teil 3: Eva and Nadja, item 58, 60; Teil 3: Eva and Carolina, item 58, 60). One of the two keys is probably wrong: check it against the recording.</span></li><li><span class="t-de">Rita hat im Buch keinen Hörteil. Bei Prüfung 13 (Andreas 2) fehlt Teil 1 im Buch; er ist aus dem Video abgeschrieben.</span><span class="t-en">Rita has no listening part in the book. In exam 13 (Andreas 2) Teil 1 is missing from the book; it is copied from the video.</span></li></ul>
+<h2><span class="t-de">Gleiche Teile in mehreren Prüfungen</span><span class="t-en">Same parts in several exams</span></h2>
+<ul><li><span class="t-de">Teil 1: Eva und Sonja (5 Aussagen)</span><span class="t-en">Teil 1: Eva and Sonja (5 statements)</span></li><li><span class="t-de">Teil 1: Eva und Jennifer (5 Aussagen)</span><span class="t-en">Teil 1: Eva and Jennifer (5 statements)</span></li><li><span class="t-de">Teil 1: Nadja und Carolina (5 Aussagen)</span><span class="t-en">Teil 1: Nadja and Carolina (5 statements)</span></li><li><span class="t-de">Teil 1: Andreas und Vera (4 Aussagen)</span><span class="t-en">Teil 1: Andreas and Vera (4 statements)</span></li><li><span class="t-de">Teil 1: Iris und Thomas (5 Aussagen)</span><span class="t-en">Teil 1: Iris and Thomas (5 statements)</span></li><li><span class="t-de">Teil 1: Sonja und Jennifer (5 Aussagen)</span><span class="t-en">Teil 1: Sonja and Jennifer (5 statements)</span></li><li><span class="t-de">Teil 2: Nadja und Nicole (10 Aussagen)</span><span class="t-en">Teil 2: Nadja and Nicole (10 statements)</span></li><li><span class="t-de">Teil 2: Iris und Vera (10 Aussagen)</span><span class="t-en">Teil 2: Iris and Vera (10 statements)</span></li><li><span class="t-de">Teil 2: Iris und Thomas (10 Aussagen)</span><span class="t-en">Teil 2: Iris and Thomas (10 statements)</span></li><li><span class="t-de">Teil 2: Vera und Thomas (10 Aussagen)</span><span class="t-en">Teil 2: Vera and Thomas (10 statements)</span></li><li><span class="t-de">Teil 2: Andreas 2 und Tamara (10 Aussagen)</span><span class="t-en">Teil 2: Andreas 2 and Tamara (10 statements)</span></li><li><span class="t-de">Teil 3: Eva und Nadja (5 Aussagen)</span><span class="t-en">Teil 3: Eva and Nadja (5 statements)</span></li><li><span class="t-de">Teil 3: Eva und Carolina (5 Aussagen)</span><span class="t-en">Teil 3: Eva and Carolina (5 statements)</span></li><li><span class="t-de">Teil 3: Sophie und Andreas (5 Aussagen)</span><span class="t-en">Teil 3: Sophie and Andreas (5 statements)</span></li><li><span class="t-de">Teil 3: Nadja und Carolina (5 Aussagen)</span><span class="t-en">Teil 3: Nadja and Carolina (5 statements)</span></li><li><span class="t-de">Teil 3: Sonja und Vera (5 Aussagen)</span><span class="t-en">Teil 3: Sonja and Vera (5 statements)</span></li><li><span class="t-de">Teil 3: Jennifer und Andreas 2 (5 Aussagen)</span><span class="t-en">Teil 3: Jennifer and Andreas 2 (5 statements)</span></li></ul>
+<p class="tp-links"><a href="18_telc_grammatik.html">18 telc Grammatik</a> <a href="15_telc_lesen.html">15 telc Lesen</a> <a href="16_telc_schreiben.html">16 telc Schreiben</a> <a href="17_telc_sprechen.html">17 telc Sprechen</a></p>
+</div></div>
     </main>
     <div id="footer-placeholder"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -424,6 +453,7 @@
     }
 
     function route() {
+        if (location.hash === '#tips') { stopClock(); return; }
         var m = /^#exam-(\d+)$/.exec(location.hash);
         if (m) showExam(parseInt(m[1], 10)); else showList();
         window.scrollTo(0, 0);
@@ -431,6 +461,25 @@
     window.addEventListener('hashchange', route);
     window.addEventListener('pagehide', function () { save(); });
     route();
+})();
+</script>
+    <script>
+(function () {
+    var root = document.getElementById('tx-root'), tips = document.getElementById('tx-tips'), links = document.querySelectorAll('.rf-switch a');
+    function sync() {
+        var t = location.hash === '#tips';
+        root.hidden = t; tips.hidden = !t;
+        links[0].setAttribute('aria-current', String(!t)); links[1].setAttribute('aria-current', String(t));
+        if (t) window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', sync); sync();
+    function setLang(l, save) {
+        document.documentElement.setAttribute('data-lang', l);
+        if (save) { try { localStorage.setItem('wf_lessons_lang', l); } catch (e) {} }
+        document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === l)); });
+    }
+    setLang(document.documentElement.getAttribute('data-lang') || 'en', false);
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); }); });
 })();
 </script>
 </body>
