@@ -110,6 +110,27 @@
         .tp-lang button { border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: 999px; padding: .2rem .8rem; cursor: pointer; }
         .tp-lang button[aria-pressed="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
 
+        .sm-wrap { display: block; }
+        .sm-nav { margin-bottom: 1rem; font-size: .9rem; }
+        .sm-nav > details { border: 1px solid var(--bs-border-color); border-radius: .6rem; background: var(--bs-body-bg); }
+        .sm-nav summary { cursor: pointer; padding: .5rem .8rem; font-weight: 700; }
+        .sm-nav ul { list-style: none; margin: 0; padding: 0 .4rem .5rem; }
+        .sm-nav a { display: block; padding: .28rem .55rem; border-radius: .4rem; color: var(--bs-body-color); text-decoration: none; line-height: 1.3; cursor: pointer; }
+        .sm-nav a:hover { background: var(--bs-secondary-bg); }
+        .sm-nav a.act { background: var(--bs-primary); color: #fff; }
+        .sm-nav li.sm-grp > a { font-weight: 700; margin-top: .35rem; }
+        .sm-nav li.sm-item > a { padding-left: 1.1rem; }
+        .sm-nav .enx, .sm-nav .t-en { font-weight: 400; }
+        .sm-main { min-width: 0; }
+        .sm-main [data-smh] { scroll-margin-top: 6rem; }
+        @media (min-width: 992px) {
+            .sm-wrap { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+            .sm-nav { position: sticky; top: 4.5rem; max-height: calc(100vh - 5.5rem); overflow-y: auto; margin-bottom: 0; }
+            .sm-nav summary { pointer-events: none; list-style: none; }
+            .sm-nav summary::-webkit-details-marker { display: none; }
+        }
+        @media print { .sm-nav { display: none !important; } .sm-wrap { display: block; } }
+
         mark.ul-mark { background: transparent; color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: #e0a800; text-underline-offset: 3px; padding: 0; }
         .ul-on [data-ul] { cursor: text; }
         .ul-hint { display: none; font-size: .85rem; color: var(--bs-secondary-color); margin: -.5rem 0 .75rem; }
@@ -492,6 +513,18 @@ window.wfUl = (function () {
             box.appendChild(pills);
             panel.appendChild(box);
             panel.appendChild(detailsBox('Tips for Teil ' + t, TRICKS[t], false));
+            if (T.same && T.same.length) {
+                var sm = el('div', 'tx-box'); sm.appendChild(el('div', 'lbl', 'Repeated Teil'));
+                T.same.forEach(function (x) {
+                    var all = x.n === x.of ? 'The same ' + x.n + ' statements' : x.n + ' of ' + x.of + ' statements';
+                    var l = el('div', 'mb-1');
+                    var a = el('a', null, 'exam ' + x.no + ' (' + x.title + ')'); a.href = '#exam-' + x.no;
+                    l.appendChild(document.createTextNode(all + ' are also printed in ')); l.appendChild(a);
+                    l.appendChild(document.createTextNode(x.diff.length ? '. The key differs for ' + x.diff.join(', ') + ': one of the two keys is probably wrong, check it against the recording.' : '. The answers are the same.'));
+                    sm.appendChild(l);
+                });
+                panel.appendChild(sm);
+            }
 
             var a = el('div', 'tx-box tx-audio');
             a.appendChild(el('div', 'lbl', 'The recording'));
@@ -614,6 +647,42 @@ window.wfUl = (function () {
 })();
 </script>
     <script>
+function wfSideMenu(pane, sel, title) {
+    if (!pane || pane.dataset.sm) return;
+    var hs = Array.prototype.slice.call(pane.querySelectorAll(sel)).filter(function (h) { return h.textContent.trim() && !h.classList.contains('part-heading'); });
+    if (hs.length < 3) return;
+    pane.dataset.sm = '1';
+    var wrap = document.createElement('div'); wrap.className = 'sm-wrap';
+    var main = document.createElement('div'); main.className = 'sm-main';
+    while (pane.firstChild) main.appendChild(pane.firstChild);
+    var nav = document.createElement('nav'); nav.className = 'sm-nav'; nav.setAttribute('aria-label', title);
+    var det = document.createElement('details'), sum = document.createElement('summary'), ul = document.createElement('ul');
+    sum.textContent = title; det.appendChild(sum); det.appendChild(ul); nav.appendChild(det);
+    det.open = window.matchMedia('(min-width: 992px)').matches;
+    var links = [];
+    hs.forEach(function (h, i) {
+        h.setAttribute('data-smh', String(i));
+        var c = h.cloneNode(true);
+        c.querySelectorAll('.sec-count, button, .d-tts, .eye-btn, .table-eye-btn, svg').forEach(function (x) { x.remove(); });
+        var li = document.createElement('li'), a = document.createElement('a');
+        li.className = /^H[1-6]$/.test(h.tagName) && h.tagName !== 'H2' ? 'sm-grp' : 'sm-item';
+        if (h.tagName === 'H2') li.className = 'sm-item';
+        a.innerHTML = c.innerHTML; a.setAttribute('role', 'button'); a.tabIndex = 0;
+        function go() { h.scrollIntoView({ behavior: 'smooth', block: 'start' }); mark(i); }
+        a.addEventListener('click', go);
+        a.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+        li.appendChild(a); ul.appendChild(li); links.push(a);
+    });
+    function mark(i) { links.forEach(function (a, k) { a.classList.toggle('act', k === i); }); }
+    wrap.appendChild(nav); wrap.appendChild(main); pane.appendChild(wrap);
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) mark(parseInt(e.target.getAttribute('data-smh'), 10)); });
+        }, { rootMargin: '-90px 0px -70% 0px' });
+        hs.forEach(function (h) { io.observe(h); });
+    }
+}
+
 (function () {
     var root = document.getElementById('tx-root'), tips = document.getElementById('tx-tips'), links = document.querySelectorAll('.rf-switch a');
     function sync() {
@@ -631,6 +700,8 @@ window.wfUl = (function () {
     setLang(document.documentElement.getAttribute('data-lang') || 'en', false);
     document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); }); });
 })();
+
+wfSideMenu(document.getElementById('tx-tips'), '.tp h2', 'Contents');
 </script>
 </body>
 </html>
