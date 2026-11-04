@@ -426,6 +426,9 @@
             <li>Write about <strong>all 4 points</strong>, 2–3 sentences each. A missing point costs many marks.</li>
             <li>About <strong>120–160 words</strong>. No dictionary.</li></ul>
             <p class="tx-note mt-2 mb-0">Source: the study aid in Extra 2 of the Deutsch lessons page. Check important details against the official telc material.</p></div>
+        <div class="tx-box"><div class="lbl">Exam task (the 16 writing tasks of the book "Prüfungs Buch Petra")</div>
+            <select class="form-select form-select-sm" id="sc-task" aria-label="Exam task" style="max-width:22rem"></select>
+            <div id="sc-taskbody" class="mt-3"></div></div>
         <div class="tx-box"><div class="lbl">The clock</div>
             <div class="tx-clockbox"><div class="tx-time" id="sc-time">30:00</div>
             <div class="tx-phase" id="sc-phase">Ready: 30 minutes</div>
@@ -552,6 +555,7 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
+<script src="telc-schreiben-data.js?v=1"></script>
 <script>
     // Language switch, speaker buttons and hide-English practice (this page only)
     (function () {
@@ -806,16 +810,38 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     go.addEventListener('click', function () { if (clock.running) { clock.pause(); go.textContent = '▶ Resume'; } else { if (clock.left <= 0) clock.reset(); clock.start(); go.textContent = '⏸ Pause'; } });
     rs.addEventListener('click', function () { clock.reset(); go.textContent = '▶ Start'; });
     paint(TOTAL);
-    // practice area: text box with word count and checklist, kept in this browser only
-    var KEY = 'wf_telc_schreiben_v1', S = {}; try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { S = {}; }
+    // exam tasks of the book: the letter and the 4 points; the text box and the checklist are kept per task, in this browser only
+    var TASKS = window.TELC_SCHREIBEN || [];
+    var KEY = 'wf_telc_schreiben_v2', S = {}; try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { S = {}; }
+    if (!S.texts) { S.texts = {}; S.chk = {}; try { var old = JSON.parse(localStorage.getItem('wf_telc_schreiben_v1')) || {}; if (old.text) S.texts['0'] = old.text; if (old.chk) S.chk['0'] = old.chk; } catch (e) {} }
     function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+    var tsel = document.getElementById('sc-task'), tbody = document.getElementById('sc-taskbody');
     var ta = document.getElementById('sc-text'), wc = document.getElementById('sc-wc');
-    ta.value = S.text || '';
+    var free = wfEl('option', null, 'Free writing (no task)'); free.value = '0'; tsel.appendChild(free);
+    TASKS.forEach(function (t) { var o = wfEl('option', null, 'Prüfung ' + t.no + ': ' + t.title); o.value = String(t.no); tsel.appendChild(o); });
+    function cur() { return tsel.value; }
     function count() { var n = (ta.value.trim().match(/\S+/g) || []).length; wc.textContent = n + ' words (aim: 120–160)'; wc.className = 'tx-wc ' + (n >= 120 && n <= 160 ? 'ok' : (n ? 'warn' : '')); }
-    ta.addEventListener('input', function () { S.text = ta.value; save(); count(); }); count();
-    document.querySelectorAll('.tx-check input').forEach(function (cb) { cb.checked = !!(S.chk && S.chk[cb.dataset.k]); cb.addEventListener('change', function () { S.chk = S.chk || {}; S.chk[cb.dataset.k] = cb.checked; save(); }); });
-    document.getElementById('sc-clear').addEventListener('click', function () { if (!ta.value || ta.dataset.arm === '1') { ta.value = ''; S = {}; save(); count(); document.querySelectorAll('.tx-check input').forEach(function (c) { c.checked = false; }); ta.dataset.arm = ''; this.textContent = 'Clear'; } else { ta.dataset.arm = '1'; this.textContent = 'Click again to clear'; } });
+    function showTask() {
+        var no = cur(), t = TASKS.filter(function (x) { return String(x.no) === no; })[0];
+        tbody.textContent = '';
+        if (t) {
+            tbody.appendChild(wfEl('p', 'mb-2', t.intro));
+            var q = wfEl('blockquote', 'border-start ps-3 mb-2'); t.letter.forEach(function (x) { q.appendChild(wfEl('p', 'mb-2', x)); }); tbody.appendChild(q);
+            tbody.appendChild(wfEl('p', 'mb-1 fw-bold', t.task));
+            var ul = wfEl('ul', 'mb-2'); t.points.forEach(function (x) { ul.appendChild(wfEl('li', null, x)); }); tbody.appendChild(ul);
+            if (t.hints) tbody.appendChild(wfEl('p', 'tx-note mb-0', t.hints));
+        } else { tbody.appendChild(wfEl('p', 'tx-note mb-0', 'Write about anything you like, or choose an exam task above.')); }
+        ta.value = S.texts[no] || ''; count();
+        document.querySelectorAll('.tx-check input').forEach(function (cb) { cb.checked = !!((S.chk[no] || {})[cb.dataset.k]); });
+        S.sel = no; save();
+    }
+    tsel.value = S.sel && Array.prototype.some.call(tsel.options, function (o) { return o.value === S.sel; }) ? S.sel : (TASKS[0] ? String(TASKS[0].no) : '0');
+    tsel.addEventListener('change', showTask);
+    ta.addEventListener('input', function () { S.texts[cur()] = ta.value; save(); count(); });
+    document.querySelectorAll('.tx-check input').forEach(function (cb) { cb.addEventListener('change', function () { var no = cur(); S.chk[no] = S.chk[no] || {}; S.chk[no][cb.dataset.k] = cb.checked; save(); }); });
+    document.getElementById('sc-clear').addEventListener('click', function () { if (!ta.value || ta.dataset.arm === '1') { ta.value = ''; S.texts[cur()] = ''; S.chk[cur()] = {}; save(); count(); document.querySelectorAll('.tx-check input').forEach(function (c) { c.checked = false; }); ta.dataset.arm = ''; this.textContent = 'Clear'; } else { ta.dataset.arm = '1'; this.textContent = 'Click again to clear'; } });
     document.getElementById('sc-copy').addEventListener('click', function () { var b = this; if (navigator.clipboard) navigator.clipboard.writeText(ta.value).then(function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy text'; }, 1500); }); });
+    showTask();
 })();
 </script>
 </body>
