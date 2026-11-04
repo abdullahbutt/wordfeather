@@ -256,9 +256,14 @@
     try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { store = {}; }
     function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
     function st(no) { return store[no] || (store[no] = { a: {}, done: false, secs: 0, best: null, tries: 0 }); }
+    function detailsBox(title, arr, open) {
+        var d = el('details', 'tx-box'); if (open) d.open = true;
+        var s = el('summary', null, title); s.style.cursor = 'pointer'; s.style.fontWeight = '700'; d.appendChild(s);
+        var u = el('ul', 'mt-2 mb-0'); arr.forEach(function (x) { u.appendChild(el('li', null, x)); }); d.appendChild(u); return d;
+    }
     function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
     function fmt(s) { var m = Math.floor(s / 60), r = s % 60; return (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
-    var INSTR = {"1": "Sie hören nun fünf kurze Texte. Dazu sollen Sie fünf Aufgaben lösen. Sie hören diese Texte nur einmal. Entscheiden Sie beim Hören, ob die Aussagen 41–45 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 41–45. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 41–45. Sie haben dazu 30 Sekunden Zeit.", "2": "Sie hören nun ein Gespräch. Dazu sollen Sie zehn Aufgaben lösen. Sie hören das Gespräch zweimal. Entscheiden Sie beim Hören, ob die Aussagen 46–55 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 46–55. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 46–55. Sie haben dazu 30 Sekunden Zeit.", "3": "Sie hören nun fünf kurze Texte. Sie hören jeden Text zweimal. Entscheiden Sie beim Hören, ob die Aussagen 56–60 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 56–60. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen."};
+    var INSTR = {"1": "Sie hören nun fünf kurze Texte. Dazu sollen Sie fünf Aufgaben lösen. Sie hören diese Texte nur einmal. Entscheiden Sie beim Hören, ob die Aussagen 41–45 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 41–45. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 41–45. Sie haben dazu 30 Sekunden Zeit.", "2": "Sie hören nun ein Gespräch. Dazu sollen Sie zehn Aufgaben lösen. Sie hören das Gespräch zweimal. Entscheiden Sie beim Hören, ob die Aussagen 46–55 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 46–55. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 46–55. Sie haben dazu 30 Sekunden Zeit.", "3": "Sie hören nun fünf kurze Texte. Sie hören jeden Text zweimal. Entscheiden Sie beim Hören, ob die Aussagen 56–60 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 56–60. Markieren Sie PLUS (+) gleich richtig und MINUS (−) gleich falsch auf dem Antwortbogen."}, HOW = ["The listening part has 3 parts (Teile) with 20 statements (41-60) in all. For every statement you decide: true or false.", "On the answer sheet you mark PLUS (+) for true and MINUS (−) for false.", "Teil 1 (41-45): 5 short texts, each by one person. You hear them only once. Before that you have 30 seconds to read the tasks.", "Teil 2 (46-55): one conversation with 10 statements. You hear it twice. Before that you have 30 seconds to read.", "Teil 3 (56-60): 5 short texts (for example announcements, weather, news). You hear each text twice. The book names no reading time here.", "My tip: use the 30 seconds and underline the key words in every statement (names, numbers, times, “nicht”, “nur”, “immer”)."], TRICKS = {"1": ["Teil 1 (41-45): 5 short texts, each by one person. You hear them only once. Before that you have 30 seconds to read the tasks.", "My tip: use the 30 seconds and underline the key words in every statement (names, numbers, times, “nicht”, “nur”, “immer”)."], "2": ["Teil 2 (46-55): one conversation with 10 statements. You hear it twice. Before that you have 30 seconds to read.", "My tip: use the 30 seconds and underline the key words in every statement (names, numbers, times, “nicht”, “nur”, “immer”)."], "3": ["Teil 3 (56-60): 5 short texts (for example announcements, weather, news). You hear each text twice. The book names no reading time here.", "My tip: use the 30 seconds and underline the key words in every statement (names, numbers, times, “nicht”, “nur”, “immer”)."]};
     var timer = null, running = false, view = null;
 
     function allItems(ex) { var a = []; ['1', '2', '3'].forEach(function (t) { if (ex.teile[t]) a = a.concat(ex.teile[t].items); }); return a; }
@@ -269,6 +274,8 @@
         document.title = '14 telc Hören Prüfungen - B1';
         var h = el('h1', null, 'telc B1 Hören: Prüfungen'); root.appendChild(h);
         root.appendChild(el('p', 'lead-s', D.length + ' listening exams (Hörverstehen, Teil 1–3, 20 statements each). Pick an exam, play the recording, mark + (richtig) or − (falsch) on the answer sheet and press Submit. The English translations stay hidden until you click the eye.'));
+        root.appendChild(detailsBox('How the listening part works', HOW, true));
+        root.appendChild(el('p', 'tx-note', 'The rules of each Teil are above the statements inside every exam. All tips: see the “Tips & tricks” tab at the top.'));
         var g = el('div', 'tx-grid');
         D.forEach(function (ex) {
             var s = st(ex.no), items = allItems(ex), n = Object.keys(s.a).length, c = el('div', 'tx-card');
@@ -352,6 +359,7 @@
             pills.appendChild(el('span', 'tx-pill', 'statements ' + T.items[0].n + '–' + T.items[T.items.length - 1].n));
             box.appendChild(pills);
             panel.appendChild(box);
+            panel.appendChild(detailsBox('Tips for Teil ' + t, TRICKS[t], false));
 
             var a = el('div', 'tx-box tx-audio');
             a.appendChild(el('div', 'lbl', 'The recording'));

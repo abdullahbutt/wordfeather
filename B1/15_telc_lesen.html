@@ -273,8 +273,13 @@
     var store = {};
     try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { store = {}; }
     function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
-    var MIN = {"1": 15, "2": 15, "3": 25}, PTS = {"1": 5, "2": 5, "3": 2.5}, INSTR = {"1": "Lesen Sie die Überschriften a–j und die Texte 1–5. Welche Überschrift passt zu welchem Text? Jede Überschrift passt nur einmal. Fünf Überschriften bleiben übrig.", "2": "Lesen Sie den Text und die Aufgaben 6–10 dazu. Welche Lösung (a, b oder c) ist jeweils richtig?", "3": "Lesen Sie die Situationen 11–20 und die Anzeigen a–l. Welche Anzeige passt zu welcher Situation? Sie können jede Anzeige nur einmal benutzen. Wenn keine Anzeige passt, markieren Sie X."};
+    var MIN = {"1": 15, "2": 15, "3": 25}, PTS = {"1": 5, "2": 5, "3": 2.5}, INSTR = {"1": "Lesen Sie die Überschriften a–j und die Texte 1–5. Welche Überschrift passt zu welchem Text? Jede Überschrift passt nur einmal. Fünf Überschriften bleiben übrig.", "2": "Lesen Sie den Text und die Aufgaben 6–10 dazu. Welche Lösung (a, b oder c) ist jeweils richtig?", "3": "Lesen Sie die Situationen 11–20 und die Anzeigen a–l. Welche Anzeige passt zu welcher Situation? Sie können jede Anzeige nur einmal benutzen. Wenn keine Anzeige passt, markieren Sie X."}, HOW = ["3 parts (Teile), 75 points. Each Teil is worth 25 points.", "Teil 1: 5 short texts, 10 headings. Teil 2: one long text, 5 questions with a, b, c. Teil 3: 10 situations, 12 ads.", "Reading and Sprachbausteine share 90 minutes. You choose the order.", "Best order: Teil 3 (25 min) → Teil 1 (15 min) → Sprachbausteine (10 + 10 min) → Teil 2 last (15 min). About 15 min stay for the answer sheet.", "Teil 2 goes last because it is the hardest and costs the most time.", "Never leave a blank. A wrong answer costs nothing."], TRICKS = {"1": ["Read the 10 headings. Circle the \"who\": Kinder, Frauen, Männer, Firma ...", "Read each text's first sentence first. The answer was there in 69% of texts.", "Same word = warning, not proof. In 84 of 90 texts, a wrong heading repeats a word from the text. The right heading often uses other words.", "Who check: children or adults? One person or a group?", "Each heading is used once. 5 headings stay unused."], "2": ["Read the questions first. They follow the text order (true 80 of 85 times): question 6 is near the start, question 10 near the end.", "Pick a hunting word (a name, a number, a noun). Find it in the text. Read only the 2 sentences around it.", "Options with nur, nie, immer, alle, nicht, kein were wrong 77% of the time. Warning, not law.", "The option that copies the most text words was right only 31% of the time. The right option says it in other words.", "Still not sure? Guess a or b (c was right least often). Never leave a blank."], "3": ["Read the situations first. Underline what the person wants and one limit: place, day, age or price.", "Give each ad a 2-3 word label: the thing + offers or seeks.", "Match the thing first. This decided 125 of 180 items.", "Then check the limit (place, day, age).", "Then check who looks for whom. You seek a babysitter? The ad must offer one, not seek one.", "Each ad is used once. This was true in all 18 exams.", "Expect about 2 X (no matching ad). 14 of 18 exams had exactly 2. X usually means no ad offers that thing. Got 0 or 4+ X? Check again.", "Words: suchen (seek) · bieten (offer) · verkaufen (sell) · vermieten (rent out) · mieten (rent)"]};
     function st(no) { return store[no] || (store[no] = { a: {}, done: false, left: { '1': MIN['1'] * 60, '2': MIN['2'] * 60, '3': MIN['3'] * 60 }, best: null, tries: 0 }); }
+    function detailsBox(title, arr, open) {
+        var d = el('details', 'tx-box'); if (open) d.open = true;
+        var s = el('summary', null, title); s.style.cursor = 'pointer'; s.style.fontWeight = '700'; d.appendChild(s);
+        var u = el('ul', 'mt-2 mb-0'); arr.forEach(function (x) { u.appendChild(el('li', null, x)); }); d.appendChild(u); return d;
+    }
     function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
     function fmt(s) { var neg = s < 0; s = Math.abs(s); var m = Math.floor(s / 60), r = s % 60; return (neg ? '+' : '') + (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
     function ids(ex, t) {
@@ -301,6 +306,8 @@
         document.title = '15 telc Lesen Prüfungen - B1';
         root.appendChild(el('h1', null, 'telc B1 Lesen: Prüfungen'));
         root.appendChild(el('p', 'lead-s', D.length + ' reading exams (Leseverstehen, Teil 1–3, 75 points). Each Teil has its own clock: 15, 15 and 25 minutes. Read, choose your answers, press Submit. The English translations stay hidden until you click the eye.'));
+        root.appendChild(detailsBox('How the reading part works', HOW, true));
+        root.appendChild(el('p', 'tx-note', 'The tricks for each Teil are above the questions inside every exam. All tips: see the “Tips & tricks” tab at the top.'));
         var g = el('div', 'tx-grid');
         D.forEach(function (ex) {
             var s = st(ex.no), c = el('div', 'tx-card'), n = Object.keys(s.a).length, total = 0;
@@ -411,6 +418,7 @@
             pills.appendChild(el('span', 'tx-pill', ids(ex, t).length + ' items × ' + PTS[t] + ' points = ' + ids(ex, t).length * PTS[t]));
             pills.appendChild(el('span', 'tx-pill', 'book p. ' + T.pages));
             box.appendChild(pills); panel.appendChild(box);
+            panel.appendChild(detailsBox('Tricks for Teil ' + t, TRICKS[t], false));
 
             var letters;
             if (t === '1') {
