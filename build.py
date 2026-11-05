@@ -2316,7 +2316,8 @@ def main():
             if os.path.exists(page_path):
                 with open(page_path, encoding='utf-8') as f:
                     pg = f.read()
-                pg = inject_install_banner(pg)
+                # the install banner is only on the home page; the level home pages stay compact
+                pg = inject_install_banner(pg) if page_path == os.path.join(REPO, 'index.html') else _BANNER_STRIP_RE.sub('\n', pg)
                 with open(page_path, 'w', encoding='utf-8', newline='\n') as f:
                     f.write(pg)
                 print(f"  ✅ banner → {os.path.relpath(page_path, REPO)}")

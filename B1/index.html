@@ -145,14 +145,22 @@
         }
     </style>
 <style>
-.lv-hero{background:linear-gradient(135deg,#1d4ed8 0%,#6366f1 100%);color:#fff;border-radius:1rem;padding:1.6rem 1.4rem;margin-bottom:1.5rem}
+.lv-hero{background:linear-gradient(135deg,#1d4ed8 0%,#6366f1 100%);color:#fff;border-radius:.9rem;padding:.9rem 1.1rem;margin-bottom:.9rem}
 [data-bs-theme="dark"] .lv-hero{background:linear-gradient(135deg,#1e3a8a 0%,#4338ca 100%)}
-.lv-hero h1{color:#fff;margin:0 0 .25rem}.lv-hero p{margin:0;opacity:.92}
-.lv-hero .lv-badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:999px;padding:.25rem .8rem;font-weight:700}
-.lv-mod{display:flex;align-items:center;gap:.8rem;height:100%;padding:.8rem 1rem;border:1px solid var(--bs-border-color);border-radius:.75rem;text-decoration:none;color:inherit;background:var(--bs-body-bg)}
+.lv-hero h1{color:#fff;margin:0}.lv-hero p{margin:0;opacity:.92;font-size:.9rem}
+.lv-hero .lv-badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:999px;padding:.2rem .7rem;font-weight:700}
+.lv-grp{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--bs-secondary-color);margin:.8rem 0 .3rem}
+.lv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}
+@media (min-width:768px){.lv-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:992px){.lv-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.lv-mod{display:flex;align-items:center;gap:.55rem;min-height:2.75rem;padding:.35rem .65rem;border:1px solid var(--bs-border-color);border-radius:.6rem;text-decoration:none;color:inherit;background:var(--bs-body-bg)}
 .lv-mod:hover,.lv-mod:focus-visible{border-color:#1d4ed8;box-shadow:0 2px 10px rgba(29,78,216,.15);color:inherit}
-.lv-mod .lv-ic{font-size:1.6rem;line-height:1;flex-shrink:0}.lv-mod .lv-n{font-size:.75rem;color:var(--bs-secondary-color)}
-.lv-mod .lv-t{font-weight:700;line-height:1.2}.lv-mod .lv-d{font-size:.85rem;color:var(--bs-secondary-color)}
+.lv-mod .lv-ic{font-size:1.25rem;line-height:1;flex-shrink:0}
+.lv-mod .lv-t{font-weight:600;line-height:1.2;font-size:.92rem}
+.lv-mod .lv-d{display:none;font-size:.78rem;color:var(--bs-secondary-color);line-height:1.2}
+@media (min-width:768px){.lv-mod .lv-d{display:block}.lv-mod{min-height:3.25rem}}
+@media (max-width:767.98px){.lv-pad{padding:.9rem !important}.lv-bc{display:none}}
+.lv-exam summary{cursor:pointer;padding:.35rem 0}
 .lv-exam table{font-size:.92rem}
 </style>
 </head>
@@ -243,76 +251,10 @@
             .catch(function () { renderHeader(headerFallback); });
     })();
     </script>
-
-    <!-- App Install Banner -->
-    <div id="installBanner" class="install-banner-wrap" style="display:none;" role="region" aria-label="App installieren / Install the app">
-        <div class="container">
-            <div class="install-banner">
-                <div class="install-banner-bar">
-                    <span class="install-banner-icon">📱</span>
-                    <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>
-                </div>
-                <button type="button" id="installBannerClose" class="install-banner-close" aria-label="Dismiss install banner">✕</button>
-                <div id="installBannerPanel" class="install-banner-panel">
-                        <div class="row g-2">
-                            <div class="col-6 col-lg-3">
-                                <div class="install-banner-card"><div class="install-banner-card-title">🍎 iPhone/iPad</div><div>Safari → <strong>Share ⬆</strong> → Add to Home Screen</div></div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="install-banner-card"><div class="install-banner-card-title">🤖 Android</div><div>Chrome → <strong>⋮ Menu</strong> or address bar → Install app</div></div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="install-banner-card"><div class="install-banner-card-title">🖥️ macOS</div><div>Safari → <strong>File</strong> menu → Add to Dock</div></div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="install-banner-card"><div class="install-banner-card-title">🪟 Windows</div><div>Chrome/Edge → <strong>⊕</strong> icon in address bar → Install</div></div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <style>
-        .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}
-        .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}
-        .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;padding:.2rem .25rem;font-size:.85rem;}
-        .install-banner-icon{font-size:1.1rem;line-height:1;}
-        .install-banner-text{font-weight:600;flex:1;}
-        .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}
-        .install-banner-close:hover{opacity:1;}
-        .install-banner-panel{padding-top:.5rem;}
-        .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%;}
-        .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}
-        @media (max-width:767.98px){.install-banner{padding:.2rem 2rem .2rem .1rem;}.install-banner-bar{cursor:pointer;font-size:.8rem;}.install-banner-panel{display:none;}.install-banner.open .install-banner-panel{display:block;}.install-banner-text::after{content:" \25BE";}.install-banner.open .install-banner-text::after{content:" \25B4";}}
-    </style>
-    <script>
-    (function () {
-        var KEY = 'dlh_install_banner_dismissed';
-        var banner = document.getElementById('installBanner');
-        if (!banner) return;
-        var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
-        var dismissed = false;
-        try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
-        if (isStandalone || dismissed) return;
-        banner.style.display = 'block';
-        var bar = banner.querySelector('.install-banner-bar'), box = banner.querySelector('.install-banner');
-        bar.setAttribute('role', 'button'); bar.setAttribute('tabindex', '0'); bar.setAttribute('aria-expanded', 'false');
-        function toggleBanner() { var o = box.classList.toggle('open'); bar.setAttribute('aria-expanded', o ? 'true' : 'false'); }
-        bar.addEventListener('click', toggleBanner);
-        bar.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleBanner(); } });
-        var closeBtn = document.getElementById('installBannerClose');
-        closeBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            try { localStorage.setItem(KEY, '1'); } catch (e2) {}
-            banner.style.display = 'none';
-        });
-    })();
-    </script>
-    <!-- End App Install Banner -->
 <main class="container py-4 py-lg-5">
         <div class="card content-card">
-            <div class="card-body p-4 p-lg-5">
-                <nav aria-label="breadcrumb">
+            <div class="card-body p-4 p-lg-5 lv-pad">
+                <nav aria-label="breadcrumb" class="lv-bc">
                     <ol class="breadcrumb small mb-3">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">B1</li>
@@ -320,22 +262,14 @@
                 </nav>
                 <div class="lv-hero d-flex flex-wrap justify-content-between align-items-center gap-3">
                     <div>
-                        <h1 class="h2">Deutsch B1</h1>
+                        <h1 class="h3">Deutsch B1</h1>
                         <p>Intermediate · Goethe-Zertifikat &amp; telc B1 · Learning Materials</p>
                     </div>
                     <span class="lv-badge">B1</span>
                 </div>
-                <a href="../dictionary.html" class="text-decoration-none d-block mb-4">
-                    <div class="card border-0 shadow-sm" style="background:linear-gradient(135deg,#0ea5e9 0%,#6366f1 100%);border-radius:0.75rem;overflow:hidden;">
-                        <div class="card-body d-flex align-items-center justify-content-between flex-wrap gap-2 p-3">
-                            <div><h3 class="h6 mb-0 text-white fw-bold">📖 Wörterbuch / Dictionary</h3>
-                            <small class="text-white-50">5,000+ words · Search · Listen · der/die/das</small></div>
-                            <span class="btn btn-light btn-sm fw-semibold px-3">Open →</span>
-                        </div>
-                    </div></a>
-                <h2 class="h5 mt-4 mb-1">Learn</h2><p class="text-muted small mb-2">Words, grammar and sentences</p><div class="row row-cols-1 row-cols-md-2 g-2"><div class="col"><a class="lv-mod" href="01_Wortschatz.html"><span class="lv-ic" aria-hidden="true">📚</span><span><span class="lv-n">01</span><br><span class="lv-t">Wortschatz</span><br><span class="lv-d">Vocabulary by topic</span></span></a></div><div class="col"><a class="lv-mod" href="02_Grammatik.html"><span class="lv-ic" aria-hidden="true">✏️</span><span><span class="lv-n">02</span><br><span class="lv-t">Grammatik</span><br><span class="lv-d">Grammar rules and exercises</span></span></a></div><div class="col"><a class="lv-mod" href="03_Saetze.html"><span class="lv-ic" aria-hidden="true">💬</span><span><span class="lv-n">03</span><br><span class="lv-t">Sätze</span><br><span class="lv-d">Example sentences A–Z</span></span></a></div></div><h2 class="h5 mt-4 mb-1">Practise the skills</h2><p class="text-muted small mb-2">Reading, listening, speaking, writing and sample exams</p><div class="row row-cols-1 row-cols-md-2 g-2"><div class="col"><a class="lv-mod" href="04_Lesen.html"><span class="lv-ic" aria-hidden="true">📖</span><span><span class="lv-n">04</span><br><span class="lv-t">Lesen</span><br><span class="lv-d">Reading exercises</span></span></a></div><div class="col"><a class="lv-mod" href="05_Hoeren.html"><span class="lv-ic" aria-hidden="true">🎧</span><span><span class="lv-n">05</span><br><span class="lv-t">Hören</span><br><span class="lv-d">Listening exercises</span></span></a></div><div class="col"><a class="lv-mod" href="06_Sprechen.html"><span class="lv-ic" aria-hidden="true">🗣️</span><span><span class="lv-n">06</span><br><span class="lv-t">Sprechen</span><br><span class="lv-d">Speaking practice</span></span></a></div><div class="col"><a class="lv-mod" href="07_Schreiben.html"><span class="lv-ic" aria-hidden="true">✍️</span><span><span class="lv-n">07</span><br><span class="lv-t">Schreiben</span><br><span class="lv-d">Writing practice</span></span></a></div><div class="col"><a class="lv-mod" href="08_Musterpruefung.html"><span class="lv-ic" aria-hidden="true">📝</span><span><span class="lv-n">08</span><br><span class="lv-t">Musterprüfung</span><br><span class="lv-d">Sample exam</span></span></a></div><div class="col"><a class="lv-mod" href="09_telc_Pruefungsformat.html"><span class="lv-ic" aria-hidden="true">🧾</span><span><span class="lv-n">09</span><br><span class="lv-t">telc Prüfungsformat</span><br><span class="lv-d">The telc exam format and tips</span></span></a></div></div><h2 class="h5 mt-4 mb-1">telc exam practice</h2><p class="text-muted small mb-2">Full exams, writing tasks, speaking cards and Sprachbausteine</p><div class="row row-cols-1 row-cols-md-2 g-2"><div class="col"><a class="lv-mod" href="14_telc_hoeren.html"><span class="lv-ic" aria-hidden="true">🎧</span><span><span class="lv-n">14</span><br><span class="lv-t">telc Hören</span><br><span class="lv-d">17 listening exams with audio</span></span></a></div><div class="col"><a class="lv-mod" href="15_telc_lesen.html"><span class="lv-ic" aria-hidden="true">📖</span><span><span class="lv-n">15</span><br><span class="lv-t">telc Lesen</span><br><span class="lv-d">17 reading exams with solutions</span></span></a></div><div class="col"><a class="lv-mod" href="16_telc_schreiben.html"><span class="lv-ic" aria-hidden="true">✍️</span><span><span class="lv-n">16</span><br><span class="lv-t">telc Schreiben</span><br><span class="lv-d">17 writing tasks, templates, examples</span></span></a></div><div class="col"><a class="lv-mod" href="17_telc_sprechen.html"><span class="lv-ic" aria-hidden="true">🗣️</span><span><span class="lv-n">17</span><br><span class="lv-t">telc Sprechen</span><br><span class="lv-d">Templates and 55 topic cards</span></span></a></div><div class="col"><a class="lv-mod" href="18_telc_grammatik.html"><span class="lv-ic" aria-hidden="true">🧩</span><span><span class="lv-n">18</span><br><span class="lv-t">telc Grammatik</span><br><span class="lv-d">Sprachbausteine exams and grammar tips</span></span></a></div></div><h2 class="h5 mt-4 mb-1">Notes</h2><p class="text-muted small mb-2">Course notes and cheat sheets</p><div class="row row-cols-1 row-cols-md-2 g-2"><div class="col"><a class="lv-mod" href="10_notes.html"><span class="lv-ic" aria-hidden="true">🗒️</span><span><span class="lv-n">10</span><br><span class="lv-t">Kursnotizen</span><br><span class="lv-d">Course notes</span></span></a></div><div class="col"><a class="lv-mod" href="11_cheat_sheet.html"><span class="lv-ic" aria-hidden="true">📋</span><span><span class="lv-n">11</span><br><span class="lv-t">Spickzettel</span><br><span class="lv-d">Cheat sheet</span></span></a></div><div class="col"><a class="lv-mod" href="12_deutsch_lessons.html"><span class="lv-ic" aria-hidden="true">🎓</span><span><span class="lv-n">12</span><br><span class="lv-t">Deutsch Kurs</span><br><span class="lv-d">Lesson notes and exam extras</span></span></a></div><div class="col"><a class="lv-mod" href="13_berlino_notizen.html"><span class="lv-ic" aria-hidden="true">📓</span><span><span class="lv-n">13</span><br><span class="lv-t">Berlino Notizen</span><br><span class="lv-d">Notes from the Berlino lessons</span></span></a></div></div>
+                <h2 class="lv-grp">Learn</h2><div class="lv-grid"><a class="lv-mod" href="01_Wortschatz.html"><span class="lv-ic" aria-hidden="true">📚</span><span><span class="lv-t">Wortschatz</span><span class="lv-d">Vocabulary by topic</span></span></a><a class="lv-mod" href="02_Grammatik.html"><span class="lv-ic" aria-hidden="true">✏️</span><span><span class="lv-t">Grammatik</span><span class="lv-d">Grammar rules and exercises</span></span></a><a class="lv-mod" href="03_Saetze.html"><span class="lv-ic" aria-hidden="true">💬</span><span><span class="lv-t">Sätze</span><span class="lv-d">Example sentences A–Z</span></span></a></div><h2 class="lv-grp">Practise the skills</h2><div class="lv-grid"><a class="lv-mod" href="04_Lesen.html"><span class="lv-ic" aria-hidden="true">📖</span><span><span class="lv-t">Lesen</span><span class="lv-d">Reading exercises</span></span></a><a class="lv-mod" href="05_Hoeren.html"><span class="lv-ic" aria-hidden="true">🎧</span><span><span class="lv-t">Hören</span><span class="lv-d">Listening exercises</span></span></a><a class="lv-mod" href="06_Sprechen.html"><span class="lv-ic" aria-hidden="true">🗣️</span><span><span class="lv-t">Sprechen</span><span class="lv-d">Speaking practice</span></span></a><a class="lv-mod" href="07_Schreiben.html"><span class="lv-ic" aria-hidden="true">✍️</span><span><span class="lv-t">Schreiben</span><span class="lv-d">Writing practice</span></span></a><a class="lv-mod" href="08_Musterpruefung.html"><span class="lv-ic" aria-hidden="true">📝</span><span><span class="lv-t">Musterprüfung</span><span class="lv-d">Sample exam</span></span></a><a class="lv-mod" href="09_telc_Pruefungsformat.html"><span class="lv-ic" aria-hidden="true">🧾</span><span><span class="lv-t">telc Prüfungsformat</span><span class="lv-d">The telc exam format and tips</span></span></a></div><h2 class="lv-grp">telc exam practice</h2><div class="lv-grid"><a class="lv-mod" href="14_telc_hoeren.html"><span class="lv-ic" aria-hidden="true">🎧</span><span><span class="lv-t">telc Hören</span><span class="lv-d">17 listening exams with audio</span></span></a><a class="lv-mod" href="15_telc_lesen.html"><span class="lv-ic" aria-hidden="true">📖</span><span><span class="lv-t">telc Lesen</span><span class="lv-d">17 reading exams with solutions</span></span></a><a class="lv-mod" href="16_telc_schreiben.html"><span class="lv-ic" aria-hidden="true">✍️</span><span><span class="lv-t">telc Schreiben</span><span class="lv-d">17 writing tasks, templates, examples</span></span></a><a class="lv-mod" href="17_telc_sprechen.html"><span class="lv-ic" aria-hidden="true">🗣️</span><span><span class="lv-t">telc Sprechen</span><span class="lv-d">Templates and 55 topic cards</span></span></a><a class="lv-mod" href="18_telc_grammatik.html"><span class="lv-ic" aria-hidden="true">🧩</span><span><span class="lv-t">telc Grammatik</span><span class="lv-d">Sprachbausteine exams and grammar tips</span></span></a></div><h2 class="lv-grp">Notes</h2><div class="lv-grid"><a class="lv-mod" href="10_notes.html"><span class="lv-ic" aria-hidden="true">🗒️</span><span><span class="lv-t">Kursnotizen</span><span class="lv-d">Course notes</span></span></a><a class="lv-mod" href="11_cheat_sheet.html"><span class="lv-ic" aria-hidden="true">📋</span><span><span class="lv-t">Spickzettel</span><span class="lv-d">Cheat sheet</span></span></a><a class="lv-mod" href="12_deutsch_lessons.html"><span class="lv-ic" aria-hidden="true">🎓</span><span><span class="lv-t">Deutsch Kurs</span><span class="lv-d">Lesson notes and exam extras</span></span></a><a class="lv-mod" href="13_berlino_notizen.html"><span class="lv-ic" aria-hidden="true">📓</span><span><span class="lv-t">Berlino Notizen</span><span class="lv-d">Notes from the Berlino lessons</span></span></a></div>
                 
-                <details class="lv-exam mt-4 border rounded-3 p-3" open><summary class="fw-bold">📋 Prüfung / Exam overview B1</summary><h3 class="h5 mt-3" id="ubersicht-overview">Übersicht / Overview</h3>
+                <details class="lv-exam mt-3 border rounded-3 px-3 py-1"><summary class="fw-bold">📋 Prüfung / Exam overview B1</summary><h3 class="h5 mt-3" id="ubersicht-overview">Übersicht / Overview</h3>
 <p>Das Goethe-Zertifikat B1 bestätigt selbstständige Sprachverwendung. Sie können die Hauptpunkte verstehen, wenn klare Standardsprache verwendet wird.</p>
 <p><em>The Goethe-Zertifikat B1 confirms independent language use. You can understand the main points when clear standard language is used.</em></p>
 <p><strong>Empfohlene Lernzeit / Recommended study time</strong>: 350–650 Unterrichtsstunden / teaching hours (kumulativ / cumulative)</p>
