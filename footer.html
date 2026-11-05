@@ -4,6 +4,12 @@
 .tts-btn,.d-tts,.eye-btn,.table-eye-btn,.practice-toggle-btn,.conj-toggle-ws,button[data-level]{position:relative}
 .tts-btn::after,.d-tts::after,.eye-btn::after{content:"";position:absolute;inset:-10px}
 .table-eye-btn::after,.practice-toggle-btn::after,.conj-toggle-ws::after,button[data-level]::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+/* wf-tap2: small buttons of the pages get a taller body, or a 44px touch area where the row must stay compact */
+main .btn.btn-sm{padding-top:.55rem;padding-bottom:.55rem}
+.jump-links .btn-sm{min-width:2.5rem}
+.pos-filter button,.level-tab-btn,.gq-level-btn,.listen-btn,.hide-en-btn,.practice-btn,.section-eye-btn,.blank-eye{position:relative}
+.pos-filter button::after,.level-tab-btn::after,.gq-level-btn::after,.listen-btn::after,.hide-en-btn::after,.practice-btn::after,.section-eye-btn::after{content:"";position:absolute;left:0;right:0;top:-10px;bottom:-10px}
+.blank-eye::after{content:"";position:absolute;inset:-12px}
 }
 </style>
 <footer class="site-footer mt-5 py-4 border-top">
