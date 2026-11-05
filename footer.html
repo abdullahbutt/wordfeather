@@ -1,3 +1,11 @@
+<style id="wf-tap">
+/* phones: the small icon buttons get a 44px touch area (invisible, the layout does not change) */
+@media (max-width:767.98px){
+.tts-btn,.d-tts,.eye-btn,.table-eye-btn,.practice-toggle-btn,.conj-toggle-ws,button[data-level]{position:relative}
+.tts-btn::after,.d-tts::after,.eye-btn::after{content:"";position:absolute;inset:-10px}
+.table-eye-btn::after,.practice-toggle-btn::after,.conj-toggle-ws::after,button[data-level]::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+}
+</style>
 <footer class="site-footer mt-5 py-4 border-top">
   <div class="container">
     <div class="row g-3 align-items-center">
