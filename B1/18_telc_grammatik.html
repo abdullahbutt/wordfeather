@@ -920,6 +920,61 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     var cur = { no: D.length ? D[0].no : 0, t: 1 }, clock = null, over = false;
     function st(no, t) { var k = no + '-' + t; return S[k] || (S[k] = { a: {}, done: false, best: null }); }
     function ex(no) { return D.filter(function (e) { return e.no === no; })[0]; }
+
+    // "My mistakes": the gaps missed in the latest submitted attempt of every Teil, grouped by kind of word (read from this browser only)
+    var PREP = 'an auf aus bei bis durch für gegen hinter in im am zum zur beim vom mit nach neben ohne seit über um unter von vor während wegen trotz statt zu zwischen ab'.split(' ');
+    var CONN = 'dass weil obwohl wenn ob damit falls als aber und oder denn sondern deshalb deswegen trotzdem außerdem danach dann sonst'.split(' ');
+    var ARTW = 'der die das den dem des ein eine einen einem einer eines kein keine keinen keinem keiner mein meine meinen meinem meiner dein deine deinen deinem deiner unser unsere unseren unserem unserer ihr ihre ihren ihrem ihrer ihnen ihm ihn mich mir dich dir sich uns euch sie es er wir ich du man welche welcher welchen welchem welches diese dieser diesen diesem dieses jeder jede jeden jedem'.split(' ');
+    function kind1(T, n) {
+        var w = (T.o[n] || [])['abc'.indexOf(T.ans[n])] || '', lw = w.toLowerCase(), rule = (T.why && T.why[n] && T.why[n].rule) || '';
+        if (PREP.indexOf(lw) >= 0) return 'Prepositions';
+        if (CONN.indexOf(lw) >= 0) return 'Connectors and word order';
+        if (ARTW.indexOf(lw) >= 0 || /^(frei|freund|gut|neu|schön)\w*(e|en|er|em)$/i.test(w)) return 'Articles, pronouns and endings';
+        if (/Präteritum|Perfekt|participle|Partizip|infinitive|modal|Konjunktiv|Imperativ|3rd person|separable|reflexive verb|Passive/i.test(rule)) return 'Verb forms';
+        return 'Other small words (adverbs, particles, nouns)';
+    }
+    function sheetSec(c) {
+        if (/Prepositions|preposition/.test(c)) return '4';
+        if (/Articles|pronoun|article/.test(c)) return '3';
+        if (/Verb forms|verb|modal/.test(c)) return '5';
+        if (/Connectors|connector/.test(c)) return '2, 6';
+        return '2, 6';
+    }
+    function myMistakes(main) {
+        var EN = window.TELC_SB_EN || {}, TY = window.TELC_SB_TY || {}, G = {}, list = [], teile = 0, gaps = 0;
+        Object.keys(S).forEach(function (k) {
+            var x = S[k], p = k.split('-'), e = ex(parseInt(p[0], 10)), T = e && e['t' + p[1]];
+            if (!x || !x.done || !T) return;
+            teile++;
+            Object.keys(T.ans).forEach(function (n) {
+                var good = T.ans[n], mine = x.a && x.a[n], c, rightW, myW;
+                if (p[1] === '1') { c = 'Teil 1: ' + kind1(T, n); rightW = (T.o[n] || [])['abc'.indexOf(good)]; myW = mine ? (T.o[n] || [])['abc'.indexOf(mine)] : ''; }
+                else { rightW = T.list[good]; c = 'Teil 2: ' + (TY[rightW] || 'other'); myW = mine ? T.list[mine] : ''; }
+                G[c] = G[c] || { n: 0, miss: 0 }; G[c].n++; gaps++;
+                if (mine !== good) { G[c].miss++; list.push({ e: e, t: p[1], n: n, right: rightW, mine: myW, en: p[1] === '2' ? EN[rightW] : '' }); }
+            });
+        });
+        var box = wfEl('details', 'tx-box'); box.id = 'sb-mine'; box.open = list.length > 0;
+        box.appendChild(wfEl('summary', 'fw-bold', 'My mistakes' + (teile ? ' (' + list.length + ' of ' + gaps + ' gaps missed)' : '')));
+        var inner = wfEl('div', 'mt-2');
+        if (!teile) { inner.appendChild(wfEl('p', 'mb-0', 'Submit a Teil and your mistakes appear here, grouped by kind of word, with the cheat sheet section to read.')); box.appendChild(inner); main.appendChild(box); return; }
+        inner.appendChild(wfEl('p', 'tx-note', 'Based on the latest submitted try of each Teil (' + teile + ' so far). The groups are worked out by the page and are a guide. The data stays in this browser.'));
+        var rows = Object.keys(G).filter(function (c) { return G[c].miss > 0; }).sort(function (a, b) { return G[b].miss / G[b].n - G[a].miss / G[a].n || G[b].miss - G[a].miss; });
+        if (!rows.length) { inner.appendChild(wfEl('p', 'mb-0', 'No mistakes in the submitted Teile.')); }
+        else {
+            var wrap = wfEl('div', 'table-responsive'), tb = wfEl('table', 'table table-bordered table-sm align-top mb-2'), hd = wfEl('tr');
+            ['Kind of word', 'Missed', 'Cheat sheet section'].forEach(function (h) { hd.appendChild(wfEl('th', null, h)); }); tb.appendChild(wfEl('thead')).appendChild(hd);
+            var body = wfEl('tbody');
+            rows.forEach(function (c) { var tr = wfEl('tr'); tr.appendChild(wfEl('td', null, c)); tr.appendChild(wfEl('td', null, G[c].miss + ' of ' + G[c].n + ' (' + Math.round(100 * G[c].miss / G[c].n) + ' %)')); tr.appendChild(wfEl('td', null, sheetSec(c))); body.appendChild(tr); });
+            tb.appendChild(body); wrap.appendChild(tb); inner.appendChild(wrap);
+            inner.appendChild(wfEl('p', 'mb-1', 'Start with: ' + rows.slice(0, 2).map(function (c) { return c + ' (section ' + sheetSec(c) + ')'; }).join(' and ') + '.'));
+            var det = wfEl('details', 'mt-2'); det.appendChild(wfEl('summary', 'fw-bold', 'The ' + list.length + ' gaps to review'));
+            var ul = wfEl('ul', 'mt-2 mb-0');
+            list.forEach(function (m) { ul.appendChild(wfEl('li', null, m.e.title + ', Teil ' + m.t + ', gap ' + m.n + ': ' + m.right + (m.en ? ' (' + m.en + ')' : '') + ' – you chose ' + (m.mine || 'nothing'))); });
+            det.appendChild(ul); inner.appendChild(det);
+        }
+        box.appendChild(inner); main.appendChild(box);
+    }
     function teils(e) { return [1, 2].filter(function (t) { return e['t' + t]; }); }
 
     function render() {
@@ -951,6 +1006,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         var best = st(e.no, cur.t).best;
         bar.appendChild(wfEl('span', 'tx-note', best ? 'Best: ' + best + '/10' : ''));
         main.appendChild(bar);
+        myMistakes(main);
 
         var head = wfEl('div', 'tx-box');
         head.appendChild(wfEl('div', 'lbl', 'Sprachbausteine, Teil ' + cur.t));
