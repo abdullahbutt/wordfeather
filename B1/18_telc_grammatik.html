@@ -934,10 +934,11 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         return 'Other small words (adverbs, particles, nouns)';
     }
     function sheetSec(c) {
-        if (/Prepositions|preposition/.test(c)) return '4';
-        if (/Articles|pronoun|article/.test(c)) return '3';
-        if (/Verb forms|verb|modal/.test(c)) return '5';
-        if (/Connectors|connector/.test(c)) return '2, 6';
+        var k = c.replace(/^Teil \d: /, '');
+        if (/^(Prepositions|preposition)/.test(k)) return '4';
+        if (/^(Articles|article|pronoun|possessive)/.test(k)) return '3';
+        if (/^(Verb forms|verb|modal)/.test(k)) return '5';
+        if (/^(adverb|da-word)/.test(k)) return '2';
         return '2, 6';
     }
     function myMistakes(main) {
@@ -959,7 +960,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         var inner = wfEl('div', 'mt-2');
         if (!teile) { inner.appendChild(wfEl('p', 'mb-0', 'Submit a Teil and your mistakes appear here, grouped by kind of word, with the cheat sheet section to read.')); box.appendChild(inner); main.appendChild(box); return; }
         inner.appendChild(wfEl('p', 'tx-note', 'Based on the latest submitted try of each Teil (' + teile + ' so far). The groups are worked out by the page and are a guide. The data stays in this browser.'));
-        var rows = Object.keys(G).filter(function (c) { return G[c].miss > 0; }).sort(function (a, b) { return G[b].miss / G[b].n - G[a].miss / G[a].n || G[b].miss - G[a].miss; });
+        var rows = Object.keys(G).filter(function (c) { return G[c].miss > 0; }).sort(function (a, b) { return G[b].miss - G[a].miss || G[b].miss / G[b].n - G[a].miss / G[a].n; });
         if (!rows.length) { inner.appendChild(wfEl('p', 'mb-0', 'No mistakes in the submitted Teile.')); }
         else {
             var wrap = wfEl('div', 'table-responsive'), tb = wfEl('table', 'table table-bordered table-sm align-top mb-2'), hd = wfEl('tr');
