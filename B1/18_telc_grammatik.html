@@ -610,7 +610,7 @@ function wfPickMenu(pane, title, getItems, onPick, isActive) {
     return { refresh: refresh };
 }
 </script>
-<script src="telc-sprachbausteine-data.js?v=c8a3d73f"></script>
+<script src="telc-sprachbausteine-data.js?v=f06853a8"></script>
 <script>
     // Language switch, speaker buttons and hide-English practice (this page only)
     (function () {
@@ -846,7 +846,8 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
 })();
 
 (function () {
-    var D = window.TELC_SB || [], KEY = 'wf_telc_sb_v1', S = {};
+    var D = window.TELC_SB || [], KEY = 'wf_telc_sb_v1', S = {}, showEn = false;
+    try { showEn = localStorage.getItem('wf_telc_sb_en') === '1'; } catch (e) {}
     try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { S = {}; }
     function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
     var root = document.getElementById('sb-root'); if (!root) return;
@@ -901,13 +902,22 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         main.appendChild(head);
 
         if (cur.t === 2) {
-            var wl = wfEl('div', 'tx-box'); wl.appendChild(wfEl('div', 'lbl', 'Wörter'));
-            var g = wfEl('div'); g.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));gap:.25rem .75rem;font-weight:600;overflow-wrap:anywhere';
-            'abcdefghijklmno'.split('').forEach(function (l) { var u = wfEl('span', null, l + ') ' + T.list[l]); u.dataset.l = l; g.appendChild(u); });
+            var wl = wfEl('div', 'tx-box'), wh = wfEl('div', 'd-flex flex-wrap gap-2 align-items-center'), wm = wfEl('button', 'btn btn-sm btn-outline-secondary'); wm.type = 'button';
+            wh.appendChild(wfEl('div', 'lbl mb-0', 'Wörter')); wh.appendChild(wm); wl.appendChild(wh);
+            var g = wfEl('div'); g.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:.35rem .75rem;overflow-wrap:anywhere;margin-top:.5rem';
+            var EN = window.TELC_SB_EN || {}, mean = [];
+            'abcdefghijklmno'.split('').forEach(function (l) {
+                var u = wfEl('span', null), a = wfEl('span', null, l + ') ' + T.list[l]), m = wfEl('span', 'tx-note', EN[T.list[l]] || ''); u.dataset.l = l; a.style.fontWeight = '600';
+                m.style.display = 'block'; mean.push(m); u.appendChild(a); u.appendChild(m); g.appendChild(u);
+            });
+            function paintEn() { mean.forEach(function (m) { m.hidden = !showEn; }); wm.textContent = showEn ? '🙈 Hide the meanings' : '👁 Show the meanings'; wm.setAttribute('aria-pressed', showEn ? 'true' : 'false'); }
+            wm.addEventListener('click', function () { showEn = !showEn; try { localStorage.setItem('wf_telc_sb_en', showEn ? '1' : '0'); } catch (e) {} paintEn(); fillOpts(); });
+            paintEn();
             wl.appendChild(g); main.appendChild(wl);
         }
         var box = wfEl('div', 'tx-box'); box.style.lineHeight = '2.1';
-        var selects = {};
+        var selects = {}, opts = [];
+        function fillOpts() { var EN = window.TELC_SB_EN || {}; opts.forEach(function (sl) { Array.prototype.forEach.call(sl.options, function (o) { if (o.dataset.w) o.textContent = o.value + ') ' + o.dataset.w + (showEn && EN[o.dataset.w] ? ' (' + EN[o.dataset.w] + ')' : ''); }); }); }
         function used() {
             if (cur.t !== 2) return;
             var u = {}; Object.keys(s.a).forEach(function (n) { u[s.a[n]] = (u[s.a[n]] || 0) + 1; });
@@ -920,7 +930,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
                 var n = part, sl = wfEl('select', 'form-select form-select-sm d-inline-block w-auto mx-1'); sl.setAttribute('aria-label', 'Gap ' + n);
                 var o0 = wfEl('option', null, n + ' ▾'); o0.value = ''; sl.appendChild(o0);
                 if (cur.t === 1) { (T.o[n] || []).forEach(function (w, k) { var o = wfEl('option', null, 'abc'[k] + ') ' + w); o.value = 'abc'[k]; sl.appendChild(o); }); }
-                else { 'abcdefghijklmno'.split('').forEach(function (l) { var o = wfEl('option', null, l + ') ' + T.list[l]); o.value = l; sl.appendChild(o); }); }
+                else { 'abcdefghijklmno'.split('').forEach(function (l) { var o = wfEl('option', null, l + ') ' + T.list[l]); o.value = l; o.dataset.w = T.list[l]; sl.appendChild(o); }); opts.push(sl); }
                 sl.value = s.a[n] || ''; sl.disabled = !!s.done; selects[n] = sl;
                 sl.addEventListener('change', function () { if (sl.value) s.a[n] = sl.value; else delete s.a[n]; save(); used(); refreshCount(); });
                 p.appendChild(sl);
@@ -932,7 +942,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
             });
             box.appendChild(p);
         });
-        main.appendChild(box);
+        main.appendChild(box); fillOpts();
         if (T.en) {
             var eb = wfEl('div', 'tx-box'), eh = wfEl('button', 'btn btn-sm btn-outline-secondary', '👁 Show the English'), ed = wfEl('div', 'mt-2'); eh.type = 'button'; ed.hidden = true;
             T.en.split('\n').forEach(function (para) { ed.appendChild(wfEl('p', 'mb-2', para)); });
