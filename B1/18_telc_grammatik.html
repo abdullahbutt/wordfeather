@@ -959,7 +959,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
             });
             runs.push({ e: e, t: parseInt(p[1], 10), right: right, total: total });
         });
-        var box = wfEl('details', 'tx-box'); box.id = 'sb-mine'; box.open = runs.length > 0;
+        var box = wfEl('details', 'tx-box'); box.id = 'sb-mine';
         function pct(t) { return t.n ? Math.round(100 * t.r / t.n) + ' %' : '–'; }
         box.appendChild(wfEl('summary', 'fw-bold', 'My results' + (runs.length ? ': Teil 1 ' + pct(T1) + ' · Teil 2 ' + pct(T2) + ' (' + runs.length + ' Teile submitted)' : '')));
         var inner = wfEl('div', 'mt-2');
