@@ -1069,9 +1069,10 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         }
         var box = wfEl('div', 'tx-box'); box.style.lineHeight = '2.1';
         var selects = {}, opts = [];
-        function mark(o, n) { return (s.done && o.value ? (o.value === T.ans[n] ? ' ✓ correct' : '') + (o.value === s.a[n] ? ' ← your answer' : '') : ''); }
-        function markDone(sl, n) { Array.prototype.forEach.call(sl.options, function (o) { if (o.value) o.textContent = o.value + ') ' + (T.o[n] || [])['abc'.indexOf(o.value)] + mark(o, n); }); }
-        function fillOpts() { var EN = window.TELC_SB_EN || {}; opts.forEach(function (sl) { Array.prototype.forEach.call(sl.options, function (o) { if (o.dataset.w) o.textContent = o.value + ') ' + o.dataset.w + (showEn && EN[o.dataset.w] ? ' (' + EN[o.dataset.w] + ')' : '') + mark(o, sl.dataset.n); }); }); }
+        function mark(o, n, on) { return (s.done && on && o.value ? (o.value === T.ans[n] ? ' ✓ correct' : '') + (o.value === s.a[n] ? ' ← your answer' : '') : ''); }
+        function markDone(sl, n, on) { Array.prototype.forEach.call(sl.options, function (o) { if (o.value) o.textContent = o.value + ') ' + (T.o[n] || [])['abc'.indexOf(o.value)] + mark(o, n, on); }); }
+        function setMarks(sl, on) { if (cur.t === 1) markDone(sl, sl.dataset.n, on); else { sl.dataset.m = on ? '1' : '0'; fillOpts(); } }
+        function fillOpts() { var EN = window.TELC_SB_EN || {}; opts.forEach(function (sl) { Array.prototype.forEach.call(sl.options, function (o) { if (o.dataset.w) o.textContent = o.value + ') ' + o.dataset.w + (showEn && EN[o.dataset.w] ? ' (' + EN[o.dataset.w] + ')' : '') + mark(o, sl.dataset.n, sl.dataset.m === '1'); }); }); }
         function used() {
             if (cur.t !== 2) return;
             var u = {}; Object.keys(s.a).forEach(function (n) { u[s.a[n]] = (u[s.a[n]] || 0) + 1; });
@@ -1086,7 +1087,10 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
                 if (cur.t === 1) { (T.o[n] || []).forEach(function (w, k) { var o = wfEl('option', null, 'abc'[k] + ') ' + w); o.value = 'abc'[k]; sl.appendChild(o); }); }
                 else { 'abcdefghijklmno'.split('').forEach(function (l) { var o = wfEl('option', null, l + ') ' + T.list[l]); o.value = l; o.dataset.w = T.list[l]; sl.appendChild(o); }); opts.push(sl); }
                 sl.value = s.a[n] || ''; sl.dataset.n = n; selects[n] = sl;
-                if (cur.t === 1 && s.done) markDone(sl, n);
+                if (s.done) {
+                    ['focus', 'mousedown', 'touchstart'].forEach(function (ev) { sl.addEventListener(ev, function () { setMarks(sl, true); }); });
+                    ['blur', 'change'].forEach(function (ev) { sl.addEventListener(ev, function () { setMarks(sl, false); }); });
+                }
                 sl.addEventListener('change', function () { if (s.done) { sl.value = s.a[n] || ''; return; } if (sl.value) s.a[n] = sl.value; else delete s.a[n]; save(); used(); refreshCount(); });
                 p.appendChild(sl);
                 if (s.done) {
