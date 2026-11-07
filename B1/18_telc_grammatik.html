@@ -676,7 +676,7 @@ function wfPickMenu(pane, title, getItems, onPick, isActive) {
     return { refresh: refresh };
 }
 </script>
-<script src="telc-sprachbausteine-data.js?v=1fc03c45"></script>
+<script src="telc-sprachbausteine-data.js?v=24006033"></script>
 <script>
     // Language switch, speaker buttons and hide-English practice (this page only)
     (function () {
@@ -1090,7 +1090,23 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
                 var w = T.why[n2]; if (!w) continue;
                 var ok2 = s.a[n2] === T.ans[n2], row = wfEl('div', 'mt-2');
                 row.appendChild(wfEl('div', ok2 ? 'text-success fw-bold' : 'text-danger fw-bold', n2 + ' → ' + w.w + (ok2 ? ' ✓' : ' (your answer: ' + (s.a[n2] ? (cur.t === 1 ? (T.o[n2] || [])['abc'.indexOf(s.a[n2])] : T.list[s.a[n2]]) : '–') + ')')));
-                if (w.sent) row.appendChild(wfEl('div', null, w.sent.replace(/[【】]/g, '“')));
+                if (T.sen && T.sen[n2]) {
+                    var de = wfEl('div', null), en = wfEl('div', 'tx-note');
+                    T.sen[n2].split(/(【[^】]*】)/).forEach(function (x) { if (x.charAt(0) === '【') de.appendChild(wfEl('strong', null, x.slice(1, -1))); else de.appendChild(document.createTextNode(x)); });
+                    T.ens[n2].split(/(【[^】]*】)/).forEach(function (x) { if (x.charAt(0) === '【') en.appendChild(wfEl('strong', null, x.slice(1, -1))); else en.appendChild(document.createTextNode(x)); });
+                    row.appendChild(de); row.appendChild(en);
+                } else if (w.sent) row.appendChild(wfEl('div', null, w.sent.replace(/[【】]/g, '“')));
+                if (T.opts && T.opts[n2]) {
+                    var ol = wfEl('ul', 'mb-1 mt-1', null); ol.style.paddingLeft = '1.1rem';
+                    T.o[n2].forEach(function (word, k) {
+                        var letter = 'abc'.charAt(k), good = letter === T.ans[n2], mine = letter === s.a[n2];
+                        var li = wfEl('li', good ? 'text-success' : null); li.style.marginTop = '.15rem';
+                        li.appendChild(wfEl('strong', null, letter + ') ' + word + (good ? ' ✓ ' : ' ✗ ')));
+                        li.appendChild(document.createTextNode(T.opts[n2][k] + (mine ? ' (your answer)' : '')));
+                        ol.appendChild(li);
+                    });
+                    row.appendChild(ol);
+                }
                 row.appendChild(wfEl('div', 'tx-note', w.rule));
                 wb.appendChild(row);
             }
