@@ -1,0 +1,62 @@
+{
+ "B1/telc-hoeren-data.js": {
+  "hash": "7dd4c8a78d7dab4e6c62cad5f916f901e5923c85",
+  "v": "0.00.01"
+ },
+ "B1/telc-lesen-data.js": {
+  "hash": "b4502c15c165d2a2783bd780c9894de788e068db",
+  "v": "0.00.01"
+ },
+ "B1/telc-schreiben-data.js": {
+  "hash": "14037579a2a8d6c38fccd9866cbb4d24837b2d84",
+  "v": "0.00.01"
+ },
+ "B1/telc-sprachbausteine-data.js": {
+  "hash": "22f7de257d20618dfab6d057450060af4da4e1e4",
+  "v": "0.00.01"
+ },
+ "B1/telc-sprechen-data.js": {
+  "hash": "2bdb822ca2bb71bd2c2f63665d3a02c27156aeea",
+  "v": "0.00.01"
+ },
+ "conjugations.json": {
+  "hash": "a6256bbc833f977745bd3648ea6ea1eac83e578c",
+  "v": "0.00.01"
+ },
+ "dictionary-index.json": {
+  "hash": "fde72f106f5cde6eab5e7e565f64a4d5a7e15259",
+  "v": "0.00.01"
+ },
+ "german-voice.js": {
+  "hash": "f41d73b83ae1d9322dc344c5057ad91ade8d2fef",
+  "v": "0.00.04"
+ },
+ "grammar_sections.json": {
+  "hash": "8a629ee9dfe550b7ab13efd1774cb5719103a01e",
+  "v": "0.00.01"
+ },
+ "person-sentences.json": {
+  "hash": "1f67baf1a8466b5aac38ee7f67892534551ad7bb",
+  "v": "0.00.01"
+ },
+ "quiz-bar.js": {
+  "hash": "5dd30049d1269a4d025fd1574f768641fc4ef5ba",
+  "v": "0.00.01"
+ },
+ "recorded-audio.js": {
+  "hash": "bfd0ac9f912f6b1021200411bc115fdb1ae9f9a5",
+  "v": "0.00.02"
+ },
+ "tts.js": {
+  "hash": "8e3807aa58469e3eef7fecc3915c3c1472b2e45f",
+  "v": "0.00.07"
+ },
+ "wf-a11y.js": {
+  "hash": "cf58ffaa5bef6ed7d7efc5dfb3c1e2608132f59e",
+  "v": "0.00.01"
+ },
+ "wf-lang.js": {
+  "hash": "d6828d6eb8418e09536bca45f44ac4cd4236149b",
+  "v": "0.00.01"
+ }
+}

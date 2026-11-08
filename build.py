@@ -22,6 +22,7 @@ from collections import defaultdict, Counter
 from conjugator import conjugate, _regular_stem
 from english_conjugator import build_english_table
 from split_dictionary import split_dictionary   # splits the full dictionary into hub + per-letter pages (<2 MB each)
+from asset_versions import update_asset_versions   # ?v=0.00.NN of the shared scripts and data files (asset-versions.json)
 
 REPO    = os.path.dirname(os.path.abspath(__file__))
 JSON    = os.path.join(REPO, 'words_final.json')
@@ -2321,6 +2322,7 @@ def main():
                 with open(page_path, 'w', encoding='utf-8', newline='\n') as f:
                     f.write(pg)
                 print(f"  ✅ banner → {os.path.relpath(page_path, REPO)}")
+        update_asset_versions(REPO)
         update_service_worker_cache_name()
         update_footer_last_updated()
         update_footer_copyright()
@@ -2345,6 +2347,7 @@ def main():
         # Default: rebuild the dictionary too (dictionary.html is generated output now)
         build_dictionary(words)
 
+    update_asset_versions(REPO)
     update_service_worker_cache_name()
     update_footer_last_updated()
     update_footer_copyright()

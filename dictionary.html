@@ -602,7 +602,7 @@ window.addEventListener('load', function () {
         function loadIndex() {
             if (index) return Promise.resolve(index);
             if (!loading) {
-                loading = fetch(prefix + 'dictionary-index.json')
+                loading = fetch(prefix + 'dictionary-index.json?v=0.00.01')
                     .then(function (r) { if (!r.ok) throw new Error('index'); return r.json(); })
                     .then(function (j) {
                         j.w.forEach(function (r) {
@@ -1063,7 +1063,7 @@ window.addEventListener('load', function () {
     var dataPromise = null;
     function loadPersonData() {
         if (dataPromise) return dataPromise;
-        dataPromise = fetch(prefix + 'person-sentences.json')
+        dataPromise = fetch(prefix + 'person-sentences.json?v=0.00.01')
             .then(function(r) { return r.ok ? r.json() : {}; })
             .catch(function() { return {}; });
         return dataPromise;
@@ -1163,7 +1163,7 @@ window.addEventListener('load', function () {
 
         function loadConjugations() {
             if (conjPromise) return conjPromise;
-            conjPromise = fetch(prefix + 'conjugations.json')
+            conjPromise = fetch(prefix + 'conjugations.json?v=0.00.01')
                 .then(function(r) { return r.ok ? r.json() : {}; })
                 .then(function(json) {
                     conjData = {};

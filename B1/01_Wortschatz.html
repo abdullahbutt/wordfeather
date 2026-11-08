@@ -6008,7 +6008,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 
     function loadConjugations() {
         if (conjPromise) return conjPromise;
-        conjPromise = fetch(prefix + 'conjugations.json')
+        conjPromise = fetch(prefix + 'conjugations.json?v=0.00.01')
             .then(function(r) { return r.ok ? r.json() : {}; })
             .then(function(json) {
                 conjData = {};
@@ -6165,7 +6165,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
     var dataPromise = null;
     function loadPersonData() {
         if (dataPromise) return dataPromise;
-        dataPromise = fetch(prefix + 'person-sentences.json')
+        dataPromise = fetch(prefix + 'person-sentences.json?v=0.00.01')
             .then(function(r) { return r.ok ? r.json() : {}; })
             .catch(function() { return {}; });
         return dataPromise;
