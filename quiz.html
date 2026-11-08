@@ -2219,6 +2219,7 @@ var LESEN_PRACTICE_DATA = {
   });
   function doQuitQuiz() {
     if (window.speechSynthesis) window.speechSynthesis.cancel(); // stop a Hören item mid-playback
+    if (window.wfRecorded) window.wfRecorded.stop();
     currentQuiz = null;
     document.getElementById('quizScreen').classList.add('hidden');
     document.getElementById('setupScreen').classList.remove('hidden');
@@ -2335,18 +2336,23 @@ var LESEN_PRACTICE_DATA = {
             document.querySelectorAll('#optionsContainer .option-btn').forEach(function (b) { b.disabled = false; });
           }
 
-          if (!synth) { unlock(); return; }
-          synth.cancel();
-          var utter = new SpeechSynthesisUtterance(q.script);
-          utter.lang = 'de-DE';
-          utter.rate = 0.95;
-          var voices = synth.getVoices();
-          for (var i = 0; i < voices.length; i++) {
-            if (voices[i].lang.indexOf('de') === 0) { utter.voice = voices[i]; break; }
+          // The recorded text (audio.wordfeather.com) is played on every device; the voice of the device reads it only when the
+          // recording is missing or cannot be loaded (offline).
+          function readByDevice() {
+            if (!synth) { unlock(); return; }
+            synth.cancel();
+            var utter = new SpeechSynthesisUtterance(q.script);
+            utter.lang = 'de-DE';
+            utter.rate = 0.95;
+            var voices = synth.getVoices();
+            for (var i = 0; i < voices.length; i++) {
+              if (voices[i].lang.indexOf('de') === 0) { utter.voice = voices[i]; break; }
+            }
+            utter.onend = unlock;
+            utter.onerror = unlock;
+            synth.speak(utter);
           }
-          utter.onend = unlock;
-          utter.onerror = unlock;
-          synth.speak(utter);
+          if (!(window.wfRecorded && window.wfRecorded.play([q.script], unlock, readByDevice, true))) readByDevice();
         };
       } else {
         // Same Hören item, a later sub-question — the audio was already
@@ -2816,5 +2822,6 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script src="german-voice.js?v=0.00.04"></script>
+<script src="recorded-audio.js?v=0.00.03"></script>
 </body>
 </html>

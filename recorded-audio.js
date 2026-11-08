@@ -5,6 +5,7 @@
  * buttons play the recorded file instead of the voice of the device; they also play when the silent switch of an iPhone is on, which
  * mutes the voice of the device. window.wfRecorded.play(texts, done, fail) tries the files of the given texts (the first one found is
  * played) and returns false at once when recordings are not to be used here, so that the caller reads the text with the voice.
+ * A fourth argument true plays the recording whatever the voice of the device is (quiz.html, listening texts).
  * The file name is the first 16 hex characters of the SHA-1 of the text with white space collapsed (same rule as tts.js and the app).
  */
 (function () {
@@ -15,8 +16,12 @@
   var unlocked = false;
   var turn = 0;
 
-  function available() {
-    return !!(window.Audio && window.fetch && window.crypto && window.crypto.subtle && window.wfGermanVoiceNatural && !window.wfGermanVoiceNatural());
+  // force: the listening texts of the quiz are always played from the recording, so that every learner hears the same voice and pace
+  // (a listening test must not depend on the voice of the device); the dictionary pages leave it off and use the recording only
+  // when the device does not read German naturally.
+  function available(force) {
+    return !!(window.Audio && window.fetch && window.crypto && window.crypto.subtle &&
+      (force || (window.wfGermanVoiceNatural && !window.wfGermanVoiceNatural())));
   }
 
   function sentenceKey(text) {
@@ -57,8 +62,8 @@
     if (player) { player.onended = null; player.onerror = null; player.pause(); }
   }
 
-  function play(texts, done, fail) {
-    if (!available()) return false;
+  function play(texts, done, fail, force) {
+    if (!available(force)) return false;
     var mine = ++turn;
     unlock();
     Promise.all(texts.map(fetchFile)).then(function (blobs) {
