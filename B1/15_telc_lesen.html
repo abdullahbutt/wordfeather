@@ -90,8 +90,9 @@
         .lz-opts button[aria-pressed="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
         .lz-opts button:disabled { cursor: default; }
         .lz-item .lz-note { grid-column: 2; }
-        .lz-item .lz-note label { font-size: .8rem; color: var(--bs-secondary-color); margin-bottom: .15rem; }
-        .lz-item .lz-note textarea { width: 100%; min-height: 2.6rem; font-size: .9rem; resize: vertical; }
+        .lz-head .lz-note, .lz-ad .lz-note { grid-column: 2 / 4; }
+        .lz-item .lz-note label, .lz-head .lz-note label, .lz-ad .lz-note label { font-size: .8rem; color: var(--bs-secondary-color); margin-bottom: .15rem; }
+        .lz-item .lz-note textarea, .lz-head .lz-note textarea, .lz-ad .lz-note textarea { width: 100%; min-height: 2.6rem; font-size: .9rem; resize: vertical; }
         .lz-item.ok { background: rgba(25,135,84,.07); }
         .lz-item.bad { background: rgba(220,53,69,.07); }
         .lz-item.ok .no::after { content: " ✓"; color: var(--bs-success); }
@@ -595,7 +596,7 @@ window.wfUl = (function () {
             sel.addEventListener('change', function () { setAns(i, sel.value); if (t === '1' || t === '3') markUsed(t); });
             return sel;
         }
-        function noteBox(n) {
+        function noteBox(n) {  // n: item number, or 'h<letter>' / 'a<letter>' for a heading / ad
             var w = el('div', 'lz-note'), lb = el('label', null, 'My note (only you see it, saved in this browser)');
             var ta = el('textarea', 'form-control form-control-sm'); ta.rows = 2; ta.id = 'wf-note-' + ex.no + '-' + n; lb.htmlFor = ta.id;
             ta.placeholder = 'Write a note to check later …'; ta.value = (s.notes && s.notes[n]) || '';
@@ -622,7 +623,8 @@ window.wfUl = (function () {
                 r.appendChild(el('span', 'l', x.l + ')'));
                 var de = el('span', null, x.de); if (x.en) de.appendChild(eye(r)); r.appendChild(de);
                 var u = el('span', 'lz-used'); u.style.display = 'none'; r.appendChild(u);
-                if (x.en) r.appendChild(el('div', 'en', x.en)); box.appendChild(r);
+                if (x.en) r.appendChild(el('div', 'en', x.en));
+                r.appendChild(noteBox((t === '1' ? 'h' : 'a') + x.l)); box.appendChild(r);
             });
             return box;
         }
