@@ -14,7 +14,7 @@ import os
 import re
 
 ASSETS = [
-    'german-voice.js', 'tts.js', 'recorded-audio.js', 'quiz-bar.js', 'wf-a11y.js', 'wf-lang.js',
+    'german-voice.js', 'tts.js', 'recorded-audio.js', 'quiz-bar.js', 'wf-a11y.js', 'wf-lang.js', 'wf-progress.js',
     'B1/telc-hoeren-data.js', 'B1/telc-lesen-data.js', 'B1/telc-schreiben-data.js', 'B1/telc-sprachbausteine-data.js', 'B1/telc-sprechen-data.js',
     'conjugations.json', 'person-sentences.json', 'dictionary-index.json', 'grammar_sections.json',
 ]
