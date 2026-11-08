@@ -20,6 +20,9 @@
     function count(v) {
         try {
             var o = JSON.parse(v);
+            if (o && o.texts && typeof o.texts === 'object') {       // Schreiben: the letters you wrote
+                return Object.keys(o.texts).filter(function (k) { return String(o.texts[k]).trim(); }).length;
+            }
             if (o && typeof o === 'object') {
                 var n = 0;
                 Object.keys(o).forEach(function (k) {
