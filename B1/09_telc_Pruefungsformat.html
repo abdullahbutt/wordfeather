@@ -229,11 +229,19 @@
             background: #334155;
             color: #e2e8f0;
         }
+    
+        .skillnav { max-width: 1120px; margin: 0 auto; padding: .6rem 16px 0; }
+        .skillnav-in { display: flex; gap: .4rem; align-items: center; overflow-x: auto; white-space: nowrap; padding-bottom: .5rem; border-bottom: 1px solid var(--bs-border-color); -webkit-overflow-scrolling: touch; }
+        .skillnav-lbl { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; color: var(--bs-secondary-color); margin-right: .25rem; flex: 0 0 auto; }
+        .skillnav a { flex: 0 0 auto; border: 1px solid var(--bs-border-color); border-radius: 999px; padding: .3rem .85rem; font-size: .9rem; text-decoration: none; color: var(--bs-body-color); background: var(--bs-body-bg); }
+        .skillnav a:hover { border-color: var(--bs-primary); }
+        .skillnav a[aria-current="page"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; font-weight: 600; }
     </style>
     <script>var saved=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-bs-theme',saved);</script>
 </head>
 <body>
     <div id="header-placeholder"></div>
+    <nav class="skillnav" aria-label="telc B1"><div class="skillnav-in"><span class="skillnav-lbl">telc B1</span><a href="index.html">◀ B1</a><a href="09_telc_Pruefungsformat.html" aria-current="page">Format</a><a href="14_telc_hoeren.html">Hören</a><a href="15_telc_lesen.html">Lesen</a><a href="16_telc_schreiben.html">Schreiben</a><a href="17_telc_sprechen.html">Sprechen</a><a href="18_telc_grammatik.html">Grammatik</a></div></nav>
     <main>
         <div class="container py-4">
             <div class="card content-card p-4 p-md-5">
