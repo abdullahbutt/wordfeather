@@ -2894,7 +2894,7 @@
 
         (function () {
             var buttons = '';
-            var heads = Array.prototype.slice.call(document.querySelectorAll('h2[id]'));
+            var heads = Array.prototype.slice.call(document.querySelectorAll('h2[id], h3[id^="v-u"]'));
             var open = false;
             function short(t, n) { return t.length > n ? t.slice(0, n - 1) + '\u2026' : t; }
             heads.forEach(function (h, i) {
@@ -2908,7 +2908,7 @@
                 } else {
                     var next = heads[i + 1];
                     var last = !next || next.classList.contains('part-heading');
-                    var label = short(txt.replace(/\s*\(.*$/, ''), 26);
+                    var label = short(h.tagName === 'H3' ? txt.split(':')[0] : txt.replace(/\s*\(.*$/, ''), 26);
                     buttons += '<a href="#' + h.id + '" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="' + title + '"><span style="opacity:.55">' + (last ? '\u2514 ' : '\u251c ') + '</span>' + label + '</a>';
                 }
             });
