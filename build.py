@@ -209,7 +209,7 @@ INSTALL_BANNER_STYLE_SCRIPT = (
     '        .install-banner-icon{font-size:1.1rem;line-height:1;}\n'
     '        .install-banner-text{font-weight:600;flex:1;}\n'
     '        .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;'
-    'color:#fff;opacity:.7;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}\n'
+    'color:#fff;opacity:.9;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}\n'
     '        .install-banner-close:hover{opacity:1;}\n'
     '        .install-banner-panel{padding-top:.5rem;}\n'
     '        .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;'
