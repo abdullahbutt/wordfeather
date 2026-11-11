@@ -13,12 +13,11 @@
     { key: 'hoeren', mode: true, icon: '🎧', de: 'Hören', en: 'Listening' },
     { key: 'lesen', mode: true, icon: '📰', de: 'Lesen', en: 'Reading' },
     { key: 'grammar', href: '/grammar-quiz.html', icon: '🔤', de: 'Grammatik', en: 'Grammar' },
-    { key: 'placement', mode: true, icon: '🎯', de: 'Niveau: Wortschatz', en: 'Level test: vocabulary' },
-    { key: 'placement-grammar', href: '/placement-test.html', icon: '🎯', de: 'Niveau: Grammatik', en: 'Level test: grammar' },
+    { key: 'placement', mode: true, icon: '🎯', de: 'Niveau-Test', en: 'Level test' },
     { key: 'mistakes', mode: true, icon: '❌', de: 'Meine Fehler', en: 'My mistakes' },
     { key: 'bookmarks', mode: true, icon: '⭐', de: 'Lesezeichen', en: 'Bookmarks', count: true }
   ];
-  var activeOnOtherPages = { grammar: 'grammar', placement: 'placement-grammar' };
+  var activeOnOtherPages = { grammar: 'grammar', placement: 'placement' }; // the grammar level test belongs to the Level test tab
 
   function bookmarkCount() {
     try {

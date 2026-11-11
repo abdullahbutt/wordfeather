@@ -271,7 +271,7 @@
 </script>
 
 <div id="quiz-bar" data-page="quiz"></div>
-<script src="/quiz-bar.js?v=0.00.01"></script>
+<script src="/quiz-bar.js?v=0.00.02"></script>
 
 <main class="container py-4" id="mainContent" tabindex="-1">
 
@@ -289,11 +289,23 @@
 
         <!-- Practice-by-level options (vocab) -->
         <div id="practiceOptions">
+          <!-- New visitors do not know their level yet: the level test is the first thing offered. -->
+          <div class="alert alert-primary d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4" id="levelTestCta" role="region" aria-labelledby="levelTestCtaTitle">
+            <div>
+              <strong id="levelTestCtaTitle">🎯 <span class="wf-pair"><span class="wf-de">Nicht sicher, wo du anfangen sollst?</span> <span class="wf-en">Not sure where to start?</span></span></strong>
+              <div class="small"><span class="wf-pair"><span class="wf-de">Der kostenlose Niveau-Test dauert etwa 5 Minuten.</span> <span class="wf-en opacity-75">The free level test takes about 5 minutes.</span></span></div>
+            </div>
+            <button type="button" class="btn btn-primary" id="levelTestCtaBtn"><span class="wf-pair"><span class="wf-de">Niveau testen →</span> <span class="wf-en">Test your level →</span></span></button>
+          </div>
+
           <label class="form-label fw-semibold"><span class="wf-pair"><span class="wf-de">1. Niveau(s) auswählen</span> <span class="wf-en text-muted fw-normal">Choose level(s)</span></span></label>
           <div class="d-flex gap-2 flex-wrap mb-4" id="levelChecks">
             <!-- filled by JS -->
           </div>
 
+          <!-- Quick start: the topics, the direction and the number of questions have good defaults (all topics, DE to EN, 20) and wait here. -->
+          <details class="mb-3" id="practiceSettings">
+            <summary class="fw-semibold py-2" style="cursor:pointer;min-height:2.75rem;">⚙️ <span class="wf-pair"><span class="wf-de">Einstellungen</span> <span class="wf-en">Settings</span></span> <span class="text-muted fw-normal small" id="settingsSummary"></span></summary>
           <!-- Step 2: topics (word.category). Every topic is ticked at first, which is the same as no restriction. -->
           <div class="step-lockable">
             <fieldset class="step-fieldset" id="topicStep">
@@ -334,6 +346,7 @@
             <div class="step-lock" id="restLock" aria-hidden="true"></div>
             <div class="alert alert-warning small py-2 step-note" id="restNote" role="status"></div>
           </div>
+          </details>
         </div>
 
         <!-- Hören practice options -->
@@ -366,6 +379,7 @@
             <div class="mt-3 pt-2 border-top wf-de">⚠️ Deine Antworten hier zählen <strong>nicht</strong> zu deinem Fortschritt (Mein Fortschritt bleibt bei 0). Nutze „Wortschatz üben", um Fortschritt aufzubauen.</div>
             <div class="wf-en" style="opacity:.75">⚠️ Your answers here do <strong>not</strong> count toward your practice progress (My progress stays at 0). Use "Wortschatz üben" (Vocabulary) to build up progress.</div>
           </div>
+          <p class="small mb-0"><span class="wf-pair"><span class="wf-de">Auch der Niveau-Test für Grammatik ist kostenlos:</span> <span class="wf-en">The grammar level test is free too:</span></span> <a href="/placement-test.html"><span class="wf-pair"><span class="wf-de">Grammatik-Niveau-Test starten →</span> <span class="wf-en">start the grammar level test →</span></span></a></p>
         </div>
 
         <div id="loadError" class="alert alert-danger hidden"></div>
@@ -2820,6 +2834,29 @@ if ('serviceWorker' in navigator) {
         })
         .catch(function(err) { console.log('SW failed:', err); });
 }
+</script>
+<script>
+// Short line in the closed "Settings" of the vocabulary practice: what the defaults (or the learner's choice) are.
+(function () {
+  var det = document.getElementById('practiceSettings'), out = document.getElementById('settingsSummary');
+  if (!det || !out) return;
+  function update() {
+    var en = document.documentElement.getAttribute('lang') === 'en';
+    var all = document.querySelectorAll('#topicList input[type="checkbox"]').length;
+    var on = document.querySelectorAll('#topicList input[type="checkbox"]:checked').length;
+    var picked = document.querySelector('input[name="direction"]:checked');
+    var dir = { 'de-en': 'DE \u2192 EN', 'en-de': 'EN \u2192 DE', mixed: 'DE \u2194 EN' }[picked ? picked.value : 'de-en'];
+    var topics = !all ? '' : (on === all ? (en ? 'all topics' : 'alle Themen') : on + (en ? ' of ' : ' von ') + all + (en ? ' topics' : ' Themen'));
+    out.textContent = '\u00b7 ' + [topics, dir, document.getElementById('questionCount').value + (en ? ' questions' : ' Fragen')].filter(Boolean).join(' \u00b7 ');
+  }
+  det.addEventListener('change', update);
+  det.addEventListener('click', function () { setTimeout(update, 0); });
+  new MutationObserver(update).observe(document.getElementById('topicList'), { childList: true, subtree: true, attributes: true });
+  new MutationObserver(update).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  update();
+  var cta = document.getElementById('levelTestCtaBtn');
+  if (cta) cta.addEventListener('click', function () { document.getElementById('tab-placement').click(); });
+})();
 </script>
 <script src="german-voice.js?v=0.00.04"></script>
 <script src="recorded-audio.js?v=0.00.03"></script>
