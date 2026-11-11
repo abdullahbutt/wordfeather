@@ -525,16 +525,16 @@
     </div>
     <style>
         .install-banner-wrap{background:linear-gradient(135deg,#1d4ed8 0%,#7c3aed 100%);color:#fff;}
-        .install-banner{position:relative;padding:.5rem 2.2rem .5rem .25rem;}
+        .install-banner{position:relative;padding:.5rem 3rem .5rem .25rem;}
         .install-banner-bar{display:flex;align-items:center;gap:.5rem;width:100%;padding:.2rem .25rem;font-size:.85rem;}
         .install-banner-icon{font-size:1.1rem;line-height:1;}
         .install-banner-text{font-weight:600;flex:1;}
-        .install-banner-close{position:absolute;top:.35rem;right:.35rem;background:none;border:none;color:#fff;opacity:.9;font-size:1rem;line-height:1;cursor:pointer;padding:.2rem .4rem;}
+        .install-banner-close{position:absolute;top:0;right:0;display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;background:none;border:none;color:#fff;opacity:.9;font-size:1.1rem;line-height:1;cursor:pointer;padding:0;}
         .install-banner-close:hover{opacity:1;}
         .install-banner-panel{padding-top:.5rem;}
         .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;height:100%;}
         .install-banner-card-title{font-weight:700;margin-bottom:.15rem;}
-        @media (max-width:767.98px){.install-banner{padding:.2rem 2rem .2rem .1rem;}.install-banner-bar{cursor:pointer;font-size:.8rem;}.install-banner-panel{display:none;}.install-banner.open .install-banner-panel{display:block;}.install-banner-text::after{content:" \25BE";}.install-banner.open .install-banner-text::after{content:" \25B4";}}
+        @media (max-width:767.98px){.install-banner{padding:.2rem 3rem .2rem .1rem;}.install-banner-bar{cursor:pointer;font-size:.8rem;}.install-banner-panel{display:none;}.install-banner.open .install-banner-panel{display:block;}.install-banner-text::after{content:" \25BE";}.install-banner.open .install-banner-text::after{content:" \25B4";}}
     </style>
     <script>
     (function () {
@@ -568,14 +568,14 @@
             <div class="card border-0 shadow-sm" style="background:linear-gradient(135deg,#0369a1 0%,#4f46e5 100%);border-radius:1rem;overflow:hidden;">
                 <div class="card-body d-flex align-items-center justify-content-between flex-wrap gap-3 p-4">
                     <div>
-                        <h2 class="h5 mb-1 text-white fw-bold">📖 Wörterbuch / Dictionary</h2>
+                        <h2 class="h5 mb-1 text-white fw-bold pe-5">📖 Wörterbuch / Dictionary</h2>
                         <p class="mb-0 text-white small" style="opacity:.92;">5,000+ words from A1–C2 · Search · Listen · der/die/das color-coded</p>
                     </div>
                     <span class="btn btn-light btn-sm fw-semibold px-3">Open Dictionary →</span>
                 </div>
             </div>
             </a>
-            <button type="button" id="dictBannerClose" class="btn-close btn-close-white position-absolute top-0 end-0 m-2" aria-label="Close dictionary banner" style="z-index:2;"></button>
+            <button type="button" id="dictBannerClose" class="btn-close btn-close-white position-absolute top-0 end-0 m-1" aria-label="Close dictionary banner" style="z-index:2;width:1.5rem;height:1.5rem;padding:.625rem;"></button>
         </div>
         <script>
         (function () {
