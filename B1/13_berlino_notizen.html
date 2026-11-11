@@ -322,7 +322,8 @@
                 </div>
 
                 <!-- Dictionary Banner -->
-                <a href="../dictionary.html" class="text-decoration-none d-block mb-4 mt-3">
+                <div id="dictBanner" class="position-relative mb-4 mt-3">
+                    <a href="../dictionary.html" class="text-decoration-none d-block">
                     <div class="card border-0 shadow-sm" style="background:linear-gradient(135deg,#0ea5e9 0%,#6366f1 100%);border-radius:1rem;overflow:hidden;">
                         <div class="card-body d-flex align-items-center justify-content-between flex-wrap gap-3 p-4">
                             <div>
@@ -332,7 +333,19 @@
                             <span class="btn btn-light btn-sm fw-semibold px-3">Open Dictionary →</span>
                         </div>
                     </div>
-                </a>
+                    </a>
+                    <button type="button" id="dictBannerClose" class="btn-close btn-close-white position-absolute top-0 end-0 m-2" aria-label="Close dictionary banner" style="z-index:2;"></button>
+                </div>
+                <script>
+                (function () {
+                    var b = document.getElementById('dictBanner'), KEY = 'wf_dict_banner_dismissed', DAYS = 7;
+                    try { var t = parseInt(localStorage.getItem(KEY), 10); if (t && Date.now() - t < DAYS * 864e5) { b.style.display = 'none'; return; } } catch (e) {}
+                    document.getElementById('dictBannerClose').addEventListener('click', function () {
+                        try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+                        b.style.display = 'none';
+                    });
+                })();
+                </script>
 
                 <div class="jump-layout">
                 <div id="jump-bar-placeholder"></div>
