@@ -623,7 +623,7 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
-<script src="telc-schreiben-data.js?v=0.00.01"></script>
+<script src="telc-schreiben-data.js?v=0.00.02"></script>
 <script>
 function wfSideMenu(pane, sel, title) {
     if (!pane || pane.dataset.sm) return;
@@ -960,7 +960,24 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
             var q = wfEl('blockquote', 'border-start ps-3 mb-2'); t.letter.forEach(function (x) { q.appendChild(wfEl('p', 'mb-2', x)); }); tbody.appendChild(q);
             tbody.appendChild(wfEl('p', 'mb-1 fw-bold', t.task));
             var ul = wfEl('ul', 'mb-2'); t.points.forEach(function (x) { ul.appendChild(wfEl('li', null, x)); }); tbody.appendChild(ul);
-            if (t.hints) tbody.appendChild(wfEl('p', 'tx-note mb-0', t.hints));
+            if (t.hints) tbody.appendChild(wfEl('p', 'tx-note mb-2', t.hints));
+            if (t.sol) {
+                var bar = wfEl('div', 'd-flex flex-wrap gap-2 mt-2'), sb = wfEl('button', 'btn btn-sm btn-outline-primary', '👁 Show B1 solution'), eb = wfEl('button', 'btn btn-sm btn-outline-secondary', '🌐 Show English'); sb.type = eb.type = 'button';
+                var box = wfEl('div', 'tx-box mt-2'); box.hidden = true;
+                var words = t.sol.reduce(function (n, r) { return n + (r.de.replace(/<[^>]+>/g, '').match(/\S+/g) || []).length; }, 0);
+                box.appendChild(wfEl('div', 'lbl', 'B1 solution · about ' + words + ' words (the box above counts your own)'));
+                var ol = wfEl('ol', 'mb-1 ps-3');
+                t.sol.forEach(function (r) {
+                    var li = wfEl('li', 'mb-2'), de = wfEl('div'); de.innerHTML = r.de;
+                    var en = wfEl('div', 'tx-note fst-italic sol-en', r.en); en.hidden = true;
+                    li.appendChild(de); li.appendChild(wfEl('div', 'tx-note', r.tag)); li.appendChild(en); ol.appendChild(li);
+                });
+                box.appendChild(ol);
+                box.appendChild(wfEl('div', 'tx-note', 'Bold = a line of the letter shell or of the Templates tab, word for word. Normal = your own words for the point. Use the same lines in every letter: you only have to change the details.'));
+                sb.addEventListener('click', function () { box.hidden = !box.hidden; sb.textContent = box.hidden ? '👁 Show B1 solution' : '🙈 Hide B1 solution'; });
+                var ens = false; eb.addEventListener('click', function () { ens = !ens; Array.prototype.forEach.call(box.querySelectorAll('.sol-en'), function (n) { n.hidden = !ens; }); eb.textContent = ens ? '🌐 Hide English' : '🌐 Show English'; });
+                bar.appendChild(sb); bar.appendChild(eb); tbody.appendChild(bar); tbody.appendChild(box);
+            }
         } else { tbody.appendChild(wfEl('p', 'tx-note mb-0', 'Write about anything you like, or choose an exam task above.')); }
         ta.value = S.texts[no] || ''; count();
         document.querySelectorAll('.tx-check input').forEach(function (cb) { cb.checked = !!((S.chk[no] || {})[cb.dataset.k]); });
