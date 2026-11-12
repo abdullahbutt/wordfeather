@@ -209,8 +209,8 @@ INSTALL_BANNER_STYLE_SCRIPT = (
     '        .install-banner-icon{font-size:1.1rem;line-height:1;}\n'
     '        .install-banner-text{font-weight:600;flex:1;}\n'
     '        .install-banner-close{position:absolute;top:0;right:0;display:flex;align-items:center;justify-content:center;'
-    'min-width:44px;min-height:44px;background:none;border:none;color:#fff;opacity:.9;font-size:1.1rem;line-height:1;cursor:pointer;padding:0;}\n'
-    '        .install-banner-close:hover{opacity:1;}\n'
+    'min-width:44px;min-height:44px;background:radial-gradient(circle,rgba(0,0,0,.35) 0,rgba(0,0,0,.35) .95rem,transparent calc(.95rem + 1px));border:none;color:#fff;opacity:1;font-size:1.1rem;line-height:1;cursor:pointer;padding:0;}\n'
+    '        .install-banner-close:hover{background:radial-gradient(circle,rgba(0,0,0,.55) 0,rgba(0,0,0,.55) .95rem,transparent calc(.95rem + 1px));}\n'
     '        .install-banner-panel{padding-top:.5rem;}\n'
     '        .install-banner-card{background:rgba(255,255,255,.15);border-radius:.6rem;padding:.5rem .7rem;'
     'font-size:.78rem;line-height:1.4;height:100%;}\n'
@@ -278,7 +278,7 @@ INSTALL_BANNER = (
     '                    <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>\n'
     '                </div>\n'
     '                <button type="button" id="installBannerClose" class="install-banner-close" '
-    'aria-label="Dismiss install banner">✕</button>\n'
+    'aria-label="Close" title="Close">✕</button>\n'
     '                <div id="installBannerPanel" class="install-banner-panel">\n'
     + INSTALL_BANNER_CARDS.replace('                    ', '                        ')
     + '                </div>\n'
@@ -301,7 +301,7 @@ INSTALL_BANNER_DICT = (
     '                            <span class="install-banner-text">Install as a free app — works offline, no App Store needed</span>\n'
     '                        </div>\n'
     '                        <button type="button" id="installBannerClose" class="install-banner-close" '
-    'aria-label="Dismiss install banner">✕</button>\n'
+    'aria-label="Close" title="Close">✕</button>\n'
     '                        <div id="installBannerPanel" class="install-banner-panel">\n'
     + INSTALL_BANNER_CARDS.replace('                    ', '                            ')
     + '                        </div>\n'
