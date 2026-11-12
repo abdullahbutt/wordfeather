@@ -1172,9 +1172,9 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
                 sl.addEventListener('change', function () { if (s.done) { sl.value = s.a[n] || ''; return; } if (sl.value) s.a[n] = sl.value; else delete s.a[n]; save(); used(); refreshCount(); });
                 p.appendChild(sl);
                 if (s.done) {
-                    var ok = s.a[n] === T.ans[n], sp = wfEl('span', ok ? 'text-success fw-bold' : 'text-danger fw-bold', ok ? '✓' : '✗ ' + (s.a[n] || '–') + ' → ');
+                    var ok = s.a[n] === T.ans[n], wd = function (l) { return l ? (cur.t === 1 ? (T.o[n] || [])['abc'.indexOf(l)] : T.list[l]) : '–'; }, sp = wfEl('span', ok ? 'text-success fw-bold' : 'text-danger fw-bold', '[' + n + ': ' + (ok ? '✓' : '✗ ' + wd(s.a[n]) + ' → ') + (ok ? ']' : ''));
                     p.appendChild(sp);
-                    if (!ok) p.appendChild(wfEl('span', 'text-success fw-bold', T.ans[n] + ') ' + (cur.t === 1 ? (T.o[n] || [])['abc'.indexOf(T.ans[n])] : T.list[T.ans[n]])));
+                    if (!ok) p.appendChild(wfEl('span', 'text-success fw-bold', wd(T.ans[n]) + ']'));
                 }
             });
             box.appendChild(p);
