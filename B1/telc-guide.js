@@ -36,7 +36,7 @@
             { t: 'Submit a Teil', x: 'Press “✔ Submit Teil”: the Teil is marked at once and locked. You see the correct answers and points, and “Why?” under an item explains it. “Try Teil again” clears it. You can do the Teile in any order and leave some for later.', sel: byText('button', 'Submit Teil'), n: OPEN_FIRST },
             { t: 'Submit the exam', x: '“Submit exam” stops the total time and gives the total. Your answers and results stay in this browser, so you can come back with Continue.', sel: byText('button', 'Submit exam'), n: OPEN_FIRST }
         ],
-        '18_telc_grammatik.html': [
+        '18_telc_sprachbausteine.html': [
             { t: 'Choose what you want', x: 'Two tabs: “Sprachbausteine exams” (practice exams) and “Grammar refresher”. For the exam, stay on Sprachbausteine exams.', sel: one(TABS) },
             { t: 'What the exam looks like', x: 'Teil 1: a text with 10 gaps, you choose a, b or c. Teil 2: a text with 10 gaps, you choose from a list of 15 words, each word only once.', sel: one('#t-sbexam') },
             { t: 'Read the cheat sheet first', x: 'Open “Cheat sheet: how to find the right word”. It gives four steps for every gap and the word types of the Teil 2 list.', sel: byText('summary', 'Cheat sheet') },
