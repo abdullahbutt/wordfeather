@@ -675,7 +675,7 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
-<script src="telc-sprechen-data.js?v=0.00.07"></script>
+<script src="telc-sprechen-data.js?v=0.00.08"></script>
 <script>
 function wfSideMenu(pane, sel, title) {
     if (!pane || pane.dataset.sm) return;
@@ -779,7 +779,7 @@ function wfPickMenu(pane, title, getItems, onPick, isActive) {
             });
         }
         if (synth && synth.getVoices().length === 0) { synth.addEventListener('voiceschanged', addButtons); }
-        addButtons();
+        addButtons(); window.wfSpeakAll = addButtons;
 
         var nav = document.getElementById('lessonNav');
         if (nav && window.matchMedia('(min-width: 992px)').matches) { nav.open = true; }
@@ -1031,11 +1031,11 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         var prev = wfEl('button', 'btn btn-sm btn-outline-secondary', '‹ Previous'); prev.type = 'button'; prev.addEventListener('click', function () { var i = D.indexOf(c); cur = D[(i + D.length - 1) % D.length].no; card(); });
         var next = wfEl('button', 'btn btn-sm btn-outline-secondary', 'Next ›'); next.type = 'button'; next.addEventListener('click', function () { var i = D.indexOf(c); cur = D[(i + 1) % D.length].no; card(); });
         nav.appendChild(back); nav.appendChild(prev); nav.appendChild(next); root.appendChild(nav);
-        var head = wfEl('div', 'tx-box'); head.appendChild(wfEl('div', 'lbl', 'Thema ' + c.no)); head.appendChild(wfEl('h2', 'h4 mb-0', '„' + c.title + '“')); head.appendChild(wfEl('div', 'tx-note', c.en)); root.appendChild(head);
+        var head = wfEl('div', 'tx-box'); head.appendChild(wfEl('div', 'lbl', 'Thema ' + c.no)); head.appendChild((function () { var h = wfEl('h2', 'h4 mb-0'), sp = wfEl('span', null, '„' + c.title + '“'); sp.setAttribute('data-say', c.title); h.appendChild(sp); return h; })()); head.appendChild(wfEl('div', 'tx-note', c.en)); root.appendChild(head);
         var cards = wfEl('div'); cards.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.75rem;margin-bottom:1rem';
         ['A', 'B'].forEach(function (k) {
             var p = c[k], b = wfEl('div', 'tx-box mb-0'); b.appendChild(wfEl('div', 'lbl', 'Person ' + k + (p && p.who ? ' · ' + p.who : '')));
-            if (p) b.appendChild(wfEl('div', null, p.text)); else b.appendChild(wfEl('div', 'tx-note', 'This card is not printed in the collection.'));
+            if (p) { var pt = wfEl('div'), ps = wfEl('span', null, p.text); ps.setAttribute('data-say', p.text); pt.appendChild(ps); b.appendChild(pt); } else b.appendChild(wfEl('div', 'tx-note', 'This card is not printed in the collection.'));
             var sol = c.sol && c.sol[k];
             if (p && sol) {
                 var bar = wfEl('div', 'd-flex flex-wrap gap-2 mt-2'), sb = wfEl('button', 'btn btn-sm btn-outline-primary', '👁 Show B1 solution'), eb = wfEl('button', 'btn btn-sm btn-outline-secondary', '🌐 Show English'); sb.type = eb.type = 'button';
@@ -1043,7 +1043,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
                 var trn = c.tr && c.tr[k] ? wfEl('div', 'tx-note fst-italic mt-2', c.tr[k]) : null; if (trn) b.appendChild(trn);
                 var sl = wfEl('ol', 'mb-1 ps-3');
                 sol.forEach(function (r) {
-                    var li = wfEl('li', 'mb-2'), de = wfEl('div'); de.innerHTML = r.de;
+                    var li = wfEl('li', 'mb-2'), de = wfEl('div'); de.innerHTML = '<span>' + r.de + '</span>'; de.firstChild.setAttribute('data-say', de.firstChild.textContent);
                     var en = wfEl('div', 'tx-note fst-italic sol-en', r.en); en.hidden = true;
                     li.appendChild(de); li.appendChild(wfEl('div', 'tx-note', r.tag)); li.appendChild(en); sl.appendChild(li);
                 });
@@ -1062,13 +1062,13 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         go.addEventListener('click', function () { if (clock.running) { clock.pause(); go.textContent = '▶ Resume'; } else { clock.start(); go.textContent = '⏸ Pause'; } });
         rs.addEventListener('click', function () { clock.reset(); go.textContent = '▶ Start'; });
         cb.appendChild(tm); cb.appendChild(go); cb.appendChild(rs); cb.appendChild(wfEl('span', 'tx-note', 'A stopwatch: the book gives no time per card, so see how long you need.')); tb.appendChild(cb);
-        var ol = wfEl('ol', 'mt-2 mb-0'); OPEN.forEach(function (o, i) { ol.appendChild(wfEl('li', null, o)); }); tb.appendChild(ol);
+        var ol = wfEl('ol', 'mt-2 mb-0'); OPEN.forEach(function (o, i) { var li = wfEl('li'), sp = wfEl('span', null, o); sp.setAttribute('data-say', o.replace(/…/g, '')); li.appendChild(sp); ol.appendChild(li); }); tb.appendChild(ol);
         root.appendChild(tb);
         var nb = wfEl('div', 'tx-box'); nb.appendChild(wfEl('div', 'lbl', 'Your notes for this topic (kept in this browser)'));
         var ta = wfEl('textarea', 'form-control'); ta.rows = 5; ta.value = st.notes || ''; ta.setAttribute('aria-label', 'Notes'); ta.addEventListener('input', function () { st.notes = ta.value; save(); });
         nb.appendChild(ta);
         var dn = wfEl('label', 'd-flex gap-2 mt-2'); var cx = wfEl('input'); cx.type = 'checkbox'; cx.checked = !!st.done; cx.addEventListener('change', function () { st.done = cx.checked; save(); });
-        dn.appendChild(cx); dn.appendChild(wfEl('span', null, 'I have practised this topic')); nb.appendChild(dn); root.appendChild(nb);
+        dn.appendChild(cx); dn.appendChild(wfEl('span', null, 'I have practised this topic')); nb.appendChild(dn); root.appendChild(nb); if (window.wfSpeakAll) window.wfSpeakAll();
         window.scrollTo(0, 0);
     }
     var pm = wfPickMenu(document.getElementById('t-cards'), 'Topics', function () { return D.map(function (c) { return { id: c.no, label: c.no + '. ' + c.title + (S[c.no] && S[c.no].done ? '  ✓' : '') }; }); }, function (id) { cur = id; card(); }, function (id) { return cur === id; });
