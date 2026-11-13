@@ -1040,7 +1040,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
             if (p && sol) {
                 var bar = wfEl('div', 'd-flex flex-wrap gap-2 mt-2'), sb = wfEl('button', 'btn btn-sm btn-outline-primary', '👁 Show B1 solution'), eb = wfEl('button', 'btn btn-sm btn-outline-secondary', '🌐 Show English'); sb.type = eb.type = 'button';
                 var box = wfEl('div', 'mt-2'); box.hidden = true;
-                var trn = c.tr ? wfEl('div', 'tx-note mb-2', c.tr[k]) : null; if (trn) { trn.hidden = true; b.appendChild(trn); }
+                var trn = c.tr && c.tr[k] ? wfEl('div', 'tx-note fst-italic mt-2', c.tr[k]) : null; if (trn) b.appendChild(trn);
                 var sl = wfEl('ol', 'mb-1 ps-3');
                 sol.forEach(function (r) {
                     var li = wfEl('li', 'mb-2'), de = wfEl('div'); de.innerHTML = r.de;
@@ -1049,7 +1049,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
                 });
                 box.appendChild(sl); box.appendChild(wfEl('div', 'tx-note', 'Bold = a memorised template line, word for word. Normal = your own words from the card.'));
                 sb.addEventListener('click', function () { box.hidden = !box.hidden; sb.textContent = box.hidden ? '👁 Show B1 solution' : '🙈 Hide B1 solution'; });
-                var ens = false; eb.addEventListener('click', function () { ens = !ens; if (trn) trn.hidden = !ens; Array.prototype.forEach.call(box.querySelectorAll('.sol-en'), function (n) { n.hidden = !ens; }); eb.textContent = ens ? '🌐 Hide English' : '🌐 Show English'; });
+                var ens = false; eb.addEventListener('click', function () { ens = !ens; Array.prototype.forEach.call(box.querySelectorAll('.sol-en'), function (n) { n.hidden = !ens; }); eb.textContent = ens ? '🌐 Hide English' : '🌐 Show English'; });
                 bar.appendChild(sb); bar.appendChild(eb); b.appendChild(bar); b.appendChild(box);
             }
             cards.appendChild(b);
