@@ -354,6 +354,24 @@
         @media (max-width: 767.98px) { .sm-nav a { padding-top: .8rem; padding-bottom: .8rem; } .sm-nav summary { padding: .7rem .8rem; } }
         @media print { .sm-nav { display: none !important; } .sm-wrap { display: block; } }
 
+        .sbw-bar { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+        .sbw-bar input[type=search] { flex: 1 1 14rem; min-width: 0; }
+        .sbw-card { border: 1px solid var(--bs-border-color); border-radius: .6rem; padding: .7rem .9rem; margin-bottom: .7rem; background: var(--bs-body-bg); }
+        .sbw-card[hidden], .sbw-h[hidden] { display: none; }
+        .sbw-w { font-size: 1.2rem; font-weight: 700; }
+        .sbw-tag { display: inline-block; font-size: .72rem; border: 1px solid var(--bs-border-color); border-radius: 999px; padding: .05rem .5rem; color: var(--bs-secondary-color); margin-left: .35rem; vertical-align: middle; }
+        .sbw-tag.dis { border-color: var(--bs-warning-border-subtle); background: var(--bs-warning-bg-subtle); color: var(--bs-warning-text-emphasis); }
+        .sbw-mean { font-weight: 600; }
+        .sbw-ex { list-style: none; padding: 0; margin: .5rem 0 0; }
+        .sbw-ex li { margin-bottom: .55rem; padding-left: .7rem; border-left: 3px solid var(--bs-border-color); }
+        mark.sbw-mark { background: var(--bs-warning-bg-subtle); color: var(--bs-body-color); padding: 0 .2rem; border-radius: .2rem; font-weight: 700; }
+        .sbw-hide-en .sbw-en { display: none; }
+        .sbw-card details { margin-top: .35rem; }
+        .sbw-card summary { cursor: pointer; font-size: .85rem; color: var(--bs-secondary-color); }
+        .sbw-opts { font-size: .9rem; margin: .25rem 0 0; }
+        .sbw-opts b { color: var(--bs-success-text-emphasis); }
+        @media (max-width: 768px) { .sbw-card { padding: .6rem .7rem; } .sbw-w { font-size: 1.1rem; } }
+
         .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem; display: none; align-items: center; justify-content: center; z-index: 1030; }
 
         .skillnav { max-width: 1120px; margin: 0 auto; padding: .6rem 16px 0; }
@@ -458,7 +476,7 @@
         <h1>telc B1 Sprachbausteine: Prüfungen und Grammatik</h1>
         <p class="lead-s">Grammar is part of the exam: the Sprachbausteine exams of the book, and the 5-minute grammar refresher with a practice mode.</p>
         <div class="rf-langbar"><div class="lang-switch" role="group" aria-label="Sprache / Language"><span class="lang-label">🌐 <span class="t-de">Sprache</span><span class="t-en">Language</span></span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div></div>
-<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-sbexam" aria-selected="true">Sprachbausteine exams</button><button type="button" role="tab" data-pane="t-grammar" aria-selected="false">Grammar refresher (Extra 1)</button></div><div class="rf-pane" id="t-sbexam">        <div class="tx-box"><div class="lbl">Sprachbausteine: the grammar part of the exam</div><ul>
+<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-sbexam" aria-selected="true">Sprachbausteine exams</button><button type="button" role="tab" data-pane="t-sbwords" aria-selected="false">Teil 2 words</button><button type="button" role="tab" data-pane="t-sbpat" aria-selected="false">Teil 1 patterns</button><button type="button" role="tab" data-pane="t-grammar" aria-selected="false">Grammar refresher (Extra 1)</button></div><div class="rf-pane" id="t-sbexam">        <div class="tx-box"><div class="lbl">Sprachbausteine: the grammar part of the exam</div><ul>
             <li><strong>Teil 1:</strong> a text with 10 gaps (21–30), you choose a, b or c. <strong>Teil 2:</strong> a text with 10 gaps (31–40), you choose from a list of 15 words (a–o), each word only once.</li>
             <li>The Sprachbausteine share the 90 minutes with Lesen (see the order tip on <a href="15_telc_lesen.html">15 telc Lesen</a>).</li>
             <li>Grammar also carries <a href="16_telc_schreiben.html">Schreiben</a> and <a href="17_telc_sprechen.html">Sprechen</a>: after <em>dass</em> and <em>weil</em> the verb goes at the end.</li></ul>
@@ -593,6 +611,8 @@
             </div></details>
         <div id="sb-mine-slot"></div>
         <div id="sb-root"></div></div>
+<div class="rf-pane" id="t-sbwords" hidden>        <div id="sbw-root"></div></div>
+<div class="rf-pane" id="t-sbpat" hidden>        <div id="sbp-root"></div></div>
 <div class="rf-pane" id="t-grammar" hidden><div class="content-card"><div class="markdown-content">
 <h2 id="extra-1-grammatik" class="part-heading"><span class="t-de">Zusatz 1: Grammatik in 5 Minuten (ein Satz erklärt alles)</span><span class="t-en">Extra 1: 5-minute grammar refresher (one sentence explains everything)</span></h2>
 <p class="lesson-meta"><span class="t-de">Eine Grammatik-Wiederholung für A2/B1. Passt zu den Lektionen 12–14, 16–18, 22, 25–29, 31–34 und 37.</span><span class="t-en">A grammar revision for A2/B1. Goes with lessons 12–14, 16–18, 22, 25–29, 31–34 and 37.</span></p>
@@ -1231,7 +1251,127 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     render();
 })();
 </script>
-<script>['t-teil1', 't-teil3', 't-templates', 't-memorise', 't-examples', 't-grammar'].forEach(function (id) { wfSideMenu(document.getElementById(id), '.sec-head, h3', 'Contents'); });</script>
+<script src="telc-sprachbausteine-words.js?v=1d9aca2b"></script>
+<script>
+(function () {
+    var W = window.TELC_SBW; if (!W) return;
+    var wroot = document.getElementById('sbw-root'), proot = document.getElementById('sbp-root');
+    function marked(parent, s) {
+        String(s).split(/(【[^】]*】)/).forEach(function (p) {
+            if (!p) return;
+            if (p.charAt(0) === '【') parent.appendChild(wfEl('mark', 'sbw-mark', p.slice(1, -1))); else parent.appendChild(document.createTextNode(p));
+        });
+        return parent;
+    }
+    function cat(ty) {
+        if (ty.indexOf('preposition') === 0) return 'Prepositions';
+        if (ty.indexOf('connector') === 0) return 'Connectors';
+        if (ty.indexOf('verb') >= 0 || ty.indexOf('noun or verb') === 0) return ty.indexOf('noun') === 0 ? 'Nouns' : 'Verbs and modal verbs';
+        if (ty.indexOf('noun') === 0) return 'Nouns';
+        if (ty.indexOf('adjective') === 0) return 'Adjectives';
+        if (ty.indexOf('adverb') === 0) return 'Adverbs';
+        if (/pronoun|article|quantity/.test(ty)) return 'Pronouns, articles, quantity words';
+        return 'Particles, da-words, question words';
+    }
+    var CATS = ['Prepositions', 'Connectors', 'Verbs and modal verbs', 'Nouns', 'Adjectives', 'Adverbs', 'Pronouns, articles, quantity words', 'Particles, da-words, question words'];
+    function bar(root, search, extra) {
+        var b = wfEl('div', 'tx-box sbw-bar'), q = document.createElement('input'), en = wfEl('button', 'btn btn-sm btn-outline-secondary', '🌐 English: shown');
+        q.type = 'search'; q.className = 'form-control form-control-sm'; q.placeholder = search; q.setAttribute('aria-label', search); en.type = 'button';
+        b.appendChild(q); (extra || []).forEach(function (x) { b.appendChild(x); }); b.appendChild(en);
+        var hide = false;
+        en.addEventListener('click', function () { hide = !hide; root.classList.toggle('sbw-hide-en', hide); en.textContent = hide ? '🌐 English: hidden (test yourself)' : '🌐 English: shown'; });
+        return { box: b, q: q };
+    }
+
+    // ---------- Teil 2: every word of the 18 word lists once
+    if (wroot) {
+        var words = W.t2, cards = [], heads = {};
+        var nAns = words.filter(function (w) { return w.ans > 0; }).length, nDis = words.length - nAns;
+        var intro = wfEl('div', 'tx-box');
+        intro.appendChild(wfEl('div', 'lbl', 'Teil 2 word list: all ' + words.length + ' words of the 18 exams, each word once'));
+        intro.appendChild(wfEl('p', 'mb-1', 'In Teil 2 you choose 10 words from a list of 15. Here is every word that appears in these lists, with its type, its meaning, how it is used and sample sentences taken from the exams, with the English translation.'));
+        intro.appendChild(wfEl('p', 'tx-note mb-0', nAns + ' words are the correct answer of at least one gap. ' + nDis + ' words (marked "distractor only") never are an answer in these 18 exams: they are in the list to confuse you, so learn them too. For those the sample sentence is written for this page. Press the 🌐 button to hide the English and test yourself.'));
+        wroot.appendChild(intro);
+        var sel = document.createElement('select'); sel.className = 'form-select form-select-sm'; sel.style.maxWidth = '16rem'; sel.setAttribute('aria-label', 'Filter by type');
+        [['', 'All types']].concat(CATS.map(function (c) { return [c, c]; })).forEach(function (o) { var op = document.createElement('option'); op.value = o[0]; op.textContent = o[1]; sel.appendChild(op); });
+        var sel2 = document.createElement('select'); sel2.className = 'form-select form-select-sm'; sel2.style.maxWidth = '14rem'; sel2.setAttribute('aria-label', 'Answer or distractor');
+        [['', 'Answers and distractors'], ['a', 'Only words that are answers'], ['d', 'Only distractors']].forEach(function (o) { var op = document.createElement('option'); op.value = o[0]; op.textContent = o[1]; sel2.appendChild(op); });
+        var b = bar(wroot, 'Search a word, a meaning or a note', [sel, sel2]), cnt = wfEl('div', 'tx-note mb-2');
+        wroot.appendChild(b.box); wroot.appendChild(cnt);
+        var list = wfEl('div'); wroot.appendChild(list);
+        words.forEach(function (w) {
+            var letter = w.w.charAt(0).toUpperCase().replace('Ä', 'A').replace('Ö', 'O').replace('Ü', 'U');
+            if (!heads[letter]) { var h = wfEl('h3', 'sbw-h h5 mt-3', letter); h.id = 'sbw-' + letter.toLowerCase(); list.appendChild(h); heads[letter] = h; }
+            var c = wfEl('div', 'sbw-card'), top = wfEl('div'), c1 = cat(w.ty);
+            top.appendChild(wfEl('span', 'sbw-w', w.w)); top.appendChild(wfEl('span', 'sbw-tag', w.ty));
+            top.appendChild(wfEl('span', w.ans ? 'sbw-tag' : 'sbw-tag dis', w.ans ? 'answer in ' + w.ans + (w.ans === 1 ? ' gap' : ' gaps') + ' · in ' + w.inList + ' lists' : 'distractor only · in ' + w.inList + (w.inList === 1 ? ' list' : ' lists')));
+            c.appendChild(top);
+            c.appendChild(wfEl('div', 'sbw-mean sbw-en', w.en)); c.appendChild(wfEl('div', 'tx-note', w.note));
+            var ul = wfEl('ul', 'sbw-ex');
+            w.ex.forEach(function (e) {
+                var li = wfEl('li'), de = wfEl('div'); marked(de, e.de); li.appendChild(de);
+                var en = wfEl('div', 'tx-note sbw-en fst-italic'); marked(en, e.en); li.appendChild(en);
+                li.appendChild(wfEl('div', 'tx-note', 'Exam ' + e.x + ', gap ' + e.n + ' · ' + e.rule));
+                ul.appendChild(li);
+            });
+            if (w.own) {
+                var li2 = wfEl('li'); li2.appendChild(wfEl('div', null, w.own[0])); li2.appendChild(wfEl('div', 'tx-note sbw-en fst-italic', w.own[1]));
+                li2.appendChild(wfEl('div', 'tx-note', 'Example written for this page: this word is only a distractor in the 18 exams.')); ul.appendChild(li2);
+            }
+            c.appendChild(ul); list.appendChild(c);
+            cards.push({ el: c, h: heads[letter], c: c1, d: w.ans ? 'a' : 'd', s: (w.w + ' ' + w.key + ' ' + w.en + ' ' + w.note + ' ' + w.ty).toLowerCase() });
+        });
+        function filt() {
+            var q = b.q.value.trim().toLowerCase(), n = 0, any = {};
+            cards.forEach(function (x) {
+                var ok = (!q || x.s.indexOf(q) >= 0) && (!sel.value || x.c === sel.value) && (!sel2.value || x.d === sel2.value);
+                x.el.hidden = !ok; if (ok) { n++; any[x.h.id] = 1; }
+            });
+            Object.keys(heads).forEach(function (k) { heads[k].hidden = !any[heads[k].id]; });
+            cnt.textContent = n + ' of ' + words.length + ' words shown';
+        }
+        b.q.addEventListener('input', filt); sel.addEventListener('change', filt); sel2.addEventListener('change', filt); filt();
+    }
+
+    // ---------- Teil 1: the patterns, grouped by what the gap tests
+    if (proot) {
+        var groups = W.t1, total = groups.reduce(function (n, g) { return n + g.items.length; }, 0), pcards = [], pheads = [];
+        var pi = wfEl('div', 'tx-box');
+        pi.appendChild(wfEl('div', 'lbl', 'Teil 1 patterns: what the 10 gaps test'));
+        pi.appendChild(wfEl('p', 'mb-1', 'In Teil 1 you choose a, b or c for each gap. The three choices are usually forms of the same word or small grammar words, so the same patterns come back in every exam. Here the ' + total + ' gaps of the exams are sorted by pattern. Learn the rule of one pattern, then read its sample sentences with the English translation.'));
+        pi.appendChild(wfEl('p', 'tx-note mb-0', 'The bold letter in the choices is the correct one. Open "Why?" to see the rule of the gap and what is wrong with the other two choices. A sentence that is in two exams is shown only once.'));
+        proot.appendChild(pi);
+        var pb = bar(proot, 'Search a word or a sentence'), pcnt = wfEl('div', 'tx-note mb-2');
+        proot.appendChild(pb.box); proot.appendChild(pcnt);
+        groups.forEach(function (g) {
+            var h = wfEl('h3', 'sbw-h h5 mt-3', g.title + ' (' + g.items.length + ')'); h.id = 'sbp-' + g.key; proot.appendChild(h);
+            var rule = wfEl('p', 'tx-note', g.rule); proot.appendChild(rule);
+            var mine = [];
+            g.items.forEach(function (e) {
+                var c = wfEl('div', 'sbw-card'), de = wfEl('div'); marked(de, e.de); c.appendChild(de);
+                var en = wfEl('div', 'tx-note sbw-en fst-italic'); marked(en, e.en); c.appendChild(en);
+                var ch = wfEl('div', 'sbw-opts');
+                e.o.forEach(function (o, i) { var s = wfEl(o === e.a ? 'b' : 'span', null, 'abc'.charAt(i) + ') ' + o); ch.appendChild(s); ch.appendChild(document.createTextNode('   ')); });
+                c.appendChild(ch);
+                var d = wfEl('details'), sm = wfEl('summary', null, 'Why? (exam ' + e.x + ', gap ' + e.n + ')'); d.appendChild(sm);
+                d.appendChild(wfEl('div', 'tx-note mt-1', e.rule));
+                if (e.od) { var ul = wfEl('ul', 'tx-note mb-0'); e.od.forEach(function (t, i) { ul.appendChild(wfEl('li', null, 'abc'.charAt(i) + ') ' + e.o[i] + ' = ' + t)); }); d.appendChild(ul); }
+                c.appendChild(d); proot.appendChild(c);
+                mine.push(c); pcards.push({ el: c, h: h, rule: rule, s: (e.de + ' ' + e.en + ' ' + e.o.join(' ')).toLowerCase() });
+            });
+            pheads.push({ h: h, rule: rule });
+        });
+        function pfilt() {
+            var q = pb.q.value.trim().toLowerCase(), n = 0, any = {};
+            pcards.forEach(function (x) { var ok = !q || x.s.indexOf(q) >= 0; x.el.hidden = !ok; if (ok) { n++; any[x.h.id] = 1; } });
+            pheads.forEach(function (x) { x.h.hidden = !any[x.h.id]; x.rule.hidden = !any[x.h.id]; });
+            pcnt.textContent = n + ' of ' + total + ' sentences shown';
+        }
+        pb.q.addEventListener('input', pfilt); pfilt();
+    }
+})();
+</script>
+<script>['t-teil1', 't-teil3', 't-templates', 't-memorise', 't-examples', 't-grammar', 't-sbwords', 't-sbpat'].forEach(function (id) { wfSideMenu(document.getElementById(id), '.sec-head, h3', 'Contents'); });</script>
     <script src="../wf-progress.js?v=0.00.02"></script>
 <script src="telc-guide.js?v=0.00.01"></script>
 </body>
