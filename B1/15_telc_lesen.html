@@ -89,10 +89,6 @@
         .lz-opts button { text-align: left; border: 1px solid var(--bs-border-color); background: var(--bs-body-bg); color: var(--bs-body-color); border-radius: .4rem; padding: .4rem .65rem; line-height: 1.35; cursor: pointer; }
         .lz-opts button[aria-pressed="true"] { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
         .lz-opts button:disabled { cursor: default; }
-        .lz-item .lz-note { grid-column: 2; }
-        .lz-head .lz-note, .lz-ad .lz-note { grid-column: 2 / 4; }
-        .lz-item .lz-note label, .lz-head .lz-note label, .lz-ad .lz-note label { font-size: .8rem; color: var(--bs-secondary-color); margin-bottom: .15rem; }
-        .lz-item .lz-note textarea, .lz-head .lz-note textarea, .lz-ad .lz-note textarea { width: 100%; min-height: 2.6rem; font-size: .9rem; resize: vertical; }
         .lz-item.ok { background: rgba(25,135,84,.07); }
         .lz-item.bad { background: rgba(220,53,69,.07); }
         .lz-item.ok .no::after { content: " ✓"; color: var(--bs-success); }
@@ -320,7 +316,7 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
-    <script src="telc-lesen-data.js?v=0.00.01"></script>
+    <script src="telc-lesen-data.js?v=0.00.02"></script>
     <script>
 window.wfUl = (function () {
     var cfg = null, on = false, store = {}, mouseDown = false, timer = null, bound = null;
@@ -498,7 +494,7 @@ window.wfUl = (function () {
             Object.keys(ex.teile).forEach(function (t) { total += ids(ex, t).length; });
             c.appendChild(el('div', 'meta', 'Prüfung ' + ex.no));
             c.appendChild(el('h2', null, ex.title));
-            c.appendChild(el('div', 'meta', Object.keys(ex.teile).map(function (t) { return 'Teil ' + t; }).join(' · ') + ' · ' + total + ' items' + (Object.keys(ex.teile).length < 3 ? ' (Teil 2 missing)' : '')));
+            c.appendChild(el('div', 'meta', Object.keys(ex.teile).map(function (t) { return 'Teil ' + t; }).join(' · ') + ' · ' + total + ' items' + (Object.keys(ex.teile).length < 3 ? ' (Teil ' + ['1', '2', '3'].filter(function (t) { return !ex.teile[t]; }).join(' and ') + ' missing)' : '')));
             var status = el('div', 'st', 'Not started');
             if (s.done && s.best) { status.className = 'st done'; status.textContent = 'Best: ' + s.best.score + '/' + s.best.max + ' points (' + Math.round(100 * s.best.score / s.best.max) + ' %)'; }
             else if (n) { status.className = 'st prog'; status.textContent = 'In progress: ' + n + '/' + total + ' answered'; }
@@ -596,17 +592,6 @@ window.wfUl = (function () {
             sel.addEventListener('change', function () { setAns(i, sel.value); if (t === '1' || t === '3') markUsed(t); });
             return sel;
         }
-        function noteBox(n) {  // n: item number, or 'h<letter>' / 'a<letter>' for a heading / ad
-            var w = el('div', 'lz-note'), lb = el('label', null, 'My note (only you see it, saved in this browser)');
-            var ta = el('textarea', 'form-control form-control-sm'); ta.rows = 2; ta.id = 'wf-note-' + ex.no + '-' + n; lb.htmlFor = ta.id;
-            ta.placeholder = 'Write a note to check later …'; ta.value = (s.notes && s.notes[n]) || '';
-            var tm; ta.addEventListener('input', function () {
-                if (!s.notes) s.notes = {}; if (ta.value) s.notes[n] = ta.value; else delete s.notes[n];
-                clearTimeout(tm); tm = setTimeout(save, 400);
-            });
-            ta.addEventListener('blur', function () { clearTimeout(tm); save(); });
-            w.appendChild(lb); w.appendChild(ta); return w;
-        }
         function markUsed(t) {
             var T = ex.teile[t], list = t === '1' ? T.heads : T.ads, use = {};
             ids(ex, t).forEach(function (i) { var v = s.a[i]; if (v && v !== 'X') (use[v] = use[v] || []).push(i); });
@@ -623,8 +608,7 @@ window.wfUl = (function () {
                 r.appendChild(el('span', 'l', x.l + ')'));
                 var de = el('span', null, x.de); if (x.en) de.appendChild(eye(r)); r.appendChild(de);
                 var u = el('span', 'lz-used'); u.style.display = 'none'; r.appendChild(u);
-                if (x.en) r.appendChild(el('div', 'en', x.en));
-                r.appendChild(noteBox((t === '1' ? 'h' : 'a') + x.l)); box.appendChild(r);
+                if (x.en) r.appendChild(el('div', 'en', x.en)); box.appendChild(r);
             });
             return box;
         }
@@ -651,7 +635,6 @@ window.wfUl = (function () {
                     var r = el('div', 'lz-item'); r.appendChild(el('div', 'no', x.n));
                     var b = el('div'); var de = el('div', 'de', x.de); if (x.en) de.appendChild(eye(r)); b.appendChild(de); if (x.en) b.appendChild(el('div', 'en', x.en)); r.appendChild(b);
                     var pk = el('div', 'pick'); pk.appendChild(el('span', null, 'Heading:')); pk.appendChild(selectFor('1', x.n, letters)); r.appendChild(pk);
-                    r.appendChild(noteBox(x.n));
                     if (locked('1')) feedback(r, '1', x.n, s.a[x.n]);
                     tb.appendChild(r);
                 });
@@ -690,7 +673,6 @@ window.wfUl = (function () {
                     var r = el('div', 'lz-item'); r.appendChild(el('div', 'no', x.n));
                     var b = el('div'); var de = el('div', 'de', x.de); if (x.en) de.appendChild(eye(r)); b.appendChild(de); if (x.en) b.appendChild(el('div', 'en', x.en)); r.appendChild(b);
                     var pk = el('div', 'pick'); pk.appendChild(el('span', null, 'Ad:')); pk.appendChild(selectFor('3', x.n, letters)); r.appendChild(pk);
-                    r.appendChild(noteBox(x.n));
                     if (locked('3')) feedback(r, '3', x.n, s.a[x.n]);
                     sb.appendChild(r);
                 });
@@ -736,7 +718,7 @@ window.wfUl = (function () {
         root.textContent = '';
         var crumb = el('div', 'tx-crumb'), back = el('a', null, '← All exams'); back.href = '#'; crumb.appendChild(back); root.appendChild(crumb);
         root.appendChild(el('h1', null, 'Prüfung ' + ex.no + ': ' + ex.title));
-        root.appendChild(el('p', 'lead-s', 'telc B1 · Leseverstehen · ' + tl.length + ' Teile · ' + all.length + ' items · max ' + maxPts(ex) + ' points · book p. ' + ex.book + (tl.length < 3 ? ' · Teil 2 is not in this exam yet' : '')));
+        root.appendChild(el('p', 'lead-s', 'telc B1 · Leseverstehen · ' + tl.length + ' Teile · ' + all.length + ' items · max ' + maxPts(ex) + ' points · book p. ' + ex.book + (tl.length < 3 ? ' · Teil ' + ['1', '2', '3'].filter(function (t) { return !ex.teile[t]; }).join(' and ') + ' not in this exam yet' : '')));
         bar = el('div', 'tx-bar');
         var tabs = el('div', 'tabs');
         tl.forEach(function (t) { var b = el('button', 'btn btn-sm', ''); b.type = 'button'; b.dataset.teil = t; b.addEventListener('click', function () { go(t); }); tabs.appendChild(b); });
