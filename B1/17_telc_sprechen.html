@@ -1044,6 +1044,63 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     list = function () { _list(); pm.refresh(); }; card = function () { _card(); pm.refresh(); };
     list();
 })();
+
+// One "Show all / Hide all" button above every table of the Templates and Week 1 tabs (blanks and practice answers of that table), and a label on the section button that follows the real state
+(function () {
+    var PANES = ['t-templates', 't-memorise'];
+    var st = document.createElement('style');
+    st.textContent = '.tbl-all{display:inline-flex;align-items:center;gap:.35rem;background:none;border:1px solid #adb5bd;border-radius:999px;padding:.2rem .8rem;margin:.4rem 0 .3rem;cursor:pointer;color:#1d4ed8;font-size:.85rem}'
+        + '.tbl-all:hover{background:rgba(29,78,216,.1)}[data-bs-theme="dark"] .tbl-all{color:#8ab4ff}'
+        + '#t-templates .table-eye-btn,#t-memorise .table-eye-btn{display:none!important}'
+        + '@media (max-width:767.98px){.tbl-all{min-height:2.6rem;padding:.4rem 1rem;font-size:.95rem}}';
+    document.head.appendChild(st);
+    function eng(block) {  // English that "Hide English" blurs (the translation column stays readable)
+        if (!block.classList.contains('hide-en')) return [];
+        return Array.prototype.filter.call(block.querySelectorAll('.ex-en, .word-en span'), function (x) { return !x.closest('.keep-en'); });
+    }
+    function state(block) {
+        var f = block.querySelectorAll('.fillin'), c = block.querySelectorAll('.practice-cell'), e = eng(block);
+        if (!f.length && !c.length && !e.length) return null;
+        return Array.prototype.every.call(f, function (x) { return x.classList.contains('open'); }) && Array.prototype.every.call(c, function (x) { return x.classList.contains('revealed'); }) && e.every(function (x) { return x.classList.contains('shown'); });
+    }
+    function paint(btn, on) {
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.innerHTML = '👁 <span class="t-de">' + (on ? 'Alle verstecken' : 'Alle anzeigen') + '</span><span class="t-en">' + (on ? 'Hide all' : 'Show all') + '</span>';
+    }
+    function refresh(pane) {
+        pane.querySelectorAll('.tbl-all').forEach(function (b) {
+            var s = state(b._block);
+            b.hidden = s === null;
+            if (s !== null) paint(b, s);
+        });
+        pane.querySelectorAll('.fill-btn').forEach(function (b) {
+            var f = pane.querySelectorAll('.fillin'), on = f.length > 0 && Array.prototype.every.call(f, function (x) { return x.classList.contains('open'); });
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+            b.innerHTML = '✏️ <span class="t-de">Beispiele für die Lücken ' + (on ? 'verbergen' : 'zeigen') + '</span><span class="t-en">' + (on ? 'Hide' : 'Show') + ' examples for the blanks</span>';
+        });
+    }
+    PANES.forEach(function (id) {
+        var pane = document.getElementById(id);
+        if (!pane) return;
+        pane.querySelectorAll('.lesson-block').forEach(function (block) {
+            var host = block.querySelector('.table-responsive') || block.querySelector('table');
+            if (!host) return;
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'tbl-all'; b._block = block;
+            b.addEventListener('click', function () {
+                var on = b.getAttribute('aria-pressed') !== 'true';
+                block.querySelectorAll('.fillin').forEach(function (f) { if (window.wfSetBlank) window.wfSetBlank(f, on); });
+                block.querySelectorAll('.practice-cell').forEach(function (c) { if (c.classList.contains('revealed') !== on) { var e = c.querySelector('.eye-btn'); if (e) e.click(); } });
+                eng(block).forEach(function (x) { x.classList.toggle('shown', on); });
+                refresh(pane);
+            });
+            host.parentNode.insertBefore(b, host);
+        });
+        pane.addEventListener('click', function () { setTimeout(function () { refresh(pane); }, 0); });
+        pane.addEventListener('keydown', function () { setTimeout(function () { refresh(pane); }, 0); });
+        refresh(pane);
+    });
+})();
 </script>
 <script>['t-teil1', 't-teil3', 't-templates', 't-memorise', 't-examples', 't-grammar'].forEach(function (id) { wfSideMenu(document.getElementById(id), '.sec-head, h3', 'Contents'); });</script>
     <script src="../wf-progress.js?v=0.00.02"></script>
