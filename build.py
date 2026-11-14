@@ -149,6 +149,14 @@ META = {
     'C1': {'color':'#dc2626','desc':'Formaler, akademischer und fachsprachlicher Wortschatz.'},
     'C2': {'color':'#0d9488','desc':'Nuancierter, idiomatischer und literarischer Wortschatz auf Muttersprachenniveau.'},
 }
+META_EN = {
+    'A1': 'Basic vocabulary for absolute beginners: everyday life, family, numbers, greetings.',
+    'A2': 'Extended everyday vocabulary: shopping, travel, body, school, technology.',
+    'B1': 'Thematic vocabulary for the Goethe-Zertifikat B1 and the German citizenship test.',
+    'B2': 'Journalistic and semi-formal vocabulary for study and work.',
+    'C1': 'Formal, academic and technical vocabulary.',
+    'C2': 'Nuanced, idiomatic and literary vocabulary at native-speaker level.',
+}
 COLORS = {lv: META[lv]['color'] for lv in META}
 
 # ── Quality audit ──────────────────────────────────────────────────────────────
@@ -1911,6 +1919,7 @@ def get_topic(w, level):
 def build_wortschatz_page(level, level_words):
     color  = META[level]['color']
     desc   = META[level]['desc']
+    desc_en = META_EN[level]
     count  = len(level_words)
     prev   = {'A1':None,'A2':'A1','B1':'A2','B2':'B1','C1':'B2','C2':'C1'}[level]
     nxt    = {'A1':'A2','A2':'B1','B1':'B2','B2':'C1','C1':'C2','C2':None}[level]
@@ -1969,9 +1978,9 @@ def build_wortschatz_page(level, level_words):
         sections += '<div class="table-responsive">\n'
         sections += ('<table class="table table-bordered table-hover vocab-table mb-4">\n'
                      '<thead class="table-dark"><tr>'
-                     '<th style="width:22%">Deutsch</th>'
-                     '<th style="width:15%">Englisch</th>'
-                     '<th>Beispielsatz</th>'
+                     '<th style="width:22%">Deutsch / German</th>'
+                     '<th style="width:15%">Englisch / English</th>'
+                     '<th>Beispielsatz / Example sentence</th>'
                      '</tr></thead>\n<tbody>\n')
         for w in ws:
             de  = htmllib.escape(w['de'])
@@ -2073,6 +2082,18 @@ def build_wortschatz_page(level, level_words):
         .pos-filter-ws-sep{{align-self:center;color:var(--page-text);opacity:.35;padding:0 .1rem;}}
         .ws-pos-footnote{{font-size:.75rem;color:var(--page-text);opacity:.55;margin-top:.25rem;}}
         .vocab-table th,.vocab-table td{{vertical-align:top;padding:.5rem .65rem;}}
+        @media (max-width:767.98px){{
+            .table-responsive{{overflow:visible}}
+            .vocab-table,.vocab-table>tbody,.vocab-table>tbody>tr,.vocab-table>tbody>tr>td{{display:block;width:auto!important}}
+            .vocab-table>thead{{display:none}}
+            .vocab-table>tbody>tr{{border:1px solid var(--alpha-border);border-radius:.55rem;margin:.5rem 0;padding:.4rem .65rem}}
+            .vocab-table>tbody>tr>td{{border:0!important;padding:.2rem 0!important}}
+            .vocab-table>tbody>tr>td:nth-child(1){{font-size:1.05rem}}
+            .vocab-table>tbody>tr>td:nth-child(2){{color:var(--muted-text)}}
+            .vocab-table>tbody>tr>td:nth-child(3) .ex-de.d-block,.vocab-table>tbody>tr>td:nth-child(3) .ex-en.d-block{{display:inline!important}}
+            .vocab-table>tbody>tr>td:nth-child(3) .ex-en.d-block::before{{content:"";display:block;height:.3rem}}
+            .vocab-table>tbody>tr:not(.conj-row-container-ws)>td:nth-child(3)::before{{content:"Beispiel / Example";display:block;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;opacity:.6}}
+        }}
         .de-word{{font-size:1rem;}} .ex-de{{font-size:.92rem;}} .ex-en{{font-size:.82rem;}}
         .back-to-top{{position:fixed;right:1rem;bottom:1rem;z-index:1030;display:none;width:2.8rem;height:2.8rem;align-items:center;justify-content:center;box-shadow:0 .5rem 1rem rgba(13,110,253,.3);}}
         .theme-toggle{{min-width:5.8rem;height:2.2rem;display:inline-flex;align-items:center;justify-content:center;padding:0 .65rem;}}
@@ -2135,9 +2156,11 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
         </div>
     </div>
     <p class="text-muted mb-1">{htmllib.escape(desc)}</p>
+    <p class="text-muted mb-1"><em>{htmllib.escape(desc_en)}</em></p>
     <p class="text-muted small mb-3">
         Klicke auf <strong>🔊</strong> um Aussprache zu hören.
         Jeder Eintrag enthält Beispielsatz und englische Übersetzung.
+        <br><em>Click <strong>🔊</strong> to hear the pronunciation. Every entry has an example sentence and an English translation.</em>
     </p>
 
     <div class="mb-4">
@@ -2145,34 +2168,34 @@ fetch(prefix+'header.html').then(function(r){{return r.ok?r.text():Promise.rejec
         <div class="ws-search-wrap">
             <svg class="ws-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             <input type="text" id="wsSearchInput"
-                   placeholder="Suche (ä = ae, ö = oe, ü = ue, ß = ss)..." autocomplete="off">
+                   placeholder="Suche / Search (ä = ae, ö = oe, ü = ue, ß = ss)..." autocomplete="off">
         </div>
         </div>
         <div class="d-flex align-items-center gap-2 flex-wrap mt-2">
-            <span class="filter-label-ws">Wortart:</span>
+            <span class="filter-label-ws">Wortart / Word type:</span>
             <div class="pos-filter-ws">
-                <button type="button" data-pos="ALL" class="active">Alle</button>
-                <button type="button" data-pos="noun">🔵 Nomen</button>
-                <button type="button" data-pos="verb">🟢 Verben</button>
-                <button type="button" data-pos="adjective">🟠 Adjektive</button>
-                <button type="button" data-pos="adverb">🟣 Adverbien</button>
-                <button type="button" data-pos="phrase">⬜ Wendungen</button>
-                <button type="button" data-pos="other" title="Präposition, Konjunktion, Pronomen, Determinativ, kurze Redewendungen">⚪ Sonstige</button>
+                <button type="button" data-pos="ALL" class="active">Alle / All</button>
+                <button type="button" data-pos="noun">🔵 Nomen / Nouns</button>
+                <button type="button" data-pos="verb">🟢 Verben / Verbs</button>
+                <button type="button" data-pos="adjective">🟠 Adjektive / Adjectives</button>
+                <button type="button" data-pos="adverb">🟣 Adverbien / Adverbs</button>
+                <button type="button" data-pos="phrase">⬜ Wendungen / Phrases</button>
+                <button type="button" data-pos="other" title="Präposition, Konjunktion, Pronomen, Determinativ, kurze Redewendungen">⚪ Sonstige / Other</button>
                 <span class="pos-filter-ws-sep" aria-hidden="true">|</span>
-                <button type="button" data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben*</button>
-                <button type="button" data-pos="reflexive" title="Teilmenge von Verben – keine eigene Wortart">🔁 Reflexive Verben*</button>
+                <button type="button" data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben / Irregular verbs*</button>
+                <button type="button" data-pos="reflexive" title="Teilmenge von Verben – keine eigene Wortart">🔁 Reflexive Verben / Reflexive verbs*</button>
             </div>
             <span class="badge bg-secondary" id="wsFilterCount">{count} Wörter</span>
         </div>
-        <div class="ws-pos-footnote">* Teilmenge von „Verben" – zählt nicht separat zur Gesamtsumme.</div>
+        <div class="ws-pos-footnote">* Teilmenge von „Verben" – zählt nicht separat zur Gesamtsumme. / Subset of “Verbs”: not counted separately in the total.</div>
         <div id="wsNoResults" class="text-center text-muted py-4" style="display:none">
-            Keine Wörter gefunden. Versuche einen anderen Suchbegriff.
+            Keine Wörter gefunden. Versuche einen anderen Suchbegriff. / No words found. Try another search term.
         </div>
     </div>
 
     <div class="jump-layout">
     <div><div class="jump-bar">
-        <div class="fw-semibold small mb-2" style="color:{color}">📚 Themen</div>
+        <div class="fw-semibold small mb-2" style="color:{color}">📚 Themen / Topics</div>
         {jump_html}
         <hr class="my-2">
         <a href="index.html" class="btn btn-sm btn-outline-secondary w-100 mt-1">← {level} Übersicht</a>

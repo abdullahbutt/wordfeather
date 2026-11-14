@@ -44,6 +44,18 @@
         .pos-filter-ws-sep{align-self:center;color:var(--page-text);opacity:.35;padding:0 .1rem;}
         .ws-pos-footnote{font-size:.75rem;color:var(--page-text);opacity:.55;margin-top:.25rem;}
         .vocab-table th,.vocab-table td{vertical-align:top;padding:.5rem .65rem;}
+        @media (max-width:767.98px){
+            .table-responsive{overflow:visible}
+            .vocab-table,.vocab-table>tbody,.vocab-table>tbody>tr,.vocab-table>tbody>tr>td{display:block;width:auto!important}
+            .vocab-table>thead{display:none}
+            .vocab-table>tbody>tr{border:1px solid var(--alpha-border);border-radius:.55rem;margin:.5rem 0;padding:.4rem .65rem}
+            .vocab-table>tbody>tr>td{border:0!important;padding:.2rem 0!important}
+            .vocab-table>tbody>tr>td:nth-child(1){font-size:1.05rem}
+            .vocab-table>tbody>tr>td:nth-child(2){color:var(--muted-text)}
+            .vocab-table>tbody>tr>td:nth-child(3) .ex-de.d-block,.vocab-table>tbody>tr>td:nth-child(3) .ex-en.d-block{display:inline!important}
+            .vocab-table>tbody>tr>td:nth-child(3) .ex-en.d-block::before{content:"";display:block;height:.3rem}
+            .vocab-table>tbody>tr:not(.conj-row-container-ws)>td:nth-child(3)::before{content:"Beispiel / Example";display:block;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;opacity:.6}
+        }
         .de-word{font-size:1rem;} .ex-de{font-size:.92rem;} .ex-en{font-size:.82rem;}
         .back-to-top{position:fixed;right:1rem;bottom:1rem;z-index:1030;display:none;width:2.8rem;height:2.8rem;align-items:center;justify-content:center;box-shadow:0 .5rem 1rem rgba(13,110,253,.3);}
         .theme-toggle{min-width:5.8rem;height:2.2rem;display:inline-flex;align-items:center;justify-content:center;padding:0 .65rem;}
@@ -106,9 +118,11 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
         </div>
     </div>
     <p class="text-muted mb-1">Thematischer Wortschatz für das Goethe-Zertifikat B1 und den Einbürgerungstest.</p>
+    <p class="text-muted mb-1"><em>Thematic vocabulary for the Goethe-Zertifikat B1 and the German citizenship test.</em></p>
     <p class="text-muted small mb-3">
         Klicke auf <strong>🔊</strong> um Aussprache zu hören.
         Jeder Eintrag enthält Beispielsatz und englische Übersetzung.
+        <br><em>Click <strong>🔊</strong> to hear the pronunciation. Every entry has an example sentence and an English translation.</em>
     </p>
 
     <div class="mb-4">
@@ -116,34 +130,34 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
         <div class="ws-search-wrap">
             <svg class="ws-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             <input type="text" id="wsSearchInput"
-                   placeholder="Suche (ä = ae, ö = oe, ü = ue, ß = ss)..." autocomplete="off">
+                   placeholder="Suche / Search (ä = ae, ö = oe, ü = ue, ß = ss)..." autocomplete="off">
         </div>
         </div>
         <div class="d-flex align-items-center gap-2 flex-wrap mt-2">
-            <span class="filter-label-ws">Wortart:</span>
+            <span class="filter-label-ws">Wortart / Word type:</span>
             <div class="pos-filter-ws">
-                <button type="button" data-pos="ALL" class="active">Alle</button>
-                <button type="button" data-pos="noun">🔵 Nomen</button>
-                <button type="button" data-pos="verb">🟢 Verben</button>
-                <button type="button" data-pos="adjective">🟠 Adjektive</button>
-                <button type="button" data-pos="adverb">🟣 Adverbien</button>
-                <button type="button" data-pos="phrase">⬜ Wendungen</button>
-                <button type="button" data-pos="other" title="Präposition, Konjunktion, Pronomen, Determinativ, kurze Redewendungen">⚪ Sonstige</button>
+                <button type="button" data-pos="ALL" class="active">Alle / All</button>
+                <button type="button" data-pos="noun">🔵 Nomen / Nouns</button>
+                <button type="button" data-pos="verb">🟢 Verben / Verbs</button>
+                <button type="button" data-pos="adjective">🟠 Adjektive / Adjectives</button>
+                <button type="button" data-pos="adverb">🟣 Adverbien / Adverbs</button>
+                <button type="button" data-pos="phrase">⬜ Wendungen / Phrases</button>
+                <button type="button" data-pos="other" title="Präposition, Konjunktion, Pronomen, Determinativ, kurze Redewendungen">⚪ Sonstige / Other</button>
                 <span class="pos-filter-ws-sep" aria-hidden="true">|</span>
-                <button type="button" data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben*</button>
-                <button type="button" data-pos="reflexive" title="Teilmenge von Verben – keine eigene Wortart">🔁 Reflexive Verben*</button>
+                <button type="button" data-pos="irregular" title="Teilmenge von Verben – keine eigene Wortart">🔄 Unregelmäßige Verben / Irregular verbs*</button>
+                <button type="button" data-pos="reflexive" title="Teilmenge von Verben – keine eigene Wortart">🔁 Reflexive Verben / Reflexive verbs*</button>
             </div>
             <span class="badge bg-secondary" id="wsFilterCount">1099 Wörter</span>
         </div>
-        <div class="ws-pos-footnote">* Teilmenge von „Verben" – zählt nicht separat zur Gesamtsumme.</div>
+        <div class="ws-pos-footnote">* Teilmenge von „Verben" – zählt nicht separat zur Gesamtsumme. / Subset of “Verbs”: not counted separately in the total.</div>
         <div id="wsNoResults" class="text-center text-muted py-4" style="display:none">
-            Keine Wörter gefunden. Versuche einen anderen Suchbegriff.
+            Keine Wörter gefunden. Versuche einen anderen Suchbegriff. / No words found. Try another search term.
         </div>
     </div>
 
     <div class="jump-layout">
     <div><div class="jump-bar">
-        <div class="fw-semibold small mb-2" style="color:#7c3aed">📚 Themen</div>
+        <div class="fw-semibold small mb-2" style="color:#7c3aed">📚 Themen / Topics</div>
         <a href="#familie-menschen" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="Family &amp; People">Familie & Menschen <span class="badge ms-1" style="background:#7c3aed;font-size:.65rem">3</span></a>
 <a href="#zahlen-mengen" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="Numbers &amp; Quantities">Zahlen & Mengen <span class="badge ms-1" style="background:#7c3aed;font-size:.65rem">3</span></a>
 <a href="#farben-formen" class="btn btn-sm btn-outline-secondary mb-1 w-100 text-start" title="Colors &amp; Shapes">Farben & Formen <span class="badge ms-1" style="background:#7c3aed;font-size:.65rem">1</span></a>
@@ -183,7 +197,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="familie-menschen" class="mt-4 mb-3" style="color:#7c3aed">Familie &amp; Menschen <span class="fs-6 fw-normal text-muted">(Family &amp; People)</span> <small class="text-muted fs-6">(3 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="die kinderbetreuung childcare bezahlbare kinderbetreuung ist für viele eltern eine wichtige frage. affordable childcare is an important issue for many parents.">
   <td class="fw-semibold de-word">die Kinderbetreuung</td>
@@ -208,7 +222,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="zahlen-mengen" class="mt-4 mb-3" style="color:#7c3aed">Zahlen &amp; Mengen <span class="fs-6 fw-normal text-muted">(Numbers &amp; Quantities)</span> <small class="text-muted fs-6">(3 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="das drittel, - third (fraction) ein drittel der kursteilnehmer ... a third of the course participants ...">
   <td class="fw-semibold de-word">das Drittel, -</td>
@@ -233,7 +247,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="farben-formen" class="mt-4 mb-3" style="color:#7c3aed">Farben &amp; Formen <span class="fs-6 fw-normal text-muted">(Colors &amp; Shapes)</span> <small class="text-muted fs-6">(1 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="die form, -en form es gibt zwei höfliche anredeformen. there are two polite forms of address.">
   <td class="fw-semibold de-word">die Form, -en</td>
@@ -248,7 +262,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="kleidung-aussehen" class="mt-4 mb-3" style="color:#7c3aed">Kleidung &amp; Aussehen <span class="fs-6 fw-normal text-muted">(Clothing &amp; Appearance)</span> <small class="text-muted fs-6">(4 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="true" data-reflexive="false" data-search="anhaben to be wearing sie hat heute ein rotes kleid an. she&#x27;s wearing a red dress today.">
   <td class="fw-semibold de-word">anhaben<br><button type="button" class="conj-toggle-ws" data-de-lower="anhaben">📖 Konjugation</button></td>
@@ -278,7 +292,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="essen-trinken" class="mt-4 mb-3" style="color:#7c3aed">Essen &amp; Trinken <span class="fs-6 fw-normal text-muted">(Food &amp; Drink)</span> <small class="text-muted fs-6">(16 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="adjective" data-irregular="false" data-reflexive="false" data-search="ausgewogen balanced eine ausgewogene ernährung enthält viele vitamine und wenig fett. a balanced diet contains lots of vitamins and little fat.">
   <td class="fw-semibold de-word">ausgewogen</td>
@@ -368,7 +382,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="wohnen-haushalt" class="mt-4 mb-3" style="color:#7c3aed">Wohnen &amp; Haushalt <span class="fs-6 fw-normal text-muted">(Housing &amp; Household)</span> <small class="text-muted fs-6">(17 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="das gewerbegebiet, -e commercial area das neue gewerbegebiet am stadtrand schafft viele arbeitsplätze. the new commercial area on the outskirts of the city creates many jobs.">
   <td class="fw-semibold de-word">das Gewerbegebiet, -e</td>
@@ -463,7 +477,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="koerper-gesundheit" class="mt-4 mb-3" style="color:#7c3aed">Koerper &amp; Gesundheit <span class="fs-6 fw-normal text-muted">(Body &amp; Health)</span> <small class="text-muted fs-6">(83 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="true" data-reflexive="false" data-search="abnehmen to lose weight sie nimmt ab, indem sie weniger zucker isst. she is losing weight by eating less sugar.">
   <td class="fw-semibold de-word">abnehmen<br><button type="button" class="conj-toggle-ws" data-de-lower="abnehmen">📖 Konjugation</button></td>
@@ -888,7 +902,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="zeit-alltag" class="mt-4 mb-3" style="color:#7c3aed">Zeit &amp; Alltag <span class="fs-6 fw-normal text-muted">(Time &amp; Daily Life)</span> <small class="text-muted fs-6">(16 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="adjective" data-irregular="false" data-reflexive="false" data-search="alltäglich everyday, mundane sie rappen mit wortwitz und humor über alltägliche dinge. they rap with wordplay and humour about everyday things.">
   <td class="fw-semibold de-word">alltäglich</td>
@@ -978,7 +992,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="einkaufen-geld" class="mt-4 mb-3" style="color:#7c3aed">Einkaufen &amp; Geld <span class="fs-6 fw-normal text-muted">(Shopping &amp; Money)</span> <small class="text-muted fs-6">(20 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="true" data-reflexive="false" data-search="betragen to amount to die kosten betragen insgesamt 200 euro. the total cost amounts to 200 euros.">
   <td class="fw-semibold de-word">betragen<br><button type="button" class="conj-toggle-ws" data-de-lower="betragen">📖 Konjugation</button></td>
@@ -1088,7 +1102,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="verkehr-reisen" class="mt-4 mb-3" style="color:#7c3aed">Verkehr &amp; Reisen <span class="fs-6 fw-normal text-muted">(Transportation &amp; Travel)</span> <small class="text-muted fs-6">(49 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="true" data-reflexive="false" data-search="abfliegen to take off (plane), to depart by air unser flieger fliegt um sechs uhr morgens ab. our plane departs at six in the morning.">
   <td class="fw-semibold de-word">abfliegen<br><button type="button" class="conj-toggle-ws" data-de-lower="abfliegen">📖 Konjugation</button></td>
@@ -1343,7 +1357,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="wohnungssuche-umzug" class="mt-4 mb-3" style="color:#7c3aed">Wohnungssuche &amp; Umzug <span class="fs-6 fw-normal text-muted">(Apartment Hunting &amp; Moving)</span> <small class="text-muted fs-6">(5 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="der mietvertrag, -̈e lease wir haben den mietvertrag für zwei jahre unterschrieben. we signed the lease for two years.">
   <td class="fw-semibold de-word">der Mietvertrag, -̈e</td>
@@ -1378,7 +1392,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="freizeit-sport" class="mt-4 mb-3" style="color:#7c3aed">Freizeit &amp; Sport <span class="fs-6 fw-normal text-muted">(Leisure &amp; Sports)</span> <small class="text-muted fs-6">(11 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="true" data-reflexive="false" data-search="beitreten to join (a club/organization) er ist letztes jahr dem verein beigetreten. he joined the club last year.">
   <td class="fw-semibold de-word">beitreten<br><button type="button" class="conj-toggle-ws" data-de-lower="beitreten">📖 Konjugation</button></td>
@@ -1443,7 +1457,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="natur-wetter" class="mt-4 mb-3" style="color:#7c3aed">Natur &amp; Wetter <span class="fs-6 fw-normal text-muted">(Nature &amp; Weather)</span> <small class="text-muted fs-6">(11 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="das erdbeben, - earthquake das erdbeben zerstörte viele gebäude in der innenstadt. the earthquake destroyed many buildings in the city centre.">
   <td class="fw-semibold de-word">das Erdbeben, -</td>
@@ -1508,7 +1522,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="tiere-pflanzen" class="mt-4 mb-3" style="color:#7c3aed">Tiere &amp; Pflanzen <span class="fs-6 fw-normal text-muted">(Animals &amp; Plants)</span> <small class="text-muted fs-6">(3 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="der löwe, -n lion aber wenn ich zum kurs laufe, komme ich immer an einem stein-löwen vorbei. but when i walk to the course, i always pass a stone lion.">
   <td class="fw-semibold de-word">der Löwe, -n</td>
@@ -1533,7 +1547,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="feste-traditionen" class="mt-4 mb-3" style="color:#7c3aed">Feste &amp; Traditionen <span class="fs-6 fw-normal text-muted">(Festivals &amp; Traditions)</span> <small class="text-muted fs-6">(4 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="das kostüm, -e costume zum karneval trägt sie jedes jahr ein neues kostüm. for carnival, she wears a new costume every year.">
   <td class="fw-semibold de-word">das Kostüm, -e</td>
@@ -1563,7 +1577,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="beziehungsleben-liebe" class="mt-4 mb-3" style="color:#7c3aed">Beziehungsleben &amp; Liebe <span class="fs-6 fw-normal text-muted">(Relationships &amp; Love)</span> <small class="text-muted fs-6">(1 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="phrase" data-irregular="false" data-reflexive="false" data-search="verliebt sein to be in love frisch verliebt? newly in love?">
   <td class="fw-semibold de-word">verliebt sein</td>
@@ -1578,7 +1592,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="gefuehle-charakter" class="mt-4 mb-3" style="color:#7c3aed">Gefuehle &amp; Charakter <span class="fs-6 fw-normal text-muted">(Feelings &amp; Character)</span> <small class="text-muted fs-6">(62 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="adjective" data-irregular="false" data-reflexive="false" data-search="aufgeregt excited die kinder sind sehr aufgeregt vor der reise. the children are very excited before the trip.">
   <td class="fw-semibold de-word">aufgeregt</td>
@@ -1898,7 +1912,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="schule-bildung" class="mt-4 mb-3" style="color:#7c3aed">Schule &amp; Bildung <span class="fs-6 fw-normal text-muted">(School &amp; Education)</span> <small class="text-muted fs-6">(24 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="adjective" data-irregular="false" data-reflexive="false" data-search="ausreichend sufficient auf ausreichend bewegung bei der arbeit und in der freizeit sollte besonders geachtet werden. sufficient exercise at work and in leisure time should be given special attention.">
   <td class="fw-semibold de-word">ausreichend</td>
@@ -2028,7 +2042,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="arbeit-beruf" class="mt-4 mb-3" style="color:#7c3aed">Arbeit &amp; Beruf <span class="fs-6 fw-normal text-muted">(Work &amp; Profession)</span> <small class="text-muted fs-6">(134 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="true" data-reflexive="false" data-search="austragen to deliver (newspapers), to carry out er trägt jeden morgen die zeitung aus. he delivers the newspaper every morning.">
   <td class="fw-semibold de-word">austragen<br><button type="button" class="conj-toggle-ws" data-de-lower="austragen">📖 Konjugation</button></td>
@@ -2708,7 +2722,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="stadt-orte" class="mt-4 mb-3" style="color:#7c3aed">Stadt &amp; Orte <span class="fs-6 fw-normal text-muted">(City &amp; Places)</span> <small class="text-muted fs-6">(17 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="das bauwerk, -e building, structure das alte bauwerk steht seit jahrhunderten in der stadtmitte. the old structure has stood in the city centre for centuries.">
   <td class="fw-semibold de-word">das Bauwerk, -e</td>
@@ -2803,7 +2817,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="kommunikation-sprache" class="mt-4 mb-3" style="color:#7c3aed">Kommunikation &amp; Sprache <span class="fs-6 fw-normal text-muted">(Communication &amp; Language)</span> <small class="text-muted fs-6">(30 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="false" data-reflexive="false" data-search="absagen (hat abgesagt) to cancel die feier wurde abgesagt. the party was cancelled.">
   <td class="fw-semibold de-word">absagen (hat abgesagt)<br><button type="button" class="conj-toggle-ws" data-de-lower="absagen (hat abgesagt)">📖 Konjugation</button></td>
@@ -2963,7 +2977,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="technik-medien" class="mt-4 mb-3" style="color:#7c3aed">Technik &amp; Medien <span class="fs-6 fw-normal text-muted">(Technology &amp; Media)</span> <small class="text-muted fs-6">(41 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="false" data-reflexive="false" data-search="anklicken (hat angeklickt) to click on du musst das programm mit der maus anklicken. you have to click on the program with the mouse.">
   <td class="fw-semibold de-word">anklicken (hat angeklickt)<br><button type="button" class="conj-toggle-ws" data-de-lower="anklicken (hat angeklickt)">📖 Konjugation</button></td>
@@ -3178,7 +3192,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="kunst-unterhaltung" class="mt-4 mb-3" style="color:#7c3aed">Kunst &amp; Unterhaltung <span class="fs-6 fw-normal text-muted">(Art &amp; Entertainment)</span> <small class="text-muted fs-6">(20 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="false" data-reflexive="false" data-search="aufführen (hat aufgeführt) to perform wir lernen und üben zirkustechniken, bis wir sie auf dem sommerfest vor publikum aufführen können. we learn and practise circus techniques until we can perform them in front of an audience at the summer festival.">
   <td class="fw-semibold de-word">aufführen (hat aufgeführt)<br><button type="button" class="conj-toggle-ws" data-de-lower="aufführen (hat aufgeführt)">📖 Konjugation</button></td>
@@ -3288,7 +3302,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="sicherheit-notfaelle" class="mt-4 mb-3" style="color:#7c3aed">Sicherheit &amp; Notfaelle <span class="fs-6 fw-normal text-muted">(Safety &amp; Emergencies)</span> <small class="text-muted fs-6">(22 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="false" data-reflexive="false" data-search="absperren (hat abgesperrt) to cordon off, seal diese sperrte die straße ab. it cordoned off the street.">
   <td class="fw-semibold de-word">absperren (hat abgesperrt)<br><button type="button" class="conj-toggle-ws" data-de-lower="absperren (hat abgesperrt)">📖 Konjugation</button></td>
@@ -3408,7 +3422,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="aemter-buerokratie" class="mt-4 mb-3" style="color:#7c3aed">Aemter &amp; Buerokratie <span class="fs-6 fw-normal text-muted">(Offices &amp; Bureaucracy)</span> <small class="text-muted fs-6">(33 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="das protokoll, -e minutes / log nach jedem meeting schreibt er ein protokoll für alle beteiligten. after every meeting, he writes up the minutes for all involved.">
   <td class="fw-semibold de-word">das Protokoll, -e</td>
@@ -3583,7 +3597,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="gesellschaft-umwelt" class="mt-4 mb-3" style="color:#7c3aed">Gesellschaft &amp; Umwelt <span class="fs-6 fw-normal text-muted">(Society &amp; Environment)</span> <small class="text-muted fs-6">(95 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="adjective" data-irregular="false" data-reflexive="false" data-search="biologisch organic ich kaufe am liebsten biologisches gemüse auf dem markt. i prefer to buy organic vegetables at the market.">
   <td class="fw-semibold de-word">biologisch</td>
@@ -4068,7 +4082,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="recht-politik" class="mt-4 mb-3" style="color:#7c3aed">Recht &amp; Politik <span class="fs-6 fw-normal text-muted">(Law &amp; Politics)</span> <small class="text-muted fs-6">(31 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="false" data-reflexive="false" data-search="abstimmen (hat abgestimmt) to vote die teilnehmer konnten über 50 ideen abstimmen. the participants were able to vote on 50 ideas.">
   <td class="fw-semibold de-word">abstimmen (hat abgestimmt)<br><button type="button" class="conj-toggle-ws" data-de-lower="abstimmen (hat abgestimmt)">📖 Konjugation</button></td>
@@ -4233,7 +4247,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="wissenschaft-medizin" class="mt-4 mb-3" style="color:#7c3aed">Wissenschaft &amp; Medizin <span class="fs-6 fw-normal text-muted">(Science &amp; Medicine)</span> <small class="text-muted fs-6">(1 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="die forschung research die forschung zu dieser krankheit macht große fortschritte. research into this disease is making great progress.">
   <td class="fw-semibold de-word">die Forschung</td>
@@ -4248,7 +4262,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="philosophie-erkenntnistheorie" class="mt-4 mb-3" style="color:#7c3aed">Philosophie &amp; Erkenntnistheorie <span class="fs-6 fw-normal text-muted">(Philosophy &amp; Epistemology)</span> <small class="text-muted fs-6">(1 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="noun" data-irregular="false" data-reflexive="false" data-search="die philosophie, -n philosophy albert schweitzer war bekannt für seine humanistische philosophie. albert schweitzer was known for his humanistic philosophy.">
   <td class="fw-semibold de-word">die Philosophie, -n</td>
@@ -4263,7 +4277,7 @@ fetch(prefix+'header.html').then(function(r){return r.ok?r.text():Promise.reject
 <h2 id="allgemein" class="mt-4 mb-3" style="color:#7c3aed">Allgemein <span class="fs-6 fw-normal text-muted">(General)</span> <small class="text-muted fs-6">(341 Wörter)</small></h2>
 <div class="table-responsive">
 <table class="table table-bordered table-hover vocab-table mb-4">
-<thead class="table-dark"><tr><th style="width:22%">Deutsch</th><th style="width:15%">Englisch</th><th>Beispielsatz</th></tr></thead>
+<thead class="table-dark"><tr><th style="width:22%">Deutsch / German</th><th style="width:15%">Englisch / English</th><th>Beispielsatz / Example sentence</th></tr></thead>
 <tbody>
 <tr data-pos="verb" data-irregular="true" data-reflexive="false" data-search="abgeben to hand in, to submit ich muss die hausaufgaben morgen abgeben. i have to hand in the homework tomorrow.">
   <td class="fw-semibold de-word">abgeben<br><button type="button" class="conj-toggle-ws" data-de-lower="abgeben">📖 Konjugation</button></td>
