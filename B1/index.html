@@ -167,6 +167,15 @@
 .lv-exam summary{cursor:pointer;padding:.35rem 0}
 .lv-exam table{font-size:.92rem}
 </style>
+<style id="wf-lv-phone">
+/* phones: two columns, and the English under every German module name (it was hidden) */
+@media (max-width:767.98px){
+body .lv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}
+body .lv-grid .lv-mod,body .lv-mod{min-height:3.6rem;padding:.4rem .45rem}
+body .lv-grid .lv-mod .lv-d,body .lv-mod .lv-d{display:block;font-size:.72rem;line-height:1.2}
+body .lv-mod .lv-t{font-size:.85rem}
+}
+</style>
 </head>
 <body id="top">
     <div id="header-placeholder"></div>
