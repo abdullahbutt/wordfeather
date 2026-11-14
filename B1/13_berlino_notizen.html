@@ -3391,6 +3391,75 @@
     });
 })();
 </script>
+<style>
+/* phones: bigger tap targets, wide tables keep their first columns and show that they scroll */
+@media (max-width: 767.98px) {
+    body .d-tts { width: 40px; height: 40px; margin: -9px -3px -9px 3px; opacity: .55; }
+    body .d-tts svg { width: 20px; height: 20px; }
+    body .practice-cell .eye-btn { min-width: 36px; min-height: 36px; margin: -7px -4px; display: inline-flex; align-items: center; justify-content: center; }
+    body .practice-cell .eye-btn svg { width: 18px; height: 18px; }
+    body .practice-toggle-btn { min-height: 2.6rem; padding: .35rem .9rem; font-size: .9rem; }
+    .table-responsive.wf-narrow td, .table-responsive.wf-narrow th { overflow-wrap: anywhere; }
+    .table-responsive td, .table-responsive th { padding-left: .4rem; padding-right: .4rem; }
+    .wf-scrollbox { position: relative; }
+    .wf-scrollbox::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 26px; pointer-events: none; background: linear-gradient(to left, rgba(0,0,0,.35), rgba(0,0,0,0)); transition: opacity .2s; z-index: 3; }
+    .wf-scrollbox.wf-end::after { opacity: 0; }
+    .wf-wide .wf-st1, .wf-wide .wf-st2 { position: sticky; z-index: 2; background-color: var(--wf-st-bg, #fff); }
+    .wf-wide .wf-st1 { left: 0; }
+    .wf-wide .wf-st2 { left: var(--wf-st-left2, 0px); }
+}
+</style>
+<script>
+// phones: tables that are wider than the screen keep their first columns in place while you swipe, and a shadow on the right edge shows that there is more
+(function () {
+    var mq = window.matchMedia('(max-width: 767.98px)');
+    var items = [];
+    document.querySelectorAll('.table-responsive').forEach(function (wrap) {
+        var t = wrap.querySelector('table');
+        if (!t || !t.rows.length) return;
+        if (t.rows[0].children.length < 4) { wrap.classList.add('wf-narrow'); return; }
+        var box = document.createElement('div');
+        box.className = 'wf-scrollbox';
+        wrap.parentNode.insertBefore(box, wrap);
+        box.appendChild(wrap);
+        function upd() { box.classList.toggle('wf-end', wrap.scrollLeft + wrap.clientWidth >= wrap.scrollWidth - 2 || wrap.scrollWidth <= wrap.clientWidth + 2); }
+        wrap.addEventListener('scroll', upd, { passive: true });
+        items.push({ wrap: wrap, table: t, upd: upd });
+    });
+    function bg(el) {
+        var c = getComputedStyle(el).backgroundColor;
+        if (!c || c === 'transparent' || /rgba\(.*,\s*0\)$/.test(c)) c = getComputedStyle(document.body).backgroundColor;
+        return c;
+    }
+    function layout() {
+        items.forEach(function (it) {
+            var rows = Array.prototype.slice.call(it.table.rows), cols = rows[0].children.length;
+            rows.forEach(function (tr) { Array.prototype.forEach.call(tr.children, function (c) { c.classList.remove('wf-st1', 'wf-st2'); c.style.removeProperty('--wf-st-bg'); c.style.removeProperty('--wf-st-left2'); }); });
+            it.wrap.classList.remove('wf-wide');
+            if (!mq.matches) { it.upd(); return; }
+            var over = it.wrap.scrollWidth > it.wrap.clientWidth + 8;
+            it.wrap.classList.toggle('wf-wide', over);
+            it.upd();
+            if (!over) return;
+            var first = rows[0].children, w1 = first[0].offsetWidth, w2 = first[1].offsetWidth, avail = it.wrap.clientWidth;
+            var n = (w1 + w2 <= 0.45 * avail) ? 2 : (w1 <= 0.35 * avail ? 1 : 0);
+            if (!n) return;
+            rows.forEach(function (tr) {
+                if (tr.children.length !== cols) return;
+                var c1 = tr.children[0], c2 = tr.children[1];
+                c1.style.setProperty('--wf-st-bg', bg(c1)); c1.classList.add('wf-st1');
+                if (n === 2) { c2.style.setProperty('--wf-st-bg', bg(c2)); c2.style.setProperty('--wf-st-left2', w1 + 'px'); c2.classList.add('wf-st2'); }
+            });
+        });
+    }
+    var timer = null;
+    function later() { clearTimeout(timer); timer = setTimeout(layout, 150); }
+    window.addEventListener('load', function () { setTimeout(layout, 400); });
+    window.addEventListener('resize', later);
+    if (mq.addEventListener) mq.addEventListener('change', later);
+    new MutationObserver(later).observe(document.documentElement, { attributes: true, attributeFilter: ['data-bs-theme', 'class'] });
+})();
+</script>
 <script src="../german-voice.js?v=0.00.04"></script>
 </body>
 </html>
