@@ -460,7 +460,7 @@
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
 <script id="wf-mdtable-js">
-(function(){var mq=window.matchMedia("(max-width:767.98px)");function run(){document.querySelectorAll(".markdown-content > table").forEach(function(t){t.classList.remove("wf-fit");if(!mq.matches||t.querySelector("tr > :nth-child(6)"))return;t.classList.add("wf-fit");if(t.getBoundingClientRect().width>t.parentElement.clientWidth+1||t.scrollWidth>t.parentElement.clientWidth+1)t.classList.remove("wf-fit");});}
+(function(){var mq=window.matchMedia("(max-width:767.98px)");function run(){document.querySelectorAll(".markdown-content > table").forEach(function(t){t.classList.remove("wf-fit");if(!t.dataset.wfz){t.dataset.wfz="1";var w=document.createTreeWalker(t,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){n.nodeValue=n.nodeValue.replace(/([A-Za-zÄÖÜäöüß])\/([A-Za-zÄÖÜäöüß])/g,"$1/​$2");}}if(!mq.matches||t.querySelector("tr > :nth-child(6)"))return;t.classList.add("wf-fit");if(t.getBoundingClientRect().width>t.parentElement.clientWidth+1||t.scrollWidth>t.parentElement.clientWidth+1)t.classList.remove("wf-fit");});}
 window.addEventListener("load",run);window.addEventListener("resize",function(){clearTimeout(window.__wft);window.__wft=setTimeout(run,150);});})();
 </script>
 </body>
