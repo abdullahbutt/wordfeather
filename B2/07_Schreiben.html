@@ -230,6 +230,15 @@
             color: #e2e8f0;
         }
     </style>
+<style id="wf-mdtable">
+/* phones: simple tables that fit the screen become normal tables (they scrolled sideways inside themselves); long German words are hyphenated; the others keep the scrolling (script below) */
+@media (max-width:767.98px){
+.markdown-content > table.wf-fit{display:table;overflow:visible}
+.markdown-content > table.wf-fit :is(th,td){padding-left:.4rem;padding-right:.4rem;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+.markdown-content > table.wf-fit th{font-size:.85rem}
+.markdown-content > table.wf-fit td{font-size:.9rem}
+}
+</style>
 </head>
 <body id="top">
     <div id="header-placeholder"></div>
@@ -450,5 +459,9 @@
     </script>
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d435b2572b82459cb083e37f7c734b75"}'></script><!-- End Cloudflare Web Analytics -->
+<script id="wf-mdtable-js">
+(function(){var mq=window.matchMedia("(max-width:767.98px)");function run(){document.querySelectorAll(".markdown-content > table").forEach(function(t){t.classList.remove("wf-fit");if(!mq.matches||t.querySelector("tr > :nth-child(6)"))return;t.classList.add("wf-fit");if(t.getBoundingClientRect().width>t.parentElement.clientWidth+1||t.scrollWidth>t.parentElement.clientWidth+1)t.classList.remove("wf-fit");});}
+window.addEventListener("load",run);window.addEventListener("resize",function(){clearTimeout(window.__wft);window.__wft=setTimeout(run,150);});})();
+</script>
 </body>
 </html>
