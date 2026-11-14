@@ -539,8 +539,17 @@ Person C: Philosophin (grundsätzlich dafür — ethisch argumentierend)</p>
 
 <script src="../german-voice.js?v=0.00.04"></script>
 <script id="wf-mdtable-js">
-(function(){var mq=window.matchMedia("(max-width:767.98px)");function run(){document.querySelectorAll(".markdown-content > table").forEach(function(t){t.classList.remove("wf-fit");if(!t.dataset.wfz){t.dataset.wfz="1";var w=document.createTreeWalker(t,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){n.nodeValue=n.nodeValue.replace(/([A-Za-zÄÖÜäöüß])\/([A-Za-zÄÖÜäöüß])/g,"$1/​$2");}}if(!mq.matches||t.querySelector("tr > :nth-child(6)"))return;t.classList.add("wf-fit");if(t.getBoundingClientRect().width>t.parentElement.clientWidth+1||t.scrollWidth>t.parentElement.clientWidth+1)t.classList.remove("wf-fit");});}
-window.addEventListener("load",run);window.addEventListener("resize",function(){clearTimeout(window.__wft);window.__wft=setTimeout(run,150);});})();
+(function(){var mq=window.matchMedia("(max-width:767.98px)");
+function bg(e){while(e&&e!==document.documentElement){var c=getComputedStyle(e).backgroundColor;if(c&&c!=="transparent"&&!/rgba\(.*,\s*0\)$/.test(c))return c;e=e.parentElement;}return getComputedStyle(document.body).backgroundColor;}
+function unpin(t){t.querySelectorAll("tr").forEach(function(r){var c=r.firstElementChild;if(c){c.style.position="";c.style.left="";c.style.zIndex="";c.style.backgroundColor="";}});}
+function pin(t){t.querySelectorAll("tr").forEach(function(r){var c=r.firstElementChild;if(c){c.style.backgroundColor=bg(c);c.style.position="sticky";c.style.left="0";c.style.zIndex="3";}});}
+function run(){document.querySelectorAll(".markdown-content > table").forEach(function(t){t.classList.remove("wf-fit");unpin(t);
+if(!t.dataset.wfz){t.dataset.wfz="1";var w=document.createTreeWalker(t,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){n.nodeValue=n.nodeValue.replace(/([A-Za-z\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df])\/([A-Za-z\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df])/g,"$1/​$2");}}
+if(!mq.matches)return;
+if(!t.querySelector("tr > :nth-child(6)")){t.classList.add("wf-fit");if(t.getBoundingClientRect().width>t.parentElement.clientWidth+1||t.scrollWidth>t.parentElement.clientWidth+1)t.classList.remove("wf-fit");}
+if(!t.classList.contains("wf-fit")&&t.scrollWidth>t.clientWidth+1)pin(t);});}
+window.addEventListener("load",run);window.addEventListener("resize",function(){clearTimeout(window.__wft);window.__wft=setTimeout(run,150);});
+new MutationObserver(function(){clearTimeout(window.__wft);window.__wft=setTimeout(run,150);}).observe(document.documentElement,{attributes:true,attributeFilter:["data-bs-theme","class"]});})();
 </script>
 </body>
 </html>
