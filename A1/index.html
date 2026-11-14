@@ -167,6 +167,9 @@
 .lv-exam table{font-size:.92rem}
 </style>
 <style id="wf-lv-phone">
+/* every width: the English under the German name (it was hidden from 1200 px up) */
+body .lv-grid .lv-mod .lv-d{display:block}
+@media (min-width:1200px){body .lv-grid{grid-template-columns:repeat(4,minmax(0,1fr))}body .lv-grid .lv-mod{min-height:3.4rem}}
 /* phones: two columns, and the English under every German module name (it was hidden) */
 @media (max-width:767.98px){
 body .lv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}
