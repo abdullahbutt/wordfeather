@@ -74,6 +74,7 @@
             .rf-tabs button { min-height: 2.6rem; }
             .tx-note { font-size: .95rem; }
             body .lesson-tools button { min-height: 2.6rem; }
+            body .tbl-blanks { min-height: 2.4rem; padding: .35rem 1rem; font-size: .95rem; }
             .rf-pane .vp-table td { overflow-wrap: anywhere; }
             body .d-tts { width: 40px; height: 40px; margin-left: 6px; opacity: .55; }
             body .d-tts svg { width: 20px; height: 20px; }
@@ -467,7 +468,7 @@
             <li><strong>Teil 1:</strong> you get to know each other (name, country, family, work, hobbies, why you learn German). Ask questions too.</li>
             <li><strong>Teil 2:</strong> each of you gets a card with one person's opinion. You present your card, say your opinion and ask your partner.</li>
             <li><strong>Teil 3:</strong> you both get the same card (for example a party or a trip) and plan together.</li></ul>
-            <p class="tx-note mt-2 mb-0">Source: the study aid in Extra 3 of the Deutsch lessons page. Check important details against the official telc material.</p></div>
+            <p class="tx-note mt-2 mb-0">Source: a study aid from a friend, rebuilt for this page. Check important details against the official telc material.</p></div>
         <div class="tx-box"><div class="lbl">Preparation clock (20 minutes)</div>
             <div class="tx-clockbox"><div class="tx-time" id="pr-time">20:00</div>
             <button type="button" class="btn btn-sm btn-success" id="pr-go">▶ Start</button><button type="button" class="btn btn-sm btn-outline-secondary" id="pr-reset">Reset</button></div></div>
@@ -634,7 +635,7 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
-<script src="telc-sprechen-data.js?v=0.00.09"></script>
+<script src="telc-sprechen-data.js?v=4731d4fb"></script>
 <script>
 function wfSideMenu(pane, sel, title) {
     if (!pane || pane.dataset.sm) return;
@@ -1039,7 +1040,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
 
 // One "Show all / Hide all" button above every table of the Templates and Week 1 tabs (blanks and practice answers of that table), and a label on the section button that follows the real state
 (function () {
-    var PANES = ['t-templates', 't-memorise'];
+    var PANES = window.WF_TBL_PANES || ['t-templates', 't-memorise'];
     var st = document.createElement('style');
     st.textContent = '.tbl-all{display:inline-flex;align-items:center;gap:.35rem;background:none;border:1px solid #adb5bd;border-radius:999px;padding:.2rem .8rem;margin:.4rem 0 .3rem;cursor:pointer;color:#1d4ed8;font-size:.85rem}'
         + '.tbl-all:hover{background:rgba(29,78,216,.1)}[data-bs-theme="dark"] .tbl-all{color:#8ab4ff}'
@@ -1107,6 +1108,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
         + 'table.stack-m td::before{content:attr(data-lb-en);display:block;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;opacity:.65}'
         + 'html[data-lang="de"] table.stack-m td::before{content:attr(data-lb-de)}'
         + 'table.stack-m td.m-empty,table.stack-m td.m-extra{display:none}'
+        + 'table.stack-m td.m-tag::before{display:none}table.stack-m td.m-tag{font-size:.8rem;opacity:.8}'
         + 'table.stack-m tr.m-open td.m-extra{display:block}'
         + 'table.stack-m td.m-moretd{display:block}'
         + '.m-more{background:none;border:1px solid #adb5bd;border-radius:999px;padding:.35rem 1rem;min-height:2.6rem;color:#1d4ed8;font-size:.95rem;cursor:pointer}'
@@ -1115,12 +1117,15 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     document.head.appendChild(st);
     var EXTRA = /Einfach erklärt|Simply explained|Beispielsatz|Example sentence|Ideen für die Lücken|Ideas for the blanks/;
     function lab(th, cls) { var s = th.querySelector('.' + cls); return (s ? s.textContent : th.textContent).trim(); }
-    ['t-templates', 't-memorise'].forEach(function (id) {
+    (window.WF_STACK_PANES || ['t-templates', 't-memorise']).forEach(function (id) {
         var pane = document.getElementById(id);
         if (!pane) return;
         pane.querySelectorAll('table').forEach(function (table) {
             var ths = Array.prototype.slice.call(table.querySelectorAll('thead th'));
             if (ths.length < 4) return;
+            var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+            var avg = rows.length ? rows.reduce(function (n, r) { return n + r.textContent.trim().length; }, 0) / rows.length : 0;
+            if (avg < (window.WF_STACK_MIN || 0)) return;  // short rows stay a table
             table.classList.add('stack-m');
             table.querySelectorAll('tbody tr').forEach(function (tr) {
                 var extra = false;
@@ -1130,6 +1135,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
                     td.setAttribute('data-lb-de', lab(th, 't-de'));
                     td.setAttribute('data-lb-en', lab(th, 't-en'));
                     if (!td.textContent.trim()) { td.classList.add('m-empty'); return; }
+                    if (/Vorlage|Template used/.test(th.textContent)) { td.classList.add('m-tag'); return; }
                     if (EXTRA.test(th.textContent)) { td.classList.add('m-extra'); extra = true; }
                 });
                 if (!extra) return;

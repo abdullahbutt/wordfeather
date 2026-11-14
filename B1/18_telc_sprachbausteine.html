@@ -73,6 +73,11 @@
             .tx .btn-sm { min-height: 2.6rem; padding: .45rem .9rem; font-size: .95rem; }
             .rf-tabs button { min-height: 2.6rem; }
             .tx-note { font-size: .95rem; }
+            body .lesson-tools button { min-height: 2.6rem; }
+            body .tbl-blanks { min-height: 2.4rem; padding: .35rem 1rem; font-size: .95rem; }
+            .rf-pane .vp-table td { overflow-wrap: anywhere; }
+            body .d-tts { width: 40px; height: 40px; margin-left: 6px; opacity: .55; }
+            body .d-tts svg { width: 20px; height: 20px; }
             .tx details.w-100 > summary { padding: .7rem 0; cursor: pointer; }
         }
         @media print { .tx-clockbox button, .rf-tabs, .rf-langbar { display: none !important; } .rf-pane[hidden] { display: none !important; } }
@@ -476,7 +481,7 @@
         <h1>telc B1 Sprachbausteine: Prüfungen und Grammatik</h1>
         <p class="lead-s">Grammar is part of the exam: the Sprachbausteine exams of the book, and the 5-minute grammar refresher with a practice mode.</p>
         <div class="rf-langbar"><div class="lang-switch" role="group" aria-label="Sprache / Language"><span class="lang-label">🌐 <span class="t-de">Sprache</span><span class="t-en">Language</span></span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div></div>
-<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-sbexam" aria-selected="true">Sprachbausteine exams</button><button type="button" role="tab" data-pane="t-sbwords" aria-selected="false">Teil 2 words</button><button type="button" role="tab" data-pane="t-sbpat" aria-selected="false">Teil 1 patterns</button><button type="button" role="tab" data-pane="t-grammar" aria-selected="false">Grammar refresher (Extra 1)</button></div><div class="rf-pane" id="t-sbexam">        <div class="tx-box"><div class="lbl">Sprachbausteine: the grammar part of the exam</div><ul>
+<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-sbexam" aria-selected="true">Sprachbausteine exams</button><button type="button" role="tab" data-pane="t-sbwords" aria-selected="false">Teil 2 words</button><button type="button" role="tab" data-pane="t-sbpat" aria-selected="false">Teil 1 patterns</button><button type="button" role="tab" data-pane="t-grammar" aria-selected="false">Grammar refresher</button></div><div class="rf-pane" id="t-sbexam">        <div class="tx-box"><div class="lbl">Sprachbausteine: the grammar part of the exam</div><ul>
             <li><strong>Teil 1:</strong> a text with 10 gaps (21–30), you choose a, b or c. <strong>Teil 2:</strong> a text with 10 gaps (31–40), you choose from a list of 15 words (a–o), each word only once.</li>
             <li>The Sprachbausteine share the 90 minutes with Lesen (see the order tip on <a href="15_telc_lesen.html">15 telc Lesen</a>).</li>
             <li>Grammar also carries <a href="16_telc_schreiben.html">Schreiben</a> and <a href="17_telc_sprechen.html">Sprechen</a>: after <em>dass</em> and <em>weil</em> the verb goes at the end.</li></ul>
@@ -607,14 +612,14 @@
                 <li><strong>so … wie möglich</strong> = as … as possible · <strong>am liebsten</strong> = most of all · <strong>im Voraus</strong> = in advance · <strong>pro Woche</strong> = per week</li>
                 <li><strong>bitten um</strong> = to ask for · <strong>Antwort auf</strong> = answer to · <strong>interessiert an</strong> = interested in · <strong>geeignet für</strong> = suitable for · <strong>sich interessieren für</strong> · <strong>sich gewöhnen an</strong> = to get used to</li>
             </ul>
-            <p class="tx-note mb-0">The same rules are in the <em>Grammar refresher (Extra 1)</em> tab. After each submit, open <em>Why? Explanation of every gap</em> and read the explanation for every gap you missed.</p>
+            <p class="tx-note mb-0">The same rules are in the <em>Grammar refresher</em> tab. After each submit, open <em>Why? Explanation of every gap</em> and read the explanation for every gap you missed.</p>
             </div></details>
         <div id="sb-mine-slot"></div>
         <div id="sb-root"></div></div>
 <div class="rf-pane" id="t-sbwords" hidden>        <div id="sbw-root"></div></div>
 <div class="rf-pane" id="t-sbpat" hidden>        <div id="sbp-root"></div></div>
 <div class="rf-pane" id="t-grammar" hidden><div class="content-card"><div class="markdown-content">
-<h2 id="extra-1-grammatik" class="part-heading"><span class="t-de">Zusatz 1: Grammatik in 5 Minuten (ein Satz erklärt alles)</span><span class="t-en">Extra 1: 5-minute grammar refresher (one sentence explains everything)</span></h2>
+<h2 id="extra-1-grammatik" class="part-heading"><span class="t-de">Grammatik in 5 Minuten (ein Satz erklärt alles)</span><span class="t-en">5-minute grammar refresher (one sentence explains everything)</span></h2>
 <p class="lesson-meta"><span class="t-de">Eine Grammatik-Wiederholung für A2/B1. Passt zu den Lektionen 12–14, 16–18, 22, 25–29, 31–34 und 37.</span><span class="t-en">A grammar revision for A2/B1. Goes with lessons 12–14, 16–18, 22, 25–29, 31–34 and 37.</span></p>
 <div class="lesson-note"><span class="t-de"><strong>Woher kommt dieser Teil?</strong> Das ist kein Video von Desi Learn German. Es ist eine Lernhilfe, die ein Freund geteilt hat. Ich habe sie für diese Seite neu gemacht. Bitte vergleiche wichtige Dinge mit dem Wörterbuch. Prüfungsaufgaben sind hier nur kurz in eigenen Worten erklärt.</span><span class="t-en"><strong>Where does this part come from?</strong> This is not a video by Desi Learn German. It is a study aid shared by a friend, rebuilt for this page. Please check important things against the dictionary. Exam tasks are only summarised briefly in our own words.</span></div>
 <div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 <span class="t-de">Englisch verbergen</span><span class="t-en">Hide English</span></button><button type="button" class="practice-btn" aria-pressed="false">🧠 <span class="t-de">Üben: Antworten verstecken</span><span class="t-en">Practice: hide answers</span></button><button type="button" class="practice-all-btn" hidden><span class="t-de">Alle anzeigen</span><span class="t-en">Show all</span></button><button type="button" class="print-btn" data-print="1">🖨 <span class="t-de">Drucken / als PDF speichern</span><span class="t-en">Print / save as PDF</span></button></div>
@@ -775,7 +780,7 @@ function wfPickMenu(pane, title, getItems, onPick, isActive) {
     return { refresh: refresh };
 }
 </script>
-<script src="telc-sprachbausteine-data.js?v=0.00.05"></script>
+<script src="telc-sprachbausteine-data.js?v=1c50e135"></script>
 <script>
     // Language switch, speaker buttons and hide-English practice (this page only)
     (function () {
@@ -816,7 +821,7 @@ function wfPickMenu(pane, title, getItems, onPick, isActive) {
             });
         }
         if (synth && synth.getVoices().length === 0) { synth.addEventListener('voiceschanged', addButtons); }
-        addButtons();
+        addButtons(); window.wfSpeakAll = addButtons;
 
         var nav = document.getElementById('lessonNav');
         if (nav && window.matchMedia('(min-width: 992px)').matches) { nav.open = true; }

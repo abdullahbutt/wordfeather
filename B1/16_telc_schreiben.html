@@ -73,6 +73,11 @@
             .tx .btn-sm { min-height: 2.6rem; padding: .45rem .9rem; font-size: .95rem; }
             .rf-tabs button { min-height: 2.6rem; }
             .tx-note { font-size: .95rem; }
+            body .lesson-tools button { min-height: 2.6rem; }
+            body .tbl-blanks { min-height: 2.4rem; padding: .35rem 1rem; font-size: .95rem; }
+            .rf-pane .vp-table td { overflow-wrap: anywhere; }
+            body .d-tts { width: 40px; height: 40px; margin-left: 6px; opacity: .55; }
+            body .d-tts svg { width: 20px; height: 20px; }
             .tx details.w-100 > summary { padding: .7rem 0; cursor: pointer; }
         }
         @media print { .tx-clockbox button, .rf-tabs, .rf-langbar { display: none !important; } .rf-pane[hidden] { display: none !important; } }
@@ -456,14 +461,14 @@
         <noscript><p>This page needs JavaScript.</p></noscript>
         <div id="rf-root">
         <h1>telc B1 Schreiben: Aufgabe, Uhr und Vorlagen</h1>
-        <p class="lead-s">Writing cannot be scored by a page, so this is a reference page: the facts, a 30-minute clock, a text box to practise in, the templates, the week 1 memorise lists and the worked examples.</p>
+        <p class="lead-s">Writing cannot be scored by a page, so this is a reference page: the facts, a 30-minute clock, a text box to practise in, the 14 lines to learn by heart, a look-up tab and the example letters.</p>
         <div class="rf-langbar"><div class="lang-switch" role="group" aria-label="Sprache / Language"><span class="lang-label">🌐 <span class="t-de">Sprache</span><span class="t-en">Language</span></span><button type="button" data-set-lang="de" aria-pressed="false">Deutsch</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></div></div>
-<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-exam" aria-selected="true">Exam &amp; clock</button><button type="button" role="tab" data-pane="t-templates" aria-selected="false">Templates</button><button type="button" role="tab" data-pane="t-memorise" aria-selected="false">Week 1 to memorise</button><button type="button" role="tab" data-pane="t-examples" aria-selected="false">Worked examples</button></div><div class="rf-pane" id="t-exam">        <div class="tx-box"><div class="lbl">The exam (Schriftlicher Ausdruck)</div><ul>
+<div class="rf-tabs" role="tablist"><button type="button" role="tab" data-pane="t-exam" aria-selected="true">Exam &amp; clock</button><button type="button" role="tab" data-pane="t-memorise" aria-selected="false">Learn by heart (14 lines)</button><button type="button" role="tab" data-pane="t-templates" aria-selected="false">Look up: tasks and templates</button><button type="button" role="tab" data-pane="t-examples" aria-selected="false">Example letters</button></div><div class="rf-pane" id="t-exam">        <div class="tx-box"><div class="lbl">The exam (Schriftlicher Ausdruck)</div><ul>
             <li>You get a letter or e-mail from a friend and <strong>4 Leitpunkte</strong> (points you must answer). You write the answer by hand.</li>
             <li><strong>30 minutes</strong>: 5 minutes plan, 18 minutes write, 7 minutes check.</li>
             <li>Write about <strong>all 4 points</strong>, 2–3 sentences each. A missing point costs many marks.</li>
             <li>About <strong>120–160 words</strong>. No dictionary.</li></ul>
-            <p class="tx-note mt-2 mb-0">Source: the study aid in Extra 2 of the Deutsch lessons page. Check important details against the official telc material.</p></div>
+            <p class="tx-note mt-2 mb-0">Source: a study aid from a friend, rebuilt for this page. Check important details against the official telc material.</p></div>
         <div class="tx-box"><div class="lbl">Exam task (the 18 writing tasks of the book "Prüfungs Buch Petra")</div>
             <select class="form-select form-select-sm" id="sc-task" aria-label="Exam task" style="max-width:22rem"></select>
             <div id="sc-taskbody" class="mt-3"></div></div>
@@ -480,7 +485,8 @@
             <div class="lbl mt-3">Checklist</div><div class="tx-check"><label><input type="checkbox" data-k="anrede"> <span>Anrede (Liebe Anna, / Lieber Thomas,)</span></label><label><input type="checkbox" data-k="anfang"> <span>Anfang: vielen Dank für deinen Brief …</span></label><label><input type="checkbox" data-k="p1"> <span>Punkt 1: 2–3 Sätze</span></label><label><input type="checkbox" data-k="p2"> <span>Punkt 2: 2–3 Sätze</span></label><label><input type="checkbox" data-k="p3"> <span>Punkt 3: 2–3 Sätze</span></label><label><input type="checkbox" data-k="p4"> <span>Punkt 4: 2–3 Sätze</span></label><label><input type="checkbox" data-k="schluss"> <span>Schluss: Lass bald wieder von dir hören.</span></label><label><input type="checkbox" data-k="gruss"> <span>Gruß: Viele Grüße + Name</span></label><label><input type="checkbox" data-k="verb"> <span>Verb am Ende nach dass / weil</span></label><label><input type="checkbox" data-k="nomen"> <span>Nomen großgeschrieben, kleiner Buchstabe nach „Liebe Anna,“</span></label></div></div>
         <p class="rf-links tx-note">Grammar is part of the exam too: <a href="18_telc_sprachbausteine.html">18 telc Sprachbausteine</a> · Reading: <a href="15_telc_lesen.html">15 telc Lesen</a> · Speaking: <a href="17_telc_sprechen.html">17 telc Sprechen</a></p></div>
 <div class="rf-pane" id="t-templates" hidden><div class="content-card"><div class="markdown-content">
-<h2 id="extra-2-telc-schreiben" class="part-heading"><span class="t-de">Zusatz 2: telc B1 Schreiben: Aufgaben und Vorlagen</span><span class="t-en">Extra 2: telc B1 writing: tasks and templates</span></h2>
+<h2 id="extra-2-telc-schreiben" class="part-heading"><span class="t-de">Nachschlagen: Aufgaben und Vorlagen</span><span class="t-en">Look up: tasks and templates</span></h2>
+<div class="lesson-note"><span class="t-de"><strong>Dieser Reiter ist zum Nachschlagen.</strong> Die 14 Sätze, die du lernst, stehen im Reiter „Learn by heart (14 lines)“. Das Briefgerüst unten (6 kurze Zeilen) ist in jedem Brief gleich: lerne es zuerst.</span><span class="t-en"><strong>This tab is for looking things up.</strong> The 14 lines you learn are in the tab “Learn by heart (14 lines)”. The letter shell below (6 short lines) is the same in every letter: learn it first.</span></div>
 <p class="lesson-meta"><span class="t-de">Lernhilfe zur schriftlichen Prüfung (telc Deutsch B1). Passt zu den Lektionen 43, 44, 46 und 49.</span><span class="t-en">Study aid for the written exam (telc Deutsch B1). Goes with lessons 43, 44, 46 and 49.</span></p>
 <div class="lesson-note"><span class="t-de"><strong>Woher kommt dieser Teil?</strong> Das ist kein Video von Desi Learn German. Es ist eine Lernhilfe, die ein Freund geteilt hat. Ich habe sie für diese Seite neu gemacht. Bitte vergleiche wichtige Dinge mit dem Wörterbuch. Die Situationen sind hier nur kurz in eigenen Worten erklärt, die Leitpunkte stehen im Originaltext.</span><span class="t-en"><strong>Where does this part come from?</strong> This is not a video by Desi Learn German. It is a study aid shared by a friend, rebuilt for this page. Please check important things against the dictionary. The situations are only summarised briefly in our own words, the points are in the original German.</span></div>
 <div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 <span class="t-de">Englisch verbergen</span><span class="t-en">Hide English</span></button><button type="button" class="practice-btn" aria-pressed="false">🧠 <span class="t-de">Üben: Antworten verstecken</span><span class="t-en">Practice: hide answers</span></button><button type="button" class="practice-all-btn" hidden><span class="t-de">Alle anzeigen</span><span class="t-en">Show all</span></button><button type="button" class="print-btn" data-print="1">🖨 <span class="t-de">Drucken / als PDF speichern</span><span class="t-en">Print / save as PDF</span></button></div>
@@ -503,8 +509,9 @@
 
 </div></div></div>
 <div class="rf-pane" id="t-memorise" hidden><div class="content-card"><div class="markdown-content">
-<h2 id="extra-5-telc-schreiben-woche-1" class="part-heading"><span class="t-de">Zusatz 5: telc B1 Schreiben: Woche 1 zum Auswendiglernen</span><span class="t-en">Extra 5: telc B1 writing: week 1, to learn by heart</span></h2>
-<p class="lesson-meta"><span class="t-de">Kurzer Lernplan für die schriftliche Prüfung (telc Deutsch B1): die 10 Briefpunkte mit fertigen Sätzen. Er nutzt die Vorlagen aus Zusatz 2.</span><span class="t-en">Short study plan for the written exam (telc Deutsch B1): the 10 letter points with ready lines. It uses the templates from Extra 2.</span></p>
+<h2 id="extra-5-telc-schreiben-woche-1" class="part-heading"><span class="t-de">Auswendig lernen: 14 Zeilen</span><span class="t-en">Learn by heart: 14 lines</span></h2>
+<p class="lesson-meta"><span class="t-de">Kurzer Lernplan für die schriftliche Prüfung (telc Deutsch B1): die 10 Briefpunkte mit fertigen Sätzen.</span><span class="t-en">Short study plan for the written exam (telc Deutsch B1): the 10 letter points with ready lines.</span></p>
+<div class="lesson-note"><span class="t-de"><strong>Das lernst du auswendig: 14 Zeilen.</strong> Das sind die fertigen Sätze für die 10 Arten von Punkten (P1–P4: 8 Zeilen, P5–P10: 6 Zeilen). Dazu kommt das Briefgerüst (6 kurze Zeilen, in jedem Brief gleich) im Reiter „Look up“.<br><strong>Plan für 2 Tage:</strong> Tag 1: P1–P4 und Mini-Test. Tag 2: P5–P10 und der formelle Absatz (nur einmal lesen).<br><strong>Nicht auswendig lernen:</strong> die Spalten „Einfach erklärt“ und „Beispielsatz“ (sie helfen nur beim Verstehen), die 18 Übungsbriefe, die Beispielbriefe und die Reiter „Look up“ und „Example letters“. Die nützlichen Sätze (7) sind eine Hilfe, kein Muss.</span><span class="t-en"><strong>What you memorise: 14 lines.</strong> These are the ready lines for the 10 kinds of points (P1–P4: 8 lines, P5–P10: 6 lines). Plus the letter shell (6 short lines, the same in every letter) in the tab “Look up”.<br><strong>2-day plan:</strong> day 1: P1–P4 and the mini test. Day 2: P5–P10 and the formal paragraph (read it once).<br><strong>Do not memorise:</strong> the columns “Simply explained” and “Example sentence” (they only help you understand), the 18 practice letters, the example letters and the tabs “Look up” and “Example letters”. The useful phrases (7) are a help, not a must.</span></div>
 <div class="lesson-note"><span class="t-de"><strong>Woher kommt dieser Teil?</strong> Das ist ein Wochenplan aus einer eigenen Lernhilfe, für diese Seite neu gemacht. Alle Sätze sind kurz und zum Auswendiglernen. Die Lücken <em>___</em> füllst du mit deinem eigenen Leben. Bitte vergleiche wichtige Dinge mit dem Wörterbuch.</span><span class="t-en"><strong>Where does this part come from?</strong> This is a weekly plan from a personal study aid, rebuilt for this page. All lines are short and made to be learned by heart. Fill the blanks <em>___</em> with your own life. Please check important things against the dictionary.</span></div>
 <div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 <span class="t-de">Englisch verbergen</span><span class="t-en">Hide English</span></button><button type="button" class="practice-btn" aria-pressed="false">🧠 <span class="t-de">Üben: Antworten verstecken</span><span class="t-en">Practice: hide answers</span></button><button type="button" class="practice-all-btn" hidden><span class="t-de">Alle anzeigen</span><span class="t-en">Show all</span></button><button type="button" class="print-btn" data-print="1">🖨 <span class="t-de">Drucken / als PDF speichern</span><span class="t-en">Print / save as PDF</span></button><button type="button" class="fill-btn" aria-pressed="false">✏️ <span class="t-de">Beispiele für die Lücken zeigen</span><span class="t-en">Show examples for the blanks</span></button></div>
 <div class="lesson-note"><span class="t-de"><strong>So geht es:</strong> In der Prüfung schreibst du einen Brief an einen Freund und antwortest auf 4 Leitpunkte. Jeder Punkt gehört zu einer von 10 Arten. Lies den Punkt, frage dich „Welche Art ist das?“ und beginne mit dem fertigen Satz dieser Art. P1–P4 sind etwa drei Viertel aller Punkte.<br><strong>So lernst du jede Zeile:</strong> 1. Lies sie 3-mal laut. 2. Verdecke das Deutsche (Knopf „Üben“) und schreibe den Satz aus dem Englischen. Das Augen-Symbol bei einer Zeile zeigt die Antwort, das Augen-Symbol bei den Lücken zeigt alle Lücken dieser Zeile. 3. Wiederhole, bis du keinen Fehler mehr machst. Übe 10–15 Minuten am Tag.<br><strong>Plan:</strong> Tag 1: P1–P4 und Mini-Test. Tag 2: P5–P10 und der formelle Absatz.</span><span class="t-en"><strong>How it works:</strong> In the exam you write a letter to a friend and answer 4 task points. Every point is one of 10 kinds. Read the point, ask yourself “which kind is this?” and start with the ready line for that kind. P1–P4 are about three quarters of all points.<br><strong>How to learn every line:</strong> 1. Read it aloud 3 times. 2. Cover the German (button “Practice”) and write the line from the English. The eye icon at a line shows the answer; the eye icon at the blanks shows all blanks of that line. 3. Repeat until you make no mistakes. Practise 10–15 minutes a day.<br><strong>Plan:</strong> day 1: P1–P4 and the mini test. Day 2: P5–P10 and the formal paragraph.</span></div>
@@ -521,12 +528,12 @@
 <div class="lesson-block"><div class="sec-head" id="extra-5-block-6" style="background:#2b50a0"><span class="t-de">Der formelle Absatz (Sie): einmal lesen, später lernen</span><span class="t-en">The formal paragraph (Sie): read once, learn later</span><span class="sec-count">5</span></div><button type="button" class="tbl-blanks" aria-pressed="false"><span class="t-de">Lücken zeigen</span><span class="t-en">Show blanks</span></button><div class="table-responsive"><table class="table table-bordered table-sm align-top vp-table" data-mask="1"><thead><tr><th><span class="t-de">Teil</span><span class="t-en">Part</span></th><th><span class="t-de">Deutsch</span><span class="t-en">German</span></th><th><span class="t-de">Einfach erklärt</span><span class="t-en">Simply explained</span></th><th><span class="t-de">Übersetzung</span><span class="t-en">Translation</span></th></tr></thead><tbody><tr><td>Anrede<br><small class="text-muted"><span class="ex-en">Greeting</span></small></td><td><span class="ex-de" data-say="Sehr geehrte Damen und Herren,">Sehr geehrte Damen und Herren,</span></td><td><span class="ex-de" data-say="So beginnt ein formeller Brief, wenn du den Namen nicht kennst. Nach dem Komma schreibst du klein weiter.">So beginnt ein formeller Brief, wenn du den Namen nicht kennst. Nach dem Komma schreibst du klein weiter.</span><br><small class="text-muted"><span class="ex-en">This is how a formal letter begins when you do not know the name. After the comma you continue in lower case.</span></small></td><td class="keep-en"><span class="ex-en">Dear Sir or Madam,</span></td></tr><tr><td>Grund<br><small class="text-muted"><span class="ex-en">Reason</span></small></td><td><span class="ex-de" data-say="ich schreibe Ihnen, weil ich mich für Ihren Deutschkurs interessiere.">ich schreibe Ihnen, weil ich mich für <span class="fillin" tabindex="0" role="button" title="Klick / click">Ihren Deutschkurs</span> interessiere.</span><button type="button" class="blank-eye" aria-pressed="false" aria-label="Lücken zeigen / show blanks" title="Alle Lücken zeigen / show all blanks"></button></td><td><span class="ex-de" data-say="Du sagst, warum du schreibst. Nach „weil“ steht das Verb am Ende. „Sie“, „Ihnen“ und „Ihren“ schreibst du groß.">Du sagst, warum du schreibst. Nach „weil“ steht das Verb am Ende. „Sie“, „Ihnen“ und „Ihren“ schreibst du groß.</span><br><small class="text-muted"><span class="ex-en">You say why you are writing. After “weil” the verb goes at the end. You write “Sie”, “Ihnen” and “Ihren” with a capital letter.</span></small></td><td class="keep-en"><span class="ex-en">I am writing to you because I am interested in your German course.</span></td></tr><tr><td>Frage<br><small class="text-muted"><span class="ex-en">Question</span></small></td><td><span class="ex-de" data-say="Ich möchte gerne wissen, ob es noch freie Plätze gibt.">Ich möchte gerne wissen, ob es noch <span class="fillin" tabindex="0" role="button" title="Klick / click">freie Plätze</span> gibt.</span><button type="button" class="blank-eye" aria-pressed="false" aria-label="Lücken zeigen / show blanks" title="Alle Lücken zeigen / show all blanks"></button></td><td><span class="ex-de" data-say="Du stellst eine höfliche Frage. Nach „ob“ steht das Verb am Ende.">Du stellst eine höfliche Frage. Nach „ob“ steht das Verb am Ende.</span><br><small class="text-muted"><span class="ex-en">You ask a polite question. After “ob” the verb goes at the end.</span></small></td><td class="keep-en"><span class="ex-en">I would like to know whether there are still free places.</span></td></tr><tr><td>Bitte<br><small class="text-muted"><span class="ex-en">Request</span></small></td><td><span class="ex-de" data-say="Könnten Sie mir bitte weitere Informationen zusenden?">Könnten Sie mir bitte <span class="fillin" tabindex="0" role="button" title="Klick / click">weitere Informationen</span> zusenden?</span><button type="button" class="blank-eye" aria-pressed="false" aria-label="Lücken zeigen / show blanks" title="Alle Lücken zeigen / show all blanks"></button></td><td><span class="ex-de" data-say="Du bittest höflich um etwas. „Könnten“ ist höflicher als „Können“. Das zweite Verb steht am Ende.">Du bittest höflich um etwas. „Könnten“ ist höflicher als „Können“. Das zweite Verb steht am Ende.</span><br><small class="text-muted"><span class="ex-en">You politely ask for something. “Könnten” is more polite than “Können”. The second verb goes at the end.</span></small></td><td class="keep-en"><span class="ex-en">Could you please send me more information?</span></td></tr><tr><td>Gruß<br><small class="text-muted"><span class="ex-en">Closing</span></small></td><td><span class="ex-de" data-say="Mit freundlichen Grüßen">Mit freundlichen Grüßen</span></td><td><span class="ex-de" data-say="So endet ein formeller Brief. Danach steht dein Name.">So endet ein formeller Brief. Danach steht dein Name.</span><br><small class="text-muted"><span class="ex-en">This is how a formal letter ends. Your name follows.</span></small></td><td class="keep-en"><span class="ex-en">Kind regards</span></td></tr></tbody></table></div></div>
 <div class="lesson-note"><span class="t-de"><strong>Ideen für die Lücken:</strong> Ihren Deutschkurs / Ihr Stellenangebot / Ihre Anzeige; freie Plätze / einen Termin / eine Wohnung; weitere Informationen / die Preise / die Anmeldung.</span><span class="t-en"><strong>Ideas for the blanks:</strong> your German course / your job offer / your advertisement; free places / an appointment / a flat; more information / the prices / the registration.</span></div>
 <div class="lesson-note"><span class="t-de">Alle Briefaufgaben in den Probeprüfungen sind Briefe an einen Freund. Der formelle Absatz ist nur ein Sicherheitsnetz, falls einmal ein Brief mit „Sie“ verlangt wird.</span><span class="t-en">All letter tasks in the mock exams are letters to a friend. The formal paragraph is only a safety net in case a letter with “Sie” is ever required.</span></div>
-<div class="lesson-note"><span class="t-de"><strong>Fertig, wenn du kannst:</strong> alle 10 Arten von Punkten erkennen (beide Mini-Tests ohne Fehler) und für jede Art den fertigen Satz aus dem Englischen schreiben.<br><strong>Mehr dazu:</strong> das Briefgerüst, die 18 Übungsbriefe und der Beispielbrief „Sophie“ stehen in Zusatz 2 (<a href="#extra-2-telc-schreiben">telc B1 Schreiben</a>).</span><span class="t-en"><strong>Done when you can:</strong> recognise all 10 kinds of points (both mini tests without a mistake) and write the ready line for each kind from the English.<br><strong>More:</strong> the letter shell, the 18 practice letters and the example letter “Sophie” are in Extra 2 (<a href="#extra-2-telc-schreiben">telc B1 writing</a>).</span></div>
+<div class="lesson-note"><span class="t-de"><strong>Fertig, wenn du kannst:</strong> alle 10 Arten von Punkten erkennen (beide Mini-Tests ohne Fehler) und für jede Art den fertigen Satz aus dem Englischen schreiben.<br><strong>Mehr dazu:</strong> das Briefgerüst, die 18 Übungsbriefe und der Beispielbrief „Sophie“ stehen im Reiter „Look up: tasks and templates“.</span><span class="t-en"><strong>Done when you can:</strong> recognise all 10 kinds of points (both mini tests without a mistake) and write the ready line for each kind from the English.<br><strong>More:</strong> the letter shell, the 18 practice letters and the example letter “Sophie” are in the tab “Look up: tasks and templates”.</span></div>
 
 </div></div></div>
 <div class="rf-pane" id="t-examples" hidden><div class="content-card"><div class="markdown-content">
-<h2 id="extra-7-telc-schreiben-beispiele" class="part-heading"><span class="t-de">Zusatz 7: telc B1 Schreiben: Beispiele zu den Vorlagen</span><span class="t-en">Extra 7: telc B1 writing: worked examples</span></h2>
-<p class="lesson-meta"><span class="t-de">13 Briefe aus Modellsätzen, fertig ausgearbeitet mit den Vorlagen aus Zusatz 2 und Zusatz 5. Zusammen benutzen sie alle 10 Arten von Punkten. So siehst du, wie die auswendig gelernten Zeilen zu einem echten Brief passen.</span><span class="t-en">13 letters from mock exams, fully worked out with the templates from Extra 2 and Extra 5. Together they use all 10 kinds of points. You see how the memorised lines fit a real letter.</span></p>
+<h2 id="extra-7-telc-schreiben-beispiele" class="part-heading"><span class="t-de">Beispielbriefe</span><span class="t-en">Example letters</span></h2>
+<p class="lesson-meta"><span class="t-de">13 Briefe aus Modellsätzen, fertig ausgearbeitet mit den Zeilen aus den Reitern „Learn by heart“ und „Look up“. Zusammen benutzen sie alle 10 Arten von Punkten. So siehst du, wie die auswendig gelernten Zeilen zu einem echten Brief passen.</span><span class="t-en">13 letters from mock exams, fully worked out with the lines from the tabs “Learn by heart” and “Look up”. Together they use all 10 kinds of points. You see how the memorised lines fit a real letter.</span></p>
 <div class="lesson-note"><span class="t-de"><strong>Woher kommt dieser Teil?</strong> Das sind Beispiele aus einer eigenen Lernhilfe, für diese Seite neu gemacht. <strong>Fett</strong> = eine auswendig gelernte Vorlagenzeile, wörtlich. <strong>eigene Worte</strong> = deine eigenen Worte. Ändere die persönlichen Angaben (Stadt, Beruf, Familie) auf dein eigenes Leben. Bitte vergleiche wichtige Dinge mit dem Wörterbuch.</span><span class="t-en"><strong>Where does this part come from?</strong> These are examples from a personal study aid, rebuilt for this page. <strong>Bold</strong> = a memorised template line, word for word. <strong>own words</strong> = your own words. Change the personal details (city, job, family) to your own life. Please check important things against the dictionary.</span></div>
 <div class="lesson-tools"><button type="button" class="hide-en-btn" aria-pressed="false">🙈 <span class="t-de">Englisch verbergen</span><span class="t-en">Hide English</span></button><button type="button" class="practice-btn" aria-pressed="false">🧠 <span class="t-de">Üben: Antworten verstecken</span><span class="t-en">Practice: hide answers</span></button><button type="button" class="practice-all-btn" hidden><span class="t-de">Alle anzeigen</span><span class="t-en">Show all</span></button><button type="button" class="print-btn" data-print="1">🖨 <span class="t-de">Drucken / als PDF speichern</span><span class="t-en">Print / save as PDF</span></button></div>
 <div class="lesson-note keep-en"><span class="t-de"><strong>So übst du:</strong> 1. Lies den Brief, den du bekommst, und die 4 Punkte. 2. Verdecke das Deutsche (Knopf „Üben“) und sage jede Zeile deiner Antwort aus dem Englischen. Das Augen-Symbol zeigt die Antwort. 3. Prüfe, welche Zeilen fett sind: Das sind die Vorlagen, die du schon kennst.</span><span class="t-en"><strong>How to practise:</strong> 1. Read the letter you get and the 4 points. 2. Cover the German (button “Practice”) and say each line of your reply from the English. The eye symbol shows the answer. 3. Check which lines are bold: those are the templates you already know.</span></div>
@@ -585,7 +592,7 @@
 <div class="lesson-block"><div class="sec-head" id="extra-7-block-15" style="background:#2b50a0"><span class="t-de">Brief 13: Jan, ein Urlaub in Rom · Deine Antwort</span><span class="t-en">Letter 13: Jan, a holiday in Rome · your reply</span><span class="sec-count">12</span></div><div class="table-responsive"><table data-no-practice class="table table-bordered table-sm align-top vp-table"><thead><tr><th>#</th><th>Leitpunkt</th><th>English</th><th><span class="t-de">Art des Punkts</span><span class="t-en">Kind of point</span></th></tr></thead><tbody><tr><td>1</td><td>Ihre Lieblingsstadt</td><td>Your favourite city</td><td><span class="t-de">Art 1 (Über dich)</span><span class="t-en">Kind 1 (About you)</span></td></tr><tr><td>2</td><td>Welche Musik Sie mögen</td><td>What music you like</td><td><span class="t-de">Art 1 (Über dich)</span><span class="t-en">Kind 1 (About you)</span></td></tr><tr><td>3</td><td>Ihre Pläne für den nächsten Urlaub</td><td>Your plans for your next holiday</td><td><span class="t-de">Art 1 (Über dich)</span><span class="t-en">Kind 1 (About you)</span></td></tr><tr><td>4</td><td>Treffen mit Jan?</td><td>Meeting Jan?</td><td><span class="t-de">Art 3 (Treffen vorschlagen)</span><span class="t-en">Kind 3 (Suggest a meeting)</span></td></tr></tbody></table></div><div class="table-responsive"><table data-mask="1" class="table table-bordered table-sm align-top vp-table"><thead><tr><th><span class="t-de">Nr.</span><span class="t-en">No.</span></th><th><span class="t-de">Deutsch (fett = Vorlage)</span><span class="t-en">German (bold = template)</span></th><th><span class="t-de">Vorlage</span><span class="t-en">Template used</span></th><th><span class="t-de">Übersetzung</span><span class="t-en">Translation</span></th></tr></thead><tbody><tr><td>1</td><td><span class="ex-de" data-say="München, 31.10.2026"><strong>München, 31.10.2026</strong></span></td><td><small class="text-muted"><span class="t-de">Gerüst · Ort und Datum</span><span class="t-en">Shell · place and date</span></small></td><td class="keep-en"><span class="ex-en">Munich, 31 October 2026</span></td></tr><tr><td>2</td><td><span class="ex-de" data-say="Lieber Jan,"><strong>Lieber Jan,</strong></span></td><td><small class="text-muted"><span class="t-de">Gerüst · Anrede</span><span class="t-en">Shell · Anrede</span></small></td><td class="keep-en"><span class="ex-en">Dear Jan,</span></td></tr><tr><td>3</td><td><span class="ex-de" data-say="vielen Dank für deine E-Mail. Ich habe mich sehr gefreut."><strong>vielen Dank für deine E-Mail. Ich habe mich sehr gefreut.</strong></span></td><td><small class="text-muted"><span class="t-de">Vorlage, angepasst · Brief → E-Mail</span><span class="t-en">template, adapted · Brief → E-Mail</span></small></td><td class="keep-en"><span class="ex-en">Many thanks for your e-mail. I was very happy.</span></td></tr><tr><td>4</td><td><span class="ex-de" data-say="Schön, dass dir dein Urlaub in Rom so gut gefällt."><strong>Schön, dass dir dein Urlaub in Rom so gut gefällt.</strong></span></td><td><small class="text-muted"><span class="t-de">Gerüst · Schön, dass …</span><span class="t-en">Shell · Schön, dass …</span></small></td><td class="keep-en"><span class="ex-en">It is nice that you like your holiday in Rome so much.</span></td></tr><tr><td>5</td><td><span class="ex-de" data-say="Zurzeit arbeite ich als Softwareentwickler, und meine Wohnung liegt sehr zentral."><strong>Zurzeit arbeite ich als Softwareentwickler, und meine Wohnung liegt sehr zentral.</strong></span></td><td><small class="text-muted"><span class="t-de">Vorlage, wörtlich, Art 1 (Über dich) · P1</span><span class="t-en">template, exact, kind 1 (About you) · P1</span></small></td><td class="keep-en"><span class="ex-en">At the moment I work as a software developer, and my flat is very central.</span></td></tr><tr><td>6</td><td><span class="ex-de" data-say="Meine Lieblingsstadt ist München, weil ich von meiner Wohnung schnell in die Altstadt und in die Parks komme.">Meine Lieblingsstadt ist München, weil ich von meiner Wohnung schnell in die Altstadt und in die Parks komme.</span></td><td><small class="text-muted"><span class="t-de">eigene Worte · P1</span><span class="t-en">own words · P1</span></small></td><td class="keep-en"><span class="ex-en">My favourite city is Munich, because from my flat I can quickly get to the old town and the parks.</span></td></tr><tr><td>7</td><td><span class="ex-de" data-say="Ich mag Popmusik und auch Musik aus Pakistan. Rockmusik höre ich nicht so oft, aber ein Konzert finde ich toll.">Ich mag Popmusik und auch Musik aus Pakistan. Rockmusik höre ich nicht so oft, aber ein Konzert finde ich toll.</span></td><td><small class="text-muted"><span class="t-de">eigene Worte · P2</span><span class="t-en">own words · P2</span></small></td><td class="keep-en"><span class="ex-en">I like pop music and also music from Pakistan. I do not listen to rock music very often, but I think a concert is great.</span></td></tr><tr><td>8</td><td><span class="ex-de" data-say="Im nächsten Urlaub fahre ich mit meiner Frau in die Berge. Dort möchten wir wandern und uns gut erholen.">Im nächsten Urlaub fahre ich mit meiner Frau in die Berge. Dort möchten wir wandern und uns gut erholen.</span></td><td><small class="text-muted"><span class="t-de">eigene Worte · P3</span><span class="t-en">own words · P3</span></small></td><td class="keep-en"><span class="ex-en">On my next holiday I am going to the mountains with my wife. There we want to go hiking and have a good rest.</span></td></tr><tr><td>9</td><td><span class="ex-de" data-say="Wie wäre es, wenn wir uns am Samstag treffen? Wir könnten zusammen ins Kino gehen."><strong>Wie wäre es, wenn wir uns am Samstag treffen? Wir könnten zusammen ins Kino gehen.</strong></span></td><td><small class="text-muted"><span class="t-de">Vorlage, wörtlich, Art 3 (Treffen vorschlagen) · P4</span><span class="t-en">template, exact, kind 3 (Suggest a meeting) · P4</span></small></td><td class="keep-en"><span class="ex-en">How about if we meet on Saturday? We could go to the cinema together.</span></td></tr><tr><td>10</td><td><span class="ex-de" data-say="Dann kannst du mir von Rom erzählen und mir deine Fotos zeigen.">Dann kannst du mir von Rom erzählen und mir deine Fotos zeigen.</span></td><td><small class="text-muted"><span class="t-de">eigene Worte · P4</span><span class="t-en">own words · P4</span></small></td><td class="keep-en"><span class="ex-en">Then you can tell me about Rome and show me your photos.</span></td></tr><tr><td>11</td><td><span class="ex-de" data-say="Lass bald wieder von dir hören."><strong>Lass bald wieder von dir hören.</strong></span></td><td><small class="text-muted"><span class="t-de">Gerüst · Schlusszeile</span><span class="t-en">Shell · closing line</span></small></td><td class="keep-en"><span class="ex-en">Let me hear from you again soon.</span></td></tr><tr><td>12</td><td><span class="ex-de" data-say="Viele Grüße"><strong>Viele Grüße / [dein Name]</strong></span></td><td><small class="text-muted"><span class="t-de">Gerüst · Gruß + dein Name</span><span class="t-en">Shell · greeting + your name</span></small></td><td class="keep-en"><span class="ex-en">Best wishes / [your name]</span></td></tr></tbody></table></div></div>
 <div class="lesson-note"><span class="t-de">Änderung: Die Aufgabe ist eine E-Mail, also steht in der Dankeszeile deine E-Mail. Alles andere in Fett ist wörtlich.</span><span class="t-en">Change: The task is an e-mail, so the thank-you line says deine E-Mail. Everything else in bold is exact.</span></div>
 <div class="lesson-block"><div class="sec-head" id="extra-7-block-16" style="background:#1a7f5a"><span class="t-de">Nur für den Fall: ein formeller Brief (Sie)</span><span class="t-en">Just in case: a formal letter (Sie)</span><span class="sec-count">1</span></div><p><span class="t-de">Keine der 33 Aufgaben im Buch ist formell, aber die echte Prüfung kann einen formellen Brief verlangen. Lerne nur diesen einen Absatz:</span><span class="t-en">None of the 33 book tasks is formal, but the real exam can ask for one. Learn this one paragraph only:</span></p><div class="lesson-note"><span class="ex-de" data-say="Sehr geehrte Damen und Herren, ich schreibe Ihnen, weil ich mich für Ihren Deutschkurs interessiere. Ich möchte gerne wissen, ob es noch freie Plätze gibt. Könnten Sie mir bitte weitere Informationen zusenden? Mit freundlichen Grüßen">Sehr geehrte Damen und Herren, ich schreibe Ihnen, weil ich mich für Ihren Deutschkurs interessiere. Ich möchte gerne wissen, ob es noch freie Plätze gibt. Könnten Sie mir bitte weitere Informationen zusenden? Mit freundlichen Grüßen</span><br><span class="ex-en">Dear Sir or Madam, I am writing to you because I am interested in your German course. I would like to know whether there are still free places. Could you please send me more information? Kind regards</span></div></div>
-<div class="lesson-note"><span class="t-de"><strong>Mehr dazu:</strong> die Vorlagen selbst stehen in Zusatz 2 (<a href="#extra-2-telc-schreiben">telc B1 Schreiben</a>) und Zusatz 5 (<a href="#extra-5-telc-schreiben-woche-1">Woche 1 zum Auswendiglernen</a>).</span><span class="t-en"><strong>More:</strong> the templates themselves are in Extra 2 (<a href="#extra-2-telc-schreiben">telc B1 writing</a>) and Extra 5 (<a href="#extra-5-telc-schreiben-woche-1">week 1, to learn by heart</a>).</span></div>
+<div class="lesson-note"><span class="t-de"><strong>Mehr dazu:</strong> die Zeilen selbst lernst du im Reiter „Learn by heart“, das Briefgerüst steht im Reiter „Look up“.</span><span class="t-en"><strong>More:</strong> you learn the lines themselves in the tab “Learn by heart”; the letter shell is in the tab “Look up”.</span></div>
 
 </div></div></div>
         </div>
@@ -623,7 +630,7 @@
             .catch(function(err) { console.log('SW failed:', err); });
     }
     </script>
-<script src="telc-schreiben-data.js?v=0.00.02"></script>
+<script src="telc-schreiben-data.js?v=23072fb4"></script>
 <script>
 function wfSideMenu(pane, sel, title) {
     if (!pane || pane.dataset.sm) return;
@@ -727,7 +734,7 @@ function wfPickMenu(pane, title, getItems, onPick, isActive) {
             });
         }
         if (synth && synth.getVoices().length === 0) { synth.addEventListener('voiceschanged', addButtons); }
-        addButtons();
+        addButtons(); window.wfSpeakAll = addButtons;
 
         var nav = document.getElementById('lessonNav');
         if (nav && window.matchMedia('(min-width: 992px)').matches) { nav.open = true; }
@@ -973,7 +980,7 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
                     li.appendChild(de); li.appendChild(wfEl('div', 'tx-note', r.tag)); li.appendChild(en); ol.appendChild(li);
                 });
                 box.appendChild(ol);
-                box.appendChild(wfEl('div', 'tx-note', 'Bold = a line of the letter shell or of the Templates tab, word for word. Normal = your own words for the point. Use the same lines in every letter: you only have to change the details.'));
+                box.appendChild(wfEl('div', 'tx-note', 'Bold = a line of the letter shell or of the tabs “Learn by heart” and “Look up”, word for word. Normal = your own words for the point. Use the same lines in every letter: you only have to change the details.'));
                 sb.addEventListener('click', function () { box.hidden = !box.hidden; sb.textContent = box.hidden ? '👁 Show B1 solution' : '🙈 Hide B1 solution'; });
                 var ens = false; eb.addEventListener('click', function () { ens = !ens; Array.prototype.forEach.call(box.querySelectorAll('.sol-en'), function (n) { n.hidden = !ens; }); eb.textContent = ens ? '🌐 Hide English' : '🌐 Show English'; });
                 bar.appendChild(sb); bar.appendChild(eb); tbody.appendChild(bar); tbody.appendChild(box);
@@ -992,6 +999,125 @@ function wfEl(tag, cls, text) { var n = document.createElement(tag); if (cls) n.
     var pm = wfPickMenu(document.getElementById('t-exam'), 'Exam tasks', function () { return Array.prototype.map.call(tsel.options, function (o) { return { id: o.value, label: o.textContent }; }); }, function (id) { tsel.value = id; showTask(); }, function (id) { return tsel.value === id; });
     tsel.addEventListener('change', function () { pm.refresh(); });
     showTask();
+})();
+window.WF_TBL_PANES = ['t-templates', 't-memorise', 't-examples']; window.WF_STACK_PANES = ['t-templates', 't-memorise', 't-examples']; window.WF_STACK_MIN = 130;
+// One "Show all / Hide all" button above every table of the Templates and Week 1 tabs (blanks and practice answers of that table), and a label on the section button that follows the real state
+(function () {
+    var PANES = window.WF_TBL_PANES || ['t-templates', 't-memorise'];
+    var st = document.createElement('style');
+    st.textContent = '.tbl-all{display:inline-flex;align-items:center;gap:.35rem;background:none;border:1px solid #adb5bd;border-radius:999px;padding:.2rem .8rem;margin:.4rem 0 .3rem;cursor:pointer;color:#1d4ed8;font-size:.85rem}'
+        + '.tbl-all:hover{background:rgba(29,78,216,.1)}[data-bs-theme="dark"] .tbl-all{color:#8ab4ff}'
+        + '#t-templates .table-eye-btn,#t-memorise .table-eye-btn{display:none!important}'
+        + '@media (max-width:767.98px){.tbl-all{min-height:2.6rem;padding:.4rem 1rem;font-size:.95rem}}';
+    document.head.appendChild(st);
+    function eng(block) {  // English that "Hide English" blurs (the translation column stays readable)
+        if (!block.classList.contains('hide-en')) return [];
+        return Array.prototype.filter.call(block.querySelectorAll('.ex-en, .word-en span'), function (x) { return !x.closest('.keep-en'); });
+    }
+    function state(block) {
+        var f = block.querySelectorAll('.fillin'), c = block.querySelectorAll('.practice-cell'), e = eng(block);
+        if (!f.length && !c.length && !e.length) return null;
+        return Array.prototype.every.call(f, function (x) { return x.classList.contains('open'); }) && Array.prototype.every.call(c, function (x) { return x.classList.contains('revealed'); }) && e.every(function (x) { return x.classList.contains('shown'); });
+    }
+    function paint(btn, on) {
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.innerHTML = '👁 <span class="t-de">' + (on ? 'Alle verstecken' : 'Alle anzeigen') + '</span><span class="t-en">' + (on ? 'Hide all' : 'Show all') + '</span>';
+    }
+    function refresh(pane) {
+        pane.querySelectorAll('.tbl-all').forEach(function (b) {
+            var s = state(b._block);
+            b.hidden = s === null;
+            if (s !== null) paint(b, s);
+        });
+        pane.querySelectorAll('.fill-btn').forEach(function (b) {
+            var f = pane.querySelectorAll('.fillin'), on = f.length > 0 && Array.prototype.every.call(f, function (x) { return x.classList.contains('open'); });
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+            b.innerHTML = '✏️ <span class="t-de">Beispiele für die Lücken ' + (on ? 'verbergen' : 'zeigen') + '</span><span class="t-en">' + (on ? 'Hide' : 'Show') + ' examples for the blanks</span>';
+        });
+    }
+    PANES.forEach(function (id) {
+        var pane = document.getElementById(id);
+        if (!pane) return;
+        pane.querySelectorAll('.lesson-block').forEach(function (block) {
+            var host = block.querySelector('.table-responsive') || block.querySelector('table');
+            if (!host) return;
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'tbl-all'; b._block = block;
+            b.addEventListener('click', function () {
+                var on = b.getAttribute('aria-pressed') !== 'true';
+                block.querySelectorAll('.fillin').forEach(function (f) { if (window.wfSetBlank) window.wfSetBlank(f, on); });
+                block.querySelectorAll('.practice-cell').forEach(function (c) { if (c.classList.contains('revealed') !== on) { var e = c.querySelector('.eye-btn'); if (e) e.click(); } });
+                eng(block).forEach(function (x) { x.classList.toggle('shown', on); });
+                refresh(pane);
+            });
+            host.parentNode.insertBefore(b, host);
+        });
+        pane.addEventListener('click', function () { setTimeout(function () { refresh(pane); }, 0); });
+        pane.addEventListener('keydown', function () { setTimeout(function () { refresh(pane); }, 0); });
+        refresh(pane);
+    });
+})();
+
+// Phone layout of the wide tables (4 or more columns) in the Look up and Learn by heart tabs: one card per row, the helper columns behind a "more" button
+(function () {
+    var st = document.createElement('style');
+    st.textContent = '.m-moretd{display:none}'
+        + '@media (max-width:767.98px){'
+        + 'table.stack-m,table.stack-m tbody,table.stack-m tr,table.stack-m td{display:block;width:auto}'
+        + 'table.stack-m thead{display:none}'
+        + 'table.stack-m{border:0!important}'
+        + 'table.stack-m tr{border:1px solid rgba(128,128,128,.4);border-radius:.5rem;margin:.5rem 0;padding:.4rem .7rem}'
+        + 'table.stack-m td{border:0!important;padding:.2rem 0!important}'
+        + 'table.stack-m td::before{content:attr(data-lb-en);display:block;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;opacity:.65}'
+        + 'html[data-lang="de"] table.stack-m td::before{content:attr(data-lb-de)}'
+        + 'table.stack-m td.m-empty,table.stack-m td.m-extra{display:none}'
+        + 'table.stack-m td.m-tag::before{display:none}table.stack-m td.m-tag{font-size:.8rem;opacity:.8}'
+        + 'table.stack-m tr.m-open td.m-extra{display:block}'
+        + 'table.stack-m td.m-moretd{display:block}'
+        + '.m-more{background:none;border:1px solid #adb5bd;border-radius:999px;padding:.35rem 1rem;min-height:2.6rem;color:#1d4ed8;font-size:.95rem;cursor:pointer}'
+        + '[data-bs-theme="dark"] .m-more{color:#8ab4ff}'
+        + '}';
+    document.head.appendChild(st);
+    var EXTRA = /Einfach erklärt|Simply explained|Beispielsatz|Example sentence|Ideen für die Lücken|Ideas for the blanks/;
+    function lab(th, cls) { var s = th.querySelector('.' + cls); return (s ? s.textContent : th.textContent).trim(); }
+    (window.WF_STACK_PANES || ['t-templates', 't-memorise']).forEach(function (id) {
+        var pane = document.getElementById(id);
+        if (!pane) return;
+        pane.querySelectorAll('table').forEach(function (table) {
+            var ths = Array.prototype.slice.call(table.querySelectorAll('thead th'));
+            if (ths.length < 4) return;
+            var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+            var avg = rows.length ? rows.reduce(function (n, r) { return n + r.textContent.trim().length; }, 0) / rows.length : 0;
+            if (avg < (window.WF_STACK_MIN || 0)) return;  // short rows stay a table
+            table.classList.add('stack-m');
+            table.querySelectorAll('tbody tr').forEach(function (tr) {
+                var extra = false;
+                Array.prototype.slice.call(tr.children).forEach(function (td, i) {
+                    var th = ths[i];
+                    if (!th) return;
+                    td.setAttribute('data-lb-de', lab(th, 't-de'));
+                    td.setAttribute('data-lb-en', lab(th, 't-en'));
+                    if (!td.textContent.trim()) { td.classList.add('m-empty'); return; }
+                    if (/Vorlage|Template used/.test(th.textContent)) { td.classList.add('m-tag'); return; }
+                    if (EXTRA.test(th.textContent)) { td.classList.add('m-extra'); extra = true; }
+                });
+                if (!extra) return;
+                var mt = document.createElement('td');
+                mt.className = 'm-moretd no-mask';
+                var b = document.createElement('button');
+                b.type = 'button'; b.className = 'm-more';
+                function paint() {
+                    var open = tr.classList.contains('m-open');
+                    b.innerHTML = '<span class="t-de">' + (open ? 'Weniger' : 'Mehr zeigen') + '</span><span class="t-en">' + (open ? 'Less' : 'Show more') + '</span>';
+                    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+                }
+                b.addEventListener('click', function () { tr.classList.toggle('m-open'); paint(); });
+                paint();
+                mt.appendChild(b);
+                tr.appendChild(mt);
+            });
+        });
+    });
 })();
 </script>
 <script>['t-teil1', 't-teil3', 't-templates', 't-memorise', 't-examples', 't-grammar'].forEach(function (id) { wfSideMenu(document.getElementById(id), '.sec-head, h3', 'Contents'); });</script>
