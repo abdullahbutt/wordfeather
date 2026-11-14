@@ -424,6 +424,22 @@
         .wide-table th { white-space: normal; word-break: normal; overflow-wrap: break-word; }
         .wide-table .practice-cell .masked-content { min-width: 1.4rem; padding: 0.05rem 0.3rem; }
     </style>
+<style id="wf-cs">
+/* phones: tables that do not fit become one card per row, with the column name above each cell (they scrolled sideways, so the last columns were out of sight) */
+@media (max-width:767.98px){
+main table.wf-stack,main table.wf-stack>tbody,main table.wf-stack>tbody>tr,main table.wf-stack>tbody>tr>td{display:block;width:auto!important;overflow:visible}
+main table.wf-stack>thead{display:none}
+main table.wf-stack>tbody>tr{border:1px solid rgba(128,128,128,.4);border-radius:.55rem;margin:.5rem 0;padding:.4rem .65rem}
+main table.wf-stack>tbody>tr>td{border:0!important;padding:.25rem 0!important}
+main table.wf-stack>tbody>tr>td[data-lb]::before{content:attr(data-lb);display:block;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;opacity:.65}
+main table.wf-flow,main table.wf-flow>tbody{display:block;width:auto!important;overflow:visible}
+main table.wf-flow>tbody>tr{display:flex;flex-wrap:wrap;gap:0 .6rem;border-bottom:1px solid rgba(128,128,128,.35);padding:.3rem 0}
+main table.wf-flow>tbody>tr>td{flex:1 1 40%;min-width:0;border:0!important;padding:.2rem 0!important;overflow-wrap:break-word}
+main table.wf-flow>tbody>tr>td:first-child:nth-last-child(2),main table.wf-flow>tbody>tr>td:first-child:nth-last-child(2)~td{flex-basis:100%}
+main table.wf-flow .practice-cell,main table.wf-stack .practice-cell{max-width:100%}
+main table.wf-flow .masked-content,main table.wf-stack .masked-content{min-width:0;white-space:normal;overflow-wrap:anywhere}
+}
+</style>
 </head>
 <body id="top">
     <div id="header-placeholder"></div>
@@ -1400,6 +1416,16 @@
 })();
 </script>
 <script src="../german-voice.js?v=0.00.04"></script>
+<script id="wf-cs-js">
+(function(){var mq=window.matchMedia("(max-width:767.98px)");
+function label(t){if(t.dataset.wfl)return;t.dataset.wfl="1";var h=t.tHead&&t.tHead.rows[0];if(!h)return;var names=[].map.call(h.children,function(c){return c.textContent.replace(/\s+/g," ").trim();});t.querySelectorAll("tbody > tr").forEach(function(r){[].forEach.call(r.children,function(c,i){if(names[i]&&names.length===r.children.length)c.setAttribute("data-lb",names[i]);});});}
+function cols(t){return t.rows[0]?t.rows[0].children.length:0;}
+function run(){document.querySelectorAll("main table").forEach(function(t){t.classList.remove("wf-stack");t.classList.remove("wf-flow");if(!mq.matches||cols(t)<2)return;var k=t.tHead?"wf-stack":"wf-flow";if(t.tHead)label(t);
+if(t.offsetParent===null){if(cols(t)>=3)t.classList.add(k);return;}
+if(t.scrollWidth>t.clientWidth+1)t.classList.add(k);});}
+window.addEventListener("load",run);window.addEventListener("resize",function(){clearTimeout(window.__wfcs);window.__wfcs=setTimeout(run,150);});
+document.querySelectorAll("details").forEach(function(d){d.addEventListener("toggle",function(){setTimeout(run,60);});});})();
+</script>
 </body>
 </html>
 
